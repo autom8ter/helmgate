@@ -1,0 +1,103 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: kdeploy
+---
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: pod-reader
+  namespace: kdeploy
+rules:
+  - apiGroups: [""] # "" indicates the core API group
+    resources: ["pods"]
+    verbs: ["get", "watch", "list"]
+
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: pod-reader-binding
+  namespace: kdeploy
+subjects:
+  # Google Cloud user account
+  #  - kind: User
+  #    name: janedoe@example.com
+  # Kubernetes service account
+  - kind: ServiceAccount
+    name: default
+#  # IAM service account
+#  - kind: User
+#    name: test-account@test-project-123456.google.com.iam.gserviceaccount.com
+#  # Google Group
+#  - kind: Group
+#    name: accounting-group@example.com
+roleRef:
+  kind: Role
+  name: pod-reader
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kdeploy
+  namespace: kdeploy
+  labels:
+    app: kdeploy
+spec:
+  ports:
+  - port: 8820
+    name: api
+  - port: 8821
+    name: admin
+  clusterIP: None
+  selector:
+    app: kdeploy
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: kdeploy
+  namespace: kdeploy
+spec:
+  serviceName: kdeploy
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kdeploy
+  template:
+    metadata:
+      labels:
+        app: kdeploy
+    spec:
+      containers:
+        - name: kdeploy
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+          image: graphikdb/kdeploy:v0.0.0
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 8821
+          - containerPort: 8820
+          volumeMounts:
+            - name: database-storage
+              mountPath: /tmp/kdeploy
+  volumeClaimTemplates:
+    - metadata:
+        name: database-storage
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 5Gi

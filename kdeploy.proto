@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package api;
+
+option go_package = "apipb";
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/empty.proto";
+import "github.com/mwitkow/go-proto-validators/validator.proto";
+
+service KDeployService {
+  rpc CreateApp(CreateAppRequest) returns (CreateAppResponse){}
+}
+
+message CreateAppRequest {
+  App app =1;
+}
+
+message CreateAppResponse {
+  App app =2;
+}
+
+message App {
+  string name =1;
+  string namespace =2;
+  map<string, string> labels =3;
+  map<string, string> annotations =4;
+  repeated Container containers =5;
+  uint64 replicas =6;
+  string storage_path =7;
+  Resources resources =8;
+}
+
+message Container {
+  string image =1;
+  map<string, string> env =2;
+  map<string, string> port =3;
+  string command =4;
+}
+
+message Resources {
+  string memory =1;
+  string cpu =2;
+  string storage =3;
+}
