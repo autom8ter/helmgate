@@ -5,22 +5,21 @@ package gql
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/graphikDB/kdeploy/gen/gql/go/generated"
 	"github.com/graphikDB/kdeploy/gen/gql/go/model"
 )
 
 func (r *mutationResolver) CreateApp(ctx context.Context, input model.AppInput) (*model.App, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.client.Create(ctx, input)
 }
 
 func (r *mutationResolver) UpdateApp(ctx context.Context, input model.AppInput) (*model.App, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.client.Update(ctx, input)
 }
 
 func (r *queryResolver) GetApp(ctx context.Context, namespace string) (*model.App, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.client.Get(ctx, namespace)
 }
 
 // Mutation returns generated.MutationResolver implementation.

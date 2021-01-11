@@ -10,6 +10,7 @@ import (
 	"github.com/99designs/gqlgen/graphql/handler/transport"
 	"github.com/gorilla/websocket"
 	"github.com/graphikDB/generic"
+	"github.com/graphikDB/kdeploy/app"
 	"github.com/graphikDB/kdeploy/gen/gql/go/generated"
 	"github.com/graphikDB/kdeploy/helpers"
 	"github.com/graphikDB/kdeploy/logger"
@@ -30,7 +31,7 @@ import (
 // It serves as dependency injection for your app, add any dependencies you require here.
 
 type Resolver struct {
-	client      *kubego.Client
+	client      *app.Manager
 	cors        *cors.Cors
 	store       *generic.Cache
 	config      *oauth2.Config
@@ -41,7 +42,7 @@ type Resolver struct {
 
 func NewResolver(client *kubego.Client, cors *cors.Cors, config *oauth2.Config, logger *logger.Logger) *Resolver {
 	return &Resolver{
-		client:      client,
+		client:      app.New(client),
 		cors:        cors,
 		config:      config,
 		tokenCookie: "graphik-playground-token",

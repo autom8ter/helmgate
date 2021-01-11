@@ -3,35 +3,35 @@
 package model
 
 type App struct {
-	Namespace   string                 `json:"namespace"`
-	Labels      map[string]interface{} `json:"labels"`
-	Annotations map[string]interface{} `json:"annotations"`
-	Containers  []*Container           `json:"containers"`
-	Replicas    *int                   `json:"replicas"`
-	StoragePath *string                `json:"storage_path"`
-	Resources   *Resources             `json:"resources"`
+	Name        string       `json:"name"`
+	Namespace   string       `json:"namespace"`
+	Containers  []*Container `json:"containers"`
+	Replicas    *int         `json:"replicas"`
+	StoragePath *string      `json:"storage_path"`
+	Resources   *Resources   `json:"resources"`
 }
 
 type AppInput struct {
-	Namespace   string                 `json:"namespace"`
-	Labels      map[string]interface{} `json:"labels"`
-	Annotations map[string]interface{} `json:"annotations"`
-	Containers  []*ContainerInput      `json:"containers"`
-	Replicas    *int                   `json:"replicas"`
-	StoragePath *string                `json:"storage_path"`
-	Resources   *ResourcesInput        `json:"resources"`
+	Name        string            `json:"name"`
+	Namespace   string            `json:"namespace"`
+	Containers  []*ContainerInput `json:"containers"`
+	Replicas    *int              `json:"replicas"`
+	StoragePath *string           `json:"storage_path"`
+	Resources   *ResourcesInput   `json:"resources"`
 }
 
 type Container struct {
+	Name  string                 `json:"name"`
 	Image string                 `json:"image"`
 	Env   map[string]interface{} `json:"env"`
-	Port  map[string]interface{} `json:"port"`
+	Ports map[string]interface{} `json:"ports"`
 }
 
 type ContainerInput struct {
+	Name  string                 `json:"name"`
 	Image string                 `json:"image"`
 	Env   map[string]interface{} `json:"env"`
-	Port  map[string]interface{} `json:"port"`
+	Ports map[string]interface{} `json:"ports"`
 }
 
 type Resources struct {

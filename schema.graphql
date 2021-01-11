@@ -4,9 +4,8 @@ scalar Time
 scalar Map
 
 input AppInput {
+    name: String!
     namespace: String!
-    labels: Map
-    annotations: Map
     containers: [ContainerInput!]
     replicas: Int
     storage_path: String
@@ -14,9 +13,10 @@ input AppInput {
 }
 
 input ContainerInput {
+    name: String!
     image: String!
     env: Map
-    port: Map
+    ports: Map!
 }
 
 input ResourcesInput {
@@ -26,19 +26,19 @@ input ResourcesInput {
 }
 
 type App {
+    name: String!
     namespace: String!
-    labels: Map
-    annotations: Map
-    containers: [Container!]
+    containers: [Container!]!
     replicas: Int
     storage_path: String
     resources: Resources
 }
 
 type Container {
+    name: String!
     image: String!
     env: Map
-    port: Map
+    ports: Map!
 }
 
 type Resources {
