@@ -10,14 +10,14 @@ help:
 	@echo "----------------------------------------------------------------"
 
 run:
-	@go run cmd/graphik/main.go --open-id https://accounts.google.com/.well-known/openid-configuration
+	@go run cmd/kdeploy/main.go --open-id https://accounts.google.com/.well-known/openid-configuration
 
 run-follower:
-	@go run cmd/graphik/main.go \
+	@go run cmd/kdeploy/main.go \
 	--open-id https://accounts.google.com/.well-known/openid-configuration \
 	--listen-port 8080 \
 	--join-raft localhost:8820 \
-	--storage /tmp/graphik2 \
+	--storage /tmp/kdeploy2 \
 	--raft-peer-id node2 \
 	--debug
 
@@ -36,27 +36,15 @@ push:
 	git push origin v$(version)
 
 docker-build:
-	@docker build -t graphikdb/graphik:v$(version) .
+	@docker build -t graphikdb/kdeploy:v$(version) .
 
 docker-push:
-	@docker push graphikdb/graphik:v$(version)
-
-.PHONY: proto
-proto: ## regenerate gRPC code
-	@echo "generating protobuf code..."
-	@docker run -v `pwd`:/defs namely/prototool:latest generate
-	@go fmt ./...
+	@docker push graphikdb/kdeploy:v$(version)
 
 .PHONY: gql
 gql: ## regenerate graphql code
 	@gqlgen generate
 	@graphdoc -s ./schema.graphql -o ./gen/gql/docs --force
-
-release: ## build release binaries to ./bin
-	@mkdir -p bin
-	@gox -osarch="linux/amd64" -output="./bin/linux/{{.Dir}}"
-	@gox -osarch="darwin/amd64" -output="./bin/darwin/{{.Dir}}"
-	@gox -osarch="windows/amd64" -output="./bin/windows/{{.Dir}}"
 
 .PHONY: up
 up: ## start local containers
@@ -69,6 +57,6 @@ down: ## shuts down local docker containers
 
 build: ## build the server to ./bin
 	@mkdir -p bin
-	@cd cmd/graphik; gox -osarch="linux/amd64" -output="../../bin/linux/{{.Dir}}_linux_amd64"
-	@cd cmd/graphik; gox -osarch="darwin/amd64" -output="../../bin/darwin/{{.Dir}}_darwin_amd64"
-	@cd cmd/graphik; gox -osarch="windows/amd64" -output="../../bin/windows/{{.Dir}}_windows_amd64"
+	@cd cmd/kdeploy; gox -osarch="linux/amd64" -output="../../bin/linux/{{.Dir}}_linux_amd64"
+	@cd cmd/kdeploy; gox -osarch="darwin/amd64" -output="../../bin/darwin/{{.Dir}}_darwin_amd64"
+	@cd cmd/kdeploy; gox -osarch="windows/amd64" -output="../../bin/windows/{{.Dir}}_windows_amd64"

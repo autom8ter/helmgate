@@ -55,7 +55,7 @@ spec:
     app: kdeploy
 ---
 apiVersion: apps/v1
-kind: StatefulSet
+kind: Deployment
 metadata:
   name: kdeploy
   namespace: kdeploy
@@ -90,14 +90,4 @@ spec:
           ports:
           - containerPort: 8821
           - containerPort: 8820
-          volumeMounts:
-            - name: database-storage
-              mountPath: /tmp/kdeploy
-  volumeClaimTemplates:
-    - metadata:
-        name: database-storage
-      spec:
-        accessModes: [ "ReadWriteOnce" ]
-        resources:
-          requests:
-            storage: 5Gi
+
