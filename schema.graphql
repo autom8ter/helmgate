@@ -1,0 +1,57 @@
+# time is an rfc 3339 timestamp
+scalar Time
+# Map is a k/v map where the key is a string and the value is any value
+scalar Map
+
+input AppInput {
+    namespace: String!
+    labels: Map
+    annotations: Map
+    containers: [ContainerInput!]
+    replicas: Int
+    storage_path: String
+    resources: ResourcesInput
+}
+
+input ContainerInput {
+    image: String!
+    env: Map
+    port: Map
+}
+
+input ResourcesInput {
+    memory: String
+    namespace: String
+    storage: String
+}
+
+type App {
+    namespace: String!
+    labels: Map
+    annotations: Map
+    containers: [Container!]
+    replicas: Int
+    storage_path: String
+    resources: Resources
+}
+
+type Container {
+    image: String!
+    env: Map
+    port: Map
+}
+
+type Resources {
+    memory: String
+    namespace: String
+    storage: String
+}
+
+type Mutation {
+    createApp(input: AppInput!): App
+    updateApp(input: AppInput!): App
+}
+
+type Query {
+    getApp(namespace: String!): App
+}
