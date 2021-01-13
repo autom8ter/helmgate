@@ -7,6 +7,21 @@ an OAuth-protected graphQL API for deploying "serverless" kubernetes application
 
 [graphQL Documentation](https://autom8ter.github.io/kdeploy/)
 
+## Features
+
+- [x] Run in cluster
+- [x] Run out of cluster
+- [x] OpenID Connect based Authentication
+- [x] SSO/Oauth protected graphQL playground
+- [x] Create Application
+- [x] Update Application
+- [x] Get Application
+- [ ] Destroy Application
+- [ ] Search Applications
+- [ ] Stream Application Logs
+- [ ] Expression based Application "authorizers"(execute against open-id profile)
+
+
 ## Command Line
 
 ```
@@ -42,5 +57,4 @@ to view pods as they spin up, run:
 
     kubectl get pods -n kdeploy -w
 
-Kdeploy is intended to be deployed behind an SSL ingress/proxy and doesn't handle TLS termination. 
-Please see [gproxy](https://github.com/graphikDB/gproxy) if an easy to use ingress/proxy for Kubernetes is needed.
+Kdeploy is intended to be deployed behind an SSL ingress/proxy and doesn't handle TLS termination.
