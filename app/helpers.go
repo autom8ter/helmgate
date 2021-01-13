@@ -35,6 +35,14 @@ func appContainers(app model.AppInput) []v12.Container {
 			Value: cast.ToString(val),
 		})
 	}
+	var volumes []v12.VolumeMount
+	if app.State != nil {
+		volumes = append(volumes, v12.VolumeMount{
+			Name:      app.Name,
+			ReadOnly:  false,
+			MountPath: app.State.StoragePath,
+		})
+	}
 	return []v12.Container{
 		{
 			Name:  app.Name,
@@ -42,13 +50,13 @@ func appContainers(app model.AppInput) []v12.Container {
 			Ports: ports,
 			Env:   env,
 			Resources: v12.ResourceRequirements{
-				Limits: nil,
-				Requests: v12.ResourceList{
+				Limits: v12.ResourceList{
 					v1.ResourceRequestsMemory: resource.MustParse(app.Memory),
 					v1.ResourceRequestsCPU:    resource.MustParse(app.CPU),
 				},
 			},
 			ImagePullPolicy: Always,
+			VolumeMounts:    volumes,
 		},
 	}
 }
@@ -141,6 +149,7 @@ func toStatefulSet(app model.AppInput) *apps.StatefulSet {
 		labels     = appLabels(app)
 		containers = appContainers(app)
 	)
+
 	return &apps.StatefulSet{
 		TypeMeta: metav1.TypeMeta{
 			Kind:       "",
@@ -153,7 +162,9 @@ func toStatefulSet(app model.AppInput) *apps.StatefulSet {
 		},
 		Spec: apps.StatefulSetSpec{
 			Replicas: &replicas,
-			Selector: nil,
+			Selector: &metav1.LabelSelector{
+				MatchLabels: appLabels(app),
+			},
 			Template: v12.PodTemplateSpec{
 				ObjectMeta: metav1.ObjectMeta{
 					Name:      app.Name,
@@ -161,7 +172,6 @@ func toStatefulSet(app model.AppInput) *apps.StatefulSet {
 					Labels:    labels,
 				},
 				Spec: v12.PodSpec{
-					Volumes:       nil,
 					Containers:    containers,
 					RestartPolicy: Always,
 				},
@@ -180,8 +190,7 @@ func toStatefulSet(app model.AppInput) *apps.StatefulSet {
 							MatchLabels: appLabels(app),
 						},
 						Resources: v1.ResourceRequirements{
-							Limits: v1.ResourceList{},
-							Requests: v1.ResourceList{
+							Limits: v1.ResourceList{
 								v1.ResourceRequestsStorage: resource.MustParse(app.State.StorageSize),
 							},
 						},
@@ -196,7 +205,6 @@ func toStatefulSet(app model.AppInput) *apps.StatefulSet {
 }
 
 type k8sApp struct {
-	input       model.AppInput
 	namespace   *v12.Namespace
 	deployment  *apps.Deployment
 	statefulset *apps.StatefulSet
@@ -205,30 +213,51 @@ type k8sApp struct {
 
 func (k *k8sApp) toApp() *model.App {
 	a := &model.App{
-		Name:      k.input.Name,
-		Namespace: k.input.Namespace,
-		Image:     k.input.Image,
-		Env:       k.input.Env,
-		Ports:     k.input.Ports,
-		Memory:    k.input.Memory,
-		Replicas:  k.input.Replicas,
+		Name:      k.service.Name,
+		Namespace: k.service.Namespace,
 		State:     nil,
 		Status:    nil,
 	}
 	var state *model.State
-	if k.input.State != nil {
-		state = &model.State{
-			Statefulset: a.State.Statefulset,
-			StoragePath: a.State.StoragePath,
-			StorageSize: a.State.StorageSize,
-		}
-	}
 	a.Status = &model.Status{}
 	if k.deployment != nil {
+		a.Replicas = int(*k.deployment.Spec.Replicas)
+		a.Image = k.deployment.Spec.Template.Spec.Containers[0].Image
+		var env = map[string]interface{}{}
+		for _, e := range k.deployment.Spec.Template.Spec.Containers[0].Env {
+			env[e.Name] = e.Value
+		}
+		a.Env = env
+		var ports = map[string]interface{}{}
+		for _, p := range k.deployment.Spec.Template.Spec.Containers[0].Ports {
+			ports[p.Name] = p.ContainerPort
+		}
+		a.Ports = ports
+		a.Memory = k.deployment.Spec.Template.Spec.Containers[0].Resources.Limits.Memory().String()
+		a.CPU = k.deployment.Spec.Template.Spec.Containers[0].Resources.Limits.Cpu().String()
 		a.Status.Deployment = k.deployment.Status.String()
 	}
 	if k.statefulset != nil {
+		a.Replicas = int(*k.statefulset.Spec.Replicas)
+		a.Image = k.statefulset.Spec.Template.Spec.Containers[0].Image
+		var env = map[string]interface{}{}
+		for _, e := range k.statefulset.Spec.Template.Spec.Containers[0].Env {
+			env[e.Name] = e.Value
+		}
+		a.Env = env
+		var ports = map[string]interface{}{}
+		for _, p := range k.statefulset.Spec.Template.Spec.Containers[0].Ports {
+			ports[p.Name] = p.ContainerPort
+		}
+		a.Ports = ports
+		a.Memory = k.statefulset.Spec.Template.Spec.Containers[0].Resources.Limits.Memory().String()
+		a.CPU = k.statefulset.Spec.Template.Spec.Containers[0].Resources.Limits.Cpu().String()
 		a.Status.Deployment = k.statefulset.Status.String()
+		state = &model.State{
+			Statefulset: true,
+			StoragePath: k.statefulset.Spec.Template.Spec.Containers[0].VolumeMounts[0].MountPath,
+			StorageSize: k.statefulset.Spec.VolumeClaimTemplates[0].Spec.Resources.Limits.Storage().String(),
+		}
 	}
 	if k.service != nil {
 		a.Status.LoadBalancer = k.service.Status.String()

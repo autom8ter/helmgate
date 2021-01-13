@@ -1,5 +1,11 @@
 # kdeploy
 
+![kdeploy playground](assets/graphql-playground.png)
+
+an OAuth-protected graphQL API for deploying "serverless" kubernetes applications
+
+[graphQL Documentation](graphikdb.github.io/kdeploy/)
+
 ## Command Line
 
 ```
@@ -14,6 +20,7 @@ Usage of kdeploy:
       --oauth-redirect string        playground oauth redirect (env: KDEPLOY_OAUTH_REDIRECT)
       --open-id string               open id connect discovery uri ex: https://accounts.google.com/.well-known/openid-configuration (env: KDEPLOY_OPEN_ID) (required)
       --out-of-cluster               enable out of cluster k8s config discovery (env: KDEPLOY_OUT_OF_CLUSTER)
+
 ```
 
 ## Installation

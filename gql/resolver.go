@@ -92,6 +92,9 @@ func (r *Resolver) authMiddleware(handler http.Handler) http.HandlerFunc {
 			token, _ := r.getToken(req)
 			if token != nil && req.Header.Get("Authorization") == "" {
 				req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", token.AccessToken))
+			} else {
+				r.redirectLogin(w, req)
+				return
 			}
 		}
 		var authHeader = req.Header.Get("Authorization")

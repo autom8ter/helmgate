@@ -85,6 +85,7 @@ func (m *Manager) Update(ctx context.Context, app model.AppInput) (*model.App, e
 
 func (m *Manager) Get(ctx context.Context, name, namespace string) (*model.App, error) {
 	kapp := &k8sApp{}
+
 	ns, err := m.client.Namespaces().Get(ctx, namespace, v1.GetOptions{})
 	if err != nil {
 		return nil, err

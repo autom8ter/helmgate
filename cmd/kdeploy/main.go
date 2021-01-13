@@ -48,9 +48,9 @@ func init() {
 	pflag.CommandLine.StringSliceVar(&allowedHeaders, "allow-headers", helpers.StringSliceEnvOr("KDEPLOY_ALLOW_HEADERS", []string{"*"}), "cors allow headers (env: KDEPLOY_ALLOW_HEADERS)")
 	pflag.CommandLine.StringSliceVar(&allowedOrigins, "allow-origins", helpers.StringSliceEnvOr("KDEPLOY_ALLOW_ORIGINS", []string{"*"}), "cors allow origins (env: KDEPLOY_ALLOW_ORIGINS)")
 	pflag.CommandLine.StringSliceVar(&allowedMethods, "allow-methods", helpers.StringSliceEnvOr("KDEPLOY_ALLOW_METHODS", []string{"HEAD", "GET", "POST", "PUT", "PATCH", "DELETE"}), "cors allow methods (env: KDEPLOY_ALLOW_METHODS)")
-	pflag.CommandLine.StringVar(&clientID, "oauth-client-id", helpers.EnvOr("KDEPLOY_OAUTH_CLIENT_ID", ""), "playground oauth client id (env: KDEPLOY_OAUTH_CLIENT_ID)")
-	pflag.CommandLine.StringVar(&clientSecret, "oauth-client-secret", helpers.EnvOr("KDEPLOY_OAUTH_CLIENT_SECRET", ""), "playground oauth client secret (env: KDEPLOY_OAUTH_CLIENT_SECRET)")
-	pflag.CommandLine.StringVar(&redirect, "oauth-redirect", helpers.EnvOr("KDEPLOY_OAUTH_REDIRECT", ""), "playground oauth redirect (env: KDEPLOY_OAUTH_REDIRECT)")
+	pflag.CommandLine.StringVar(&clientID, "oauth-client-id", helpers.EnvOr("KDEPLOY_OAUTH_CLIENT_ID", ""), "playground oauth client id (env: KDEPLOY_OAUTH_CLIENT_ID) (required for graphQL playground)")
+	pflag.CommandLine.StringVar(&clientSecret, "oauth-client-secret", helpers.EnvOr("KDEPLOY_OAUTH_CLIENT_SECRET", ""), "playground oauth client secret (env: KDEPLOY_OAUTH_CLIENT_SECRET) (required for graphQL playground)")
+	pflag.CommandLine.StringVar(&redirect, "oauth-redirect", helpers.EnvOr("KDEPLOY_OAUTH_REDIRECT", ""), "playground oauth redirect (env: KDEPLOY_OAUTH_REDIRECT) (required for graphQL playground)")
 	pflag.CommandLine.BoolVar(&outOfCluster, "out-of-cluster", helpers.BoolEnvOr("KDEPLOY_OUT_OF_CLUSTER", false), "enable out of cluster k8s config discovery (env: KDEPLOY_OUT_OF_CLUSTER)")
 	pflag.Parse()
 }
@@ -122,7 +122,7 @@ func run(ctx context.Context) {
 	})
 	var config *oauth2.Config
 	if clientID != "" {
-		lgger.Debug("graphik playground enabled")
+		lgger.Debug("kdeploy graphQL playground enabled")
 		resp, err := http.DefaultClient.Get(oidc)
 		if err != nil {
 			lgger.Error("failed to get oidc", zap.Error(err))

@@ -10,16 +10,7 @@ help:
 	@echo "----------------------------------------------------------------"
 
 run:
-	@go run cmd/kdeploy/main.go --open-id https://accounts.google.com/.well-known/openid-configuration
-
-run-follower:
-	@go run cmd/kdeploy/main.go \
-	--open-id https://accounts.google.com/.well-known/openid-configuration \
-	--listen-port 8080 \
-	--join-raft localhost:8820 \
-	--storage /tmp/kdeploy2 \
-	--raft-peer-id node2 \
-	--debug
+	@go run cmd/kdeploy/main.go --open-id https://accounts.google.com/.well-known/openid-configuration --out-of-cluster
 
 gen: proto gql
 
