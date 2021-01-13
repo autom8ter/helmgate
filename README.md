@@ -16,7 +16,7 @@ an OAuth-protected graphQL API for deploying "serverless" kubernetes application
 - [x] Create Application
 - [x] Update Application
 - [x] Get Application
-- [ ] Destroy Application
+- [x] Destroy Application
 - [ ] Search Applications
 - [ ] Stream Application Logs
 - [ ] Expression based Application "authorizers"(execute against open-id profile)
