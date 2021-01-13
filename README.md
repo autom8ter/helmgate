@@ -39,7 +39,7 @@ then run:
 
 to view pods as they spin up, run:
 
-    kubectl get pods -n graphik-system -w
+    kubectl get pods -n kdeploy -w
 
 Kdeploy is intended to be deployed behind an SSL ingress/proxy and doesn't handle TLS termination. 
 Please see [gproxy](https://github.com/graphikDB/gproxy) if an easy to use ingress/proxy for Kubernetes is needed.
