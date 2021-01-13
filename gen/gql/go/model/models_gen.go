@@ -10,6 +10,7 @@ type App struct {
 	Ports     map[string]interface{} `json:"ports"`
 	Replicas  int                    `json:"replicas"`
 	State     *State                 `json:"state"`
+	Status    *Status                `json:"status"`
 }
 
 type AppInput struct {
@@ -22,6 +23,12 @@ type AppInput struct {
 	State     *StateInput            `json:"state"`
 }
 
+type Replica struct {
+	Phase     string `json:"phase"`
+	Condition string `json:"condition"`
+	Reason    string `json:"reason"`
+}
+
 type State struct {
 	Statefulset bool   `json:"statefulset"`
 	StoragePath string `json:"storage_path"`
@@ -32,4 +39,8 @@ type StateInput struct {
 	Statefulset bool   `json:"statefulset"`
 	StoragePath string `json:"storage_path"`
 	StorageSize string `json:"storage_size"`
+}
+
+type Status struct {
+	Replicas []*Replica `json:"replicas"`
 }

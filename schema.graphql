@@ -41,12 +41,24 @@ type App {
     replicas: Int!
     # state is optional: use if the application is stateful
     state: State
+    # status tracks the state of the application during it's lifecycle
+    status: Status!
 }
 
 type State {
     statefulset: Boolean!
     storage_path: String!
     storage_size: String!
+}
+
+type Replica {
+    phase: String!
+    condition: String!
+    reason: String!
+}
+
+type Status {
+    replicas: [Replica]!
 }
 
 type Mutation {

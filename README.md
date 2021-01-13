@@ -12,11 +12,11 @@ an OAuth-protected graphQL API for deploying "serverless" kubernetes application
 - [x] Run in cluster
 - [x] Run out of cluster
 - [x] OpenID Connect based Authentication
-- [x] SSO/Oauth protected graphQL playground
+- [x] SSO/Oauth protected graphQL playground(autocomplete/schema-documetation/query-console)
 - [x] Create Application
 - [x] Update Application
 - [x] Get Application
-- [ ] Destroy Application
+- [x] Destroy Application
 - [ ] Search Applications
 - [ ] Stream Application Logs
 - [ ] Expression based Application "authorizers"(execute against open-id profile)

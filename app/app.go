@@ -31,6 +31,22 @@ func New(client *kubego.Client, logger *logger.Logger) *Manager {
 	}
 }
 
+func (m *Manager) getStatus(ctx context.Context, namespace string) (*model.Status, error) {
+	var replicas []*model.Replica
+	pods, err := m.client.Pods(namespace).List(ctx, v1.ListOptions{})
+	if err != nil {
+		return nil, err
+	}
+	for _, pod := range pods.Items {
+		replicas = append(replicas, &model.Replica{
+			Phase:     string(pod.Status.Phase),
+			Condition: string(pod.Status.Conditions[0].Status),
+			Reason:    pod.Status.Reason,
+		})
+	}
+	return &model.Status{Replicas: replicas}, nil
+}
+
 func (m *Manager) Create(ctx context.Context, app model.AppInput) (*model.App, error) {
 	kapp := &k8sApp{}
 	namespace, err := m.client.Namespaces().Create(ctx, toNamespace(app), v1.CreateOptions{})
@@ -64,7 +80,13 @@ func (m *Manager) Create(ctx context.Context, app model.AppInput) (*model.App, e
 		return nil, err
 	}
 	kapp.service = svc
-	return kapp.toApp(), nil
+	status, err := m.getStatus(ctx, app.Namespace)
+	if err != nil {
+		return nil, err
+	}
+	a := kapp.toApp()
+	a.Status = status
+	return a, nil
 }
 
 func (m *Manager) Update(ctx context.Context, app model.AppInput) (*model.App, error) {
@@ -100,7 +122,13 @@ func (m *Manager) Update(ctx context.Context, app model.AppInput) (*model.App, e
 		return nil, err
 	}
 	kapp.service = svc
-	return kapp.toApp(), nil
+	status, err := m.getStatus(ctx, app.Namespace)
+	if err != nil {
+		return nil, err
+	}
+	a := kapp.toApp()
+	a.Status = status
+	return a, nil
 }
 
 func (m *Manager) Get(ctx context.Context, name, namespace string) (*model.App, error) {
@@ -126,7 +154,13 @@ func (m *Manager) Get(ctx context.Context, name, namespace string) (*model.App, 
 		return nil, err
 	}
 	kapp.service = svc
-	return kapp.toApp(), nil
+	status, err := m.getStatus(ctx, namespace)
+	if err != nil {
+		return nil, err
+	}
+	a := kapp.toApp()
+	a.Status = status
+	return a, nil
 }
 
 func (m *Manager) Delete(ctx context.Context, name, namespace string) error {
