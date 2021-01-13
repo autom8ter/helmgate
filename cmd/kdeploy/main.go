@@ -38,6 +38,7 @@ var (
 	clientID       string
 	clientSecret   string
 	redirect       string
+	outOfCluster bool
 )
 
 func init() {
@@ -51,6 +52,7 @@ func init() {
 	pflag.CommandLine.StringVar(&clientID, "oauth-client-id", helpers.EnvOr("KDEPLOY_OAUTH_CLIENT_ID", ""), "playground oauth client id (env: KDEPLOY_OAUTH_CLIENT_ID)")
 	pflag.CommandLine.StringVar(&clientSecret, "oauth-client-secret", helpers.EnvOr("KDEPLOY_OAUTH_CLIENT_SECRET", ""), "playground oauth client secret (env: KDEPLOY_OAUTH_CLIENT_SECRET)")
 	pflag.CommandLine.StringVar(&redirect, "oauth-redirect", helpers.EnvOr("KDEPLOY_OAUTH_REDIRECT", ""), "playground oauth redirect (env: KDEPLOY_OAUTH_REDIRECT)")
+	pflag.CommandLine.BoolVar(&outOfCluster, "out-of-cluster", helpers.BoolEnvOr("KDEPLOY_OUT_OF_CLUSTER", false), "enable out of cluster k8s config discovery (env: KDEPLOY_OUT_OF_CLUSTER)")
 	pflag.Parse()
 }
 
@@ -61,7 +63,7 @@ func main() {
 func run(ctx context.Context) {
 	var lgger = logger.New(debug)
 	if oidc == "" {
-		lgger.Error("empty open-id connect discovery --open-id", zap.String("usage", pflag.CommandLine.Lookup("open-id").Usage))
+		lgger.Error("empty open-id connect discovery --open-id")
 		return
 	}
 	ctx, cancel := context.WithCancel(ctx)
@@ -178,16 +180,6 @@ func run(ctx context.Context) {
 		lgger.Error("failed to get oidc", zap.Error(err))
 		return
 	}
-	config = &oauth2.Config{
-		ClientID:     clientID,
-		ClientSecret: clientSecret,
-		Endpoint: oauth2.Endpoint{
-			AuthURL:  openID["authorization_endpoint"].(string),
-			TokenURL: openID["token_endpoint"].(string),
-		},
-		RedirectURL: redirect,
-		Scopes:      []string{"openid", "email", "profile"},
-	}
 	resolver := gql.NewResolver(client, cors.New(cors.Options{
 		AllowedOrigins: allowedOrigins,
 		AllowedMethods: allowedMethods,
@@ -195,9 +187,11 @@ func run(ctx context.Context) {
 	}), config, lgger, openID["userinfo_endpoint"].(string))
 	mux := http.NewServeMux()
 	mux.Handle("/", resolver.QueryHandler())
+	if config != nil {
+		mux.Handle("/playground", resolver.Playground())
+		mux.Handle("/playground/callback", resolver.PlaygroundCallback("/playground"))
+	}
 
-	mux.Handle("/playground", resolver.Playground())
-	mux.Handle("/playground/callback", resolver.PlaygroundCallback("/playground"))
 	httpServer := &http.Server{
 		Handler: mux,
 	}
