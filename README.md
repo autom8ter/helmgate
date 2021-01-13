@@ -12,7 +12,7 @@ an OAuth-protected graphQL API for deploying "serverless" kubernetes application
 - [x] Run in cluster
 - [x] Run out of cluster
 - [x] OpenID Connect based Authentication
-- [x] SSO/Oauth protected graphQL playground(autocomplete/schema-documetation/query-console)
+- [x] SSO/Oauth protected graphQL playground(autocomplete/schema-documentation/query-console)
 - [x] Create Application
 - [x] Update Application
 - [x] Get Application
@@ -44,7 +44,7 @@ Usage of kdeploy:
 Given a running Kubernetes cluster, run:
 
 ```yaml
-curl https://raw.githubusercontent.com/graphikDB/kdeploy/master/k8s.yaml >> k8s.yaml
+curl https://raw.githubusercontent.com/autom8ter/kdeploy/master/k8s.yaml >> k8s.yaml
 ```
 
 inspect the manifest and add/adjust environmental variables in the deployment spec(see flags for supported environmental variables)
