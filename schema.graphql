@@ -6,8 +6,10 @@ scalar Map
 input AppInput {
     name: String!
     namespace: String!
-    containers: [ContainerInput!]
-    expose_ports: Map!
+    image: String!
+    env: Map
+    ports: Map!
+    memory: String
     replicas: Int!
     state: StateInput
 }
@@ -18,30 +20,16 @@ input StateInput {
     storage_size: String!
 }
 
-input ContainerInput {
-    name: String!
-    image: String!
-    env: Map
-    ports: Map!
-    memory: String
-}
-
 type App {
     name: String!
     namespace: String!
-    containers: [Container!]
-    expose_ports: Map!
-    replicas: Int
-    state: State
-    status: Map!
-}
-
-type Container {
-    name: String!
     image: String!
     env: Map
     ports: Map!
     memory: String
+    replicas: Int!
+    state: State
+    status: Map!
 }
 
 type State {

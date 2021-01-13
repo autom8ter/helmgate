@@ -21,32 +21,30 @@ func appLabels(app model.AppInput) map[string]string {
 }
 
 func appContainers(app model.AppInput) []v12.Container {
-	containers := []v12.Container{}
-	for _, c := range app.Containers {
-		ports := []v12.ContainerPort{}
-		for name, p := range c.Ports {
-			ports = append(ports, v12.ContainerPort{
-				Name:          name,
-				ContainerPort: cast.ToInt32(p),
-			})
-		}
-		env := []v12.EnvVar{}
-		for name, val := range c.Env {
-			env = append(env, v12.EnvVar{
-				Name:  name,
-				Value: cast.ToString(val),
-			})
-		}
-		containers = append(containers, v12.Container{
-			Name:            c.Name,
-			Image:           c.Image,
+	ports := []v12.ContainerPort{}
+	for name, p := range app.Ports {
+		ports = append(ports, v12.ContainerPort{
+			Name:          name,
+			ContainerPort: cast.ToInt32(p),
+		})
+	}
+	env := []v12.EnvVar{}
+	for name, val := range app.Env {
+		env = append(env, v12.EnvVar{
+			Name:  name,
+			Value: cast.ToString(val),
+		})
+	}
+	return []v12.Container{
+		{
+			Name:            app.Name,
+			Image:           app.Image,
 			Ports:           ports,
 			Env:             env,
 			Resources:       v12.ResourceRequirements{},
 			ImagePullPolicy: Always,
-		})
+		},
 	}
-	return containers
 }
 
 func toNamespace(app model.AppInput) *v12.Namespace {
@@ -64,7 +62,7 @@ func toNamespace(app model.AppInput) *v12.Namespace {
 
 func toServicePorts(app model.AppInput) []v12.ServicePort {
 	var ports []v12.ServicePort
-	for name, p := range app.ExposePorts {
+	for name, p := range app.Ports {
 		ports = append(ports, v12.ServicePort{
 			Name: name,
 			Port: cast.ToInt32(p),
@@ -201,12 +199,16 @@ type k8sApp struct {
 
 func (k *k8sApp) toApp() *model.App {
 	a := &model.App{
-		Name:        k.input.Name,
-		Namespace:   k.input.Namespace,
-		ExposePorts: k.input.ExposePorts,
-		Replicas:    &k.input.Replicas,
+		Name:      k.input.Name,
+		Namespace: k.input.Namespace,
+		Image:     k.input.Image,
+		Env:       k.input.Env,
+		Ports:     k.input.Ports,
+		Memory:    k.input.Memory,
+		Replicas:  k.input.Replicas,
+		State:     nil,
+		Status:    nil,
 	}
-	var containers []*model.Container
 	var state *model.State
 	if k.input.State != nil {
 		state = &model.State{
@@ -214,15 +216,6 @@ func (k *k8sApp) toApp() *model.App {
 			StoragePath: a.State.StoragePath,
 			StorageSize: a.State.StorageSize,
 		}
-	}
-	for _, c := range k.input.Containers {
-		containers = append(containers, &model.Container{
-			Name:   c.Name,
-			Image:  c.Image,
-			Env:    c.Env,
-			Ports:  c.Ports,
-			Memory: c.Memory,
-		})
 	}
 	a.Status = map[string]interface{}{}
 	if k.deployment != nil {
@@ -237,7 +230,6 @@ func (k *k8sApp) toApp() *model.App {
 	if k.namespace != nil {
 		a.Status["namespace"] = k.namespace.Status.String()
 	}
-	a.Containers = containers
 	a.State = state
 	return a
 }
