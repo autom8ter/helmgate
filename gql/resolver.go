@@ -13,9 +13,9 @@ import (
 	"github.com/autom8ter/kdeploy/gen/gql/go/generated"
 	"github.com/autom8ter/kdeploy/helpers"
 	"github.com/autom8ter/kdeploy/logger"
+	"github.com/autom8ter/kubego"
 	"github.com/gorilla/websocket"
 	"github.com/graphikDB/generic"
-	"github.com/graphikDB/kubego"
 	"github.com/pkg/errors"
 	"github.com/rs/cors"
 	"go.uber.org/zap"
@@ -34,7 +34,7 @@ import (
 type Resolver struct {
 	client      *app.Manager
 	cors        *cors.Cors
-	store       *generic.Cache
+	store       generic.Cache
 	config      *oauth2.Config
 	tokenCookie string
 	stateCookie string

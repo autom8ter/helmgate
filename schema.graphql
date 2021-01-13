@@ -61,6 +61,10 @@ type Status {
     replicas: [Replica]!
 }
 
+type Log {
+    message: String!
+}
+
 type Mutation {
     createApp(input: AppInput!): App
     updateApp(input: AppInput!): App
@@ -69,4 +73,8 @@ type Mutation {
 
 type Query {
     getApp(name: String!, namespace: String!): App
+}
+
+type Subscription {
+    logs(name: String!, namespace: String!): String!
 }

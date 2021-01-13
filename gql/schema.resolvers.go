@@ -26,11 +26,19 @@ func (r *queryResolver) GetApp(ctx context.Context, name string, namespace strin
 	return r.client.Get(ctx, name, namespace)
 }
 
+func (r *subscriptionResolver) Logs(ctx context.Context, name string, namespace string) (<-chan string, error) {
+	return r.client.StreamLogs(ctx, name, namespace)
+}
+
 // Mutation returns generated.MutationResolver implementation.
 func (r *Resolver) Mutation() generated.MutationResolver { return &mutationResolver{r} }
 
 // Query returns generated.QueryResolver implementation.
 func (r *Resolver) Query() generated.QueryResolver { return &queryResolver{r} }
 
+// Subscription returns generated.SubscriptionResolver implementation.
+func (r *Resolver) Subscription() generated.SubscriptionResolver { return &subscriptionResolver{r} }
+
 type mutationResolver struct{ *Resolver }
 type queryResolver struct{ *Resolver }
+type subscriptionResolver struct{ *Resolver }

@@ -23,6 +23,10 @@ type AppInput struct {
 	State     *StateInput            `json:"state"`
 }
 
+type Log struct {
+	Message string `json:"message"`
+}
+
 type Replica struct {
 	Phase     string `json:"phase"`
 	Condition string `json:"condition"`

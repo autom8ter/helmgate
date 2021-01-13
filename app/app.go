@@ -1,13 +1,18 @@
 package app
 
 import (
+	"bytes"
 	"context"
 	"github.com/autom8ter/kdeploy/gen/gql/go/model"
 	"github.com/autom8ter/kdeploy/logger"
+	"github.com/autom8ter/kubego"
 	"github.com/graphikDB/generic"
-	"github.com/graphikDB/kubego"
+	"github.com/pkg/errors"
 	"go.uber.org/zap"
+	"io"
+	corev1 "k8s.io/api/core/v1"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"sync"
 	"time"
 )
 
@@ -19,7 +24,7 @@ const (
 
 type Manager struct {
 	client   *kubego.Client
-	jwtCache *generic.Cache
+	jwtCache generic.Cache
 	logger   *logger.Logger
 }
 
@@ -189,6 +194,80 @@ func (m *Manager) Delete(ctx context.Context, name, namespace string) error {
 		)
 	}
 	return nil
+}
+
+func (m *Manager) StreamLogs(ctx context.Context, name, namespace string) (<-chan string, error) {
+	pods, err := m.client.Pods(namespace).List(ctx, v1.ListOptions{
+		TypeMeta: v1.TypeMeta{},
+		Watch:    false,
+	})
+	if err != nil {
+		return nil, err
+	}
+	if len(pods.Items) == 0 {
+		return nil, errors.New("zero pods")
+	}
+	m.logger.Info("setup log stream",
+		zap.String("name", name),
+		zap.String("namespace", namespace),
+	)
+	logChan := make(chan string)
+	var streamMu = sync.RWMutex{}
+	//mach.Go(func(routine machine.Routine) {
+	//	for {
+	//		select {
+	//		case <-routine.Context().Done():
+	//			close(logs)
+	//			return
+	//		}
+	//	}
+	//})
+	for _, pod := range pods.Items {
+		go func(p corev1.Pod) {
+			m.logger.Debug("setup log stream",
+				zap.String("name", name),
+				zap.String("namespace", namespace),
+				zap.String("pod", p.Name),
+			)
+			closer, err := m.client.GetLogs(context.Background(), p.Name, p.Namespace, &corev1.PodLogOptions{
+				TypeMeta:  v1.TypeMeta{},
+				Container: name,
+				//Container: name,
+				Follow:                       true,
+				Previous:                     false,
+				Timestamps:                   true,
+				InsecureSkipTLSVerifyBackend: true,
+			})
+			defer closer.Close()
+			if err != nil {
+				m.logger.Error("failed to stream pod logs",
+					zap.Error(err),
+					zap.String("name", name),
+					zap.String("namespace", namespace),
+					zap.String("pod", p.Name),
+				)
+				return
+			}
+			for {
+				m.logger.Debug("streaming log",
+					zap.String("name", name),
+					zap.String("namespace", namespace),
+					zap.String("pod", p.Name),
+				)
+				buf := make([]byte, 1024)
+				_, err := closer.Read(buf)
+				if err != nil {
+					if err == io.EOF {
+						return
+					}
+				}
+				streamMu.Lock()
+				logChan <- string(bytes.Trim(buf, "\x00"))
+				streamMu.Unlock()
+			}
+		}(pod)
+	}
+	return logChan, nil
 }
 
 func (r *Manager) GetUserInfo(ctx context.Context) map[string]interface{} {
