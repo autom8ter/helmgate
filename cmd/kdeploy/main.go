@@ -165,7 +165,6 @@ func run(ctx context.Context) {
 		}
 	}
 
-	lgger.Debug("graphik playground enabled")
 	resp, err := http.DefaultClient.Get(oidc)
 	if err != nil {
 		lgger.Error("failed to get oidc", zap.Error(err))

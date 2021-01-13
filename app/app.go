@@ -35,13 +35,21 @@ func (m *Manager) Create(ctx context.Context, app model.AppInput) (*model.App, e
 	}
 	kapp.namespace = namespace
 	if app.State != nil {
-		statefulset, err := m.client.StatefulSets(app.Namespace).Create(ctx, toStatefulSet(app), v1.CreateOptions{})
+		ss, err := toStatefulSet(app)
+		if err != nil {
+			return nil, err
+		}
+		statefulset, err := m.client.StatefulSets(app.Namespace).Create(ctx, ss, v1.CreateOptions{})
 		if err != nil {
 			return nil, err
 		}
 		kapp.statefulset = statefulset
 	} else {
-		deployment, err := m.client.Deployments(app.Namespace).Create(ctx, toDeployment(app), v1.CreateOptions{})
+		dep, err := toDeployment(app)
+		if err != nil {
+			return nil, err
+		}
+		deployment, err := m.client.Deployments(app.Namespace).Create(ctx, dep, v1.CreateOptions{})
 		if err != nil {
 			return nil, err
 		}
@@ -63,13 +71,21 @@ func (m *Manager) Update(ctx context.Context, app model.AppInput) (*model.App, e
 	}
 	kapp.namespace = namespace
 	if app.State != nil {
-		statefulset, err := m.client.StatefulSets(app.Namespace).Update(ctx, toStatefulSet(app), v1.UpdateOptions{})
+		ss, err := toStatefulSet(app)
+		if err != nil {
+			return nil, err
+		}
+		statefulset, err := m.client.StatefulSets(app.Namespace).Update(ctx, ss, v1.UpdateOptions{})
 		if err != nil {
 			return nil, err
 		}
 		kapp.statefulset = statefulset
 	} else {
-		deployment, err := m.client.Deployments(app.Namespace).Update(ctx, toDeployment(app), v1.UpdateOptions{})
+		dep, err := toDeployment(app)
+		if err != nil {
+			return nil, err
+		}
+		deployment, err := m.client.Deployments(app.Namespace).Update(ctx, dep, v1.UpdateOptions{})
 		if err != nil {
 			return nil, err
 		}

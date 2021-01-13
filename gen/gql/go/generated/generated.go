@@ -43,10 +43,8 @@ type DirectiveRoot struct {
 
 type ComplexityRoot struct {
 	App struct {
-		CPU       func(childComplexity int) int
 		Env       func(childComplexity int) int
 		Image     func(childComplexity int) int
-		Memory    func(childComplexity int) int
 		Name      func(childComplexity int) int
 		Namespace func(childComplexity int) int
 		Ports     func(childComplexity int) int
@@ -100,13 +98,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 	_ = ec
 	switch typeName + "." + field {
 
-	case "App.cpu":
-		if e.complexity.App.CPU == nil {
-			break
-		}
-
-		return e.complexity.App.CPU(childComplexity), true
-
 	case "App.env":
 		if e.complexity.App.Env == nil {
 			break
@@ -120,13 +111,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.App.Image(childComplexity), true
-
-	case "App.memory":
-		if e.complexity.App.Memory == nil {
-			break
-		}
-
-		return e.complexity.App.Memory(childComplexity), true
 
 	case "App.name":
 		if e.complexity.App.Name == nil {
@@ -328,10 +312,6 @@ input AppInput {
     env: Map
     # k/v map of ports to expose ex: http: 80 https: 443
     ports: Map!
-    # maximum memory requirements
-    memory: String!
-    # maximum cpu requirements
-    cpu: String!
     # number of deployment replicas min:1
     replicas: Int!
     # state is optional: use if the application is stateful
@@ -355,10 +335,6 @@ type App {
     env: Map
     # k/v map of ports to expose ex: http: 80 https: 443
     ports: Map!
-    # maximum memory requirements
-    memory: String!
-    # maximum cpu requirements
-    cpu: String!
     # number of deployment replicas min:1
     replicas: Int!
     # state is optional: use if the application is stateful
@@ -672,76 +648,6 @@ func (ec *executionContext) _App_ports(ctx context.Context, field graphql.Collec
 	res := resTmp.(map[string]interface{})
 	fc.Result = res
 	return ec.marshalNMap2map(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _App_memory(ctx context.Context, field graphql.CollectedField, obj *model.App) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "App",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Memory, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(string)
-	fc.Result = res
-	return ec.marshalNString2string(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _App_cpu(ctx context.Context, field graphql.CollectedField, obj *model.App) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "App",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CPU, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(string)
-	fc.Result = res
-	return ec.marshalNString2string(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _App_replicas(ctx context.Context, field graphql.CollectedField, obj *model.App) (ret graphql.Marshaler) {
@@ -2377,22 +2283,6 @@ func (ec *executionContext) unmarshalInputAppInput(ctx context.Context, obj inte
 			if err != nil {
 				return it, err
 			}
-		case "memory":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("memory"))
-			it.Memory, err = ec.unmarshalNString2string(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "cpu":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("cpu"))
-			it.CPU, err = ec.unmarshalNString2string(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "replicas":
 			var err error
 
@@ -2489,16 +2379,6 @@ func (ec *executionContext) _App(ctx context.Context, sel ast.SelectionSet, obj 
 			out.Values[i] = ec._App_env(ctx, field, obj)
 		case "ports":
 			out.Values[i] = ec._App_ports(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "memory":
-			out.Values[i] = ec._App_memory(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "cpu":
-			out.Values[i] = ec._App_cpu(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}

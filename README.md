@@ -1,6 +1,7 @@
 # kdeploy
 
-![kdeploy playground](assets/graphql-playground.png)
+![create-redis](assets/create-redis.png)
+![get-redis](assets/get-redis.png)
 
 an OAuth-protected graphQL API for deploying "serverless" kubernetes applications
 

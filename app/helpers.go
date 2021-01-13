@@ -1,7 +1,6 @@
 package app
 
 import (
-	"fmt"
 	"github.com/autom8ter/kdeploy/gen/gql/go/model"
 	"github.com/spf13/cast"
 	apps "k8s.io/api/apps/v1"
@@ -16,11 +15,12 @@ const RWO = "ReadWriteOnce"
 
 func appLabels(app model.AppInput) map[string]string {
 	return map[string]string{
-		"kdeploy": fmt.Sprintf("%s.%s", app.Namespace, app.Name),
+		"app":     app.Name,
+		"kdeploy": "true",
 	}
 }
 
-func appContainers(app model.AppInput) []v12.Container {
+func appContainers(app model.AppInput) ([]v12.Container, error) {
 	ports := []v12.ContainerPort{}
 	for name, p := range app.Ports {
 		ports = append(ports, v12.ContainerPort{
@@ -45,20 +45,15 @@ func appContainers(app model.AppInput) []v12.Container {
 	}
 	return []v12.Container{
 		{
-			Name:  app.Name,
-			Image: app.Image,
-			Ports: ports,
-			Env:   env,
-			Resources: v12.ResourceRequirements{
-				Limits: v12.ResourceList{
-					v1.ResourceRequestsMemory: resource.MustParse(app.Memory),
-					v1.ResourceRequestsCPU:    resource.MustParse(app.CPU),
-				},
-			},
-			ImagePullPolicy: Always,
+			Name:            app.Name,
+			Image:           app.Image,
+			Ports:           ports,
+			Env:             env,
+			Resources:       v12.ResourceRequirements{},
 			VolumeMounts:    volumes,
+			ImagePullPolicy: Always,
 		},
-	}
+	}, nil
 }
 
 func toNamespace(app model.AppInput) *v12.Namespace {
@@ -102,12 +97,14 @@ func toService(app model.AppInput) *v1.Service {
 	}
 }
 
-func toDeployment(app model.AppInput) *apps.Deployment {
+func toDeployment(app model.AppInput) (*apps.Deployment, error) {
 	var (
-		replicas   = int32(app.Replicas)
-		labels     = appLabels(app)
-		containers = appContainers(app)
+		replicas        = int32(app.Replicas)
+		containers, err = appContainers(app)
 	)
+	if err != nil {
+		return nil, err
+	}
 	return &apps.Deployment{
 		TypeMeta: metav1.TypeMeta{
 			Kind:       "",
@@ -120,12 +117,14 @@ func toDeployment(app model.AppInput) *apps.Deployment {
 		},
 		Spec: apps.DeploymentSpec{
 			Replicas: &replicas,
-			Selector: nil,
+			Selector: &metav1.LabelSelector{
+				MatchLabels: appLabels(app),
+			},
 			Template: v12.PodTemplateSpec{
 				ObjectMeta: metav1.ObjectMeta{
 					Name:      app.Name,
 					Namespace: app.Namespace,
-					Labels:    labels,
+					Labels:    appLabels(app),
 				},
 				Spec: v12.PodSpec{
 					Volumes:       nil,
@@ -140,16 +139,21 @@ func toDeployment(app model.AppInput) *apps.Deployment {
 			ProgressDeadlineSeconds: nil,
 		},
 		Status: apps.DeploymentStatus{},
-	}
+	}, nil
 }
 
-func toStatefulSet(app model.AppInput) *apps.StatefulSet {
+func toStatefulSet(app model.AppInput) (*apps.StatefulSet, error) {
 	var (
-		replicas   = int32(app.Replicas)
-		labels     = appLabels(app)
-		containers = appContainers(app)
+		replicas        = int32(app.Replicas)
+		containers, err = appContainers(app)
 	)
-
+	if err != nil {
+		return nil, err
+	}
+	strg, err := resource.ParseQuantity(app.State.StorageSize)
+	if err != nil {
+		return nil, err
+	}
 	return &apps.StatefulSet{
 		TypeMeta: metav1.TypeMeta{
 			Kind:       "",
@@ -169,7 +173,7 @@ func toStatefulSet(app model.AppInput) *apps.StatefulSet {
 				ObjectMeta: metav1.ObjectMeta{
 					Name:      app.Name,
 					Namespace: app.Namespace,
-					Labels:    labels,
+					Labels:    appLabels(app),
 				},
 				Spec: v12.PodSpec{
 					Containers:    containers,
@@ -190,8 +194,8 @@ func toStatefulSet(app model.AppInput) *apps.StatefulSet {
 							MatchLabels: appLabels(app),
 						},
 						Resources: v1.ResourceRequirements{
-							Limits: v1.ResourceList{
-								v1.ResourceRequestsStorage: resource.MustParse(app.State.StorageSize),
+							Requests: v1.ResourceList{
+								v1.ResourceRequestsStorage: strg,
 							},
 						},
 						VolumeName: app.Name,
@@ -201,7 +205,7 @@ func toStatefulSet(app model.AppInput) *apps.StatefulSet {
 			ServiceName: app.Name,
 		},
 		Status: apps.StatefulSetStatus{},
-	}
+	}, nil
 }
 
 type k8sApp struct {
@@ -233,8 +237,6 @@ func (k *k8sApp) toApp() *model.App {
 			ports[p.Name] = p.ContainerPort
 		}
 		a.Ports = ports
-		a.Memory = k.deployment.Spec.Template.Spec.Containers[0].Resources.Limits.Memory().String()
-		a.CPU = k.deployment.Spec.Template.Spec.Containers[0].Resources.Limits.Cpu().String()
 		a.Status.Deployment = k.deployment.Status.String()
 	}
 	if k.statefulset != nil {
@@ -250,13 +252,11 @@ func (k *k8sApp) toApp() *model.App {
 			ports[p.Name] = p.ContainerPort
 		}
 		a.Ports = ports
-		a.Memory = k.statefulset.Spec.Template.Spec.Containers[0].Resources.Limits.Memory().String()
-		a.CPU = k.statefulset.Spec.Template.Spec.Containers[0].Resources.Limits.Cpu().String()
 		a.Status.Deployment = k.statefulset.Status.String()
 		state = &model.State{
 			Statefulset: true,
 			StoragePath: k.statefulset.Spec.Template.Spec.Containers[0].VolumeMounts[0].MountPath,
-			StorageSize: k.statefulset.Spec.VolumeClaimTemplates[0].Spec.Resources.Limits.Storage().String(),
+			StorageSize: k.statefulset.Spec.VolumeClaimTemplates[0].Spec.Resources.Requests.Storage().String(),
 		}
 	}
 	if k.service != nil {

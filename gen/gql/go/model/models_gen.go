@@ -8,8 +8,6 @@ type App struct {
 	Image     string                 `json:"image"`
 	Env       map[string]interface{} `json:"env"`
 	Ports     map[string]interface{} `json:"ports"`
-	Memory    string                 `json:"memory"`
-	CPU       string                 `json:"cpu"`
 	Replicas  int                    `json:"replicas"`
 	State     *State                 `json:"state"`
 	Status    *Status                `json:"status"`
@@ -21,8 +19,6 @@ type AppInput struct {
 	Image     string                 `json:"image"`
 	Env       map[string]interface{} `json:"env"`
 	Ports     map[string]interface{} `json:"ports"`
-	Memory    string                 `json:"memory"`
-	CPU       string                 `json:"cpu"`
 	Replicas  int                    `json:"replicas"`
 	State     *StateInput            `json:"state"`
 }
