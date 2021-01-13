@@ -84,7 +84,7 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.podIP
-          image: graphikdb/autom8ter:v0.0.0
+          image: colemanword/kdeploy:v0.0.0
           imagePullPolicy: Always
           ports:
           - containerPort: 8821

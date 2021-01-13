@@ -4,7 +4,7 @@
 
 an OAuth-protected graphQL API for deploying "serverless" kubernetes applications
 
-[graphQL Documentation](graphikdb.github.io/kdeploy/)
+[graphQL Documentation](https://autom8ter.github.io/kdeploy/)
 
 ## Command Line
 
