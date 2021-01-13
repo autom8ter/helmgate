@@ -3,45 +3,43 @@ kind: Namespace
 metadata:
   name: kdeploy
 ---
-kind: Role
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: kdeploy
+automountServiceAccountToken: true
+---
+kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: pod-reader
-  namespace: kdeploy
+  name: kdeploy
 rules:
   - apiGroups: [""] # "" indicates the core API group
-    resources: ["pods"]
-    verbs: ["get", "watch", "list"]
+    resources: ["pods", "namespaces", "services"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+  - apiGroups: ["extensions", "apps"]
+    resources: ["deployments", "statefulsets"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
 
 ---
-kind: RoleBinding
+kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: pod-reader-binding
-  namespace: kdeploy
+  name: kdeploy-binding
+  namespace: graphik-system
 subjects:
-  # Google Cloud user account
-  #  - kind: User
-  #    name: janedoe@example.com
-  # Kubernetes service account
   - kind: ServiceAccount
-    name: default
-#  # IAM service account
-#  - kind: User
-#    name: test-account@test-project-123456.google.com.iam.gserviceaccount.com
-#  # Google Group
-#  - kind: Group
-#    name: accounting-group@example.com
+    name: kdeploy
 roleRef:
   kind: Role
-  name: pod-reader
+  name: kdeploy
   apiGroup: rbac.authorization.k8s.io
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: kdeploy
-  namespace: kdeploy
+  namespace: graphik-system
   labels:
     app: kdeploy
 spec:
@@ -58,10 +56,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: kdeploy
-  namespace: kdeploy
+  namespace: graphik-system
 spec:
   serviceName: kdeploy
-  replicas: 3
+  serviceAccountName: kdeploy
+  replicas: 1
   selector:
     matchLabels:
       app: kdeploy

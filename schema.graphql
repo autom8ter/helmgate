@@ -4,14 +4,23 @@ scalar Time
 scalar Map
 
 input AppInput {
+    # name of the application
     name: String!
+    # application namespace
     namespace: String!
+    # docker image of application
     image: String!
+    # k/v map of environmental variables
     env: Map
+    # k/v map of ports to expose ex: http: 80 https: 443
     ports: Map!
+    # maximum memory requirements
     memory: String!
+    # maximum cpu requirements
     cpu: String!
+    # number of deployment replicas min:1
     replicas: Int!
+    # state is optional: use if the application is stateful
     state: StateInput
 }
 
@@ -22,15 +31,25 @@ input StateInput {
 }
 
 type App {
+    # name of the application
     name: String!
+    # application namespace
     namespace: String!
+    # docker image of application
     image: String!
+    # k/v map of environmental variables
     env: Map
+    # k/v map of ports to expose ex: http: 80 https: 443
     ports: Map!
+    # maximum memory requirements
     memory: String!
+    # maximum cpu requirements
     cpu: String!
+    # number of deployment replicas min:1
     replicas: Int!
+    # state is optional: use if the application is stateful
     state: State
+    # status of various components in k8s cluster (svc/deployment/namespace)
     status: Status!
 }
 
