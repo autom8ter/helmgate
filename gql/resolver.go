@@ -2,6 +2,7 @@ package gql
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/handler/apollotracing"
@@ -10,6 +11,7 @@ import (
 	"github.com/99designs/gqlgen/graphql/handler/transport"
 	"github.com/gorilla/websocket"
 	"github.com/graphikDB/generic"
+	"github.com/graphikDB/kdeploy/app"
 	"github.com/graphikDB/kdeploy/gen/gql/go/generated"
 	"github.com/graphikDB/kdeploy/helpers"
 	"github.com/graphikDB/kdeploy/logger"
@@ -20,6 +22,7 @@ import (
 	"golang.org/x/oauth2"
 	"google.golang.org/grpc/metadata"
 	"html/template"
+	"io/ioutil"
 	"math/rand"
 	"net/http"
 	"time"
@@ -30,24 +33,28 @@ import (
 // It serves as dependency injection for your app, add any dependencies you require here.
 
 type Resolver struct {
-	client      *kubego.Client
+	client      *app.Manager
 	cors        *cors.Cors
 	store       *generic.Cache
 	config      *oauth2.Config
 	tokenCookie string
 	stateCookie string
 	logger      *logger.Logger
+	jwtCache    *generic.Cache
+	userInfo    string
 }
 
-func NewResolver(client *kubego.Client, cors *cors.Cors, config *oauth2.Config, logger *logger.Logger) *Resolver {
+func NewResolver(client *kubego.Client, cors *cors.Cors, config *oauth2.Config, logger *logger.Logger, userInfoEndpoint string) *Resolver {
 	return &Resolver{
-		client:      client,
+		client:      app.New(client),
 		cors:        cors,
 		config:      config,
 		tokenCookie: "graphik-playground-token",
 		stateCookie: "graphik-playground-state",
 		store:       generic.NewCache(5 * time.Minute),
 		logger:      logger,
+		jwtCache:    generic.NewCache(1 * time.Minute),
+		userInfo:    userInfoEndpoint,
 	}
 }
 
@@ -86,16 +93,56 @@ func (r *Resolver) QueryHandler() http.Handler {
 func (r *Resolver) authMiddleware(handler http.Handler) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
 		ctx := req.Context()
+		var token *oauth2.Token
 		if r.store != nil && r.config != nil && r.config.ClientID != "" {
-			token, _ := r.getToken(req)
+			token, _ = r.getToken(req)
 			if token != nil && req.Header.Get("Authorization") == "" {
 				req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", token.AccessToken))
 			}
 		}
-		for k, arr := range req.Header {
-			if len(arr) > 0 {
-				ctx = metadata.AppendToOutgoingContext(ctx, k, arr[0])
+		var authHeader = req.Header.Get("Authorization")
+		tokenHash := helpers.Hash([]byte(authHeader))
+		if val, ok := r.jwtCache.Get(tokenHash); ok {
+			payload := val.(map[string]interface{})
+			ctx, err := r.checkRequest(req, payload)
+			if err != nil {
+				http.Error(w, err.Error(), http.StatusForbidden)
+				return
 			}
+			handler.ServeHTTP(w, req.WithContext(ctx))
+			return
+		}
+		userinfoReq, err := http.NewRequest(http.MethodGet, r.userInfo, nil)
+		if err != nil {
+			http.Error(w, fmt.Sprintf("failed to get userinfo: %s", err.Error()), http.StatusInternalServerError)
+			return
+		}
+		userinfoReq.Header.Set("Authorization", fmt.Sprintf("Bearer %s", token))
+		resp, err := http.DefaultClient.Do(userinfoReq)
+		if err != nil {
+			http.Error(w, fmt.Sprintf("failed to get userinfo: %s", err.Error()), http.StatusUnauthorized)
+			return
+		}
+		defer resp.Body.Close()
+		if resp.StatusCode != 200 {
+			http.Error(w, fmt.Sprintf("failed to get userinfo: %v", resp.StatusCode), http.StatusUnauthorized)
+			return
+		}
+		bits, err := ioutil.ReadAll(resp.Body)
+		if err != nil {
+			http.Error(w, fmt.Sprintf("failed to get userinfo: %s", err.Error()), http.StatusInternalServerError)
+			return
+		}
+		payload := map[string]interface{}{}
+		if err := json.Unmarshal(bits, &payload); err != nil {
+			http.Error(w, fmt.Sprintf("failed to get userinfo: %s", err.Error()), http.StatusInternalServerError)
+			return
+		}
+		r.jwtCache.Set(tokenHash, payload, 1*time.Hour)
+		ctx, err = r.checkRequest(req, payload)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusForbidden)
+			return
 		}
 		handler.ServeHTTP(w, req.WithContext(ctx))
 	}
@@ -290,4 +337,17 @@ func (r *Resolver) setState(w http.ResponseWriter, state string) {
 		Expires: time.Now().Add(5 * time.Minute),
 		Path:    "/",
 	})
+}
+
+func (r *Resolver) checkRequest(req *http.Request, userData map[string]interface{}) (context.Context, error) {
+	ctx := req.Context()
+	ctx = context.WithValue(req.Context(), userInfo, userData)
+	return ctx, nil
+}
+
+func (r *Resolver) getUserInfo(ctx context.Context) map[string]interface{} {
+	if ctx.Value(userInfo) == nil {
+		return map[string]interface{}{}
+	}
+	return ctx.Value(userInfo).(map[string]interface{})
 }

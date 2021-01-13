@@ -6,3 +6,9 @@ var (
 	ErrNoTokenSession = errors.New("playground: no token session")
 	ErrNoStateSession = errors.New("playground: no state session")
 )
+
+type authCtx string
+
+const (
+	userInfo authCtx = "userinfo"
+)

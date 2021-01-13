@@ -4,47 +4,50 @@ scalar Time
 scalar Map
 
 input AppInput {
+    name: String!
     namespace: String!
-    labels: Map
-    annotations: Map
     containers: [ContainerInput!]
-    replicas: Int
-    storage_path: String
-    resources: ResourcesInput
+    expose_ports: Map!
+    replicas: Int!
+    state: StateInput
+}
+
+input StateInput {
+    statefulset: Boolean!
+    storage_path: String!
+    storage_size: String!
 }
 
 input ContainerInput {
+    name: String!
     image: String!
     env: Map
-    port: Map
-}
-
-input ResourcesInput {
+    ports: Map!
     memory: String
-    namespace: String
-    storage: String
 }
 
 type App {
+    name: String!
     namespace: String!
-    labels: Map
-    annotations: Map
     containers: [Container!]
+    expose_ports: Map!
     replicas: Int
-    storage_path: String
-    resources: Resources
+    state: State
+    status: Map!
 }
 
 type Container {
+    name: String!
     image: String!
     env: Map
-    port: Map
+    ports: Map!
+    memory: String
 }
 
-type Resources {
-    memory: String
-    namespace: String
-    storage: String
+type State {
+    statefulset: Boolean!
+    storage_path: String!
+    storage_size: String!
 }
 
 type Mutation {
@@ -53,5 +56,5 @@ type Mutation {
 }
 
 type Query {
-    getApp(namespace: String!): App
+    getApp(name: String!, namespace: String!): App
 }

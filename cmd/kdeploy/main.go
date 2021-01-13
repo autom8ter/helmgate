@@ -54,11 +54,6 @@ func init() {
 	pflag.Parse()
 }
 
-const (
-	k8sEnv    = "k8s"
-	leaderPod = "graphik-0"
-)
-
 func main() {
 	run(context.Background())
 }
@@ -197,14 +192,12 @@ func run(ctx context.Context) {
 		AllowedOrigins: allowedOrigins,
 		AllowedMethods: allowedMethods,
 		AllowedHeaders: allowedHeaders,
-	}), config, lgger)
+	}), config, lgger, openID["userinfo_endpoint"].(string))
 	mux := http.NewServeMux()
 	mux.Handle("/", resolver.QueryHandler())
 
-	if config != nil {
-		mux.Handle("/playground", resolver.Playground())
-		mux.Handle("/playground/callback", resolver.PlaygroundCallback("/playground"))
-	}
+	mux.Handle("/playground", resolver.Playground())
+	mux.Handle("/playground/callback", resolver.PlaygroundCallback("/playground"))
 	httpServer := &http.Server{
 		Handler: mux,
 	}
