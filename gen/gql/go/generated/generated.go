@@ -68,6 +68,12 @@ type ComplexityRoot struct {
 		StoragePath func(childComplexity int) int
 		StorageSize func(childComplexity int) int
 	}
+
+	Status struct {
+		Deployment   func(childComplexity int) int
+		LoadBalancer func(childComplexity int) int
+		Namespace    func(childComplexity int) int
+	}
 }
 
 type MutationResolver interface {
@@ -213,6 +219,27 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.State.StorageSize(childComplexity), true
 
+	case "Status.deployment":
+		if e.complexity.Status.Deployment == nil {
+			break
+		}
+
+		return e.complexity.Status.Deployment(childComplexity), true
+
+	case "Status.load_balancer":
+		if e.complexity.Status.LoadBalancer == nil {
+			break
+		}
+
+		return e.complexity.Status.LoadBalancer(childComplexity), true
+
+	case "Status.namespace":
+		if e.complexity.Status.Namespace == nil {
+			break
+		}
+
+		return e.complexity.Status.Namespace(childComplexity), true
+
 	}
 	return 0, false
 }
@@ -308,13 +335,19 @@ type App {
     memory: String
     replicas: Int!
     state: State
-    status: Map!
+    status: Status!
 }
 
 type State {
     statefulset: Boolean!
     storage_path: String!
     storage_size: String!
+}
+
+type Status {
+    namespace: String!
+    deployment: String!
+    load_balancer: String!
 }
 
 type Mutation {
@@ -741,9 +774,9 @@ func (ec *executionContext) _App_status(ctx context.Context, field graphql.Colle
 		}
 		return graphql.Null
 	}
-	res := resTmp.(map[string]interface{})
+	res := resTmp.(*model.Status)
 	fc.Result = res
-	return ec.marshalNMap2map(ctx, field.Selections, res)
+	return ec.marshalNStatus2ᚖgithubᚗcomᚋgraphikDBᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐStatus(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_createApp(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -1023,6 +1056,111 @@ func (ec *executionContext) _State_storage_size(ctx context.Context, field graph
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return obj.StorageSize, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNString2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Status_namespace(ctx context.Context, field graphql.CollectedField, obj *model.Status) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Status",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Namespace, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNString2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Status_deployment(ctx context.Context, field graphql.CollectedField, obj *model.Status) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Status",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Deployment, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNString2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Status_load_balancer(ctx context.Context, field graphql.CollectedField, obj *model.Status) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Status",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.LoadBalancer, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -2412,6 +2550,43 @@ func (ec *executionContext) _State(ctx context.Context, sel ast.SelectionSet, ob
 	return out
 }
 
+var statusImplementors = []string{"Status"}
+
+func (ec *executionContext) _Status(ctx context.Context, sel ast.SelectionSet, obj *model.Status) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, statusImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("Status")
+		case "namespace":
+			out.Values[i] = ec._Status_namespace(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "deployment":
+			out.Values[i] = ec._Status_deployment(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "load_balancer":
+			out.Values[i] = ec._Status_load_balancer(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
 var __DirectiveImplementors = []string{"__Directive"}
 
 func (ec *executionContext) ___Directive(ctx context.Context, sel ast.SelectionSet, obj *introspection.Directive) graphql.Marshaler {
@@ -2711,6 +2886,16 @@ func (ec *executionContext) marshalNMap2map(ctx context.Context, sel ast.Selecti
 		}
 	}
 	return res
+}
+
+func (ec *executionContext) marshalNStatus2ᚖgithubᚗcomᚋgraphikDBᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐStatus(ctx context.Context, sel ast.SelectionSet, v *model.Status) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	return ec._Status(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalNString2string(ctx context.Context, v interface{}) (string, error) {

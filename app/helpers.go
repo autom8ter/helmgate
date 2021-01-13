@@ -217,18 +217,18 @@ func (k *k8sApp) toApp() *model.App {
 			StorageSize: a.State.StorageSize,
 		}
 	}
-	a.Status = map[string]interface{}{}
+	a.Status = &model.Status{}
 	if k.deployment != nil {
-		a.Status["deployment"] = k.deployment.Status.String()
+		a.Status.Deployment = k.deployment.Status.String()
 	}
 	if k.statefulset != nil {
-		a.Status["statefulset"] = k.statefulset.Status.String()
+		a.Status.Deployment = k.statefulset.Status.String()
 	}
 	if k.service != nil {
-		a.Status["service"] = k.service.Status.String()
+		a.Status.LoadBalancer = k.service.Status.String()
 	}
 	if k.namespace != nil {
-		a.Status["namespace"] = k.namespace.Status.String()
+		a.Status.Namespace = k.namespace.Status.String()
 	}
 	a.State = state
 	return a

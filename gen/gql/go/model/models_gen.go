@@ -11,7 +11,7 @@ type App struct {
 	Memory    *string                `json:"memory"`
 	Replicas  int                    `json:"replicas"`
 	State     *State                 `json:"state"`
-	Status    map[string]interface{} `json:"status"`
+	Status    *Status                `json:"status"`
 }
 
 type AppInput struct {
@@ -35,4 +35,10 @@ type StateInput struct {
 	Statefulset bool   `json:"statefulset"`
 	StoragePath string `json:"storage_path"`
 	StorageSize string `json:"storage_size"`
+}
+
+type Status struct {
+	Namespace    string `json:"namespace"`
+	Deployment   string `json:"deployment"`
+	LoadBalancer string `json:"load_balancer"`
 }

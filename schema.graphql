@@ -29,13 +29,19 @@ type App {
     memory: String
     replicas: Int!
     state: State
-    status: Map!
+    status: Status!
 }
 
 type State {
     statefulset: Boolean!
     storage_path: String!
     storage_size: String!
+}
+
+type Status {
+    namespace: String!
+    deployment: String!
+    load_balancer: String!
 }
 
 type Mutation {
