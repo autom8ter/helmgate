@@ -37,11 +37,17 @@ func appContainers(app model.AppInput) []v12.Container {
 	}
 	return []v12.Container{
 		{
-			Name:            app.Name,
-			Image:           app.Image,
-			Ports:           ports,
-			Env:             env,
-			Resources:       v12.ResourceRequirements{},
+			Name:  app.Name,
+			Image: app.Image,
+			Ports: ports,
+			Env:   env,
+			Resources: v12.ResourceRequirements{
+				Limits: nil,
+				Requests: v12.ResourceList{
+					v1.ResourceRequestsMemory: resource.MustParse(app.Memory),
+					v1.ResourceRequestsCPU:    resource.MustParse(app.CPU),
+				},
+			},
 			ImagePullPolicy: Always,
 		},
 	}

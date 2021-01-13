@@ -9,7 +9,8 @@ input AppInput {
     image: String!
     env: Map
     ports: Map!
-    memory: String
+    memory: String!
+    cpu: String!
     replicas: Int!
     state: StateInput
 }
@@ -26,7 +27,8 @@ type App {
     image: String!
     env: Map
     ports: Map!
-    memory: String
+    memory: String!
+    cpu: String!
     replicas: Int!
     state: State
     status: Status!

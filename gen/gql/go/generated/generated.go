@@ -43,6 +43,7 @@ type DirectiveRoot struct {
 
 type ComplexityRoot struct {
 	App struct {
+		CPU       func(childComplexity int) int
 		Env       func(childComplexity int) int
 		Image     func(childComplexity int) int
 		Memory    func(childComplexity int) int
@@ -98,6 +99,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 	ec := executionContext{nil, e}
 	_ = ec
 	switch typeName + "." + field {
+
+	case "App.cpu":
+		if e.complexity.App.CPU == nil {
+			break
+		}
+
+		return e.complexity.App.CPU(childComplexity), true
 
 	case "App.env":
 		if e.complexity.App.Env == nil {
@@ -315,7 +323,8 @@ input AppInput {
     image: String!
     env: Map
     ports: Map!
-    memory: String
+    memory: String!
+    cpu: String!
     replicas: Int!
     state: StateInput
 }
@@ -332,7 +341,8 @@ type App {
     image: String!
     env: Map
     ports: Map!
-    memory: String
+    memory: String!
+    cpu: String!
     replicas: Int!
     state: State
     status: Status!
@@ -670,11 +680,49 @@ func (ec *executionContext) _App_memory(ctx context.Context, field graphql.Colle
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(string)
 	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalNString2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _App_cpu(ctx context.Context, field graphql.CollectedField, obj *model.App) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "App",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CPU, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNString2string(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _App_replicas(ctx context.Context, field graphql.CollectedField, obj *model.App) (ret graphql.Marshaler) {
@@ -2314,7 +2362,15 @@ func (ec *executionContext) unmarshalInputAppInput(ctx context.Context, obj inte
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("memory"))
-			it.Memory, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			it.Memory, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "cpu":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("cpu"))
+			it.CPU, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -2419,6 +2475,14 @@ func (ec *executionContext) _App(ctx context.Context, sel ast.SelectionSet, obj 
 			}
 		case "memory":
 			out.Values[i] = ec._App_memory(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "cpu":
+			out.Values[i] = ec._App_cpu(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "replicas":
 			out.Values[i] = ec._App_replicas(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
