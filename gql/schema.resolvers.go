@@ -18,8 +18,8 @@ func (r *mutationResolver) UpdateApp(ctx context.Context, input model.AppInput) 
 	return r.client.Update(ctx, input)
 }
 
-func (r *queryResolver) GetApp(ctx context.Context, namespace string) (*model.App, error) {
-	return r.client.Get(ctx, namespace)
+func (r *queryResolver) GetApp(ctx context.Context, name string, namespace string) (*model.App, error) {
+	return r.client.Get(ctx, name, namespace)
 }
 
 // Mutation returns generated.MutationResolver implementation.

@@ -7,9 +7,15 @@ input AppInput {
     name: String!
     namespace: String!
     containers: [ContainerInput!]
-    replicas: Int
-    storage_path: String
-    resources: ResourcesInput
+    expose_ports: Map!
+    replicas: Int!
+    state: StateInput
+}
+
+input StateInput {
+    statefulset: Boolean!
+    storage_path: String!
+    storage_size: String!
 }
 
 input ContainerInput {
@@ -17,21 +23,17 @@ input ContainerInput {
     image: String!
     env: Map
     ports: Map!
-}
-
-input ResourcesInput {
     memory: String
-    namespace: String
-    storage: String
 }
 
 type App {
     name: String!
     namespace: String!
-    containers: [Container!]!
+    containers: [Container!]
+    expose_ports: Map!
     replicas: Int
-    storage_path: String
-    resources: Resources
+    state: State
+    status: Map!
 }
 
 type Container {
@@ -39,12 +41,13 @@ type Container {
     image: String!
     env: Map
     ports: Map!
+    memory: String
 }
 
-type Resources {
-    memory: String
-    namespace: String
-    storage: String
+type State {
+    statefulset: Boolean!
+    storage_path: String!
+    storage_size: String!
 }
 
 type Mutation {
@@ -53,5 +56,5 @@ type Mutation {
 }
 
 type Query {
-    getApp(namespace: String!): App
+    getApp(name: String!, namespace: String!): App
 }

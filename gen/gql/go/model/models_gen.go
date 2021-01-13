@@ -3,45 +3,48 @@
 package model
 
 type App struct {
-	Name        string       `json:"name"`
-	Namespace   string       `json:"namespace"`
-	Containers  []*Container `json:"containers"`
-	Replicas    *int         `json:"replicas"`
-	StoragePath *string      `json:"storage_path"`
-	Resources   *Resources   `json:"resources"`
+	Name        string                 `json:"name"`
+	Namespace   string                 `json:"namespace"`
+	Containers  []*Container           `json:"containers"`
+	ExposePorts map[string]interface{} `json:"expose_ports"`
+	Replicas    *int                   `json:"replicas"`
+	State       *State                 `json:"state"`
+	Status      map[string]interface{} `json:"status"`
 }
 
 type AppInput struct {
-	Name        string            `json:"name"`
-	Namespace   string            `json:"namespace"`
-	Containers  []*ContainerInput `json:"containers"`
-	Replicas    *int              `json:"replicas"`
-	StoragePath *string           `json:"storage_path"`
-	Resources   *ResourcesInput   `json:"resources"`
+	Name        string                 `json:"name"`
+	Namespace   string                 `json:"namespace"`
+	Containers  []*ContainerInput      `json:"containers"`
+	ExposePorts map[string]interface{} `json:"expose_ports"`
+	Replicas    int                    `json:"replicas"`
+	State       *StateInput            `json:"state"`
 }
 
 type Container struct {
-	Name  string                 `json:"name"`
-	Image string                 `json:"image"`
-	Env   map[string]interface{} `json:"env"`
-	Ports map[string]interface{} `json:"ports"`
+	Name   string                 `json:"name"`
+	Image  string                 `json:"image"`
+	Env    map[string]interface{} `json:"env"`
+	Ports  map[string]interface{} `json:"ports"`
+	Memory *string                `json:"memory"`
 }
 
 type ContainerInput struct {
-	Name  string                 `json:"name"`
-	Image string                 `json:"image"`
-	Env   map[string]interface{} `json:"env"`
-	Ports map[string]interface{} `json:"ports"`
+	Name   string                 `json:"name"`
+	Image  string                 `json:"image"`
+	Env    map[string]interface{} `json:"env"`
+	Ports  map[string]interface{} `json:"ports"`
+	Memory *string                `json:"memory"`
 }
 
-type Resources struct {
-	Memory    *string `json:"memory"`
-	Namespace *string `json:"namespace"`
-	Storage   *string `json:"storage"`
+type State struct {
+	Statefulset bool   `json:"statefulset"`
+	StoragePath string `json:"storage_path"`
+	StorageSize string `json:"storage_size"`
 }
 
-type ResourcesInput struct {
-	Memory    *string `json:"memory"`
-	Namespace *string `json:"namespace"`
-	Storage   *string `json:"storage"`
+type StateInput struct {
+	Statefulset bool   `json:"statefulset"`
+	StoragePath string `json:"storage_path"`
+	StorageSize string `json:"storage_size"`
 }
