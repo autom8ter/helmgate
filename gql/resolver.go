@@ -20,7 +20,6 @@ import (
 	"github.com/rs/cors"
 	"go.uber.org/zap"
 	"golang.org/x/oauth2"
-	"google.golang.org/grpc/metadata"
 	"html/template"
 	"io/ioutil"
 	"math/rand"
@@ -40,7 +39,6 @@ type Resolver struct {
 	tokenCookie string
 	stateCookie string
 	logger      *logger.Logger
-	jwtCache    *generic.Cache
 	userInfo    string
 }
 
@@ -53,7 +51,6 @@ func NewResolver(client *kubego.Client, cors *cors.Cors, config *oauth2.Config, 
 		stateCookie: "graphik-playground-state",
 		store:       generic.NewCache(5 * time.Minute),
 		logger:      logger,
-		jwtCache:    generic.NewCache(1 * time.Minute),
 		userInfo:    userInfoEndpoint,
 	}
 }
@@ -71,8 +68,6 @@ func (r *Resolver) QueryHandler() http.Handler {
 			},
 		},
 		InitFunc: func(ctx context.Context, initPayload transport.InitPayload) (context.Context, error) {
-			auth := initPayload.Authorization()
-			ctx = metadata.AppendToOutgoingContext(ctx, "Authorization", auth)
 			return ctx, nil
 		},
 		KeepAlivePingInterval: 10 * time.Second,
@@ -93,23 +88,17 @@ func (r *Resolver) QueryHandler() http.Handler {
 func (r *Resolver) authMiddleware(handler http.Handler) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
 		ctx := req.Context()
-		var token *oauth2.Token
 		if r.store != nil && r.config != nil && r.config.ClientID != "" {
-			token, _ = r.getToken(req)
+			token, _ := r.getToken(req)
 			if token != nil && req.Header.Get("Authorization") == "" {
 				req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", token.AccessToken))
 			}
 		}
 		var authHeader = req.Header.Get("Authorization")
 		tokenHash := helpers.Hash([]byte(authHeader))
-		if val, ok := r.jwtCache.Get(tokenHash); ok {
+		if val, ok := r.client.GetJWTHash(tokenHash); ok {
 			payload := val.(map[string]interface{})
-			ctx, err := r.checkRequest(req, payload)
-			if err != nil {
-				http.Error(w, err.Error(), http.StatusForbidden)
-				return
-			}
-			handler.ServeHTTP(w, req.WithContext(ctx))
+			handler.ServeHTTP(w, req.WithContext(r.client.SetUserInfo(ctx, payload)))
 			return
 		}
 		userinfoReq, err := http.NewRequest(http.MethodGet, r.userInfo, nil)
@@ -117,7 +106,7 @@ func (r *Resolver) authMiddleware(handler http.Handler) http.HandlerFunc {
 			http.Error(w, fmt.Sprintf("failed to get userinfo: %s", err.Error()), http.StatusInternalServerError)
 			return
 		}
-		userinfoReq.Header.Set("Authorization", fmt.Sprintf("Bearer %s", token))
+		userinfoReq.Header.Set("Authorization", authHeader)
 		resp, err := http.DefaultClient.Do(userinfoReq)
 		if err != nil {
 			http.Error(w, fmt.Sprintf("failed to get userinfo: %s", err.Error()), http.StatusUnauthorized)
@@ -138,13 +127,8 @@ func (r *Resolver) authMiddleware(handler http.Handler) http.HandlerFunc {
 			http.Error(w, fmt.Sprintf("failed to get userinfo: %s", err.Error()), http.StatusInternalServerError)
 			return
 		}
-		r.jwtCache.Set(tokenHash, payload, 1*time.Hour)
-		ctx, err = r.checkRequest(req, payload)
-		if err != nil {
-			http.Error(w, err.Error(), http.StatusForbidden)
-			return
-		}
-		handler.ServeHTTP(w, req.WithContext(ctx))
+		r.client.SetJWTHash(tokenHash, payload)
+		handler.ServeHTTP(w, req.WithContext(r.client.SetUserInfo(ctx, payload)))
 	}
 }
 
@@ -337,17 +321,4 @@ func (r *Resolver) setState(w http.ResponseWriter, state string) {
 		Expires: time.Now().Add(5 * time.Minute),
 		Path:    "/",
 	})
-}
-
-func (r *Resolver) checkRequest(req *http.Request, userData map[string]interface{}) (context.Context, error) {
-	ctx := req.Context()
-	ctx = context.WithValue(req.Context(), userInfo, userData)
-	return ctx, nil
-}
-
-func (r *Resolver) getUserInfo(ctx context.Context) map[string]interface{} {
-	if ctx.Value(userInfo) == nil {
-		return map[string]interface{}{}
-	}
-	return ctx.Value(userInfo).(map[string]interface{})
 }

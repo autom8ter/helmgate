@@ -16,7 +16,6 @@ import (
 	"github.com/spf13/pflag"
 	"go.uber.org/zap"
 	"golang.org/x/oauth2"
-	"google.golang.org/grpc"
 	"io/ioutil"
 	"net"
 	"net/http"
@@ -38,7 +37,7 @@ var (
 	clientID       string
 	clientSecret   string
 	redirect       string
-	outOfCluster bool
+	outOfCluster   bool
 )
 
 func init() {
@@ -151,18 +150,21 @@ func run(ctx context.Context) {
 			Scopes:      []string{"openid", "email", "profile"},
 		}
 	}
-	self := fmt.Sprintf("localhost:%v", listenPort)
-	conn, err := grpc.DialContext(ctx, self, grpc.WithInsecure())
-	if err != nil {
-		lgger.Error("failed to setup graphql endpoint", zap.Error(err))
-		return
+	var client *kubego.Client
+	if outOfCluster {
+		client, err = kubego.NewOutOfClusterClient()
+		if err != nil {
+			lgger.Error("failed to create out of cluster k8s client", zap.Error(err))
+			return
+		}
+	} else {
+		client, err = kubego.NewInClusterClient()
+		if err != nil {
+			lgger.Error("failed to create in cluster k8s client", zap.Error(err))
+			return
+		}
 	}
-	defer conn.Close()
-	client, err := kubego.NewInClusterClient()
-	if err != nil {
-		lgger.Error("failed to create in cluster k8s client", zap.Error(err))
-		return
-	}
+
 	lgger.Debug("graphik playground enabled")
 	resp, err := http.DefaultClient.Get(oidc)
 	if err != nil {

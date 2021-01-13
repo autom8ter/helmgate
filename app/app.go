@@ -2,17 +2,29 @@ package app
 
 import (
 	"context"
+	"github.com/graphikDB/generic"
 	"github.com/graphikDB/kdeploy/gen/gql/go/model"
 	"github.com/graphikDB/kubego"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"time"
+)
+
+type authCtx string
+
+const (
+	userInfo authCtx = "userinfo"
 )
 
 type Manager struct {
-	client *kubego.Client
+	client   *kubego.Client
+	jwtCache *generic.Cache
 }
 
 func New(client *kubego.Client) *Manager {
-	return &Manager{client: client}
+	return &Manager{
+		client:   client,
+		jwtCache: generic.NewCache(1 * time.Minute),
+	}
 }
 
 func (m *Manager) Create(ctx context.Context, app model.AppInput) (*model.App, error) {
@@ -94,4 +106,23 @@ func (m *Manager) Get(ctx context.Context, name, namespace string) (*model.App, 
 	}
 	kapp.service = svc
 	return kapp.toApp(), nil
+}
+
+func (r *Manager) GetUserInfo(ctx context.Context) map[string]interface{} {
+	if ctx.Value(userInfo) == nil {
+		return map[string]interface{}{}
+	}
+	return ctx.Value(userInfo).(map[string]interface{})
+}
+
+func (r *Manager) SetUserInfo(ctx context.Context, userInfoData map[string]interface{}) context.Context {
+	return context.WithValue(ctx, userInfo, userInfoData)
+}
+
+func (r *Manager) GetJWTHash(hash string) (interface{}, bool) {
+	return r.jwtCache.Get(hash)
+}
+
+func (r *Manager) SetJWTHash(hash string, userInfo map[string]interface{}) {
+	r.jwtCache.Set(hash, userInfo, 1*time.Hour)
 }
