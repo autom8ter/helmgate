@@ -44,7 +44,7 @@ Usage of kdeploy:
 Given a running Kubernetes cluster, run:
 
 ```yaml
-curl https://raw.githubusercontent.com/graphikDB/kdeploy/master/k8s.yaml >> k8s.yaml
+curl https://raw.githubusercontent.com/autom8ter/kdeploy/master/k8s.yaml >> k8s.yaml
 ```
 
 inspect the manifest and add/adjust environmental variables in the deployment spec(see flags for supported environmental variables)
