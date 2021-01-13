@@ -2,7 +2,7 @@ package app
 
 import (
 	"fmt"
-	"github.com/graphikDB/kdeploy/gen/gql/go/model"
+	"github.com/autom8ter/kdeploy/gen/gql/go/model"
 	"github.com/spf13/cast"
 	apps "k8s.io/api/apps/v1"
 	v1 "k8s.io/api/core/v1"

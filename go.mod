@@ -1,4 +1,4 @@
-module github.com/graphikDB/kdeploy
+module github.com/autom8ter/kdeploy
 
 go 1.15
 
@@ -19,7 +19,7 @@ require (
 	github.com/vektah/gqlparser/v2 v2.1.0
 	go.uber.org/zap v1.16.0
 	golang.org/x/oauth2 v0.0.0-20200107190931-bf48bf16ab8d
-	google.golang.org/grpc v1.33.2
+	google.golang.org/grpc v1.33.2 // indirect
 	google.golang.org/protobuf v1.25.0
 	k8s.io/api v0.19.0
 	k8s.io/apimachinery v0.19.0

@@ -2,8 +2,8 @@ package app
 
 import (
 	"context"
+	"github.com/autom8ter/kdeploy/gen/gql/go/model"
 	"github.com/graphikDB/generic"
-	"github.com/graphikDB/kdeploy/gen/gql/go/model"
 	"github.com/graphikDB/kubego"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"time"

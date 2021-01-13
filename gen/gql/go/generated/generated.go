@@ -11,7 +11,7 @@ import (
 
 	"github.com/99designs/gqlgen/graphql"
 	"github.com/99designs/gqlgen/graphql/introspection"
-	"github.com/graphikDB/kdeploy/gen/gql/go/model"
+	"github.com/autom8ter/kdeploy/gen/gql/go/model"
 	gqlparser "github.com/vektah/gqlparser/v2"
 	"github.com/vektah/gqlparser/v2/ast"
 )
@@ -401,7 +401,7 @@ func (ec *executionContext) field_Mutation_createApp_args(ctx context.Context, r
 	var arg0 model.AppInput
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNAppInput2githubᚗcomᚋgraphikDBᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐAppInput(ctx, tmp)
+		arg0, err = ec.unmarshalNAppInput2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐAppInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -416,7 +416,7 @@ func (ec *executionContext) field_Mutation_updateApp_args(ctx context.Context, r
 	var arg0 model.AppInput
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNAppInput2githubᚗcomᚋgraphikDBᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐAppInput(ctx, tmp)
+		arg0, err = ec.unmarshalNAppInput2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐAppInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -808,7 +808,7 @@ func (ec *executionContext) _App_state(ctx context.Context, field graphql.Collec
 	}
 	res := resTmp.(*model.State)
 	fc.Result = res
-	return ec.marshalOState2ᚖgithubᚗcomᚋgraphikDBᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐState(ctx, field.Selections, res)
+	return ec.marshalOState2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐState(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _App_status(ctx context.Context, field graphql.CollectedField, obj *model.App) (ret graphql.Marshaler) {
@@ -843,7 +843,7 @@ func (ec *executionContext) _App_status(ctx context.Context, field graphql.Colle
 	}
 	res := resTmp.(*model.Status)
 	fc.Result = res
-	return ec.marshalNStatus2ᚖgithubᚗcomᚋgraphikDBᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐStatus(ctx, field.Selections, res)
+	return ec.marshalNStatus2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐStatus(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_createApp(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -882,7 +882,7 @@ func (ec *executionContext) _Mutation_createApp(ctx context.Context, field graph
 	}
 	res := resTmp.(*model.App)
 	fc.Result = res
-	return ec.marshalOApp2ᚖgithubᚗcomᚋgraphikDBᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx, field.Selections, res)
+	return ec.marshalOApp2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_updateApp(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -921,7 +921,7 @@ func (ec *executionContext) _Mutation_updateApp(ctx context.Context, field graph
 	}
 	res := resTmp.(*model.App)
 	fc.Result = res
-	return ec.marshalOApp2ᚖgithubᚗcomᚋgraphikDBᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx, field.Selections, res)
+	return ec.marshalOApp2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_getApp(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -960,7 +960,7 @@ func (ec *executionContext) _Query_getApp(ctx context.Context, field graphql.Col
 	}
 	res := resTmp.(*model.App)
 	fc.Result = res
-	return ec.marshalOApp2ᚖgithubᚗcomᚋgraphikDBᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx, field.Selections, res)
+	return ec.marshalOApp2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query___type(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -2405,7 +2405,7 @@ func (ec *executionContext) unmarshalInputAppInput(ctx context.Context, obj inte
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("state"))
-			it.State, err = ec.unmarshalOStateInput2ᚖgithubᚗcomᚋgraphikDBᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐStateInput(ctx, v)
+			it.State, err = ec.unmarshalOStateInput2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐStateInput(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -2915,7 +2915,7 @@ func (ec *executionContext) ___Type(ctx context.Context, sel ast.SelectionSet, o
 
 // region    ***************************** type.gotpl *****************************
 
-func (ec *executionContext) unmarshalNAppInput2githubᚗcomᚋgraphikDBᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐAppInput(ctx context.Context, v interface{}) (model.AppInput, error) {
+func (ec *executionContext) unmarshalNAppInput2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐAppInput(ctx context.Context, v interface{}) (model.AppInput, error) {
 	res, err := ec.unmarshalInputAppInput(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
@@ -2971,7 +2971,7 @@ func (ec *executionContext) marshalNMap2map(ctx context.Context, sel ast.Selecti
 	return res
 }
 
-func (ec *executionContext) marshalNStatus2ᚖgithubᚗcomᚋgraphikDBᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐStatus(ctx context.Context, sel ast.SelectionSet, v *model.Status) graphql.Marshaler {
+func (ec *executionContext) marshalNStatus2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐStatus(ctx context.Context, sel ast.SelectionSet, v *model.Status) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "must not be null")
@@ -3225,7 +3225,7 @@ func (ec *executionContext) marshalN__TypeKind2string(ctx context.Context, sel a
 	return res
 }
 
-func (ec *executionContext) marshalOApp2ᚖgithubᚗcomᚋgraphikDBᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx context.Context, sel ast.SelectionSet, v *model.App) graphql.Marshaler {
+func (ec *executionContext) marshalOApp2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx context.Context, sel ast.SelectionSet, v *model.App) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
@@ -3271,14 +3271,14 @@ func (ec *executionContext) marshalOMap2map(ctx context.Context, sel ast.Selecti
 	return graphql.MarshalMap(v)
 }
 
-func (ec *executionContext) marshalOState2ᚖgithubᚗcomᚋgraphikDBᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐState(ctx context.Context, sel ast.SelectionSet, v *model.State) graphql.Marshaler {
+func (ec *executionContext) marshalOState2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐState(ctx context.Context, sel ast.SelectionSet, v *model.State) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	return ec._State(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOStateInput2ᚖgithubᚗcomᚋgraphikDBᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐStateInput(ctx context.Context, v interface{}) (*model.StateInput, error) {
+func (ec *executionContext) unmarshalOStateInput2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐStateInput(ctx context.Context, v interface{}) (*model.StateInput, error) {
 	if v == nil {
 		return nil, nil
 	}

@@ -27,10 +27,10 @@ push:
 	git push origin v$(version)
 
 docker-build:
-	@docker build -t graphikdb/kdeploy:v$(version) .
+	@docker build -t colemanword/kdeploy:v$(version) .
 
 docker-push:
-	@docker push graphikdb/kdeploy:v$(version)
+	@docker push colemanword/kdeploy:v$(version)
 
 .PHONY: gql
 gql: ## regenerate graphql code

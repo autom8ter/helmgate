@@ -6,8 +6,8 @@ package gql
 import (
 	"context"
 
-	"github.com/graphikDB/kdeploy/gen/gql/go/generated"
-	"github.com/graphikDB/kdeploy/gen/gql/go/model"
+	"github.com/autom8ter/kdeploy/gen/gql/go/generated"
+	"github.com/autom8ter/kdeploy/gen/gql/go/model"
 )
 
 func (r *mutationResolver) CreateApp(ctx context.Context, input model.AppInput) (*model.App, error) {
