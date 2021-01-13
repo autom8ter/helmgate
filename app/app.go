@@ -3,8 +3,10 @@ package app
 import (
 	"context"
 	"github.com/autom8ter/kdeploy/gen/gql/go/model"
+	"github.com/autom8ter/kdeploy/logger"
 	"github.com/graphikDB/generic"
 	"github.com/graphikDB/kubego"
+	"go.uber.org/zap"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"time"
 )
@@ -18,12 +20,14 @@ const (
 type Manager struct {
 	client   *kubego.Client
 	jwtCache *generic.Cache
+	logger   *logger.Logger
 }
 
-func New(client *kubego.Client) *Manager {
+func New(client *kubego.Client, logger *logger.Logger) *Manager {
 	return &Manager{
 		client:   client,
 		jwtCache: generic.NewCache(1 * time.Minute),
+		logger:   logger,
 	}
 }
 
@@ -123,6 +127,34 @@ func (m *Manager) Get(ctx context.Context, name, namespace string) (*model.App, 
 	}
 	kapp.service = svc
 	return kapp.toApp(), nil
+}
+
+func (m *Manager) Delete(ctx context.Context, name, namespace string) error {
+	if err := m.client.Services(namespace).Delete(ctx, name, v1.DeleteOptions{}); err != nil {
+		m.logger.Error("failed to delete service",
+			zap.Error(err),
+			zap.String("name", name),
+			zap.String("namespace", namespace),
+		)
+
+	}
+	if err := m.client.StatefulSets(namespace).Delete(ctx, name, v1.DeleteOptions{}); err != nil {
+		if err := m.client.Deployments(namespace).Delete(ctx, name, v1.DeleteOptions{}); err != nil {
+			m.logger.Error("failed to delete deployment",
+				zap.Error(err),
+				zap.String("name", name),
+				zap.String("namespace", namespace),
+			)
+		}
+	}
+	if err := m.client.Namespaces().Delete(ctx, namespace, v1.DeleteOptions{}); err != nil {
+		m.logger.Error("failed to delete namespace",
+			zap.Error(err),
+			zap.String("name", name),
+			zap.String("namespace", namespace),
+		)
+	}
+	return nil
 }
 
 func (r *Manager) GetUserInfo(ctx context.Context) map[string]interface{} {

@@ -41,8 +41,6 @@ type App {
     replicas: Int!
     # state is optional: use if the application is stateful
     state: State
-    # status of various components in k8s cluster (svc/deployment/namespace)
-    status: Status!
 }
 
 type State {
@@ -51,15 +49,10 @@ type State {
     storage_size: String!
 }
 
-type Status {
-    namespace: String!
-    deployment: String!
-    load_balancer: String!
-}
-
 type Mutation {
     createApp(input: AppInput!): App
     updateApp(input: AppInput!): App
+    delApp(name: String!, namespace: String!): String
 }
 
 type Query {

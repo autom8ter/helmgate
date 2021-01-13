@@ -44,7 +44,7 @@ type Resolver struct {
 
 func NewResolver(client *kubego.Client, cors *cors.Cors, config *oauth2.Config, logger *logger.Logger, userInfoEndpoint string) *Resolver {
 	return &Resolver{
-		client:      app.New(client),
+		client:      app.New(client, logger),
 		cors:        cors,
 		config:      config,
 		tokenCookie: "graphik-playground-token",

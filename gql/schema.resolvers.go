@@ -18,6 +18,10 @@ func (r *mutationResolver) UpdateApp(ctx context.Context, input model.AppInput) 
 	return r.client.Update(ctx, input)
 }
 
+func (r *mutationResolver) DelApp(ctx context.Context, name string, namespace string) (*string, error) {
+	return nil, r.client.Delete(ctx, name, namespace)
+}
+
 func (r *queryResolver) GetApp(ctx context.Context, name string, namespace string) (*model.App, error) {
 	return r.client.Get(ctx, name, namespace)
 }

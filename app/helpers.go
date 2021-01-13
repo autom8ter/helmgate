@@ -220,10 +220,8 @@ func (k *k8sApp) toApp() *model.App {
 		Name:      k.service.Name,
 		Namespace: k.service.Namespace,
 		State:     nil,
-		Status:    nil,
 	}
 	var state *model.State
-	a.Status = &model.Status{}
 	if k.deployment != nil {
 		a.Replicas = int(*k.deployment.Spec.Replicas)
 		a.Image = k.deployment.Spec.Template.Spec.Containers[0].Image
@@ -237,7 +235,6 @@ func (k *k8sApp) toApp() *model.App {
 			ports[p.Name] = p.ContainerPort
 		}
 		a.Ports = ports
-		a.Status.Deployment = k.deployment.Status.String()
 	}
 	if k.statefulset != nil {
 		a.Replicas = int(*k.statefulset.Spec.Replicas)
@@ -252,18 +249,12 @@ func (k *k8sApp) toApp() *model.App {
 			ports[p.Name] = p.ContainerPort
 		}
 		a.Ports = ports
-		a.Status.Deployment = k.statefulset.Status.String()
+
 		state = &model.State{
 			Statefulset: true,
 			StoragePath: k.statefulset.Spec.Template.Spec.Containers[0].VolumeMounts[0].MountPath,
 			StorageSize: k.statefulset.Spec.VolumeClaimTemplates[0].Spec.Resources.Requests.Storage().String(),
 		}
-	}
-	if k.service != nil {
-		a.Status.LoadBalancer = k.service.Status.String()
-	}
-	if k.namespace != nil {
-		a.Status.Namespace = k.namespace.Status.String()
 	}
 	a.State = state
 	return a
