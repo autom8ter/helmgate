@@ -14,7 +14,7 @@ func (r *mutationResolver) CreateApp(ctx context.Context, input model.AppInput) 
 	return r.client.Create(ctx, input)
 }
 
-func (r *mutationResolver) UpdateApp(ctx context.Context, input model.AppInput) (*model.App, error) {
+func (r *mutationResolver) UpdateApp(ctx context.Context, input model.AppUpdate) (*model.App, error) {
 	return r.client.Update(ctx, input)
 }
 

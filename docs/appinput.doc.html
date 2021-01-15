@@ -105,11 +105,6 @@
                 Replica
             </a>
         </li>
-        <li  title="State">
-            <a href="state.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                State
-            </a>
-        </li>
         <li  title="Status">
             <a href="status.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Status
@@ -155,9 +150,9 @@
                 AppInput
             </a>
         </li>
-        <li  title="StateInput">
-            <a href="stateinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                StateInput
+        <li  title="AppUpdate">
+            <a href="appupdate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                AppUpdate
             </a>
         </li>
     </ul>
@@ -208,7 +203,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">input</span> <span class="identifier">AppInput</span> {</li><li><span class="tab"><li><span class="tab"><span class="comment line">#   name of the application</span></span></li><li><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a>!</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   application namespace</span></span></li><li><span class="tab"><span class="meta">namespace</span>: <a class="support type" href="string.doc.html">String</a>!</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   docker image of application</span></span></li><li><span class="tab"><span class="meta">image</span>: <a class="support type" href="string.doc.html">String</a>!</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   k/v map of environmental variables</span></span></li><li><span class="tab"><span class="meta">env</span>: <a class="support type" href="map.doc.html">Map</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   k/v map of ports to expose ex: http: 80 https: 443</span></span></li><li><span class="tab"><span class="meta">ports</span>: <a class="support type" href="map.doc.html">Map</a>!</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   number of deployment replicas min:1</span></span></li><li><span class="tab"><span class="meta">replicas</span>: <a class="support type" href="int.doc.html">Int</a>!</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   state is optional: use if the application is stateful</span></span></li><li><span class="tab"><span class="meta">state</span>: <a class="support type" href="stateinput.doc.html">StateInput</a></span></li></span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">input</span> <span class="identifier">AppInput</span> {</li><li><span class="tab"><li><span class="tab"><span class="comment line">#   name of the application</span></span></li><li><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a>!</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   application namespace</span></span></li><li><span class="tab"><span class="meta">namespace</span>: <a class="support type" href="string.doc.html">String</a>!</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   docker image of application</span></span></li><li><span class="tab"><span class="meta">image</span>: <a class="support type" href="string.doc.html">String</a>!</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   k/v map of environmental variables</span></span></li><li><span class="tab"><span class="meta">env</span>: <a class="support type" href="map.doc.html">Map</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   k/v map of ports to expose ex: http: 80 https: 443</span></span></li><li><span class="tab"><span class="meta">ports</span>: <a class="support type" href="map.doc.html">Map</a>!</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   number of deployment replicas min:1</span></span></li><li><span class="tab"><span class="meta">replicas</span>: <a class="support type" href="int.doc.html">Int</a>!</span></li></span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>

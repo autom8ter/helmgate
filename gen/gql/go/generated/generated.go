@@ -51,7 +51,6 @@ type ComplexityRoot struct {
 		Namespace func(childComplexity int) int
 		Ports     func(childComplexity int) int
 		Replicas  func(childComplexity int) int
-		State     func(childComplexity int) int
 		Status    func(childComplexity int) int
 	}
 
@@ -62,7 +61,7 @@ type ComplexityRoot struct {
 	Mutation struct {
 		CreateApp func(childComplexity int, input model.AppInput) int
 		DelApp    func(childComplexity int, name string, namespace string) int
-		UpdateApp func(childComplexity int, input model.AppInput) int
+		UpdateApp func(childComplexity int, input model.AppUpdate) int
 	}
 
 	Query struct {
@@ -73,12 +72,6 @@ type ComplexityRoot struct {
 		Condition func(childComplexity int) int
 		Phase     func(childComplexity int) int
 		Reason    func(childComplexity int) int
-	}
-
-	State struct {
-		Statefulset func(childComplexity int) int
-		StoragePath func(childComplexity int) int
-		StorageSize func(childComplexity int) int
 	}
 
 	Status struct {
@@ -92,7 +85,7 @@ type ComplexityRoot struct {
 
 type MutationResolver interface {
 	CreateApp(ctx context.Context, input model.AppInput) (*model.App, error)
-	UpdateApp(ctx context.Context, input model.AppInput) (*model.App, error)
+	UpdateApp(ctx context.Context, input model.AppUpdate) (*model.App, error)
 	DelApp(ctx context.Context, name string, namespace string) (*string, error)
 }
 type QueryResolver interface {
@@ -159,13 +152,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.App.Replicas(childComplexity), true
 
-	case "App.state":
-		if e.complexity.App.State == nil {
-			break
-		}
-
-		return e.complexity.App.State(childComplexity), true
-
 	case "App.status":
 		if e.complexity.App.Status == nil {
 			break
@@ -214,7 +200,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Mutation.UpdateApp(childComplexity, args["input"].(model.AppInput)), true
+		return e.complexity.Mutation.UpdateApp(childComplexity, args["input"].(model.AppUpdate)), true
 
 	case "Query.getApp":
 		if e.complexity.Query.GetApp == nil {
@@ -248,27 +234,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Replica.Reason(childComplexity), true
-
-	case "State.statefulset":
-		if e.complexity.State.Statefulset == nil {
-			break
-		}
-
-		return e.complexity.State.Statefulset(childComplexity), true
-
-	case "State.storage_path":
-		if e.complexity.State.StoragePath == nil {
-			break
-		}
-
-		return e.complexity.State.StoragePath(childComplexity), true
-
-	case "State.storage_size":
-		if e.complexity.State.StorageSize == nil {
-			break
-		}
-
-		return e.complexity.State.StorageSize(childComplexity), true
 
 	case "Status.replicas":
 		if e.complexity.Status.Replicas == nil {
@@ -388,15 +353,26 @@ input AppInput {
     ports: Map!
     # number of deployment replicas min:1
     replicas: Int!
-    # state is optional: use if the application is stateful
-    state: StateInput
 }
 
-input StateInput {
-    statefulset: Boolean!
-    storage_path: String!
-    storage_size: String!
+input AppUpdate {
+    # name of the application
+    name: String!
+    # application namespace
+    namespace: String!
+    # dry run
+    dry_run: Boolean
+    # docker image of application
+    image: String
+    # k/v map of environmental variables
+    env: Map
+    # k/v map of ports to expose ex: http: 80 https: 443
+    ports: Map
+    # number of deployment replicas min:1
+    replicas: Int
 }
+
+
 
 type App {
     # name of the application
@@ -411,16 +387,8 @@ type App {
     ports: Map!
     # number of deployment replicas min:1
     replicas: Int!
-    # state is optional: use if the application is stateful
-    state: State
     # status tracks the state of the application during it's lifecycle
     status: Status!
-}
-
-type State {
-    statefulset: Boolean!
-    storage_path: String!
-    storage_size: String!
 }
 
 type Replica {
@@ -439,7 +407,7 @@ type Log {
 
 type Mutation {
     createApp(input: AppInput!): App
-    updateApp(input: AppInput!): App
+    updateApp(input: AppUpdate!): App
     delApp(name: String!, namespace: String!): String
 }
 
@@ -500,10 +468,10 @@ func (ec *executionContext) field_Mutation_delApp_args(ctx context.Context, rawA
 func (ec *executionContext) field_Mutation_updateApp_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 model.AppInput
+	var arg0 model.AppUpdate
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNAppInput2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐAppInput(ctx, tmp)
+		arg0, err = ec.unmarshalNAppUpdate2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐAppUpdate(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -820,38 +788,6 @@ func (ec *executionContext) _App_replicas(ctx context.Context, field graphql.Col
 	return ec.marshalNInt2int(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _App_state(ctx context.Context, field graphql.CollectedField, obj *model.App) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "App",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.State, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.State)
-	fc.Result = res
-	return ec.marshalOState2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐState(ctx, field.Selections, res)
-}
-
 func (ec *executionContext) _App_status(ctx context.Context, field graphql.CollectedField, obj *model.App) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -986,7 +922,7 @@ func (ec *executionContext) _Mutation_updateApp(ctx context.Context, field graph
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateApp(rctx, args["input"].(model.AppInput))
+		return ec.resolvers.Mutation().UpdateApp(rctx, args["input"].(model.AppUpdate))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -1238,111 +1174,6 @@ func (ec *executionContext) _Replica_reason(ctx context.Context, field graphql.C
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return obj.Reason, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(string)
-	fc.Result = res
-	return ec.marshalNString2string(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _State_statefulset(ctx context.Context, field graphql.CollectedField, obj *model.State) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "State",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Statefulset, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(bool)
-	fc.Result = res
-	return ec.marshalNBoolean2bool(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _State_storage_path(ctx context.Context, field graphql.CollectedField, obj *model.State) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "State",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.StoragePath, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(string)
-	fc.Result = res
-	return ec.marshalNString2string(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _State_storage_size(ctx context.Context, field graphql.CollectedField, obj *model.State) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "State",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.StorageSize, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -2587,47 +2418,71 @@ func (ec *executionContext) unmarshalInputAppInput(ctx context.Context, obj inte
 			if err != nil {
 				return it, err
 			}
-		case "state":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("state"))
-			it.State, err = ec.unmarshalOStateInput2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐStateInput(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		}
 	}
 
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputStateInput(ctx context.Context, obj interface{}) (model.StateInput, error) {
-	var it model.StateInput
+func (ec *executionContext) unmarshalInputAppUpdate(ctx context.Context, obj interface{}) (model.AppUpdate, error) {
+	var it model.AppUpdate
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
 		switch k {
-		case "statefulset":
+		case "name":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("statefulset"))
-			it.Statefulset, err = ec.unmarshalNBoolean2bool(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "storage_path":
+		case "namespace":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("storage_path"))
-			it.StoragePath, err = ec.unmarshalNString2string(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("namespace"))
+			it.Namespace, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "storage_size":
+		case "dry_run":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("storage_size"))
-			it.StorageSize, err = ec.unmarshalNString2string(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("dry_run"))
+			it.DryRun, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "image":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("image"))
+			it.Image, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "env":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("env"))
+			it.Env, err = ec.unmarshalOMap2map(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "ports":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ports"))
+			it.Ports, err = ec.unmarshalOMap2map(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "replicas":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("replicas"))
+			it.Replicas, err = ec.unmarshalOInt2ᚖint(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -2683,8 +2538,6 @@ func (ec *executionContext) _App(ctx context.Context, sel ast.SelectionSet, obj 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "state":
-			out.Values[i] = ec._App_state(ctx, field, obj)
 		case "status":
 			out.Values[i] = ec._App_status(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
@@ -2824,43 +2677,6 @@ func (ec *executionContext) _Replica(ctx context.Context, sel ast.SelectionSet, 
 			}
 		case "reason":
 			out.Values[i] = ec._Replica_reason(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var stateImplementors = []string{"State"}
-
-func (ec *executionContext) _State(ctx context.Context, sel ast.SelectionSet, obj *model.State) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, stateImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("State")
-		case "statefulset":
-			out.Values[i] = ec._State_statefulset(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "storage_path":
-			out.Values[i] = ec._State_storage_path(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "storage_size":
-			out.Values[i] = ec._State_storage_size(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
@@ -3169,6 +2985,11 @@ func (ec *executionContext) ___Type(ctx context.Context, sel ast.SelectionSet, o
 
 func (ec *executionContext) unmarshalNAppInput2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐAppInput(ctx context.Context, v interface{}) (model.AppInput, error) {
 	res, err := ec.unmarshalInputAppInput(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNAppUpdate2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐAppUpdate(ctx context.Context, v interface{}) (model.AppUpdate, error) {
+	res, err := ec.unmarshalInputAppUpdate(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
@@ -3545,6 +3366,21 @@ func (ec *executionContext) marshalOBoolean2ᚖbool(ctx context.Context, sel ast
 	return graphql.MarshalBoolean(*v)
 }
 
+func (ec *executionContext) unmarshalOInt2ᚖint(ctx context.Context, v interface{}) (*int, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := graphql.UnmarshalInt(v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOInt2ᚖint(ctx context.Context, sel ast.SelectionSet, v *int) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return graphql.MarshalInt(*v)
+}
+
 func (ec *executionContext) unmarshalOMap2map(ctx context.Context, v interface{}) (map[string]interface{}, error) {
 	if v == nil {
 		return nil, nil
@@ -3565,21 +3401,6 @@ func (ec *executionContext) marshalOReplica2ᚖgithubᚗcomᚋautom8terᚋkdeplo
 		return graphql.Null
 	}
 	return ec._Replica(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOState2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐState(ctx context.Context, sel ast.SelectionSet, v *model.State) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._State(ctx, sel, v)
-}
-
-func (ec *executionContext) unmarshalOStateInput2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐStateInput(ctx context.Context, v interface{}) (*model.StateInput, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputStateInput(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalOString2string(ctx context.Context, v interface{}) (string, error) {

@@ -9,7 +9,6 @@ type App struct {
 	Env       map[string]interface{} `json:"env"`
 	Ports     map[string]interface{} `json:"ports"`
 	Replicas  int                    `json:"replicas"`
-	State     *State                 `json:"state"`
 	Status    *Status                `json:"status"`
 }
 
@@ -20,7 +19,16 @@ type AppInput struct {
 	Env       map[string]interface{} `json:"env"`
 	Ports     map[string]interface{} `json:"ports"`
 	Replicas  int                    `json:"replicas"`
-	State     *StateInput            `json:"state"`
+}
+
+type AppUpdate struct {
+	Name      string                 `json:"name"`
+	Namespace string                 `json:"namespace"`
+	DryRun    *bool                  `json:"dry_run"`
+	Image     *string                `json:"image"`
+	Env       map[string]interface{} `json:"env"`
+	Ports     map[string]interface{} `json:"ports"`
+	Replicas  *int                   `json:"replicas"`
 }
 
 type Log struct {
@@ -31,18 +39,6 @@ type Replica struct {
 	Phase     string `json:"phase"`
 	Condition string `json:"condition"`
 	Reason    string `json:"reason"`
-}
-
-type State struct {
-	Statefulset bool   `json:"statefulset"`
-	StoragePath string `json:"storage_path"`
-	StorageSize string `json:"storage_size"`
-}
-
-type StateInput struct {
-	Statefulset bool   `json:"statefulset"`
-	StoragePath string `json:"storage_path"`
-	StorageSize string `json:"storage_size"`
 }
 
 type Status struct {

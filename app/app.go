@@ -59,27 +59,15 @@ func (m *Manager) Create(ctx context.Context, app model.AppInput) (*model.App, e
 		return nil, err
 	}
 	kapp.namespace = namespace
-	if app.State != nil {
-		ss, err := toStatefulSet(app)
-		if err != nil {
-			return nil, err
-		}
-		statefulset, err := m.client.StatefulSets(app.Namespace).Create(ctx, ss, v1.CreateOptions{})
-		if err != nil {
-			return nil, err
-		}
-		kapp.statefulset = statefulset
-	} else {
-		dep, err := toDeployment(app)
-		if err != nil {
-			return nil, err
-		}
-		deployment, err := m.client.Deployments(app.Namespace).Create(ctx, dep, v1.CreateOptions{})
-		if err != nil {
-			return nil, err
-		}
-		kapp.deployment = deployment
+	dep, err := toDeployment(app)
+	if err != nil {
+		return nil, err
 	}
+	deployment, err := m.client.Deployments(app.Namespace).Create(ctx, dep, v1.CreateOptions{})
+	if err != nil {
+		return nil, err
+	}
+	kapp.deployment = deployment
 	svc, err := m.client.Services(app.Namespace).Create(ctx, toService(app), v1.CreateOptions{})
 	if err != nil {
 		return nil, err
@@ -94,35 +82,32 @@ func (m *Manager) Create(ctx context.Context, app model.AppInput) (*model.App, e
 	return a, nil
 }
 
-func (m *Manager) Update(ctx context.Context, app model.AppInput) (*model.App, error) {
+func (m *Manager) Update(ctx context.Context, app model.AppUpdate) (*model.App, error) {
 	kapp := &k8sApp{}
-	namespace, err := m.client.Namespaces().Update(ctx, toNamespace(app), v1.UpdateOptions{})
+	namespace, err := m.client.Namespaces().Get(ctx, app.Namespace, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.namespace = namespace
-	if app.State != nil {
-		ss, err := toStatefulSet(app)
-		if err != nil {
-			return nil, err
-		}
-		statefulset, err := m.client.StatefulSets(app.Namespace).Update(ctx, ss, v1.UpdateOptions{})
-		if err != nil {
-			return nil, err
-		}
-		kapp.statefulset = statefulset
-	} else {
-		dep, err := toDeployment(app)
-		if err != nil {
-			return nil, err
-		}
-		deployment, err := m.client.Deployments(app.Namespace).Update(ctx, dep, v1.UpdateOptions{})
-		if err != nil {
-			return nil, err
-		}
-		kapp.deployment = deployment
+	deployment, err := m.client.Deployments(app.Namespace).Get(ctx, app.Name, v1.GetOptions{})
+	if err != nil {
+		return nil, err
 	}
-	svc, err := m.client.Services(app.Namespace).Update(ctx, toService(app), v1.UpdateOptions{})
+	deployment, err = overwriteDeployment(deployment, app)
+	if err != nil {
+		return nil, err
+	}
+	deployment, err = m.client.Deployments(app.Namespace).Update(ctx, deployment, v1.UpdateOptions{})
+	if err != nil {
+		return nil, err
+	}
+	kapp.deployment = deployment
+	svc, err := m.client.Services(app.Namespace).Get(ctx, app.Name, v1.GetOptions{})
+	if err != nil {
+		return nil, err
+	}
+	svc = overwriteService(svc, app)
+	svc, err = m.client.Services(app.Namespace).Update(ctx, svc, v1.UpdateOptions{})
 	if err != nil {
 		return nil, err
 	}
@@ -144,16 +129,11 @@ func (m *Manager) Get(ctx context.Context, name, namespace string) (*model.App, 
 		return nil, err
 	}
 	kapp.namespace = ns
-	statefulset, err := m.client.StatefulSets(namespace).Get(ctx, name, v1.GetOptions{})
-	if err == nil {
-		kapp.statefulset = statefulset
-	} else {
-		deployment, err := m.client.Deployments(namespace).Get(ctx, name, v1.GetOptions{})
-		if err == nil {
-			kapp.deployment = deployment
-		}
+	deployment, err := m.client.Deployments(namespace).Get(ctx, name, v1.GetOptions{})
+	if err != nil {
+		return nil, err
 	}
-
+	kapp.deployment = deployment
 	svc, err := m.client.Services(namespace).Get(ctx, name, v1.GetOptions{})
 	if err != nil {
 		return nil, err

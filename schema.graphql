@@ -16,14 +16,23 @@ input AppInput {
     ports: Map!
     # number of deployment replicas min:1
     replicas: Int!
-    # state is optional: use if the application is stateful
-    state: StateInput
 }
 
-input StateInput {
-    statefulset: Boolean!
-    storage_path: String!
-    storage_size: String!
+input AppUpdate {
+    # name of the application
+    name: String!
+    # application namespace
+    namespace: String!
+    # dry run
+    dry_run: Boolean
+    # docker image of application
+    image: String
+    # k/v map of environmental variables
+    env: Map
+    # k/v map of ports to expose ex: http: 80 https: 443
+    ports: Map
+    # number of deployment replicas min:1
+    replicas: Int
 }
 
 type App {
@@ -39,16 +48,8 @@ type App {
     ports: Map!
     # number of deployment replicas min:1
     replicas: Int!
-    # state is optional: use if the application is stateful
-    state: State
     # status tracks the state of the application during it's lifecycle
     status: Status!
-}
-
-type State {
-    statefulset: Boolean!
-    storage_path: String!
-    storage_size: String!
 }
 
 type Replica {
@@ -67,7 +68,7 @@ type Log {
 
 type Mutation {
     createApp(input: AppInput!): App
-    updateApp(input: AppInput!): App
+    updateApp(input: AppUpdate!): App
     delApp(name: String!, namespace: String!): String
 }
 
