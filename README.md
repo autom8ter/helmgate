@@ -9,10 +9,19 @@ an OAuth-protected graphQL API for deploying "serverless" kubernetes application
 
 ## Features
 
+- [x] [gRPC API](kdeploy.proto)
+    - [x] [golang client sdk](gen/grpc/go)
+    - [x] [javascript client sdk](gen/grpc/js)
+    - [x] [java client sdk](gen/grpc/java)
+    - [x] [php client sdk](gen/grpc/php)
+    - [x] [python client sdk](gen/grpc/python)
+    - [x] [ruby client sdk](gen/grpc/ruby)
+    - [x] [csharp client sdk](gen/grpc/csharp)
+- [x] [graphQL API](schema.graphql)
+- [x] SSO/Oauth protected graphQL playground(autocomplete/schema-documentation/query-console)
 - [x] Run in cluster
 - [x] Run out of cluster
 - [x] OpenID Connect based Authentication
-- [x] SSO/Oauth protected graphQL playground(autocomplete/schema-documentation/query-console)
 - [x] Create Application
 - [x] Update Application
 - [x] Get Application

@@ -2,26 +2,24 @@ package gql
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/handler/apollotracing"
 	"github.com/99designs/gqlgen/graphql/handler/extension"
 	"github.com/99designs/gqlgen/graphql/handler/lru"
 	"github.com/99designs/gqlgen/graphql/handler/transport"
-	"github.com/autom8ter/kdeploy/app"
 	"github.com/autom8ter/kdeploy/gen/gql/go/generated"
+	kdeploypb "github.com/autom8ter/kdeploy/gen/grpc/go"
 	"github.com/autom8ter/kdeploy/helpers"
 	"github.com/autom8ter/kdeploy/logger"
-	"github.com/autom8ter/kubego"
 	"github.com/gorilla/websocket"
 	"github.com/graphikDB/generic"
 	"github.com/pkg/errors"
 	"github.com/rs/cors"
 	"go.uber.org/zap"
 	"golang.org/x/oauth2"
+	"google.golang.org/grpc/metadata"
 	"html/template"
-	"io/ioutil"
 	"math/rand"
 	"net/http"
 	"time"
@@ -32,7 +30,7 @@ import (
 // It serves as dependency injection for your app, add any dependencies you require here.
 
 type Resolver struct {
-	client      *app.Manager
+	client      kdeploypb.KdeployServiceClient
 	cors        *cors.Cors
 	store       generic.Cache
 	config      *oauth2.Config
@@ -42,9 +40,9 @@ type Resolver struct {
 	userInfo    string
 }
 
-func NewResolver(client *kubego.Client, cors *cors.Cors, config *oauth2.Config, logger *logger.Logger, userInfoEndpoint string) *Resolver {
+func NewResolver(client kdeploypb.KdeployServiceClient, cors *cors.Cors, config *oauth2.Config, logger *logger.Logger, userInfoEndpoint string) *Resolver {
 	return &Resolver{
-		client:      app.New(client, logger),
+		client:      client,
 		cors:        cors,
 		config:      config,
 		tokenCookie: "graphik-playground-token",
@@ -68,6 +66,8 @@ func (r *Resolver) QueryHandler() http.Handler {
 			},
 		},
 		InitFunc: func(ctx context.Context, initPayload transport.InitPayload) (context.Context, error) {
+			auth := initPayload.Authorization()
+			ctx = metadata.AppendToOutgoingContext(ctx, "Authorization", auth)
 			return ctx, nil
 		},
 		KeepAlivePingInterval: 10 * time.Second,
@@ -92,46 +92,14 @@ func (r *Resolver) authMiddleware(handler http.Handler) http.HandlerFunc {
 			token, _ := r.getToken(req)
 			if token != nil && req.Header.Get("Authorization") == "" {
 				req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", token.AccessToken))
-			} else {
-				r.redirectLogin(w, req)
-				return
 			}
 		}
-		var authHeader = req.Header.Get("Authorization")
-		tokenHash := helpers.Hash([]byte(authHeader))
-		if val, ok := r.client.GetJWTHash(tokenHash); ok {
-			payload := val.(map[string]interface{})
-			handler.ServeHTTP(w, req.WithContext(r.client.SetUserInfo(ctx, payload)))
-			return
+		for k, arr := range req.Header {
+			if len(arr) > 0 {
+				ctx = metadata.AppendToOutgoingContext(ctx, k, arr[0])
+			}
 		}
-		userinfoReq, err := http.NewRequest(http.MethodGet, r.userInfo, nil)
-		if err != nil {
-			http.Error(w, fmt.Sprintf("failed to get userinfo: %s", err.Error()), http.StatusInternalServerError)
-			return
-		}
-		userinfoReq.Header.Set("Authorization", authHeader)
-		resp, err := http.DefaultClient.Do(userinfoReq)
-		if err != nil {
-			http.Error(w, fmt.Sprintf("failed to get userinfo: %s", err.Error()), http.StatusUnauthorized)
-			return
-		}
-		defer resp.Body.Close()
-		if resp.StatusCode != 200 {
-			http.Error(w, fmt.Sprintf("failed to get userinfo: %v", resp.StatusCode), http.StatusUnauthorized)
-			return
-		}
-		bits, err := ioutil.ReadAll(resp.Body)
-		if err != nil {
-			http.Error(w, fmt.Sprintf("failed to get userinfo: %s", err.Error()), http.StatusInternalServerError)
-			return
-		}
-		payload := map[string]interface{}{}
-		if err := json.Unmarshal(bits, &payload); err != nil {
-			http.Error(w, fmt.Sprintf("failed to get userinfo: %s", err.Error()), http.StatusInternalServerError)
-			return
-		}
-		r.client.SetJWTHash(tokenHash, payload)
-		handler.ServeHTTP(w, req.WithContext(r.client.SetUserInfo(ctx, payload)))
+		handler.ServeHTTP(w, req.WithContext(ctx))
 	}
 }
 

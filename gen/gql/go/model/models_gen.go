@@ -12,13 +12,18 @@ type App struct {
 	Status    *Status                `json:"status"`
 }
 
-type AppInput struct {
+type AppConstructor struct {
 	Name      string                 `json:"name"`
 	Namespace string                 `json:"namespace"`
 	Image     string                 `json:"image"`
 	Env       map[string]interface{} `json:"env"`
 	Ports     map[string]interface{} `json:"ports"`
 	Replicas  int                    `json:"replicas"`
+}
+
+type AppRef struct {
+	Name      string `json:"name"`
+	Namespace string `json:"namespace"`
 }
 
 type AppUpdate struct {
@@ -33,6 +38,11 @@ type AppUpdate struct {
 
 type Log struct {
 	Message string `json:"message"`
+}
+
+type LogFilter struct {
+	App        *AppRef `json:"app"`
+	Expression *string `json:"expression"`
 }
 
 type Replica struct {

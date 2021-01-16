@@ -1,0 +1,87 @@
+syntax = "proto3";
+
+package kdeploy;
+
+option go_package = "kdeploypb";
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/empty.proto";
+import "github.com/mwitkow/go-proto-validators/validator.proto";
+
+message App {
+  // name of the application
+  string name =1;
+  // application namespace
+  string namespace =2;
+  // docker image of application
+  string image =3;
+  // k/v map of environmental variables
+  map<string, string> env =4;
+  // k/v map of ports to expose ex: http: 80 https: 443
+  map<string, uint32> ports =5;
+  // number of deployment replicas
+  uint32 replicas =6;
+  // status tracks the state of the application during it's lifecycle
+  Status status =7;
+}
+
+message AppConstructor {
+  // name of the application
+  string name =1[(validator.field) = {regex : "^.{1,225}$"}];
+  // application namespace
+  string namespace =2[(validator.field) = {regex : "^.{1,225}$"}];
+  // docker image of application
+  string image =3[(validator.field) = {regex : "^.{1,225}$"}];
+  // k/v map of environmental variables
+  map<string, string> env =4;
+  // k/v map of ports to expose ex: http: 80 https: 443
+  map<string, uint32> ports =5;
+  // number of deployment replicas
+  uint32 replicas =6;
+}
+
+message AppUpdate {
+  // name of the application
+  string name =1[(validator.field) = {regex : "^.{1,225}$"}];
+  // application namespace
+  string namespace =2[(validator.field) = {regex : "^.{1,225}$"}];
+  // docker image of application
+  string image =3;
+  // k/v map of environmental variables
+  map<string, string> env =4;
+  // k/v map of ports to expose ex: http: 80 https: 443
+  map<string, uint32> ports =5;
+  // number of deployment replicas
+  uint32 replicas =6;
+}
+
+message AppRef {
+  // name of the application
+  string name =1[(validator.field) = {regex : "^.{1,225}$"}];
+  // application namespace
+  string namespace =2[(validator.field) = {regex : "^.{1,225}$"}];
+}
+
+message Replica {
+  string phase =1;
+  string condition =2;
+  string reason =3;
+}
+
+message Status {
+  repeated Replica replicas =1;
+}
+
+message Log {
+  string message =1;
+}
+
+service KdeployService {
+  rpc CreateApp(AppConstructor) returns(App){}
+  rpc UpdateApp(AppUpdate) returns(App){}
+  rpc DeleteApp(AppRef) returns(google.protobuf.Empty){}
+  rpc GetApp(AppRef) returns(App){}
+  rpc Logs(AppRef) returns (stream Log){}
+}

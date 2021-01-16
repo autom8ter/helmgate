@@ -3,38 +3,6 @@ scalar Time
 # Map is a k/v map where the key is a string and the value is any value
 scalar Map
 
-input AppInput {
-    # name of the application
-    name: String!
-    # application namespace
-    namespace: String!
-    # docker image of application
-    image: String!
-    # k/v map of environmental variables
-    env: Map
-    # k/v map of ports to expose ex: http: 80 https: 443
-    ports: Map!
-    # number of deployment replicas min:1
-    replicas: Int!
-}
-
-input AppUpdate {
-    # name of the application
-    name: String!
-    # application namespace
-    namespace: String!
-    # dry run
-    dry_run: Boolean
-    # docker image of application
-    image: String
-    # k/v map of environmental variables
-    env: Map
-    # k/v map of ports to expose ex: http: 80 https: 443
-    ports: Map
-    # number of deployment replicas min:1
-    replicas: Int
-}
-
 type App {
     # name of the application
     name: String!
@@ -66,16 +34,59 @@ type Log {
     message: String!
 }
 
+
+input AppConstructor {
+    # name of the application
+    name: String!
+    # application namespace
+    namespace: String!
+    # docker image of application
+    image: String!
+    # k/v map of environmental variables
+    env: Map
+    # k/v map of ports to expose ex: http: 80 https: 443
+    ports: Map!
+    # number of deployment replicas min:1
+    replicas: Int!
+}
+
+input AppUpdate {
+    # name of the application
+    name: String!
+    # application namespace
+    namespace: String!
+    # docker image of application
+    image: String
+    # k/v map of environmental variables
+    env: Map
+    # k/v map of ports to expose ex: http: 80 https: 443
+    ports: Map
+    # number of deployment replicas min:1
+    replicas: Int
+}
+
+input AppRef {
+    # name of the application
+    name: String!
+    # application namespace
+    namespace: String!
+}
+
+input LogFilter {
+    app: AppRef
+    expression: String
+}
+
 type Mutation {
-    createApp(input: AppInput!): App
+    createApp(input: AppConstructor!): App
     updateApp(input: AppUpdate!): App
-    delApp(name: String!, namespace: String!): String
+    delApp(input: AppRef): String
 }
 
 type Query {
-    getApp(name: String!, namespace: String!): App
+    getApp(input: AppRef): App
 }
 
 type Subscription {
-    logs(name: String!, namespace: String!): String!
+    logs(input: AppRef): String!
 }

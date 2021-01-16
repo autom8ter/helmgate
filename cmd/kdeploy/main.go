@@ -4,11 +4,18 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"github.com/autom8ter/kdeploy/client"
+	kdeploypb "github.com/autom8ter/kdeploy/gen/grpc/go"
 	"github.com/autom8ter/kdeploy/gql"
 	"github.com/autom8ter/kdeploy/helpers"
 	"github.com/autom8ter/kdeploy/logger"
+	"github.com/autom8ter/kdeploy/service"
 	"github.com/autom8ter/kubego"
 	"github.com/autom8ter/machine"
+	grpc_zap "github.com/grpc-ecosystem/go-grpc-middleware/logging/zap"
+	grpc_recovery "github.com/grpc-ecosystem/go-grpc-middleware/recovery"
+	grpc_validator "github.com/grpc-ecosystem/go-grpc-middleware/validator"
+	grpc_prometheus "github.com/grpc-ecosystem/go-grpc-prometheus"
 	"github.com/joho/godotenv"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/rs/cors"
@@ -16,6 +23,8 @@ import (
 	"github.com/spf13/pflag"
 	"go.uber.org/zap"
 	"golang.org/x/oauth2"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/reflection"
 	"io/ioutil"
 	"net"
 	"net/http"
@@ -150,19 +159,21 @@ func run(ctx context.Context) {
 			Scopes:      []string{"openid", "email", "profile"},
 		}
 	}
-	var client *kubego.Client
+	var cli *client.Manager
 	if outOfCluster {
-		client, err = kubego.NewOutOfClusterClient()
+		kclient, err := kubego.NewOutOfClusterClient()
 		if err != nil {
 			lgger.Error("failed to create out of cluster k8s client", zap.Error(err))
 			return
 		}
+		cli = client.New(kclient, lgger)
 	} else {
-		client, err = kubego.NewInClusterClient()
+		kclient, err := kubego.NewInClusterClient()
 		if err != nil {
 			lgger.Error("failed to create in cluster k8s client", zap.Error(err))
 			return
 		}
+		cli = client.New(kclient, lgger)
 	}
 
 	resp, err := http.DefaultClient.Get(oidc)
@@ -181,22 +192,6 @@ func run(ctx context.Context) {
 		lgger.Error("failed to get oidc", zap.Error(err))
 		return
 	}
-	resolver := gql.NewResolver(client, cors.New(cors.Options{
-		AllowedOrigins: allowedOrigins,
-		AllowedMethods: allowedMethods,
-		AllowedHeaders: allowedHeaders,
-	}), config, lgger, openID["userinfo_endpoint"].(string))
-	mux := http.NewServeMux()
-	mux.Handle("/", resolver.QueryHandler())
-	if config != nil {
-		mux.Handle("/playground", resolver.Playground())
-		mux.Handle("/playground/callback", resolver.PlaygroundCallback("/playground"))
-	}
-
-	httpServer := &http.Server{
-		Handler: mux,
-	}
-
 	apiLis, err = net.Listen("tcp", fmt.Sprintf(":%v", listenPort))
 	if err != nil {
 		lgger.Error("failed to create api server listener", zap.Error(err))
@@ -204,6 +199,61 @@ func run(ctx context.Context) {
 	}
 	defer apiLis.Close()
 	apiMux := cmux.New(apiLis)
+	gopts := []grpc.ServerOption{
+		grpc.ChainUnaryInterceptor(
+			grpc_prometheus.UnaryServerInterceptor,
+			grpc_zap.UnaryServerInterceptor(lgger.Zap()),
+			grpc_validator.UnaryServerInterceptor(),
+			//g.UnaryInterceptor(),
+			grpc_recovery.UnaryServerInterceptor(),
+		),
+		grpc.ChainStreamInterceptor(
+			grpc_prometheus.StreamServerInterceptor,
+			grpc_zap.StreamServerInterceptor(lgger.Zap()),
+			grpc_validator.StreamServerInterceptor(),
+			//g.StreamInterceptor(),
+			grpc_recovery.StreamServerInterceptor(),
+		),
+	}
+	gserver := grpc.NewServer(gopts...)
+	kdeploypb.RegisterKdeployServiceServer(gserver, service.NewKdeployService(cli))
+	reflection.Register(gserver)
+	grpc_prometheus.Register(gserver)
+	m.Go(func(routine machine.Routine) {
+		grpcMatcher := apiMux.MatchWithWriters(cmux.HTTP2MatchHeaderFieldSendSettings("content-type", "application/grpc"))
+		defer grpcMatcher.Close()
+		lgger.Info("starting grpc server",
+			zap.String("address", grpcMatcher.Addr().String()),
+		)
+		if err := gserver.Serve(grpcMatcher); err != nil && err != http.ErrServerClosed {
+			lgger.Error("grpc server failure", zap.Error(err))
+		}
+	})
+	mux := http.NewServeMux()
+	{
+		conn, err := grpc.DialContext(context.Background(), fmt.Sprintf("localhost:%v", listenPort),
+			grpc.WithInsecure(),
+		)
+		if err != nil {
+			lgger.Error("failed to setup graphql server", zap.Error(err))
+			return
+		}
+		resolver := gql.NewResolver(kdeploypb.NewKdeployServiceClient(conn), cors.New(cors.Options{
+			AllowedOrigins: allowedOrigins,
+			AllowedMethods: allowedMethods,
+			AllowedHeaders: allowedHeaders,
+		}), config, lgger, openID["userinfo_endpoint"].(string))
+		mux.Handle("/", resolver.QueryHandler())
+		if config != nil {
+			mux.Handle("/playground", resolver.Playground())
+			mux.Handle("/playground/callback", resolver.PlaygroundCallback("/playground"))
+		}
+	}
+
+	httpServer := &http.Server{
+		Handler: mux,
+	}
+
 	m.Go(func(routine machine.Routine) {
 		hmatcher := apiMux.Match(cmux.HTTP1())
 		defer hmatcher.Close()
@@ -233,6 +283,19 @@ func run(ctx context.Context) {
 
 	_ = httpServer.Shutdown(shutdownCtx)
 	_ = metricServer.Shutdown(shutdownCtx)
+	stopped := make(chan struct{})
+	go func() {
+		gserver.GracefulStop()
+		close(stopped)
+	}()
+
+	t := time.NewTimer(10 * time.Second)
+	select {
+	case <-t.C:
+		gserver.Stop()
+	case <-stopped:
+		t.Stop()
+	}
 	m.Wait()
 	lgger.Debug("shutdown successful")
 }

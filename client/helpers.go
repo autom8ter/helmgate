@@ -1,7 +1,7 @@
-package app
+package client
 
 import (
-	"github.com/autom8ter/kdeploy/gen/gql/go/model"
+	kdeploypb "github.com/autom8ter/kdeploy/gen/grpc/go"
 	"github.com/pkg/errors"
 	"github.com/spf13/cast"
 	apps "k8s.io/api/apps/v1"
@@ -13,7 +13,7 @@ import (
 const Always = "Always"
 const RWO = "ReadWriteOnce"
 
-func appLabels(app model.AppInput) map[string]string {
+func appLabels(app *kdeploypb.AppConstructor) map[string]string {
 	return map[string]string{
 		"app":     app.Name,
 		"kdeploy": "true",
@@ -27,7 +27,7 @@ func deploymentLabels(dep *apps.Deployment) map[string]string {
 	}
 }
 
-func appContainers(app model.AppInput) ([]v12.Container, error) {
+func appContainers(app *kdeploypb.AppConstructor) ([]v12.Container, error) {
 	ports := []v12.ContainerPort{}
 	for name, p := range app.Ports {
 		ports = append(ports, v12.ContainerPort{
@@ -54,7 +54,7 @@ func appContainers(app model.AppInput) ([]v12.Container, error) {
 	}, nil
 }
 
-func toNamespace(app model.AppInput) *v12.Namespace {
+func toNamespace(app *kdeploypb.AppConstructor) *v12.Namespace {
 	return &v12.Namespace{
 		TypeMeta: metav1.TypeMeta{},
 		ObjectMeta: metav1.ObjectMeta{
@@ -67,7 +67,7 @@ func toNamespace(app model.AppInput) *v12.Namespace {
 	}
 }
 
-func toServicePorts(app model.AppInput) []v12.ServicePort {
+func toServicePorts(app *kdeploypb.AppConstructor) []v12.ServicePort {
 	var ports []v12.ServicePort
 	for name, p := range app.Ports {
 		ports = append(ports, v12.ServicePort{
@@ -78,7 +78,7 @@ func toServicePorts(app model.AppInput) []v12.ServicePort {
 	return ports
 }
 
-func overwriteService(svc *v1.Service, app model.AppUpdate) *v1.Service {
+func overwriteService(svc *v1.Service, app *kdeploypb.AppUpdate) *v1.Service {
 	if app.Ports != nil {
 		var ports []v12.ServicePort
 		for name, p := range app.Ports {
@@ -92,7 +92,7 @@ func overwriteService(svc *v1.Service, app model.AppUpdate) *v1.Service {
 	return svc
 }
 
-func toService(app model.AppInput) *v1.Service {
+func toService(app *kdeploypb.AppConstructor) *v1.Service {
 	return &v1.Service{
 		TypeMeta: metav1.TypeMeta{},
 		ObjectMeta: metav1.ObjectMeta{
@@ -109,7 +109,7 @@ func toService(app model.AppInput) *v1.Service {
 	}
 }
 
-func toDeployment(app model.AppInput) (*apps.Deployment, error) {
+func toDeployment(app *kdeploypb.AppConstructor) (*apps.Deployment, error) {
 	var (
 		replicas        = int32(app.Replicas)
 		containers, err = appContainers(app)
@@ -153,11 +153,7 @@ func toDeployment(app model.AppInput) (*apps.Deployment, error) {
 	}, nil
 }
 
-func overwriteDeployment(deployment *apps.Deployment, app model.AppUpdate) (*apps.Deployment, error) {
-	if app.Replicas != nil {
-		replicas := int32(*app.Replicas)
-		deployment.Spec.Replicas = &replicas
-	}
+func overwriteDeployment(deployment *apps.Deployment, app *kdeploypb.AppUpdate) (*apps.Deployment, error) {
 	var container *v1.Container
 	for _, c := range deployment.Spec.Template.Spec.Containers {
 		if c.Name == app.Name {
@@ -167,8 +163,12 @@ func overwriteDeployment(deployment *apps.Deployment, app model.AppUpdate) (*app
 	if container == nil {
 		return nil, errors.Errorf("failed to find container: %s", app.Name)
 	}
-	if app.Image != nil {
-		container.Image = *app.Image
+	replicas := int32(app.Replicas)
+	if replicas != *deployment.Spec.Replicas {
+		deployment.Spec.Replicas = &replicas
+	}
+	if app.Image != "" {
+		container.Image = app.Image
 	}
 	if app.Ports != nil {
 		ports := []v12.ContainerPort{}
@@ -205,21 +205,30 @@ type k8sApp struct {
 	service    *v1.Service
 }
 
-func (k *k8sApp) toApp() *model.App {
-	a := &model.App{
+func (k *k8sApp) toApp() *kdeploypb.App {
+	a := &kdeploypb.App{
 		Name:      k.service.Name,
 		Namespace: k.service.Namespace,
 	}
-	a.Replicas = int(*k.deployment.Spec.Replicas)
+	a.Replicas = uint32(*k.deployment.Spec.Replicas)
 	a.Image = k.deployment.Spec.Template.Spec.Containers[0].Image
-	var env = map[string]interface{}{}
-	for _, e := range k.deployment.Spec.Template.Spec.Containers[0].Env {
+	var container *v1.Container
+	for _, c := range k.deployment.Spec.Template.Spec.Containers {
+		if c.Name == a.Name {
+			container = &c
+		}
+	}
+	if container == nil {
+		panic("failed to find container")
+	}
+	var env = map[string]string{}
+	for _, e := range container.Env {
 		env[e.Name] = e.Value
 	}
 	a.Env = env
-	var ports = map[string]interface{}{}
-	for _, p := range k.deployment.Spec.Template.Spec.Containers[0].Ports {
-		ports[p.Name] = p.ContainerPort
+	var ports = map[string]uint32{}
+	for _, p := range container.Ports {
+		ports[p.Name] = cast.ToUint32(p.ContainerPort)
 	}
 	a.Ports = ports
 	return a

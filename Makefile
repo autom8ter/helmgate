@@ -32,6 +32,13 @@ docker-build:
 docker-push:
 	@docker push colemanword/kdeploy:v$(version)
 
+
+.PHONY: proto
+proto: ## regenerate gRPC code
+	@echo "generating protobuf code..."
+	@docker run -v `pwd`:/defs namely/prototool:latest generate
+	@go fmt ./...
+
 .PHONY: gql
 gql: ## regenerate graphql code
 	@gqlgen generate

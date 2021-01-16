@@ -1,9 +1,9 @@
-package app
+package client
 
 import (
 	"bytes"
 	"context"
-	"github.com/autom8ter/kdeploy/gen/gql/go/model"
+	kdeploypb "github.com/autom8ter/kdeploy/gen/grpc/go"
 	"github.com/autom8ter/kdeploy/logger"
 	"github.com/autom8ter/kubego"
 	"github.com/graphikDB/generic"
@@ -36,23 +36,27 @@ func New(client *kubego.Client, logger *logger.Logger) *Manager {
 	}
 }
 
-func (m *Manager) getStatus(ctx context.Context, namespace string) (*model.Status, error) {
-	var replicas []*model.Replica
+func (m *Manager) L() *logger.Logger {
+	return m.logger
+}
+
+func (m *Manager) getStatus(ctx context.Context, namespace string) (*kdeploypb.Status, error) {
+	var replicas []*kdeploypb.Replica
 	pods, err := m.client.Pods(namespace).List(ctx, v1.ListOptions{})
 	if err != nil {
 		return nil, err
 	}
 	for _, pod := range pods.Items {
-		replicas = append(replicas, &model.Replica{
+		replicas = append(replicas, &kdeploypb.Replica{
 			Phase:     string(pod.Status.Phase),
 			Condition: string(pod.Status.Conditions[0].Status),
 			Reason:    pod.Status.Reason,
 		})
 	}
-	return &model.Status{Replicas: replicas}, nil
+	return &kdeploypb.Status{Replicas: replicas}, nil
 }
 
-func (m *Manager) Create(ctx context.Context, app model.AppInput) (*model.App, error) {
+func (m *Manager) Create(ctx context.Context, app *kdeploypb.AppConstructor) (*kdeploypb.App, error) {
 	kapp := &k8sApp{}
 	namespace, err := m.client.Namespaces().Create(ctx, toNamespace(app), v1.CreateOptions{})
 	if err != nil {
@@ -82,7 +86,7 @@ func (m *Manager) Create(ctx context.Context, app model.AppInput) (*model.App, e
 	return a, nil
 }
 
-func (m *Manager) Update(ctx context.Context, app model.AppUpdate) (*model.App, error) {
+func (m *Manager) Update(ctx context.Context, app *kdeploypb.AppUpdate) (*kdeploypb.App, error) {
 	kapp := &k8sApp{}
 	namespace, err := m.client.Namespaces().Get(ctx, app.Namespace, v1.GetOptions{})
 	if err != nil {
@@ -121,25 +125,25 @@ func (m *Manager) Update(ctx context.Context, app model.AppUpdate) (*model.App, 
 	return a, nil
 }
 
-func (m *Manager) Get(ctx context.Context, name, namespace string) (*model.App, error) {
+func (m *Manager) Get(ctx context.Context, ref *kdeploypb.AppRef) (*kdeploypb.App, error) {
 	kapp := &k8sApp{}
 
-	ns, err := m.client.Namespaces().Get(ctx, namespace, v1.GetOptions{})
+	ns, err := m.client.Namespaces().Get(ctx, ref.Namespace, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.namespace = ns
-	deployment, err := m.client.Deployments(namespace).Get(ctx, name, v1.GetOptions{})
+	deployment, err := m.client.Deployments(ref.Namespace).Get(ctx, ref.Name, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.deployment = deployment
-	svc, err := m.client.Services(namespace).Get(ctx, name, v1.GetOptions{})
+	svc, err := m.client.Services(ref.Namespace).Get(ctx, ref.Name, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.service = svc
-	status, err := m.getStatus(ctx, namespace)
+	status, err := m.getStatus(ctx, ref.Namespace)
 	if err != nil {
 		return nil, err
 	}
@@ -148,36 +152,36 @@ func (m *Manager) Get(ctx context.Context, name, namespace string) (*model.App, 
 	return a, nil
 }
 
-func (m *Manager) Delete(ctx context.Context, name, namespace string) error {
-	if err := m.client.Services(namespace).Delete(ctx, name, v1.DeleteOptions{}); err != nil {
+func (m *Manager) Delete(ctx context.Context, ref *kdeploypb.AppRef) error {
+	if err := m.client.Services(ref.Namespace).Delete(ctx, ref.Name, v1.DeleteOptions{}); err != nil {
 		m.logger.Error("failed to delete service",
 			zap.Error(err),
-			zap.String("name", name),
-			zap.String("namespace", namespace),
+			zap.String("name", ref.Name),
+			zap.String("namespace", ref.Namespace),
 		)
 
 	}
-	if err := m.client.StatefulSets(namespace).Delete(ctx, name, v1.DeleteOptions{}); err != nil {
-		if err := m.client.Deployments(namespace).Delete(ctx, name, v1.DeleteOptions{}); err != nil {
+	if err := m.client.StatefulSets(ref.Namespace).Delete(ctx, ref.Name, v1.DeleteOptions{}); err != nil {
+		if err := m.client.Deployments(ref.Namespace).Delete(ctx, ref.Name, v1.DeleteOptions{}); err != nil {
 			m.logger.Error("failed to delete deployment",
 				zap.Error(err),
-				zap.String("name", name),
-				zap.String("namespace", namespace),
+				zap.String("name", ref.Name),
+				zap.String("namespace", ref.Namespace),
 			)
 		}
 	}
-	if err := m.client.Namespaces().Delete(ctx, namespace, v1.DeleteOptions{}); err != nil {
+	if err := m.client.Namespaces().Delete(ctx, ref.Namespace, v1.DeleteOptions{}); err != nil {
 		m.logger.Error("failed to delete namespace",
 			zap.Error(err),
-			zap.String("name", name),
-			zap.String("namespace", namespace),
+			zap.String("name", ref.Name),
+			zap.String("namespace", ref.Namespace),
 		)
 	}
 	return nil
 }
 
-func (m *Manager) StreamLogs(ctx context.Context, name, namespace string) (<-chan string, error) {
-	pods, err := m.client.Pods(namespace).List(ctx, v1.ListOptions{
+func (m *Manager) StreamLogs(ctx context.Context, ref *kdeploypb.AppRef) (chan string, error) {
+	pods, err := m.client.Pods(ref.Namespace).List(ctx, v1.ListOptions{
 		TypeMeta: v1.TypeMeta{},
 		Watch:    false,
 	})
@@ -188,30 +192,16 @@ func (m *Manager) StreamLogs(ctx context.Context, name, namespace string) (<-cha
 		return nil, errors.New("zero pods")
 	}
 	m.logger.Info("setup log stream",
-		zap.String("name", name),
-		zap.String("namespace", namespace),
+		zap.String("name", ref.Name),
+		zap.String("namespace", ref.Namespace),
 	)
 	logChan := make(chan string)
 	var streamMu = sync.RWMutex{}
-	//mach.Go(func(routine machine.Routine) {
-	//	for {
-	//		select {
-	//		case <-routine.Context().Done():
-	//			close(logs)
-	//			return
-	//		}
-	//	}
-	//})
 	for _, pod := range pods.Items {
 		go func(p corev1.Pod) {
-			m.logger.Debug("setup log stream",
-				zap.String("name", name),
-				zap.String("namespace", namespace),
-				zap.String("pod", p.Name),
-			)
 			closer, err := m.client.GetLogs(context.Background(), p.Name, p.Namespace, &corev1.PodLogOptions{
 				TypeMeta:  v1.TypeMeta{},
-				Container: name,
+				Container: ref.Name,
 				//Container: name,
 				Follow:                       true,
 				Previous:                     false,
@@ -222,18 +212,13 @@ func (m *Manager) StreamLogs(ctx context.Context, name, namespace string) (<-cha
 			if err != nil {
 				m.logger.Error("failed to stream pod logs",
 					zap.Error(err),
-					zap.String("name", name),
-					zap.String("namespace", namespace),
+					zap.String("name", ref.Name),
+					zap.String("namespace", ref.Namespace),
 					zap.String("pod", p.Name),
 				)
 				return
 			}
 			for {
-				m.logger.Debug("streaming log",
-					zap.String("name", name),
-					zap.String("namespace", namespace),
-					zap.String("pod", p.Name),
-				)
 				buf := make([]byte, 1024)
 				_, err := closer.Read(buf)
 				if err != nil {
