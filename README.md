@@ -38,16 +38,18 @@ an OAuth-protected graphQL API for deploying "serverless" kubernetes application
 
 ```
 Usage of kdeploy:
-      --allow-headers strings        cors allow headers (env: KDEPLOY_ALLOW_HEADERS) (default [*])
-      --allow-methods strings        cors allow methods (env: KDEPLOY_ALLOW_METHODS) (default [HEAD,GET,POST,PUT,PATCH,DELETE])
-      --allow-origins strings        cors allow origins (env: KDEPLOY_ALLOW_ORIGINS) (default [*])
-      --debug                        enable debug logs (env: KDEPLOY_DEBUG)
-      --listen-port int              serve gRPC & graphQL on this port (env: KDEPLOY_LISTEN_PORT) (default 8820)
-      --oauth-client-id string       playground oauth client id (env: KDEPLOY_OAUTH_CLIENT_ID)
-      --oauth-client-secret string   playground oauth client secret (env: KDEPLOY_OAUTH_CLIENT_SECRET)
-      --oauth-redirect string        playground oauth redirect (env: KDEPLOY_OAUTH_REDIRECT)
-      --open-id string               open id connect discovery uri ex: https://accounts.google.com/.well-known/openid-configuration (env: KDEPLOY_OPEN_ID) (required)
-      --out-of-cluster               enable out of cluster k8s config discovery (env: KDEPLOY_OUT_OF_CLUSTER)
+      --allow-headers strings         cors allow headers (env: KDEPLOY_ALLOW_HEADERS) (default [*])
+      --allow-methods strings         cors allow methods (env: KDEPLOY_ALLOW_METHODS) (default [HEAD,GET,POST,PUT,PATCH,DELETE])
+      --allow-origins strings         cors allow origins (env: KDEPLOY_ALLOW_ORIGINS) (default [*])
+      --debug                         enable debug logs (env: KDEPLOY_DEBUG) (default true)
+      --listen-port int               serve gRPC & graphQL on this port (env: KDEPLOY_LISTEN_PORT) (default 8820)
+      --oauth-client-id string        playground oauth client id (env: KDEPLOY_OAUTH_CLIENT_ID) (required for graphQL playground) (default "723941275880-6i69h7d27ngmcnq02p6t8lbbgenm26um.apps.googleusercontent.com")
+      --oauth-client-secret string    playground oauth client secret (env: KDEPLOY_OAUTH_CLIENT_SECRET) (required for graphQL playground) (default "E2ru-iJAxijisJ9RzMbloe4c")
+      --oauth-redirect string         playground oauth redirect (env: KDEPLOY_OAUTH_REDIRECT) (required for graphQL playground) (default "http://localhost:8820/oauth2/callback")
+      --open-id string                open id connect discovery uri ex: https://accounts.google.com/.well-known/openid-configuration (env: KDEPLOY_OPEN_ID) (required)
+      --out-of-cluster                enable out of cluster k8s config discovery (env: KDEPLOY_OUT_OF_CLUSTER)
+      --request-authorizers strings   request authorizer expressions (env: KDEPLOY_REQUEST_AUTHORIZERS)
+      --root-users strings            root users that bypass request authorizers (env: KDEPLOY_ROOT_USERS)
 
 ```
 
