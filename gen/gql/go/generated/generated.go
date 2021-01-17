@@ -693,9 +693,9 @@ type Mutation {
 }
 
 type Query {
-    # getApp gets an app by name within an existing namespace
+    # getApp gets an existing stateless application(k8s deployment) by name within an existing namespace
     getApp(input: Ref!): App
-    # listApps lists all apps within an existing namespace
+    # listApps lists all an existing stateless applications(k8s deployments) within an existing namespace
     listApps(input: Namespace!): [App!]
     # getTask gets a task(k8s cron job) by name within an existing namespace
     getTask(input: Ref!): Task
@@ -706,7 +706,7 @@ type Query {
 }
 
 type Subscription {
-    # logs streams logs from an app/task within an existing namespace. Streams are opened to all replicas & converted into a single stream
+    # logs streams logs from an an existing stateless application(k8s deployment) within an existing namespace. Streams are opened to all replicas & converted into a single stream
     streamLogs(input: Ref!): String!
 }
 `, BuiltIn: false},
