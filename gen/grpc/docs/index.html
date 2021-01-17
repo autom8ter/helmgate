@@ -266,6 +266,10 @@
                   <a href="#kdeploy.TaskUpdate.EnvEntry"><span class="badge">M</span>TaskUpdate.EnvEntry</a>
                 </li>
               
+                <li>
+                  <a href="#kdeploy.Tasks"><span class="badge">M</span>Tasks</a>
+                </li>
+              
               
               
               
@@ -1361,6 +1365,30 @@
 
         
       
+        <h3 id="kdeploy.Tasks">Tasks</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>tasks</td>
+                  <td><a href="#kdeploy.Task">Task</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
 
       
 
@@ -1404,6 +1432,13 @@
               </tr>
             
               <tr>
+                <td>ListApps</td>
+                <td><a href="#kdeploy.Namespace">Namespace</a></td>
+                <td><a href="#kdeploy.Apps">Apps</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
                 <td>Logs</td>
                 <td><a href="#kdeploy.Ref">Ref</a></td>
                 <td><a href="#kdeploy.Log">Log</a> stream</td>
@@ -1414,13 +1449,6 @@
                 <td>ListNamespaces</td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><a href="#kdeploy.Namespaces">Namespaces</a></td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>ListApps</td>
-                <td><a href="#kdeploy.Namespace">Namespace</a></td>
-                <td><a href="#kdeploy.Apps">Apps</a></td>
                 <td><p></p></td>
               </tr>
             
@@ -1456,6 +1484,13 @@
                 <td>GetTask</td>
                 <td><a href="#kdeploy.Ref">Ref</a></td>
                 <td><a href="#kdeploy.Task">Task</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ListTasks</td>
+                <td><a href="#kdeploy.Namespace">Namespace</a></td>
+                <td><a href="#kdeploy.Tasks">Tasks</a></td>
                 <td><p></p></td>
               </tr>
             

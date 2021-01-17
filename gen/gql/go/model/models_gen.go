@@ -59,3 +59,30 @@ type Replica struct {
 type Status struct {
 	Replicas []*Replica `json:"replicas"`
 }
+
+type Task struct {
+	Name      string                 `json:"name"`
+	Namespace string                 `json:"namespace"`
+	Image     string                 `json:"image"`
+	Args      []string               `json:"args"`
+	Env       map[string]interface{} `json:"env"`
+	Schedule  string                 `json:"schedule"`
+}
+
+type TaskConstructor struct {
+	Name      string                 `json:"name"`
+	Namespace string                 `json:"namespace"`
+	Image     string                 `json:"image"`
+	Args      []string               `json:"args"`
+	Env       map[string]interface{} `json:"env"`
+	Schedule  string                 `json:"schedule"`
+}
+
+type TaskUpdate struct {
+	Name      string                 `json:"name"`
+	Namespace string                 `json:"namespace"`
+	Image     *string                `json:"image"`
+	Args      []string               `json:"args"`
+	Env       map[string]interface{} `json:"env"`
+	Schedule  string                 `json:"schedule"`
+}

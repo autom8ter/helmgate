@@ -252,10 +252,6 @@ func (m *Manager) StreamLogs(ctx context.Context, ref *kdeploypb.Ref) (chan stri
 	if len(pods.Items) == 0 {
 		return nil, errors.New("zero pods")
 	}
-	m.logger.Info("setup log stream",
-		zap.String("name", ref.Name),
-		zap.String("namespace", ref.Namespace),
-	)
 	logChan := make(chan string)
 	var streamMu = sync.RWMutex{}
 	for _, pod := range pods.Items {

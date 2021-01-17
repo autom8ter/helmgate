@@ -15125,6 +15125,788 @@ public final class Kdeploy {
 
   }
 
+  public interface TasksOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:kdeploy.Tasks)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .kdeploy.Task tasks = 1;</code>
+     */
+    java.util.List<kdeploy.Kdeploy.Task> 
+        getTasksList();
+    /**
+     * <code>repeated .kdeploy.Task tasks = 1;</code>
+     */
+    kdeploy.Kdeploy.Task getTasks(int index);
+    /**
+     * <code>repeated .kdeploy.Task tasks = 1;</code>
+     */
+    int getTasksCount();
+    /**
+     * <code>repeated .kdeploy.Task tasks = 1;</code>
+     */
+    java.util.List<? extends kdeploy.Kdeploy.TaskOrBuilder> 
+        getTasksOrBuilderList();
+    /**
+     * <code>repeated .kdeploy.Task tasks = 1;</code>
+     */
+    kdeploy.Kdeploy.TaskOrBuilder getTasksOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code kdeploy.Tasks}
+   */
+  public  static final class Tasks extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:kdeploy.Tasks)
+      TasksOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Tasks.newBuilder() to construct.
+    private Tasks(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Tasks() {
+      tasks_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Tasks(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                tasks_ = new java.util.ArrayList<kdeploy.Kdeploy.Task>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              tasks_.add(
+                  input.readMessage(kdeploy.Kdeploy.Task.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          tasks_ = java.util.Collections.unmodifiableList(tasks_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return kdeploy.Kdeploy.internal_static_kdeploy_Tasks_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return kdeploy.Kdeploy.internal_static_kdeploy_Tasks_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              kdeploy.Kdeploy.Tasks.class, kdeploy.Kdeploy.Tasks.Builder.class);
+    }
+
+    public static final int TASKS_FIELD_NUMBER = 1;
+    private java.util.List<kdeploy.Kdeploy.Task> tasks_;
+    /**
+     * <code>repeated .kdeploy.Task tasks = 1;</code>
+     */
+    public java.util.List<kdeploy.Kdeploy.Task> getTasksList() {
+      return tasks_;
+    }
+    /**
+     * <code>repeated .kdeploy.Task tasks = 1;</code>
+     */
+    public java.util.List<? extends kdeploy.Kdeploy.TaskOrBuilder> 
+        getTasksOrBuilderList() {
+      return tasks_;
+    }
+    /**
+     * <code>repeated .kdeploy.Task tasks = 1;</code>
+     */
+    public int getTasksCount() {
+      return tasks_.size();
+    }
+    /**
+     * <code>repeated .kdeploy.Task tasks = 1;</code>
+     */
+    public kdeploy.Kdeploy.Task getTasks(int index) {
+      return tasks_.get(index);
+    }
+    /**
+     * <code>repeated .kdeploy.Task tasks = 1;</code>
+     */
+    public kdeploy.Kdeploy.TaskOrBuilder getTasksOrBuilder(
+        int index) {
+      return tasks_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < tasks_.size(); i++) {
+        output.writeMessage(1, tasks_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < tasks_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, tasks_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof kdeploy.Kdeploy.Tasks)) {
+        return super.equals(obj);
+      }
+      kdeploy.Kdeploy.Tasks other = (kdeploy.Kdeploy.Tasks) obj;
+
+      boolean result = true;
+      result = result && getTasksList()
+          .equals(other.getTasksList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getTasksCount() > 0) {
+        hash = (37 * hash) + TASKS_FIELD_NUMBER;
+        hash = (53 * hash) + getTasksList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static kdeploy.Kdeploy.Tasks parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static kdeploy.Kdeploy.Tasks parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.Tasks parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static kdeploy.Kdeploy.Tasks parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.Tasks parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static kdeploy.Kdeploy.Tasks parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.Tasks parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static kdeploy.Kdeploy.Tasks parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.Tasks parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static kdeploy.Kdeploy.Tasks parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.Tasks parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static kdeploy.Kdeploy.Tasks parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(kdeploy.Kdeploy.Tasks prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code kdeploy.Tasks}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:kdeploy.Tasks)
+        kdeploy.Kdeploy.TasksOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return kdeploy.Kdeploy.internal_static_kdeploy_Tasks_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return kdeploy.Kdeploy.internal_static_kdeploy_Tasks_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                kdeploy.Kdeploy.Tasks.class, kdeploy.Kdeploy.Tasks.Builder.class);
+      }
+
+      // Construct using kdeploy.Kdeploy.Tasks.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getTasksFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (tasksBuilder_ == null) {
+          tasks_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          tasksBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return kdeploy.Kdeploy.internal_static_kdeploy_Tasks_descriptor;
+      }
+
+      @java.lang.Override
+      public kdeploy.Kdeploy.Tasks getDefaultInstanceForType() {
+        return kdeploy.Kdeploy.Tasks.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public kdeploy.Kdeploy.Tasks build() {
+        kdeploy.Kdeploy.Tasks result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public kdeploy.Kdeploy.Tasks buildPartial() {
+        kdeploy.Kdeploy.Tasks result = new kdeploy.Kdeploy.Tasks(this);
+        int from_bitField0_ = bitField0_;
+        if (tasksBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            tasks_ = java.util.Collections.unmodifiableList(tasks_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.tasks_ = tasks_;
+        } else {
+          result.tasks_ = tasksBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof kdeploy.Kdeploy.Tasks) {
+          return mergeFrom((kdeploy.Kdeploy.Tasks)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(kdeploy.Kdeploy.Tasks other) {
+        if (other == kdeploy.Kdeploy.Tasks.getDefaultInstance()) return this;
+        if (tasksBuilder_ == null) {
+          if (!other.tasks_.isEmpty()) {
+            if (tasks_.isEmpty()) {
+              tasks_ = other.tasks_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureTasksIsMutable();
+              tasks_.addAll(other.tasks_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.tasks_.isEmpty()) {
+            if (tasksBuilder_.isEmpty()) {
+              tasksBuilder_.dispose();
+              tasksBuilder_ = null;
+              tasks_ = other.tasks_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              tasksBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getTasksFieldBuilder() : null;
+            } else {
+              tasksBuilder_.addAllMessages(other.tasks_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        kdeploy.Kdeploy.Tasks parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (kdeploy.Kdeploy.Tasks) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<kdeploy.Kdeploy.Task> tasks_ =
+        java.util.Collections.emptyList();
+      private void ensureTasksIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          tasks_ = new java.util.ArrayList<kdeploy.Kdeploy.Task>(tasks_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          kdeploy.Kdeploy.Task, kdeploy.Kdeploy.Task.Builder, kdeploy.Kdeploy.TaskOrBuilder> tasksBuilder_;
+
+      /**
+       * <code>repeated .kdeploy.Task tasks = 1;</code>
+       */
+      public java.util.List<kdeploy.Kdeploy.Task> getTasksList() {
+        if (tasksBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(tasks_);
+        } else {
+          return tasksBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .kdeploy.Task tasks = 1;</code>
+       */
+      public int getTasksCount() {
+        if (tasksBuilder_ == null) {
+          return tasks_.size();
+        } else {
+          return tasksBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .kdeploy.Task tasks = 1;</code>
+       */
+      public kdeploy.Kdeploy.Task getTasks(int index) {
+        if (tasksBuilder_ == null) {
+          return tasks_.get(index);
+        } else {
+          return tasksBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .kdeploy.Task tasks = 1;</code>
+       */
+      public Builder setTasks(
+          int index, kdeploy.Kdeploy.Task value) {
+        if (tasksBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTasksIsMutable();
+          tasks_.set(index, value);
+          onChanged();
+        } else {
+          tasksBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.Task tasks = 1;</code>
+       */
+      public Builder setTasks(
+          int index, kdeploy.Kdeploy.Task.Builder builderForValue) {
+        if (tasksBuilder_ == null) {
+          ensureTasksIsMutable();
+          tasks_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          tasksBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.Task tasks = 1;</code>
+       */
+      public Builder addTasks(kdeploy.Kdeploy.Task value) {
+        if (tasksBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTasksIsMutable();
+          tasks_.add(value);
+          onChanged();
+        } else {
+          tasksBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.Task tasks = 1;</code>
+       */
+      public Builder addTasks(
+          int index, kdeploy.Kdeploy.Task value) {
+        if (tasksBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTasksIsMutable();
+          tasks_.add(index, value);
+          onChanged();
+        } else {
+          tasksBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.Task tasks = 1;</code>
+       */
+      public Builder addTasks(
+          kdeploy.Kdeploy.Task.Builder builderForValue) {
+        if (tasksBuilder_ == null) {
+          ensureTasksIsMutable();
+          tasks_.add(builderForValue.build());
+          onChanged();
+        } else {
+          tasksBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.Task tasks = 1;</code>
+       */
+      public Builder addTasks(
+          int index, kdeploy.Kdeploy.Task.Builder builderForValue) {
+        if (tasksBuilder_ == null) {
+          ensureTasksIsMutable();
+          tasks_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          tasksBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.Task tasks = 1;</code>
+       */
+      public Builder addAllTasks(
+          java.lang.Iterable<? extends kdeploy.Kdeploy.Task> values) {
+        if (tasksBuilder_ == null) {
+          ensureTasksIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, tasks_);
+          onChanged();
+        } else {
+          tasksBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.Task tasks = 1;</code>
+       */
+      public Builder clearTasks() {
+        if (tasksBuilder_ == null) {
+          tasks_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          tasksBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.Task tasks = 1;</code>
+       */
+      public Builder removeTasks(int index) {
+        if (tasksBuilder_ == null) {
+          ensureTasksIsMutable();
+          tasks_.remove(index);
+          onChanged();
+        } else {
+          tasksBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.Task tasks = 1;</code>
+       */
+      public kdeploy.Kdeploy.Task.Builder getTasksBuilder(
+          int index) {
+        return getTasksFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .kdeploy.Task tasks = 1;</code>
+       */
+      public kdeploy.Kdeploy.TaskOrBuilder getTasksOrBuilder(
+          int index) {
+        if (tasksBuilder_ == null) {
+          return tasks_.get(index);  } else {
+          return tasksBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .kdeploy.Task tasks = 1;</code>
+       */
+      public java.util.List<? extends kdeploy.Kdeploy.TaskOrBuilder> 
+           getTasksOrBuilderList() {
+        if (tasksBuilder_ != null) {
+          return tasksBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(tasks_);
+        }
+      }
+      /**
+       * <code>repeated .kdeploy.Task tasks = 1;</code>
+       */
+      public kdeploy.Kdeploy.Task.Builder addTasksBuilder() {
+        return getTasksFieldBuilder().addBuilder(
+            kdeploy.Kdeploy.Task.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .kdeploy.Task tasks = 1;</code>
+       */
+      public kdeploy.Kdeploy.Task.Builder addTasksBuilder(
+          int index) {
+        return getTasksFieldBuilder().addBuilder(
+            index, kdeploy.Kdeploy.Task.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .kdeploy.Task tasks = 1;</code>
+       */
+      public java.util.List<kdeploy.Kdeploy.Task.Builder> 
+           getTasksBuilderList() {
+        return getTasksFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          kdeploy.Kdeploy.Task, kdeploy.Kdeploy.Task.Builder, kdeploy.Kdeploy.TaskOrBuilder> 
+          getTasksFieldBuilder() {
+        if (tasksBuilder_ == null) {
+          tasksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              kdeploy.Kdeploy.Task, kdeploy.Kdeploy.Task.Builder, kdeploy.Kdeploy.TaskOrBuilder>(
+                  tasks_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          tasks_ = null;
+        }
+        return tasksBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:kdeploy.Tasks)
+    }
+
+    // @@protoc_insertion_point(class_scope:kdeploy.Tasks)
+    private static final kdeploy.Kdeploy.Tasks DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new kdeploy.Kdeploy.Tasks();
+    }
+
+    public static kdeploy.Kdeploy.Tasks getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Tasks>
+        PARSER = new com.google.protobuf.AbstractParser<Tasks>() {
+      @java.lang.Override
+      public Tasks parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Tasks(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Tasks> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Tasks> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public kdeploy.Kdeploy.Tasks getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface NamespaceOrBuilder extends
       // @@protoc_insertion_point(interface_extends:kdeploy.Namespace)
       com.google.protobuf.MessageOrBuilder {
@@ -16380,6 +17162,11 @@ public final class Kdeploy {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_kdeploy_Apps_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_kdeploy_Tasks_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_kdeploy_Tasks_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_kdeploy_Namespace_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -16449,25 +17236,27 @@ public final class Kdeploy {
       "n\030\003 \001(\t\"/\n\tAppStatus\022\"\n\010replicas\030\001 \003(\0132\020" +
       ".kdeploy.Replica\"\026\n\003Log\022\017\n\007message\030\001 \001(\t" +
       "\"*\n\004Apps\022\"\n\014applications\030\001 \003(\0132\014.kdeploy" +
-      ".App\"\036\n\tNamespace\022\021\n\tnamespace\030\001 \001(\t\" \n\n" +
-      "Namespaces\022\022\n\nnamespaces\030\001 \003(\t2\366\004\n\016Kdepl" +
-      "oyService\0224\n\tCreateApp\022\027.kdeploy.AppCons" +
-      "tructor\032\014.kdeploy.App\"\000\022/\n\tUpdateApp\022\022.k" +
-      "deploy.AppUpdate\032\014.kdeploy.App\"\000\0223\n\tDele" +
-      "teApp\022\014.kdeploy.Ref\032\026.google.protobuf.Em" +
-      "pty\"\000\022&\n\006GetApp\022\014.kdeploy.Ref\032\014.kdeploy." +
-      "App\"\000\022&\n\004Logs\022\014.kdeploy.Ref\032\014.kdeploy.Lo" +
-      "g\"\0000\001\022?\n\016ListNamespaces\022\026.google.protobu" +
-      "f.Empty\032\023.kdeploy.Namespaces\"\000\022/\n\010ListAp" +
-      "ps\022\022.kdeploy.Namespace\032\r.kdeploy.Apps\"\000\022" +
-      "9\n\tDeleteAll\022\022.kdeploy.Namespace\032\026.googl" +
-      "e.protobuf.Empty\"\000\0227\n\nCreateTask\022\030.kdepl" +
-      "oy.TaskConstructor\032\r.kdeploy.Task\"\000\0222\n\nU" +
-      "pdateTask\022\023.kdeploy.TaskUpdate\032\r.kdeploy" +
-      ".Task\"\000\0224\n\nDeleteTask\022\014.kdeploy.Ref\032\026.go" +
-      "ogle.protobuf.Empty\"\000\022(\n\007GetTask\022\014.kdepl" +
-      "oy.Ref\032\r.kdeploy.Task\"\000B\013Z\tkdeploypbb\006pr" +
-      "oto3"
+      ".App\"%\n\005Tasks\022\034\n\005tasks\030\001 \003(\0132\r.kdeploy.T" +
+      "ask\"\036\n\tNamespace\022\021\n\tnamespace\030\001 \001(\t\" \n\nN" +
+      "amespaces\022\022\n\nnamespaces\030\001 \003(\t2\251\005\n\016Kdeplo" +
+      "yService\0224\n\tCreateApp\022\027.kdeploy.AppConst" +
+      "ructor\032\014.kdeploy.App\"\000\022/\n\tUpdateApp\022\022.kd" +
+      "eploy.AppUpdate\032\014.kdeploy.App\"\000\0223\n\tDelet" +
+      "eApp\022\014.kdeploy.Ref\032\026.google.protobuf.Emp" +
+      "ty\"\000\022&\n\006GetApp\022\014.kdeploy.Ref\032\014.kdeploy.A" +
+      "pp\"\000\022/\n\010ListApps\022\022.kdeploy.Namespace\032\r.k" +
+      "deploy.Apps\"\000\022&\n\004Logs\022\014.kdeploy.Ref\032\014.kd" +
+      "eploy.Log\"\0000\001\022?\n\016ListNamespaces\022\026.google" +
+      ".protobuf.Empty\032\023.kdeploy.Namespaces\"\000\0229" +
+      "\n\tDeleteAll\022\022.kdeploy.Namespace\032\026.google" +
+      ".protobuf.Empty\"\000\0227\n\nCreateTask\022\030.kdeplo" +
+      "y.TaskConstructor\032\r.kdeploy.Task\"\000\0222\n\nUp" +
+      "dateTask\022\023.kdeploy.TaskUpdate\032\r.kdeploy." +
+      "Task\"\000\0224\n\nDeleteTask\022\014.kdeploy.Ref\032\026.goo" +
+      "gle.protobuf.Empty\"\000\022(\n\007GetTask\022\014.kdeplo" +
+      "y.Ref\032\r.kdeploy.Task\"\000\0221\n\tListTasks\022\022.kd" +
+      "eploy.Namespace\032\016.kdeploy.Tasks\"\000B\013Z\tkde" +
+      "ploypbb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -16606,14 +17395,20 @@ public final class Kdeploy {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Apps_descriptor,
         new java.lang.String[] { "Applications", });
-    internal_static_kdeploy_Namespace_descriptor =
+    internal_static_kdeploy_Tasks_descriptor =
       getDescriptor().getMessageTypes().get(11);
+    internal_static_kdeploy_Tasks_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_kdeploy_Tasks_descriptor,
+        new java.lang.String[] { "Tasks", });
+    internal_static_kdeploy_Namespace_descriptor =
+      getDescriptor().getMessageTypes().get(12);
     internal_static_kdeploy_Namespace_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Namespace_descriptor,
         new java.lang.String[] { "Namespace", });
     internal_static_kdeploy_Namespaces_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_kdeploy_Namespaces_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Namespaces_descriptor,

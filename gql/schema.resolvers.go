@@ -5,6 +5,7 @@ package gql
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/99designs/gqlgen/graphql"
 	"github.com/autom8ter/kdeploy/gen/gql/go/generated"
@@ -50,6 +51,18 @@ func (r *mutationResolver) DelApp(ctx context.Context, input model.Ref) (*string
 	return nil, nil
 }
 
+func (r *mutationResolver) CreateTask(ctx context.Context, input model.TaskConstructor) (*model.Task, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+
+func (r *mutationResolver) UpdateTask(ctx context.Context, input model.TaskUpdate) (*model.Task, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+
+func (r *mutationResolver) DelTask(ctx context.Context, input model.Ref) (*string, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+
 func (r *mutationResolver) DelAll(ctx context.Context, input model.Namespace) (*string, error) {
 	_, err := r.client.DeleteAll(ctx, &kdeploypb.Namespace{Namespace: input.Namespace})
 	if err != nil {
@@ -85,6 +98,14 @@ func (r *queryResolver) ListApps(ctx context.Context, input model.Namespace) ([]
 		toReturn = append(toReturn, fromApp(a))
 	}
 	return toReturn, nil
+}
+
+func (r *queryResolver) GetTask(ctx context.Context, input model.Ref) (*model.Task, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+
+func (r *queryResolver) ListTasks(ctx context.Context, input model.Namespace) ([]*model.Task, error) {
+	panic(fmt.Errorf("not implemented"))
 }
 
 func (r *queryResolver) ListNamespaces(ctx context.Context, input *string) (*model.Namespaces, error) {

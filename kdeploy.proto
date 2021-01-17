@@ -133,6 +133,10 @@ message Apps {
   repeated App applications =1;
 }
 
+message Tasks {
+  repeated Task tasks =1;
+}
+
 message Namespace {
   string namespace =1;
 }
@@ -146,13 +150,14 @@ service KdeployService {
   rpc UpdateApp(AppUpdate) returns(App){}
   rpc DeleteApp(Ref) returns(google.protobuf.Empty){}
   rpc GetApp(Ref) returns(App){}
+  rpc ListApps(Namespace) returns(Apps){}
   rpc Logs(Ref) returns (stream Log){}
   rpc ListNamespaces(google.protobuf.Empty) returns(Namespaces){}
-  rpc ListApps(Namespace) returns(Apps){}
   rpc DeleteAll(Namespace) returns(google.protobuf.Empty){}
   
   rpc CreateTask(TaskConstructor) returns(Task){}
   rpc UpdateTask(TaskUpdate) returns(Task){}
   rpc DeleteTask(Ref) returns(google.protobuf.Empty){}
   rpc GetTask(Ref) returns(Task){}
+  rpc ListTasks(Namespace) returns(Tasks){}
 }

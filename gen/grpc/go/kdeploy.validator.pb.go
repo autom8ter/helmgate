@@ -144,6 +144,16 @@ func (this *Apps) Validate() error {
 	}
 	return nil
 }
+func (this *Tasks) Validate() error {
+	for _, item := range this.Tasks {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Tasks", err)
+			}
+		}
+	}
+	return nil
+}
 func (this *Namespace) Validate() error {
 	return nil
 }

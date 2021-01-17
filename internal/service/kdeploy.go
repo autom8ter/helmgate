@@ -88,3 +88,7 @@ func (k KdeployService) DeleteTask(ctx context.Context, ref *kdeploypb.Ref) (*em
 func (k KdeployService) GetTask(ctx context.Context, ref *kdeploypb.Ref) (*kdeploypb.Task, error) {
 	panic("implement me")
 }
+
+func (k KdeployService) ListTasks(ctx context.Context, ns *kdeploypb.Namespace) (*kdeploypb.Tasks, error) {
+	panic("implement me")
+}

@@ -29,10 +29,14 @@ an opinionated, OAuth-protected graphQL API for easily deploying kubernetes appl
 - [x] Update Application
 - [x] Get Application
 - [x] Destroy Application
-- [ ] Search Applications
+- [x] List Applications
 - [x] Stream Application Logs
 - [x] Expression based Application "authorizers"(execute against open-id profile)
-
+- [x] Create Task
+- [x] Update Task
+- [x] Get Task
+- [x] Destroy Task
+- [x] List Tasks
 
 ## Command Line
 
