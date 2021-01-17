@@ -192,23 +192,23 @@ func (c *Client) Logs(ctx context.Context, ref *kdeploypb.Ref, fn func(l *kdeplo
 	}
 }
 
-// CreateTask creates a new application
+// CreateTask creates a new task
 func (c *Client) CreateTask(ctx context.Context, app *kdeploypb.TaskConstructor) (*kdeploypb.Task, error) {
 	return c.client.CreateTask(ctx, app)
 }
 
-// UpdateTask updates an application - it performs a patch, not a full replace
+// UpdateTask updates a task - it performs a patch, not a full replace
 func (c *Client) UpdateTask(ctx context.Context, app *kdeploypb.TaskUpdate) (*kdeploypb.Task, error) {
 	return c.client.UpdateTask(ctx, app)
 }
 
-// DeleteTask deletes an application by reference(name/namespace)
+// DeleteTask deletes a task by reference(name/namespace)
 func (c *Client) DeleteTask(ctx context.Context, ref *kdeploypb.Ref) error {
 	_, err := c.client.DeleteTask(ctx, ref)
 	return err
 }
 
-// GetTask get an application by reference(name/namespace)
+// GetTask gets a task by reference(name/namespace)
 func (c *Client) GetTask(ctx context.Context, ref *kdeploypb.Ref) (*kdeploypb.Task, error) {
 	return c.client.GetTask(ctx, ref)
 }

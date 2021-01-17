@@ -3,7 +3,6 @@ package client
 import (
 	"context"
 	kdeploypb "github.com/autom8ter/kdeploy/gen/grpc/go"
-	"go.uber.org/zap"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
@@ -69,19 +68,8 @@ func (m *Manager) GetTask(ctx context.Context, ref *kdeploypb.Ref) (*kdeploypb.T
 }
 
 func (m *Manager) DeleteTask(ctx context.Context, ref *kdeploypb.Ref) error {
-	if err := m.client.Services(ref.Namespace).Delete(ctx, ref.Name, v1.DeleteOptions{}); err != nil {
-		m.logger.Error("failed to delete service",
-			zap.Error(err),
-			zap.String("name", ref.Name),
-			zap.String("namespace", ref.Namespace),
-		)
-	}
-	if err := m.client.Deployments(ref.Namespace).Delete(ctx, ref.Name, v1.DeleteOptions{}); err != nil {
-		m.logger.Error("failed to delete deployment",
-			zap.Error(err),
-			zap.String("name", ref.Name),
-			zap.String("namespace", ref.Namespace),
-		)
+	if err := m.client.CronJobs(ref.Namespace).Delete(ctx, ref.Name, v1.DeleteOptions{}); err != nil {
+		return err
 	}
 	return nil
 }
