@@ -164,6 +164,12 @@ func (c *Client) GetApp(ctx context.Context, ref *kdeploypb.Ref) (*kdeploypb.App
 	return c.client.GetApp(ctx, ref)
 }
 
+// DeleteApp deletes all tasks/applications in the namespace
+func (c *Client) DeleteAll(ctx context.Context, namespace *kdeploypb.Namespace) error {
+	_, err := c.client.DeleteAll(ctx, namespace)
+	return err
+}
+
 // Logs streams logs from an application until the context cancelled or the function(fn) return false
 func (c *Client) Logs(ctx context.Context, ref *kdeploypb.Ref, fn func(l *kdeploypb.Log) bool) error {
 	stream, err := c.client.Logs(ctx, ref)
@@ -184,4 +190,25 @@ func (c *Client) Logs(ctx context.Context, ref *kdeploypb.Ref, fn func(l *kdeplo
 			}
 		}
 	}
+}
+
+// CreateTask creates a new application
+func (c *Client) CreateTask(ctx context.Context, app *kdeploypb.TaskConstructor) (*kdeploypb.Task, error) {
+	return c.client.CreateTask(ctx, app)
+}
+
+// UpdateTask updates an application - it performs a patch, not a full replace
+func (c *Client) UpdateTask(ctx context.Context, app *kdeploypb.TaskUpdate) (*kdeploypb.Task, error) {
+	return c.client.UpdateTask(ctx, app)
+}
+
+// DeleteTask deletes an application by reference(name/namespace)
+func (c *Client) DeleteTask(ctx context.Context, ref *kdeploypb.Ref) error {
+	_, err := c.client.DeleteTask(ctx, ref)
+	return err
+}
+
+// GetTask get an application by reference(name/namespace)
+func (c *Client) GetTask(ctx context.Context, ref *kdeploypb.Ref) (*kdeploypb.Task, error) {
+	return c.client.GetTask(ctx, ref)
 }
