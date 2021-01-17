@@ -49,6 +49,14 @@ func (r *mutationResolver) DelApp(ctx context.Context, input model.AppRef) (*str
 	return nil, nil
 }
 
+func (r *mutationResolver) DelAll(ctx context.Context, input model.Namespace) (*string, error) {
+	_, err := r.client.DeleteAll(ctx, &kdeploypb.Namespace{Namespace: input.Namespace})
+	if err != nil {
+		return nil, err
+	}
+	return nil, nil
+}
+
 func (r *queryResolver) GetApp(ctx context.Context, input model.AppRef) (*model.App, error) {
 	app, err := r.client.GetApp(ctx, &kdeploypb.AppRef{
 		Name:      input.Name,

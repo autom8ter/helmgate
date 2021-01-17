@@ -202,6 +202,7 @@ func overwriteDeployment(deployment *apps.Deployment, app *kdeploypb.AppUpdate) 
 			containers = append(containers, c)
 		}
 	}
+	deployment.Spec.Template.Spec.Containers = containers
 	return deployment, nil
 }
 

@@ -10445,7 +10445,7 @@ public final class Kdeploy {
       "\026\n\003Log\022\017\n\007message\030\001 \001(\t\"*\n\004Apps\022\"\n\014appli" +
       "cations\030\001 \003(\0132\014.kdeploy.App\"\036\n\tNamespace" +
       "\022\021\n\tnamespace\030\001 \001(\t\" \n\nNamespaces\022\022\n\nnam" +
-      "espaces\030\001 \003(\t2\367\002\n\016KdeployService\0224\n\tCrea" +
+      "espaces\030\001 \003(\t2\262\003\n\016KdeployService\0224\n\tCrea" +
       "teApp\022\027.kdeploy.AppConstructor\032\014.kdeploy" +
       ".App\"\000\022/\n\tUpdateApp\022\022.kdeploy.AppUpdate\032" +
       "\014.kdeploy.App\"\000\0226\n\tDeleteApp\022\017.kdeploy.A" +
@@ -10454,8 +10454,9 @@ public final class Kdeploy {
       "gs\022\017.kdeploy.AppRef\032\014.kdeploy.Log\"\0000\001\022?\n" +
       "\016ListNamespaces\022\026.google.protobuf.Empty\032" +
       "\023.kdeploy.Namespaces\"\000\022/\n\010ListApps\022\022.kde" +
-      "ploy.Namespace\032\r.kdeploy.Apps\"\000B\013Z\tkdepl" +
-      "oypbb\006proto3"
+      "ploy.Namespace\032\r.kdeploy.Apps\"\000\0229\n\tDelet" +
+      "eAll\022\022.kdeploy.Namespace\032\026.google.protob" +
+      "uf.Empty\"\000B\013Z\tkdeploypbb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

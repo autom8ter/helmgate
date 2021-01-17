@@ -55,7 +55,7 @@ namespace Kdeploy {
             "CzIQLmtkZXBsb3kuUmVwbGljYSIWCgNMb2cSDwoHbWVzc2FnZRgBIAEoCSIq",
             "CgRBcHBzEiIKDGFwcGxpY2F0aW9ucxgBIAMoCzIMLmtkZXBsb3kuQXBwIh4K",
             "CU5hbWVzcGFjZRIRCgluYW1lc3BhY2UYASABKAkiIAoKTmFtZXNwYWNlcxIS",
-            "CgpuYW1lc3BhY2VzGAEgAygJMvcCCg5LZGVwbG95U2VydmljZRI0CglDcmVh",
+            "CgpuYW1lc3BhY2VzGAEgAygJMrIDCg5LZGVwbG95U2VydmljZRI0CglDcmVh",
             "dGVBcHASFy5rZGVwbG95LkFwcENvbnN0cnVjdG9yGgwua2RlcGxveS5BcHAi",
             "ABIvCglVcGRhdGVBcHASEi5rZGVwbG95LkFwcFVwZGF0ZRoMLmtkZXBsb3ku",
             "QXBwIgASNgoJRGVsZXRlQXBwEg8ua2RlcGxveS5BcHBSZWYaFi5nb29nbGUu",
@@ -63,8 +63,9 @@ namespace Kdeploy {
             "LmtkZXBsb3kuQXBwIgASKQoETG9ncxIPLmtkZXBsb3kuQXBwUmVmGgwua2Rl",
             "cGxveS5Mb2ciADABEj8KDkxpc3ROYW1lc3BhY2VzEhYuZ29vZ2xlLnByb3Rv",
             "YnVmLkVtcHR5GhMua2RlcGxveS5OYW1lc3BhY2VzIgASLwoITGlzdEFwcHMS",
-            "Ei5rZGVwbG95Lk5hbWVzcGFjZRoNLmtkZXBsb3kuQXBwcyIAQgtaCWtkZXBs",
-            "b3lwYmIGcHJvdG8z"));
+            "Ei5rZGVwbG95Lk5hbWVzcGFjZRoNLmtkZXBsb3kuQXBwcyIAEjkKCURlbGV0",
+            "ZUFsbBISLmtkZXBsb3kuTmFtZXNwYWNlGhYuZ29vZ2xlLnByb3RvYnVmLkVt",
+            "cHR5IgBCC1oJa2RlcGxveXBiYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Validator.ValidatorReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {

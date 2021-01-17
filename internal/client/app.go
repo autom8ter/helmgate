@@ -173,7 +173,6 @@ func (m *Manager) DeleteApp(ctx context.Context, ref *kdeploypb.AppRef) error {
 			zap.String("name", ref.Name),
 			zap.String("namespace", ref.Namespace),
 		)
-
 	}
 	if err := m.client.Deployments(ref.Namespace).Delete(ctx, ref.Name, v1.DeleteOptions{}); err != nil {
 		m.logger.Error("failed to delete deployment",
@@ -182,12 +181,12 @@ func (m *Manager) DeleteApp(ctx context.Context, ref *kdeploypb.AppRef) error {
 			zap.String("namespace", ref.Namespace),
 		)
 	}
-	if err := m.client.Namespaces().Delete(ctx, ref.Namespace, v1.DeleteOptions{}); err != nil {
-		m.logger.Error("failed to delete namespace",
-			zap.Error(err),
-			zap.String("name", ref.Name),
-			zap.String("namespace", ref.Namespace),
-		)
+	return nil
+}
+
+func (m *Manager) DeleteAll(ctx context.Context, ref *kdeploypb.Namespace) error {
+	if err := m.client.Namespaces().Delete(ctx, ref.GetNamespace(), v1.DeleteOptions{}); err != nil {
+		return err
 	}
 	return nil
 }

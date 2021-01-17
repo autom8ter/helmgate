@@ -46,6 +46,13 @@ func (k KdeployService) ListApps(ctx context.Context, ns *kdeploypb.Namespace) (
 	return k.client.ListApps(ctx, ns)
 }
 
+func (k KdeployService) DeleteAll(ctx context.Context, ns *kdeploypb.Namespace) (*empty.Empty, error) {
+	if err := k.client.DeleteAll(ctx, ns); err != nil {
+		return nil, err
+	}
+	return &empty.Empty{}, nil
+}
+
 func (k KdeployService) Logs(ref *kdeploypb.AppRef, server kdeploypb.KdeployService_LogsServer) error {
 	stream, err := k.client.StreamLogs(server.Context(), ref)
 	if err != nil {

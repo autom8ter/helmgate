@@ -98,4 +98,5 @@ service KdeployService {
   rpc Logs(AppRef) returns (stream Log){}
   rpc ListNamespaces(google.protobuf.Empty) returns(Namespaces){}
   rpc ListApps(Namespace) returns(Apps){}
+  rpc DeleteAll(Namespace) returns(google.protobuf.Empty){}
 }
