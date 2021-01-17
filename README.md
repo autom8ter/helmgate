@@ -3,7 +3,7 @@
 ![create-redis](assets/create-redis.png)
 ![get-redis](assets/get-redis.png)
 
-an opinionated, OAuth-protected graphQL API for easily deploying kubernetes applications
+an opinionated, OAuth-protected graphQL/gRPC API for easily deploying kubernetes applications & jobs
 
 [graphQL Documentation](https://autom8ter.github.io/kdeploy/)
 
