@@ -5,6 +5,7 @@ package gql
 
 import (
 	"context"
+
 	"github.com/99designs/gqlgen/graphql"
 	"github.com/autom8ter/kdeploy/gen/gql/go/generated"
 	"github.com/autom8ter/kdeploy/gen/gql/go/model"

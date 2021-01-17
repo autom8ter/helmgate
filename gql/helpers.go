@@ -25,6 +25,7 @@ func toAppC(input model.AppConstructor) *kdeploypb.AppConstructor {
 		Env:       env,
 		Ports:     ports,
 		Replicas:  uint32(input.Replicas),
+		Args:      input.Args,
 	}
 }
 
@@ -57,6 +58,7 @@ func toAppU(input model.AppUpdate) *kdeploypb.AppUpdate {
 		Env:       env,
 		Ports:     ports,
 		Replicas:  replicas,
+		Args:      input.Args,
 	}
 }
 
@@ -93,6 +95,7 @@ func fromApp(app *kdeploypb.App) *model.App {
 		Ports:     ports,
 		Replicas:  int(app.Replicas),
 		Status:    status,
+		Args:      app.Args,
 	}
 }
 
@@ -110,7 +113,7 @@ func toApp(input *model.App) *kdeploypb.App {
 			ports[k] = cast.ToUint32(v)
 		}
 	}
-	var status = &kdeploypb.Status{}
+	var status = &kdeploypb.AppStatus{}
 	for _, replica := range input.Status.Replicas {
 		status.Replicas = append(status.Replicas, &kdeploypb.Replica{
 			Phase:     replica.Phase,
@@ -122,6 +125,7 @@ func toApp(input *model.App) *kdeploypb.App {
 		Name:      input.Name,
 		Namespace: input.Namespace,
 		Image:     input.Image,
+		Args:      input.Args,
 		Env:       env,
 		Ports:     ports,
 		Replicas:  uint32(input.Replicas),

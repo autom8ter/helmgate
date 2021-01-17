@@ -9,20 +9,20 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>kdeploy.AppUpdate</code>
+ * Generated from protobuf message <code>kdeploy.CronJob</code>
  */
-class AppUpdate extends \Google\Protobuf\Internal\Message
+class CronJob extends \Google\Protobuf\Internal\Message
 {
     /**
      * name of the application
      *
-     * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string name = 1;</code>
      */
     private $name = '';
     /**
      * application namespace
      *
-     * Generated from protobuf field <code>string namespace = 2 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string namespace = 2;</code>
      */
     private $namespace = '';
     /**
@@ -32,29 +32,19 @@ class AppUpdate extends \Google\Protobuf\Internal\Message
      */
     private $image = '';
     /**
-     * args are arguments given to the docker image at startup
-     *
-     * Generated from protobuf field <code>repeated string args = 4;</code>
+     * Generated from protobuf field <code>repeated string args = 5;</code>
      */
     private $args;
     /**
      * k/v map of environmental variables
      *
-     * Generated from protobuf field <code>map<string, string> env = 5;</code>
+     * Generated from protobuf field <code>map<string, string> env = 6;</code>
      */
     private $env;
     /**
-     * k/v map of ports to expose ex: http: 80 https: 443
-     *
-     * Generated from protobuf field <code>map<string, uint32> ports = 6;</code>
+     * Generated from protobuf field <code>string schedule = 7;</code>
      */
-    private $ports;
-    /**
-     * number of deployment replicas
-     *
-     * Generated from protobuf field <code>uint32 replicas = 7;</code>
-     */
-    private $replicas = 0;
+    private $schedule = '';
 
     /**
      * Constructor.
@@ -69,13 +59,9 @@ class AppUpdate extends \Google\Protobuf\Internal\Message
      *     @type string $image
      *           docker image of application
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $args
-     *           args are arguments given to the docker image at startup
      *     @type array|\Google\Protobuf\Internal\MapField $env
      *           k/v map of environmental variables
-     *     @type array|\Google\Protobuf\Internal\MapField $ports
-     *           k/v map of ports to expose ex: http: 80 https: 443
-     *     @type int $replicas
-     *           number of deployment replicas
+     *     @type string $schedule
      * }
      */
     public function __construct($data = NULL) {
@@ -86,7 +72,7 @@ class AppUpdate extends \Google\Protobuf\Internal\Message
     /**
      * name of the application
      *
-     * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string name = 1;</code>
      * @return string
      */
     public function getName()
@@ -97,7 +83,7 @@ class AppUpdate extends \Google\Protobuf\Internal\Message
     /**
      * name of the application
      *
-     * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string name = 1;</code>
      * @param string $var
      * @return $this
      */
@@ -112,7 +98,7 @@ class AppUpdate extends \Google\Protobuf\Internal\Message
     /**
      * application namespace
      *
-     * Generated from protobuf field <code>string namespace = 2 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string namespace = 2;</code>
      * @return string
      */
     public function getNamespace()
@@ -123,7 +109,7 @@ class AppUpdate extends \Google\Protobuf\Internal\Message
     /**
      * application namespace
      *
-     * Generated from protobuf field <code>string namespace = 2 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string namespace = 2;</code>
      * @param string $var
      * @return $this
      */
@@ -162,9 +148,7 @@ class AppUpdate extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * args are arguments given to the docker image at startup
-     *
-     * Generated from protobuf field <code>repeated string args = 4;</code>
+     * Generated from protobuf field <code>repeated string args = 5;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getArgs()
@@ -173,9 +157,7 @@ class AppUpdate extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * args are arguments given to the docker image at startup
-     *
-     * Generated from protobuf field <code>repeated string args = 4;</code>
+     * Generated from protobuf field <code>repeated string args = 5;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
@@ -190,7 +172,7 @@ class AppUpdate extends \Google\Protobuf\Internal\Message
     /**
      * k/v map of environmental variables
      *
-     * Generated from protobuf field <code>map<string, string> env = 5;</code>
+     * Generated from protobuf field <code>map<string, string> env = 6;</code>
      * @return \Google\Protobuf\Internal\MapField
      */
     public function getEnv()
@@ -201,7 +183,7 @@ class AppUpdate extends \Google\Protobuf\Internal\Message
     /**
      * k/v map of environmental variables
      *
-     * Generated from protobuf field <code>map<string, string> env = 5;</code>
+     * Generated from protobuf field <code>map<string, string> env = 6;</code>
      * @param array|\Google\Protobuf\Internal\MapField $var
      * @return $this
      */
@@ -214,53 +196,23 @@ class AppUpdate extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * k/v map of ports to expose ex: http: 80 https: 443
-     *
-     * Generated from protobuf field <code>map<string, uint32> ports = 6;</code>
-     * @return \Google\Protobuf\Internal\MapField
+     * Generated from protobuf field <code>string schedule = 7;</code>
+     * @return string
      */
-    public function getPorts()
+    public function getSchedule()
     {
-        return $this->ports;
+        return $this->schedule;
     }
 
     /**
-     * k/v map of ports to expose ex: http: 80 https: 443
-     *
-     * Generated from protobuf field <code>map<string, uint32> ports = 6;</code>
-     * @param array|\Google\Protobuf\Internal\MapField $var
+     * Generated from protobuf field <code>string schedule = 7;</code>
+     * @param string $var
      * @return $this
      */
-    public function setPorts($var)
+    public function setSchedule($var)
     {
-        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::UINT32);
-        $this->ports = $arr;
-
-        return $this;
-    }
-
-    /**
-     * number of deployment replicas
-     *
-     * Generated from protobuf field <code>uint32 replicas = 7;</code>
-     * @return int
-     */
-    public function getReplicas()
-    {
-        return $this->replicas;
-    }
-
-    /**
-     * number of deployment replicas
-     *
-     * Generated from protobuf field <code>uint32 replicas = 7;</code>
-     * @param int $var
-     * @return $this
-     */
-    public function setReplicas($var)
-    {
-        GPBUtil::checkUint32($var);
-        $this->replicas = $var;
+        GPBUtil::checkString($var, True);
+        $this->schedule = $var;
 
         return $this;
     }

@@ -48,7 +48,7 @@ func (m *Manager) L() *logger.Logger {
 	return m.logger
 }
 
-func (m *Manager) getStatus(ctx context.Context, namespace, name string) (*kdeploypb.Status, error) {
+func (m *Manager) getStatus(ctx context.Context, namespace, name string) (*kdeploypb.AppStatus, error) {
 	var replicas []*kdeploypb.Replica
 	pods, err := m.client.Pods(namespace).List(ctx, v1.ListOptions{
 		TypeMeta:      v1.TypeMeta{},
@@ -64,7 +64,7 @@ func (m *Manager) getStatus(ctx context.Context, namespace, name string) (*kdepl
 			Reason:    pod.Status.Reason,
 		})
 	}
-	return &kdeploypb.Status{Replicas: replicas}, nil
+	return &kdeploypb.AppStatus{Replicas: replicas}, nil
 }
 
 func (m *Manager) CreateApp(ctx context.Context, app *kdeploypb.AppConstructor) (*kdeploypb.App, error) {

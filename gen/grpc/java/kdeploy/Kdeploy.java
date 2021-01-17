@@ -74,10 +74,45 @@ public final class Kdeploy {
 
     /**
      * <pre>
+     * args are arguments given to the docker image at startup
+     * </pre>
+     *
+     * <code>repeated string args = 5;</code>
+     */
+    java.util.List<java.lang.String>
+        getArgsList();
+    /**
+     * <pre>
+     * args are arguments given to the docker image at startup
+     * </pre>
+     *
+     * <code>repeated string args = 5;</code>
+     */
+    int getArgsCount();
+    /**
+     * <pre>
+     * args are arguments given to the docker image at startup
+     * </pre>
+     *
+     * <code>repeated string args = 5;</code>
+     */
+    java.lang.String getArgs(int index);
+    /**
+     * <pre>
+     * args are arguments given to the docker image at startup
+     * </pre>
+     *
+     * <code>repeated string args = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getArgsBytes(int index);
+
+    /**
+     * <pre>
      * k/v map of environmental variables
      * </pre>
      *
-     * <code>map&lt;string, string&gt; env = 4;</code>
+     * <code>map&lt;string, string&gt; env = 6;</code>
      */
     int getEnvCount();
     /**
@@ -85,7 +120,7 @@ public final class Kdeploy {
      * k/v map of environmental variables
      * </pre>
      *
-     * <code>map&lt;string, string&gt; env = 4;</code>
+     * <code>map&lt;string, string&gt; env = 6;</code>
      */
     boolean containsEnv(
         java.lang.String key);
@@ -100,7 +135,7 @@ public final class Kdeploy {
      * k/v map of environmental variables
      * </pre>
      *
-     * <code>map&lt;string, string&gt; env = 4;</code>
+     * <code>map&lt;string, string&gt; env = 6;</code>
      */
     java.util.Map<java.lang.String, java.lang.String>
     getEnvMap();
@@ -109,7 +144,7 @@ public final class Kdeploy {
      * k/v map of environmental variables
      * </pre>
      *
-     * <code>map&lt;string, string&gt; env = 4;</code>
+     * <code>map&lt;string, string&gt; env = 6;</code>
      */
 
     java.lang.String getEnvOrDefault(
@@ -120,7 +155,7 @@ public final class Kdeploy {
      * k/v map of environmental variables
      * </pre>
      *
-     * <code>map&lt;string, string&gt; env = 4;</code>
+     * <code>map&lt;string, string&gt; env = 6;</code>
      */
 
     java.lang.String getEnvOrThrow(
@@ -131,7 +166,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 5;</code>
+     * <code>map&lt;string, uint32&gt; ports = 7;</code>
      */
     int getPortsCount();
     /**
@@ -139,7 +174,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 5;</code>
+     * <code>map&lt;string, uint32&gt; ports = 7;</code>
      */
     boolean containsPorts(
         java.lang.String key);
@@ -154,7 +189,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 5;</code>
+     * <code>map&lt;string, uint32&gt; ports = 7;</code>
      */
     java.util.Map<java.lang.String, java.lang.Integer>
     getPortsMap();
@@ -163,7 +198,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 5;</code>
+     * <code>map&lt;string, uint32&gt; ports = 7;</code>
      */
 
     int getPortsOrDefault(
@@ -174,7 +209,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 5;</code>
+     * <code>map&lt;string, uint32&gt; ports = 7;</code>
      */
 
     int getPortsOrThrow(
@@ -185,7 +220,7 @@ public final class Kdeploy {
      * number of deployment replicas
      * </pre>
      *
-     * <code>uint32 replicas = 6;</code>
+     * <code>uint32 replicas = 8;</code>
      */
     int getReplicas();
 
@@ -194,7 +229,7 @@ public final class Kdeploy {
      * status tracks the state of the application during it's lifecycle
      * </pre>
      *
-     * <code>.kdeploy.Status status = 7;</code>
+     * <code>.kdeploy.AppStatus status = 9;</code>
      */
     boolean hasStatus();
     /**
@@ -202,17 +237,17 @@ public final class Kdeploy {
      * status tracks the state of the application during it's lifecycle
      * </pre>
      *
-     * <code>.kdeploy.Status status = 7;</code>
+     * <code>.kdeploy.AppStatus status = 9;</code>
      */
-    kdeploy.Kdeploy.Status getStatus();
+    kdeploy.Kdeploy.AppStatus getStatus();
     /**
      * <pre>
      * status tracks the state of the application during it's lifecycle
      * </pre>
      *
-     * <code>.kdeploy.Status status = 7;</code>
+     * <code>.kdeploy.AppStatus status = 9;</code>
      */
-    kdeploy.Kdeploy.StatusOrBuilder getStatusOrBuilder();
+    kdeploy.Kdeploy.AppStatusOrBuilder getStatusOrBuilder();
   }
   /**
    * Protobuf type {@code kdeploy.App}
@@ -230,6 +265,7 @@ public final class Kdeploy {
       name_ = "";
       namespace_ = "";
       image_ = "";
+      args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       replicas_ = 0;
     }
 
@@ -275,11 +311,20 @@ public final class Kdeploy {
               image_ = s;
               break;
             }
-            case 34: {
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
               if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                args_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              args_.add(s);
+              break;
+            }
+            case 50: {
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
                 env_ = com.google.protobuf.MapField.newMapField(
                     EnvDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000008;
+                mutable_bitField0_ |= 0x00000010;
               }
               com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
               env__ = input.readMessage(
@@ -288,11 +333,11 @@ public final class Kdeploy {
                   env__.getKey(), env__.getValue());
               break;
             }
-            case 42: {
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+            case 58: {
+              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
                 ports_ = com.google.protobuf.MapField.newMapField(
                     PortsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000010;
+                mutable_bitField0_ |= 0x00000020;
               }
               com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
               ports__ = input.readMessage(
@@ -301,17 +346,17 @@ public final class Kdeploy {
                   ports__.getKey(), ports__.getValue());
               break;
             }
-            case 48: {
+            case 64: {
 
               replicas_ = input.readUInt32();
               break;
             }
-            case 58: {
-              kdeploy.Kdeploy.Status.Builder subBuilder = null;
+            case 74: {
+              kdeploy.Kdeploy.AppStatus.Builder subBuilder = null;
               if (status_ != null) {
                 subBuilder = status_.toBuilder();
               }
-              status_ = input.readMessage(kdeploy.Kdeploy.Status.parser(), extensionRegistry);
+              status_ = input.readMessage(kdeploy.Kdeploy.AppStatus.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(status_);
                 status_ = subBuilder.buildPartial();
@@ -334,6 +379,9 @@ public final class Kdeploy {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+          args_ = args_.getUnmodifiableView();
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -348,9 +396,9 @@ public final class Kdeploy {
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
-        case 4:
+        case 6:
           return internalGetEnv();
-        case 5:
+        case 7:
           return internalGetPorts();
         default:
           throw new RuntimeException(
@@ -492,7 +540,52 @@ public final class Kdeploy {
       }
     }
 
-    public static final int ENV_FIELD_NUMBER = 4;
+    public static final int ARGS_FIELD_NUMBER = 5;
+    private com.google.protobuf.LazyStringList args_;
+    /**
+     * <pre>
+     * args are arguments given to the docker image at startup
+     * </pre>
+     *
+     * <code>repeated string args = 5;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getArgsList() {
+      return args_;
+    }
+    /**
+     * <pre>
+     * args are arguments given to the docker image at startup
+     * </pre>
+     *
+     * <code>repeated string args = 5;</code>
+     */
+    public int getArgsCount() {
+      return args_.size();
+    }
+    /**
+     * <pre>
+     * args are arguments given to the docker image at startup
+     * </pre>
+     *
+     * <code>repeated string args = 5;</code>
+     */
+    public java.lang.String getArgs(int index) {
+      return args_.get(index);
+    }
+    /**
+     * <pre>
+     * args are arguments given to the docker image at startup
+     * </pre>
+     *
+     * <code>repeated string args = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getArgsBytes(int index) {
+      return args_.getByteString(index);
+    }
+
+    public static final int ENV_FIELD_NUMBER = 6;
     private static final class EnvDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
           java.lang.String, java.lang.String> defaultEntry =
@@ -523,7 +616,7 @@ public final class Kdeploy {
      * k/v map of environmental variables
      * </pre>
      *
-     * <code>map&lt;string, string&gt; env = 4;</code>
+     * <code>map&lt;string, string&gt; env = 6;</code>
      */
 
     public boolean containsEnv(
@@ -543,7 +636,7 @@ public final class Kdeploy {
      * k/v map of environmental variables
      * </pre>
      *
-     * <code>map&lt;string, string&gt; env = 4;</code>
+     * <code>map&lt;string, string&gt; env = 6;</code>
      */
 
     public java.util.Map<java.lang.String, java.lang.String> getEnvMap() {
@@ -554,7 +647,7 @@ public final class Kdeploy {
      * k/v map of environmental variables
      * </pre>
      *
-     * <code>map&lt;string, string&gt; env = 4;</code>
+     * <code>map&lt;string, string&gt; env = 6;</code>
      */
 
     public java.lang.String getEnvOrDefault(
@@ -570,7 +663,7 @@ public final class Kdeploy {
      * k/v map of environmental variables
      * </pre>
      *
-     * <code>map&lt;string, string&gt; env = 4;</code>
+     * <code>map&lt;string, string&gt; env = 6;</code>
      */
 
     public java.lang.String getEnvOrThrow(
@@ -584,7 +677,7 @@ public final class Kdeploy {
       return map.get(key);
     }
 
-    public static final int PORTS_FIELD_NUMBER = 5;
+    public static final int PORTS_FIELD_NUMBER = 7;
     private static final class PortsDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
           java.lang.String, java.lang.Integer> defaultEntry =
@@ -615,7 +708,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 5;</code>
+     * <code>map&lt;string, uint32&gt; ports = 7;</code>
      */
 
     public boolean containsPorts(
@@ -635,7 +728,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 5;</code>
+     * <code>map&lt;string, uint32&gt; ports = 7;</code>
      */
 
     public java.util.Map<java.lang.String, java.lang.Integer> getPortsMap() {
@@ -646,7 +739,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 5;</code>
+     * <code>map&lt;string, uint32&gt; ports = 7;</code>
      */
 
     public int getPortsOrDefault(
@@ -662,7 +755,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 5;</code>
+     * <code>map&lt;string, uint32&gt; ports = 7;</code>
      */
 
     public int getPortsOrThrow(
@@ -676,27 +769,27 @@ public final class Kdeploy {
       return map.get(key);
     }
 
-    public static final int REPLICAS_FIELD_NUMBER = 6;
+    public static final int REPLICAS_FIELD_NUMBER = 8;
     private int replicas_;
     /**
      * <pre>
      * number of deployment replicas
      * </pre>
      *
-     * <code>uint32 replicas = 6;</code>
+     * <code>uint32 replicas = 8;</code>
      */
     public int getReplicas() {
       return replicas_;
     }
 
-    public static final int STATUS_FIELD_NUMBER = 7;
-    private kdeploy.Kdeploy.Status status_;
+    public static final int STATUS_FIELD_NUMBER = 9;
+    private kdeploy.Kdeploy.AppStatus status_;
     /**
      * <pre>
      * status tracks the state of the application during it's lifecycle
      * </pre>
      *
-     * <code>.kdeploy.Status status = 7;</code>
+     * <code>.kdeploy.AppStatus status = 9;</code>
      */
     public boolean hasStatus() {
       return status_ != null;
@@ -706,19 +799,19 @@ public final class Kdeploy {
      * status tracks the state of the application during it's lifecycle
      * </pre>
      *
-     * <code>.kdeploy.Status status = 7;</code>
+     * <code>.kdeploy.AppStatus status = 9;</code>
      */
-    public kdeploy.Kdeploy.Status getStatus() {
-      return status_ == null ? kdeploy.Kdeploy.Status.getDefaultInstance() : status_;
+    public kdeploy.Kdeploy.AppStatus getStatus() {
+      return status_ == null ? kdeploy.Kdeploy.AppStatus.getDefaultInstance() : status_;
     }
     /**
      * <pre>
      * status tracks the state of the application during it's lifecycle
      * </pre>
      *
-     * <code>.kdeploy.Status status = 7;</code>
+     * <code>.kdeploy.AppStatus status = 9;</code>
      */
-    public kdeploy.Kdeploy.StatusOrBuilder getStatusOrBuilder() {
+    public kdeploy.Kdeploy.AppStatusOrBuilder getStatusOrBuilder() {
       return getStatus();
     }
 
@@ -745,23 +838,26 @@ public final class Kdeploy {
       if (!getImageBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, image_);
       }
+      for (int i = 0; i < args_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, args_.getRaw(i));
+      }
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
           output,
           internalGetEnv(),
           EnvDefaultEntryHolder.defaultEntry,
-          4);
+          6);
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
           output,
           internalGetPorts(),
           PortsDefaultEntryHolder.defaultEntry,
-          5);
+          7);
       if (replicas_ != 0) {
-        output.writeUInt32(6, replicas_);
+        output.writeUInt32(8, replicas_);
       }
       if (status_ != null) {
-        output.writeMessage(7, getStatus());
+        output.writeMessage(9, getStatus());
       }
       unknownFields.writeTo(output);
     }
@@ -781,6 +877,14 @@ public final class Kdeploy {
       if (!getImageBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, image_);
       }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < args_.size(); i++) {
+          dataSize += computeStringSizeNoTag(args_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getArgsList().size();
+      }
       for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
            : internalGetEnv().getMap().entrySet()) {
         com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
@@ -789,7 +893,7 @@ public final class Kdeploy {
             .setValue(entry.getValue())
             .build();
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(4, env__);
+            .computeMessageSize(6, env__);
       }
       for (java.util.Map.Entry<java.lang.String, java.lang.Integer> entry
            : internalGetPorts().getMap().entrySet()) {
@@ -799,15 +903,15 @@ public final class Kdeploy {
             .setValue(entry.getValue())
             .build();
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(5, ports__);
+            .computeMessageSize(7, ports__);
       }
       if (replicas_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(6, replicas_);
+          .computeUInt32Size(8, replicas_);
       }
       if (status_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(7, getStatus());
+          .computeMessageSize(9, getStatus());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -831,6 +935,8 @@ public final class Kdeploy {
           .equals(other.getNamespace());
       result = result && getImage()
           .equals(other.getImage());
+      result = result && getArgsList()
+          .equals(other.getArgsList());
       result = result && internalGetEnv().equals(
           other.internalGetEnv());
       result = result && internalGetPorts().equals(
@@ -859,6 +965,10 @@ public final class Kdeploy {
       hash = (53 * hash) + getNamespace().hashCode();
       hash = (37 * hash) + IMAGE_FIELD_NUMBER;
       hash = (53 * hash) + getImage().hashCode();
+      if (getArgsCount() > 0) {
+        hash = (37 * hash) + ARGS_FIELD_NUMBER;
+        hash = (53 * hash) + getArgsList().hashCode();
+      }
       if (!internalGetEnv().getMap().isEmpty()) {
         hash = (37 * hash) + ENV_FIELD_NUMBER;
         hash = (53 * hash) + internalGetEnv().hashCode();
@@ -984,9 +1094,9 @@ public final class Kdeploy {
       protected com.google.protobuf.MapField internalGetMapField(
           int number) {
         switch (number) {
-          case 4:
+          case 6:
             return internalGetEnv();
-          case 5:
+          case 7:
             return internalGetPorts();
           default:
             throw new RuntimeException(
@@ -997,9 +1107,9 @@ public final class Kdeploy {
       protected com.google.protobuf.MapField internalGetMutableMapField(
           int number) {
         switch (number) {
-          case 4:
+          case 6:
             return internalGetMutableEnv();
-          case 5:
+          case 7:
             return internalGetMutablePorts();
           default:
             throw new RuntimeException(
@@ -1038,6 +1148,8 @@ public final class Kdeploy {
 
         image_ = "";
 
+        args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
         internalGetMutableEnv().clear();
         internalGetMutablePorts().clear();
         replicas_ = 0;
@@ -1079,6 +1191,11 @@ public final class Kdeploy {
         result.name_ = name_;
         result.namespace_ = namespace_;
         result.image_ = image_;
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          args_ = args_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.args_ = args_;
         result.env_ = internalGetEnv();
         result.env_.makeImmutable();
         result.ports_ = internalGetPorts();
@@ -1148,6 +1265,16 @@ public final class Kdeploy {
         }
         if (!other.getImage().isEmpty()) {
           image_ = other.image_;
+          onChanged();
+        }
+        if (!other.args_.isEmpty()) {
+          if (args_.isEmpty()) {
+            args_ = other.args_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureArgsIsMutable();
+            args_.addAll(other.args_);
+          }
           onChanged();
         }
         internalGetMutableEnv().mergeFrom(
@@ -1457,6 +1584,136 @@ public final class Kdeploy {
         return this;
       }
 
+      private com.google.protobuf.LazyStringList args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureArgsIsMutable() {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+          args_ = new com.google.protobuf.LazyStringArrayList(args_);
+          bitField0_ |= 0x00000008;
+         }
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 5;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getArgsList() {
+        return args_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 5;</code>
+       */
+      public int getArgsCount() {
+        return args_.size();
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 5;</code>
+       */
+      public java.lang.String getArgs(int index) {
+        return args_.get(index);
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getArgsBytes(int index) {
+        return args_.getByteString(index);
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 5;</code>
+       */
+      public Builder setArgs(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureArgsIsMutable();
+        args_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 5;</code>
+       */
+      public Builder addArgs(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureArgsIsMutable();
+        args_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 5;</code>
+       */
+      public Builder addAllArgs(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureArgsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, args_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 5;</code>
+       */
+      public Builder clearArgs() {
+        args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 5;</code>
+       */
+      public Builder addArgsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureArgsIsMutable();
+        args_.add(value);
+        onChanged();
+        return this;
+      }
+
       private com.google.protobuf.MapField<
           java.lang.String, java.lang.String> env_;
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -1488,7 +1745,7 @@ public final class Kdeploy {
        * k/v map of environmental variables
        * </pre>
        *
-       * <code>map&lt;string, string&gt; env = 4;</code>
+       * <code>map&lt;string, string&gt; env = 6;</code>
        */
 
       public boolean containsEnv(
@@ -1508,7 +1765,7 @@ public final class Kdeploy {
        * k/v map of environmental variables
        * </pre>
        *
-       * <code>map&lt;string, string&gt; env = 4;</code>
+       * <code>map&lt;string, string&gt; env = 6;</code>
        */
 
       public java.util.Map<java.lang.String, java.lang.String> getEnvMap() {
@@ -1519,7 +1776,7 @@ public final class Kdeploy {
        * k/v map of environmental variables
        * </pre>
        *
-       * <code>map&lt;string, string&gt; env = 4;</code>
+       * <code>map&lt;string, string&gt; env = 6;</code>
        */
 
       public java.lang.String getEnvOrDefault(
@@ -1535,7 +1792,7 @@ public final class Kdeploy {
        * k/v map of environmental variables
        * </pre>
        *
-       * <code>map&lt;string, string&gt; env = 4;</code>
+       * <code>map&lt;string, string&gt; env = 6;</code>
        */
 
       public java.lang.String getEnvOrThrow(
@@ -1559,7 +1816,7 @@ public final class Kdeploy {
        * k/v map of environmental variables
        * </pre>
        *
-       * <code>map&lt;string, string&gt; env = 4;</code>
+       * <code>map&lt;string, string&gt; env = 6;</code>
        */
 
       public Builder removeEnv(
@@ -1582,7 +1839,7 @@ public final class Kdeploy {
        * k/v map of environmental variables
        * </pre>
        *
-       * <code>map&lt;string, string&gt; env = 4;</code>
+       * <code>map&lt;string, string&gt; env = 6;</code>
        */
       public Builder putEnv(
           java.lang.String key,
@@ -1598,7 +1855,7 @@ public final class Kdeploy {
        * k/v map of environmental variables
        * </pre>
        *
-       * <code>map&lt;string, string&gt; env = 4;</code>
+       * <code>map&lt;string, string&gt; env = 6;</code>
        */
 
       public Builder putAllEnv(
@@ -1639,7 +1896,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 5;</code>
+       * <code>map&lt;string, uint32&gt; ports = 7;</code>
        */
 
       public boolean containsPorts(
@@ -1659,7 +1916,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 5;</code>
+       * <code>map&lt;string, uint32&gt; ports = 7;</code>
        */
 
       public java.util.Map<java.lang.String, java.lang.Integer> getPortsMap() {
@@ -1670,7 +1927,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 5;</code>
+       * <code>map&lt;string, uint32&gt; ports = 7;</code>
        */
 
       public int getPortsOrDefault(
@@ -1686,7 +1943,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 5;</code>
+       * <code>map&lt;string, uint32&gt; ports = 7;</code>
        */
 
       public int getPortsOrThrow(
@@ -1710,7 +1967,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 5;</code>
+       * <code>map&lt;string, uint32&gt; ports = 7;</code>
        */
 
       public Builder removePorts(
@@ -1733,7 +1990,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 5;</code>
+       * <code>map&lt;string, uint32&gt; ports = 7;</code>
        */
       public Builder putPorts(
           java.lang.String key,
@@ -1749,7 +2006,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 5;</code>
+       * <code>map&lt;string, uint32&gt; ports = 7;</code>
        */
 
       public Builder putAllPorts(
@@ -1765,7 +2022,7 @@ public final class Kdeploy {
        * number of deployment replicas
        * </pre>
        *
-       * <code>uint32 replicas = 6;</code>
+       * <code>uint32 replicas = 8;</code>
        */
       public int getReplicas() {
         return replicas_;
@@ -1775,7 +2032,7 @@ public final class Kdeploy {
        * number of deployment replicas
        * </pre>
        *
-       * <code>uint32 replicas = 6;</code>
+       * <code>uint32 replicas = 8;</code>
        */
       public Builder setReplicas(int value) {
         
@@ -1788,7 +2045,7 @@ public final class Kdeploy {
        * number of deployment replicas
        * </pre>
        *
-       * <code>uint32 replicas = 6;</code>
+       * <code>uint32 replicas = 8;</code>
        */
       public Builder clearReplicas() {
         
@@ -1797,15 +2054,15 @@ public final class Kdeploy {
         return this;
       }
 
-      private kdeploy.Kdeploy.Status status_ = null;
+      private kdeploy.Kdeploy.AppStatus status_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          kdeploy.Kdeploy.Status, kdeploy.Kdeploy.Status.Builder, kdeploy.Kdeploy.StatusOrBuilder> statusBuilder_;
+          kdeploy.Kdeploy.AppStatus, kdeploy.Kdeploy.AppStatus.Builder, kdeploy.Kdeploy.AppStatusOrBuilder> statusBuilder_;
       /**
        * <pre>
        * status tracks the state of the application during it's lifecycle
        * </pre>
        *
-       * <code>.kdeploy.Status status = 7;</code>
+       * <code>.kdeploy.AppStatus status = 9;</code>
        */
       public boolean hasStatus() {
         return statusBuilder_ != null || status_ != null;
@@ -1815,11 +2072,11 @@ public final class Kdeploy {
        * status tracks the state of the application during it's lifecycle
        * </pre>
        *
-       * <code>.kdeploy.Status status = 7;</code>
+       * <code>.kdeploy.AppStatus status = 9;</code>
        */
-      public kdeploy.Kdeploy.Status getStatus() {
+      public kdeploy.Kdeploy.AppStatus getStatus() {
         if (statusBuilder_ == null) {
-          return status_ == null ? kdeploy.Kdeploy.Status.getDefaultInstance() : status_;
+          return status_ == null ? kdeploy.Kdeploy.AppStatus.getDefaultInstance() : status_;
         } else {
           return statusBuilder_.getMessage();
         }
@@ -1829,9 +2086,9 @@ public final class Kdeploy {
        * status tracks the state of the application during it's lifecycle
        * </pre>
        *
-       * <code>.kdeploy.Status status = 7;</code>
+       * <code>.kdeploy.AppStatus status = 9;</code>
        */
-      public Builder setStatus(kdeploy.Kdeploy.Status value) {
+      public Builder setStatus(kdeploy.Kdeploy.AppStatus value) {
         if (statusBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1849,10 +2106,10 @@ public final class Kdeploy {
        * status tracks the state of the application during it's lifecycle
        * </pre>
        *
-       * <code>.kdeploy.Status status = 7;</code>
+       * <code>.kdeploy.AppStatus status = 9;</code>
        */
       public Builder setStatus(
-          kdeploy.Kdeploy.Status.Builder builderForValue) {
+          kdeploy.Kdeploy.AppStatus.Builder builderForValue) {
         if (statusBuilder_ == null) {
           status_ = builderForValue.build();
           onChanged();
@@ -1867,13 +2124,13 @@ public final class Kdeploy {
        * status tracks the state of the application during it's lifecycle
        * </pre>
        *
-       * <code>.kdeploy.Status status = 7;</code>
+       * <code>.kdeploy.AppStatus status = 9;</code>
        */
-      public Builder mergeStatus(kdeploy.Kdeploy.Status value) {
+      public Builder mergeStatus(kdeploy.Kdeploy.AppStatus value) {
         if (statusBuilder_ == null) {
           if (status_ != null) {
             status_ =
-              kdeploy.Kdeploy.Status.newBuilder(status_).mergeFrom(value).buildPartial();
+              kdeploy.Kdeploy.AppStatus.newBuilder(status_).mergeFrom(value).buildPartial();
           } else {
             status_ = value;
           }
@@ -1889,7 +2146,7 @@ public final class Kdeploy {
        * status tracks the state of the application during it's lifecycle
        * </pre>
        *
-       * <code>.kdeploy.Status status = 7;</code>
+       * <code>.kdeploy.AppStatus status = 9;</code>
        */
       public Builder clearStatus() {
         if (statusBuilder_ == null) {
@@ -1907,9 +2164,9 @@ public final class Kdeploy {
        * status tracks the state of the application during it's lifecycle
        * </pre>
        *
-       * <code>.kdeploy.Status status = 7;</code>
+       * <code>.kdeploy.AppStatus status = 9;</code>
        */
-      public kdeploy.Kdeploy.Status.Builder getStatusBuilder() {
+      public kdeploy.Kdeploy.AppStatus.Builder getStatusBuilder() {
         
         onChanged();
         return getStatusFieldBuilder().getBuilder();
@@ -1919,14 +2176,14 @@ public final class Kdeploy {
        * status tracks the state of the application during it's lifecycle
        * </pre>
        *
-       * <code>.kdeploy.Status status = 7;</code>
+       * <code>.kdeploy.AppStatus status = 9;</code>
        */
-      public kdeploy.Kdeploy.StatusOrBuilder getStatusOrBuilder() {
+      public kdeploy.Kdeploy.AppStatusOrBuilder getStatusOrBuilder() {
         if (statusBuilder_ != null) {
           return statusBuilder_.getMessageOrBuilder();
         } else {
           return status_ == null ?
-              kdeploy.Kdeploy.Status.getDefaultInstance() : status_;
+              kdeploy.Kdeploy.AppStatus.getDefaultInstance() : status_;
         }
       }
       /**
@@ -1934,14 +2191,14 @@ public final class Kdeploy {
        * status tracks the state of the application during it's lifecycle
        * </pre>
        *
-       * <code>.kdeploy.Status status = 7;</code>
+       * <code>.kdeploy.AppStatus status = 9;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          kdeploy.Kdeploy.Status, kdeploy.Kdeploy.Status.Builder, kdeploy.Kdeploy.StatusOrBuilder> 
+          kdeploy.Kdeploy.AppStatus, kdeploy.Kdeploy.AppStatus.Builder, kdeploy.Kdeploy.AppStatusOrBuilder> 
           getStatusFieldBuilder() {
         if (statusBuilder_ == null) {
           statusBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              kdeploy.Kdeploy.Status, kdeploy.Kdeploy.Status.Builder, kdeploy.Kdeploy.StatusOrBuilder>(
+              kdeploy.Kdeploy.AppStatus, kdeploy.Kdeploy.AppStatus.Builder, kdeploy.Kdeploy.AppStatusOrBuilder>(
                   getStatus(),
                   getParentForChildren(),
                   isClean());
@@ -1997,6 +2254,1640 @@ public final class Kdeploy {
 
     @java.lang.Override
     public kdeploy.Kdeploy.App getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface CronJobOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:kdeploy.CronJob)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * name of the application
+     * </pre>
+     *
+     * <code>string name = 1;</code>
+     */
+    java.lang.String getName();
+    /**
+     * <pre>
+     * name of the application
+     * </pre>
+     *
+     * <code>string name = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <pre>
+     * application namespace
+     * </pre>
+     *
+     * <code>string namespace = 2;</code>
+     */
+    java.lang.String getNamespace();
+    /**
+     * <pre>
+     * application namespace
+     * </pre>
+     *
+     * <code>string namespace = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getNamespaceBytes();
+
+    /**
+     * <pre>
+     * docker image of application
+     * </pre>
+     *
+     * <code>string image = 3;</code>
+     */
+    java.lang.String getImage();
+    /**
+     * <pre>
+     * docker image of application
+     * </pre>
+     *
+     * <code>string image = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getImageBytes();
+
+    /**
+     * <code>repeated string args = 5;</code>
+     */
+    java.util.List<java.lang.String>
+        getArgsList();
+    /**
+     * <code>repeated string args = 5;</code>
+     */
+    int getArgsCount();
+    /**
+     * <code>repeated string args = 5;</code>
+     */
+    java.lang.String getArgs(int index);
+    /**
+     * <code>repeated string args = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getArgsBytes(int index);
+
+    /**
+     * <pre>
+     * k/v map of environmental variables
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; env = 6;</code>
+     */
+    int getEnvCount();
+    /**
+     * <pre>
+     * k/v map of environmental variables
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; env = 6;</code>
+     */
+    boolean containsEnv(
+        java.lang.String key);
+    /**
+     * Use {@link #getEnvMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
+    getEnv();
+    /**
+     * <pre>
+     * k/v map of environmental variables
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; env = 6;</code>
+     */
+    java.util.Map<java.lang.String, java.lang.String>
+    getEnvMap();
+    /**
+     * <pre>
+     * k/v map of environmental variables
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; env = 6;</code>
+     */
+
+    java.lang.String getEnvOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue);
+    /**
+     * <pre>
+     * k/v map of environmental variables
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; env = 6;</code>
+     */
+
+    java.lang.String getEnvOrThrow(
+        java.lang.String key);
+
+    /**
+     * <code>string schedule = 7;</code>
+     */
+    java.lang.String getSchedule();
+    /**
+     * <code>string schedule = 7;</code>
+     */
+    com.google.protobuf.ByteString
+        getScheduleBytes();
+  }
+  /**
+   * Protobuf type {@code kdeploy.CronJob}
+   */
+  public  static final class CronJob extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:kdeploy.CronJob)
+      CronJobOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use CronJob.newBuilder() to construct.
+    private CronJob(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CronJob() {
+      name_ = "";
+      namespace_ = "";
+      image_ = "";
+      args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      schedule_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CronJob(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              name_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              namespace_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              image_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                args_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              args_.add(s);
+              break;
+            }
+            case 50: {
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+                env_ = com.google.protobuf.MapField.newMapField(
+                    EnvDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000010;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              env__ = input.readMessage(
+                  EnvDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              env_.getMutableMap().put(
+                  env__.getKey(), env__.getValue());
+              break;
+            }
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              schedule_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+          args_ = args_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return kdeploy.Kdeploy.internal_static_kdeploy_CronJob_descriptor;
+    }
+
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 6:
+          return internalGetEnv();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return kdeploy.Kdeploy.internal_static_kdeploy_CronJob_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              kdeploy.Kdeploy.CronJob.class, kdeploy.Kdeploy.CronJob.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object name_;
+    /**
+     * <pre>
+     * name of the application
+     * </pre>
+     *
+     * <code>string name = 1;</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * name of the application
+     * </pre>
+     *
+     * <code>string name = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int NAMESPACE_FIELD_NUMBER = 2;
+    private volatile java.lang.Object namespace_;
+    /**
+     * <pre>
+     * application namespace
+     * </pre>
+     *
+     * <code>string namespace = 2;</code>
+     */
+    public java.lang.String getNamespace() {
+      java.lang.Object ref = namespace_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        namespace_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * application namespace
+     * </pre>
+     *
+     * <code>string namespace = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNamespaceBytes() {
+      java.lang.Object ref = namespace_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        namespace_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int IMAGE_FIELD_NUMBER = 3;
+    private volatile java.lang.Object image_;
+    /**
+     * <pre>
+     * docker image of application
+     * </pre>
+     *
+     * <code>string image = 3;</code>
+     */
+    public java.lang.String getImage() {
+      java.lang.Object ref = image_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        image_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * docker image of application
+     * </pre>
+     *
+     * <code>string image = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getImageBytes() {
+      java.lang.Object ref = image_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        image_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ARGS_FIELD_NUMBER = 5;
+    private com.google.protobuf.LazyStringList args_;
+    /**
+     * <code>repeated string args = 5;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getArgsList() {
+      return args_;
+    }
+    /**
+     * <code>repeated string args = 5;</code>
+     */
+    public int getArgsCount() {
+      return args_.size();
+    }
+    /**
+     * <code>repeated string args = 5;</code>
+     */
+    public java.lang.String getArgs(int index) {
+      return args_.get(index);
+    }
+    /**
+     * <code>repeated string args = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getArgsBytes(int index) {
+      return args_.getByteString(index);
+    }
+
+    public static final int ENV_FIELD_NUMBER = 6;
+    private static final class EnvDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  kdeploy.Kdeploy.internal_static_kdeploy_CronJob_EnvEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> env_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetEnv() {
+      if (env_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            EnvDefaultEntryHolder.defaultEntry);
+      }
+      return env_;
+    }
+
+    public int getEnvCount() {
+      return internalGetEnv().getMap().size();
+    }
+    /**
+     * <pre>
+     * k/v map of environmental variables
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; env = 6;</code>
+     */
+
+    public boolean containsEnv(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetEnv().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getEnvMap()} instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getEnv() {
+      return getEnvMap();
+    }
+    /**
+     * <pre>
+     * k/v map of environmental variables
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; env = 6;</code>
+     */
+
+    public java.util.Map<java.lang.String, java.lang.String> getEnvMap() {
+      return internalGetEnv().getMap();
+    }
+    /**
+     * <pre>
+     * k/v map of environmental variables
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; env = 6;</code>
+     */
+
+    public java.lang.String getEnvOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetEnv().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     * k/v map of environmental variables
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; env = 6;</code>
+     */
+
+    public java.lang.String getEnvOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetEnv().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    public static final int SCHEDULE_FIELD_NUMBER = 7;
+    private volatile java.lang.Object schedule_;
+    /**
+     * <code>string schedule = 7;</code>
+     */
+    public java.lang.String getSchedule() {
+      java.lang.Object ref = schedule_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        schedule_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string schedule = 7;</code>
+     */
+    public com.google.protobuf.ByteString
+        getScheduleBytes() {
+      java.lang.Object ref = schedule_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        schedule_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      }
+      if (!getNamespaceBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, namespace_);
+      }
+      if (!getImageBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, image_);
+      }
+      for (int i = 0; i < args_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, args_.getRaw(i));
+      }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetEnv(),
+          EnvDefaultEntryHolder.defaultEntry,
+          6);
+      if (!getScheduleBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, schedule_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      if (!getNamespaceBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, namespace_);
+      }
+      if (!getImageBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, image_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < args_.size(); i++) {
+          dataSize += computeStringSizeNoTag(args_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getArgsList().size();
+      }
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+           : internalGetEnv().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+        env__ = EnvDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(6, env__);
+      }
+      if (!getScheduleBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, schedule_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof kdeploy.Kdeploy.CronJob)) {
+        return super.equals(obj);
+      }
+      kdeploy.Kdeploy.CronJob other = (kdeploy.Kdeploy.CronJob) obj;
+
+      boolean result = true;
+      result = result && getName()
+          .equals(other.getName());
+      result = result && getNamespace()
+          .equals(other.getNamespace());
+      result = result && getImage()
+          .equals(other.getImage());
+      result = result && getArgsList()
+          .equals(other.getArgsList());
+      result = result && internalGetEnv().equals(
+          other.internalGetEnv());
+      result = result && getSchedule()
+          .equals(other.getSchedule());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
+      hash = (37 * hash) + NAMESPACE_FIELD_NUMBER;
+      hash = (53 * hash) + getNamespace().hashCode();
+      hash = (37 * hash) + IMAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getImage().hashCode();
+      if (getArgsCount() > 0) {
+        hash = (37 * hash) + ARGS_FIELD_NUMBER;
+        hash = (53 * hash) + getArgsList().hashCode();
+      }
+      if (!internalGetEnv().getMap().isEmpty()) {
+        hash = (37 * hash) + ENV_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetEnv().hashCode();
+      }
+      hash = (37 * hash) + SCHEDULE_FIELD_NUMBER;
+      hash = (53 * hash) + getSchedule().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static kdeploy.Kdeploy.CronJob parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static kdeploy.Kdeploy.CronJob parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.CronJob parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static kdeploy.Kdeploy.CronJob parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.CronJob parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static kdeploy.Kdeploy.CronJob parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.CronJob parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static kdeploy.Kdeploy.CronJob parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.CronJob parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static kdeploy.Kdeploy.CronJob parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.CronJob parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static kdeploy.Kdeploy.CronJob parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(kdeploy.Kdeploy.CronJob prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code kdeploy.CronJob}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:kdeploy.CronJob)
+        kdeploy.Kdeploy.CronJobOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return kdeploy.Kdeploy.internal_static_kdeploy_CronJob_descriptor;
+      }
+
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 6:
+            return internalGetEnv();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 6:
+            return internalGetMutableEnv();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return kdeploy.Kdeploy.internal_static_kdeploy_CronJob_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                kdeploy.Kdeploy.CronJob.class, kdeploy.Kdeploy.CronJob.Builder.class);
+      }
+
+      // Construct using kdeploy.Kdeploy.CronJob.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+
+        namespace_ = "";
+
+        image_ = "";
+
+        args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        internalGetMutableEnv().clear();
+        schedule_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return kdeploy.Kdeploy.internal_static_kdeploy_CronJob_descriptor;
+      }
+
+      @java.lang.Override
+      public kdeploy.Kdeploy.CronJob getDefaultInstanceForType() {
+        return kdeploy.Kdeploy.CronJob.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public kdeploy.Kdeploy.CronJob build() {
+        kdeploy.Kdeploy.CronJob result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public kdeploy.Kdeploy.CronJob buildPartial() {
+        kdeploy.Kdeploy.CronJob result = new kdeploy.Kdeploy.CronJob(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.name_ = name_;
+        result.namespace_ = namespace_;
+        result.image_ = image_;
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          args_ = args_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.args_ = args_;
+        result.env_ = internalGetEnv();
+        result.env_.makeImmutable();
+        result.schedule_ = schedule_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof kdeploy.Kdeploy.CronJob) {
+          return mergeFrom((kdeploy.Kdeploy.CronJob)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(kdeploy.Kdeploy.CronJob other) {
+        if (other == kdeploy.Kdeploy.CronJob.getDefaultInstance()) return this;
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
+          onChanged();
+        }
+        if (!other.getNamespace().isEmpty()) {
+          namespace_ = other.namespace_;
+          onChanged();
+        }
+        if (!other.getImage().isEmpty()) {
+          image_ = other.image_;
+          onChanged();
+        }
+        if (!other.args_.isEmpty()) {
+          if (args_.isEmpty()) {
+            args_ = other.args_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureArgsIsMutable();
+            args_.addAll(other.args_);
+          }
+          onChanged();
+        }
+        internalGetMutableEnv().mergeFrom(
+            other.internalGetEnv());
+        if (!other.getSchedule().isEmpty()) {
+          schedule_ = other.schedule_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        kdeploy.Kdeploy.CronJob parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (kdeploy.Kdeploy.CronJob) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object name_ = "";
+      /**
+       * <pre>
+       * name of the application
+       * </pre>
+       *
+       * <code>string name = 1;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * name of the application
+       * </pre>
+       *
+       * <code>string name = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * name of the application
+       * </pre>
+       *
+       * <code>string name = 1;</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * name of the application
+       * </pre>
+       *
+       * <code>string name = 1;</code>
+       */
+      public Builder clearName() {
+        
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * name of the application
+       * </pre>
+       *
+       * <code>string name = 1;</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object namespace_ = "";
+      /**
+       * <pre>
+       * application namespace
+       * </pre>
+       *
+       * <code>string namespace = 2;</code>
+       */
+      public java.lang.String getNamespace() {
+        java.lang.Object ref = namespace_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          namespace_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * application namespace
+       * </pre>
+       *
+       * <code>string namespace = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNamespaceBytes() {
+        java.lang.Object ref = namespace_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          namespace_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * application namespace
+       * </pre>
+       *
+       * <code>string namespace = 2;</code>
+       */
+      public Builder setNamespace(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        namespace_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * application namespace
+       * </pre>
+       *
+       * <code>string namespace = 2;</code>
+       */
+      public Builder clearNamespace() {
+        
+        namespace_ = getDefaultInstance().getNamespace();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * application namespace
+       * </pre>
+       *
+       * <code>string namespace = 2;</code>
+       */
+      public Builder setNamespaceBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        namespace_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object image_ = "";
+      /**
+       * <pre>
+       * docker image of application
+       * </pre>
+       *
+       * <code>string image = 3;</code>
+       */
+      public java.lang.String getImage() {
+        java.lang.Object ref = image_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          image_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * docker image of application
+       * </pre>
+       *
+       * <code>string image = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getImageBytes() {
+        java.lang.Object ref = image_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          image_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * docker image of application
+       * </pre>
+       *
+       * <code>string image = 3;</code>
+       */
+      public Builder setImage(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        image_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * docker image of application
+       * </pre>
+       *
+       * <code>string image = 3;</code>
+       */
+      public Builder clearImage() {
+        
+        image_ = getDefaultInstance().getImage();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * docker image of application
+       * </pre>
+       *
+       * <code>string image = 3;</code>
+       */
+      public Builder setImageBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        image_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureArgsIsMutable() {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+          args_ = new com.google.protobuf.LazyStringArrayList(args_);
+          bitField0_ |= 0x00000008;
+         }
+      }
+      /**
+       * <code>repeated string args = 5;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getArgsList() {
+        return args_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string args = 5;</code>
+       */
+      public int getArgsCount() {
+        return args_.size();
+      }
+      /**
+       * <code>repeated string args = 5;</code>
+       */
+      public java.lang.String getArgs(int index) {
+        return args_.get(index);
+      }
+      /**
+       * <code>repeated string args = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getArgsBytes(int index) {
+        return args_.getByteString(index);
+      }
+      /**
+       * <code>repeated string args = 5;</code>
+       */
+      public Builder setArgs(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureArgsIsMutable();
+        args_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string args = 5;</code>
+       */
+      public Builder addArgs(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureArgsIsMutable();
+        args_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string args = 5;</code>
+       */
+      public Builder addAllArgs(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureArgsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, args_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string args = 5;</code>
+       */
+      public Builder clearArgs() {
+        args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string args = 5;</code>
+       */
+      public Builder addArgsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureArgsIsMutable();
+        args_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.String> env_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetEnv() {
+        if (env_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              EnvDefaultEntryHolder.defaultEntry);
+        }
+        return env_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableEnv() {
+        onChanged();;
+        if (env_ == null) {
+          env_ = com.google.protobuf.MapField.newMapField(
+              EnvDefaultEntryHolder.defaultEntry);
+        }
+        if (!env_.isMutable()) {
+          env_ = env_.copy();
+        }
+        return env_;
+      }
+
+      public int getEnvCount() {
+        return internalGetEnv().getMap().size();
+      }
+      /**
+       * <pre>
+       * k/v map of environmental variables
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; env = 6;</code>
+       */
+
+      public boolean containsEnv(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        return internalGetEnv().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getEnvMap()} instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getEnv() {
+        return getEnvMap();
+      }
+      /**
+       * <pre>
+       * k/v map of environmental variables
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; env = 6;</code>
+       */
+
+      public java.util.Map<java.lang.String, java.lang.String> getEnvMap() {
+        return internalGetEnv().getMap();
+      }
+      /**
+       * <pre>
+       * k/v map of environmental variables
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; env = 6;</code>
+       */
+
+      public java.lang.String getEnvOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetEnv().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <pre>
+       * k/v map of environmental variables
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; env = 6;</code>
+       */
+
+      public java.lang.String getEnvOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetEnv().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearEnv() {
+        internalGetMutableEnv().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <pre>
+       * k/v map of environmental variables
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; env = 6;</code>
+       */
+
+      public Builder removeEnv(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableEnv().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
+      getMutableEnv() {
+        return internalGetMutableEnv().getMutableMap();
+      }
+      /**
+       * <pre>
+       * k/v map of environmental variables
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; env = 6;</code>
+       */
+      public Builder putEnv(
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableEnv().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <pre>
+       * k/v map of environmental variables
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; env = 6;</code>
+       */
+
+      public Builder putAllEnv(
+          java.util.Map<java.lang.String, java.lang.String> values) {
+        internalGetMutableEnv().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+
+      private java.lang.Object schedule_ = "";
+      /**
+       * <code>string schedule = 7;</code>
+       */
+      public java.lang.String getSchedule() {
+        java.lang.Object ref = schedule_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          schedule_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string schedule = 7;</code>
+       */
+      public com.google.protobuf.ByteString
+          getScheduleBytes() {
+        java.lang.Object ref = schedule_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          schedule_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string schedule = 7;</code>
+       */
+      public Builder setSchedule(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        schedule_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string schedule = 7;</code>
+       */
+      public Builder clearSchedule() {
+        
+        schedule_ = getDefaultInstance().getSchedule();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string schedule = 7;</code>
+       */
+      public Builder setScheduleBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        schedule_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:kdeploy.CronJob)
+    }
+
+    // @@protoc_insertion_point(class_scope:kdeploy.CronJob)
+    private static final kdeploy.Kdeploy.CronJob DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new kdeploy.Kdeploy.CronJob();
+    }
+
+    public static kdeploy.Kdeploy.CronJob getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<CronJob>
+        PARSER = new com.google.protobuf.AbstractParser<CronJob>() {
+      @java.lang.Override
+      public CronJob parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CronJob(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CronJob> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CronJob> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public kdeploy.Kdeploy.CronJob getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -2062,10 +3953,45 @@ public final class Kdeploy {
 
     /**
      * <pre>
+     * args are arguments given to the docker image at startup
+     * </pre>
+     *
+     * <code>repeated string args = 4;</code>
+     */
+    java.util.List<java.lang.String>
+        getArgsList();
+    /**
+     * <pre>
+     * args are arguments given to the docker image at startup
+     * </pre>
+     *
+     * <code>repeated string args = 4;</code>
+     */
+    int getArgsCount();
+    /**
+     * <pre>
+     * args are arguments given to the docker image at startup
+     * </pre>
+     *
+     * <code>repeated string args = 4;</code>
+     */
+    java.lang.String getArgs(int index);
+    /**
+     * <pre>
+     * args are arguments given to the docker image at startup
+     * </pre>
+     *
+     * <code>repeated string args = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getArgsBytes(int index);
+
+    /**
+     * <pre>
      * k/v map of environmental variables
      * </pre>
      *
-     * <code>map&lt;string, string&gt; env = 4;</code>
+     * <code>map&lt;string, string&gt; env = 5;</code>
      */
     int getEnvCount();
     /**
@@ -2073,7 +3999,7 @@ public final class Kdeploy {
      * k/v map of environmental variables
      * </pre>
      *
-     * <code>map&lt;string, string&gt; env = 4;</code>
+     * <code>map&lt;string, string&gt; env = 5;</code>
      */
     boolean containsEnv(
         java.lang.String key);
@@ -2088,7 +4014,7 @@ public final class Kdeploy {
      * k/v map of environmental variables
      * </pre>
      *
-     * <code>map&lt;string, string&gt; env = 4;</code>
+     * <code>map&lt;string, string&gt; env = 5;</code>
      */
     java.util.Map<java.lang.String, java.lang.String>
     getEnvMap();
@@ -2097,7 +4023,7 @@ public final class Kdeploy {
      * k/v map of environmental variables
      * </pre>
      *
-     * <code>map&lt;string, string&gt; env = 4;</code>
+     * <code>map&lt;string, string&gt; env = 5;</code>
      */
 
     java.lang.String getEnvOrDefault(
@@ -2108,7 +4034,7 @@ public final class Kdeploy {
      * k/v map of environmental variables
      * </pre>
      *
-     * <code>map&lt;string, string&gt; env = 4;</code>
+     * <code>map&lt;string, string&gt; env = 5;</code>
      */
 
     java.lang.String getEnvOrThrow(
@@ -2119,7 +4045,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 5;</code>
+     * <code>map&lt;string, uint32&gt; ports = 6;</code>
      */
     int getPortsCount();
     /**
@@ -2127,7 +4053,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 5;</code>
+     * <code>map&lt;string, uint32&gt; ports = 6;</code>
      */
     boolean containsPorts(
         java.lang.String key);
@@ -2142,7 +4068,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 5;</code>
+     * <code>map&lt;string, uint32&gt; ports = 6;</code>
      */
     java.util.Map<java.lang.String, java.lang.Integer>
     getPortsMap();
@@ -2151,7 +4077,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 5;</code>
+     * <code>map&lt;string, uint32&gt; ports = 6;</code>
      */
 
     int getPortsOrDefault(
@@ -2162,7 +4088,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 5;</code>
+     * <code>map&lt;string, uint32&gt; ports = 6;</code>
      */
 
     int getPortsOrThrow(
@@ -2173,7 +4099,7 @@ public final class Kdeploy {
      * number of deployment replicas
      * </pre>
      *
-     * <code>uint32 replicas = 6;</code>
+     * <code>uint32 replicas = 7;</code>
      */
     int getReplicas();
   }
@@ -2193,6 +4119,7 @@ public final class Kdeploy {
       name_ = "";
       namespace_ = "";
       image_ = "";
+      args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       replicas_ = 0;
     }
 
@@ -2239,10 +4166,19 @@ public final class Kdeploy {
               break;
             }
             case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
               if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                args_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              args_.add(s);
+              break;
+            }
+            case 42: {
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
                 env_ = com.google.protobuf.MapField.newMapField(
                     EnvDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000008;
+                mutable_bitField0_ |= 0x00000010;
               }
               com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
               env__ = input.readMessage(
@@ -2251,11 +4187,11 @@ public final class Kdeploy {
                   env__.getKey(), env__.getValue());
               break;
             }
-            case 42: {
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+            case 50: {
+              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
                 ports_ = com.google.protobuf.MapField.newMapField(
                     PortsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000010;
+                mutable_bitField0_ |= 0x00000020;
               }
               com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
               ports__ = input.readMessage(
@@ -2264,7 +4200,7 @@ public final class Kdeploy {
                   ports__.getKey(), ports__.getValue());
               break;
             }
-            case 48: {
+            case 56: {
 
               replicas_ = input.readUInt32();
               break;
@@ -2284,6 +4220,9 @@ public final class Kdeploy {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+          args_ = args_.getUnmodifiableView();
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -2298,9 +4237,9 @@ public final class Kdeploy {
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
-        case 4:
-          return internalGetEnv();
         case 5:
+          return internalGetEnv();
+        case 6:
           return internalGetPorts();
         default:
           throw new RuntimeException(
@@ -2442,7 +4381,52 @@ public final class Kdeploy {
       }
     }
 
-    public static final int ENV_FIELD_NUMBER = 4;
+    public static final int ARGS_FIELD_NUMBER = 4;
+    private com.google.protobuf.LazyStringList args_;
+    /**
+     * <pre>
+     * args are arguments given to the docker image at startup
+     * </pre>
+     *
+     * <code>repeated string args = 4;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getArgsList() {
+      return args_;
+    }
+    /**
+     * <pre>
+     * args are arguments given to the docker image at startup
+     * </pre>
+     *
+     * <code>repeated string args = 4;</code>
+     */
+    public int getArgsCount() {
+      return args_.size();
+    }
+    /**
+     * <pre>
+     * args are arguments given to the docker image at startup
+     * </pre>
+     *
+     * <code>repeated string args = 4;</code>
+     */
+    public java.lang.String getArgs(int index) {
+      return args_.get(index);
+    }
+    /**
+     * <pre>
+     * args are arguments given to the docker image at startup
+     * </pre>
+     *
+     * <code>repeated string args = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getArgsBytes(int index) {
+      return args_.getByteString(index);
+    }
+
+    public static final int ENV_FIELD_NUMBER = 5;
     private static final class EnvDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
           java.lang.String, java.lang.String> defaultEntry =
@@ -2473,7 +4457,7 @@ public final class Kdeploy {
      * k/v map of environmental variables
      * </pre>
      *
-     * <code>map&lt;string, string&gt; env = 4;</code>
+     * <code>map&lt;string, string&gt; env = 5;</code>
      */
 
     public boolean containsEnv(
@@ -2493,7 +4477,7 @@ public final class Kdeploy {
      * k/v map of environmental variables
      * </pre>
      *
-     * <code>map&lt;string, string&gt; env = 4;</code>
+     * <code>map&lt;string, string&gt; env = 5;</code>
      */
 
     public java.util.Map<java.lang.String, java.lang.String> getEnvMap() {
@@ -2504,7 +4488,7 @@ public final class Kdeploy {
      * k/v map of environmental variables
      * </pre>
      *
-     * <code>map&lt;string, string&gt; env = 4;</code>
+     * <code>map&lt;string, string&gt; env = 5;</code>
      */
 
     public java.lang.String getEnvOrDefault(
@@ -2520,7 +4504,7 @@ public final class Kdeploy {
      * k/v map of environmental variables
      * </pre>
      *
-     * <code>map&lt;string, string&gt; env = 4;</code>
+     * <code>map&lt;string, string&gt; env = 5;</code>
      */
 
     public java.lang.String getEnvOrThrow(
@@ -2534,7 +4518,7 @@ public final class Kdeploy {
       return map.get(key);
     }
 
-    public static final int PORTS_FIELD_NUMBER = 5;
+    public static final int PORTS_FIELD_NUMBER = 6;
     private static final class PortsDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
           java.lang.String, java.lang.Integer> defaultEntry =
@@ -2565,7 +4549,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 5;</code>
+     * <code>map&lt;string, uint32&gt; ports = 6;</code>
      */
 
     public boolean containsPorts(
@@ -2585,7 +4569,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 5;</code>
+     * <code>map&lt;string, uint32&gt; ports = 6;</code>
      */
 
     public java.util.Map<java.lang.String, java.lang.Integer> getPortsMap() {
@@ -2596,7 +4580,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 5;</code>
+     * <code>map&lt;string, uint32&gt; ports = 6;</code>
      */
 
     public int getPortsOrDefault(
@@ -2612,7 +4596,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 5;</code>
+     * <code>map&lt;string, uint32&gt; ports = 6;</code>
      */
 
     public int getPortsOrThrow(
@@ -2626,14 +4610,14 @@ public final class Kdeploy {
       return map.get(key);
     }
 
-    public static final int REPLICAS_FIELD_NUMBER = 6;
+    public static final int REPLICAS_FIELD_NUMBER = 7;
     private int replicas_;
     /**
      * <pre>
      * number of deployment replicas
      * </pre>
      *
-     * <code>uint32 replicas = 6;</code>
+     * <code>uint32 replicas = 7;</code>
      */
     public int getReplicas() {
       return replicas_;
@@ -2662,20 +4646,23 @@ public final class Kdeploy {
       if (!getImageBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, image_);
       }
+      for (int i = 0; i < args_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, args_.getRaw(i));
+      }
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
           output,
           internalGetEnv(),
           EnvDefaultEntryHolder.defaultEntry,
-          4);
+          5);
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
           output,
           internalGetPorts(),
           PortsDefaultEntryHolder.defaultEntry,
-          5);
+          6);
       if (replicas_ != 0) {
-        output.writeUInt32(6, replicas_);
+        output.writeUInt32(7, replicas_);
       }
       unknownFields.writeTo(output);
     }
@@ -2695,6 +4682,14 @@ public final class Kdeploy {
       if (!getImageBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, image_);
       }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < args_.size(); i++) {
+          dataSize += computeStringSizeNoTag(args_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getArgsList().size();
+      }
       for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
            : internalGetEnv().getMap().entrySet()) {
         com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
@@ -2703,7 +4698,7 @@ public final class Kdeploy {
             .setValue(entry.getValue())
             .build();
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(4, env__);
+            .computeMessageSize(5, env__);
       }
       for (java.util.Map.Entry<java.lang.String, java.lang.Integer> entry
            : internalGetPorts().getMap().entrySet()) {
@@ -2713,11 +4708,11 @@ public final class Kdeploy {
             .setValue(entry.getValue())
             .build();
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(5, ports__);
+            .computeMessageSize(6, ports__);
       }
       if (replicas_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(6, replicas_);
+          .computeUInt32Size(7, replicas_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2741,6 +4736,8 @@ public final class Kdeploy {
           .equals(other.getNamespace());
       result = result && getImage()
           .equals(other.getImage());
+      result = result && getArgsList()
+          .equals(other.getArgsList());
       result = result && internalGetEnv().equals(
           other.internalGetEnv());
       result = result && internalGetPorts().equals(
@@ -2764,6 +4761,10 @@ public final class Kdeploy {
       hash = (53 * hash) + getNamespace().hashCode();
       hash = (37 * hash) + IMAGE_FIELD_NUMBER;
       hash = (53 * hash) + getImage().hashCode();
+      if (getArgsCount() > 0) {
+        hash = (37 * hash) + ARGS_FIELD_NUMBER;
+        hash = (53 * hash) + getArgsList().hashCode();
+      }
       if (!internalGetEnv().getMap().isEmpty()) {
         hash = (37 * hash) + ENV_FIELD_NUMBER;
         hash = (53 * hash) + internalGetEnv().hashCode();
@@ -2885,9 +4886,9 @@ public final class Kdeploy {
       protected com.google.protobuf.MapField internalGetMapField(
           int number) {
         switch (number) {
-          case 4:
-            return internalGetEnv();
           case 5:
+            return internalGetEnv();
+          case 6:
             return internalGetPorts();
           default:
             throw new RuntimeException(
@@ -2898,9 +4899,9 @@ public final class Kdeploy {
       protected com.google.protobuf.MapField internalGetMutableMapField(
           int number) {
         switch (number) {
-          case 4:
-            return internalGetMutableEnv();
           case 5:
+            return internalGetMutableEnv();
+          case 6:
             return internalGetMutablePorts();
           default:
             throw new RuntimeException(
@@ -2939,6 +4940,8 @@ public final class Kdeploy {
 
         image_ = "";
 
+        args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
         internalGetMutableEnv().clear();
         internalGetMutablePorts().clear();
         replicas_ = 0;
@@ -2974,6 +4977,11 @@ public final class Kdeploy {
         result.name_ = name_;
         result.namespace_ = namespace_;
         result.image_ = image_;
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          args_ = args_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.args_ = args_;
         result.env_ = internalGetEnv();
         result.env_.makeImmutable();
         result.ports_ = internalGetPorts();
@@ -3038,6 +5046,16 @@ public final class Kdeploy {
         }
         if (!other.getImage().isEmpty()) {
           image_ = other.image_;
+          onChanged();
+        }
+        if (!other.args_.isEmpty()) {
+          if (args_.isEmpty()) {
+            args_ = other.args_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureArgsIsMutable();
+            args_.addAll(other.args_);
+          }
           onChanged();
         }
         internalGetMutableEnv().mergeFrom(
@@ -3344,6 +5362,136 @@ public final class Kdeploy {
         return this;
       }
 
+      private com.google.protobuf.LazyStringList args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureArgsIsMutable() {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+          args_ = new com.google.protobuf.LazyStringArrayList(args_);
+          bitField0_ |= 0x00000008;
+         }
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 4;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getArgsList() {
+        return args_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 4;</code>
+       */
+      public int getArgsCount() {
+        return args_.size();
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 4;</code>
+       */
+      public java.lang.String getArgs(int index) {
+        return args_.get(index);
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getArgsBytes(int index) {
+        return args_.getByteString(index);
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 4;</code>
+       */
+      public Builder setArgs(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureArgsIsMutable();
+        args_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 4;</code>
+       */
+      public Builder addArgs(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureArgsIsMutable();
+        args_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 4;</code>
+       */
+      public Builder addAllArgs(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureArgsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, args_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 4;</code>
+       */
+      public Builder clearArgs() {
+        args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 4;</code>
+       */
+      public Builder addArgsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureArgsIsMutable();
+        args_.add(value);
+        onChanged();
+        return this;
+      }
+
       private com.google.protobuf.MapField<
           java.lang.String, java.lang.String> env_;
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -3375,7 +5523,7 @@ public final class Kdeploy {
        * k/v map of environmental variables
        * </pre>
        *
-       * <code>map&lt;string, string&gt; env = 4;</code>
+       * <code>map&lt;string, string&gt; env = 5;</code>
        */
 
       public boolean containsEnv(
@@ -3395,7 +5543,7 @@ public final class Kdeploy {
        * k/v map of environmental variables
        * </pre>
        *
-       * <code>map&lt;string, string&gt; env = 4;</code>
+       * <code>map&lt;string, string&gt; env = 5;</code>
        */
 
       public java.util.Map<java.lang.String, java.lang.String> getEnvMap() {
@@ -3406,7 +5554,7 @@ public final class Kdeploy {
        * k/v map of environmental variables
        * </pre>
        *
-       * <code>map&lt;string, string&gt; env = 4;</code>
+       * <code>map&lt;string, string&gt; env = 5;</code>
        */
 
       public java.lang.String getEnvOrDefault(
@@ -3422,7 +5570,7 @@ public final class Kdeploy {
        * k/v map of environmental variables
        * </pre>
        *
-       * <code>map&lt;string, string&gt; env = 4;</code>
+       * <code>map&lt;string, string&gt; env = 5;</code>
        */
 
       public java.lang.String getEnvOrThrow(
@@ -3446,7 +5594,7 @@ public final class Kdeploy {
        * k/v map of environmental variables
        * </pre>
        *
-       * <code>map&lt;string, string&gt; env = 4;</code>
+       * <code>map&lt;string, string&gt; env = 5;</code>
        */
 
       public Builder removeEnv(
@@ -3469,7 +5617,7 @@ public final class Kdeploy {
        * k/v map of environmental variables
        * </pre>
        *
-       * <code>map&lt;string, string&gt; env = 4;</code>
+       * <code>map&lt;string, string&gt; env = 5;</code>
        */
       public Builder putEnv(
           java.lang.String key,
@@ -3485,7 +5633,7 @@ public final class Kdeploy {
        * k/v map of environmental variables
        * </pre>
        *
-       * <code>map&lt;string, string&gt; env = 4;</code>
+       * <code>map&lt;string, string&gt; env = 5;</code>
        */
 
       public Builder putAllEnv(
@@ -3526,7 +5674,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 5;</code>
+       * <code>map&lt;string, uint32&gt; ports = 6;</code>
        */
 
       public boolean containsPorts(
@@ -3546,7 +5694,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 5;</code>
+       * <code>map&lt;string, uint32&gt; ports = 6;</code>
        */
 
       public java.util.Map<java.lang.String, java.lang.Integer> getPortsMap() {
@@ -3557,7 +5705,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 5;</code>
+       * <code>map&lt;string, uint32&gt; ports = 6;</code>
        */
 
       public int getPortsOrDefault(
@@ -3573,7 +5721,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 5;</code>
+       * <code>map&lt;string, uint32&gt; ports = 6;</code>
        */
 
       public int getPortsOrThrow(
@@ -3597,7 +5745,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 5;</code>
+       * <code>map&lt;string, uint32&gt; ports = 6;</code>
        */
 
       public Builder removePorts(
@@ -3620,7 +5768,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 5;</code>
+       * <code>map&lt;string, uint32&gt; ports = 6;</code>
        */
       public Builder putPorts(
           java.lang.String key,
@@ -3636,7 +5784,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 5;</code>
+       * <code>map&lt;string, uint32&gt; ports = 6;</code>
        */
 
       public Builder putAllPorts(
@@ -3652,7 +5800,7 @@ public final class Kdeploy {
        * number of deployment replicas
        * </pre>
        *
-       * <code>uint32 replicas = 6;</code>
+       * <code>uint32 replicas = 7;</code>
        */
       public int getReplicas() {
         return replicas_;
@@ -3662,7 +5810,7 @@ public final class Kdeploy {
        * number of deployment replicas
        * </pre>
        *
-       * <code>uint32 replicas = 6;</code>
+       * <code>uint32 replicas = 7;</code>
        */
       public Builder setReplicas(int value) {
         
@@ -3675,7 +5823,7 @@ public final class Kdeploy {
        * number of deployment replicas
        * </pre>
        *
-       * <code>uint32 replicas = 6;</code>
+       * <code>uint32 replicas = 7;</code>
        */
       public Builder clearReplicas() {
         
@@ -3796,10 +5944,45 @@ public final class Kdeploy {
 
     /**
      * <pre>
+     * args are arguments given to the docker image at startup
+     * </pre>
+     *
+     * <code>repeated string args = 4;</code>
+     */
+    java.util.List<java.lang.String>
+        getArgsList();
+    /**
+     * <pre>
+     * args are arguments given to the docker image at startup
+     * </pre>
+     *
+     * <code>repeated string args = 4;</code>
+     */
+    int getArgsCount();
+    /**
+     * <pre>
+     * args are arguments given to the docker image at startup
+     * </pre>
+     *
+     * <code>repeated string args = 4;</code>
+     */
+    java.lang.String getArgs(int index);
+    /**
+     * <pre>
+     * args are arguments given to the docker image at startup
+     * </pre>
+     *
+     * <code>repeated string args = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getArgsBytes(int index);
+
+    /**
+     * <pre>
      * k/v map of environmental variables
      * </pre>
      *
-     * <code>map&lt;string, string&gt; env = 4;</code>
+     * <code>map&lt;string, string&gt; env = 5;</code>
      */
     int getEnvCount();
     /**
@@ -3807,7 +5990,7 @@ public final class Kdeploy {
      * k/v map of environmental variables
      * </pre>
      *
-     * <code>map&lt;string, string&gt; env = 4;</code>
+     * <code>map&lt;string, string&gt; env = 5;</code>
      */
     boolean containsEnv(
         java.lang.String key);
@@ -3822,7 +6005,7 @@ public final class Kdeploy {
      * k/v map of environmental variables
      * </pre>
      *
-     * <code>map&lt;string, string&gt; env = 4;</code>
+     * <code>map&lt;string, string&gt; env = 5;</code>
      */
     java.util.Map<java.lang.String, java.lang.String>
     getEnvMap();
@@ -3831,7 +6014,7 @@ public final class Kdeploy {
      * k/v map of environmental variables
      * </pre>
      *
-     * <code>map&lt;string, string&gt; env = 4;</code>
+     * <code>map&lt;string, string&gt; env = 5;</code>
      */
 
     java.lang.String getEnvOrDefault(
@@ -3842,7 +6025,7 @@ public final class Kdeploy {
      * k/v map of environmental variables
      * </pre>
      *
-     * <code>map&lt;string, string&gt; env = 4;</code>
+     * <code>map&lt;string, string&gt; env = 5;</code>
      */
 
     java.lang.String getEnvOrThrow(
@@ -3853,7 +6036,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 5;</code>
+     * <code>map&lt;string, uint32&gt; ports = 6;</code>
      */
     int getPortsCount();
     /**
@@ -3861,7 +6044,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 5;</code>
+     * <code>map&lt;string, uint32&gt; ports = 6;</code>
      */
     boolean containsPorts(
         java.lang.String key);
@@ -3876,7 +6059,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 5;</code>
+     * <code>map&lt;string, uint32&gt; ports = 6;</code>
      */
     java.util.Map<java.lang.String, java.lang.Integer>
     getPortsMap();
@@ -3885,7 +6068,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 5;</code>
+     * <code>map&lt;string, uint32&gt; ports = 6;</code>
      */
 
     int getPortsOrDefault(
@@ -3896,7 +6079,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 5;</code>
+     * <code>map&lt;string, uint32&gt; ports = 6;</code>
      */
 
     int getPortsOrThrow(
@@ -3907,7 +6090,7 @@ public final class Kdeploy {
      * number of deployment replicas
      * </pre>
      *
-     * <code>uint32 replicas = 6;</code>
+     * <code>uint32 replicas = 7;</code>
      */
     int getReplicas();
   }
@@ -3927,6 +6110,7 @@ public final class Kdeploy {
       name_ = "";
       namespace_ = "";
       image_ = "";
+      args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       replicas_ = 0;
     }
 
@@ -3973,10 +6157,19 @@ public final class Kdeploy {
               break;
             }
             case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
               if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                args_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              args_.add(s);
+              break;
+            }
+            case 42: {
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
                 env_ = com.google.protobuf.MapField.newMapField(
                     EnvDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000008;
+                mutable_bitField0_ |= 0x00000010;
               }
               com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
               env__ = input.readMessage(
@@ -3985,11 +6178,11 @@ public final class Kdeploy {
                   env__.getKey(), env__.getValue());
               break;
             }
-            case 42: {
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+            case 50: {
+              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
                 ports_ = com.google.protobuf.MapField.newMapField(
                     PortsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000010;
+                mutable_bitField0_ |= 0x00000020;
               }
               com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
               ports__ = input.readMessage(
@@ -3998,7 +6191,7 @@ public final class Kdeploy {
                   ports__.getKey(), ports__.getValue());
               break;
             }
-            case 48: {
+            case 56: {
 
               replicas_ = input.readUInt32();
               break;
@@ -4018,6 +6211,9 @@ public final class Kdeploy {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+          args_ = args_.getUnmodifiableView();
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -4032,9 +6228,9 @@ public final class Kdeploy {
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
-        case 4:
-          return internalGetEnv();
         case 5:
+          return internalGetEnv();
+        case 6:
           return internalGetPorts();
         default:
           throw new RuntimeException(
@@ -4176,7 +6372,52 @@ public final class Kdeploy {
       }
     }
 
-    public static final int ENV_FIELD_NUMBER = 4;
+    public static final int ARGS_FIELD_NUMBER = 4;
+    private com.google.protobuf.LazyStringList args_;
+    /**
+     * <pre>
+     * args are arguments given to the docker image at startup
+     * </pre>
+     *
+     * <code>repeated string args = 4;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getArgsList() {
+      return args_;
+    }
+    /**
+     * <pre>
+     * args are arguments given to the docker image at startup
+     * </pre>
+     *
+     * <code>repeated string args = 4;</code>
+     */
+    public int getArgsCount() {
+      return args_.size();
+    }
+    /**
+     * <pre>
+     * args are arguments given to the docker image at startup
+     * </pre>
+     *
+     * <code>repeated string args = 4;</code>
+     */
+    public java.lang.String getArgs(int index) {
+      return args_.get(index);
+    }
+    /**
+     * <pre>
+     * args are arguments given to the docker image at startup
+     * </pre>
+     *
+     * <code>repeated string args = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getArgsBytes(int index) {
+      return args_.getByteString(index);
+    }
+
+    public static final int ENV_FIELD_NUMBER = 5;
     private static final class EnvDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
           java.lang.String, java.lang.String> defaultEntry =
@@ -4207,7 +6448,7 @@ public final class Kdeploy {
      * k/v map of environmental variables
      * </pre>
      *
-     * <code>map&lt;string, string&gt; env = 4;</code>
+     * <code>map&lt;string, string&gt; env = 5;</code>
      */
 
     public boolean containsEnv(
@@ -4227,7 +6468,7 @@ public final class Kdeploy {
      * k/v map of environmental variables
      * </pre>
      *
-     * <code>map&lt;string, string&gt; env = 4;</code>
+     * <code>map&lt;string, string&gt; env = 5;</code>
      */
 
     public java.util.Map<java.lang.String, java.lang.String> getEnvMap() {
@@ -4238,7 +6479,7 @@ public final class Kdeploy {
      * k/v map of environmental variables
      * </pre>
      *
-     * <code>map&lt;string, string&gt; env = 4;</code>
+     * <code>map&lt;string, string&gt; env = 5;</code>
      */
 
     public java.lang.String getEnvOrDefault(
@@ -4254,7 +6495,7 @@ public final class Kdeploy {
      * k/v map of environmental variables
      * </pre>
      *
-     * <code>map&lt;string, string&gt; env = 4;</code>
+     * <code>map&lt;string, string&gt; env = 5;</code>
      */
 
     public java.lang.String getEnvOrThrow(
@@ -4268,7 +6509,7 @@ public final class Kdeploy {
       return map.get(key);
     }
 
-    public static final int PORTS_FIELD_NUMBER = 5;
+    public static final int PORTS_FIELD_NUMBER = 6;
     private static final class PortsDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
           java.lang.String, java.lang.Integer> defaultEntry =
@@ -4299,7 +6540,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 5;</code>
+     * <code>map&lt;string, uint32&gt; ports = 6;</code>
      */
 
     public boolean containsPorts(
@@ -4319,7 +6560,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 5;</code>
+     * <code>map&lt;string, uint32&gt; ports = 6;</code>
      */
 
     public java.util.Map<java.lang.String, java.lang.Integer> getPortsMap() {
@@ -4330,7 +6571,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 5;</code>
+     * <code>map&lt;string, uint32&gt; ports = 6;</code>
      */
 
     public int getPortsOrDefault(
@@ -4346,7 +6587,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 5;</code>
+     * <code>map&lt;string, uint32&gt; ports = 6;</code>
      */
 
     public int getPortsOrThrow(
@@ -4360,14 +6601,14 @@ public final class Kdeploy {
       return map.get(key);
     }
 
-    public static final int REPLICAS_FIELD_NUMBER = 6;
+    public static final int REPLICAS_FIELD_NUMBER = 7;
     private int replicas_;
     /**
      * <pre>
      * number of deployment replicas
      * </pre>
      *
-     * <code>uint32 replicas = 6;</code>
+     * <code>uint32 replicas = 7;</code>
      */
     public int getReplicas() {
       return replicas_;
@@ -4396,20 +6637,23 @@ public final class Kdeploy {
       if (!getImageBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, image_);
       }
+      for (int i = 0; i < args_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, args_.getRaw(i));
+      }
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
           output,
           internalGetEnv(),
           EnvDefaultEntryHolder.defaultEntry,
-          4);
+          5);
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
           output,
           internalGetPorts(),
           PortsDefaultEntryHolder.defaultEntry,
-          5);
+          6);
       if (replicas_ != 0) {
-        output.writeUInt32(6, replicas_);
+        output.writeUInt32(7, replicas_);
       }
       unknownFields.writeTo(output);
     }
@@ -4429,6 +6673,14 @@ public final class Kdeploy {
       if (!getImageBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, image_);
       }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < args_.size(); i++) {
+          dataSize += computeStringSizeNoTag(args_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getArgsList().size();
+      }
       for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
            : internalGetEnv().getMap().entrySet()) {
         com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
@@ -4437,7 +6689,7 @@ public final class Kdeploy {
             .setValue(entry.getValue())
             .build();
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(4, env__);
+            .computeMessageSize(5, env__);
       }
       for (java.util.Map.Entry<java.lang.String, java.lang.Integer> entry
            : internalGetPorts().getMap().entrySet()) {
@@ -4447,11 +6699,11 @@ public final class Kdeploy {
             .setValue(entry.getValue())
             .build();
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(5, ports__);
+            .computeMessageSize(6, ports__);
       }
       if (replicas_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(6, replicas_);
+          .computeUInt32Size(7, replicas_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4475,6 +6727,8 @@ public final class Kdeploy {
           .equals(other.getNamespace());
       result = result && getImage()
           .equals(other.getImage());
+      result = result && getArgsList()
+          .equals(other.getArgsList());
       result = result && internalGetEnv().equals(
           other.internalGetEnv());
       result = result && internalGetPorts().equals(
@@ -4498,6 +6752,10 @@ public final class Kdeploy {
       hash = (53 * hash) + getNamespace().hashCode();
       hash = (37 * hash) + IMAGE_FIELD_NUMBER;
       hash = (53 * hash) + getImage().hashCode();
+      if (getArgsCount() > 0) {
+        hash = (37 * hash) + ARGS_FIELD_NUMBER;
+        hash = (53 * hash) + getArgsList().hashCode();
+      }
       if (!internalGetEnv().getMap().isEmpty()) {
         hash = (37 * hash) + ENV_FIELD_NUMBER;
         hash = (53 * hash) + internalGetEnv().hashCode();
@@ -4619,9 +6877,9 @@ public final class Kdeploy {
       protected com.google.protobuf.MapField internalGetMapField(
           int number) {
         switch (number) {
-          case 4:
-            return internalGetEnv();
           case 5:
+            return internalGetEnv();
+          case 6:
             return internalGetPorts();
           default:
             throw new RuntimeException(
@@ -4632,9 +6890,9 @@ public final class Kdeploy {
       protected com.google.protobuf.MapField internalGetMutableMapField(
           int number) {
         switch (number) {
-          case 4:
-            return internalGetMutableEnv();
           case 5:
+            return internalGetMutableEnv();
+          case 6:
             return internalGetMutablePorts();
           default:
             throw new RuntimeException(
@@ -4673,6 +6931,8 @@ public final class Kdeploy {
 
         image_ = "";
 
+        args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
         internalGetMutableEnv().clear();
         internalGetMutablePorts().clear();
         replicas_ = 0;
@@ -4708,6 +6968,11 @@ public final class Kdeploy {
         result.name_ = name_;
         result.namespace_ = namespace_;
         result.image_ = image_;
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          args_ = args_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.args_ = args_;
         result.env_ = internalGetEnv();
         result.env_.makeImmutable();
         result.ports_ = internalGetPorts();
@@ -4772,6 +7037,16 @@ public final class Kdeploy {
         }
         if (!other.getImage().isEmpty()) {
           image_ = other.image_;
+          onChanged();
+        }
+        if (!other.args_.isEmpty()) {
+          if (args_.isEmpty()) {
+            args_ = other.args_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureArgsIsMutable();
+            args_.addAll(other.args_);
+          }
           onChanged();
         }
         internalGetMutableEnv().mergeFrom(
@@ -5078,6 +7353,136 @@ public final class Kdeploy {
         return this;
       }
 
+      private com.google.protobuf.LazyStringList args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureArgsIsMutable() {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+          args_ = new com.google.protobuf.LazyStringArrayList(args_);
+          bitField0_ |= 0x00000008;
+         }
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 4;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getArgsList() {
+        return args_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 4;</code>
+       */
+      public int getArgsCount() {
+        return args_.size();
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 4;</code>
+       */
+      public java.lang.String getArgs(int index) {
+        return args_.get(index);
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getArgsBytes(int index) {
+        return args_.getByteString(index);
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 4;</code>
+       */
+      public Builder setArgs(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureArgsIsMutable();
+        args_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 4;</code>
+       */
+      public Builder addArgs(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureArgsIsMutable();
+        args_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 4;</code>
+       */
+      public Builder addAllArgs(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureArgsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, args_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 4;</code>
+       */
+      public Builder clearArgs() {
+        args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 4;</code>
+       */
+      public Builder addArgsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureArgsIsMutable();
+        args_.add(value);
+        onChanged();
+        return this;
+      }
+
       private com.google.protobuf.MapField<
           java.lang.String, java.lang.String> env_;
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -5109,7 +7514,7 @@ public final class Kdeploy {
        * k/v map of environmental variables
        * </pre>
        *
-       * <code>map&lt;string, string&gt; env = 4;</code>
+       * <code>map&lt;string, string&gt; env = 5;</code>
        */
 
       public boolean containsEnv(
@@ -5129,7 +7534,7 @@ public final class Kdeploy {
        * k/v map of environmental variables
        * </pre>
        *
-       * <code>map&lt;string, string&gt; env = 4;</code>
+       * <code>map&lt;string, string&gt; env = 5;</code>
        */
 
       public java.util.Map<java.lang.String, java.lang.String> getEnvMap() {
@@ -5140,7 +7545,7 @@ public final class Kdeploy {
        * k/v map of environmental variables
        * </pre>
        *
-       * <code>map&lt;string, string&gt; env = 4;</code>
+       * <code>map&lt;string, string&gt; env = 5;</code>
        */
 
       public java.lang.String getEnvOrDefault(
@@ -5156,7 +7561,7 @@ public final class Kdeploy {
        * k/v map of environmental variables
        * </pre>
        *
-       * <code>map&lt;string, string&gt; env = 4;</code>
+       * <code>map&lt;string, string&gt; env = 5;</code>
        */
 
       public java.lang.String getEnvOrThrow(
@@ -5180,7 +7585,7 @@ public final class Kdeploy {
        * k/v map of environmental variables
        * </pre>
        *
-       * <code>map&lt;string, string&gt; env = 4;</code>
+       * <code>map&lt;string, string&gt; env = 5;</code>
        */
 
       public Builder removeEnv(
@@ -5203,7 +7608,7 @@ public final class Kdeploy {
        * k/v map of environmental variables
        * </pre>
        *
-       * <code>map&lt;string, string&gt; env = 4;</code>
+       * <code>map&lt;string, string&gt; env = 5;</code>
        */
       public Builder putEnv(
           java.lang.String key,
@@ -5219,7 +7624,7 @@ public final class Kdeploy {
        * k/v map of environmental variables
        * </pre>
        *
-       * <code>map&lt;string, string&gt; env = 4;</code>
+       * <code>map&lt;string, string&gt; env = 5;</code>
        */
 
       public Builder putAllEnv(
@@ -5260,7 +7665,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 5;</code>
+       * <code>map&lt;string, uint32&gt; ports = 6;</code>
        */
 
       public boolean containsPorts(
@@ -5280,7 +7685,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 5;</code>
+       * <code>map&lt;string, uint32&gt; ports = 6;</code>
        */
 
       public java.util.Map<java.lang.String, java.lang.Integer> getPortsMap() {
@@ -5291,7 +7696,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 5;</code>
+       * <code>map&lt;string, uint32&gt; ports = 6;</code>
        */
 
       public int getPortsOrDefault(
@@ -5307,7 +7712,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 5;</code>
+       * <code>map&lt;string, uint32&gt; ports = 6;</code>
        */
 
       public int getPortsOrThrow(
@@ -5331,7 +7736,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 5;</code>
+       * <code>map&lt;string, uint32&gt; ports = 6;</code>
        */
 
       public Builder removePorts(
@@ -5354,7 +7759,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 5;</code>
+       * <code>map&lt;string, uint32&gt; ports = 6;</code>
        */
       public Builder putPorts(
           java.lang.String key,
@@ -5370,7 +7775,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 5;</code>
+       * <code>map&lt;string, uint32&gt; ports = 6;</code>
        */
 
       public Builder putAllPorts(
@@ -5386,7 +7791,7 @@ public final class Kdeploy {
        * number of deployment replicas
        * </pre>
        *
-       * <code>uint32 replicas = 6;</code>
+       * <code>uint32 replicas = 7;</code>
        */
       public int getReplicas() {
         return replicas_;
@@ -5396,7 +7801,7 @@ public final class Kdeploy {
        * number of deployment replicas
        * </pre>
        *
-       * <code>uint32 replicas = 6;</code>
+       * <code>uint32 replicas = 7;</code>
        */
       public Builder setReplicas(int value) {
         
@@ -5409,7 +7814,7 @@ public final class Kdeploy {
        * number of deployment replicas
        * </pre>
        *
-       * <code>uint32 replicas = 6;</code>
+       * <code>uint32 replicas = 7;</code>
        */
       public Builder clearReplicas() {
         
@@ -7053,8 +9458,8 @@ public final class Kdeploy {
 
   }
 
-  public interface StatusOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:kdeploy.Status)
+  public interface AppStatusOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:kdeploy.AppStatus)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -7082,18 +9487,18 @@ public final class Kdeploy {
         int index);
   }
   /**
-   * Protobuf type {@code kdeploy.Status}
+   * Protobuf type {@code kdeploy.AppStatus}
    */
-  public  static final class Status extends
+  public  static final class AppStatus extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:kdeploy.Status)
-      StatusOrBuilder {
+      // @@protoc_insertion_point(message_implements:kdeploy.AppStatus)
+      AppStatusOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use Status.newBuilder() to construct.
-    private Status(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use AppStatus.newBuilder() to construct.
+    private AppStatus(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private Status() {
+    private AppStatus() {
       replicas_ = java.util.Collections.emptyList();
     }
 
@@ -7102,7 +9507,7 @@ public final class Kdeploy {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Status(
+    private AppStatus(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -7154,15 +9559,15 @@ public final class Kdeploy {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return kdeploy.Kdeploy.internal_static_kdeploy_Status_descriptor;
+      return kdeploy.Kdeploy.internal_static_kdeploy_AppStatus_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return kdeploy.Kdeploy.internal_static_kdeploy_Status_fieldAccessorTable
+      return kdeploy.Kdeploy.internal_static_kdeploy_AppStatus_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              kdeploy.Kdeploy.Status.class, kdeploy.Kdeploy.Status.Builder.class);
+              kdeploy.Kdeploy.AppStatus.class, kdeploy.Kdeploy.AppStatus.Builder.class);
     }
 
     public static final int REPLICAS_FIELD_NUMBER = 1;
@@ -7240,10 +9645,10 @@ public final class Kdeploy {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof kdeploy.Kdeploy.Status)) {
+      if (!(obj instanceof kdeploy.Kdeploy.AppStatus)) {
         return super.equals(obj);
       }
-      kdeploy.Kdeploy.Status other = (kdeploy.Kdeploy.Status) obj;
+      kdeploy.Kdeploy.AppStatus other = (kdeploy.Kdeploy.AppStatus) obj;
 
       boolean result = true;
       result = result && getReplicasList()
@@ -7268,69 +9673,69 @@ public final class Kdeploy {
       return hash;
     }
 
-    public static kdeploy.Kdeploy.Status parseFrom(
+    public static kdeploy.Kdeploy.AppStatus parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static kdeploy.Kdeploy.Status parseFrom(
+    public static kdeploy.Kdeploy.AppStatus parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static kdeploy.Kdeploy.Status parseFrom(
+    public static kdeploy.Kdeploy.AppStatus parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static kdeploy.Kdeploy.Status parseFrom(
+    public static kdeploy.Kdeploy.AppStatus parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static kdeploy.Kdeploy.Status parseFrom(byte[] data)
+    public static kdeploy.Kdeploy.AppStatus parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static kdeploy.Kdeploy.Status parseFrom(
+    public static kdeploy.Kdeploy.AppStatus parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static kdeploy.Kdeploy.Status parseFrom(java.io.InputStream input)
+    public static kdeploy.Kdeploy.AppStatus parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static kdeploy.Kdeploy.Status parseFrom(
+    public static kdeploy.Kdeploy.AppStatus parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static kdeploy.Kdeploy.Status parseDelimitedFrom(java.io.InputStream input)
+    public static kdeploy.Kdeploy.AppStatus parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static kdeploy.Kdeploy.Status parseDelimitedFrom(
+    public static kdeploy.Kdeploy.AppStatus parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static kdeploy.Kdeploy.Status parseFrom(
+    public static kdeploy.Kdeploy.AppStatus parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static kdeploy.Kdeploy.Status parseFrom(
+    public static kdeploy.Kdeploy.AppStatus parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -7343,7 +9748,7 @@ public final class Kdeploy {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(kdeploy.Kdeploy.Status prototype) {
+    public static Builder newBuilder(kdeploy.Kdeploy.AppStatus prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -7359,26 +9764,26 @@ public final class Kdeploy {
       return builder;
     }
     /**
-     * Protobuf type {@code kdeploy.Status}
+     * Protobuf type {@code kdeploy.AppStatus}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:kdeploy.Status)
-        kdeploy.Kdeploy.StatusOrBuilder {
+        // @@protoc_insertion_point(builder_implements:kdeploy.AppStatus)
+        kdeploy.Kdeploy.AppStatusOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return kdeploy.Kdeploy.internal_static_kdeploy_Status_descriptor;
+        return kdeploy.Kdeploy.internal_static_kdeploy_AppStatus_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return kdeploy.Kdeploy.internal_static_kdeploy_Status_fieldAccessorTable
+        return kdeploy.Kdeploy.internal_static_kdeploy_AppStatus_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                kdeploy.Kdeploy.Status.class, kdeploy.Kdeploy.Status.Builder.class);
+                kdeploy.Kdeploy.AppStatus.class, kdeploy.Kdeploy.AppStatus.Builder.class);
       }
 
-      // Construct using kdeploy.Kdeploy.Status.newBuilder()
+      // Construct using kdeploy.Kdeploy.AppStatus.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -7409,17 +9814,17 @@ public final class Kdeploy {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return kdeploy.Kdeploy.internal_static_kdeploy_Status_descriptor;
+        return kdeploy.Kdeploy.internal_static_kdeploy_AppStatus_descriptor;
       }
 
       @java.lang.Override
-      public kdeploy.Kdeploy.Status getDefaultInstanceForType() {
-        return kdeploy.Kdeploy.Status.getDefaultInstance();
+      public kdeploy.Kdeploy.AppStatus getDefaultInstanceForType() {
+        return kdeploy.Kdeploy.AppStatus.getDefaultInstance();
       }
 
       @java.lang.Override
-      public kdeploy.Kdeploy.Status build() {
-        kdeploy.Kdeploy.Status result = buildPartial();
+      public kdeploy.Kdeploy.AppStatus build() {
+        kdeploy.Kdeploy.AppStatus result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -7427,8 +9832,8 @@ public final class Kdeploy {
       }
 
       @java.lang.Override
-      public kdeploy.Kdeploy.Status buildPartial() {
-        kdeploy.Kdeploy.Status result = new kdeploy.Kdeploy.Status(this);
+      public kdeploy.Kdeploy.AppStatus buildPartial() {
+        kdeploy.Kdeploy.AppStatus result = new kdeploy.Kdeploy.AppStatus(this);
         int from_bitField0_ = bitField0_;
         if (replicasBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -7477,16 +9882,16 @@ public final class Kdeploy {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof kdeploy.Kdeploy.Status) {
-          return mergeFrom((kdeploy.Kdeploy.Status)other);
+        if (other instanceof kdeploy.Kdeploy.AppStatus) {
+          return mergeFrom((kdeploy.Kdeploy.AppStatus)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(kdeploy.Kdeploy.Status other) {
-        if (other == kdeploy.Kdeploy.Status.getDefaultInstance()) return this;
+      public Builder mergeFrom(kdeploy.Kdeploy.AppStatus other) {
+        if (other == kdeploy.Kdeploy.AppStatus.getDefaultInstance()) return this;
         if (replicasBuilder_ == null) {
           if (!other.replicas_.isEmpty()) {
             if (replicas_.isEmpty()) {
@@ -7528,11 +9933,11 @@ public final class Kdeploy {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        kdeploy.Kdeploy.Status parsedMessage = null;
+        kdeploy.Kdeploy.AppStatus parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (kdeploy.Kdeploy.Status) e.getUnfinishedMessage();
+          parsedMessage = (kdeploy.Kdeploy.AppStatus) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -7795,41 +10200,41 @@ public final class Kdeploy {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:kdeploy.Status)
+      // @@protoc_insertion_point(builder_scope:kdeploy.AppStatus)
     }
 
-    // @@protoc_insertion_point(class_scope:kdeploy.Status)
-    private static final kdeploy.Kdeploy.Status DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:kdeploy.AppStatus)
+    private static final kdeploy.Kdeploy.AppStatus DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new kdeploy.Kdeploy.Status();
+      DEFAULT_INSTANCE = new kdeploy.Kdeploy.AppStatus();
     }
 
-    public static kdeploy.Kdeploy.Status getDefaultInstance() {
+    public static kdeploy.Kdeploy.AppStatus getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<Status>
-        PARSER = new com.google.protobuf.AbstractParser<Status>() {
+    private static final com.google.protobuf.Parser<AppStatus>
+        PARSER = new com.google.protobuf.AbstractParser<AppStatus>() {
       @java.lang.Override
-      public Status parsePartialFrom(
+      public AppStatus parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Status(input, extensionRegistry);
+        return new AppStatus(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<Status> parser() {
+    public static com.google.protobuf.Parser<AppStatus> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<Status> getParserForType() {
+    public com.google.protobuf.Parser<AppStatus> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public kdeploy.Kdeploy.Status getDefaultInstanceForType() {
+    public kdeploy.Kdeploy.AppStatus getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -10337,6 +12742,16 @@ public final class Kdeploy {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_kdeploy_App_PortsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_kdeploy_CronJob_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_kdeploy_CronJob_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_kdeploy_CronJob_EnvEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_kdeploy_CronJob_EnvEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_kdeploy_AppConstructor_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -10377,10 +12792,10 @@ public final class Kdeploy {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_kdeploy_Replica_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_kdeploy_Status_descriptor;
+    internal_static_kdeploy_AppStatus_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_kdeploy_Status_fieldAccessorTable;
+      internal_static_kdeploy_AppStatus_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_kdeploy_Log_descriptor;
   private static final 
@@ -10415,48 +12830,54 @@ public final class Kdeploy {
       "p.proto\032\031google/protobuf/any.proto\032\033goog" +
       "le/protobuf/empty.proto\0326github.com/mwit" +
       "kow/go-proto-validators/validator.proto\"" +
-      "\216\002\n\003App\022\014\n\004name\030\001 \001(\t\022\021\n\tnamespace\030\002 \001(\t" +
-      "\022\r\n\005image\030\003 \001(\t\022\"\n\003env\030\004 \003(\0132\025.kdeploy.A" +
-      "pp.EnvEntry\022&\n\005ports\030\005 \003(\0132\027.kdeploy.App" +
-      ".PortsEntry\022\020\n\010replicas\030\006 \001(\r\022\037\n\006status\030" +
-      "\007 \001(\0132\017.kdeploy.Status\032*\n\010EnvEntry\022\013\n\003ke" +
-      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032,\n\nPortsEntry" +
-      "\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\"\304\002\n\016App" +
-      "Constructor\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,22" +
-      "5}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$" +
-      "\022\037\n\005image\030\003 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022-\n\003env" +
-      "\030\004 \003(\0132 .kdeploy.AppConstructor.EnvEntry" +
-      "\0221\n\005ports\030\005 \003(\0132\".kdeploy.AppConstructor" +
-      ".PortsEntry\022\020\n\010replicas\030\006 \001(\r\032*\n\010EnvEntr" +
-      "y\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032,\n\nPor" +
-      "tsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\"" +
-      "\243\002\n\tAppUpdate\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1," +
-      "225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225" +
-      "}$\022\r\n\005image\030\003 \001(\t\022(\n\003env\030\004 \003(\0132\033.kdeploy" +
-      ".AppUpdate.EnvEntry\022,\n\005ports\030\005 \003(\0132\035.kde" +
-      "ploy.AppUpdate.PortsEntry\022\020\n\010replicas\030\006 " +
-      "\001(\r\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 " +
-      "\001(\t:\0028\001\032,\n\nPortsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
-      "lue\030\002 \001(\r:\0028\001\"M\n\006AppRef\022\036\n\004name\030\001 \001(\tB\020\342" +
-      "\337\037\014\n\n^.{1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014" +
-      "\n\n^.{1,225}$\";\n\007Replica\022\r\n\005phase\030\001 \001(\t\022\021" +
-      "\n\tcondition\030\002 \001(\t\022\016\n\006reason\030\003 \001(\t\",\n\006Sta" +
-      "tus\022\"\n\010replicas\030\001 \003(\0132\020.kdeploy.Replica\"" +
-      "\026\n\003Log\022\017\n\007message\030\001 \001(\t\"*\n\004Apps\022\"\n\014appli" +
-      "cations\030\001 \003(\0132\014.kdeploy.App\"\036\n\tNamespace" +
-      "\022\021\n\tnamespace\030\001 \001(\t\" \n\nNamespaces\022\022\n\nnam" +
-      "espaces\030\001 \003(\t2\262\003\n\016KdeployService\0224\n\tCrea" +
-      "teApp\022\027.kdeploy.AppConstructor\032\014.kdeploy" +
-      ".App\"\000\022/\n\tUpdateApp\022\022.kdeploy.AppUpdate\032" +
-      "\014.kdeploy.App\"\000\0226\n\tDeleteApp\022\017.kdeploy.A" +
-      "ppRef\032\026.google.protobuf.Empty\"\000\022)\n\006GetAp" +
-      "p\022\017.kdeploy.AppRef\032\014.kdeploy.App\"\000\022)\n\004Lo" +
-      "gs\022\017.kdeploy.AppRef\032\014.kdeploy.Log\"\0000\001\022?\n" +
-      "\016ListNamespaces\022\026.google.protobuf.Empty\032" +
-      "\023.kdeploy.Namespaces\"\000\022/\n\010ListApps\022\022.kde" +
-      "ploy.Namespace\032\r.kdeploy.Apps\"\000\0229\n\tDelet" +
-      "eAll\022\022.kdeploy.Namespace\032\026.google.protob" +
-      "uf.Empty\"\000B\013Z\tkdeploypbb\006proto3"
+      "\237\002\n\003App\022\014\n\004name\030\001 \001(\t\022\021\n\tnamespace\030\002 \001(\t" +
+      "\022\r\n\005image\030\003 \001(\t\022\014\n\004args\030\005 \003(\t\022\"\n\003env\030\006 \003" +
+      "(\0132\025.kdeploy.App.EnvEntry\022&\n\005ports\030\007 \003(\013" +
+      "2\027.kdeploy.App.PortsEntry\022\020\n\010replicas\030\010 " +
+      "\001(\r\022\"\n\006status\030\t \001(\0132\022.kdeploy.AppStatus\032" +
+      "*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:" +
+      "\0028\001\032,\n\nPortsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
+      "\002 \001(\r:\0028\001\"\255\001\n\007CronJob\022\014\n\004name\030\001 \001(\t\022\021\n\tn" +
+      "amespace\030\002 \001(\t\022\r\n\005image\030\003 \001(\t\022\014\n\004args\030\005 " +
+      "\003(\t\022&\n\003env\030\006 \003(\0132\031.kdeploy.CronJob.EnvEn" +
+      "try\022\020\n\010schedule\030\007 \001(\t\032*\n\010EnvEntry\022\013\n\003key" +
+      "\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\322\002\n\016AppConstru" +
+      "ctor\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022#\n\t" +
+      "namespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\037\n\005ima" +
+      "ge\030\003 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\014\n\004args\030\004 \003(\t" +
+      "\022-\n\003env\030\005 \003(\0132 .kdeploy.AppConstructor.E" +
+      "nvEntry\0221\n\005ports\030\006 \003(\0132\".kdeploy.AppCons" +
+      "tructor.PortsEntry\022\020\n\010replicas\030\007 \001(\r\032*\n\010" +
+      "EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001" +
+      "\032,\n\nPortsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001" +
+      "(\r:\0028\001\"\261\002\n\tAppUpdate\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014" +
+      "\n\n^.{1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^" +
+      ".{1,225}$\022\r\n\005image\030\003 \001(\t\022\014\n\004args\030\004 \003(\t\022(" +
+      "\n\003env\030\005 \003(\0132\033.kdeploy.AppUpdate.EnvEntry" +
+      "\022,\n\005ports\030\006 \003(\0132\035.kdeploy.AppUpdate.Port" +
+      "sEntry\022\020\n\010replicas\030\007 \001(\r\032*\n\010EnvEntry\022\013\n\003" +
+      "key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032,\n\nPortsEnt" +
+      "ry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\"M\n\006Ap" +
+      "pRef\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022#\n\t" +
+      "namespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\";\n\007Rep" +
+      "lica\022\r\n\005phase\030\001 \001(\t\022\021\n\tcondition\030\002 \001(\t\022\016" +
+      "\n\006reason\030\003 \001(\t\"/\n\tAppStatus\022\"\n\010replicas\030" +
+      "\001 \003(\0132\020.kdeploy.Replica\"\026\n\003Log\022\017\n\007messag" +
+      "e\030\001 \001(\t\"*\n\004Apps\022\"\n\014applications\030\001 \003(\0132\014." +
+      "kdeploy.App\"\036\n\tNamespace\022\021\n\tnamespace\030\001 " +
+      "\001(\t\" \n\nNamespaces\022\022\n\nnamespaces\030\001 \003(\t2\262\003" +
+      "\n\016KdeployService\0224\n\tCreateApp\022\027.kdeploy." +
+      "AppConstructor\032\014.kdeploy.App\"\000\022/\n\tUpdate" +
+      "App\022\022.kdeploy.AppUpdate\032\014.kdeploy.App\"\000\022" +
+      "6\n\tDeleteApp\022\017.kdeploy.AppRef\032\026.google.p" +
+      "rotobuf.Empty\"\000\022)\n\006GetApp\022\017.kdeploy.AppR" +
+      "ef\032\014.kdeploy.App\"\000\022)\n\004Logs\022\017.kdeploy.App" +
+      "Ref\032\014.kdeploy.Log\"\0000\001\022?\n\016ListNamespaces\022" +
+      "\026.google.protobuf.Empty\032\023.kdeploy.Namesp" +
+      "aces\"\000\022/\n\010ListApps\022\022.kdeploy.Namespace\032\r" +
+      ".kdeploy.Apps\"\000\0229\n\tDeleteAll\022\022.kdeploy.N" +
+      "amespace\032\026.google.protobuf.Empty\"\000B\013Z\tkd" +
+      "eploypbb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -10480,7 +12901,7 @@ public final class Kdeploy {
     internal_static_kdeploy_App_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_App_descriptor,
-        new java.lang.String[] { "Name", "Namespace", "Image", "Env", "Ports", "Replicas", "Status", });
+        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", "Status", });
     internal_static_kdeploy_App_EnvEntry_descriptor =
       internal_static_kdeploy_App_descriptor.getNestedTypes().get(0);
     internal_static_kdeploy_App_EnvEntry_fieldAccessorTable = new
@@ -10493,12 +12914,24 @@ public final class Kdeploy {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_App_PortsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_kdeploy_AppConstructor_descriptor =
+    internal_static_kdeploy_CronJob_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_kdeploy_CronJob_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_kdeploy_CronJob_descriptor,
+        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Schedule", });
+    internal_static_kdeploy_CronJob_EnvEntry_descriptor =
+      internal_static_kdeploy_CronJob_descriptor.getNestedTypes().get(0);
+    internal_static_kdeploy_CronJob_EnvEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_kdeploy_CronJob_EnvEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_kdeploy_AppConstructor_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_kdeploy_AppConstructor_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_AppConstructor_descriptor,
-        new java.lang.String[] { "Name", "Namespace", "Image", "Env", "Ports", "Replicas", });
+        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", });
     internal_static_kdeploy_AppConstructor_EnvEntry_descriptor =
       internal_static_kdeploy_AppConstructor_descriptor.getNestedTypes().get(0);
     internal_static_kdeploy_AppConstructor_EnvEntry_fieldAccessorTable = new
@@ -10512,11 +12945,11 @@ public final class Kdeploy {
         internal_static_kdeploy_AppConstructor_PortsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_kdeploy_AppUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_kdeploy_AppUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_AppUpdate_descriptor,
-        new java.lang.String[] { "Name", "Namespace", "Image", "Env", "Ports", "Replicas", });
+        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", });
     internal_static_kdeploy_AppUpdate_EnvEntry_descriptor =
       internal_static_kdeploy_AppUpdate_descriptor.getNestedTypes().get(0);
     internal_static_kdeploy_AppUpdate_EnvEntry_fieldAccessorTable = new
@@ -10530,43 +12963,43 @@ public final class Kdeploy {
         internal_static_kdeploy_AppUpdate_PortsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_kdeploy_AppRef_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_kdeploy_AppRef_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_AppRef_descriptor,
         new java.lang.String[] { "Name", "Namespace", });
     internal_static_kdeploy_Replica_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_kdeploy_Replica_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Replica_descriptor,
         new java.lang.String[] { "Phase", "Condition", "Reason", });
-    internal_static_kdeploy_Status_descriptor =
-      getDescriptor().getMessageTypes().get(5);
-    internal_static_kdeploy_Status_fieldAccessorTable = new
+    internal_static_kdeploy_AppStatus_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_kdeploy_AppStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_kdeploy_Status_descriptor,
+        internal_static_kdeploy_AppStatus_descriptor,
         new java.lang.String[] { "Replicas", });
     internal_static_kdeploy_Log_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_kdeploy_Log_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Log_descriptor,
         new java.lang.String[] { "Message", });
     internal_static_kdeploy_Apps_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_kdeploy_Apps_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Apps_descriptor,
         new java.lang.String[] { "Applications", });
     internal_static_kdeploy_Namespace_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_kdeploy_Namespace_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Namespace_descriptor,
         new java.lang.String[] { "Namespace", });
     internal_static_kdeploy_Namespaces_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_kdeploy_Namespaces_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Namespaces_descriptor,

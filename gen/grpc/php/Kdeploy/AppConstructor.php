@@ -32,21 +32,27 @@ class AppConstructor extends \Google\Protobuf\Internal\Message
      */
     private $image = '';
     /**
+     * args are arguments given to the docker image at startup
+     *
+     * Generated from protobuf field <code>repeated string args = 4;</code>
+     */
+    private $args;
+    /**
      * k/v map of environmental variables
      *
-     * Generated from protobuf field <code>map<string, string> env = 4;</code>
+     * Generated from protobuf field <code>map<string, string> env = 5;</code>
      */
     private $env;
     /**
      * k/v map of ports to expose ex: http: 80 https: 443
      *
-     * Generated from protobuf field <code>map<string, uint32> ports = 5;</code>
+     * Generated from protobuf field <code>map<string, uint32> ports = 6;</code>
      */
     private $ports;
     /**
      * number of deployment replicas
      *
-     * Generated from protobuf field <code>uint32 replicas = 6;</code>
+     * Generated from protobuf field <code>uint32 replicas = 7;</code>
      */
     private $replicas = 0;
 
@@ -62,6 +68,8 @@ class AppConstructor extends \Google\Protobuf\Internal\Message
      *           application namespace
      *     @type string $image
      *           docker image of application
+     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $args
+     *           args are arguments given to the docker image at startup
      *     @type array|\Google\Protobuf\Internal\MapField $env
      *           k/v map of environmental variables
      *     @type array|\Google\Protobuf\Internal\MapField $ports
@@ -154,9 +162,35 @@ class AppConstructor extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * args are arguments given to the docker image at startup
+     *
+     * Generated from protobuf field <code>repeated string args = 4;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
+     */
+    public function getArgs()
+    {
+        return $this->args;
+    }
+
+    /**
+     * args are arguments given to the docker image at startup
+     *
+     * Generated from protobuf field <code>repeated string args = 4;</code>
+     * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
+     */
+    public function setArgs($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
+        $this->args = $arr;
+
+        return $this;
+    }
+
+    /**
      * k/v map of environmental variables
      *
-     * Generated from protobuf field <code>map<string, string> env = 4;</code>
+     * Generated from protobuf field <code>map<string, string> env = 5;</code>
      * @return \Google\Protobuf\Internal\MapField
      */
     public function getEnv()
@@ -167,7 +201,7 @@ class AppConstructor extends \Google\Protobuf\Internal\Message
     /**
      * k/v map of environmental variables
      *
-     * Generated from protobuf field <code>map<string, string> env = 4;</code>
+     * Generated from protobuf field <code>map<string, string> env = 5;</code>
      * @param array|\Google\Protobuf\Internal\MapField $var
      * @return $this
      */
@@ -182,7 +216,7 @@ class AppConstructor extends \Google\Protobuf\Internal\Message
     /**
      * k/v map of ports to expose ex: http: 80 https: 443
      *
-     * Generated from protobuf field <code>map<string, uint32> ports = 5;</code>
+     * Generated from protobuf field <code>map<string, uint32> ports = 6;</code>
      * @return \Google\Protobuf\Internal\MapField
      */
     public function getPorts()
@@ -193,7 +227,7 @@ class AppConstructor extends \Google\Protobuf\Internal\Message
     /**
      * k/v map of ports to expose ex: http: 80 https: 443
      *
-     * Generated from protobuf field <code>map<string, uint32> ports = 5;</code>
+     * Generated from protobuf field <code>map<string, uint32> ports = 6;</code>
      * @param array|\Google\Protobuf\Internal\MapField $var
      * @return $this
      */
@@ -208,7 +242,7 @@ class AppConstructor extends \Google\Protobuf\Internal\Message
     /**
      * number of deployment replicas
      *
-     * Generated from protobuf field <code>uint32 replicas = 6;</code>
+     * Generated from protobuf field <code>uint32 replicas = 7;</code>
      * @return int
      */
     public function getReplicas()
@@ -219,7 +253,7 @@ class AppConstructor extends \Google\Protobuf\Internal\Message
     /**
      * number of deployment replicas
      *
-     * Generated from protobuf field <code>uint32 replicas = 6;</code>
+     * Generated from protobuf field <code>uint32 replicas = 7;</code>
      * @param int $var
      * @return $this
      */

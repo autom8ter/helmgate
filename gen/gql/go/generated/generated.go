@@ -46,6 +46,7 @@ type DirectiveRoot struct {
 
 type ComplexityRoot struct {
 	App struct {
+		Args      func(childComplexity int) int
 		Env       func(childComplexity int) int
 		Image     func(childComplexity int) int
 		Name      func(childComplexity int) int
@@ -120,6 +121,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 	ec := executionContext{nil, e}
 	_ = ec
 	switch typeName + "." + field {
+
+	case "App.args":
+		if e.complexity.App.Args == nil {
+			break
+		}
+
+		return e.complexity.App.Args(childComplexity), true
 
 	case "App.env":
 		if e.complexity.App.Env == nil {
@@ -401,6 +409,8 @@ type App {
     namespace: String!
     # docker image of application
     image: String!
+    # args are arguments given to the container/image at startup
+    args: [String!]
     # k/v map of environmental variables
     env: Map
     # k/v map of ports to expose ex: http: 80 https: 443
@@ -440,6 +450,8 @@ input AppConstructor {
     namespace: String!
     # docker image of application
     image: String!
+    # args are arguments given to the container/image at startup
+    args: [String!]
     # k/v map of environmental variables
     env: Map
     # k/v map of ports to expose ex: http: 80 https: 443
@@ -455,6 +467,8 @@ input AppUpdate {
     namespace: String!
     # docker image of application
     image: String
+    # args are arguments given to the container/image at startup
+    args: [String!]
     # k/v map of environmental variables
     env: Map
     # k/v map of ports to expose ex: http: 80 https: 443
@@ -770,6 +784,38 @@ func (ec *executionContext) _App_image(ctx context.Context, field graphql.Collec
 	res := resTmp.(string)
 	fc.Result = res
 	return ec.marshalNString2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _App_args(ctx context.Context, field graphql.CollectedField, obj *model.App) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "App",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Args, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.([]string)
+	fc.Result = res
+	return ec.marshalOString2ᚕstringᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _App_env(ctx context.Context, field graphql.CollectedField, obj *model.App) (ret graphql.Marshaler) {
@@ -2632,6 +2678,14 @@ func (ec *executionContext) unmarshalInputAppConstructor(ctx context.Context, ob
 			if err != nil {
 				return it, err
 			}
+		case "args":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("args"))
+			it.Args, err = ec.unmarshalOString2ᚕstringᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "env":
 			var err error
 
@@ -2720,6 +2774,14 @@ func (ec *executionContext) unmarshalInputAppUpdate(ctx context.Context, obj int
 			if err != nil {
 				return it, err
 			}
+		case "args":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("args"))
+			it.Args, err = ec.unmarshalOString2ᚕstringᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "env":
 			var err error
 
@@ -2804,6 +2866,8 @@ func (ec *executionContext) _App(ctx context.Context, sel ast.SelectionSet, obj 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
+		case "args":
+			out.Values[i] = ec._App_args(ctx, field, obj)
 		case "env":
 			out.Values[i] = ec._App_env(ctx, field, obj)
 		case "ports":

@@ -17,14 +17,29 @@ message App {
   string namespace =2;
   // docker image of application
   string image =3;
+  // args are arguments given to the docker image at startup
+  repeated string args =5;
   // k/v map of environmental variables
-  map<string, string> env =4;
+  map<string, string> env =6;
   // k/v map of ports to expose ex: http: 80 https: 443
-  map<string, uint32> ports =5;
+  map<string, uint32> ports =7;
   // number of deployment replicas
-  uint32 replicas =6;
+  uint32 replicas =8;
   // status tracks the state of the application during it's lifecycle
-  Status status =7;
+  AppStatus status =9;
+}
+
+message CronJob {
+  // name of the application
+  string name =1;
+  // application namespace
+  string namespace =2;
+  // docker image of application
+  string image =3;
+  repeated string args =5;
+  // k/v map of environmental variables
+  map<string, string> env =6;
+  string schedule = 7;
 }
 
 message AppConstructor {
@@ -34,12 +49,14 @@ message AppConstructor {
   string namespace =2[(validator.field) = {regex : "^.{1,225}$"}];
   // docker image of application
   string image =3[(validator.field) = {regex : "^.{1,225}$"}];
+  // args are arguments given to the docker image at startup
+  repeated string args =4;
   // k/v map of environmental variables
-  map<string, string> env =4;
+  map<string, string> env =5;
   // k/v map of ports to expose ex: http: 80 https: 443
-  map<string, uint32> ports =5;
+  map<string, uint32> ports =6;
   // number of deployment replicas
-  uint32 replicas =6;
+  uint32 replicas =7;
 }
 
 message AppUpdate {
@@ -49,12 +66,14 @@ message AppUpdate {
   string namespace =2[(validator.field) = {regex : "^.{1,225}$"}];
   // docker image of application
   string image =3;
+  // args are arguments given to the docker image at startup
+  repeated string args =4;
   // k/v map of environmental variables
-  map<string, string> env =4;
+  map<string, string> env =5;
   // k/v map of ports to expose ex: http: 80 https: 443
-  map<string, uint32> ports =5;
+  map<string, uint32> ports =6;
   // number of deployment replicas
-  uint32 replicas =6;
+  uint32 replicas =7;
 }
 
 message AppRef {
@@ -70,7 +89,7 @@ message Replica {
   string reason =3;
 }
 
-message Status {
+message AppStatus {
   repeated Replica replicas =1;
 }
 

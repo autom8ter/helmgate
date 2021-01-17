@@ -12,26 +12,37 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     optional :name, :string, 1
     optional :namespace, :string, 2
     optional :image, :string, 3
-    map :env, :string, :string, 4
-    map :ports, :string, :uint32, 5
-    optional :replicas, :uint32, 6
-    optional :status, :message, 7, "kdeploy.Status"
+    repeated :args, :string, 5
+    map :env, :string, :string, 6
+    map :ports, :string, :uint32, 7
+    optional :replicas, :uint32, 8
+    optional :status, :message, 9, "kdeploy.AppStatus"
+  end
+  add_message "kdeploy.CronJob" do
+    optional :name, :string, 1
+    optional :namespace, :string, 2
+    optional :image, :string, 3
+    repeated :args, :string, 5
+    map :env, :string, :string, 6
+    optional :schedule, :string, 7
   end
   add_message "kdeploy.AppConstructor" do
     optional :name, :string, 1
     optional :namespace, :string, 2
     optional :image, :string, 3
-    map :env, :string, :string, 4
-    map :ports, :string, :uint32, 5
-    optional :replicas, :uint32, 6
+    repeated :args, :string, 4
+    map :env, :string, :string, 5
+    map :ports, :string, :uint32, 6
+    optional :replicas, :uint32, 7
   end
   add_message "kdeploy.AppUpdate" do
     optional :name, :string, 1
     optional :namespace, :string, 2
     optional :image, :string, 3
-    map :env, :string, :string, 4
-    map :ports, :string, :uint32, 5
-    optional :replicas, :uint32, 6
+    repeated :args, :string, 4
+    map :env, :string, :string, 5
+    map :ports, :string, :uint32, 6
+    optional :replicas, :uint32, 7
   end
   add_message "kdeploy.AppRef" do
     optional :name, :string, 1
@@ -42,7 +53,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     optional :condition, :string, 2
     optional :reason, :string, 3
   end
-  add_message "kdeploy.Status" do
+  add_message "kdeploy.AppStatus" do
     repeated :replicas, :message, 1, "kdeploy.Replica"
   end
   add_message "kdeploy.Log" do
@@ -61,11 +72,12 @@ end
 
 module Kdeploy
   App = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.App").msgclass
+  CronJob = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.CronJob").msgclass
   AppConstructor = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.AppConstructor").msgclass
   AppUpdate = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.AppUpdate").msgclass
   AppRef = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.AppRef").msgclass
   Replica = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Replica").msgclass
-  Status = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Status").msgclass
+  AppStatus = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.AppStatus").msgclass
   Log = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Log").msgclass
   Apps = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Apps").msgclass
   Namespace = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Namespace").msgclass

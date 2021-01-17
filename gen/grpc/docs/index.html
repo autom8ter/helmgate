@@ -207,6 +207,10 @@
                 </li>
               
                 <li>
+                  <a href="#kdeploy.AppStatus"><span class="badge">M</span>AppStatus</a>
+                </li>
+              
+                <li>
                   <a href="#kdeploy.AppUpdate"><span class="badge">M</span>AppUpdate</a>
                 </li>
               
@@ -223,6 +227,14 @@
                 </li>
               
                 <li>
+                  <a href="#kdeploy.CronJob"><span class="badge">M</span>CronJob</a>
+                </li>
+              
+                <li>
+                  <a href="#kdeploy.CronJob.EnvEntry"><span class="badge">M</span>CronJob.EnvEntry</a>
+                </li>
+              
+                <li>
                   <a href="#kdeploy.Log"><span class="badge">M</span>Log</a>
                 </li>
               
@@ -236,10 +248,6 @@
               
                 <li>
                   <a href="#kdeploy.Replica"><span class="badge">M</span>Replica</a>
-                </li>
-              
-                <li>
-                  <a href="#kdeploy.Status"><span class="badge">M</span>Status</a>
                 </li>
               
               
@@ -296,6 +304,13 @@
                 </tr>
               
                 <tr>
+                  <td>args</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>args are arguments given to the docker image at startup </p></td>
+                </tr>
+              
+                <tr>
                   <td>env</td>
                   <td><a href="#kdeploy.App.EnvEntry">App.EnvEntry</a></td>
                   <td>repeated</td>
@@ -318,7 +333,7 @@
               
                 <tr>
                   <td>status</td>
-                  <td><a href="#kdeploy.Status">Status</a></td>
+                  <td><a href="#kdeploy.AppStatus">AppStatus</a></td>
                   <td></td>
                   <td><p>status tracks the state of the application during it&#39;s lifecycle </p></td>
                 </tr>
@@ -421,6 +436,13 @@
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>docker image of application </p></td>
+                </tr>
+              
+                <tr>
+                  <td>args</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>args are arguments given to the docker image at startup </p></td>
                 </tr>
               
                 <tr>
@@ -631,6 +653,30 @@
 
         
       
+        <h3 id="kdeploy.AppStatus">AppStatus</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>replicas</td>
+                  <td><a href="#kdeploy.Replica">Replica</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="kdeploy.AppUpdate">AppUpdate</h3>
         <p></p>
 
@@ -660,6 +706,13 @@
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>docker image of application </p></td>
+                </tr>
+              
+                <tr>
+                  <td>args</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>args are arguments given to the docker image at startup </p></td>
                 </tr>
               
                 <tr>
@@ -814,6 +867,96 @@
 
         
       
+        <h3 id="kdeploy.CronJob">CronJob</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>name of the application </p></td>
+                </tr>
+              
+                <tr>
+                  <td>namespace</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>application namespace </p></td>
+                </tr>
+              
+                <tr>
+                  <td>image</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>docker image of application </p></td>
+                </tr>
+              
+                <tr>
+                  <td>args</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>env</td>
+                  <td><a href="#kdeploy.CronJob.EnvEntry">CronJob.EnvEntry</a></td>
+                  <td>repeated</td>
+                  <td><p>k/v map of environmental variables </p></td>
+                </tr>
+              
+                <tr>
+                  <td>schedule</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="kdeploy.CronJob.EnvEntry">CronJob.EnvEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="kdeploy.Log">Log</h3>
         <p></p>
 
@@ -914,30 +1057,6 @@
                   <td>reason</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="kdeploy.Status">Status</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>replicas</td>
-                  <td><a href="#kdeploy.Replica">Replica</a></td>
-                  <td>repeated</td>
                   <td><p> </p></td>
                 </tr>
               

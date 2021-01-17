@@ -10,6 +10,8 @@ type App {
     namespace: String!
     # docker image of application
     image: String!
+    # args are arguments given to the container/image at startup
+    args: [String!]
     # k/v map of environmental variables
     env: Map
     # k/v map of ports to expose ex: http: 80 https: 443
@@ -49,6 +51,8 @@ input AppConstructor {
     namespace: String!
     # docker image of application
     image: String!
+    # args are arguments given to the container/image at startup
+    args: [String!]
     # k/v map of environmental variables
     env: Map
     # k/v map of ports to expose ex: http: 80 https: 443
@@ -64,6 +68,8 @@ input AppUpdate {
     namespace: String!
     # docker image of application
     image: String
+    # args are arguments given to the container/image at startup
+    args: [String!]
     # k/v map of environmental variables
     env: Map
     # k/v map of ports to expose ex: http: 80 https: 443

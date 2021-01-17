@@ -6,6 +6,7 @@ type App struct {
 	Name      string                 `json:"name"`
 	Namespace string                 `json:"namespace"`
 	Image     string                 `json:"image"`
+	Args      []string               `json:"args"`
 	Env       map[string]interface{} `json:"env"`
 	Ports     map[string]interface{} `json:"ports"`
 	Replicas  int                    `json:"replicas"`
@@ -16,6 +17,7 @@ type AppConstructor struct {
 	Name      string                 `json:"name"`
 	Namespace string                 `json:"namespace"`
 	Image     string                 `json:"image"`
+	Args      []string               `json:"args"`
 	Env       map[string]interface{} `json:"env"`
 	Ports     map[string]interface{} `json:"ports"`
 	Replicas  int                    `json:"replicas"`
@@ -30,6 +32,7 @@ type AppUpdate struct {
 	Name      string                 `json:"name"`
 	Namespace string                 `json:"namespace"`
 	Image     *string                `json:"image"`
+	Args      []string               `json:"args"`
 	Env       map[string]interface{} `json:"env"`
 	Ports     map[string]interface{} `json:"ports"`
 	Replicas  *int                   `json:"replicas"`

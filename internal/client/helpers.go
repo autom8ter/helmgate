@@ -54,6 +54,7 @@ func appContainers(app *kdeploypb.AppConstructor) ([]v12.Container, error) {
 			Image:           app.Image,
 			Ports:           ports,
 			Env:             env,
+			Args:            app.Args,
 			Resources:       v12.ResourceRequirements{},
 			ImagePullPolicy: Always,
 		},
@@ -175,6 +176,9 @@ func overwriteDeployment(deployment *apps.Deployment, app *kdeploypb.AppUpdate) 
 	}
 	if app.Image != "" {
 		container.Image = app.Image
+	}
+	if app.Args != nil {
+		container.Args = app.Args
 	}
 	if app.Ports != nil {
 		ports := []v12.ContainerPort{}

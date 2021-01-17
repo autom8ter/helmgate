@@ -31,6 +31,10 @@ func (this *App) Validate() error {
 	}
 	return nil
 }
+func (this *CronJob) Validate() error {
+	// Validation of proto3 map<> fields is unsupported.
+	return nil
+}
 
 var _regex_AppConstructor_Name = regexp.MustCompile(`^.{1,225}$`)
 var _regex_AppConstructor_Namespace = regexp.MustCompile(`^.{1,225}$`)
@@ -81,7 +85,7 @@ func (this *AppRef) Validate() error {
 func (this *Replica) Validate() error {
 	return nil
 }
-func (this *Status) Validate() error {
+func (this *AppStatus) Validate() error {
 	for _, item := range this.Replicas {
 		if item != nil {
 			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
