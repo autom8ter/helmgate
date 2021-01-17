@@ -12,7 +12,7 @@ help:
 run:
 	@go run cmd/kdeploy/main.go --open-id https://accounts.google.com/.well-known/openid-configuration --out-of-cluster
 
-gen: proto gql
+gen: gql proto
 
 patch: ## bump sem version by 1 patch
 	bumpversion patch --allow-dirty

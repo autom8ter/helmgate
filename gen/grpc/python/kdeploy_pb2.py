@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='kdeploy',
   syntax='proto3',
   serialized_options=_b('Z\tkdeploypb'),
-  serialized_pb=_b('\n\rkdeploy.proto\x12\x07kdeploy\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x19google/protobuf/any.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x36github.com/mwitkow/go-proto-validators/validator.proto\"\x9f\x02\n\x03\x41pp\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tnamespace\x18\x02 \x01(\t\x12\r\n\x05image\x18\x03 \x01(\t\x12\x0c\n\x04\x61rgs\x18\x05 \x03(\t\x12\"\n\x03\x65nv\x18\x06 \x03(\x0b\x32\x15.kdeploy.App.EnvEntry\x12&\n\x05ports\x18\x07 \x03(\x0b\x32\x17.kdeploy.App.PortsEntry\x12\x10\n\x08replicas\x18\x08 \x01(\r\x12\"\n\x06status\x18\t \x01(\x0b\x32\x12.kdeploy.AppStatus\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a,\n\nPortsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\r:\x02\x38\x01\"\xbc\x01\n\x04Task\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tnamespace\x18\x02 \x01(\t\x12\r\n\x05image\x18\x03 \x01(\t\x12\x0c\n\x04\x61rgs\x18\x05 \x03(\t\x12#\n\x03\x65nv\x18\x06 \x03(\x0b\x32\x16.kdeploy.Task.EnvEntry\x12\x10\n\x08schedule\x18\x07 \x01(\t\x12\x13\n\x0b\x63ompletions\x18\x08 \x01(\x04\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x85\x02\n\x0fTaskConstructor\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05image\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x0c\n\x04\x61rgs\x18\x05 \x03(\t\x12.\n\x03\x65nv\x18\x06 \x03(\x0b\x32!.kdeploy.TaskConstructor.EnvEntry\x12\"\n\x08schedule\x18\x07 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xd7\x01\n\nTaskUpdate\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\r\n\x05image\x18\x03 \x01(\t\x12\x0c\n\x04\x61rgs\x18\x05 \x03(\t\x12)\n\x03\x65nv\x18\x06 \x03(\x0b\x32\x1c.kdeploy.TaskUpdate.EnvEntry\x12\x10\n\x08schedule\x18\x07 \x01(\t\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xd2\x02\n\x0e\x41ppConstructor\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05image\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x0c\n\x04\x61rgs\x18\x04 \x03(\t\x12-\n\x03\x65nv\x18\x05 \x03(\x0b\x32 .kdeploy.AppConstructor.EnvEntry\x12\x31\n\x05ports\x18\x06 \x03(\x0b\x32\".kdeploy.AppConstructor.PortsEntry\x12\x10\n\x08replicas\x18\x07 \x01(\r\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a,\n\nPortsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\r:\x02\x38\x01\"\xb1\x02\n\tAppUpdate\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\r\n\x05image\x18\x03 \x01(\t\x12\x0c\n\x04\x61rgs\x18\x04 \x03(\t\x12(\n\x03\x65nv\x18\x05 \x03(\x0b\x32\x1b.kdeploy.AppUpdate.EnvEntry\x12,\n\x05ports\x18\x06 \x03(\x0b\x32\x1d.kdeploy.AppUpdate.PortsEntry\x12\x10\n\x08replicas\x18\x07 \x01(\r\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a,\n\nPortsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\r:\x02\x38\x01\"J\n\x03Ref\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\";\n\x07Replica\x12\r\n\x05phase\x18\x01 \x01(\t\x12\x11\n\tcondition\x18\x02 \x01(\t\x12\x0e\n\x06reason\x18\x03 \x01(\t\"/\n\tAppStatus\x12\"\n\x08replicas\x18\x01 \x03(\x0b\x32\x10.kdeploy.Replica\"\x16\n\x03Log\x12\x0f\n\x07message\x18\x01 \x01(\t\"*\n\x04\x41pps\x12\"\n\x0c\x61pplications\x18\x01 \x03(\x0b\x32\x0c.kdeploy.App\"%\n\x05Tasks\x12\x1c\n\x05tasks\x18\x01 \x03(\x0b\x32\r.kdeploy.Task\"\x1e\n\tNamespace\x12\x11\n\tnamespace\x18\x01 \x01(\t\" \n\nNamespaces\x12\x12\n\nnamespaces\x18\x01 \x03(\t2\xa9\x05\n\x0eKdeployService\x12\x34\n\tCreateApp\x12\x17.kdeploy.AppConstructor\x1a\x0c.kdeploy.App\"\x00\x12/\n\tUpdateApp\x12\x12.kdeploy.AppUpdate\x1a\x0c.kdeploy.App\"\x00\x12\x33\n\tDeleteApp\x12\x0c.kdeploy.Ref\x1a\x16.google.protobuf.Empty\"\x00\x12&\n\x06GetApp\x12\x0c.kdeploy.Ref\x1a\x0c.kdeploy.App\"\x00\x12/\n\x08ListApps\x12\x12.kdeploy.Namespace\x1a\r.kdeploy.Apps\"\x00\x12&\n\x04Logs\x12\x0c.kdeploy.Ref\x1a\x0c.kdeploy.Log\"\x00\x30\x01\x12?\n\x0eListNamespaces\x12\x16.google.protobuf.Empty\x1a\x13.kdeploy.Namespaces\"\x00\x12\x39\n\tDeleteAll\x12\x12.kdeploy.Namespace\x1a\x16.google.protobuf.Empty\"\x00\x12\x37\n\nCreateTask\x12\x18.kdeploy.TaskConstructor\x1a\r.kdeploy.Task\"\x00\x12\x32\n\nUpdateTask\x12\x13.kdeploy.TaskUpdate\x1a\r.kdeploy.Task\"\x00\x12\x34\n\nDeleteTask\x12\x0c.kdeploy.Ref\x1a\x16.google.protobuf.Empty\"\x00\x12(\n\x07GetTask\x12\x0c.kdeploy.Ref\x1a\r.kdeploy.Task\"\x00\x12\x31\n\tListTasks\x12\x12.kdeploy.Namespace\x1a\x0e.kdeploy.Tasks\"\x00\x42\x0bZ\tkdeploypbb\x06proto3')
+  serialized_pb=_b('\n\rkdeploy.proto\x12\x07kdeploy\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x19google/protobuf/any.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x36github.com/mwitkow/go-proto-validators/validator.proto\"\x9f\x02\n\x03\x41pp\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tnamespace\x18\x02 \x01(\t\x12\r\n\x05image\x18\x03 \x01(\t\x12\x0c\n\x04\x61rgs\x18\x05 \x03(\t\x12\"\n\x03\x65nv\x18\x06 \x03(\x0b\x32\x15.kdeploy.App.EnvEntry\x12&\n\x05ports\x18\x07 \x03(\x0b\x32\x17.kdeploy.App.PortsEntry\x12\x10\n\x08replicas\x18\x08 \x01(\r\x12\"\n\x06status\x18\t \x01(\x0b\x32\x12.kdeploy.AppStatus\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a,\n\nPortsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\r:\x02\x38\x01\"\xbc\x01\n\x04Task\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tnamespace\x18\x02 \x01(\t\x12\r\n\x05image\x18\x03 \x01(\t\x12\x0c\n\x04\x61rgs\x18\x05 \x03(\t\x12#\n\x03\x65nv\x18\x06 \x03(\x0b\x32\x16.kdeploy.Task.EnvEntry\x12\x10\n\x08schedule\x18\x07 \x01(\t\x12\x13\n\x0b\x63ompletions\x18\x08 \x01(\r\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x9a\x02\n\x0fTaskConstructor\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05image\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x0c\n\x04\x61rgs\x18\x05 \x03(\t\x12.\n\x03\x65nv\x18\x06 \x03(\x0b\x32!.kdeploy.TaskConstructor.EnvEntry\x12\"\n\x08schedule\x18\x07 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x13\n\x0b\x63ompletions\x18\x08 \x01(\r\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xec\x01\n\nTaskUpdate\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\r\n\x05image\x18\x03 \x01(\t\x12\x0c\n\x04\x61rgs\x18\x05 \x03(\t\x12)\n\x03\x65nv\x18\x06 \x03(\x0b\x32\x1c.kdeploy.TaskUpdate.EnvEntry\x12\x10\n\x08schedule\x18\x07 \x01(\t\x12\x13\n\x0b\x63ompletions\x18\x08 \x01(\r\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xd2\x02\n\x0e\x41ppConstructor\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05image\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x0c\n\x04\x61rgs\x18\x04 \x03(\t\x12-\n\x03\x65nv\x18\x05 \x03(\x0b\x32 .kdeploy.AppConstructor.EnvEntry\x12\x31\n\x05ports\x18\x06 \x03(\x0b\x32\".kdeploy.AppConstructor.PortsEntry\x12\x10\n\x08replicas\x18\x07 \x01(\r\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a,\n\nPortsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\r:\x02\x38\x01\"\xb1\x02\n\tAppUpdate\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\r\n\x05image\x18\x03 \x01(\t\x12\x0c\n\x04\x61rgs\x18\x04 \x03(\t\x12(\n\x03\x65nv\x18\x05 \x03(\x0b\x32\x1b.kdeploy.AppUpdate.EnvEntry\x12,\n\x05ports\x18\x06 \x03(\x0b\x32\x1d.kdeploy.AppUpdate.PortsEntry\x12\x10\n\x08replicas\x18\x07 \x01(\r\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a,\n\nPortsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\r:\x02\x38\x01\"J\n\x03Ref\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\";\n\x07Replica\x12\r\n\x05phase\x18\x01 \x01(\t\x12\x11\n\tcondition\x18\x02 \x01(\t\x12\x0e\n\x06reason\x18\x03 \x01(\t\"/\n\tAppStatus\x12\"\n\x08replicas\x18\x01 \x03(\x0b\x32\x10.kdeploy.Replica\"\x16\n\x03Log\x12\x0f\n\x07message\x18\x01 \x01(\t\"*\n\x04\x41pps\x12\"\n\x0c\x61pplications\x18\x01 \x03(\x0b\x32\x0c.kdeploy.App\"%\n\x05Tasks\x12\x1c\n\x05tasks\x18\x01 \x03(\x0b\x32\r.kdeploy.Task\"\x1e\n\tNamespace\x12\x11\n\tnamespace\x18\x01 \x01(\t\" \n\nNamespaces\x12\x12\n\nnamespaces\x18\x01 \x03(\t2\xaf\x05\n\x0eKdeployService\x12\x34\n\tCreateApp\x12\x17.kdeploy.AppConstructor\x1a\x0c.kdeploy.App\"\x00\x12/\n\tUpdateApp\x12\x12.kdeploy.AppUpdate\x1a\x0c.kdeploy.App\"\x00\x12\x33\n\tDeleteApp\x12\x0c.kdeploy.Ref\x1a\x16.google.protobuf.Empty\"\x00\x12&\n\x06GetApp\x12\x0c.kdeploy.Ref\x1a\x0c.kdeploy.App\"\x00\x12/\n\x08ListApps\x12\x12.kdeploy.Namespace\x1a\r.kdeploy.Apps\"\x00\x12?\n\x0eListNamespaces\x12\x16.google.protobuf.Empty\x1a\x13.kdeploy.Namespaces\"\x00\x12\x39\n\tDeleteAll\x12\x12.kdeploy.Namespace\x1a\x16.google.protobuf.Empty\"\x00\x12\x37\n\nCreateTask\x12\x18.kdeploy.TaskConstructor\x1a\r.kdeploy.Task\"\x00\x12\x32\n\nUpdateTask\x12\x13.kdeploy.TaskUpdate\x1a\r.kdeploy.Task\"\x00\x12\x34\n\nDeleteTask\x12\x0c.kdeploy.Ref\x1a\x16.google.protobuf.Empty\"\x00\x12(\n\x07GetTask\x12\x0c.kdeploy.Ref\x1a\r.kdeploy.Task\"\x00\x12\x31\n\tListTasks\x12\x12.kdeploy.Namespace\x1a\x0e.kdeploy.Tasks\"\x00\x12,\n\nStreamLogs\x12\x0c.kdeploy.Ref\x1a\x0c.kdeploy.Log\"\x00\x30\x01\x42\x0bZ\tkdeploypbb\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_any__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,github_dot_com_dot_mwitkow_dot_go__proto__validators_dot_validator__pb2.DESCRIPTOR,])
 
@@ -273,7 +273,7 @@ _TASK = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='completions', full_name='kdeploy.Task.completions', index=6,
-      number=8, type=4, cpp_type=4, label=1,
+      number=8, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -381,6 +381,13 @@ _TASKCONSTRUCTOR = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=_b('\342\337\037\014\n\n^.{1,225}$'), file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='completions', full_name='kdeploy.TaskConstructor.completions', index=6,
+      number=8, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -394,7 +401,7 @@ _TASKCONSTRUCTOR = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=683,
-  serialized_end=944,
+  serialized_end=965,
 )
 
 
@@ -484,6 +491,13 @@ _TASKUPDATE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='completions', full_name='kdeploy.TaskUpdate.completions', index=6,
+      number=8, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -496,8 +510,8 @@ _TASKUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=947,
-  serialized_end=1162,
+  serialized_start=968,
+  serialized_end=1204,
 )
 
 
@@ -643,8 +657,8 @@ _APPCONSTRUCTOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1165,
-  serialized_end=1503,
+  serialized_start=1207,
+  serialized_end=1545,
 )
 
 
@@ -790,8 +804,8 @@ _APPUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1506,
-  serialized_end=1811,
+  serialized_start=1548,
+  serialized_end=1853,
 )
 
 
@@ -828,8 +842,8 @@ _REF = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1813,
-  serialized_end=1887,
+  serialized_start=1855,
+  serialized_end=1929,
 )
 
 
@@ -873,8 +887,8 @@ _REPLICA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1889,
-  serialized_end=1948,
+  serialized_start=1931,
+  serialized_end=1990,
 )
 
 
@@ -904,8 +918,8 @@ _APPSTATUS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1950,
-  serialized_end=1997,
+  serialized_start=1992,
+  serialized_end=2039,
 )
 
 
@@ -935,8 +949,8 @@ _LOG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1999,
-  serialized_end=2021,
+  serialized_start=2041,
+  serialized_end=2063,
 )
 
 
@@ -966,8 +980,8 @@ _APPS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2023,
-  serialized_end=2065,
+  serialized_start=2065,
+  serialized_end=2107,
 )
 
 
@@ -997,8 +1011,8 @@ _TASKS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2067,
-  serialized_end=2104,
+  serialized_start=2109,
+  serialized_end=2146,
 )
 
 
@@ -1028,8 +1042,8 @@ _NAMESPACE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2106,
-  serialized_end=2136,
+  serialized_start=2148,
+  serialized_end=2178,
 )
 
 
@@ -1059,8 +1073,8 @@ _NAMESPACES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2138,
-  serialized_end=2170,
+  serialized_start=2180,
+  serialized_end=2212,
 )
 
 _APP_ENVENTRY.containing_type = _APP
@@ -1302,8 +1316,8 @@ _KDEPLOYSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=2173,
-  serialized_end=2854,
+  serialized_start=2215,
+  serialized_end=2902,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateApp',
@@ -1351,18 +1365,9 @@ _KDEPLOYSERVICE = _descriptor.ServiceDescriptor(
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
-    name='Logs',
-    full_name='kdeploy.KdeployService.Logs',
-    index=5,
-    containing_service=None,
-    input_type=_REF,
-    output_type=_LOG,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
     name='ListNamespaces',
     full_name='kdeploy.KdeployService.ListNamespaces',
-    index=6,
+    index=5,
     containing_service=None,
     input_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     output_type=_NAMESPACES,
@@ -1371,7 +1376,7 @@ _KDEPLOYSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DeleteAll',
     full_name='kdeploy.KdeployService.DeleteAll',
-    index=7,
+    index=6,
     containing_service=None,
     input_type=_NAMESPACE,
     output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
@@ -1380,7 +1385,7 @@ _KDEPLOYSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='CreateTask',
     full_name='kdeploy.KdeployService.CreateTask',
-    index=8,
+    index=7,
     containing_service=None,
     input_type=_TASKCONSTRUCTOR,
     output_type=_TASK,
@@ -1389,7 +1394,7 @@ _KDEPLOYSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='UpdateTask',
     full_name='kdeploy.KdeployService.UpdateTask',
-    index=9,
+    index=8,
     containing_service=None,
     input_type=_TASKUPDATE,
     output_type=_TASK,
@@ -1398,7 +1403,7 @@ _KDEPLOYSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DeleteTask',
     full_name='kdeploy.KdeployService.DeleteTask',
-    index=10,
+    index=9,
     containing_service=None,
     input_type=_REF,
     output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
@@ -1407,7 +1412,7 @@ _KDEPLOYSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetTask',
     full_name='kdeploy.KdeployService.GetTask',
-    index=11,
+    index=10,
     containing_service=None,
     input_type=_REF,
     output_type=_TASK,
@@ -1416,10 +1421,19 @@ _KDEPLOYSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListTasks',
     full_name='kdeploy.KdeployService.ListTasks',
-    index=12,
+    index=11,
     containing_service=None,
     input_type=_NAMESPACE,
     output_type=_TASKS,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='StreamLogs',
+    full_name='kdeploy.KdeployService.StreamLogs',
+    index=12,
+    containing_service=None,
+    input_type=_REF,
+    output_type=_LOG,
     serialized_options=None,
   ),
 ])

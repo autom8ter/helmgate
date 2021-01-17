@@ -9,6 +9,8 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
+ * AppUpdate updates an App
+ *
  * Generated from protobuf message <code>kdeploy.AppUpdate</code>
  */
 class AppUpdate extends \Google\Protobuf\Internal\Message

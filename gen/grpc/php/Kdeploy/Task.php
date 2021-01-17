@@ -9,6 +9,8 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
+ * Task is scheduled cron job
+ *
  * Generated from protobuf message <code>kdeploy.Task</code>
  */
 class Task extends \Google\Protobuf\Internal\Message
@@ -44,12 +46,15 @@ class Task extends \Google\Protobuf\Internal\Message
      */
     private $env;
     /**
+     * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
      *
      * Generated from protobuf field <code>string schedule = 7;</code>
      */
     private $schedule = '';
     /**
-     * Generated from protobuf field <code>uint64 completions = 8;</code>
+     * completions is the number of times to execute the task. If completions = 0, the task will run forever
+     *
+     * Generated from protobuf field <code>uint32 completions = 8;</code>
      */
     private $completions = 0;
 
@@ -70,7 +75,9 @@ class Task extends \Google\Protobuf\Internal\Message
      *     @type array|\Google\Protobuf\Internal\MapField $env
      *           k/v map of environmental variables
      *     @type string $schedule
-     *     @type int|string $completions
+     *           schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
+     *     @type int $completions
+     *           completions is the number of times to execute the task. If completions = 0, the task will run forever
      * }
      */
     public function __construct($data = NULL) {
@@ -209,6 +216,7 @@ class Task extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
      *
      * Generated from protobuf field <code>string schedule = 7;</code>
      * @return string
@@ -219,6 +227,7 @@ class Task extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
      *
      * Generated from protobuf field <code>string schedule = 7;</code>
      * @param string $var
@@ -233,8 +242,10 @@ class Task extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>uint64 completions = 8;</code>
-     * @return int|string
+     * completions is the number of times to execute the task. If completions = 0, the task will run forever
+     *
+     * Generated from protobuf field <code>uint32 completions = 8;</code>
+     * @return int
      */
     public function getCompletions()
     {
@@ -242,13 +253,15 @@ class Task extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>uint64 completions = 8;</code>
-     * @param int|string $var
+     * completions is the number of times to execute the task. If completions = 0, the task will run forever
+     *
+     * Generated from protobuf field <code>uint32 completions = 8;</code>
+     * @param int $var
      * @return $this
      */
     public function setCompletions($var)
     {
-        GPBUtil::checkUint64($var);
+        GPBUtil::checkUint32($var);
         $this->completions = $var;
 
         return $this;

@@ -3,6 +3,7 @@ scalar Time
 # Map is a k/v map where the key is a string and the value is any value
 scalar Map
 
+# App is a stateless application
 type App {
     # name of the application
     name: String!
@@ -19,10 +20,10 @@ type App {
     # number of deployment replicas min:1
     replicas: Int!
     # status tracks the state of the application during it's lifecycle
-    status: Status!
+    status: AppStatus!
 }
 
-
+# Task is scheduled cron job
 type Task {
     # name of the application
     name: String!
@@ -34,31 +35,40 @@ type Task {
     args: [String!]
     # k/v map of environmental variables
     env: Map
+    # schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
     schedule: String!
+    # completions is the number of times to execute the task. If completions = 0, the task will run forever
+    completions: Int
 }
 
+# Replica tracks the state of a single instance
 type Replica {
     phase: String!
     condition: String!
     reason: String!
 }
 
-type Status {
+# AppStatus tracks the state of an app's lifecycle
+type AppStatus {
     replicas: [Replica]!
 }
 
+# Log is a message streamed from stdout/stderr of an instance
 type Log {
     message: String!
 }
 
+# Namespaces is a list of namespaces
 type Namespaces {
     namespaces: [String!]
 }
 
+# Namespace is a primitive used for logical segmentation of apps & tasks
 input Namespace {
     namespace: String!
 }
 
+# AppConstructor creates a new stateless Application
 input AppConstructor {
     # name of the application
     name: String!
@@ -76,7 +86,7 @@ input AppConstructor {
     replicas: Int!
 }
 
-
+# TaskConstructor creates a new task(cron job)
 input TaskConstructor {
     # name of the application
     name: String!
@@ -88,7 +98,10 @@ input TaskConstructor {
     args: [String!]
     # k/v map of environmental variables
     env: Map
+    # schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
     schedule: String!
+    # completions is the number of times to execute the task. If completions = 0, the task will run forever
+    completions: Int
 }
 
 input AppUpdate {
@@ -119,7 +132,10 @@ input TaskUpdate {
     args: [String!]
     # k/v map of environmental variables
     env: Map
+    # schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
     schedule: String
+    # completions is the number of times to execute the task. If completions = 0, the task will run forever
+    completions: Int
 }
 
 input Ref {
@@ -130,27 +146,38 @@ input Ref {
 }
 
 type Mutation {
+    # createApp creates a new stateless application(k8s deployment), exposed with a single load balancer(k8s service) within a single namespace(k8s namespace)
+    # the namespace will automatically be created if one does not already exist
     createApp(input: AppConstructor!): App
+    # updateApp edits/patches an existing stateless application(k8s deployment & service) within an existing namespace(k8s namespace)
     updateApp(input: AppUpdate!): App
+    # delApp deletes a single stateless application(k8s deployment & service) within an existing namespace
     delApp(input: Ref!): String
-
+    # createTask creates a new task(k8s cron job) within a single namespace(k8s namespace)
+    # the namespace will automatically be created if one does not already exist
     createTask(input: TaskConstructor!): Task
+    #  UpdateTask edits/patches an existing task(k8s cron job) within an existing namespace(k8s namespace)
     updateTask(input: TaskUpdate!): Task
-
+    # DeleteTask deletes a single task(k8s cron job) within an existing namespace
     delTask(input: Ref!): String
+    # delAll deletes all apps/tasks within an existing namespace
     delAll(input: Namespace!): String
 }
 
 type Query {
+    # getApp gets an app by name within an existing namespace
     getApp(input: Ref!): App
+    # listApps lists all apps within an existing namespace
     listApps(input: Namespace!): [App!]
-
+    # getTask gets a task(k8s cron job) by name within an existing namespace
     getTask(input: Ref!): Task
+    # listTasks lists all tasks(k8s cron jobs) within an existing namespace
     listTasks(input: Namespace!): [Task!]
-
+    # listNamespaces lists all namespaces created by kdeploy
     listNamespaces(input: String): Namespaces!
 }
 
 type Subscription {
-    logs(input: Ref!): String!
+    # logs streams logs from an app/task within an existing namespace. Streams are opened to all replicas & converted into a single stream
+    streamLogs(input: Ref!): String!
 }

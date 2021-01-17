@@ -9,6 +9,8 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
+ * AppConstructor creates a new app
+ *
  * Generated from protobuf message <code>kdeploy.AppConstructor</code>
  */
 class AppConstructor extends \Google\Protobuf\Internal\Message

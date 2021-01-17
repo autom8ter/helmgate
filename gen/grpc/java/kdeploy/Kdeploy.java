@@ -250,6 +250,10 @@ public final class Kdeploy {
     kdeploy.Kdeploy.AppStatusOrBuilder getStatusOrBuilder();
   }
   /**
+   * <pre>
+   * App is a stateless application
+   * </pre>
+   *
    * Protobuf type {@code kdeploy.App}
    */
   public  static final class App extends
@@ -1079,6 +1083,10 @@ public final class Kdeploy {
       return builder;
     }
     /**
+     * <pre>
+     * App is a stateless application
+     * </pre>
+     *
      * Protobuf type {@code kdeploy.App}
      */
     public static final class Builder extends
@@ -2408,6 +2416,7 @@ public final class Kdeploy {
 
     /**
      * <pre>
+     * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
      * </pre>
      *
      * <code>string schedule = 7;</code>
@@ -2415,6 +2424,7 @@ public final class Kdeploy {
     java.lang.String getSchedule();
     /**
      * <pre>
+     * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
      * </pre>
      *
      * <code>string schedule = 7;</code>
@@ -2423,11 +2433,19 @@ public final class Kdeploy {
         getScheduleBytes();
 
     /**
-     * <code>uint64 completions = 8;</code>
+     * <pre>
+     * completions is the number of times to execute the task. If completions = 0, the task will run forever
+     * </pre>
+     *
+     * <code>uint32 completions = 8;</code>
      */
-    long getCompletions();
+    int getCompletions();
   }
   /**
+   * <pre>
+   * Task is scheduled cron job
+   * </pre>
+   *
    * Protobuf type {@code kdeploy.Task}
    */
   public  static final class Task extends
@@ -2445,7 +2463,7 @@ public final class Kdeploy {
       image_ = "";
       args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       schedule_ = "";
-      completions_ = 0L;
+      completions_ = 0;
     }
 
     @java.lang.Override
@@ -2520,7 +2538,7 @@ public final class Kdeploy {
             }
             case 64: {
 
-              completions_ = input.readUInt64();
+              completions_ = input.readUInt32();
               break;
             }
             default: {
@@ -2838,6 +2856,7 @@ public final class Kdeploy {
     private volatile java.lang.Object schedule_;
     /**
      * <pre>
+     * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
      * </pre>
      *
      * <code>string schedule = 7;</code>
@@ -2856,6 +2875,7 @@ public final class Kdeploy {
     }
     /**
      * <pre>
+     * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
      * </pre>
      *
      * <code>string schedule = 7;</code>
@@ -2875,11 +2895,15 @@ public final class Kdeploy {
     }
 
     public static final int COMPLETIONS_FIELD_NUMBER = 8;
-    private long completions_;
+    private int completions_;
     /**
-     * <code>uint64 completions = 8;</code>
+     * <pre>
+     * completions is the number of times to execute the task. If completions = 0, the task will run forever
+     * </pre>
+     *
+     * <code>uint32 completions = 8;</code>
      */
-    public long getCompletions() {
+    public int getCompletions() {
       return completions_;
     }
 
@@ -2918,8 +2942,8 @@ public final class Kdeploy {
       if (!getScheduleBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, schedule_);
       }
-      if (completions_ != 0L) {
-        output.writeUInt64(8, completions_);
+      if (completions_ != 0) {
+        output.writeUInt32(8, completions_);
       }
       unknownFields.writeTo(output);
     }
@@ -2960,9 +2984,9 @@ public final class Kdeploy {
       if (!getScheduleBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, schedule_);
       }
-      if (completions_ != 0L) {
+      if (completions_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(8, completions_);
+          .computeUInt32Size(8, completions_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3022,8 +3046,7 @@ public final class Kdeploy {
       hash = (37 * hash) + SCHEDULE_FIELD_NUMBER;
       hash = (53 * hash) + getSchedule().hashCode();
       hash = (37 * hash) + COMPLETIONS_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getCompletions());
+      hash = (53 * hash) + getCompletions();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3120,6 +3143,10 @@ public final class Kdeploy {
       return builder;
     }
     /**
+     * <pre>
+     * Task is scheduled cron job
+     * </pre>
+     *
      * Protobuf type {@code kdeploy.Task}
      */
     public static final class Builder extends
@@ -3190,7 +3217,7 @@ public final class Kdeploy {
         internalGetMutableEnv().clear();
         schedule_ = "";
 
-        completions_ = 0L;
+        completions_ = 0;
 
         return this;
       }
@@ -3309,7 +3336,7 @@ public final class Kdeploy {
           schedule_ = other.schedule_;
           onChanged();
         }
-        if (other.getCompletions() != 0L) {
+        if (other.getCompletions() != 0) {
           setCompletions(other.getCompletions());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -3893,6 +3920,7 @@ public final class Kdeploy {
       private java.lang.Object schedule_ = "";
       /**
        * <pre>
+       * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
        * </pre>
        *
        * <code>string schedule = 7;</code>
@@ -3911,6 +3939,7 @@ public final class Kdeploy {
       }
       /**
        * <pre>
+       * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
        * </pre>
        *
        * <code>string schedule = 7;</code>
@@ -3930,6 +3959,7 @@ public final class Kdeploy {
       }
       /**
        * <pre>
+       * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
        * </pre>
        *
        * <code>string schedule = 7;</code>
@@ -3946,6 +3976,7 @@ public final class Kdeploy {
       }
       /**
        * <pre>
+       * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
        * </pre>
        *
        * <code>string schedule = 7;</code>
@@ -3958,6 +3989,7 @@ public final class Kdeploy {
       }
       /**
        * <pre>
+       * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
        * </pre>
        *
        * <code>string schedule = 7;</code>
@@ -3974,28 +4006,40 @@ public final class Kdeploy {
         return this;
       }
 
-      private long completions_ ;
+      private int completions_ ;
       /**
-       * <code>uint64 completions = 8;</code>
+       * <pre>
+       * completions is the number of times to execute the task. If completions = 0, the task will run forever
+       * </pre>
+       *
+       * <code>uint32 completions = 8;</code>
        */
-      public long getCompletions() {
+      public int getCompletions() {
         return completions_;
       }
       /**
-       * <code>uint64 completions = 8;</code>
+       * <pre>
+       * completions is the number of times to execute the task. If completions = 0, the task will run forever
+       * </pre>
+       *
+       * <code>uint32 completions = 8;</code>
        */
-      public Builder setCompletions(long value) {
+      public Builder setCompletions(int value) {
         
         completions_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>uint64 completions = 8;</code>
+       * <pre>
+       * completions is the number of times to execute the task. If completions = 0, the task will run forever
+       * </pre>
+       *
+       * <code>uint32 completions = 8;</code>
        */
       public Builder clearCompletions() {
         
-        completions_ = 0L;
+        completions_ = 0;
         onChanged();
         return this;
       }
@@ -4201,6 +4245,7 @@ public final class Kdeploy {
 
     /**
      * <pre>
+     * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
      * </pre>
      *
      * <code>string schedule = 7 [(.validator.field) = { ... }</code>
@@ -4208,14 +4253,28 @@ public final class Kdeploy {
     java.lang.String getSchedule();
     /**
      * <pre>
+     * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
      * </pre>
      *
      * <code>string schedule = 7 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
         getScheduleBytes();
+
+    /**
+     * <pre>
+     * completions is the number of times to execute the task. If completions = 0, the task will run forever
+     * </pre>
+     *
+     * <code>uint32 completions = 8;</code>
+     */
+    int getCompletions();
   }
   /**
+   * <pre>
+   * TaskConstructor creates a task(cron job)
+   * </pre>
+   *
    * Protobuf type {@code kdeploy.TaskConstructor}
    */
   public  static final class TaskConstructor extends
@@ -4233,6 +4292,7 @@ public final class Kdeploy {
       image_ = "";
       args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       schedule_ = "";
+      completions_ = 0;
     }
 
     @java.lang.Override
@@ -4303,6 +4363,11 @@ public final class Kdeploy {
               java.lang.String s = input.readStringRequireUtf8();
 
               schedule_ = s;
+              break;
+            }
+            case 64: {
+
+              completions_ = input.readUInt32();
               break;
             }
             default: {
@@ -4620,6 +4685,7 @@ public final class Kdeploy {
     private volatile java.lang.Object schedule_;
     /**
      * <pre>
+     * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
      * </pre>
      *
      * <code>string schedule = 7 [(.validator.field) = { ... }</code>
@@ -4638,6 +4704,7 @@ public final class Kdeploy {
     }
     /**
      * <pre>
+     * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
      * </pre>
      *
      * <code>string schedule = 7 [(.validator.field) = { ... }</code>
@@ -4654,6 +4721,19 @@ public final class Kdeploy {
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
+    }
+
+    public static final int COMPLETIONS_FIELD_NUMBER = 8;
+    private int completions_;
+    /**
+     * <pre>
+     * completions is the number of times to execute the task. If completions = 0, the task will run forever
+     * </pre>
+     *
+     * <code>uint32 completions = 8;</code>
+     */
+    public int getCompletions() {
+      return completions_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4690,6 +4770,9 @@ public final class Kdeploy {
           6);
       if (!getScheduleBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, schedule_);
+      }
+      if (completions_ != 0) {
+        output.writeUInt32(8, completions_);
       }
       unknownFields.writeTo(output);
     }
@@ -4730,6 +4813,10 @@ public final class Kdeploy {
       if (!getScheduleBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, schedule_);
       }
+      if (completions_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(8, completions_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -4758,6 +4845,8 @@ public final class Kdeploy {
           other.internalGetEnv());
       result = result && getSchedule()
           .equals(other.getSchedule());
+      result = result && (getCompletions()
+          == other.getCompletions());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -4785,6 +4874,8 @@ public final class Kdeploy {
       }
       hash = (37 * hash) + SCHEDULE_FIELD_NUMBER;
       hash = (53 * hash) + getSchedule().hashCode();
+      hash = (37 * hash) + COMPLETIONS_FIELD_NUMBER;
+      hash = (53 * hash) + getCompletions();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -4881,6 +4972,10 @@ public final class Kdeploy {
       return builder;
     }
     /**
+     * <pre>
+     * TaskConstructor creates a task(cron job)
+     * </pre>
+     *
      * Protobuf type {@code kdeploy.TaskConstructor}
      */
     public static final class Builder extends
@@ -4951,6 +5046,8 @@ public final class Kdeploy {
         internalGetMutableEnv().clear();
         schedule_ = "";
 
+        completions_ = 0;
+
         return this;
       }
 
@@ -4990,6 +5087,7 @@ public final class Kdeploy {
         result.env_ = internalGetEnv();
         result.env_.makeImmutable();
         result.schedule_ = schedule_;
+        result.completions_ = completions_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -5066,6 +5164,9 @@ public final class Kdeploy {
         if (!other.getSchedule().isEmpty()) {
           schedule_ = other.schedule_;
           onChanged();
+        }
+        if (other.getCompletions() != 0) {
+          setCompletions(other.getCompletions());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -5648,6 +5749,7 @@ public final class Kdeploy {
       private java.lang.Object schedule_ = "";
       /**
        * <pre>
+       * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
        * </pre>
        *
        * <code>string schedule = 7 [(.validator.field) = { ... }</code>
@@ -5666,6 +5768,7 @@ public final class Kdeploy {
       }
       /**
        * <pre>
+       * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
        * </pre>
        *
        * <code>string schedule = 7 [(.validator.field) = { ... }</code>
@@ -5685,6 +5788,7 @@ public final class Kdeploy {
       }
       /**
        * <pre>
+       * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
        * </pre>
        *
        * <code>string schedule = 7 [(.validator.field) = { ... }</code>
@@ -5701,6 +5805,7 @@ public final class Kdeploy {
       }
       /**
        * <pre>
+       * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
        * </pre>
        *
        * <code>string schedule = 7 [(.validator.field) = { ... }</code>
@@ -5713,6 +5818,7 @@ public final class Kdeploy {
       }
       /**
        * <pre>
+       * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
        * </pre>
        *
        * <code>string schedule = 7 [(.validator.field) = { ... }</code>
@@ -5725,6 +5831,44 @@ public final class Kdeploy {
   checkByteStringIsUtf8(value);
         
         schedule_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int completions_ ;
+      /**
+       * <pre>
+       * completions is the number of times to execute the task. If completions = 0, the task will run forever
+       * </pre>
+       *
+       * <code>uint32 completions = 8;</code>
+       */
+      public int getCompletions() {
+        return completions_;
+      }
+      /**
+       * <pre>
+       * completions is the number of times to execute the task. If completions = 0, the task will run forever
+       * </pre>
+       *
+       * <code>uint32 completions = 8;</code>
+       */
+      public Builder setCompletions(int value) {
+        
+        completions_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * completions is the number of times to execute the task. If completions = 0, the task will run forever
+       * </pre>
+       *
+       * <code>uint32 completions = 8;</code>
+       */
+      public Builder clearCompletions() {
+        
+        completions_ = 0;
         onChanged();
         return this;
       }
@@ -5930,6 +6074,7 @@ public final class Kdeploy {
 
     /**
      * <pre>
+     * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
      * </pre>
      *
      * <code>string schedule = 7;</code>
@@ -5937,14 +6082,28 @@ public final class Kdeploy {
     java.lang.String getSchedule();
     /**
      * <pre>
+     * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
      * </pre>
      *
      * <code>string schedule = 7;</code>
      */
     com.google.protobuf.ByteString
         getScheduleBytes();
+
+    /**
+     * <pre>
+     * completions is the number of times to execute the task. If completions = 0, the task will run forever
+     * </pre>
+     *
+     * <code>uint32 completions = 8;</code>
+     */
+    int getCompletions();
   }
   /**
+   * <pre>
+   * TaskUpdate updates a task(cron job)
+   * </pre>
+   *
    * Protobuf type {@code kdeploy.TaskUpdate}
    */
   public  static final class TaskUpdate extends
@@ -5962,6 +6121,7 @@ public final class Kdeploy {
       image_ = "";
       args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       schedule_ = "";
+      completions_ = 0;
     }
 
     @java.lang.Override
@@ -6032,6 +6192,11 @@ public final class Kdeploy {
               java.lang.String s = input.readStringRequireUtf8();
 
               schedule_ = s;
+              break;
+            }
+            case 64: {
+
+              completions_ = input.readUInt32();
               break;
             }
             default: {
@@ -6349,6 +6514,7 @@ public final class Kdeploy {
     private volatile java.lang.Object schedule_;
     /**
      * <pre>
+     * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
      * </pre>
      *
      * <code>string schedule = 7;</code>
@@ -6367,6 +6533,7 @@ public final class Kdeploy {
     }
     /**
      * <pre>
+     * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
      * </pre>
      *
      * <code>string schedule = 7;</code>
@@ -6383,6 +6550,19 @@ public final class Kdeploy {
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
+    }
+
+    public static final int COMPLETIONS_FIELD_NUMBER = 8;
+    private int completions_;
+    /**
+     * <pre>
+     * completions is the number of times to execute the task. If completions = 0, the task will run forever
+     * </pre>
+     *
+     * <code>uint32 completions = 8;</code>
+     */
+    public int getCompletions() {
+      return completions_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -6419,6 +6599,9 @@ public final class Kdeploy {
           6);
       if (!getScheduleBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, schedule_);
+      }
+      if (completions_ != 0) {
+        output.writeUInt32(8, completions_);
       }
       unknownFields.writeTo(output);
     }
@@ -6459,6 +6642,10 @@ public final class Kdeploy {
       if (!getScheduleBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, schedule_);
       }
+      if (completions_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(8, completions_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -6487,6 +6674,8 @@ public final class Kdeploy {
           other.internalGetEnv());
       result = result && getSchedule()
           .equals(other.getSchedule());
+      result = result && (getCompletions()
+          == other.getCompletions());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -6514,6 +6703,8 @@ public final class Kdeploy {
       }
       hash = (37 * hash) + SCHEDULE_FIELD_NUMBER;
       hash = (53 * hash) + getSchedule().hashCode();
+      hash = (37 * hash) + COMPLETIONS_FIELD_NUMBER;
+      hash = (53 * hash) + getCompletions();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -6610,6 +6801,10 @@ public final class Kdeploy {
       return builder;
     }
     /**
+     * <pre>
+     * TaskUpdate updates a task(cron job)
+     * </pre>
+     *
      * Protobuf type {@code kdeploy.TaskUpdate}
      */
     public static final class Builder extends
@@ -6680,6 +6875,8 @@ public final class Kdeploy {
         internalGetMutableEnv().clear();
         schedule_ = "";
 
+        completions_ = 0;
+
         return this;
       }
 
@@ -6719,6 +6916,7 @@ public final class Kdeploy {
         result.env_ = internalGetEnv();
         result.env_.makeImmutable();
         result.schedule_ = schedule_;
+        result.completions_ = completions_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -6795,6 +6993,9 @@ public final class Kdeploy {
         if (!other.getSchedule().isEmpty()) {
           schedule_ = other.schedule_;
           onChanged();
+        }
+        if (other.getCompletions() != 0) {
+          setCompletions(other.getCompletions());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -7377,6 +7578,7 @@ public final class Kdeploy {
       private java.lang.Object schedule_ = "";
       /**
        * <pre>
+       * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
        * </pre>
        *
        * <code>string schedule = 7;</code>
@@ -7395,6 +7597,7 @@ public final class Kdeploy {
       }
       /**
        * <pre>
+       * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
        * </pre>
        *
        * <code>string schedule = 7;</code>
@@ -7414,6 +7617,7 @@ public final class Kdeploy {
       }
       /**
        * <pre>
+       * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
        * </pre>
        *
        * <code>string schedule = 7;</code>
@@ -7430,6 +7634,7 @@ public final class Kdeploy {
       }
       /**
        * <pre>
+       * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
        * </pre>
        *
        * <code>string schedule = 7;</code>
@@ -7442,6 +7647,7 @@ public final class Kdeploy {
       }
       /**
        * <pre>
+       * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
        * </pre>
        *
        * <code>string schedule = 7;</code>
@@ -7454,6 +7660,44 @@ public final class Kdeploy {
   checkByteStringIsUtf8(value);
         
         schedule_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int completions_ ;
+      /**
+       * <pre>
+       * completions is the number of times to execute the task. If completions = 0, the task will run forever
+       * </pre>
+       *
+       * <code>uint32 completions = 8;</code>
+       */
+      public int getCompletions() {
+        return completions_;
+      }
+      /**
+       * <pre>
+       * completions is the number of times to execute the task. If completions = 0, the task will run forever
+       * </pre>
+       *
+       * <code>uint32 completions = 8;</code>
+       */
+      public Builder setCompletions(int value) {
+        
+        completions_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * completions is the number of times to execute the task. If completions = 0, the task will run forever
+       * </pre>
+       *
+       * <code>uint32 completions = 8;</code>
+       */
+      public Builder clearCompletions() {
+        
+        completions_ = 0;
         onChanged();
         return this;
       }
@@ -7721,6 +7965,10 @@ public final class Kdeploy {
     int getReplicas();
   }
   /**
+   * <pre>
+   * AppConstructor creates a new app
+   * </pre>
+   *
    * Protobuf type {@code kdeploy.AppConstructor}
    */
   public  static final class AppConstructor extends
@@ -8488,6 +8736,10 @@ public final class Kdeploy {
       return builder;
     }
     /**
+     * <pre>
+     * AppConstructor creates a new app
+     * </pre>
+     *
      * Protobuf type {@code kdeploy.AppConstructor}
      */
     public static final class Builder extends
@@ -9712,6 +9964,10 @@ public final class Kdeploy {
     int getReplicas();
   }
   /**
+   * <pre>
+   * AppUpdate updates an App
+   * </pre>
+   *
    * Protobuf type {@code kdeploy.AppUpdate}
    */
   public  static final class AppUpdate extends
@@ -10479,6 +10735,10 @@ public final class Kdeploy {
       return builder;
     }
     /**
+     * <pre>
+     * AppUpdate updates an App
+     * </pre>
+     *
      * Protobuf type {@code kdeploy.AppUpdate}
      */
     public static final class Builder extends
@@ -17264,63 +17524,65 @@ public final class Kdeploy {
       "\002 \001(\r:\0028\001\"\274\001\n\004Task\022\014\n\004name\030\001 \001(\t\022\021\n\tname" +
       "space\030\002 \001(\t\022\r\n\005image\030\003 \001(\t\022\014\n\004args\030\005 \003(\t" +
       "\022#\n\003env\030\006 \003(\0132\026.kdeploy.Task.EnvEntry\022\020\n" +
-      "\010schedule\030\007 \001(\t\022\023\n\013completions\030\010 \001(\004\032*\n\010" +
+      "\010schedule\030\007 \001(\t\022\023\n\013completions\030\010 \001(\r\032*\n\010" +
       "EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001" +
-      "\"\205\002\n\017TaskConstructor\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014" +
+      "\"\232\002\n\017TaskConstructor\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014" +
       "\n\n^.{1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^" +
       ".{1,225}$\022\037\n\005image\030\003 \001(\tB\020\342\337\037\014\n\n^.{1,225" +
       "}$\022\014\n\004args\030\005 \003(\t\022.\n\003env\030\006 \003(\0132!.kdeploy." +
       "TaskConstructor.EnvEntry\022\"\n\010schedule\030\007 \001" +
-      "(\tB\020\342\337\037\014\n\n^.{1,225}$\032*\n\010EnvEntry\022\013\n\003key\030" +
-      "\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\327\001\n\nTaskUpdate\022" +
+      "(\tB\020\342\337\037\014\n\n^.{1,225}$\022\023\n\013completions\030\010 \001(" +
+      "\r\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(" +
+      "\t:\0028\001\"\354\001\n\nTaskUpdate\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014" +
+      "\n\n^.{1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^" +
+      ".{1,225}$\022\r\n\005image\030\003 \001(\t\022\014\n\004args\030\005 \003(\t\022)" +
+      "\n\003env\030\006 \003(\0132\034.kdeploy.TaskUpdate.EnvEntr" +
+      "y\022\020\n\010schedule\030\007 \001(\t\022\023\n\013completions\030\010 \001(\r" +
+      "\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t" +
+      ":\0028\001\"\322\002\n\016AppConstructor\022\036\n\004name\030\001 \001(\tB\020\342" +
+      "\337\037\014\n\n^.{1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014" +
+      "\n\n^.{1,225}$\022\037\n\005image\030\003 \001(\tB\020\342\337\037\014\n\n^.{1," +
+      "225}$\022\014\n\004args\030\004 \003(\t\022-\n\003env\030\005 \003(\0132 .kdepl" +
+      "oy.AppConstructor.EnvEntry\0221\n\005ports\030\006 \003(" +
+      "\0132\".kdeploy.AppConstructor.PortsEntry\022\020\n" +
+      "\010replicas\030\007 \001(\r\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t" +
+      "\022\r\n\005value\030\002 \001(\t:\0028\001\032,\n\nPortsEntry\022\013\n\003key" +
+      "\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\"\261\002\n\tAppUpdate\022" +
       "\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022#\n\tnames" +
       "pace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\r\n\005image\030\003 " +
-      "\001(\t\022\014\n\004args\030\005 \003(\t\022)\n\003env\030\006 \003(\0132\034.kdeploy" +
-      ".TaskUpdate.EnvEntry\022\020\n\010schedule\030\007 \001(\t\032*" +
-      "\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\002" +
-      "8\001\"\322\002\n\016AppConstructor\022\036\n\004name\030\001 \001(\tB\020\342\337\037" +
-      "\014\n\n^.{1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n" +
-      "^.{1,225}$\022\037\n\005image\030\003 \001(\tB\020\342\337\037\014\n\n^.{1,22" +
-      "5}$\022\014\n\004args\030\004 \003(\t\022-\n\003env\030\005 \003(\0132 .kdeploy" +
-      ".AppConstructor.EnvEntry\0221\n\005ports\030\006 \003(\0132" +
-      "\".kdeploy.AppConstructor.PortsEntry\022\020\n\010r" +
-      "eplicas\030\007 \001(\r\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r" +
-      "\n\005value\030\002 \001(\t:\0028\001\032,\n\nPortsEntry\022\013\n\003key\030\001" +
-      " \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\"\261\002\n\tAppUpdate\022\036\n" +
-      "\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022#\n\tnamespa" +
-      "ce\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\r\n\005image\030\003 \001(" +
-      "\t\022\014\n\004args\030\004 \003(\t\022(\n\003env\030\005 \003(\0132\033.kdeploy.A" +
-      "ppUpdate.EnvEntry\022,\n\005ports\030\006 \003(\0132\035.kdepl" +
-      "oy.AppUpdate.PortsEntry\022\020\n\010replicas\030\007 \001(" +
-      "\r\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(" +
-      "\t:\0028\001\032,\n\nPortsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005valu" +
-      "e\030\002 \001(\r:\0028\001\"J\n\003Ref\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n" +
-      "^.{1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{" +
-      "1,225}$\";\n\007Replica\022\r\n\005phase\030\001 \001(\t\022\021\n\tcon" +
-      "dition\030\002 \001(\t\022\016\n\006reason\030\003 \001(\t\"/\n\tAppStatu" +
-      "s\022\"\n\010replicas\030\001 \003(\0132\020.kdeploy.Replica\"\026\n" +
-      "\003Log\022\017\n\007message\030\001 \001(\t\"*\n\004Apps\022\"\n\014applica" +
-      "tions\030\001 \003(\0132\014.kdeploy.App\"%\n\005Tasks\022\034\n\005ta" +
-      "sks\030\001 \003(\0132\r.kdeploy.Task\"\036\n\tNamespace\022\021\n" +
-      "\tnamespace\030\001 \001(\t\" \n\nNamespaces\022\022\n\nnamesp" +
-      "aces\030\001 \003(\t2\251\005\n\016KdeployService\0224\n\tCreateA" +
-      "pp\022\027.kdeploy.AppConstructor\032\014.kdeploy.Ap" +
-      "p\"\000\022/\n\tUpdateApp\022\022.kdeploy.AppUpdate\032\014.k" +
-      "deploy.App\"\000\0223\n\tDeleteApp\022\014.kdeploy.Ref\032" +
-      "\026.google.protobuf.Empty\"\000\022&\n\006GetApp\022\014.kd" +
-      "eploy.Ref\032\014.kdeploy.App\"\000\022/\n\010ListApps\022\022." +
-      "kdeploy.Namespace\032\r.kdeploy.Apps\"\000\022&\n\004Lo" +
-      "gs\022\014.kdeploy.Ref\032\014.kdeploy.Log\"\0000\001\022?\n\016Li" +
-      "stNamespaces\022\026.google.protobuf.Empty\032\023.k" +
-      "deploy.Namespaces\"\000\0229\n\tDeleteAll\022\022.kdepl" +
-      "oy.Namespace\032\026.google.protobuf.Empty\"\000\0227" +
-      "\n\nCreateTask\022\030.kdeploy.TaskConstructor\032\r" +
-      ".kdeploy.Task\"\000\0222\n\nUpdateTask\022\023.kdeploy." +
-      "TaskUpdate\032\r.kdeploy.Task\"\000\0224\n\nDeleteTas" +
-      "k\022\014.kdeploy.Ref\032\026.google.protobuf.Empty\"" +
-      "\000\022(\n\007GetTask\022\014.kdeploy.Ref\032\r.kdeploy.Tas" +
-      "k\"\000\0221\n\tListTasks\022\022.kdeploy.Namespace\032\016.k" +
-      "deploy.Tasks\"\000B\013Z\tkdeploypbb\006proto3"
+      "\001(\t\022\014\n\004args\030\004 \003(\t\022(\n\003env\030\005 \003(\0132\033.kdeploy" +
+      ".AppUpdate.EnvEntry\022,\n\005ports\030\006 \003(\0132\035.kde" +
+      "ploy.AppUpdate.PortsEntry\022\020\n\010replicas\030\007 " +
+      "\001(\r\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 " +
+      "\001(\t:\0028\001\032,\n\nPortsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
+      "lue\030\002 \001(\r:\0028\001\"J\n\003Ref\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014" +
+      "\n\n^.{1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^" +
+      ".{1,225}$\";\n\007Replica\022\r\n\005phase\030\001 \001(\t\022\021\n\tc" +
+      "ondition\030\002 \001(\t\022\016\n\006reason\030\003 \001(\t\"/\n\tAppSta" +
+      "tus\022\"\n\010replicas\030\001 \003(\0132\020.kdeploy.Replica\"" +
+      "\026\n\003Log\022\017\n\007message\030\001 \001(\t\"*\n\004Apps\022\"\n\014appli" +
+      "cations\030\001 \003(\0132\014.kdeploy.App\"%\n\005Tasks\022\034\n\005" +
+      "tasks\030\001 \003(\0132\r.kdeploy.Task\"\036\n\tNamespace\022" +
+      "\021\n\tnamespace\030\001 \001(\t\" \n\nNamespaces\022\022\n\nname" +
+      "spaces\030\001 \003(\t2\257\005\n\016KdeployService\0224\n\tCreat" +
+      "eApp\022\027.kdeploy.AppConstructor\032\014.kdeploy." +
+      "App\"\000\022/\n\tUpdateApp\022\022.kdeploy.AppUpdate\032\014" +
+      ".kdeploy.App\"\000\0223\n\tDeleteApp\022\014.kdeploy.Re" +
+      "f\032\026.google.protobuf.Empty\"\000\022&\n\006GetApp\022\014." +
+      "kdeploy.Ref\032\014.kdeploy.App\"\000\022/\n\010ListApps\022" +
+      "\022.kdeploy.Namespace\032\r.kdeploy.Apps\"\000\022?\n\016" +
+      "ListNamespaces\022\026.google.protobuf.Empty\032\023" +
+      ".kdeploy.Namespaces\"\000\0229\n\tDeleteAll\022\022.kde" +
+      "ploy.Namespace\032\026.google.protobuf.Empty\"\000" +
+      "\0227\n\nCreateTask\022\030.kdeploy.TaskConstructor" +
+      "\032\r.kdeploy.Task\"\000\0222\n\nUpdateTask\022\023.kdeplo" +
+      "y.TaskUpdate\032\r.kdeploy.Task\"\000\0224\n\nDeleteT" +
+      "ask\022\014.kdeploy.Ref\032\026.google.protobuf.Empt" +
+      "y\"\000\022(\n\007GetTask\022\014.kdeploy.Ref\032\r.kdeploy.T" +
+      "ask\"\000\0221\n\tListTasks\022\022.kdeploy.Namespace\032\016" +
+      ".kdeploy.Tasks\"\000\022,\n\nStreamLogs\022\014.kdeploy" +
+      ".Ref\032\014.kdeploy.Log\"\0000\001B\013Z\tkdeploypbb\006pro" +
+      "to3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -17374,7 +17636,7 @@ public final class Kdeploy {
     internal_static_kdeploy_TaskConstructor_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_TaskConstructor_descriptor,
-        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Schedule", });
+        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Schedule", "Completions", });
     internal_static_kdeploy_TaskConstructor_EnvEntry_descriptor =
       internal_static_kdeploy_TaskConstructor_descriptor.getNestedTypes().get(0);
     internal_static_kdeploy_TaskConstructor_EnvEntry_fieldAccessorTable = new
@@ -17386,7 +17648,7 @@ public final class Kdeploy {
     internal_static_kdeploy_TaskUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_TaskUpdate_descriptor,
-        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Schedule", });
+        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Schedule", "Completions", });
     internal_static_kdeploy_TaskUpdate_EnvEntry_descriptor =
       internal_static_kdeploy_TaskUpdate_descriptor.getNestedTypes().get(0);
     internal_static_kdeploy_TaskUpdate_EnvEntry_fieldAccessorTable = new

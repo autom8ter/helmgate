@@ -10,6 +10,7 @@ import "google/protobuf/any.proto";
 import "google/protobuf/empty.proto";
 import "github.com/mwitkow/go-proto-validators/validator.proto";
 
+// App is a stateless application
 message App {
   // name of the application
   string name =1;
@@ -29,6 +30,7 @@ message App {
   AppStatus status =9;
 }
 
+// Task is scheduled cron job
 message Task {
   // name of the task
   string name =1;
@@ -40,11 +42,13 @@ message Task {
   repeated string args =5;
   // k/v map of environmental variables
   map<string, string> env =6;
-  //
+  // schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
   string schedule = 7;
-  uint64 completions = 8;
+  // completions is the number of times to execute the task. If completions = 0, the task will run forever
+  uint32 completions = 8;
 }
 
+// TaskConstructor creates a task(cron job)
 message TaskConstructor {
   // name of the task
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
@@ -56,10 +60,13 @@ message TaskConstructor {
   repeated string args =5;
   // k/v map of environmental variables
   map<string, string> env =6;
-  //
+  // schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
   string schedule = 7[(validator.field) = {regex : "^.{1,225}$"}];
+  // completions is the number of times to execute the task. If completions = 0, the task will run forever
+  uint32 completions = 8;
 }
 
+// TaskUpdate updates a task(cron job)
 message TaskUpdate {
   // name of the application
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
@@ -71,10 +78,13 @@ message TaskUpdate {
   repeated string args =5;
   // k/v map of environmental variables
   map<string, string> env =6;
-  //
+  // schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
   string schedule = 7;
+  // completions is the number of times to execute the task. If completions = 0, the task will run forever
+  uint32 completions = 8;
 }
 
+// AppConstructor creates a new app
 message AppConstructor {
   // name of the application
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
@@ -92,6 +102,7 @@ message AppConstructor {
   uint32 replicas =7;
 }
 
+// AppUpdate updates an App
 message AppUpdate {
   // name of the application
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
@@ -146,19 +157,35 @@ message Namespaces {
   repeated string namespaces =1;
 }
 
+//
 service KdeployService {
+  // CreateApp creates a new stateless application(k8s deployment & service) within a single namespace(k8s namespace)
+  // the namespace will automatically be created if one does not already exist
   rpc CreateApp(AppConstructor) returns(App){}
+  // UpdateApp edits/patches an existing stateless application(k8s deployment & service) within an existing namespace(k8s namespace)
   rpc UpdateApp(AppUpdate) returns(App){}
+  // DeleteApp deletes a single stateless application(k8s deployment & service) within an existing namespace
   rpc DeleteApp(Ref) returns(google.protobuf.Empty){}
+  // GetApp gets an app by name within an existing namespace
   rpc GetApp(Ref) returns(App){}
+  // ListApps lists all apps within an existing namespace
   rpc ListApps(Namespace) returns(Apps){}
-  rpc Logs(Ref) returns (stream Log){}
+  // ListNamespaces lists all namespaces created by kdeploy
   rpc ListNamespaces(google.protobuf.Empty) returns(Namespaces){}
+  // DeleteAll deletes all apps/tasks within an existing namespace
   rpc DeleteAll(Namespace) returns(google.protobuf.Empty){}
-  
+  // CreateTask creates a new task(k8s cron job) within a single namespace(k8s namespace)
+  // the namespace will automatically be created if one does not already exist
   rpc CreateTask(TaskConstructor) returns(Task){}
+  // UpdateTask edits/patches an existing task(k8s cron job) within an existing namespace(k8s namespace)
   rpc UpdateTask(TaskUpdate) returns(Task){}
+  // DeleteTask deletes a single task(k8s cron job) within an existing namespace
   rpc DeleteTask(Ref) returns(google.protobuf.Empty){}
+  // GetTask gets a task(k8s cron job) by name within an existing namespace
   rpc GetTask(Ref) returns(Task){}
+  // ListTasks lists all tasks(k8s cron jobs) within an existing namespace
   rpc ListTasks(Namespace) returns(Tasks){}
+  // StreamLogs streams logs from an app/task within an existing namespace.
+  // Streams are opened to all replicas & converted into a single stream
+  rpc StreamLogs(Ref) returns (stream Log){}
 }

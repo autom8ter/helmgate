@@ -170,8 +170,8 @@ func (r *queryResolver) ListNamespaces(ctx context.Context, input *string) (*mod
 	return toReturn, nil
 }
 
-func (r *subscriptionResolver) Logs(ctx context.Context, input model.Ref) (<-chan string, error) {
-	stream, err := r.client.Logs(ctx, &kdeploypb.Ref{
+func (r *subscriptionResolver) StreamLogs(ctx context.Context, input model.Ref) (<-chan string, error) {
+	stream, err := r.client.StreamLogs(ctx, &kdeploypb.Ref{
 		Name:      input.Name,
 		Namespace: input.Namespace,
 	})

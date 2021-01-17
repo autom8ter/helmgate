@@ -95,6 +95,11 @@
                 App
             </a>
         </li>
+        <li  title="AppStatus">
+            <a href="appstatus.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                AppStatus
+            </a>
+        </li>
         <li  title="Log">
             <a href="log.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Log
@@ -108,11 +113,6 @@
         <li  title="Replica">
             <a href="replica.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Replica
-            </a>
-        </li>
-        <li  title="Status">
-            <a href="status.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                Status
             </a>
         </li>
         <li  title="Task">
@@ -233,7 +233,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">type</span> <span class="identifier">Subscription</span> {</li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>input</strong>: </span></span></li><li><span class="tab"><span class="meta">logs</span>(<span class="meta">input</span>: <a class="support type" href="ref.doc.html">Ref</a>!): <a class="support type" href="string.doc.html">String</a>! </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">type</span> <span class="identifier">Subscription</span> {</li><li></li><li><span class="tab"><span class="comment line">#   logs streams logs from an app/task within an existing namespace. Streams are </span></span></li><li><span class="tab"><span class="comment line">#   opened to all replicas & converted into a single stream</span></span></li><li><span class="tab"><span class="comment line"># </span></span></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>input</strong>: </span></span></li><li><span class="tab"><span class="meta">streamLogs</span>(<span class="meta">input</span>: <a class="support type" href="ref.doc.html">Ref</a>!): <a class="support type" href="string.doc.html">String</a>! </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>

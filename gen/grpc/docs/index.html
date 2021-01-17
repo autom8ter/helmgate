@@ -293,7 +293,7 @@
 
       
         <h3 id="kdeploy.App">App</h3>
-        <p></p>
+        <p>App is a stateless application</p>
 
         
           <table class="field-table">
@@ -428,7 +428,7 @@
         
       
         <h3 id="kdeploy.AppConstructor">AppConstructor</h3>
-        <p></p>
+        <p>AppConstructor creates a new app</p>
 
         
           <table class="field-table">
@@ -629,7 +629,7 @@
         
       
         <h3 id="kdeploy.AppUpdate">AppUpdate</h3>
-        <p></p>
+        <p>AppUpdate updates an App</p>
 
         
           <table class="field-table">
@@ -998,7 +998,7 @@
         
       
         <h3 id="kdeploy.Task">Task</h3>
-        <p></p>
+        <p>Task is scheduled cron job</p>
 
         
           <table class="field-table">
@@ -1046,14 +1046,14 @@
                   <td>schedule</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/ </p></td>
                 </tr>
               
                 <tr>
                   <td>completions</td>
-                  <td><a href="#uint64">uint64</a></td>
+                  <td><a href="#uint32">uint32</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>completions is the number of times to execute the task. If completions = 0, the task will run forever </p></td>
                 </tr>
               
             </tbody>
@@ -1095,7 +1095,7 @@
         
       
         <h3 id="kdeploy.TaskConstructor">TaskConstructor</h3>
-        <p></p>
+        <p>TaskConstructor creates a task(cron job)</p>
 
         
           <table class="field-table">
@@ -1143,7 +1143,14 @@
                   <td>schedule</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/ </p></td>
+                </tr>
+              
+                <tr>
+                  <td>completions</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>completions is the number of times to execute the task. If completions = 0, the task will run forever </p></td>
                 </tr>
               
             </tbody>
@@ -1245,7 +1252,7 @@
         
       
         <h3 id="kdeploy.TaskUpdate">TaskUpdate</h3>
-        <p></p>
+        <p>TaskUpdate updates a task(cron job)</p>
 
         
           <table class="field-table">
@@ -1293,7 +1300,14 @@
                   <td>schedule</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/ </p></td>
+                </tr>
+              
+                <tr>
+                  <td>completions</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>completions is the number of times to execute the task. If completions = 0, the task will run forever </p></td>
                 </tr>
               
             </tbody>
@@ -1414,91 +1428,94 @@
                 <td>CreateApp</td>
                 <td><a href="#kdeploy.AppConstructor">AppConstructor</a></td>
                 <td><a href="#kdeploy.App">App</a></td>
-                <td><p></p></td>
+                <td><p>CreateApp creates a new stateless application(k8s deployment &amp; service) within a single namespace(k8s namespace)
+the namespace will automatically be created if one does not already exist</p></td>
               </tr>
             
               <tr>
                 <td>UpdateApp</td>
                 <td><a href="#kdeploy.AppUpdate">AppUpdate</a></td>
                 <td><a href="#kdeploy.App">App</a></td>
-                <td><p></p></td>
+                <td><p>UpdateApp edits/patches an existing stateless application(k8s deployment &amp; service) within an existing namespace(k8s namespace)</p></td>
               </tr>
             
               <tr>
                 <td>DeleteApp</td>
                 <td><a href="#kdeploy.Ref">Ref</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p></p></td>
+                <td><p>DeleteApp deletes a single stateless application(k8s deployment &amp; service) within an existing namespace</p></td>
               </tr>
             
               <tr>
                 <td>GetApp</td>
                 <td><a href="#kdeploy.Ref">Ref</a></td>
                 <td><a href="#kdeploy.App">App</a></td>
-                <td><p></p></td>
+                <td><p>GetApp gets an app by name within an existing namespace</p></td>
               </tr>
             
               <tr>
                 <td>ListApps</td>
                 <td><a href="#kdeploy.Namespace">Namespace</a></td>
                 <td><a href="#kdeploy.Apps">Apps</a></td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>Logs</td>
-                <td><a href="#kdeploy.Ref">Ref</a></td>
-                <td><a href="#kdeploy.Log">Log</a> stream</td>
-                <td><p></p></td>
+                <td><p>ListApps lists all apps within an existing namespace</p></td>
               </tr>
             
               <tr>
                 <td>ListNamespaces</td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><a href="#kdeploy.Namespaces">Namespaces</a></td>
-                <td><p></p></td>
+                <td><p>ListNamespaces lists all namespaces created by kdeploy</p></td>
               </tr>
             
               <tr>
                 <td>DeleteAll</td>
                 <td><a href="#kdeploy.Namespace">Namespace</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p></p></td>
+                <td><p>DeleteAll deletes all apps/tasks within an existing namespace</p></td>
               </tr>
             
               <tr>
                 <td>CreateTask</td>
                 <td><a href="#kdeploy.TaskConstructor">TaskConstructor</a></td>
                 <td><a href="#kdeploy.Task">Task</a></td>
-                <td><p></p></td>
+                <td><p>CreateTask creates a new task(k8s cron job) within a single namespace(k8s namespace)
+the namespace will automatically be created if one does not already exist</p></td>
               </tr>
             
               <tr>
                 <td>UpdateTask</td>
                 <td><a href="#kdeploy.TaskUpdate">TaskUpdate</a></td>
                 <td><a href="#kdeploy.Task">Task</a></td>
-                <td><p></p></td>
+                <td><p>UpdateTask edits/patches an existing task(k8s cron job) within an existing namespace(k8s namespace)</p></td>
               </tr>
             
               <tr>
                 <td>DeleteTask</td>
                 <td><a href="#kdeploy.Ref">Ref</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p></p></td>
+                <td><p>DeleteTask deletes a single task(k8s cron job) within an existing namespace</p></td>
               </tr>
             
               <tr>
                 <td>GetTask</td>
                 <td><a href="#kdeploy.Ref">Ref</a></td>
                 <td><a href="#kdeploy.Task">Task</a></td>
-                <td><p></p></td>
+                <td><p>GetTask gets a task(k8s cron job) by name within an existing namespace</p></td>
               </tr>
             
               <tr>
                 <td>ListTasks</td>
                 <td><a href="#kdeploy.Namespace">Namespace</a></td>
                 <td><a href="#kdeploy.Tasks">Tasks</a></td>
-                <td><p></p></td>
+                <td><p>ListTasks lists all tasks(k8s cron jobs) within an existing namespace</p></td>
+              </tr>
+            
+              <tr>
+                <td>StreamLogs</td>
+                <td><a href="#kdeploy.Ref">Ref</a></td>
+                <td><a href="#kdeploy.Log">Log</a> stream</td>
+                <td><p>StreamLogs streams logs from an app/task within an existing namespace.
+Streams are opened to all replicas &amp; converted into a single stream</p></td>
               </tr>
             
           </tbody>

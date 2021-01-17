@@ -225,7 +225,7 @@ func toTask(app *kdeploypb.TaskConstructor) (*v1beta1.CronJob, error) {
 				ObjectMeta: metav1.ObjectMeta{},
 				Spec: batchv1.JobSpec{
 					Parallelism:           nil,
-					Completions:           nil,
+					Completions:           int32Pointer(app.Completions),
 					ActiveDeadlineSeconds: nil,
 					BackoffLimit:          nil,
 					Selector: &metav1.LabelSelector{
@@ -310,6 +310,12 @@ func overwriteTask(cronJob *v1beta1.CronJob, task *kdeploypb.TaskUpdate) (*v1bet
 	if container == nil {
 		return nil, errors.Errorf("failed to find container: %s", task.Name)
 	}
+	if task.Schedule != "" {
+		cronJob.Spec.Schedule = task.Schedule
+	}
+	if task.Completions != 0 {
+		cronJob.Spec.JobTemplate.Spec.Completions = int32Pointer(task.Completions)
+	}
 	if task.Image != "" {
 		container.Image = task.Image
 	}
@@ -393,11 +399,21 @@ func (k *k8sTask) toTask() *kdeploypb.Task {
 		env[e.Name] = e.Value
 	}
 	a.Schedule = k.cronJob.Spec.Schedule
-
+	if k.cronJob.Spec.JobTemplate.Spec.Completions != nil {
+		a.Completions = uint32(*k.cronJob.Spec.JobTemplate.Spec.Completions)
+	}
 	a.Env = env
 	var ports = map[string]uint32{}
 	for _, p := range container.Ports {
 		ports[p.Name] = cast.ToUint32(p.ContainerPort)
 	}
 	return a
+}
+
+func int32Pointer(value uint32) *int32 {
+	if value != 0 {
+		i := int32(value)
+		return &i
+	}
+	return nil
 }

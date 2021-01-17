@@ -16,6 +16,7 @@ import (
 	"google.golang.org/grpc/metadata"
 )
 
+// Options holds configuration options
 type Options struct {
 	tokenSource oauth2.TokenSource
 	metrics     bool
@@ -24,26 +25,31 @@ type Options struct {
 	creds       credentials.TransportCredentials
 }
 
+// Opt is a single configuration option
 type Opt func(o *Options)
 
+// WithTransportCreds adds transport credentials to the client
 func WithTransportCreds(creds credentials.TransportCredentials) Opt {
 	return func(o *Options) {
 		o.creds = creds
 	}
 }
 
+// WithTokenSource uses oauth token add an authorization header to every outbound request
 func WithTokenSource(tokenSource oauth2.TokenSource) Opt {
 	return func(o *Options) {
 		o.tokenSource = tokenSource
 	}
 }
 
+// WithMetrics registers prometheus metrics
 func WithMetrics(metrics bool) Opt {
 	return func(o *Options) {
 		o.metrics = metrics
 	}
 }
 
+// WithLogging registers a logging middleware
 func WithLogging(logging, logPayload bool) Opt {
 	return func(o *Options) {
 		o.logging = logging
@@ -170,28 +176,6 @@ func (c *Client) DeleteAll(ctx context.Context, namespace *kdeploypb.Namespace) 
 	return err
 }
 
-// Logs streams logs from an application until the context cancelled or the function(fn) return false
-func (c *Client) Logs(ctx context.Context, ref *kdeploypb.Ref, fn func(l *kdeploypb.Log) bool) error {
-	stream, err := c.client.Logs(ctx, ref)
-	if err != nil {
-		return err
-	}
-	for {
-		select {
-		case <-ctx.Done():
-			return nil
-		default:
-			msg, err := stream.Recv()
-			if err != nil {
-				return err
-			}
-			if !fn(msg) {
-				return nil
-			}
-		}
-	}
-}
-
 // CreateTask creates a new task
 func (c *Client) CreateTask(ctx context.Context, app *kdeploypb.TaskConstructor) (*kdeploypb.Task, error) {
 	return c.client.CreateTask(ctx, app)
@@ -211,4 +195,26 @@ func (c *Client) DeleteTask(ctx context.Context, ref *kdeploypb.Ref) error {
 // GetTask gets a task by reference(name/namespace)
 func (c *Client) GetTask(ctx context.Context, ref *kdeploypb.Ref) (*kdeploypb.Task, error) {
 	return c.client.GetTask(ctx, ref)
+}
+
+// StreamLogs streams logs from an application until the context cancelled or the function(fn) return false
+func (c *Client) StreamLogs(ctx context.Context, ref *kdeploypb.Ref, fn func(l *kdeploypb.Log) bool) error {
+	stream, err := c.client.StreamLogs(ctx, ref)
+	if err != nil {
+		return err
+	}
+	for {
+		select {
+		case <-ctx.Done():
+			return nil
+		default:
+			msg, err := stream.Recv()
+			if err != nil {
+				return err
+			}
+			if !fn(msg) {
+				return nil
+			}
+		}
+	}
 }

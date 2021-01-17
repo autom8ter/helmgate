@@ -95,6 +95,11 @@
                 App
             </a>
         </li>
+        <li  title="AppStatus">
+            <a href="appstatus.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                AppStatus
+            </a>
+        </li>
         <li  title="Log">
             <a href="log.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Log
@@ -108,11 +113,6 @@
         <li  title="Replica">
             <a href="replica.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Replica
-            </a>
-        </li>
-        <li  title="Status">
-            <a href="status.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                Status
             </a>
         </li>
         <li class="slds-is-active" title="Task">
@@ -222,7 +222,8 @@
     <div class="container">
         <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
         <h1 class="slds-text-heading--large">Task</h1>
-        <div class="slds-text-body--regular"></div>
+        <div class="slds-text-body--regular"><p>Task is scheduled cron job</p>
+</div>
     </div>
 </section>
 <section>
@@ -233,7 +234,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Task</span> {</li><li></li><li><span class="tab"><span class="comment line">#   name of the application</span></span></li><li><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   application namespace</span></span></li><li><span class="tab"><span class="meta">namespace</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   docker image of application</span></span></li><li><span class="tab"><span class="meta">image</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   args are arguments given to the container/image at startup</span></span></li><li><span class="tab"><span class="meta">args</span>: [<a class="support type" href="string.doc.html">String</a>!] </span></li><li></li><li><span class="tab"><span class="comment line">#   k/v map of environmental variables</span></span></li><li><span class="tab"><span class="meta">env</span>: <a class="support type" href="map.doc.html">Map</a> </span></li><li></li><li><span class="tab"><span class="meta">schedule</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Task</span> {</li><li></li><li><span class="tab"><span class="comment line">#   name of the application</span></span></li><li><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   application namespace</span></span></li><li><span class="tab"><span class="meta">namespace</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   docker image of application</span></span></li><li><span class="tab"><span class="meta">image</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   args are arguments given to the container/image at startup</span></span></li><li><span class="tab"><span class="meta">args</span>: [<a class="support type" href="string.doc.html">String</a>!] </span></li><li></li><li><span class="tab"><span class="comment line">#   k/v map of environmental variables</span></span></li><li><span class="tab"><span class="meta">env</span>: <a class="support type" href="map.doc.html">Map</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   schedule is the cron schedule: </span></span></li><li><span class="tab"><span class="comment line">#   https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/</span></span></li><li><span class="tab"><span class="meta">schedule</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   completions is the number of times to execute the task. If completions = 0, the </span></span></li><li><span class="tab"><span class="comment line">#   task will run forever</span></span></li><li><span class="tab"><span class="meta">completions</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>

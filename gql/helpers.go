@@ -31,16 +31,21 @@ func toAppC(input model.AppConstructor) *kdeploypb.AppConstructor {
 
 func toTaskC(input model.TaskConstructor) *kdeploypb.TaskConstructor {
 	var env map[string]string
+	var completions uint32
 	if input.Env != nil {
 		env = cast.ToStringMapString(input.Env)
 	}
+	if input.Completions != nil {
+		completions = uint32(*input.Completions)
+	}
 	return &kdeploypb.TaskConstructor{
-		Name:      input.Name,
-		Namespace: input.Namespace,
-		Image:     input.Image,
-		Env:       env,
-		Args:      input.Args,
-		Schedule:  input.Schedule,
+		Name:        input.Name,
+		Namespace:   input.Namespace,
+		Image:       input.Image,
+		Args:        input.Args,
+		Env:         env,
+		Schedule:    input.Schedule,
+		Completions: completions,
 	}
 }
 
@@ -79,9 +84,10 @@ func toAppU(input model.AppUpdate) *kdeploypb.AppUpdate {
 
 func toTaskU(input model.TaskUpdate) *kdeploypb.TaskUpdate {
 	var (
-		env      map[string]string
-		schedule string
-		image    string
+		env         map[string]string
+		schedule    string
+		image       string
+		completions int
 	)
 	if input.Env != nil {
 		env = cast.ToStringMapString(input.Env)
@@ -92,13 +98,17 @@ func toTaskU(input model.TaskUpdate) *kdeploypb.TaskUpdate {
 	if input.Schedule != nil {
 		schedule = *input.Schedule
 	}
+	if input.Completions != nil {
+		completions = int(*input.Completions)
+	}
 	return &kdeploypb.TaskUpdate{
-		Name:      input.Name,
-		Namespace: input.Namespace,
-		Image:     image,
-		Env:       env,
-		Schedule:  schedule,
-		Args:      input.Args,
+		Name:        input.Name,
+		Namespace:   input.Namespace,
+		Image:       image,
+		Args:        input.Args,
+		Env:         env,
+		Schedule:    schedule,
+		Completions: uint32(completions),
 	}
 }
 
@@ -106,7 +116,7 @@ func fromApp(app *kdeploypb.App) *model.App {
 	var (
 		env    map[string]interface{}
 		ports  map[string]interface{}
-		status = &model.Status{}
+		status = &model.AppStatus{}
 	)
 	if app.Env != nil {
 		env = map[string]interface{}{}
@@ -141,7 +151,8 @@ func fromApp(app *kdeploypb.App) *model.App {
 
 func fromTask(app *kdeploypb.Task) *model.Task {
 	var (
-		env map[string]interface{}
+		env         map[string]interface{}
+		completions int
 	)
 	if app.Env != nil {
 		env = map[string]interface{}{}
@@ -149,13 +160,17 @@ func fromTask(app *kdeploypb.Task) *model.Task {
 			env[k] = v
 		}
 	}
+	if app.Completions > 0 {
+		completions = int(app.Completions)
+	}
 	return &model.Task{
-		Name:      app.Name,
-		Namespace: app.Namespace,
-		Image:     app.Image,
-		Args:      app.Args,
-		Env:       env,
-		Schedule:  app.Schedule,
+		Name:        app.Name,
+		Namespace:   app.Namespace,
+		Image:       app.Image,
+		Args:        app.Args,
+		Env:         env,
+		Schedule:    app.Schedule,
+		Completions: &completions,
 	}
 }
 

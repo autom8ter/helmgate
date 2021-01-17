@@ -9,6 +9,8 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
+ * TaskConstructor creates a task(cron job)
+ *
  * Generated from protobuf message <code>kdeploy.TaskConstructor</code>
  */
 class TaskConstructor extends \Google\Protobuf\Internal\Message
@@ -44,10 +46,17 @@ class TaskConstructor extends \Google\Protobuf\Internal\Message
      */
     private $env;
     /**
+     * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
      *
      * Generated from protobuf field <code>string schedule = 7 [(.validator.field) = {</code>
      */
     private $schedule = '';
+    /**
+     * completions is the number of times to execute the task. If completions = 0, the task will run forever
+     *
+     * Generated from protobuf field <code>uint32 completions = 8;</code>
+     */
+    private $completions = 0;
 
     /**
      * Constructor.
@@ -66,6 +75,9 @@ class TaskConstructor extends \Google\Protobuf\Internal\Message
      *     @type array|\Google\Protobuf\Internal\MapField $env
      *           k/v map of environmental variables
      *     @type string $schedule
+     *           schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
+     *     @type int $completions
+     *           completions is the number of times to execute the task. If completions = 0, the task will run forever
      * }
      */
     public function __construct($data = NULL) {
@@ -204,6 +216,7 @@ class TaskConstructor extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
      *
      * Generated from protobuf field <code>string schedule = 7 [(.validator.field) = {</code>
      * @return string
@@ -214,6 +227,7 @@ class TaskConstructor extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
      *
      * Generated from protobuf field <code>string schedule = 7 [(.validator.field) = {</code>
      * @param string $var
@@ -223,6 +237,32 @@ class TaskConstructor extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->schedule = $var;
+
+        return $this;
+    }
+
+    /**
+     * completions is the number of times to execute the task. If completions = 0, the task will run forever
+     *
+     * Generated from protobuf field <code>uint32 completions = 8;</code>
+     * @return int
+     */
+    public function getCompletions()
+    {
+        return $this->completions;
+    }
+
+    /**
+     * completions is the number of times to execute the task. If completions = 0, the task will run forever
+     *
+     * Generated from protobuf field <code>uint32 completions = 8;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setCompletions($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->completions = $var;
 
         return $this;
     }

@@ -10,7 +10,7 @@ type App struct {
 	Env       map[string]interface{} `json:"env"`
 	Ports     map[string]interface{} `json:"ports"`
 	Replicas  int                    `json:"replicas"`
-	Status    *Status                `json:"status"`
+	Status    *AppStatus             `json:"status"`
 }
 
 type AppConstructor struct {
@@ -21,6 +21,10 @@ type AppConstructor struct {
 	Env       map[string]interface{} `json:"env"`
 	Ports     map[string]interface{} `json:"ports"`
 	Replicas  int                    `json:"replicas"`
+}
+
+type AppStatus struct {
+	Replicas []*Replica `json:"replicas"`
 }
 
 type AppUpdate struct {
@@ -56,33 +60,32 @@ type Replica struct {
 	Reason    string `json:"reason"`
 }
 
-type Status struct {
-	Replicas []*Replica `json:"replicas"`
-}
-
 type Task struct {
-	Name      string                 `json:"name"`
-	Namespace string                 `json:"namespace"`
-	Image     string                 `json:"image"`
-	Args      []string               `json:"args"`
-	Env       map[string]interface{} `json:"env"`
-	Schedule  string                 `json:"schedule"`
+	Name        string                 `json:"name"`
+	Namespace   string                 `json:"namespace"`
+	Image       string                 `json:"image"`
+	Args        []string               `json:"args"`
+	Env         map[string]interface{} `json:"env"`
+	Schedule    string                 `json:"schedule"`
+	Completions *int                   `json:"completions"`
 }
 
 type TaskConstructor struct {
-	Name      string                 `json:"name"`
-	Namespace string                 `json:"namespace"`
-	Image     string                 `json:"image"`
-	Args      []string               `json:"args"`
-	Env       map[string]interface{} `json:"env"`
-	Schedule  string                 `json:"schedule"`
+	Name        string                 `json:"name"`
+	Namespace   string                 `json:"namespace"`
+	Image       string                 `json:"image"`
+	Args        []string               `json:"args"`
+	Env         map[string]interface{} `json:"env"`
+	Schedule    string                 `json:"schedule"`
+	Completions *int                   `json:"completions"`
 }
 
 type TaskUpdate struct {
-	Name      string                 `json:"name"`
-	Namespace string                 `json:"namespace"`
-	Image     *string                `json:"image"`
-	Args      []string               `json:"args"`
-	Env       map[string]interface{} `json:"env"`
-	Schedule  *string                `json:"schedule"`
+	Name        string                 `json:"name"`
+	Namespace   string                 `json:"namespace"`
+	Image       *string                `json:"image"`
+	Args        []string               `json:"args"`
+	Env         map[string]interface{} `json:"env"`
+	Schedule    *string                `json:"schedule"`
+	Completions *int                   `json:"completions"`
 }

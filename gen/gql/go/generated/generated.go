@@ -56,6 +56,10 @@ type ComplexityRoot struct {
 		Status    func(childComplexity int) int
 	}
 
+	AppStatus struct {
+		Replicas func(childComplexity int) int
+	}
+
 	Log struct {
 		Message func(childComplexity int) int
 	}
@@ -88,21 +92,18 @@ type ComplexityRoot struct {
 		Reason    func(childComplexity int) int
 	}
 
-	Status struct {
-		Replicas func(childComplexity int) int
-	}
-
 	Subscription struct {
-		Logs func(childComplexity int, input model.Ref) int
+		StreamLogs func(childComplexity int, input model.Ref) int
 	}
 
 	Task struct {
-		Args      func(childComplexity int) int
-		Env       func(childComplexity int) int
-		Image     func(childComplexity int) int
-		Name      func(childComplexity int) int
-		Namespace func(childComplexity int) int
-		Schedule  func(childComplexity int) int
+		Args        func(childComplexity int) int
+		Completions func(childComplexity int) int
+		Env         func(childComplexity int) int
+		Image       func(childComplexity int) int
+		Name        func(childComplexity int) int
+		Namespace   func(childComplexity int) int
+		Schedule    func(childComplexity int) int
 	}
 }
 
@@ -123,7 +124,7 @@ type QueryResolver interface {
 	ListNamespaces(ctx context.Context, input *string) (*model.Namespaces, error)
 }
 type SubscriptionResolver interface {
-	Logs(ctx context.Context, input model.Ref) (<-chan string, error)
+	StreamLogs(ctx context.Context, input model.Ref) (<-chan string, error)
 }
 
 type executableSchema struct {
@@ -196,6 +197,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.App.Status(childComplexity), true
+
+	case "AppStatus.replicas":
+		if e.complexity.AppStatus.Replicas == nil {
+			break
+		}
+
+		return e.complexity.AppStatus.Replicas(childComplexity), true
 
 	case "Log.message":
 		if e.complexity.Log.Message == nil {
@@ -376,24 +384,17 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Replica.Reason(childComplexity), true
 
-	case "Status.replicas":
-		if e.complexity.Status.Replicas == nil {
+	case "Subscription.streamLogs":
+		if e.complexity.Subscription.StreamLogs == nil {
 			break
 		}
 
-		return e.complexity.Status.Replicas(childComplexity), true
-
-	case "Subscription.logs":
-		if e.complexity.Subscription.Logs == nil {
-			break
-		}
-
-		args, err := ec.field_Subscription_logs_args(context.TODO(), rawArgs)
+		args, err := ec.field_Subscription_streamLogs_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Subscription.Logs(childComplexity, args["input"].(model.Ref)), true
+		return e.complexity.Subscription.StreamLogs(childComplexity, args["input"].(model.Ref)), true
 
 	case "Task.args":
 		if e.complexity.Task.Args == nil {
@@ -401,6 +402,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Task.Args(childComplexity), true
+
+	case "Task.completions":
+		if e.complexity.Task.Completions == nil {
+			break
+		}
+
+		return e.complexity.Task.Completions(childComplexity), true
 
 	case "Task.env":
 		if e.complexity.Task.Env == nil {
@@ -523,6 +531,7 @@ scalar Time
 # Map is a k/v map where the key is a string and the value is any value
 scalar Map
 
+# App is a stateless application
 type App {
     # name of the application
     name: String!
@@ -539,10 +548,10 @@ type App {
     # number of deployment replicas min:1
     replicas: Int!
     # status tracks the state of the application during it's lifecycle
-    status: Status!
+    status: AppStatus!
 }
 
-
+# Task is scheduled cron job
 type Task {
     # name of the application
     name: String!
@@ -554,31 +563,40 @@ type Task {
     args: [String!]
     # k/v map of environmental variables
     env: Map
+    # schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
     schedule: String!
+    # completions is the number of times to execute the task. If completions = 0, the task will run forever
+    completions: Int
 }
 
+# Replica tracks the state of a single instance
 type Replica {
     phase: String!
     condition: String!
     reason: String!
 }
 
-type Status {
+# AppStatus tracks the state of an app's lifecycle
+type AppStatus {
     replicas: [Replica]!
 }
 
+# Log is a message streamed from stdout/stderr of an instance
 type Log {
     message: String!
 }
 
+# Namespaces is a list of namespaces
 type Namespaces {
     namespaces: [String!]
 }
 
+# Namespace is a primitive used for logical segmentation of apps & tasks
 input Namespace {
     namespace: String!
 }
 
+# AppConstructor creates a new stateless Application
 input AppConstructor {
     # name of the application
     name: String!
@@ -596,7 +614,7 @@ input AppConstructor {
     replicas: Int!
 }
 
-
+# TaskConstructor creates a new task(cron job)
 input TaskConstructor {
     # name of the application
     name: String!
@@ -608,7 +626,10 @@ input TaskConstructor {
     args: [String!]
     # k/v map of environmental variables
     env: Map
+    # schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
     schedule: String!
+    # completions is the number of times to execute the task. If completions = 0, the task will run forever
+    completions: Int
 }
 
 input AppUpdate {
@@ -639,7 +660,10 @@ input TaskUpdate {
     args: [String!]
     # k/v map of environmental variables
     env: Map
+    # schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
     schedule: String
+    # completions is the number of times to execute the task. If completions = 0, the task will run forever
+    completions: Int
 }
 
 input Ref {
@@ -650,29 +674,40 @@ input Ref {
 }
 
 type Mutation {
+    # createApp creates a new stateless application(k8s deployment), exposed with a single load balancer(k8s service) within a single namespace(k8s namespace)
+    # the namespace will automatically be created if one does not already exist
     createApp(input: AppConstructor!): App
+    # updateApp edits/patches an existing stateless application(k8s deployment & service) within an existing namespace(k8s namespace)
     updateApp(input: AppUpdate!): App
+    # delApp deletes a single stateless application(k8s deployment & service) within an existing namespace
     delApp(input: Ref!): String
-
+    # createTask creates a new task(k8s cron job) within a single namespace(k8s namespace)
+    # the namespace will automatically be created if one does not already exist
     createTask(input: TaskConstructor!): Task
+    #  UpdateTask edits/patches an existing task(k8s cron job) within an existing namespace(k8s namespace)
     updateTask(input: TaskUpdate!): Task
-
+    # DeleteTask deletes a single task(k8s cron job) within an existing namespace
     delTask(input: Ref!): String
+    # delAll deletes all apps/tasks within an existing namespace
     delAll(input: Namespace!): String
 }
 
 type Query {
+    # getApp gets an app by name within an existing namespace
     getApp(input: Ref!): App
+    # listApps lists all apps within an existing namespace
     listApps(input: Namespace!): [App!]
-
+    # getTask gets a task(k8s cron job) by name within an existing namespace
     getTask(input: Ref!): Task
+    # listTasks lists all tasks(k8s cron jobs) within an existing namespace
     listTasks(input: Namespace!): [Task!]
-
+    # listNamespaces lists all namespaces created by kdeploy
     listNamespaces(input: String): Namespaces!
 }
 
 type Subscription {
-    logs(input: Ref!): String!
+    # logs streams logs from an app/task within an existing namespace. Streams are opened to all replicas & converted into a single stream
+    streamLogs(input: Ref!): String!
 }
 `, BuiltIn: false},
 }
@@ -877,7 +912,7 @@ func (ec *executionContext) field_Query_listTasks_args(ctx context.Context, rawA
 	return args, nil
 }
 
-func (ec *executionContext) field_Subscription_logs_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Subscription_streamLogs_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
 	var arg0 model.Ref
@@ -1199,9 +1234,44 @@ func (ec *executionContext) _App_status(ctx context.Context, field graphql.Colle
 		}
 		return graphql.Null
 	}
-	res := resTmp.(*model.Status)
+	res := resTmp.(*model.AppStatus)
 	fc.Result = res
-	return ec.marshalNStatus2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐStatus(ctx, field.Selections, res)
+	return ec.marshalNAppStatus2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐAppStatus(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _AppStatus_replicas(ctx context.Context, field graphql.CollectedField, obj *model.AppStatus) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "AppStatus",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Replicas, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.([]*model.Replica)
+	fc.Result = res
+	return ec.marshalNReplica2ᚕᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐReplica(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Log_message(ctx context.Context, field graphql.CollectedField, obj *model.Log) (ret graphql.Marshaler) {
@@ -1918,42 +1988,7 @@ func (ec *executionContext) _Replica_reason(ctx context.Context, field graphql.C
 	return ec.marshalNString2string(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Status_replicas(ctx context.Context, field graphql.CollectedField, obj *model.Status) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Status",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Replicas, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.([]*model.Replica)
-	fc.Result = res
-	return ec.marshalNReplica2ᚕᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐReplica(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Subscription_logs(ctx context.Context, field graphql.CollectedField) (ret func() graphql.Marshaler) {
+func (ec *executionContext) _Subscription_streamLogs(ctx context.Context, field graphql.CollectedField) (ret func() graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -1970,7 +2005,7 @@ func (ec *executionContext) _Subscription_logs(ctx context.Context, field graphq
 
 	ctx = graphql.WithFieldContext(ctx, fc)
 	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Subscription_logs_args(ctx, rawArgs)
+	args, err := ec.field_Subscription_streamLogs_args(ctx, rawArgs)
 	if err != nil {
 		ec.Error(ctx, err)
 		return nil
@@ -1978,7 +2013,7 @@ func (ec *executionContext) _Subscription_logs(ctx context.Context, field graphq
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Subscription().Logs(rctx, args["input"].(model.Ref))
+		return ec.resolvers.Subscription().StreamLogs(rctx, args["input"].(model.Ref))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -2207,6 +2242,38 @@ func (ec *executionContext) _Task_schedule(ctx context.Context, field graphql.Co
 	res := resTmp.(string)
 	fc.Result = res
 	return ec.marshalNString2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Task_completions(ctx context.Context, field graphql.CollectedField, obj *model.Task) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Task",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Completions, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) ___Directive_name(ctx context.Context, field graphql.CollectedField, obj *introspection.Directive) (ret graphql.Marshaler) {
@@ -3534,6 +3601,14 @@ func (ec *executionContext) unmarshalInputTaskConstructor(ctx context.Context, o
 			if err != nil {
 				return it, err
 			}
+		case "completions":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("completions"))
+			it.Completions, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		}
 	}
 
@@ -3594,6 +3669,14 @@ func (ec *executionContext) unmarshalInputTaskUpdate(ctx context.Context, obj in
 			if err != nil {
 				return it, err
 			}
+		case "completions":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("completions"))
+			it.Completions, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		}
 	}
 
@@ -3650,6 +3733,33 @@ func (ec *executionContext) _App(ctx context.Context, sel ast.SelectionSet, obj 
 			}
 		case "status":
 			out.Values[i] = ec._App_status(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var appStatusImplementors = []string{"AppStatus"}
+
+func (ec *executionContext) _AppStatus(ctx context.Context, sel ast.SelectionSet, obj *model.AppStatus) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, appStatusImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("AppStatus")
+		case "replicas":
+			out.Values[i] = ec._AppStatus_replicas(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
@@ -3880,33 +3990,6 @@ func (ec *executionContext) _Replica(ctx context.Context, sel ast.SelectionSet, 
 	return out
 }
 
-var statusImplementors = []string{"Status"}
-
-func (ec *executionContext) _Status(ctx context.Context, sel ast.SelectionSet, obj *model.Status) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, statusImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("Status")
-		case "replicas":
-			out.Values[i] = ec._Status_replicas(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
 var subscriptionImplementors = []string{"Subscription"}
 
 func (ec *executionContext) _Subscription(ctx context.Context, sel ast.SelectionSet) func() graphql.Marshaler {
@@ -3920,8 +4003,8 @@ func (ec *executionContext) _Subscription(ctx context.Context, sel ast.Selection
 	}
 
 	switch fields[0].Name {
-	case "logs":
-		return ec._Subscription_logs(ctx, fields[0])
+	case "streamLogs":
+		return ec._Subscription_streamLogs(ctx, fields[0])
 	default:
 		panic("unknown field " + strconv.Quote(fields[0].Name))
 	}
@@ -3962,6 +4045,8 @@ func (ec *executionContext) _Task(ctx context.Context, sel ast.SelectionSet, obj
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
+		case "completions":
+			out.Values[i] = ec._Task_completions(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -4233,6 +4318,16 @@ func (ec *executionContext) unmarshalNAppConstructor2githubᚗcomᚋautom8terᚋ
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
+func (ec *executionContext) marshalNAppStatus2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐAppStatus(ctx context.Context, sel ast.SelectionSet, v *model.AppStatus) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	return ec._AppStatus(ctx, sel, v)
+}
+
 func (ec *executionContext) unmarshalNAppUpdate2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐAppUpdate(ctx context.Context, v interface{}) (model.AppUpdate, error) {
 	res, err := ec.unmarshalInputAppUpdate(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -4348,16 +4443,6 @@ func (ec *executionContext) marshalNReplica2ᚕᚖgithubᚗcomᚋautom8terᚋkde
 	}
 	wg.Wait()
 	return ret
-}
-
-func (ec *executionContext) marshalNStatus2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐStatus(ctx context.Context, sel ast.SelectionSet, v *model.Status) graphql.Marshaler {
-	if v == nil {
-		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	return ec._Status(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalNString2string(ctx context.Context, v interface{}) (string, error) {

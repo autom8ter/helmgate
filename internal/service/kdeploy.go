@@ -53,7 +53,7 @@ func (k KdeployService) DeleteAll(ctx context.Context, ns *kdeploypb.Namespace) 
 	return &empty.Empty{}, nil
 }
 
-func (k KdeployService) Logs(ref *kdeploypb.Ref, server kdeploypb.KdeployService_LogsServer) error {
+func (k KdeployService) StreamLogs(ref *kdeploypb.Ref, server kdeploypb.KdeployService_StreamLogsServer) error {
 	stream, err := k.client.StreamLogs(server.Context(), ref)
 	if err != nil {
 		k.client.L().Error("failed to stream logs", zap.Error(err))
