@@ -13,6 +13,7 @@ import (
 )
 
 const Always = "Always"
+const OnFailure = "OnFailure"
 const RWO = "ReadWriteOnce"
 
 func appLabels(app *kdeploypb.AppConstructor) map[string]string {
@@ -220,18 +221,11 @@ func toTask(app *kdeploypb.TaskConstructor) (*v1beta1.CronJob, error) {
 			Labels:    taskLabels(app),
 		},
 		Spec: v1beta1.CronJobSpec{
-
+			Schedule: app.Schedule,
 			JobTemplate: v1beta1.JobTemplateSpec{
 				ObjectMeta: metav1.ObjectMeta{},
 				Spec: batchv1.JobSpec{
-					Parallelism:           nil,
 					Completions:           int32Pointer(app.Completions),
-					ActiveDeadlineSeconds: nil,
-					BackoffLimit:          nil,
-					Selector: &metav1.LabelSelector{
-						MatchLabels: taskLabels(app),
-					},
-					ManualSelector: nil,
 					Template: v12.PodTemplateSpec{
 						ObjectMeta: metav1.ObjectMeta{
 							Name:      app.Name,
@@ -240,7 +234,7 @@ func toTask(app *kdeploypb.TaskConstructor) (*v1beta1.CronJob, error) {
 						},
 						Spec: v12.PodSpec{
 							Containers:    containers,
-							RestartPolicy: Always,
+							RestartPolicy: OnFailure,
 						},
 					},
 					TTLSecondsAfterFinished: nil,
