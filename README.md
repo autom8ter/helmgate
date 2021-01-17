@@ -3,14 +3,14 @@
 ![create-redis](assets/create-redis.png)
 ![get-redis](assets/get-redis.png)
 
-an OAuth-protected graphQL API for deploying "serverless" kubernetes applications
+an opinionated, OAuth-protected graphQL API for easily deploying kubernetes applications
 
 [graphQL Documentation](https://autom8ter.github.io/kdeploy/)
 
 ## Features
 
 - [x] [gRPC API](kdeploy.proto)
-    - [x] [golang client sdk](gen/grpc/go)
+    - [x] golang client sdk[![GoDoc](https://godoc.org/github.com/autom8ter/kdeploy/kdeploy-client-go?status.svg)](https://godoc.org/github.com/autom8ter/kdeploy/kdeploy-client-go)
     - [x] [javascript client sdk](gen/grpc/js)
     - [x] [java client sdk](gen/grpc/java)
     - [x] [php client sdk](gen/grpc/php)
