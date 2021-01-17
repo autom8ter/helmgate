@@ -16,10 +16,13 @@ metadata:
 rules:
   - apiGroups: [""] # "" indicates the core API group
     resources: ["pods", "namespaces", "services"]
-    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+    verbs: ["*"]
   - apiGroups: ["extensions", "apps"]
-    resources: ["deployments", "statefulsets"]
-    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+    resources: ["deployments"]
+    verbs: ["*"]
+  - apiGroups: ["extensions", "apps", "batch"]
+    resources: ["*"]
+    verbs: ["*"]
 
 ---
 kind: ClusterRoleBinding
@@ -84,7 +87,7 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.podIP
-          image: colemanword/kdeploy:v0.0.0
+          image: colemanword/kdeploy:v0.0.5
           imagePullPolicy: Always
           ports:
           - containerPort: 8821
