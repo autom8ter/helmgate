@@ -139,7 +139,7 @@ func (m *Manager) UpdateApp(ctx context.Context, app *kdeploypb.AppUpdate) (*kde
 	return a, nil
 }
 
-func (m *Manager) GetApp(ctx context.Context, ref *kdeploypb.AppRef) (*kdeploypb.App, error) {
+func (m *Manager) GetApp(ctx context.Context, ref *kdeploypb.Ref) (*kdeploypb.App, error) {
 	kapp := &k8sApp{}
 
 	ns, err := m.client.Namespaces().Get(ctx, ref.Namespace, v1.GetOptions{})
@@ -166,7 +166,7 @@ func (m *Manager) GetApp(ctx context.Context, ref *kdeploypb.AppRef) (*kdeploypb
 	return a, nil
 }
 
-func (m *Manager) DeleteApp(ctx context.Context, ref *kdeploypb.AppRef) error {
+func (m *Manager) DeleteApp(ctx context.Context, ref *kdeploypb.Ref) error {
 	if err := m.client.Services(ref.Namespace).Delete(ctx, ref.Name, v1.DeleteOptions{}); err != nil {
 		m.logger.Error("failed to delete service",
 			zap.Error(err),
@@ -240,7 +240,7 @@ func (m *Manager) ListApps(ctx context.Context, namespace *kdeploypb.Namespace) 
 	return kapps, nil
 }
 
-func (m *Manager) StreamLogs(ctx context.Context, ref *kdeploypb.AppRef) (chan string, error) {
+func (m *Manager) StreamLogs(ctx context.Context, ref *kdeploypb.Ref) (chan string, error) {
 	pods, err := m.client.Pods(ref.Namespace).List(ctx, v1.ListOptions{
 		TypeMeta:      v1.TypeMeta{},
 		Watch:         false,

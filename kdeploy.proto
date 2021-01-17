@@ -29,16 +29,48 @@ message App {
   AppStatus status =9;
 }
 
-message CronJob {
-  // name of the application
+message Task {
+  // name of the task
   string name =1;
-  // application namespace
+  // task namespace
   string namespace =2;
-  // docker image of application
+  // docker image of task
   string image =3;
+  // args are arguments given to docker image at startup
   repeated string args =5;
   // k/v map of environmental variables
   map<string, string> env =6;
+  //
+  string schedule = 7;
+}
+
+message TaskConstructor {
+  // name of the task
+  string name =1[(validator.field) = {regex : "^.{1,225}$"}];
+  // task namespace
+  string namespace =2[(validator.field) = {regex : "^.{1,225}$"}];
+  // docker image of task
+  string image =3[(validator.field) = {regex : "^.{1,225}$"}];
+  // args are arguments given to docker image at startup
+  repeated string args =5;
+  // k/v map of environmental variables
+  map<string, string> env =6;
+  //
+  string schedule = 7[(validator.field) = {regex : "^.{1,225}$"}];
+}
+
+message TaskUpdate {
+  // name of the application
+  string name =1[(validator.field) = {regex : "^.{1,225}$"}];
+  // application namespace
+  string namespace =2[(validator.field) = {regex : "^.{1,225}$"}];
+  // docker image of application
+  string image =3;
+  // args are arguments given to docker image at startup
+  repeated string args =5;
+  // k/v map of environmental variables
+  map<string, string> env =6;
+  //
   string schedule = 7;
 }
 
@@ -76,7 +108,7 @@ message AppUpdate {
   uint32 replicas =7;
 }
 
-message AppRef {
+message Ref {
   // name of the application
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
   // application namespace
@@ -112,10 +144,15 @@ message Namespaces {
 service KdeployService {
   rpc CreateApp(AppConstructor) returns(App){}
   rpc UpdateApp(AppUpdate) returns(App){}
-  rpc DeleteApp(AppRef) returns(google.protobuf.Empty){}
-  rpc GetApp(AppRef) returns(App){}
-  rpc Logs(AppRef) returns (stream Log){}
+  rpc DeleteApp(Ref) returns(google.protobuf.Empty){}
+  rpc GetApp(Ref) returns(App){}
+  rpc Logs(Ref) returns (stream Log){}
   rpc ListNamespaces(google.protobuf.Empty) returns(Namespaces){}
   rpc ListApps(Namespace) returns(Apps){}
   rpc DeleteAll(Namespace) returns(google.protobuf.Empty){}
+  
+  rpc CreateTask(TaskConstructor) returns(Task){}
+  rpc UpdateTask(TaskUpdate) returns(Task){}
+  rpc DeleteTask(Ref) returns(google.protobuf.Empty){}
+  rpc GetTask(Ref) returns(Task){}
 }

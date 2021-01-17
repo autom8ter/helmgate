@@ -203,10 +203,6 @@
                 </li>
               
                 <li>
-                  <a href="#kdeploy.AppRef"><span class="badge">M</span>AppRef</a>
-                </li>
-              
-                <li>
                   <a href="#kdeploy.AppStatus"><span class="badge">M</span>AppStatus</a>
                 </li>
               
@@ -227,14 +223,6 @@
                 </li>
               
                 <li>
-                  <a href="#kdeploy.CronJob"><span class="badge">M</span>CronJob</a>
-                </li>
-              
-                <li>
-                  <a href="#kdeploy.CronJob.EnvEntry"><span class="badge">M</span>CronJob.EnvEntry</a>
-                </li>
-              
-                <li>
                   <a href="#kdeploy.Log"><span class="badge">M</span>Log</a>
                 </li>
               
@@ -247,7 +235,35 @@
                 </li>
               
                 <li>
+                  <a href="#kdeploy.Ref"><span class="badge">M</span>Ref</a>
+                </li>
+              
+                <li>
                   <a href="#kdeploy.Replica"><span class="badge">M</span>Replica</a>
+                </li>
+              
+                <li>
+                  <a href="#kdeploy.Task"><span class="badge">M</span>Task</a>
+                </li>
+              
+                <li>
+                  <a href="#kdeploy.Task.EnvEntry"><span class="badge">M</span>Task.EnvEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#kdeploy.TaskConstructor"><span class="badge">M</span>TaskConstructor</a>
+                </li>
+              
+                <li>
+                  <a href="#kdeploy.TaskConstructor.EnvEntry"><span class="badge">M</span>TaskConstructor.EnvEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#kdeploy.TaskUpdate"><span class="badge">M</span>TaskUpdate</a>
+                </li>
+              
+                <li>
+                  <a href="#kdeploy.TaskUpdate.EnvEntry"><span class="badge">M</span>TaskUpdate.EnvEntry</a>
                 </li>
               
               
@@ -584,75 +600,6 @@
 
         
       
-        <h3 id="kdeploy.AppRef">AppRef</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>name of the application </p></td>
-                </tr>
-              
-                <tr>
-                  <td>namespace</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>application namespace </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-            
-            
-            <h4>Validated Fields</h4>
-            <table>
-              <thead>
-                <tr>
-                  <td>Field</td>
-                  <td>Validations</td>
-                </tr>
-              </thead>
-              <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
-                  <td>namespace</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-              </tbody>
-            </table>
-            
-          
-
-        
-      
         <h3 id="kdeploy.AppStatus">AppStatus</h3>
         <p></p>
 
@@ -867,96 +814,6 @@
 
         
       
-        <h3 id="kdeploy.CronJob">CronJob</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>name of the application </p></td>
-                </tr>
-              
-                <tr>
-                  <td>namespace</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>application namespace </p></td>
-                </tr>
-              
-                <tr>
-                  <td>image</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>docker image of application </p></td>
-                </tr>
-              
-                <tr>
-                  <td>args</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>env</td>
-                  <td><a href="#kdeploy.CronJob.EnvEntry">CronJob.EnvEntry</a></td>
-                  <td>repeated</td>
-                  <td><p>k/v map of environmental variables </p></td>
-                </tr>
-              
-                <tr>
-                  <td>schedule</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="kdeploy.CronJob.EnvEntry">CronJob.EnvEntry</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>key</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>value</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
         <h3 id="kdeploy.Log">Log</h3>
         <p></p>
 
@@ -1029,6 +886,75 @@
 
         
       
+        <h3 id="kdeploy.Ref">Ref</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>name of the application </p></td>
+                </tr>
+              
+                <tr>
+                  <td>namespace</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>application namespace </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>namespace</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
+          
+
+        
+      
         <h3 id="kdeploy.Replica">Replica</h3>
         <p></p>
 
@@ -1055,6 +981,374 @@
               
                 <tr>
                   <td>reason</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="kdeploy.Task">Task</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>name of the task </p></td>
+                </tr>
+              
+                <tr>
+                  <td>namespace</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>task namespace </p></td>
+                </tr>
+              
+                <tr>
+                  <td>image</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>docker image of task </p></td>
+                </tr>
+              
+                <tr>
+                  <td>args</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>args are arguments given to docker image at startup </p></td>
+                </tr>
+              
+                <tr>
+                  <td>env</td>
+                  <td><a href="#kdeploy.Task.EnvEntry">Task.EnvEntry</a></td>
+                  <td>repeated</td>
+                  <td><p>k/v map of environmental variables </p></td>
+                </tr>
+              
+                <tr>
+                  <td>schedule</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="kdeploy.Task.EnvEntry">Task.EnvEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="kdeploy.TaskConstructor">TaskConstructor</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>name of the task </p></td>
+                </tr>
+              
+                <tr>
+                  <td>namespace</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>task namespace </p></td>
+                </tr>
+              
+                <tr>
+                  <td>image</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>docker image of task </p></td>
+                </tr>
+              
+                <tr>
+                  <td>args</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>args are arguments given to docker image at startup </p></td>
+                </tr>
+              
+                <tr>
+                  <td>env</td>
+                  <td><a href="#kdeploy.TaskConstructor.EnvEntry">TaskConstructor.EnvEntry</a></td>
+                  <td>repeated</td>
+                  <td><p>k/v map of environmental variables </p></td>
+                </tr>
+              
+                <tr>
+                  <td>schedule</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>namespace</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>image</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>schedule</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
+          
+
+        
+      
+        <h3 id="kdeploy.TaskConstructor.EnvEntry">TaskConstructor.EnvEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="kdeploy.TaskUpdate">TaskUpdate</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>name of the application </p></td>
+                </tr>
+              
+                <tr>
+                  <td>namespace</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>application namespace </p></td>
+                </tr>
+              
+                <tr>
+                  <td>image</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>docker image of application </p></td>
+                </tr>
+              
+                <tr>
+                  <td>args</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>args are arguments given to docker image at startup </p></td>
+                </tr>
+              
+                <tr>
+                  <td>env</td>
+                  <td><a href="#kdeploy.TaskUpdate.EnvEntry">TaskUpdate.EnvEntry</a></td>
+                  <td>repeated</td>
+                  <td><p>k/v map of environmental variables </p></td>
+                </tr>
+              
+                <tr>
+                  <td>schedule</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>namespace</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
+          
+
+        
+      
+        <h3 id="kdeploy.TaskUpdate.EnvEntry">TaskUpdate.EnvEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
@@ -1097,21 +1391,21 @@
             
               <tr>
                 <td>DeleteApp</td>
-                <td><a href="#kdeploy.AppRef">AppRef</a></td>
+                <td><a href="#kdeploy.Ref">Ref</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><p></p></td>
               </tr>
             
               <tr>
                 <td>GetApp</td>
-                <td><a href="#kdeploy.AppRef">AppRef</a></td>
+                <td><a href="#kdeploy.Ref">Ref</a></td>
                 <td><a href="#kdeploy.App">App</a></td>
                 <td><p></p></td>
               </tr>
             
               <tr>
                 <td>Logs</td>
-                <td><a href="#kdeploy.AppRef">AppRef</a></td>
+                <td><a href="#kdeploy.Ref">Ref</a></td>
                 <td><a href="#kdeploy.Log">Log</a> stream</td>
                 <td><p></p></td>
               </tr>
@@ -1134,6 +1428,34 @@
                 <td>DeleteAll</td>
                 <td><a href="#kdeploy.Namespace">Namespace</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>CreateTask</td>
+                <td><a href="#kdeploy.TaskConstructor">TaskConstructor</a></td>
+                <td><a href="#kdeploy.Task">Task</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdateTask</td>
+                <td><a href="#kdeploy.TaskUpdate">TaskUpdate</a></td>
+                <td><a href="#kdeploy.Task">Task</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>DeleteTask</td>
+                <td><a href="#kdeploy.Ref">Ref</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>GetTask</td>
+                <td><a href="#kdeploy.Ref">Ref</a></td>
+                <td><a href="#kdeploy.Task">Task</a></td>
                 <td><p></p></td>
               </tr>
             

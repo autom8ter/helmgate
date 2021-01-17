@@ -63,7 +63,7 @@ type ComplexityRoot struct {
 	Mutation struct {
 		CreateApp func(childComplexity int, input model.AppConstructor) int
 		DelAll    func(childComplexity int, input model.Namespace) int
-		DelApp    func(childComplexity int, input model.AppRef) int
+		DelApp    func(childComplexity int, input model.Ref) int
 		UpdateApp func(childComplexity int, input model.AppUpdate) int
 	}
 
@@ -72,7 +72,7 @@ type ComplexityRoot struct {
 	}
 
 	Query struct {
-		GetApp         func(childComplexity int, input model.AppRef) int
+		GetApp         func(childComplexity int, input model.Ref) int
 		ListApps       func(childComplexity int, input model.Namespace) int
 		ListNamespaces func(childComplexity int, input *string) int
 	}
@@ -88,23 +88,23 @@ type ComplexityRoot struct {
 	}
 
 	Subscription struct {
-		Logs func(childComplexity int, input model.AppRef) int
+		Logs func(childComplexity int, input model.Ref) int
 	}
 }
 
 type MutationResolver interface {
 	CreateApp(ctx context.Context, input model.AppConstructor) (*model.App, error)
 	UpdateApp(ctx context.Context, input model.AppUpdate) (*model.App, error)
-	DelApp(ctx context.Context, input model.AppRef) (*string, error)
+	DelApp(ctx context.Context, input model.Ref) (*string, error)
 	DelAll(ctx context.Context, input model.Namespace) (*string, error)
 }
 type QueryResolver interface {
-	GetApp(ctx context.Context, input model.AppRef) (*model.App, error)
+	GetApp(ctx context.Context, input model.Ref) (*model.App, error)
 	ListApps(ctx context.Context, input model.Namespace) ([]*model.App, error)
 	ListNamespaces(ctx context.Context, input *string) (*model.Namespaces, error)
 }
 type SubscriptionResolver interface {
-	Logs(ctx context.Context, input model.AppRef) (<-chan string, error)
+	Logs(ctx context.Context, input model.Ref) (<-chan string, error)
 }
 
 type executableSchema struct {
@@ -219,7 +219,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Mutation.DelApp(childComplexity, args["input"].(model.AppRef)), true
+		return e.complexity.Mutation.DelApp(childComplexity, args["input"].(model.Ref)), true
 
 	case "Mutation.updateApp":
 		if e.complexity.Mutation.UpdateApp == nil {
@@ -250,7 +250,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.GetApp(childComplexity, args["input"].(model.AppRef)), true
+		return e.complexity.Query.GetApp(childComplexity, args["input"].(model.Ref)), true
 
 	case "Query.listApps":
 		if e.complexity.Query.ListApps == nil {
@@ -314,7 +314,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Subscription.Logs(childComplexity, args["input"].(model.AppRef)), true
+		return e.complexity.Subscription.Logs(childComplexity, args["input"].(model.Ref)), true
 
 	}
 	return 0, false
@@ -477,7 +477,7 @@ input AppUpdate {
     replicas: Int
 }
 
-input AppRef {
+input Ref {
     # name of the application
     name: String!
     # application namespace
@@ -487,18 +487,18 @@ input AppRef {
 type Mutation {
     createApp(input: AppConstructor!): App
     updateApp(input: AppUpdate!): App
-    delApp(input: AppRef!): String
+    delApp(input: Ref!): String
     delAll(input: Namespace!): String
 }
 
 type Query {
-    getApp(input: AppRef!): App
+    getApp(input: Ref!): App
     listApps(input: Namespace!): [App!]
     listNamespaces(input: String): Namespaces!
 }
 
 type Subscription {
-    logs(input: AppRef!): String!
+    logs(input: Ref!): String!
 }
 `, BuiltIn: false},
 }
@@ -541,10 +541,10 @@ func (ec *executionContext) field_Mutation_delAll_args(ctx context.Context, rawA
 func (ec *executionContext) field_Mutation_delApp_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 model.AppRef
+	var arg0 model.Ref
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNAppRef2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐAppRef(ctx, tmp)
+		arg0, err = ec.unmarshalNRef2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐRef(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -586,10 +586,10 @@ func (ec *executionContext) field_Query___type_args(ctx context.Context, rawArgs
 func (ec *executionContext) field_Query_getApp_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 model.AppRef
+	var arg0 model.Ref
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNAppRef2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐAppRef(ctx, tmp)
+		arg0, err = ec.unmarshalNRef2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐRef(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -631,10 +631,10 @@ func (ec *executionContext) field_Query_listNamespaces_args(ctx context.Context,
 func (ec *executionContext) field_Subscription_logs_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 model.AppRef
+	var arg0 model.Ref
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNAppRef2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐAppRef(ctx, tmp)
+		arg0, err = ec.unmarshalNRef2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐRef(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1093,7 +1093,7 @@ func (ec *executionContext) _Mutation_delApp(ctx context.Context, field graphql.
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().DelApp(rctx, args["input"].(model.AppRef))
+		return ec.resolvers.Mutation().DelApp(rctx, args["input"].(model.Ref))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -1203,7 +1203,7 @@ func (ec *executionContext) _Query_getApp(ctx context.Context, field graphql.Col
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().GetApp(rctx, args["input"].(model.AppRef))
+		return ec.resolvers.Query().GetApp(rctx, args["input"].(model.Ref))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -1534,7 +1534,7 @@ func (ec *executionContext) _Subscription_logs(ctx context.Context, field graphq
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Subscription().Logs(rctx, args["input"].(model.AppRef))
+		return ec.resolvers.Subscription().Logs(rctx, args["input"].(model.Ref))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -2716,34 +2716,6 @@ func (ec *executionContext) unmarshalInputAppConstructor(ctx context.Context, ob
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputAppRef(ctx context.Context, obj interface{}) (model.AppRef, error) {
-	var it model.AppRef
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "name":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
-			it.Name, err = ec.unmarshalNString2string(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "namespace":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("namespace"))
-			it.Namespace, err = ec.unmarshalNString2string(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
 func (ec *executionContext) unmarshalInputAppUpdate(ctx context.Context, obj interface{}) (model.AppUpdate, error) {
 	var it model.AppUpdate
 	var asMap = obj.(map[string]interface{})
@@ -2818,6 +2790,34 @@ func (ec *executionContext) unmarshalInputNamespace(ctx context.Context, obj int
 
 	for k, v := range asMap {
 		switch k {
+		case "namespace":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("namespace"))
+			it.Namespace, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputRef(ctx context.Context, obj interface{}) (model.Ref, error) {
+	var it model.Ref
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "namespace":
 			var err error
 
@@ -3391,11 +3391,6 @@ func (ec *executionContext) unmarshalNAppConstructor2githubᚗcomᚋautom8terᚋ
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNAppRef2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐAppRef(ctx context.Context, v interface{}) (model.AppRef, error) {
-	res, err := ec.unmarshalInputAppRef(ctx, v)
-	return res, graphql.ErrorOnPath(ctx, err)
-}
-
 func (ec *executionContext) unmarshalNAppUpdate2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐAppUpdate(ctx context.Context, v interface{}) (model.AppUpdate, error) {
 	res, err := ec.unmarshalInputAppUpdate(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -3469,6 +3464,11 @@ func (ec *executionContext) marshalNNamespaces2ᚖgithubᚗcomᚋautom8terᚋkde
 		return graphql.Null
 	}
 	return ec._Namespaces(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalNRef2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐRef(ctx context.Context, v interface{}) (model.Ref, error) {
+	res, err := ec.unmarshalInputRef(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) marshalNReplica2ᚕᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐReplica(ctx context.Context, sel ast.SelectionSet, v []*model.Replica) graphql.Marshaler {

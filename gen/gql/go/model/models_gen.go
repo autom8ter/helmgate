@@ -23,11 +23,6 @@ type AppConstructor struct {
 	Replicas  int                    `json:"replicas"`
 }
 
-type AppRef struct {
-	Name      string `json:"name"`
-	Namespace string `json:"namespace"`
-}
-
 type AppUpdate struct {
 	Name      string                 `json:"name"`
 	Namespace string                 `json:"namespace"`
@@ -48,6 +43,11 @@ type Namespace struct {
 
 type Namespaces struct {
 	Namespaces []string `json:"namespaces"`
+}
+
+type Ref struct {
+	Name      string `json:"name"`
+	Namespace string `json:"namespace"`
 }
 
 type Replica struct {

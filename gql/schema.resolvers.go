@@ -36,8 +36,8 @@ func (r *mutationResolver) UpdateApp(ctx context.Context, input model.AppUpdate)
 	return fromApp(app), nil
 }
 
-func (r *mutationResolver) DelApp(ctx context.Context, input model.AppRef) (*string, error) {
-	_, err := r.client.DeleteApp(ctx, &kdeploypb.AppRef{
+func (r *mutationResolver) DelApp(ctx context.Context, input model.Ref) (*string, error) {
+	_, err := r.client.DeleteApp(ctx, &kdeploypb.Ref{
 		Name:      input.Name,
 		Namespace: input.Namespace,
 	})
@@ -58,8 +58,8 @@ func (r *mutationResolver) DelAll(ctx context.Context, input model.Namespace) (*
 	return nil, nil
 }
 
-func (r *queryResolver) GetApp(ctx context.Context, input model.AppRef) (*model.App, error) {
-	app, err := r.client.GetApp(ctx, &kdeploypb.AppRef{
+func (r *queryResolver) GetApp(ctx context.Context, input model.Ref) (*model.App, error) {
+	app, err := r.client.GetApp(ctx, &kdeploypb.Ref{
 		Name:      input.Name,
 		Namespace: input.Namespace,
 	})
@@ -102,8 +102,8 @@ func (r *queryResolver) ListNamespaces(ctx context.Context, input *string) (*mod
 	return toReturn, nil
 }
 
-func (r *subscriptionResolver) Logs(ctx context.Context, input model.AppRef) (<-chan string, error) {
-	stream, err := r.client.Logs(ctx, &kdeploypb.AppRef{
+func (r *subscriptionResolver) Logs(ctx context.Context, input model.Ref) (<-chan string, error) {
+	stream, err := r.client.Logs(ctx, &kdeploypb.Ref{
 		Name:      input.Name,
 		Namespace: input.Namespace,
 	})

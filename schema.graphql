@@ -78,7 +78,7 @@ input AppUpdate {
     replicas: Int
 }
 
-input AppRef {
+input Ref {
     # name of the application
     name: String!
     # application namespace
@@ -88,16 +88,16 @@ input AppRef {
 type Mutation {
     createApp(input: AppConstructor!): App
     updateApp(input: AppUpdate!): App
-    delApp(input: AppRef!): String
+    delApp(input: Ref!): String
     delAll(input: Namespace!): String
 }
 
 type Query {
-    getApp(input: AppRef!): App
+    getApp(input: Ref!): App
     listApps(input: Namespace!): [App!]
     listNamespaces(input: String): Namespaces!
 }
 
 type Subscription {
-    logs(input: AppRef!): String!
+    logs(input: Ref!): String!
 }

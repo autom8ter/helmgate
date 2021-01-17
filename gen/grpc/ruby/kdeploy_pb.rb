@@ -18,7 +18,23 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     optional :replicas, :uint32, 8
     optional :status, :message, 9, "kdeploy.AppStatus"
   end
-  add_message "kdeploy.CronJob" do
+  add_message "kdeploy.Task" do
+    optional :name, :string, 1
+    optional :namespace, :string, 2
+    optional :image, :string, 3
+    repeated :args, :string, 5
+    map :env, :string, :string, 6
+    optional :schedule, :string, 7
+  end
+  add_message "kdeploy.TaskConstructor" do
+    optional :name, :string, 1
+    optional :namespace, :string, 2
+    optional :image, :string, 3
+    repeated :args, :string, 5
+    map :env, :string, :string, 6
+    optional :schedule, :string, 7
+  end
+  add_message "kdeploy.TaskUpdate" do
     optional :name, :string, 1
     optional :namespace, :string, 2
     optional :image, :string, 3
@@ -44,7 +60,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     map :ports, :string, :uint32, 6
     optional :replicas, :uint32, 7
   end
-  add_message "kdeploy.AppRef" do
+  add_message "kdeploy.Ref" do
     optional :name, :string, 1
     optional :namespace, :string, 2
   end
@@ -72,10 +88,12 @@ end
 
 module Kdeploy
   App = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.App").msgclass
-  CronJob = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.CronJob").msgclass
+  Task = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Task").msgclass
+  TaskConstructor = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.TaskConstructor").msgclass
+  TaskUpdate = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.TaskUpdate").msgclass
   AppConstructor = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.AppConstructor").msgclass
   AppUpdate = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.AppUpdate").msgclass
-  AppRef = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.AppRef").msgclass
+  Ref = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Ref").msgclass
   Replica = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Replica").msgclass
   AppStatus = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.AppStatus").msgclass
   Log = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Log").msgclass

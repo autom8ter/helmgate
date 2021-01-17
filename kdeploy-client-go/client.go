@@ -154,18 +154,18 @@ func (c *Client) UpdateApp(ctx context.Context, app *kdeploypb.AppUpdate) (*kdep
 }
 
 // DeleteApp deletes an application by reference(name/namespace)
-func (c *Client) DeleteApp(ctx context.Context, ref *kdeploypb.AppRef) error {
+func (c *Client) DeleteApp(ctx context.Context, ref *kdeploypb.Ref) error {
 	_, err := c.client.DeleteApp(ctx, ref)
 	return err
 }
 
 // GetApp get an application by reference(name/namespace)
-func (c *Client) GetApp(ctx context.Context, ref *kdeploypb.AppRef) (*kdeploypb.App, error) {
+func (c *Client) GetApp(ctx context.Context, ref *kdeploypb.Ref) (*kdeploypb.App, error) {
 	return c.client.GetApp(ctx, ref)
 }
 
 // Logs streams logs from an application until the context cancelled or the function(fn) return false
-func (c *Client) Logs(ctx context.Context, ref *kdeploypb.AppRef, fn func(l *kdeploypb.Log) bool) error {
+func (c *Client) Logs(ctx context.Context, ref *kdeploypb.Ref, fn func(l *kdeploypb.Log) bool) error {
 	stream, err := c.client.Logs(ctx, ref)
 	if err != nil {
 		return err

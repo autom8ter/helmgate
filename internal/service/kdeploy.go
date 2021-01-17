@@ -26,7 +26,7 @@ func (k KdeployService) UpdateApp(ctx context.Context, update *kdeploypb.AppUpda
 	return k.client.UpdateApp(ctx, update)
 }
 
-func (k KdeployService) DeleteApp(ctx context.Context, ref *kdeploypb.AppRef) (*empty.Empty, error) {
+func (k KdeployService) DeleteApp(ctx context.Context, ref *kdeploypb.Ref) (*empty.Empty, error) {
 	if err := k.client.DeleteApp(ctx, ref); err != nil {
 		k.client.L().Error("failed to delete app", zap.Error(err))
 		return nil, status.Error(codes.Internal, "failed to delete app")
@@ -34,7 +34,7 @@ func (k KdeployService) DeleteApp(ctx context.Context, ref *kdeploypb.AppRef) (*
 	return &empty.Empty{}, nil
 }
 
-func (k KdeployService) GetApp(ctx context.Context, ref *kdeploypb.AppRef) (*kdeploypb.App, error) {
+func (k KdeployService) GetApp(ctx context.Context, ref *kdeploypb.Ref) (*kdeploypb.App, error) {
 	return k.client.GetApp(ctx, ref)
 }
 
@@ -53,7 +53,7 @@ func (k KdeployService) DeleteAll(ctx context.Context, ns *kdeploypb.Namespace) 
 	return &empty.Empty{}, nil
 }
 
-func (k KdeployService) Logs(ref *kdeploypb.AppRef, server kdeploypb.KdeployService_LogsServer) error {
+func (k KdeployService) Logs(ref *kdeploypb.Ref, server kdeploypb.KdeployService_LogsServer) error {
 	stream, err := k.client.StreamLogs(server.Context(), ref)
 	if err != nil {
 		k.client.L().Error("failed to stream logs", zap.Error(err))
@@ -71,4 +71,20 @@ func (k KdeployService) Logs(ref *kdeploypb.AppRef, server kdeploypb.KdeployServ
 			}
 		}
 	}
+}
+
+func (k KdeployService) CreateTask(ctx context.Context, constructor *kdeploypb.TaskConstructor) (*kdeploypb.Task, error) {
+	panic("implement me")
+}
+
+func (k KdeployService) UpdateTask(ctx context.Context, update *kdeploypb.TaskUpdate) (*kdeploypb.Task, error) {
+	panic("implement me")
+}
+
+func (k KdeployService) DeleteTask(ctx context.Context, ref *kdeploypb.Ref) (*empty.Empty, error) {
+	panic("implement me")
+}
+
+func (k KdeployService) GetTask(ctx context.Context, ref *kdeploypb.Ref) (*kdeploypb.Task, error) {
+	panic("implement me")
 }
