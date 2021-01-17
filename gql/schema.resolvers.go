@@ -5,7 +5,6 @@ package gql
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/99designs/gqlgen/graphql"
 	"github.com/autom8ter/kdeploy/gen/gql/go/generated"
@@ -52,21 +51,48 @@ func (r *mutationResolver) DelApp(ctx context.Context, input model.Ref) (*string
 }
 
 func (r *mutationResolver) CreateTask(ctx context.Context, input model.TaskConstructor) (*model.Task, error) {
-	panic(fmt.Errorf("not implemented"))
+	task, err := r.client.CreateTask(ctx, toTaskC(input))
+	if err != nil {
+		return nil, &gqlerror.Error{
+			Message: err.Error(),
+			Path:    graphql.GetPath(ctx),
+		}
+	}
+	return fromTask(task), nil
 }
 
 func (r *mutationResolver) UpdateTask(ctx context.Context, input model.TaskUpdate) (*model.Task, error) {
-	panic(fmt.Errorf("not implemented"))
+	task, err := r.client.UpdateTask(ctx, toTaskU(input))
+	if err != nil {
+		return nil, &gqlerror.Error{
+			Message: err.Error(),
+			Path:    graphql.GetPath(ctx),
+		}
+	}
+	return fromTask(task), nil
 }
 
 func (r *mutationResolver) DelTask(ctx context.Context, input model.Ref) (*string, error) {
-	panic(fmt.Errorf("not implemented"))
+	_, err := r.client.DeleteApp(ctx, &kdeploypb.Ref{
+		Name:      input.Name,
+		Namespace: input.Namespace,
+	})
+	if err != nil {
+		return nil, &gqlerror.Error{
+			Message: err.Error(),
+			Path:    graphql.GetPath(ctx),
+		}
+	}
+	return nil, nil
 }
 
 func (r *mutationResolver) DelAll(ctx context.Context, input model.Namespace) (*string, error) {
 	_, err := r.client.DeleteAll(ctx, &kdeploypb.Namespace{Namespace: input.Namespace})
 	if err != nil {
-		return nil, err
+		return nil, &gqlerror.Error{
+			Message: err.Error(),
+			Path:    graphql.GetPath(ctx),
+		}
 	}
 	return nil, nil
 }
@@ -101,11 +127,32 @@ func (r *queryResolver) ListApps(ctx context.Context, input model.Namespace) ([]
 }
 
 func (r *queryResolver) GetTask(ctx context.Context, input model.Ref) (*model.Task, error) {
-	panic(fmt.Errorf("not implemented"))
+	app, err := r.client.GetTask(ctx, &kdeploypb.Ref{
+		Name:      input.Name,
+		Namespace: input.Namespace,
+	})
+	if err != nil {
+		return nil, &gqlerror.Error{
+			Message: err.Error(),
+			Path:    graphql.GetPath(ctx),
+		}
+	}
+	return fromTask(app), nil
 }
 
 func (r *queryResolver) ListTasks(ctx context.Context, input model.Namespace) ([]*model.Task, error) {
-	panic(fmt.Errorf("not implemented"))
+	apps, err := r.client.ListTasks(ctx, &kdeploypb.Namespace{Namespace: input.Namespace})
+	if err != nil {
+		return nil, &gqlerror.Error{
+			Message: err.Error(),
+			Path:    graphql.GetPath(ctx),
+		}
+	}
+	var toReturn []*model.Task
+	for _, a := range apps.GetTasks() {
+		toReturn = append(toReturn, fromTask(a))
+	}
+	return toReturn, nil
 }
 
 func (r *queryResolver) ListNamespaces(ctx context.Context, input *string) (*model.Namespaces, error) {

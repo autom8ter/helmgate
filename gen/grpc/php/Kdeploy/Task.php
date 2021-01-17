@@ -48,6 +48,10 @@ class Task extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string schedule = 7;</code>
      */
     private $schedule = '';
+    /**
+     * Generated from protobuf field <code>uint64 completions = 8;</code>
+     */
+    private $completions = 0;
 
     /**
      * Constructor.
@@ -66,6 +70,7 @@ class Task extends \Google\Protobuf\Internal\Message
      *     @type array|\Google\Protobuf\Internal\MapField $env
      *           k/v map of environmental variables
      *     @type string $schedule
+     *     @type int|string $completions
      * }
      */
     public function __construct($data = NULL) {
@@ -223,6 +228,28 @@ class Task extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->schedule = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 completions = 8;</code>
+     * @return int|string
+     */
+    public function getCompletions()
+    {
+        return $this->completions;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 completions = 8;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setCompletions($var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->completions = $var;
 
         return $this;
     }

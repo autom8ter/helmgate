@@ -462,7 +462,8 @@ proto.kdeploy.Task.toObject = function(includeInstance, msg) {
     image: jspb.Message.getFieldWithDefault(msg, 3, ""),
     argsList: jspb.Message.getRepeatedField(msg, 5),
     envMap: (f = msg.getEnvMap()) ? f.toObject(includeInstance, undefined) : [],
-    schedule: jspb.Message.getFieldWithDefault(msg, 7, "")
+    schedule: jspb.Message.getFieldWithDefault(msg, 7, ""),
+    completions: jspb.Message.getFieldWithDefault(msg, 8, 0)
   };
 
   if (includeInstance) {
@@ -524,6 +525,10 @@ proto.kdeploy.Task.deserializeBinaryFromReader = function(msg, reader) {
     case 7:
       var value = /** @type {string} */ (reader.readString());
       msg.setSchedule(value);
+      break;
+    case 8:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setCompletions(value);
       break;
     default:
       reader.skipField();
@@ -590,6 +595,13 @@ proto.kdeploy.Task.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeString(
       7,
+      f
+    );
+  }
+  f = message.getCompletions();
+  if (f !== 0) {
+    writer.writeUint64(
+      8,
       f
     );
   }
@@ -700,6 +712,21 @@ proto.kdeploy.Task.prototype.getSchedule = function() {
 /** @param {string} value */
 proto.kdeploy.Task.prototype.setSchedule = function(value) {
   jspb.Message.setProto3StringField(this, 7, value);
+};
+
+
+/**
+ * optional uint64 completions = 8;
+ * @return {number}
+ */
+proto.kdeploy.Task.prototype.getCompletions = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
+};
+
+
+/** @param {number} value */
+proto.kdeploy.Task.prototype.setCompletions = function(value) {
+  jspb.Message.setProto3IntField(this, 8, value);
 };
 
 

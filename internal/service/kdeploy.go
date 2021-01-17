@@ -74,21 +74,21 @@ func (k KdeployService) Logs(ref *kdeploypb.Ref, server kdeploypb.KdeployService
 }
 
 func (k KdeployService) CreateTask(ctx context.Context, constructor *kdeploypb.TaskConstructor) (*kdeploypb.Task, error) {
-	panic("implement me")
+	return k.client.CreateTask(ctx, constructor)
 }
 
 func (k KdeployService) UpdateTask(ctx context.Context, update *kdeploypb.TaskUpdate) (*kdeploypb.Task, error) {
-	panic("implement me")
+	return k.client.UpdateTask(ctx, update)
 }
 
 func (k KdeployService) DeleteTask(ctx context.Context, ref *kdeploypb.Ref) (*empty.Empty, error) {
-	panic("implement me")
+	return &empty.Empty{}, k.client.DeleteTask(ctx, ref)
 }
 
 func (k KdeployService) GetTask(ctx context.Context, ref *kdeploypb.Ref) (*kdeploypb.Task, error) {
-	panic("implement me")
+	return k.client.GetTask(ctx, ref)
 }
 
 func (k KdeployService) ListTasks(ctx context.Context, ns *kdeploypb.Namespace) (*kdeploypb.Tasks, error) {
-	panic("implement me")
+	return k.client.ListTasks(ctx, ns)
 }

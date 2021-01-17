@@ -42,6 +42,7 @@ message Task {
   map<string, string> env =6;
   //
   string schedule = 7;
+  uint64 completions = 8;
 }
 
 message TaskConstructor {

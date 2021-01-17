@@ -25,6 +25,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     repeated :args, :string, 5
     map :env, :string, :string, 6
     optional :schedule, :string, 7
+    optional :completions, :uint64, 8
   end
   add_message "kdeploy.TaskConstructor" do
     optional :name, :string, 1

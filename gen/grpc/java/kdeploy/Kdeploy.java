@@ -2421,6 +2421,11 @@ public final class Kdeploy {
      */
     com.google.protobuf.ByteString
         getScheduleBytes();
+
+    /**
+     * <code>uint64 completions = 8;</code>
+     */
+    long getCompletions();
   }
   /**
    * Protobuf type {@code kdeploy.Task}
@@ -2440,6 +2445,7 @@ public final class Kdeploy {
       image_ = "";
       args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       schedule_ = "";
+      completions_ = 0L;
     }
 
     @java.lang.Override
@@ -2510,6 +2516,11 @@ public final class Kdeploy {
               java.lang.String s = input.readStringRequireUtf8();
 
               schedule_ = s;
+              break;
+            }
+            case 64: {
+
+              completions_ = input.readUInt64();
               break;
             }
             default: {
@@ -2863,6 +2874,15 @@ public final class Kdeploy {
       }
     }
 
+    public static final int COMPLETIONS_FIELD_NUMBER = 8;
+    private long completions_;
+    /**
+     * <code>uint64 completions = 8;</code>
+     */
+    public long getCompletions() {
+      return completions_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2897,6 +2917,9 @@ public final class Kdeploy {
           6);
       if (!getScheduleBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, schedule_);
+      }
+      if (completions_ != 0L) {
+        output.writeUInt64(8, completions_);
       }
       unknownFields.writeTo(output);
     }
@@ -2937,6 +2960,10 @@ public final class Kdeploy {
       if (!getScheduleBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, schedule_);
       }
+      if (completions_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(8, completions_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -2965,6 +2992,8 @@ public final class Kdeploy {
           other.internalGetEnv());
       result = result && getSchedule()
           .equals(other.getSchedule());
+      result = result && (getCompletions()
+          == other.getCompletions());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -2992,6 +3021,9 @@ public final class Kdeploy {
       }
       hash = (37 * hash) + SCHEDULE_FIELD_NUMBER;
       hash = (53 * hash) + getSchedule().hashCode();
+      hash = (37 * hash) + COMPLETIONS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getCompletions());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3158,6 +3190,8 @@ public final class Kdeploy {
         internalGetMutableEnv().clear();
         schedule_ = "";
 
+        completions_ = 0L;
+
         return this;
       }
 
@@ -3197,6 +3231,7 @@ public final class Kdeploy {
         result.env_ = internalGetEnv();
         result.env_.makeImmutable();
         result.schedule_ = schedule_;
+        result.completions_ = completions_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -3273,6 +3308,9 @@ public final class Kdeploy {
         if (!other.getSchedule().isEmpty()) {
           schedule_ = other.schedule_;
           onChanged();
+        }
+        if (other.getCompletions() != 0L) {
+          setCompletions(other.getCompletions());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -3932,6 +3970,32 @@ public final class Kdeploy {
   checkByteStringIsUtf8(value);
         
         schedule_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long completions_ ;
+      /**
+       * <code>uint64 completions = 8;</code>
+       */
+      public long getCompletions() {
+        return completions_;
+      }
+      /**
+       * <code>uint64 completions = 8;</code>
+       */
+      public Builder setCompletions(long value) {
+        
+        completions_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 completions = 8;</code>
+       */
+      public Builder clearCompletions() {
+        
+        completions_ = 0L;
         onChanged();
         return this;
       }
@@ -17197,66 +17261,66 @@ public final class Kdeploy {
       "\001(\r\022\"\n\006status\030\t \001(\0132\022.kdeploy.AppStatus\032" +
       "*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:" +
       "\0028\001\032,\n\nPortsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
-      "\002 \001(\r:\0028\001\"\247\001\n\004Task\022\014\n\004name\030\001 \001(\t\022\021\n\tname" +
+      "\002 \001(\r:\0028\001\"\274\001\n\004Task\022\014\n\004name\030\001 \001(\t\022\021\n\tname" +
       "space\030\002 \001(\t\022\r\n\005image\030\003 \001(\t\022\014\n\004args\030\005 \003(\t" +
       "\022#\n\003env\030\006 \003(\0132\026.kdeploy.Task.EnvEntry\022\020\n" +
-      "\010schedule\030\007 \001(\t\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t" +
-      "\022\r\n\005value\030\002 \001(\t:\0028\001\"\205\002\n\017TaskConstructor\022" +
+      "\010schedule\030\007 \001(\t\022\023\n\013completions\030\010 \001(\004\032*\n\010" +
+      "EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001" +
+      "\"\205\002\n\017TaskConstructor\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014" +
+      "\n\n^.{1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^" +
+      ".{1,225}$\022\037\n\005image\030\003 \001(\tB\020\342\337\037\014\n\n^.{1,225" +
+      "}$\022\014\n\004args\030\005 \003(\t\022.\n\003env\030\006 \003(\0132!.kdeploy." +
+      "TaskConstructor.EnvEntry\022\"\n\010schedule\030\007 \001" +
+      "(\tB\020\342\337\037\014\n\n^.{1,225}$\032*\n\010EnvEntry\022\013\n\003key\030" +
+      "\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\327\001\n\nTaskUpdate\022" +
       "\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022#\n\tnames" +
-      "pace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\037\n\005image\030\003 " +
-      "\001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\014\n\004args\030\005 \003(\t\022.\n\003e" +
-      "nv\030\006 \003(\0132!.kdeploy.TaskConstructor.EnvEn" +
-      "try\022\"\n\010schedule\030\007 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\032" +
-      "*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:" +
-      "\0028\001\"\327\001\n\nTaskUpdate\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n" +
-      "^.{1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{" +
-      "1,225}$\022\r\n\005image\030\003 \001(\t\022\014\n\004args\030\005 \003(\t\022)\n\003" +
-      "env\030\006 \003(\0132\034.kdeploy.TaskUpdate.EnvEntry\022" +
-      "\020\n\010schedule\030\007 \001(\t\032*\n\010EnvEntry\022\013\n\003key\030\001 \001" +
-      "(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\322\002\n\016AppConstructor" +
-      "\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022#\n\tname" +
-      "space\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\037\n\005image\030\003" +
-      " \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\014\n\004args\030\004 \003(\t\022-\n\003" +
-      "env\030\005 \003(\0132 .kdeploy.AppConstructor.EnvEn" +
-      "try\0221\n\005ports\030\006 \003(\0132\".kdeploy.AppConstruc" +
-      "tor.PortsEntry\022\020\n\010replicas\030\007 \001(\r\032*\n\010EnvE" +
-      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032,\n\n" +
-      "PortsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\002" +
-      "8\001\"\261\002\n\tAppUpdate\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^." +
-      "{1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1," +
-      "225}$\022\r\n\005image\030\003 \001(\t\022\014\n\004args\030\004 \003(\t\022(\n\003en" +
-      "v\030\005 \003(\0132\033.kdeploy.AppUpdate.EnvEntry\022,\n\005" +
-      "ports\030\006 \003(\0132\035.kdeploy.AppUpdate.PortsEnt" +
-      "ry\022\020\n\010replicas\030\007 \001(\r\032*\n\010EnvEntry\022\013\n\003key\030" +
-      "\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032,\n\nPortsEntry\022\013" +
-      "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\"J\n\003Ref\022\036\n" +
+      "pace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\r\n\005image\030\003 " +
+      "\001(\t\022\014\n\004args\030\005 \003(\t\022)\n\003env\030\006 \003(\0132\034.kdeploy" +
+      ".TaskUpdate.EnvEntry\022\020\n\010schedule\030\007 \001(\t\032*" +
+      "\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\002" +
+      "8\001\"\322\002\n\016AppConstructor\022\036\n\004name\030\001 \001(\tB\020\342\337\037" +
+      "\014\n\n^.{1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n" +
+      "^.{1,225}$\022\037\n\005image\030\003 \001(\tB\020\342\337\037\014\n\n^.{1,22" +
+      "5}$\022\014\n\004args\030\004 \003(\t\022-\n\003env\030\005 \003(\0132 .kdeploy" +
+      ".AppConstructor.EnvEntry\0221\n\005ports\030\006 \003(\0132" +
+      "\".kdeploy.AppConstructor.PortsEntry\022\020\n\010r" +
+      "eplicas\030\007 \001(\r\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r" +
+      "\n\005value\030\002 \001(\t:\0028\001\032,\n\nPortsEntry\022\013\n\003key\030\001" +
+      " \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\"\261\002\n\tAppUpdate\022\036\n" +
       "\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022#\n\tnamespa" +
-      "ce\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\";\n\007Replica\022\r\n" +
-      "\005phase\030\001 \001(\t\022\021\n\tcondition\030\002 \001(\t\022\016\n\006reaso" +
-      "n\030\003 \001(\t\"/\n\tAppStatus\022\"\n\010replicas\030\001 \003(\0132\020" +
-      ".kdeploy.Replica\"\026\n\003Log\022\017\n\007message\030\001 \001(\t" +
-      "\"*\n\004Apps\022\"\n\014applications\030\001 \003(\0132\014.kdeploy" +
-      ".App\"%\n\005Tasks\022\034\n\005tasks\030\001 \003(\0132\r.kdeploy.T" +
-      "ask\"\036\n\tNamespace\022\021\n\tnamespace\030\001 \001(\t\" \n\nN" +
-      "amespaces\022\022\n\nnamespaces\030\001 \003(\t2\251\005\n\016Kdeplo" +
-      "yService\0224\n\tCreateApp\022\027.kdeploy.AppConst" +
-      "ructor\032\014.kdeploy.App\"\000\022/\n\tUpdateApp\022\022.kd" +
-      "eploy.AppUpdate\032\014.kdeploy.App\"\000\0223\n\tDelet" +
-      "eApp\022\014.kdeploy.Ref\032\026.google.protobuf.Emp" +
-      "ty\"\000\022&\n\006GetApp\022\014.kdeploy.Ref\032\014.kdeploy.A" +
-      "pp\"\000\022/\n\010ListApps\022\022.kdeploy.Namespace\032\r.k" +
-      "deploy.Apps\"\000\022&\n\004Logs\022\014.kdeploy.Ref\032\014.kd" +
-      "eploy.Log\"\0000\001\022?\n\016ListNamespaces\022\026.google" +
-      ".protobuf.Empty\032\023.kdeploy.Namespaces\"\000\0229" +
-      "\n\tDeleteAll\022\022.kdeploy.Namespace\032\026.google" +
-      ".protobuf.Empty\"\000\0227\n\nCreateTask\022\030.kdeplo" +
-      "y.TaskConstructor\032\r.kdeploy.Task\"\000\0222\n\nUp" +
-      "dateTask\022\023.kdeploy.TaskUpdate\032\r.kdeploy." +
-      "Task\"\000\0224\n\nDeleteTask\022\014.kdeploy.Ref\032\026.goo" +
-      "gle.protobuf.Empty\"\000\022(\n\007GetTask\022\014.kdeplo" +
-      "y.Ref\032\r.kdeploy.Task\"\000\0221\n\tListTasks\022\022.kd" +
-      "eploy.Namespace\032\016.kdeploy.Tasks\"\000B\013Z\tkde" +
-      "ploypbb\006proto3"
+      "ce\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\r\n\005image\030\003 \001(" +
+      "\t\022\014\n\004args\030\004 \003(\t\022(\n\003env\030\005 \003(\0132\033.kdeploy.A" +
+      "ppUpdate.EnvEntry\022,\n\005ports\030\006 \003(\0132\035.kdepl" +
+      "oy.AppUpdate.PortsEntry\022\020\n\010replicas\030\007 \001(" +
+      "\r\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(" +
+      "\t:\0028\001\032,\n\nPortsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005valu" +
+      "e\030\002 \001(\r:\0028\001\"J\n\003Ref\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n" +
+      "^.{1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{" +
+      "1,225}$\";\n\007Replica\022\r\n\005phase\030\001 \001(\t\022\021\n\tcon" +
+      "dition\030\002 \001(\t\022\016\n\006reason\030\003 \001(\t\"/\n\tAppStatu" +
+      "s\022\"\n\010replicas\030\001 \003(\0132\020.kdeploy.Replica\"\026\n" +
+      "\003Log\022\017\n\007message\030\001 \001(\t\"*\n\004Apps\022\"\n\014applica" +
+      "tions\030\001 \003(\0132\014.kdeploy.App\"%\n\005Tasks\022\034\n\005ta" +
+      "sks\030\001 \003(\0132\r.kdeploy.Task\"\036\n\tNamespace\022\021\n" +
+      "\tnamespace\030\001 \001(\t\" \n\nNamespaces\022\022\n\nnamesp" +
+      "aces\030\001 \003(\t2\251\005\n\016KdeployService\0224\n\tCreateA" +
+      "pp\022\027.kdeploy.AppConstructor\032\014.kdeploy.Ap" +
+      "p\"\000\022/\n\tUpdateApp\022\022.kdeploy.AppUpdate\032\014.k" +
+      "deploy.App\"\000\0223\n\tDeleteApp\022\014.kdeploy.Ref\032" +
+      "\026.google.protobuf.Empty\"\000\022&\n\006GetApp\022\014.kd" +
+      "eploy.Ref\032\014.kdeploy.App\"\000\022/\n\010ListApps\022\022." +
+      "kdeploy.Namespace\032\r.kdeploy.Apps\"\000\022&\n\004Lo" +
+      "gs\022\014.kdeploy.Ref\032\014.kdeploy.Log\"\0000\001\022?\n\016Li" +
+      "stNamespaces\022\026.google.protobuf.Empty\032\023.k" +
+      "deploy.Namespaces\"\000\0229\n\tDeleteAll\022\022.kdepl" +
+      "oy.Namespace\032\026.google.protobuf.Empty\"\000\0227" +
+      "\n\nCreateTask\022\030.kdeploy.TaskConstructor\032\r" +
+      ".kdeploy.Task\"\000\0222\n\nUpdateTask\022\023.kdeploy." +
+      "TaskUpdate\032\r.kdeploy.Task\"\000\0224\n\nDeleteTas" +
+      "k\022\014.kdeploy.Ref\032\026.google.protobuf.Empty\"" +
+      "\000\022(\n\007GetTask\022\014.kdeploy.Ref\032\r.kdeploy.Tas" +
+      "k\"\000\0221\n\tListTasks\022\022.kdeploy.Namespace\032\016.k" +
+      "deploy.Tasks\"\000B\013Z\tkdeploypbb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -17298,7 +17362,7 @@ public final class Kdeploy {
     internal_static_kdeploy_Task_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Task_descriptor,
-        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Schedule", });
+        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Schedule", "Completions", });
     internal_static_kdeploy_Task_EnvEntry_descriptor =
       internal_static_kdeploy_Task_descriptor.getNestedTypes().get(0);
     internal_static_kdeploy_Task_EnvEntry_fieldAccessorTable = new

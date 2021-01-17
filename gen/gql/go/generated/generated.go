@@ -639,7 +639,7 @@ input TaskUpdate {
     args: [String!]
     # k/v map of environmental variables
     env: Map
-    schedule: String!
+    schedule: String
 }
 
 input Ref {
@@ -656,8 +656,8 @@ type Mutation {
 
     createTask(input: TaskConstructor!): Task
     updateTask(input: TaskUpdate!): Task
-    delTask(input: Ref!): String
 
+    delTask(input: Ref!): String
     delAll(input: Namespace!): String
 }
 
@@ -3590,7 +3590,7 @@ func (ec *executionContext) unmarshalInputTaskUpdate(ctx context.Context, obj in
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("schedule"))
-			it.Schedule, err = ec.unmarshalNString2string(ctx, v)
+			it.Schedule, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}

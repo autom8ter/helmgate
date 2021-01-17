@@ -29,6 +29,21 @@ func toAppC(input model.AppConstructor) *kdeploypb.AppConstructor {
 	}
 }
 
+func toTaskC(input model.TaskConstructor) *kdeploypb.TaskConstructor {
+	var env map[string]string
+	if input.Env != nil {
+		env = cast.ToStringMapString(input.Env)
+	}
+	return &kdeploypb.TaskConstructor{
+		Name:      input.Name,
+		Namespace: input.Namespace,
+		Image:     input.Image,
+		Env:       env,
+		Args:      input.Args,
+		Schedule:  input.Schedule,
+	}
+}
+
 func toAppU(input model.AppUpdate) *kdeploypb.AppUpdate {
 	var (
 		env      map[string]string
@@ -58,6 +73,31 @@ func toAppU(input model.AppUpdate) *kdeploypb.AppUpdate {
 		Env:       env,
 		Ports:     ports,
 		Replicas:  replicas,
+		Args:      input.Args,
+	}
+}
+
+func toTaskU(input model.TaskUpdate) *kdeploypb.TaskUpdate {
+	var (
+		env      map[string]string
+		schedule string
+		image    string
+	)
+	if input.Env != nil {
+		env = cast.ToStringMapString(input.Env)
+	}
+	if input.Image != nil {
+		image = *input.Image
+	}
+	if input.Schedule != nil {
+		schedule = *input.Schedule
+	}
+	return &kdeploypb.TaskUpdate{
+		Name:      input.Name,
+		Namespace: input.Namespace,
+		Image:     image,
+		Env:       env,
+		Schedule:  schedule,
 		Args:      input.Args,
 	}
 }
@@ -96,6 +136,26 @@ func fromApp(app *kdeploypb.App) *model.App {
 		Replicas:  int(app.Replicas),
 		Status:    status,
 		Args:      app.Args,
+	}
+}
+
+func fromTask(app *kdeploypb.Task) *model.Task {
+	var (
+		env map[string]interface{}
+	)
+	if app.Env != nil {
+		env = map[string]interface{}{}
+		for k, v := range app.Env {
+			env[k] = v
+		}
+	}
+	return &model.Task{
+		Name:      app.Name,
+		Namespace: app.Namespace,
+		Image:     app.Image,
+		Args:      app.Args,
+		Env:       env,
+		Schedule:  app.Schedule,
 	}
 }
 

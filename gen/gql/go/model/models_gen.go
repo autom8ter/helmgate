@@ -84,5 +84,5 @@ type TaskUpdate struct {
 	Image     *string                `json:"image"`
 	Args      []string               `json:"args"`
 	Env       map[string]interface{} `json:"env"`
-	Schedule  string                 `json:"schedule"`
+	Schedule  *string                `json:"schedule"`
 }

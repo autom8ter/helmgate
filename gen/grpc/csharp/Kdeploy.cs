@@ -34,65 +34,65 @@ namespace Kdeploy {
             "ByADKAsyFy5rZGVwbG95LkFwcC5Qb3J0c0VudHJ5EhAKCHJlcGxpY2FzGAgg",
             "ASgNEiIKBnN0YXR1cxgJIAEoCzISLmtkZXBsb3kuQXBwU3RhdHVzGioKCEVu",
             "dkVudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEaLAoKUG9y",
-            "dHNFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKA06AjgBIqcBCgRU",
+            "dHNFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKA06AjgBIrwBCgRU",
             "YXNrEgwKBG5hbWUYASABKAkSEQoJbmFtZXNwYWNlGAIgASgJEg0KBWltYWdl",
             "GAMgASgJEgwKBGFyZ3MYBSADKAkSIwoDZW52GAYgAygLMhYua2RlcGxveS5U",
-            "YXNrLkVudkVudHJ5EhAKCHNjaGVkdWxlGAcgASgJGioKCEVudkVudHJ5EgsK",
-            "A2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEihQIKD1Rhc2tDb25zdHJ1",
-            "Y3RvchIeCgRuYW1lGAEgASgJQhDi3x8MCgpeLnsxLDIyNX0kEiMKCW5hbWVz",
-            "cGFjZRgCIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIfCgVpbWFnZRgDIAEoCUIQ",
-            "4t8fDAoKXi57MSwyMjV9JBIMCgRhcmdzGAUgAygJEi4KA2VudhgGIAMoCzIh",
-            "LmtkZXBsb3kuVGFza0NvbnN0cnVjdG9yLkVudkVudHJ5EiIKCHNjaGVkdWxl",
-            "GAcgASgJQhDi3x8MCgpeLnsxLDIyNX0kGioKCEVudkVudHJ5EgsKA2tleRgB",
-            "IAEoCRINCgV2YWx1ZRgCIAEoCToCOAEi1wEKClRhc2tVcGRhdGUSHgoEbmFt",
-            "ZRgBIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIjCgluYW1lc3BhY2UYAiABKAlC",
-            "EOLfHwwKCl4uezEsMjI1fSQSDQoFaW1hZ2UYAyABKAkSDAoEYXJncxgFIAMo",
-            "CRIpCgNlbnYYBiADKAsyHC5rZGVwbG95LlRhc2tVcGRhdGUuRW52RW50cnkS",
-            "EAoIc2NoZWR1bGUYByABKAkaKgoIRW52RW50cnkSCwoDa2V5GAEgASgJEg0K",
-            "BXZhbHVlGAIgASgJOgI4ASLSAgoOQXBwQ29uc3RydWN0b3ISHgoEbmFtZRgB",
-            "IAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIjCgluYW1lc3BhY2UYAiABKAlCEOLf",
-            "HwwKCl4uezEsMjI1fSQSHwoFaW1hZ2UYAyABKAlCEOLfHwwKCl4uezEsMjI1",
-            "fSQSDAoEYXJncxgEIAMoCRItCgNlbnYYBSADKAsyIC5rZGVwbG95LkFwcENv",
-            "bnN0cnVjdG9yLkVudkVudHJ5EjEKBXBvcnRzGAYgAygLMiIua2RlcGxveS5B",
-            "cHBDb25zdHJ1Y3Rvci5Qb3J0c0VudHJ5EhAKCHJlcGxpY2FzGAcgASgNGioK",
-            "CEVudkVudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEaLAoK",
-            "UG9ydHNFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKA06AjgBIrEC",
-            "CglBcHBVcGRhdGUSHgoEbmFtZRgBIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIj",
-            "CgluYW1lc3BhY2UYAiABKAlCEOLfHwwKCl4uezEsMjI1fSQSDQoFaW1hZ2UY",
-            "AyABKAkSDAoEYXJncxgEIAMoCRIoCgNlbnYYBSADKAsyGy5rZGVwbG95LkFw",
-            "cFVwZGF0ZS5FbnZFbnRyeRIsCgVwb3J0cxgGIAMoCzIdLmtkZXBsb3kuQXBw",
-            "VXBkYXRlLlBvcnRzRW50cnkSEAoIcmVwbGljYXMYByABKA0aKgoIRW52RW50",
-            "cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ARosCgpQb3J0c0Vu",
-            "dHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoDToCOAEiSgoDUmVmEh4K",
-            "BG5hbWUYASABKAlCEOLfHwwKCl4uezEsMjI1fSQSIwoJbmFtZXNwYWNlGAIg",
-            "ASgJQhDi3x8MCgpeLnsxLDIyNX0kIjsKB1JlcGxpY2ESDQoFcGhhc2UYASAB",
-            "KAkSEQoJY29uZGl0aW9uGAIgASgJEg4KBnJlYXNvbhgDIAEoCSIvCglBcHBT",
-            "dGF0dXMSIgoIcmVwbGljYXMYASADKAsyEC5rZGVwbG95LlJlcGxpY2EiFgoD",
-            "TG9nEg8KB21lc3NhZ2UYASABKAkiKgoEQXBwcxIiCgxhcHBsaWNhdGlvbnMY",
-            "ASADKAsyDC5rZGVwbG95LkFwcCIlCgVUYXNrcxIcCgV0YXNrcxgBIAMoCzIN",
-            "LmtkZXBsb3kuVGFzayIeCglOYW1lc3BhY2USEQoJbmFtZXNwYWNlGAEgASgJ",
-            "IiAKCk5hbWVzcGFjZXMSEgoKbmFtZXNwYWNlcxgBIAMoCTKpBQoOS2RlcGxv",
-            "eVNlcnZpY2USNAoJQ3JlYXRlQXBwEhcua2RlcGxveS5BcHBDb25zdHJ1Y3Rv",
-            "choMLmtkZXBsb3kuQXBwIgASLwoJVXBkYXRlQXBwEhIua2RlcGxveS5BcHBV",
-            "cGRhdGUaDC5rZGVwbG95LkFwcCIAEjMKCURlbGV0ZUFwcBIMLmtkZXBsb3ku",
-            "UmVmGhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgASJgoGR2V0QXBwEgwua2Rl",
-            "cGxveS5SZWYaDC5rZGVwbG95LkFwcCIAEi8KCExpc3RBcHBzEhIua2RlcGxv",
-            "eS5OYW1lc3BhY2UaDS5rZGVwbG95LkFwcHMiABImCgRMb2dzEgwua2RlcGxv",
-            "eS5SZWYaDC5rZGVwbG95LkxvZyIAMAESPwoOTGlzdE5hbWVzcGFjZXMSFi5n",
-            "b29nbGUucHJvdG9idWYuRW1wdHkaEy5rZGVwbG95Lk5hbWVzcGFjZXMiABI5",
-            "CglEZWxldGVBbGwSEi5rZGVwbG95Lk5hbWVzcGFjZRoWLmdvb2dsZS5wcm90",
-            "b2J1Zi5FbXB0eSIAEjcKCkNyZWF0ZVRhc2sSGC5rZGVwbG95LlRhc2tDb25z",
-            "dHJ1Y3RvchoNLmtkZXBsb3kuVGFzayIAEjIKClVwZGF0ZVRhc2sSEy5rZGVw",
-            "bG95LlRhc2tVcGRhdGUaDS5rZGVwbG95LlRhc2siABI0CgpEZWxldGVUYXNr",
-            "Egwua2RlcGxveS5SZWYaFi5nb29nbGUucHJvdG9idWYuRW1wdHkiABIoCgdH",
-            "ZXRUYXNrEgwua2RlcGxveS5SZWYaDS5rZGVwbG95LlRhc2siABIxCglMaXN0",
-            "VGFza3MSEi5rZGVwbG95Lk5hbWVzcGFjZRoOLmtkZXBsb3kuVGFza3MiAEIL",
-            "WglrZGVwbG95cGJiBnByb3RvMw=="));
+            "YXNrLkVudkVudHJ5EhAKCHNjaGVkdWxlGAcgASgJEhMKC2NvbXBsZXRpb25z",
+            "GAggASgEGioKCEVudkVudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEo",
+            "CToCOAEihQIKD1Rhc2tDb25zdHJ1Y3RvchIeCgRuYW1lGAEgASgJQhDi3x8M",
+            "CgpeLnsxLDIyNX0kEiMKCW5hbWVzcGFjZRgCIAEoCUIQ4t8fDAoKXi57MSwy",
+            "MjV9JBIfCgVpbWFnZRgDIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIMCgRhcmdz",
+            "GAUgAygJEi4KA2VudhgGIAMoCzIhLmtkZXBsb3kuVGFza0NvbnN0cnVjdG9y",
+            "LkVudkVudHJ5EiIKCHNjaGVkdWxlGAcgASgJQhDi3x8MCgpeLnsxLDIyNX0k",
+            "GioKCEVudkVudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEi",
+            "1wEKClRhc2tVcGRhdGUSHgoEbmFtZRgBIAEoCUIQ4t8fDAoKXi57MSwyMjV9",
+            "JBIjCgluYW1lc3BhY2UYAiABKAlCEOLfHwwKCl4uezEsMjI1fSQSDQoFaW1h",
+            "Z2UYAyABKAkSDAoEYXJncxgFIAMoCRIpCgNlbnYYBiADKAsyHC5rZGVwbG95",
+            "LlRhc2tVcGRhdGUuRW52RW50cnkSEAoIc2NoZWR1bGUYByABKAkaKgoIRW52",
+            "RW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ASLSAgoOQXBw",
+            "Q29uc3RydWN0b3ISHgoEbmFtZRgBIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIj",
+            "CgluYW1lc3BhY2UYAiABKAlCEOLfHwwKCl4uezEsMjI1fSQSHwoFaW1hZ2UY",
+            "AyABKAlCEOLfHwwKCl4uezEsMjI1fSQSDAoEYXJncxgEIAMoCRItCgNlbnYY",
+            "BSADKAsyIC5rZGVwbG95LkFwcENvbnN0cnVjdG9yLkVudkVudHJ5EjEKBXBv",
+            "cnRzGAYgAygLMiIua2RlcGxveS5BcHBDb25zdHJ1Y3Rvci5Qb3J0c0VudHJ5",
+            "EhAKCHJlcGxpY2FzGAcgASgNGioKCEVudkVudHJ5EgsKA2tleRgBIAEoCRIN",
+            "CgV2YWx1ZRgCIAEoCToCOAEaLAoKUG9ydHNFbnRyeRILCgNrZXkYASABKAkS",
+            "DQoFdmFsdWUYAiABKA06AjgBIrECCglBcHBVcGRhdGUSHgoEbmFtZRgBIAEo",
+            "CUIQ4t8fDAoKXi57MSwyMjV9JBIjCgluYW1lc3BhY2UYAiABKAlCEOLfHwwK",
+            "Cl4uezEsMjI1fSQSDQoFaW1hZ2UYAyABKAkSDAoEYXJncxgEIAMoCRIoCgNl",
+            "bnYYBSADKAsyGy5rZGVwbG95LkFwcFVwZGF0ZS5FbnZFbnRyeRIsCgVwb3J0",
+            "cxgGIAMoCzIdLmtkZXBsb3kuQXBwVXBkYXRlLlBvcnRzRW50cnkSEAoIcmVw",
+            "bGljYXMYByABKA0aKgoIRW52RW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVl",
+            "GAIgASgJOgI4ARosCgpQb3J0c0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1",
+            "ZRgCIAEoDToCOAEiSgoDUmVmEh4KBG5hbWUYASABKAlCEOLfHwwKCl4uezEs",
+            "MjI1fSQSIwoJbmFtZXNwYWNlGAIgASgJQhDi3x8MCgpeLnsxLDIyNX0kIjsK",
+            "B1JlcGxpY2ESDQoFcGhhc2UYASABKAkSEQoJY29uZGl0aW9uGAIgASgJEg4K",
+            "BnJlYXNvbhgDIAEoCSIvCglBcHBTdGF0dXMSIgoIcmVwbGljYXMYASADKAsy",
+            "EC5rZGVwbG95LlJlcGxpY2EiFgoDTG9nEg8KB21lc3NhZ2UYASABKAkiKgoE",
+            "QXBwcxIiCgxhcHBsaWNhdGlvbnMYASADKAsyDC5rZGVwbG95LkFwcCIlCgVU",
+            "YXNrcxIcCgV0YXNrcxgBIAMoCzINLmtkZXBsb3kuVGFzayIeCglOYW1lc3Bh",
+            "Y2USEQoJbmFtZXNwYWNlGAEgASgJIiAKCk5hbWVzcGFjZXMSEgoKbmFtZXNw",
+            "YWNlcxgBIAMoCTKpBQoOS2RlcGxveVNlcnZpY2USNAoJQ3JlYXRlQXBwEhcu",
+            "a2RlcGxveS5BcHBDb25zdHJ1Y3RvchoMLmtkZXBsb3kuQXBwIgASLwoJVXBk",
+            "YXRlQXBwEhIua2RlcGxveS5BcHBVcGRhdGUaDC5rZGVwbG95LkFwcCIAEjMK",
+            "CURlbGV0ZUFwcBIMLmtkZXBsb3kuUmVmGhYuZ29vZ2xlLnByb3RvYnVmLkVt",
+            "cHR5IgASJgoGR2V0QXBwEgwua2RlcGxveS5SZWYaDC5rZGVwbG95LkFwcCIA",
+            "Ei8KCExpc3RBcHBzEhIua2RlcGxveS5OYW1lc3BhY2UaDS5rZGVwbG95LkFw",
+            "cHMiABImCgRMb2dzEgwua2RlcGxveS5SZWYaDC5rZGVwbG95LkxvZyIAMAES",
+            "PwoOTGlzdE5hbWVzcGFjZXMSFi5nb29nbGUucHJvdG9idWYuRW1wdHkaEy5r",
+            "ZGVwbG95Lk5hbWVzcGFjZXMiABI5CglEZWxldGVBbGwSEi5rZGVwbG95Lk5h",
+            "bWVzcGFjZRoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAEjcKCkNyZWF0ZVRh",
+            "c2sSGC5rZGVwbG95LlRhc2tDb25zdHJ1Y3RvchoNLmtkZXBsb3kuVGFzayIA",
+            "EjIKClVwZGF0ZVRhc2sSEy5rZGVwbG95LlRhc2tVcGRhdGUaDS5rZGVwbG95",
+            "LlRhc2siABI0CgpEZWxldGVUYXNrEgwua2RlcGxveS5SZWYaFi5nb29nbGUu",
+            "cHJvdG9idWYuRW1wdHkiABIoCgdHZXRUYXNrEgwua2RlcGxveS5SZWYaDS5r",
+            "ZGVwbG95LlRhc2siABIxCglMaXN0VGFza3MSEi5rZGVwbG95Lk5hbWVzcGFj",
+            "ZRoOLmtkZXBsb3kuVGFza3MiAEILWglrZGVwbG95cGJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Validator.ValidatorReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.App), global::Kdeploy.App.Parser, new[]{ "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", "Status" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.Task), global::Kdeploy.Task.Parser, new[]{ "Name", "Namespace", "Image", "Args", "Env", "Schedule" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.Task), global::Kdeploy.Task.Parser, new[]{ "Name", "Namespace", "Image", "Args", "Env", "Schedule", "Completions" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.TaskConstructor), global::Kdeploy.TaskConstructor.Parser, new[]{ "Name", "Namespace", "Image", "Args", "Env", "Schedule" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.TaskUpdate), global::Kdeploy.TaskUpdate.Parser, new[]{ "Name", "Namespace", "Image", "Args", "Env", "Schedule" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.AppConstructor), global::Kdeploy.AppConstructor.Parser, new[]{ "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
@@ -473,6 +473,7 @@ namespace Kdeploy {
       args_ = other.args_.Clone();
       env_ = other.env_.Clone();
       schedule_ = other.schedule_;
+      completions_ = other.completions_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -562,6 +563,17 @@ namespace Kdeploy {
       }
     }
 
+    /// <summary>Field number for the "completions" field.</summary>
+    public const int CompletionsFieldNumber = 8;
+    private ulong completions_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong Completions {
+      get { return completions_; }
+      set {
+        completions_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as Task);
@@ -581,6 +593,7 @@ namespace Kdeploy {
       if(!args_.Equals(other.args_)) return false;
       if (!Env.Equals(other.Env)) return false;
       if (Schedule != other.Schedule) return false;
+      if (Completions != other.Completions) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -593,6 +606,7 @@ namespace Kdeploy {
       hash ^= args_.GetHashCode();
       hash ^= Env.GetHashCode();
       if (Schedule.Length != 0) hash ^= Schedule.GetHashCode();
+      if (Completions != 0UL) hash ^= Completions.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -624,6 +638,10 @@ namespace Kdeploy {
         output.WriteRawTag(58);
         output.WriteString(Schedule);
       }
+      if (Completions != 0UL) {
+        output.WriteRawTag(64);
+        output.WriteUInt64(Completions);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -645,6 +663,9 @@ namespace Kdeploy {
       size += env_.CalculateSize(_map_env_codec);
       if (Schedule.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Schedule);
+      }
+      if (Completions != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Completions);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -670,6 +691,9 @@ namespace Kdeploy {
       env_.Add(other.env_);
       if (other.Schedule.Length != 0) {
         Schedule = other.Schedule;
+      }
+      if (other.Completions != 0UL) {
+        Completions = other.Completions;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -704,6 +728,10 @@ namespace Kdeploy {
           }
           case 58: {
             Schedule = input.ReadString();
+            break;
+          }
+          case 64: {
+            Completions = input.ReadUInt64();
             break;
           }
         }

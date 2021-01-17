@@ -119,7 +119,7 @@ input TaskUpdate {
     args: [String!]
     # k/v map of environmental variables
     env: Map
-    schedule: String!
+    schedule: String
 }
 
 input Ref {
@@ -136,8 +136,8 @@ type Mutation {
 
     createTask(input: TaskConstructor!): Task
     updateTask(input: TaskUpdate!): Task
-    delTask(input: Ref!): String
 
+    delTask(input: Ref!): String
     delAll(input: Namespace!): String
 }
 
