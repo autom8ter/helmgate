@@ -8385,6 +8385,1392 @@ public final class Kdeploy {
 
   }
 
+  public interface AppsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:kdeploy.Apps)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .kdeploy.App applications = 1;</code>
+     */
+    java.util.List<kdeploy.Kdeploy.App> 
+        getApplicationsList();
+    /**
+     * <code>repeated .kdeploy.App applications = 1;</code>
+     */
+    kdeploy.Kdeploy.App getApplications(int index);
+    /**
+     * <code>repeated .kdeploy.App applications = 1;</code>
+     */
+    int getApplicationsCount();
+    /**
+     * <code>repeated .kdeploy.App applications = 1;</code>
+     */
+    java.util.List<? extends kdeploy.Kdeploy.AppOrBuilder> 
+        getApplicationsOrBuilderList();
+    /**
+     * <code>repeated .kdeploy.App applications = 1;</code>
+     */
+    kdeploy.Kdeploy.AppOrBuilder getApplicationsOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code kdeploy.Apps}
+   */
+  public  static final class Apps extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:kdeploy.Apps)
+      AppsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Apps.newBuilder() to construct.
+    private Apps(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Apps() {
+      applications_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Apps(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                applications_ = new java.util.ArrayList<kdeploy.Kdeploy.App>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              applications_.add(
+                  input.readMessage(kdeploy.Kdeploy.App.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          applications_ = java.util.Collections.unmodifiableList(applications_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return kdeploy.Kdeploy.internal_static_kdeploy_Apps_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return kdeploy.Kdeploy.internal_static_kdeploy_Apps_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              kdeploy.Kdeploy.Apps.class, kdeploy.Kdeploy.Apps.Builder.class);
+    }
+
+    public static final int APPLICATIONS_FIELD_NUMBER = 1;
+    private java.util.List<kdeploy.Kdeploy.App> applications_;
+    /**
+     * <code>repeated .kdeploy.App applications = 1;</code>
+     */
+    public java.util.List<kdeploy.Kdeploy.App> getApplicationsList() {
+      return applications_;
+    }
+    /**
+     * <code>repeated .kdeploy.App applications = 1;</code>
+     */
+    public java.util.List<? extends kdeploy.Kdeploy.AppOrBuilder> 
+        getApplicationsOrBuilderList() {
+      return applications_;
+    }
+    /**
+     * <code>repeated .kdeploy.App applications = 1;</code>
+     */
+    public int getApplicationsCount() {
+      return applications_.size();
+    }
+    /**
+     * <code>repeated .kdeploy.App applications = 1;</code>
+     */
+    public kdeploy.Kdeploy.App getApplications(int index) {
+      return applications_.get(index);
+    }
+    /**
+     * <code>repeated .kdeploy.App applications = 1;</code>
+     */
+    public kdeploy.Kdeploy.AppOrBuilder getApplicationsOrBuilder(
+        int index) {
+      return applications_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < applications_.size(); i++) {
+        output.writeMessage(1, applications_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < applications_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, applications_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof kdeploy.Kdeploy.Apps)) {
+        return super.equals(obj);
+      }
+      kdeploy.Kdeploy.Apps other = (kdeploy.Kdeploy.Apps) obj;
+
+      boolean result = true;
+      result = result && getApplicationsList()
+          .equals(other.getApplicationsList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getApplicationsCount() > 0) {
+        hash = (37 * hash) + APPLICATIONS_FIELD_NUMBER;
+        hash = (53 * hash) + getApplicationsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static kdeploy.Kdeploy.Apps parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static kdeploy.Kdeploy.Apps parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.Apps parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static kdeploy.Kdeploy.Apps parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.Apps parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static kdeploy.Kdeploy.Apps parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.Apps parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static kdeploy.Kdeploy.Apps parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.Apps parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static kdeploy.Kdeploy.Apps parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.Apps parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static kdeploy.Kdeploy.Apps parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(kdeploy.Kdeploy.Apps prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code kdeploy.Apps}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:kdeploy.Apps)
+        kdeploy.Kdeploy.AppsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return kdeploy.Kdeploy.internal_static_kdeploy_Apps_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return kdeploy.Kdeploy.internal_static_kdeploy_Apps_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                kdeploy.Kdeploy.Apps.class, kdeploy.Kdeploy.Apps.Builder.class);
+      }
+
+      // Construct using kdeploy.Kdeploy.Apps.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getApplicationsFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (applicationsBuilder_ == null) {
+          applications_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          applicationsBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return kdeploy.Kdeploy.internal_static_kdeploy_Apps_descriptor;
+      }
+
+      @java.lang.Override
+      public kdeploy.Kdeploy.Apps getDefaultInstanceForType() {
+        return kdeploy.Kdeploy.Apps.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public kdeploy.Kdeploy.Apps build() {
+        kdeploy.Kdeploy.Apps result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public kdeploy.Kdeploy.Apps buildPartial() {
+        kdeploy.Kdeploy.Apps result = new kdeploy.Kdeploy.Apps(this);
+        int from_bitField0_ = bitField0_;
+        if (applicationsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            applications_ = java.util.Collections.unmodifiableList(applications_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.applications_ = applications_;
+        } else {
+          result.applications_ = applicationsBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof kdeploy.Kdeploy.Apps) {
+          return mergeFrom((kdeploy.Kdeploy.Apps)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(kdeploy.Kdeploy.Apps other) {
+        if (other == kdeploy.Kdeploy.Apps.getDefaultInstance()) return this;
+        if (applicationsBuilder_ == null) {
+          if (!other.applications_.isEmpty()) {
+            if (applications_.isEmpty()) {
+              applications_ = other.applications_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureApplicationsIsMutable();
+              applications_.addAll(other.applications_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.applications_.isEmpty()) {
+            if (applicationsBuilder_.isEmpty()) {
+              applicationsBuilder_.dispose();
+              applicationsBuilder_ = null;
+              applications_ = other.applications_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              applicationsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getApplicationsFieldBuilder() : null;
+            } else {
+              applicationsBuilder_.addAllMessages(other.applications_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        kdeploy.Kdeploy.Apps parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (kdeploy.Kdeploy.Apps) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<kdeploy.Kdeploy.App> applications_ =
+        java.util.Collections.emptyList();
+      private void ensureApplicationsIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          applications_ = new java.util.ArrayList<kdeploy.Kdeploy.App>(applications_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          kdeploy.Kdeploy.App, kdeploy.Kdeploy.App.Builder, kdeploy.Kdeploy.AppOrBuilder> applicationsBuilder_;
+
+      /**
+       * <code>repeated .kdeploy.App applications = 1;</code>
+       */
+      public java.util.List<kdeploy.Kdeploy.App> getApplicationsList() {
+        if (applicationsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(applications_);
+        } else {
+          return applicationsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .kdeploy.App applications = 1;</code>
+       */
+      public int getApplicationsCount() {
+        if (applicationsBuilder_ == null) {
+          return applications_.size();
+        } else {
+          return applicationsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .kdeploy.App applications = 1;</code>
+       */
+      public kdeploy.Kdeploy.App getApplications(int index) {
+        if (applicationsBuilder_ == null) {
+          return applications_.get(index);
+        } else {
+          return applicationsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .kdeploy.App applications = 1;</code>
+       */
+      public Builder setApplications(
+          int index, kdeploy.Kdeploy.App value) {
+        if (applicationsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureApplicationsIsMutable();
+          applications_.set(index, value);
+          onChanged();
+        } else {
+          applicationsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.App applications = 1;</code>
+       */
+      public Builder setApplications(
+          int index, kdeploy.Kdeploy.App.Builder builderForValue) {
+        if (applicationsBuilder_ == null) {
+          ensureApplicationsIsMutable();
+          applications_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          applicationsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.App applications = 1;</code>
+       */
+      public Builder addApplications(kdeploy.Kdeploy.App value) {
+        if (applicationsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureApplicationsIsMutable();
+          applications_.add(value);
+          onChanged();
+        } else {
+          applicationsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.App applications = 1;</code>
+       */
+      public Builder addApplications(
+          int index, kdeploy.Kdeploy.App value) {
+        if (applicationsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureApplicationsIsMutable();
+          applications_.add(index, value);
+          onChanged();
+        } else {
+          applicationsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.App applications = 1;</code>
+       */
+      public Builder addApplications(
+          kdeploy.Kdeploy.App.Builder builderForValue) {
+        if (applicationsBuilder_ == null) {
+          ensureApplicationsIsMutable();
+          applications_.add(builderForValue.build());
+          onChanged();
+        } else {
+          applicationsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.App applications = 1;</code>
+       */
+      public Builder addApplications(
+          int index, kdeploy.Kdeploy.App.Builder builderForValue) {
+        if (applicationsBuilder_ == null) {
+          ensureApplicationsIsMutable();
+          applications_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          applicationsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.App applications = 1;</code>
+       */
+      public Builder addAllApplications(
+          java.lang.Iterable<? extends kdeploy.Kdeploy.App> values) {
+        if (applicationsBuilder_ == null) {
+          ensureApplicationsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, applications_);
+          onChanged();
+        } else {
+          applicationsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.App applications = 1;</code>
+       */
+      public Builder clearApplications() {
+        if (applicationsBuilder_ == null) {
+          applications_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          applicationsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.App applications = 1;</code>
+       */
+      public Builder removeApplications(int index) {
+        if (applicationsBuilder_ == null) {
+          ensureApplicationsIsMutable();
+          applications_.remove(index);
+          onChanged();
+        } else {
+          applicationsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.App applications = 1;</code>
+       */
+      public kdeploy.Kdeploy.App.Builder getApplicationsBuilder(
+          int index) {
+        return getApplicationsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .kdeploy.App applications = 1;</code>
+       */
+      public kdeploy.Kdeploy.AppOrBuilder getApplicationsOrBuilder(
+          int index) {
+        if (applicationsBuilder_ == null) {
+          return applications_.get(index);  } else {
+          return applicationsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .kdeploy.App applications = 1;</code>
+       */
+      public java.util.List<? extends kdeploy.Kdeploy.AppOrBuilder> 
+           getApplicationsOrBuilderList() {
+        if (applicationsBuilder_ != null) {
+          return applicationsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(applications_);
+        }
+      }
+      /**
+       * <code>repeated .kdeploy.App applications = 1;</code>
+       */
+      public kdeploy.Kdeploy.App.Builder addApplicationsBuilder() {
+        return getApplicationsFieldBuilder().addBuilder(
+            kdeploy.Kdeploy.App.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .kdeploy.App applications = 1;</code>
+       */
+      public kdeploy.Kdeploy.App.Builder addApplicationsBuilder(
+          int index) {
+        return getApplicationsFieldBuilder().addBuilder(
+            index, kdeploy.Kdeploy.App.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .kdeploy.App applications = 1;</code>
+       */
+      public java.util.List<kdeploy.Kdeploy.App.Builder> 
+           getApplicationsBuilderList() {
+        return getApplicationsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          kdeploy.Kdeploy.App, kdeploy.Kdeploy.App.Builder, kdeploy.Kdeploy.AppOrBuilder> 
+          getApplicationsFieldBuilder() {
+        if (applicationsBuilder_ == null) {
+          applicationsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              kdeploy.Kdeploy.App, kdeploy.Kdeploy.App.Builder, kdeploy.Kdeploy.AppOrBuilder>(
+                  applications_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          applications_ = null;
+        }
+        return applicationsBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:kdeploy.Apps)
+    }
+
+    // @@protoc_insertion_point(class_scope:kdeploy.Apps)
+    private static final kdeploy.Kdeploy.Apps DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new kdeploy.Kdeploy.Apps();
+    }
+
+    public static kdeploy.Kdeploy.Apps getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Apps>
+        PARSER = new com.google.protobuf.AbstractParser<Apps>() {
+      @java.lang.Override
+      public Apps parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Apps(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Apps> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Apps> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public kdeploy.Kdeploy.Apps getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface NamespacesOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:kdeploy.Namespaces)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated string namespaces = 1;</code>
+     */
+    java.util.List<java.lang.String>
+        getNamespacesList();
+    /**
+     * <code>repeated string namespaces = 1;</code>
+     */
+    int getNamespacesCount();
+    /**
+     * <code>repeated string namespaces = 1;</code>
+     */
+    java.lang.String getNamespaces(int index);
+    /**
+     * <code>repeated string namespaces = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getNamespacesBytes(int index);
+  }
+  /**
+   * Protobuf type {@code kdeploy.Namespaces}
+   */
+  public  static final class Namespaces extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:kdeploy.Namespaces)
+      NamespacesOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Namespaces.newBuilder() to construct.
+    private Namespaces(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Namespaces() {
+      namespaces_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Namespaces(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                namespaces_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              namespaces_.add(s);
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          namespaces_ = namespaces_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return kdeploy.Kdeploy.internal_static_kdeploy_Namespaces_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return kdeploy.Kdeploy.internal_static_kdeploy_Namespaces_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              kdeploy.Kdeploy.Namespaces.class, kdeploy.Kdeploy.Namespaces.Builder.class);
+    }
+
+    public static final int NAMESPACES_FIELD_NUMBER = 1;
+    private com.google.protobuf.LazyStringList namespaces_;
+    /**
+     * <code>repeated string namespaces = 1;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getNamespacesList() {
+      return namespaces_;
+    }
+    /**
+     * <code>repeated string namespaces = 1;</code>
+     */
+    public int getNamespacesCount() {
+      return namespaces_.size();
+    }
+    /**
+     * <code>repeated string namespaces = 1;</code>
+     */
+    public java.lang.String getNamespaces(int index) {
+      return namespaces_.get(index);
+    }
+    /**
+     * <code>repeated string namespaces = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNamespacesBytes(int index) {
+      return namespaces_.getByteString(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < namespaces_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, namespaces_.getRaw(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < namespaces_.size(); i++) {
+          dataSize += computeStringSizeNoTag(namespaces_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getNamespacesList().size();
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof kdeploy.Kdeploy.Namespaces)) {
+        return super.equals(obj);
+      }
+      kdeploy.Kdeploy.Namespaces other = (kdeploy.Kdeploy.Namespaces) obj;
+
+      boolean result = true;
+      result = result && getNamespacesList()
+          .equals(other.getNamespacesList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getNamespacesCount() > 0) {
+        hash = (37 * hash) + NAMESPACES_FIELD_NUMBER;
+        hash = (53 * hash) + getNamespacesList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static kdeploy.Kdeploy.Namespaces parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static kdeploy.Kdeploy.Namespaces parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.Namespaces parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static kdeploy.Kdeploy.Namespaces parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.Namespaces parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static kdeploy.Kdeploy.Namespaces parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.Namespaces parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static kdeploy.Kdeploy.Namespaces parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.Namespaces parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static kdeploy.Kdeploy.Namespaces parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.Namespaces parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static kdeploy.Kdeploy.Namespaces parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(kdeploy.Kdeploy.Namespaces prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code kdeploy.Namespaces}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:kdeploy.Namespaces)
+        kdeploy.Kdeploy.NamespacesOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return kdeploy.Kdeploy.internal_static_kdeploy_Namespaces_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return kdeploy.Kdeploy.internal_static_kdeploy_Namespaces_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                kdeploy.Kdeploy.Namespaces.class, kdeploy.Kdeploy.Namespaces.Builder.class);
+      }
+
+      // Construct using kdeploy.Kdeploy.Namespaces.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        namespaces_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return kdeploy.Kdeploy.internal_static_kdeploy_Namespaces_descriptor;
+      }
+
+      @java.lang.Override
+      public kdeploy.Kdeploy.Namespaces getDefaultInstanceForType() {
+        return kdeploy.Kdeploy.Namespaces.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public kdeploy.Kdeploy.Namespaces build() {
+        kdeploy.Kdeploy.Namespaces result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public kdeploy.Kdeploy.Namespaces buildPartial() {
+        kdeploy.Kdeploy.Namespaces result = new kdeploy.Kdeploy.Namespaces(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          namespaces_ = namespaces_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.namespaces_ = namespaces_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof kdeploy.Kdeploy.Namespaces) {
+          return mergeFrom((kdeploy.Kdeploy.Namespaces)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(kdeploy.Kdeploy.Namespaces other) {
+        if (other == kdeploy.Kdeploy.Namespaces.getDefaultInstance()) return this;
+        if (!other.namespaces_.isEmpty()) {
+          if (namespaces_.isEmpty()) {
+            namespaces_ = other.namespaces_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureNamespacesIsMutable();
+            namespaces_.addAll(other.namespaces_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        kdeploy.Kdeploy.Namespaces parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (kdeploy.Kdeploy.Namespaces) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.LazyStringList namespaces_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureNamespacesIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          namespaces_ = new com.google.protobuf.LazyStringArrayList(namespaces_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated string namespaces = 1;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getNamespacesList() {
+        return namespaces_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string namespaces = 1;</code>
+       */
+      public int getNamespacesCount() {
+        return namespaces_.size();
+      }
+      /**
+       * <code>repeated string namespaces = 1;</code>
+       */
+      public java.lang.String getNamespaces(int index) {
+        return namespaces_.get(index);
+      }
+      /**
+       * <code>repeated string namespaces = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNamespacesBytes(int index) {
+        return namespaces_.getByteString(index);
+      }
+      /**
+       * <code>repeated string namespaces = 1;</code>
+       */
+      public Builder setNamespaces(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureNamespacesIsMutable();
+        namespaces_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string namespaces = 1;</code>
+       */
+      public Builder addNamespaces(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureNamespacesIsMutable();
+        namespaces_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string namespaces = 1;</code>
+       */
+      public Builder addAllNamespaces(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureNamespacesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, namespaces_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string namespaces = 1;</code>
+       */
+      public Builder clearNamespaces() {
+        namespaces_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string namespaces = 1;</code>
+       */
+      public Builder addNamespacesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureNamespacesIsMutable();
+        namespaces_.add(value);
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:kdeploy.Namespaces)
+    }
+
+    // @@protoc_insertion_point(class_scope:kdeploy.Namespaces)
+    private static final kdeploy.Kdeploy.Namespaces DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new kdeploy.Kdeploy.Namespaces();
+    }
+
+    public static kdeploy.Kdeploy.Namespaces getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Namespaces>
+        PARSER = new com.google.protobuf.AbstractParser<Namespaces>() {
+      @java.lang.Override
+      public Namespaces parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Namespaces(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Namespaces> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Namespaces> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public kdeploy.Kdeploy.Namespaces getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_kdeploy_App_descriptor;
   private static final 
@@ -8450,6 +9836,16 @@ public final class Kdeploy {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_kdeploy_Log_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_kdeploy_Apps_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_kdeploy_Apps_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_kdeploy_Namespaces_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_kdeploy_Namespaces_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -8491,14 +9887,18 @@ public final class Kdeploy {
       "\n\n^.{1,225}$\";\n\007Replica\022\r\n\005phase\030\001 \001(\t\022\021" +
       "\n\tcondition\030\002 \001(\t\022\016\n\006reason\030\003 \001(\t\",\n\006Sta" +
       "tus\022\"\n\010replicas\030\001 \003(\0132\020.kdeploy.Replica\"" +
-      "\026\n\003Log\022\017\n\007message\030\001 \001(\t2\205\002\n\016KdeployServi" +
-      "ce\0224\n\tCreateApp\022\027.kdeploy.AppConstructor" +
-      "\032\014.kdeploy.App\"\000\022/\n\tUpdateApp\022\022.kdeploy." +
-      "AppUpdate\032\014.kdeploy.App\"\000\0226\n\tDeleteApp\022\017" +
-      ".kdeploy.AppRef\032\026.google.protobuf.Empty\"" +
-      "\000\022)\n\006GetApp\022\017.kdeploy.AppRef\032\014.kdeploy.A" +
-      "pp\"\000\022)\n\004Logs\022\017.kdeploy.AppRef\032\014.kdeploy." +
-      "Log\"\0000\001B\013Z\tkdeploypbb\006proto3"
+      "\026\n\003Log\022\017\n\007message\030\001 \001(\t\"*\n\004Apps\022\"\n\014appli" +
+      "cations\030\001 \003(\0132\014.kdeploy.App\" \n\nNamespace" +
+      "s\022\022\n\nnamespaces\030\001 \003(\t2\306\002\n\016KdeployService" +
+      "\0224\n\tCreateApp\022\027.kdeploy.AppConstructor\032\014" +
+      ".kdeploy.App\"\000\022/\n\tUpdateApp\022\022.kdeploy.Ap" +
+      "pUpdate\032\014.kdeploy.App\"\000\0226\n\tDeleteApp\022\017.k" +
+      "deploy.AppRef\032\026.google.protobuf.Empty\"\000\022" +
+      ")\n\006GetApp\022\017.kdeploy.AppRef\032\014.kdeploy.App" +
+      "\"\000\022)\n\004Logs\022\017.kdeploy.AppRef\032\014.kdeploy.Lo" +
+      "g\"\0000\001\022?\n\016ListNamespaces\022\026.google.protobu" +
+      "f.Empty\032\023.kdeploy.Namespaces\"\000B\013Z\tkdeplo" +
+      "ypbb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -8595,6 +9995,18 @@ public final class Kdeploy {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Log_descriptor,
         new java.lang.String[] { "Message", });
+    internal_static_kdeploy_Apps_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_kdeploy_Apps_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_kdeploy_Apps_descriptor,
+        new java.lang.String[] { "Applications", });
+    internal_static_kdeploy_Namespaces_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_kdeploy_Namespaces_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_kdeploy_Namespaces_descriptor,
+        new java.lang.String[] { "Namespaces", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(validator.Validator.field);

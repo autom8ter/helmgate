@@ -15,7 +15,7 @@ const RWO = "ReadWriteOnce"
 
 func appLabels(app *kdeploypb.AppConstructor) map[string]string {
 	return map[string]string{
-		"app":     app.Name,
+		"kdeploy.app":     app.Name,
 		"kdeploy": "true",
 	}
 }

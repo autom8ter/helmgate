@@ -219,7 +219,15 @@
                 </li>
               
                 <li>
+                  <a href="#kdeploy.Apps"><span class="badge">M</span>Apps</a>
+                </li>
+              
+                <li>
                   <a href="#kdeploy.Log"><span class="badge">M</span>Log</a>
+                </li>
+              
+                <li>
+                  <a href="#kdeploy.Namespaces"><span class="badge">M</span>Namespaces</a>
                 </li>
               
                 <li>
@@ -778,6 +786,30 @@
 
         
       
+        <h3 id="kdeploy.Apps">Apps</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>applications</td>
+                  <td><a href="#kdeploy.App">App</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="kdeploy.Log">Log</h3>
         <p></p>
 
@@ -792,6 +824,30 @@
                   <td>message</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="kdeploy.Namespaces">Namespaces</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>namespaces</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
                   <td><p> </p></td>
                 </tr>
               
@@ -910,6 +966,13 @@
                 <td>Logs</td>
                 <td><a href="#kdeploy.AppRef">AppRef</a></td>
                 <td><a href="#kdeploy.Log">Log</a> stream</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ListNamespaces</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#kdeploy.Namespaces">Namespaces</a></td>
                 <td><p></p></td>
               </tr>
             

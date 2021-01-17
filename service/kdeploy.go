@@ -38,6 +38,10 @@ func (k KdeployService) GetApp(ctx context.Context, ref *kdeploypb.AppRef) (*kde
 	return k.client.Get(ctx, ref)
 }
 
+func (k KdeployService) ListNamespaces(ctx context.Context, _ *empty.Empty) (*kdeploypb.Namespaces, error) {
+	return k.client.ListNamespaces(ctx)
+}
+
 func (k KdeployService) Logs(ref *kdeploypb.AppRef, server kdeploypb.KdeployService_LogsServer) error {
 	stream, err := k.client.StreamLogs(server.Context(), ref)
 	if err != nil {

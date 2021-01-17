@@ -531,6 +531,100 @@ func (x *Log) GetMessage() string {
 	return ""
 }
 
+type Apps struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Applications []*App `protobuf:"bytes,1,rep,name=applications,proto3" json:"applications,omitempty"`
+}
+
+func (x *Apps) Reset() {
+	*x = Apps{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_kdeploy_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *Apps) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Apps) ProtoMessage() {}
+
+func (x *Apps) ProtoReflect() protoreflect.Message {
+	mi := &file_kdeploy_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Apps.ProtoReflect.Descriptor instead.
+func (*Apps) Descriptor() ([]byte, []int) {
+	return file_kdeploy_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *Apps) GetApplications() []*App {
+	if x != nil {
+		return x.Applications
+	}
+	return nil
+}
+
+type Namespaces struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Namespaces []string `protobuf:"bytes,1,rep,name=namespaces,proto3" json:"namespaces,omitempty"`
+}
+
+func (x *Namespaces) Reset() {
+	*x = Namespaces{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_kdeploy_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *Namespaces) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Namespaces) ProtoMessage() {}
+
+func (x *Namespaces) ProtoReflect() protoreflect.Message {
+	mi := &file_kdeploy_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Namespaces.ProtoReflect.Descriptor instead.
+func (*Namespaces) Descriptor() ([]byte, []int) {
+	return file_kdeploy_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *Namespaces) GetNamespaces() []string {
+	if x != nil {
+		return x.Namespaces
+	}
+	return nil
+}
+
 var File_kdeploy_proto protoreflect.FileDescriptor
 
 var file_kdeploy_proto_rawDesc = []byte{
@@ -632,25 +726,36 @@ var file_kdeploy_proto_rawDesc = []byte{
 	0x28, 0x0b, 0x32, 0x10, 0x2e, 0x6b, 0x64, 0x65, 0x70, 0x6c, 0x6f, 0x79, 0x2e, 0x52, 0x65, 0x70,
 	0x6c, 0x69, 0x63, 0x61, 0x52, 0x08, 0x72, 0x65, 0x70, 0x6c, 0x69, 0x63, 0x61, 0x73, 0x22, 0x1f,
 	0x0a, 0x03, 0x4c, 0x6f, 0x67, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x32,
-	0x85, 0x02, 0x0a, 0x0e, 0x4b, 0x64, 0x65, 0x70, 0x6c, 0x6f, 0x79, 0x53, 0x65, 0x72, 0x76, 0x69,
-	0x63, 0x65, 0x12, 0x34, 0x0a, 0x09, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x41, 0x70, 0x70, 0x12,
-	0x17, 0x2e, 0x6b, 0x64, 0x65, 0x70, 0x6c, 0x6f, 0x79, 0x2e, 0x41, 0x70, 0x70, 0x43, 0x6f, 0x6e,
-	0x73, 0x74, 0x72, 0x75, 0x63, 0x74, 0x6f, 0x72, 0x1a, 0x0c, 0x2e, 0x6b, 0x64, 0x65, 0x70, 0x6c,
-	0x6f, 0x79, 0x2e, 0x41, 0x70, 0x70, 0x22, 0x00, 0x12, 0x2f, 0x0a, 0x09, 0x55, 0x70, 0x64, 0x61,
-	0x74, 0x65, 0x41, 0x70, 0x70, 0x12, 0x12, 0x2e, 0x6b, 0x64, 0x65, 0x70, 0x6c, 0x6f, 0x79, 0x2e,
-	0x41, 0x70, 0x70, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x1a, 0x0c, 0x2e, 0x6b, 0x64, 0x65, 0x70,
-	0x6c, 0x6f, 0x79, 0x2e, 0x41, 0x70, 0x70, 0x22, 0x00, 0x12, 0x36, 0x0a, 0x09, 0x44, 0x65, 0x6c,
-	0x65, 0x74, 0x65, 0x41, 0x70, 0x70, 0x12, 0x0f, 0x2e, 0x6b, 0x64, 0x65, 0x70, 0x6c, 0x6f, 0x79,
-	0x2e, 0x41, 0x70, 0x70, 0x52, 0x65, 0x66, 0x1a, 0x16, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65,
-	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x22,
-	0x00, 0x12, 0x29, 0x0a, 0x06, 0x47, 0x65, 0x74, 0x41, 0x70, 0x70, 0x12, 0x0f, 0x2e, 0x6b, 0x64,
-	0x65, 0x70, 0x6c, 0x6f, 0x79, 0x2e, 0x41, 0x70, 0x70, 0x52, 0x65, 0x66, 0x1a, 0x0c, 0x2e, 0x6b,
-	0x64, 0x65, 0x70, 0x6c, 0x6f, 0x79, 0x2e, 0x41, 0x70, 0x70, 0x22, 0x00, 0x12, 0x29, 0x0a, 0x04,
-	0x4c, 0x6f, 0x67, 0x73, 0x12, 0x0f, 0x2e, 0x6b, 0x64, 0x65, 0x70, 0x6c, 0x6f, 0x79, 0x2e, 0x41,
-	0x70, 0x70, 0x52, 0x65, 0x66, 0x1a, 0x0c, 0x2e, 0x6b, 0x64, 0x65, 0x70, 0x6c, 0x6f, 0x79, 0x2e,
-	0x4c, 0x6f, 0x67, 0x22, 0x00, 0x30, 0x01, 0x42, 0x0b, 0x5a, 0x09, 0x6b, 0x64, 0x65, 0x70, 0x6c,
-	0x6f, 0x79, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x22,
+	0x38, 0x0a, 0x04, 0x41, 0x70, 0x70, 0x73, 0x12, 0x30, 0x0a, 0x0c, 0x61, 0x70, 0x70, 0x6c, 0x69,
+	0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0c, 0x2e,
+	0x6b, 0x64, 0x65, 0x70, 0x6c, 0x6f, 0x79, 0x2e, 0x41, 0x70, 0x70, 0x52, 0x0c, 0x61, 0x70, 0x70,
+	0x6c, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x22, 0x2c, 0x0a, 0x0a, 0x4e, 0x61, 0x6d,
+	0x65, 0x73, 0x70, 0x61, 0x63, 0x65, 0x73, 0x12, 0x1e, 0x0a, 0x0a, 0x6e, 0x61, 0x6d, 0x65, 0x73,
+	0x70, 0x61, 0x63, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x09, 0x52, 0x0a, 0x6e, 0x61, 0x6d,
+	0x65, 0x73, 0x70, 0x61, 0x63, 0x65, 0x73, 0x32, 0xc6, 0x02, 0x0a, 0x0e, 0x4b, 0x64, 0x65, 0x70,
+	0x6c, 0x6f, 0x79, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x34, 0x0a, 0x09, 0x43, 0x72,
+	0x65, 0x61, 0x74, 0x65, 0x41, 0x70, 0x70, 0x12, 0x17, 0x2e, 0x6b, 0x64, 0x65, 0x70, 0x6c, 0x6f,
+	0x79, 0x2e, 0x41, 0x70, 0x70, 0x43, 0x6f, 0x6e, 0x73, 0x74, 0x72, 0x75, 0x63, 0x74, 0x6f, 0x72,
+	0x1a, 0x0c, 0x2e, 0x6b, 0x64, 0x65, 0x70, 0x6c, 0x6f, 0x79, 0x2e, 0x41, 0x70, 0x70, 0x22, 0x00,
+	0x12, 0x2f, 0x0a, 0x09, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x41, 0x70, 0x70, 0x12, 0x12, 0x2e,
+	0x6b, 0x64, 0x65, 0x70, 0x6c, 0x6f, 0x79, 0x2e, 0x41, 0x70, 0x70, 0x55, 0x70, 0x64, 0x61, 0x74,
+	0x65, 0x1a, 0x0c, 0x2e, 0x6b, 0x64, 0x65, 0x70, 0x6c, 0x6f, 0x79, 0x2e, 0x41, 0x70, 0x70, 0x22,
+	0x00, 0x12, 0x36, 0x0a, 0x09, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x41, 0x70, 0x70, 0x12, 0x0f,
+	0x2e, 0x6b, 0x64, 0x65, 0x70, 0x6c, 0x6f, 0x79, 0x2e, 0x41, 0x70, 0x70, 0x52, 0x65, 0x66, 0x1a,
+	0x16, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75,
+	0x66, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x22, 0x00, 0x12, 0x29, 0x0a, 0x06, 0x47, 0x65, 0x74,
+	0x41, 0x70, 0x70, 0x12, 0x0f, 0x2e, 0x6b, 0x64, 0x65, 0x70, 0x6c, 0x6f, 0x79, 0x2e, 0x41, 0x70,
+	0x70, 0x52, 0x65, 0x66, 0x1a, 0x0c, 0x2e, 0x6b, 0x64, 0x65, 0x70, 0x6c, 0x6f, 0x79, 0x2e, 0x41,
+	0x70, 0x70, 0x22, 0x00, 0x12, 0x29, 0x0a, 0x04, 0x4c, 0x6f, 0x67, 0x73, 0x12, 0x0f, 0x2e, 0x6b,
+	0x64, 0x65, 0x70, 0x6c, 0x6f, 0x79, 0x2e, 0x41, 0x70, 0x70, 0x52, 0x65, 0x66, 0x1a, 0x0c, 0x2e,
+	0x6b, 0x64, 0x65, 0x70, 0x6c, 0x6f, 0x79, 0x2e, 0x4c, 0x6f, 0x67, 0x22, 0x00, 0x30, 0x01, 0x12,
+	0x3f, 0x0a, 0x0e, 0x4c, 0x69, 0x73, 0x74, 0x4e, 0x61, 0x6d, 0x65, 0x73, 0x70, 0x61, 0x63, 0x65,
+	0x73, 0x12, 0x16, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x62, 0x75, 0x66, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x1a, 0x13, 0x2e, 0x6b, 0x64, 0x65, 0x70,
+	0x6c, 0x6f, 0x79, 0x2e, 0x4e, 0x61, 0x6d, 0x65, 0x73, 0x70, 0x61, 0x63, 0x65, 0x73, 0x22, 0x00,
+	0x42, 0x0b, 0x5a, 0x09, 0x6b, 0x64, 0x65, 0x70, 0x6c, 0x6f, 0x79, 0x70, 0x62, 0x62, 0x06, 0x70,
+	0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -665,7 +770,7 @@ func file_kdeploy_proto_rawDescGZIP() []byte {
 	return file_kdeploy_proto_rawDescData
 }
 
-var file_kdeploy_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
+var file_kdeploy_proto_msgTypes = make([]protoimpl.MessageInfo, 15)
 var file_kdeploy_proto_goTypes = []interface{}{
 	(*App)(nil),            // 0: kdeploy.App
 	(*AppConstructor)(nil), // 1: kdeploy.AppConstructor
@@ -674,38 +779,43 @@ var file_kdeploy_proto_goTypes = []interface{}{
 	(*Replica)(nil),        // 4: kdeploy.Replica
 	(*Status)(nil),         // 5: kdeploy.Status
 	(*Log)(nil),            // 6: kdeploy.Log
-	nil,                    // 7: kdeploy.App.EnvEntry
-	nil,                    // 8: kdeploy.App.PortsEntry
-	nil,                    // 9: kdeploy.AppConstructor.EnvEntry
-	nil,                    // 10: kdeploy.AppConstructor.PortsEntry
-	nil,                    // 11: kdeploy.AppUpdate.EnvEntry
-	nil,                    // 12: kdeploy.AppUpdate.PortsEntry
-	(*empty.Empty)(nil),    // 13: google.protobuf.Empty
+	(*Apps)(nil),           // 7: kdeploy.Apps
+	(*Namespaces)(nil),     // 8: kdeploy.Namespaces
+	nil,                    // 9: kdeploy.App.EnvEntry
+	nil,                    // 10: kdeploy.App.PortsEntry
+	nil,                    // 11: kdeploy.AppConstructor.EnvEntry
+	nil,                    // 12: kdeploy.AppConstructor.PortsEntry
+	nil,                    // 13: kdeploy.AppUpdate.EnvEntry
+	nil,                    // 14: kdeploy.AppUpdate.PortsEntry
+	(*empty.Empty)(nil),    // 15: google.protobuf.Empty
 }
 var file_kdeploy_proto_depIdxs = []int32{
-	7,  // 0: kdeploy.App.env:type_name -> kdeploy.App.EnvEntry
-	8,  // 1: kdeploy.App.ports:type_name -> kdeploy.App.PortsEntry
+	9,  // 0: kdeploy.App.env:type_name -> kdeploy.App.EnvEntry
+	10, // 1: kdeploy.App.ports:type_name -> kdeploy.App.PortsEntry
 	5,  // 2: kdeploy.App.status:type_name -> kdeploy.Status
-	9,  // 3: kdeploy.AppConstructor.env:type_name -> kdeploy.AppConstructor.EnvEntry
-	10, // 4: kdeploy.AppConstructor.ports:type_name -> kdeploy.AppConstructor.PortsEntry
-	11, // 5: kdeploy.AppUpdate.env:type_name -> kdeploy.AppUpdate.EnvEntry
-	12, // 6: kdeploy.AppUpdate.ports:type_name -> kdeploy.AppUpdate.PortsEntry
+	11, // 3: kdeploy.AppConstructor.env:type_name -> kdeploy.AppConstructor.EnvEntry
+	12, // 4: kdeploy.AppConstructor.ports:type_name -> kdeploy.AppConstructor.PortsEntry
+	13, // 5: kdeploy.AppUpdate.env:type_name -> kdeploy.AppUpdate.EnvEntry
+	14, // 6: kdeploy.AppUpdate.ports:type_name -> kdeploy.AppUpdate.PortsEntry
 	4,  // 7: kdeploy.Status.replicas:type_name -> kdeploy.Replica
-	1,  // 8: kdeploy.KdeployService.CreateApp:input_type -> kdeploy.AppConstructor
-	2,  // 9: kdeploy.KdeployService.UpdateApp:input_type -> kdeploy.AppUpdate
-	3,  // 10: kdeploy.KdeployService.DeleteApp:input_type -> kdeploy.AppRef
-	3,  // 11: kdeploy.KdeployService.GetApp:input_type -> kdeploy.AppRef
-	3,  // 12: kdeploy.KdeployService.Logs:input_type -> kdeploy.AppRef
-	0,  // 13: kdeploy.KdeployService.CreateApp:output_type -> kdeploy.App
-	0,  // 14: kdeploy.KdeployService.UpdateApp:output_type -> kdeploy.App
-	13, // 15: kdeploy.KdeployService.DeleteApp:output_type -> google.protobuf.Empty
-	0,  // 16: kdeploy.KdeployService.GetApp:output_type -> kdeploy.App
-	6,  // 17: kdeploy.KdeployService.Logs:output_type -> kdeploy.Log
-	13, // [13:18] is the sub-list for method output_type
-	8,  // [8:13] is the sub-list for method input_type
-	8,  // [8:8] is the sub-list for extension type_name
-	8,  // [8:8] is the sub-list for extension extendee
-	0,  // [0:8] is the sub-list for field type_name
+	0,  // 8: kdeploy.Apps.applications:type_name -> kdeploy.App
+	1,  // 9: kdeploy.KdeployService.CreateApp:input_type -> kdeploy.AppConstructor
+	2,  // 10: kdeploy.KdeployService.UpdateApp:input_type -> kdeploy.AppUpdate
+	3,  // 11: kdeploy.KdeployService.DeleteApp:input_type -> kdeploy.AppRef
+	3,  // 12: kdeploy.KdeployService.GetApp:input_type -> kdeploy.AppRef
+	3,  // 13: kdeploy.KdeployService.Logs:input_type -> kdeploy.AppRef
+	15, // 14: kdeploy.KdeployService.ListNamespaces:input_type -> google.protobuf.Empty
+	0,  // 15: kdeploy.KdeployService.CreateApp:output_type -> kdeploy.App
+	0,  // 16: kdeploy.KdeployService.UpdateApp:output_type -> kdeploy.App
+	15, // 17: kdeploy.KdeployService.DeleteApp:output_type -> google.protobuf.Empty
+	0,  // 18: kdeploy.KdeployService.GetApp:output_type -> kdeploy.App
+	6,  // 19: kdeploy.KdeployService.Logs:output_type -> kdeploy.Log
+	8,  // 20: kdeploy.KdeployService.ListNamespaces:output_type -> kdeploy.Namespaces
+	15, // [15:21] is the sub-list for method output_type
+	9,  // [9:15] is the sub-list for method input_type
+	9,  // [9:9] is the sub-list for extension type_name
+	9,  // [9:9] is the sub-list for extension extendee
+	0,  // [0:9] is the sub-list for field type_name
 }
 
 func init() { file_kdeploy_proto_init() }
@@ -798,6 +908,30 @@ func file_kdeploy_proto_init() {
 				return nil
 			}
 		}
+		file_kdeploy_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*Apps); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_kdeploy_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*Namespaces); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -805,7 +939,7 @@ func file_kdeploy_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_kdeploy_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   13,
+			NumMessages:   15,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -836,6 +970,7 @@ type KdeployServiceClient interface {
 	DeleteApp(ctx context.Context, in *AppRef, opts ...grpc.CallOption) (*empty.Empty, error)
 	GetApp(ctx context.Context, in *AppRef, opts ...grpc.CallOption) (*App, error)
 	Logs(ctx context.Context, in *AppRef, opts ...grpc.CallOption) (KdeployService_LogsClient, error)
+	ListNamespaces(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*Namespaces, error)
 }
 
 type kdeployServiceClient struct {
@@ -914,6 +1049,15 @@ func (x *kdeployServiceLogsClient) Recv() (*Log, error) {
 	return m, nil
 }
 
+func (c *kdeployServiceClient) ListNamespaces(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*Namespaces, error) {
+	out := new(Namespaces)
+	err := c.cc.Invoke(ctx, "/kdeploy.KdeployService/ListNamespaces", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // KdeployServiceServer is the server API for KdeployService service.
 type KdeployServiceServer interface {
 	CreateApp(context.Context, *AppConstructor) (*App, error)
@@ -921,6 +1065,7 @@ type KdeployServiceServer interface {
 	DeleteApp(context.Context, *AppRef) (*empty.Empty, error)
 	GetApp(context.Context, *AppRef) (*App, error)
 	Logs(*AppRef, KdeployService_LogsServer) error
+	ListNamespaces(context.Context, *empty.Empty) (*Namespaces, error)
 }
 
 // UnimplementedKdeployServiceServer can be embedded to have forward compatible implementations.
@@ -941,6 +1086,9 @@ func (*UnimplementedKdeployServiceServer) GetApp(context.Context, *AppRef) (*App
 }
 func (*UnimplementedKdeployServiceServer) Logs(*AppRef, KdeployService_LogsServer) error {
 	return status.Errorf(codes.Unimplemented, "method Logs not implemented")
+}
+func (*UnimplementedKdeployServiceServer) ListNamespaces(context.Context, *empty.Empty) (*Namespaces, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListNamespaces not implemented")
 }
 
 func RegisterKdeployServiceServer(s *grpc.Server, srv KdeployServiceServer) {
@@ -1040,6 +1188,24 @@ func (x *kdeployServiceLogsServer) Send(m *Log) error {
 	return x.ServerStream.SendMsg(m)
 }
 
+func _KdeployService_ListNamespaces_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(empty.Empty)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KdeployServiceServer).ListNamespaces(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/kdeploy.KdeployService/ListNamespaces",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KdeployServiceServer).ListNamespaces(ctx, req.(*empty.Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _KdeployService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "kdeploy.KdeployService",
 	HandlerType: (*KdeployServiceServer)(nil),
@@ -1059,6 +1225,10 @@ var _KdeployService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetApp",
 			Handler:    _KdeployService_GetApp_Handler,
+		},
+		{
+			MethodName: "ListNamespaces",
+			Handler:    _KdeployService_ListNamespaces_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{

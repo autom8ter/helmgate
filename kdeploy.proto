@@ -78,10 +78,19 @@ message Log {
   string message =1;
 }
 
+message Apps {
+  repeated App applications =1;
+}
+
+message Namespaces {
+  repeated string namespaces =1;
+}
+
 service KdeployService {
   rpc CreateApp(AppConstructor) returns(App){}
   rpc UpdateApp(AppUpdate) returns(App){}
   rpc DeleteApp(AppRef) returns(google.protobuf.Empty){}
   rpc GetApp(AppRef) returns(App){}
   rpc Logs(AppRef) returns (stream Log){}
+  rpc ListNamespaces(google.protobuf.Empty) returns(Namespaces){}
 }

@@ -31,7 +31,7 @@ an opinionated, OAuth-protected graphQL API for easily deploying kubernetes appl
 - [x] Destroy Application
 - [ ] Search Applications
 - [x] Stream Application Logs
-- [ ] Expression based Application "authorizers"(execute against open-id profile)
+- [x] Expression based Application "authorizers"(execute against open-id profile)
 
 
 ## Command Line

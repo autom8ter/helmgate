@@ -52,14 +52,17 @@ namespace Kdeploy {
             "Xi57MSwyMjV9JBIjCgluYW1lc3BhY2UYAiABKAlCEOLfHwwKCl4uezEsMjI1",
             "fSQiOwoHUmVwbGljYRINCgVwaGFzZRgBIAEoCRIRCgljb25kaXRpb24YAiAB",
             "KAkSDgoGcmVhc29uGAMgASgJIiwKBlN0YXR1cxIiCghyZXBsaWNhcxgBIAMo",
-            "CzIQLmtkZXBsb3kuUmVwbGljYSIWCgNMb2cSDwoHbWVzc2FnZRgBIAEoCTKF",
-            "AgoOS2RlcGxveVNlcnZpY2USNAoJQ3JlYXRlQXBwEhcua2RlcGxveS5BcHBD",
-            "b25zdHJ1Y3RvchoMLmtkZXBsb3kuQXBwIgASLwoJVXBkYXRlQXBwEhIua2Rl",
-            "cGxveS5BcHBVcGRhdGUaDC5rZGVwbG95LkFwcCIAEjYKCURlbGV0ZUFwcBIP",
-            "LmtkZXBsb3kuQXBwUmVmGhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgASKQoG",
-            "R2V0QXBwEg8ua2RlcGxveS5BcHBSZWYaDC5rZGVwbG95LkFwcCIAEikKBExv",
-            "Z3MSDy5rZGVwbG95LkFwcFJlZhoMLmtkZXBsb3kuTG9nIgAwAUILWglrZGVw",
-            "bG95cGJiBnByb3RvMw=="));
+            "CzIQLmtkZXBsb3kuUmVwbGljYSIWCgNMb2cSDwoHbWVzc2FnZRgBIAEoCSIq",
+            "CgRBcHBzEiIKDGFwcGxpY2F0aW9ucxgBIAMoCzIMLmtkZXBsb3kuQXBwIiAK",
+            "Ck5hbWVzcGFjZXMSEgoKbmFtZXNwYWNlcxgBIAMoCTLGAgoOS2RlcGxveVNl",
+            "cnZpY2USNAoJQ3JlYXRlQXBwEhcua2RlcGxveS5BcHBDb25zdHJ1Y3RvchoM",
+            "LmtkZXBsb3kuQXBwIgASLwoJVXBkYXRlQXBwEhIua2RlcGxveS5BcHBVcGRh",
+            "dGUaDC5rZGVwbG95LkFwcCIAEjYKCURlbGV0ZUFwcBIPLmtkZXBsb3kuQXBw",
+            "UmVmGhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgASKQoGR2V0QXBwEg8ua2Rl",
+            "cGxveS5BcHBSZWYaDC5rZGVwbG95LkFwcCIAEikKBExvZ3MSDy5rZGVwbG95",
+            "LkFwcFJlZhoMLmtkZXBsb3kuTG9nIgAwARI/Cg5MaXN0TmFtZXNwYWNlcxIW",
+            "Lmdvb2dsZS5wcm90b2J1Zi5FbXB0eRoTLmtkZXBsb3kuTmFtZXNwYWNlcyIA",
+            "QgtaCWtkZXBsb3lwYmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Validator.ValidatorReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -69,7 +72,9 @@ namespace Kdeploy {
             new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.AppRef), global::Kdeploy.AppRef.Parser, new[]{ "Name", "Namespace" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.Replica), global::Kdeploy.Replica.Parser, new[]{ "Phase", "Condition", "Reason" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.Status), global::Kdeploy.Status.Parser, new[]{ "Replicas" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.Log), global::Kdeploy.Log.Parser, new[]{ "Message" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.Log), global::Kdeploy.Log.Parser, new[]{ "Message" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.Apps), global::Kdeploy.Apps.Parser, new[]{ "Applications" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.Namespaces), global::Kdeploy.Namespaces.Parser, new[]{ "Namespaces_" }, null, null, null)
           }));
     }
     #endregion
@@ -1516,6 +1521,248 @@ namespace Kdeploy {
             break;
           case 10: {
             Message = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class Apps : pb::IMessage<Apps> {
+    private static readonly pb::MessageParser<Apps> _parser = new pb::MessageParser<Apps>(() => new Apps());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<Apps> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[7]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Apps() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Apps(Apps other) : this() {
+      applications_ = other.applications_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Apps Clone() {
+      return new Apps(this);
+    }
+
+    /// <summary>Field number for the "applications" field.</summary>
+    public const int ApplicationsFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::Kdeploy.App> _repeated_applications_codec
+        = pb::FieldCodec.ForMessage(10, global::Kdeploy.App.Parser);
+    private readonly pbc::RepeatedField<global::Kdeploy.App> applications_ = new pbc::RepeatedField<global::Kdeploy.App>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Kdeploy.App> Applications {
+      get { return applications_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as Apps);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(Apps other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!applications_.Equals(other.applications_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= applications_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      applications_.WriteTo(output, _repeated_applications_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      size += applications_.CalculateSize(_repeated_applications_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(Apps other) {
+      if (other == null) {
+        return;
+      }
+      applications_.Add(other.applications_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            applications_.AddEntriesFrom(input, _repeated_applications_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class Namespaces : pb::IMessage<Namespaces> {
+    private static readonly pb::MessageParser<Namespaces> _parser = new pb::MessageParser<Namespaces>(() => new Namespaces());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<Namespaces> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[8]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Namespaces() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Namespaces(Namespaces other) : this() {
+      namespaces_ = other.namespaces_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Namespaces Clone() {
+      return new Namespaces(this);
+    }
+
+    /// <summary>Field number for the "namespaces" field.</summary>
+    public const int Namespaces_FieldNumber = 1;
+    private static readonly pb::FieldCodec<string> _repeated_namespaces_codec
+        = pb::FieldCodec.ForString(10);
+    private readonly pbc::RepeatedField<string> namespaces_ = new pbc::RepeatedField<string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<string> Namespaces_ {
+      get { return namespaces_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as Namespaces);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(Namespaces other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!namespaces_.Equals(other.namespaces_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= namespaces_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      namespaces_.WriteTo(output, _repeated_namespaces_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      size += namespaces_.CalculateSize(_repeated_namespaces_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(Namespaces other) {
+      if (other == null) {
+        return;
+      }
+      namespaces_.Add(other.namespaces_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            namespaces_.AddEntriesFrom(input, _repeated_namespaces_codec);
             break;
           }
         }

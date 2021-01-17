@@ -48,6 +48,12 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   add_message "kdeploy.Log" do
     optional :message, :string, 1
   end
+  add_message "kdeploy.Apps" do
+    repeated :applications, :message, 1, "kdeploy.App"
+  end
+  add_message "kdeploy.Namespaces" do
+    repeated :namespaces, :string, 1
+  end
 end
 
 module Kdeploy
@@ -58,4 +64,6 @@ module Kdeploy
   Replica = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Replica").msgclass
   Status = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Status").msgclass
   Log = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Log").msgclass
+  Apps = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Apps").msgclass
+  Namespaces = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Namespaces").msgclass
 end

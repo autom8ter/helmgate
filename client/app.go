@@ -37,6 +37,9 @@ func New(client *kubego.Client, logger *logger.Logger, rootUsers []string, userI
 		client:   client,
 		jwtCache: generic.NewCache(1 * time.Minute),
 		logger:   logger,
+		rootUsers: rootUsers,
+		userInfoEndpoint: userInfoEndpoint,
+		requestAuthorizers: authorizers,
 	}
 }
 
@@ -182,6 +185,20 @@ func (m *Manager) Delete(ctx context.Context, ref *kdeploypb.AppRef) error {
 		)
 	}
 	return nil
+}
+
+func (m *Manager) ListNamespaces(ctx context.Context) (*kdeploypb.Namespaces, error) {
+	namespaces, err := m.client.Namespaces().List(ctx, v1.ListOptions{
+		FieldSelector:        "kdeploy = true",
+	})
+	if err != nil {
+		return nil, err
+	}
+	var ns = &kdeploypb.Namespaces{}
+	for _, n := range namespaces.Items {
+		ns.Namespaces = append(ns.Namespaces, n.Name)
+	}
+	return ns, nil
 }
 
 func (m *Manager) StreamLogs(ctx context.Context, ref *kdeploypb.AppRef) (chan string, error) {

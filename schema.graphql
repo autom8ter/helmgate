@@ -2,6 +2,7 @@
 scalar Time
 # Map is a k/v map where the key is a string and the value is any value
 scalar Map
+scalar Empty
 
 type App {
     # name of the application
@@ -34,6 +35,9 @@ type Log {
     message: String!
 }
 
+type Namespaces {
+    namespaces: [String]
+}
 
 input AppConstructor {
     # name of the application

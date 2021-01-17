@@ -37,7 +37,7 @@ func (c *Manager) UnaryInterceptor() grpc.UnaryServerInterceptor {
 		ctx = c.methodToContext(ctx, info.FullMethod)
 		userinfoReq, err := http.NewRequest(http.MethodGet, c.userInfoEndpoint, nil)
 		if err != nil {
-			return nil, status.Errorf(codes.Unauthenticated, "failed to get userinfo: %s", err.Error())
+			return nil, status.Errorf(codes.Unauthenticated, "failed to get userinfo(%s): %s", c.userInfoEndpoint, err.Error())
 		}
 		userinfoReq.Header.Set("Authorization", fmt.Sprintf("Bearer %s", token))
 		resp, err := http.DefaultClient.Do(userinfoReq)
