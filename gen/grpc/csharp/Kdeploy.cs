@@ -53,16 +53,18 @@ namespace Kdeploy {
             "fSQiOwoHUmVwbGljYRINCgVwaGFzZRgBIAEoCRIRCgljb25kaXRpb24YAiAB",
             "KAkSDgoGcmVhc29uGAMgASgJIiwKBlN0YXR1cxIiCghyZXBsaWNhcxgBIAMo",
             "CzIQLmtkZXBsb3kuUmVwbGljYSIWCgNMb2cSDwoHbWVzc2FnZRgBIAEoCSIq",
-            "CgRBcHBzEiIKDGFwcGxpY2F0aW9ucxgBIAMoCzIMLmtkZXBsb3kuQXBwIiAK",
-            "Ck5hbWVzcGFjZXMSEgoKbmFtZXNwYWNlcxgBIAMoCTLGAgoOS2RlcGxveVNl",
-            "cnZpY2USNAoJQ3JlYXRlQXBwEhcua2RlcGxveS5BcHBDb25zdHJ1Y3RvchoM",
-            "LmtkZXBsb3kuQXBwIgASLwoJVXBkYXRlQXBwEhIua2RlcGxveS5BcHBVcGRh",
-            "dGUaDC5rZGVwbG95LkFwcCIAEjYKCURlbGV0ZUFwcBIPLmtkZXBsb3kuQXBw",
-            "UmVmGhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgASKQoGR2V0QXBwEg8ua2Rl",
-            "cGxveS5BcHBSZWYaDC5rZGVwbG95LkFwcCIAEikKBExvZ3MSDy5rZGVwbG95",
-            "LkFwcFJlZhoMLmtkZXBsb3kuTG9nIgAwARI/Cg5MaXN0TmFtZXNwYWNlcxIW",
-            "Lmdvb2dsZS5wcm90b2J1Zi5FbXB0eRoTLmtkZXBsb3kuTmFtZXNwYWNlcyIA",
-            "QgtaCWtkZXBsb3lwYmIGcHJvdG8z"));
+            "CgRBcHBzEiIKDGFwcGxpY2F0aW9ucxgBIAMoCzIMLmtkZXBsb3kuQXBwIh4K",
+            "CU5hbWVzcGFjZRIRCgluYW1lc3BhY2UYASABKAkiIAoKTmFtZXNwYWNlcxIS",
+            "CgpuYW1lc3BhY2VzGAEgAygJMvcCCg5LZGVwbG95U2VydmljZRI0CglDcmVh",
+            "dGVBcHASFy5rZGVwbG95LkFwcENvbnN0cnVjdG9yGgwua2RlcGxveS5BcHAi",
+            "ABIvCglVcGRhdGVBcHASEi5rZGVwbG95LkFwcFVwZGF0ZRoMLmtkZXBsb3ku",
+            "QXBwIgASNgoJRGVsZXRlQXBwEg8ua2RlcGxveS5BcHBSZWYaFi5nb29nbGUu",
+            "cHJvdG9idWYuRW1wdHkiABIpCgZHZXRBcHASDy5rZGVwbG95LkFwcFJlZhoM",
+            "LmtkZXBsb3kuQXBwIgASKQoETG9ncxIPLmtkZXBsb3kuQXBwUmVmGgwua2Rl",
+            "cGxveS5Mb2ciADABEj8KDkxpc3ROYW1lc3BhY2VzEhYuZ29vZ2xlLnByb3Rv",
+            "YnVmLkVtcHR5GhMua2RlcGxveS5OYW1lc3BhY2VzIgASLwoITGlzdEFwcHMS",
+            "Ei5rZGVwbG95Lk5hbWVzcGFjZRoNLmtkZXBsb3kuQXBwcyIAQgtaCWtkZXBs",
+            "b3lwYmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Validator.ValidatorReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -74,6 +76,7 @@ namespace Kdeploy {
             new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.Status), global::Kdeploy.Status.Parser, new[]{ "Replicas" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.Log), global::Kdeploy.Log.Parser, new[]{ "Message" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.Apps), global::Kdeploy.Apps.Parser, new[]{ "Applications" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.Namespace), global::Kdeploy.Namespace.Parser, new[]{ "Namespace_" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.Namespaces), global::Kdeploy.Namespaces.Parser, new[]{ "Namespaces_" }, null, null, null)
           }));
     }
@@ -1650,6 +1653,135 @@ namespace Kdeploy {
 
   }
 
+  public sealed partial class Namespace : pb::IMessage<Namespace> {
+    private static readonly pb::MessageParser<Namespace> _parser = new pb::MessageParser<Namespace>(() => new Namespace());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<Namespace> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[8]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Namespace() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Namespace(Namespace other) : this() {
+      namespace_ = other.namespace_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Namespace Clone() {
+      return new Namespace(this);
+    }
+
+    /// <summary>Field number for the "namespace" field.</summary>
+    public const int Namespace_FieldNumber = 1;
+    private string namespace_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Namespace_ {
+      get { return namespace_; }
+      set {
+        namespace_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as Namespace);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(Namespace other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Namespace_ != other.Namespace_) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Namespace_.Length != 0) hash ^= Namespace_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Namespace_.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Namespace_);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Namespace_.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Namespace_);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(Namespace other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Namespace_.Length != 0) {
+        Namespace_ = other.Namespace_;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Namespace_ = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
   public sealed partial class Namespaces : pb::IMessage<Namespaces> {
     private static readonly pb::MessageParser<Namespaces> _parser = new pb::MessageParser<Namespaces>(() => new Namespaces());
     private pb::UnknownFieldSet _unknownFields;
@@ -1658,7 +1790,7 @@ namespace Kdeploy {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[8]; }
+      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

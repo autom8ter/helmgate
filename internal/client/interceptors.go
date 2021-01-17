@@ -4,7 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/autom8ter/kdeploy/helpers"
+	"github.com/autom8ter/kdeploy/internal/helpers"
 	grpc_middleware "github.com/grpc-ecosystem/go-grpc-middleware"
 	grpc_auth "github.com/grpc-ecosystem/go-grpc-middleware/auth"
 	"github.com/pkg/errors"
@@ -181,8 +181,8 @@ func (c *Manager) checkRequest(ctx context.Context, method string, req interface
 	msg := req.(proto.Message)
 	bits, _ := helpers.MarshalJSON(msg)
 	reqMap := map[string]interface{}{}
-	if err := json.Unmarshal(bits, &reqMap); err != nil {
-		return nil, status.Error(codes.Internal, err.Error())
+	if len(bits) > 0 {
+		json.Unmarshal(bits, &reqMap)
 	}
 	authorizer["request"] = reqMap
 	for _, a := range c.requestAuthorizers {

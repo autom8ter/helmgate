@@ -104,6 +104,9 @@ func (this *Apps) Validate() error {
 	}
 	return nil
 }
+func (this *Namespace) Validate() error {
+	return nil
+}
 func (this *Namespaces) Validate() error {
 	return nil
 }

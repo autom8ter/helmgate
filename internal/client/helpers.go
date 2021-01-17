@@ -15,15 +15,21 @@ const RWO = "ReadWriteOnce"
 
 func appLabels(app *kdeploypb.AppConstructor) map[string]string {
 	return map[string]string{
-		"kdeploy.app":     app.Name,
+		"kdeploy.app": app.Name,
+		"kdeploy":     "true",
+	}
+}
+
+func namespaceLabels() map[string]string {
+	return map[string]string{
 		"kdeploy": "true",
 	}
 }
 
 func deploymentLabels(dep *apps.Deployment) map[string]string {
 	return map[string]string{
-		"app":     dep.Name,
-		"kdeploy": "true",
+		"kdeploy.app": dep.Name,
+		"kdeploy":     "true",
 	}
 }
 
@@ -60,7 +66,7 @@ func toNamespace(app *kdeploypb.AppConstructor) *v12.Namespace {
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      app.Namespace,
 			Namespace: app.Namespace,
-			Labels:    appLabels(app),
+			Labels:    namespaceLabels(),
 		},
 		Spec:   v12.NamespaceSpec{},
 		Status: v12.NamespaceStatus{},

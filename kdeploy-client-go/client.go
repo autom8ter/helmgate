@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 	kdeploypb "github.com/autom8ter/kdeploy/gen/grpc/go"
-	"github.com/autom8ter/kdeploy/logger"
+	"github.com/autom8ter/kdeploy/internal/logger"
 	grpc_zap "github.com/grpc-ecosystem/go-grpc-middleware/logging/zap"
 	grpc_validator "github.com/grpc-ecosystem/go-grpc-middleware/validator"
 	grpc_prometheus "github.com/grpc-ecosystem/go-grpc-prometheus"

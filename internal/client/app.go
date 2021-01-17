@@ -3,8 +3,9 @@ package client
 import (
 	"bytes"
 	"context"
+	"fmt"
 	kdeploypb "github.com/autom8ter/kdeploy/gen/grpc/go"
-	"github.com/autom8ter/kdeploy/logger"
+	"github.com/autom8ter/kdeploy/internal/logger"
 	"github.com/autom8ter/kubego"
 	"github.com/graphikDB/generic"
 	"github.com/graphikDB/trigger"
@@ -34,11 +35,11 @@ type Manager struct {
 
 func New(client *kubego.Client, logger *logger.Logger, rootUsers []string, userInfoEndpoint string, authorizers []*trigger.Decision) *Manager {
 	return &Manager{
-		client:   client,
-		jwtCache: generic.NewCache(1 * time.Minute),
-		logger:   logger,
-		rootUsers: rootUsers,
-		userInfoEndpoint: userInfoEndpoint,
+		client:             client,
+		jwtCache:           generic.NewCache(1 * time.Minute),
+		logger:             logger,
+		rootUsers:          rootUsers,
+		userInfoEndpoint:   userInfoEndpoint,
 		requestAuthorizers: authorizers,
 	}
 }
@@ -47,9 +48,12 @@ func (m *Manager) L() *logger.Logger {
 	return m.logger
 }
 
-func (m *Manager) getStatus(ctx context.Context, namespace string) (*kdeploypb.Status, error) {
+func (m *Manager) getStatus(ctx context.Context, namespace, name string) (*kdeploypb.Status, error) {
 	var replicas []*kdeploypb.Replica
-	pods, err := m.client.Pods(namespace).List(ctx, v1.ListOptions{})
+	pods, err := m.client.Pods(namespace).List(ctx, v1.ListOptions{
+		TypeMeta:      v1.TypeMeta{},
+		LabelSelector: fmt.Sprintf("kdeploy.app = %s", name),
+	})
 	if err != nil {
 		return nil, err
 	}
@@ -63,11 +67,14 @@ func (m *Manager) getStatus(ctx context.Context, namespace string) (*kdeploypb.S
 	return &kdeploypb.Status{Replicas: replicas}, nil
 }
 
-func (m *Manager) Create(ctx context.Context, app *kdeploypb.AppConstructor) (*kdeploypb.App, error) {
+func (m *Manager) CreateApp(ctx context.Context, app *kdeploypb.AppConstructor) (*kdeploypb.App, error) {
 	kapp := &k8sApp{}
-	namespace, err := m.client.Namespaces().Create(ctx, toNamespace(app), v1.CreateOptions{})
+	namespace, err := m.client.Namespaces().Get(ctx, app.Namespace, v1.GetOptions{})
 	if err != nil {
-		return nil, err
+		namespace, err = m.client.Namespaces().Create(ctx, toNamespace(app), v1.CreateOptions{})
+		if err != nil {
+			return nil, err
+		}
 	}
 	kapp.namespace = namespace
 	dep, err := toDeployment(app)
@@ -84,7 +91,7 @@ func (m *Manager) Create(ctx context.Context, app *kdeploypb.AppConstructor) (*k
 		return nil, err
 	}
 	kapp.service = svc
-	status, err := m.getStatus(ctx, app.Namespace)
+	status, err := m.getStatus(ctx, app.Namespace, app.Name)
 	if err != nil {
 		return nil, err
 	}
@@ -93,7 +100,7 @@ func (m *Manager) Create(ctx context.Context, app *kdeploypb.AppConstructor) (*k
 	return a, nil
 }
 
-func (m *Manager) Update(ctx context.Context, app *kdeploypb.AppUpdate) (*kdeploypb.App, error) {
+func (m *Manager) UpdateApp(ctx context.Context, app *kdeploypb.AppUpdate) (*kdeploypb.App, error) {
 	kapp := &k8sApp{}
 	namespace, err := m.client.Namespaces().Get(ctx, app.Namespace, v1.GetOptions{})
 	if err != nil {
@@ -123,7 +130,7 @@ func (m *Manager) Update(ctx context.Context, app *kdeploypb.AppUpdate) (*kdeplo
 		return nil, err
 	}
 	kapp.service = svc
-	status, err := m.getStatus(ctx, app.Namespace)
+	status, err := m.getStatus(ctx, app.Namespace, app.Name)
 	if err != nil {
 		return nil, err
 	}
@@ -132,7 +139,7 @@ func (m *Manager) Update(ctx context.Context, app *kdeploypb.AppUpdate) (*kdeplo
 	return a, nil
 }
 
-func (m *Manager) Get(ctx context.Context, ref *kdeploypb.AppRef) (*kdeploypb.App, error) {
+func (m *Manager) GetApp(ctx context.Context, ref *kdeploypb.AppRef) (*kdeploypb.App, error) {
 	kapp := &k8sApp{}
 
 	ns, err := m.client.Namespaces().Get(ctx, ref.Namespace, v1.GetOptions{})
@@ -150,7 +157,7 @@ func (m *Manager) Get(ctx context.Context, ref *kdeploypb.AppRef) (*kdeploypb.Ap
 		return nil, err
 	}
 	kapp.service = svc
-	status, err := m.getStatus(ctx, ref.Namespace)
+	status, err := m.getStatus(ctx, ref.Namespace, ref.Name)
 	if err != nil {
 		return nil, err
 	}
@@ -159,7 +166,7 @@ func (m *Manager) Get(ctx context.Context, ref *kdeploypb.AppRef) (*kdeploypb.Ap
 	return a, nil
 }
 
-func (m *Manager) Delete(ctx context.Context, ref *kdeploypb.AppRef) error {
+func (m *Manager) DeleteApp(ctx context.Context, ref *kdeploypb.AppRef) error {
 	if err := m.client.Services(ref.Namespace).Delete(ctx, ref.Name, v1.DeleteOptions{}); err != nil {
 		m.logger.Error("failed to delete service",
 			zap.Error(err),
@@ -168,14 +175,12 @@ func (m *Manager) Delete(ctx context.Context, ref *kdeploypb.AppRef) error {
 		)
 
 	}
-	if err := m.client.StatefulSets(ref.Namespace).Delete(ctx, ref.Name, v1.DeleteOptions{}); err != nil {
-		if err := m.client.Deployments(ref.Namespace).Delete(ctx, ref.Name, v1.DeleteOptions{}); err != nil {
-			m.logger.Error("failed to delete deployment",
-				zap.Error(err),
-				zap.String("name", ref.Name),
-				zap.String("namespace", ref.Namespace),
-			)
-		}
+	if err := m.client.Deployments(ref.Namespace).Delete(ctx, ref.Name, v1.DeleteOptions{}); err != nil {
+		m.logger.Error("failed to delete deployment",
+			zap.Error(err),
+			zap.String("name", ref.Name),
+			zap.String("namespace", ref.Namespace),
+		)
 	}
 	if err := m.client.Namespaces().Delete(ctx, ref.Namespace, v1.DeleteOptions{}); err != nil {
 		m.logger.Error("failed to delete namespace",
@@ -189,7 +194,7 @@ func (m *Manager) Delete(ctx context.Context, ref *kdeploypb.AppRef) error {
 
 func (m *Manager) ListNamespaces(ctx context.Context) (*kdeploypb.Namespaces, error) {
 	namespaces, err := m.client.Namespaces().List(ctx, v1.ListOptions{
-		FieldSelector:        "kdeploy = true",
+		LabelSelector: labelSelector,
 	})
 	if err != nil {
 		return nil, err
@@ -201,10 +206,46 @@ func (m *Manager) ListNamespaces(ctx context.Context) (*kdeploypb.Namespaces, er
 	return ns, nil
 }
 
+func (m *Manager) ListApps(ctx context.Context, namespace *kdeploypb.Namespace) (*kdeploypb.Apps, error) {
+	var kapps = &kdeploypb.Apps{}
+
+	ns, err := m.client.Namespaces().Get(ctx, namespace.GetNamespace(), v1.GetOptions{})
+	if err != nil {
+		return nil, err
+	}
+	deployments, err := m.client.Deployments(namespace.GetNamespace()).List(ctx, v1.ListOptions{
+		TypeMeta:      v1.TypeMeta{},
+		LabelSelector: labelSelector,
+	})
+	if err != nil {
+		return nil, err
+	}
+	for _, deployment := range deployments.Items {
+		svc, err := m.client.Services(namespace.GetNamespace()).Get(ctx, deployment.Name, v1.GetOptions{})
+		if err != nil {
+			return nil, err
+		}
+		kapp := &k8sApp{
+			namespace:  ns,
+			deployment: &deployment,
+			service:    svc,
+		}
+		a := kapp.toApp()
+		status, err := m.getStatus(ctx, namespace.GetNamespace(), deployment.Name)
+		if err != nil {
+			return nil, err
+		}
+		a.Status = status
+		kapps.Applications = append(kapps.Applications, a)
+	}
+	return kapps, nil
+}
+
 func (m *Manager) StreamLogs(ctx context.Context, ref *kdeploypb.AppRef) (chan string, error) {
 	pods, err := m.client.Pods(ref.Namespace).List(ctx, v1.ListOptions{
-		TypeMeta: v1.TypeMeta{},
-		Watch:    false,
+		TypeMeta:      v1.TypeMeta{},
+		Watch:         false,
+		LabelSelector: fmt.Sprintf("kdeploy.app = %s", ref.Name),
 	})
 	if err != nil {
 		return nil, err

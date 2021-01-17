@@ -50,6 +50,11 @@
                 Boolean
             </a>
         </li>
+        <li  title="Empty">
+            <a href="empty.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Empty
+            </a>
+        </li>
         <li  title="Int">
             <a href="int.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Int
@@ -100,6 +105,11 @@
                 Log
             </a>
         </li>
+        <li  title="Namespaces">
+            <a href="namespaces.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Namespaces
+            </a>
+        </li>
         <li  title="Replica">
             <a href="replica.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Replica
@@ -145,9 +155,14 @@
 <div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
     <h4 class="slds-text-title--caps slds-p-around--medium">Input Objects</h4>
     <ul>
-        <li  title="AppInput">
-            <a href="appinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                AppInput
+        <li  title="AppConstructor">
+            <a href="appconstructor.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                AppConstructor
+            </a>
+        </li>
+        <li  title="AppRef">
+            <a href="appref.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                AppRef
             </a>
         </li>
         <li  title="AppUpdate">
@@ -203,7 +218,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">type</span> <span class="identifier">Subscription</span> {</li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>name</strong>: </span></span></li><li><span class="tab"><span class="comment line">#   <strong>namespace</strong>: </span></span></li><li><span class="tab"><span class="meta">logs</span>(<span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a>!, <span class="meta">namespace</span>: <a class="support type" href="string.doc.html">String</a>!): <a class="support type" href="string.doc.html">String</a>! </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">type</span> <span class="identifier">Subscription</span> {</li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>input</strong>: </span></span></li><li><span class="tab"><span class="meta">logs</span>(<span class="meta">input</span>: <a class="support type" href="appref.doc.html">AppRef</a>): <a class="support type" href="string.doc.html">String</a>! </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>

@@ -14,7 +14,7 @@ use Google\Protobuf\Internal\GPBUtil;
 class PBNamespace extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>string namespace = 1 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string namespace = 1;</code>
      */
     private $namespace = '';
 
@@ -33,7 +33,7 @@ class PBNamespace extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string namespace = 1 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string namespace = 1;</code>
      * @return string
      */
     public function getNamespace()
@@ -42,7 +42,7 @@ class PBNamespace extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string namespace = 1 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string namespace = 1;</code>
      * @param string $var
      * @return $this
      */

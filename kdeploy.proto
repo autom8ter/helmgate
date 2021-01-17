@@ -82,6 +82,10 @@ message Apps {
   repeated App applications =1;
 }
 
+message Namespace {
+  string namespace =1;
+}
+
 message Namespaces {
   repeated string namespaces =1;
 }
@@ -93,4 +97,5 @@ service KdeployService {
   rpc GetApp(AppRef) returns(App){}
   rpc Logs(AppRef) returns (stream Log){}
   rpc ListNamespaces(google.protobuf.Empty) returns(Namespaces){}
+  rpc ListApps(Namespace) returns(Apps){}
 }

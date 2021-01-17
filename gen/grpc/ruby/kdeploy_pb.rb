@@ -51,6 +51,9 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   add_message "kdeploy.Apps" do
     repeated :applications, :message, 1, "kdeploy.App"
   end
+  add_message "kdeploy.Namespace" do
+    optional :namespace, :string, 1
+  end
   add_message "kdeploy.Namespaces" do
     repeated :namespaces, :string, 1
   end
@@ -65,5 +68,6 @@ module Kdeploy
   Status = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Status").msgclass
   Log = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Log").msgclass
   Apps = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Apps").msgclass
+  Namespace = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Namespace").msgclass
   Namespaces = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Namespaces").msgclass
 end

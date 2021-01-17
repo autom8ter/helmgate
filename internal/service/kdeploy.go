@@ -2,8 +2,8 @@ package service
 
 import (
 	"context"
-	"github.com/autom8ter/kdeploy/client"
 	kdeploypb "github.com/autom8ter/kdeploy/gen/grpc/go"
+	"github.com/autom8ter/kdeploy/internal/client"
 	"github.com/golang/protobuf/ptypes/empty"
 	"go.uber.org/zap"
 	"google.golang.org/grpc/codes"
@@ -19,15 +19,15 @@ func NewKdeployService(client *client.Manager) *KdeployService {
 }
 
 func (k KdeployService) CreateApp(ctx context.Context, constructor *kdeploypb.AppConstructor) (*kdeploypb.App, error) {
-	return k.client.Create(ctx, constructor)
+	return k.client.CreateApp(ctx, constructor)
 }
 
 func (k KdeployService) UpdateApp(ctx context.Context, update *kdeploypb.AppUpdate) (*kdeploypb.App, error) {
-	return k.client.Update(ctx, update)
+	return k.client.UpdateApp(ctx, update)
 }
 
 func (k KdeployService) DeleteApp(ctx context.Context, ref *kdeploypb.AppRef) (*empty.Empty, error) {
-	if err := k.client.Delete(ctx, ref); err != nil {
+	if err := k.client.DeleteApp(ctx, ref); err != nil {
 		k.client.L().Error("failed to delete app", zap.Error(err))
 		return nil, status.Error(codes.Internal, "failed to delete app")
 	}
@@ -35,11 +35,15 @@ func (k KdeployService) DeleteApp(ctx context.Context, ref *kdeploypb.AppRef) (*
 }
 
 func (k KdeployService) GetApp(ctx context.Context, ref *kdeploypb.AppRef) (*kdeploypb.App, error) {
-	return k.client.Get(ctx, ref)
+	return k.client.GetApp(ctx, ref)
 }
 
 func (k KdeployService) ListNamespaces(ctx context.Context, _ *empty.Empty) (*kdeploypb.Namespaces, error) {
 	return k.client.ListNamespaces(ctx)
+}
+
+func (k KdeployService) ListApps(ctx context.Context, ns *kdeploypb.Namespace) (*kdeploypb.Apps, error) {
+	return k.client.ListApps(ctx, ns)
 }
 
 func (k KdeployService) Logs(ref *kdeploypb.AppRef, server kdeploypb.KdeployService_LogsServer) error {

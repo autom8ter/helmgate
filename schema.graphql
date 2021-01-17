@@ -2,7 +2,6 @@
 scalar Time
 # Map is a k/v map where the key is a string and the value is any value
 scalar Map
-scalar Empty
 
 type App {
     # name of the application
@@ -36,7 +35,11 @@ type Log {
 }
 
 type Namespaces {
-    namespaces: [String]
+    namespaces: [String!]
+}
+
+input Namespace {
+    namespace: String!
 }
 
 input AppConstructor {
@@ -79,13 +82,15 @@ input AppRef {
 type Mutation {
     createApp(input: AppConstructor!): App
     updateApp(input: AppUpdate!): App
-    delApp(input: AppRef): String
+    delApp(input: AppRef!): String
 }
 
 type Query {
-    getApp(input: AppRef): App
+    getApp(input: AppRef!): App
+    listApps(input: Namespace!): [App!]
+    listNamespaces(input: String): Namespaces!
 }
 
 type Subscription {
-    logs(input: AppRef): String!
+    logs(input: AppRef!): String!
 }
