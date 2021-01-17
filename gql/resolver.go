@@ -177,8 +177,8 @@ func (r *Resolver) Playground() http.HandlerFunc {
   <script>window.addEventListener('load', function (event) {
  		const wsProto = location.protocol == 'https:' ? 'wss:' : 'ws:'
       GraphQLPlayground.init(document.getElementById('root'), {
-		endpoint: location.protocol + '//' + location.host,
-		subscriptionsEndpoint: wsProto + '//' + location.host,
+		endpoint: location.protocol + '//' + location.host + '/graphql',
+		subscriptionsEndpoint: wsProto + '//' + location.host + '/graphql',
 		shareEnabled: true,
 		settings: {
 			'request.credentials': 'same-origin',

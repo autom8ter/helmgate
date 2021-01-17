@@ -7,6 +7,7 @@ import (
 	"github.com/autom8ter/kdeploy/logger"
 	"github.com/autom8ter/kubego"
 	"github.com/graphikDB/generic"
+	"github.com/graphikDB/trigger"
 	"github.com/pkg/errors"
 	"go.uber.org/zap"
 	"io"
@@ -23,12 +24,15 @@ const (
 )
 
 type Manager struct {
-	client   *kubego.Client
-	jwtCache generic.Cache
-	logger   *logger.Logger
+	client             *kubego.Client
+	jwtCache           generic.Cache
+	logger             *logger.Logger
+	rootUsers          []string
+	requestAuthorizers []*trigger.Decision
+	userInfoEndpoint   string
 }
 
-func New(client *kubego.Client, logger *logger.Logger) *Manager {
+func New(client *kubego.Client, logger *logger.Logger, rootUsers []string, userInfoEndpoint string, authorizers []*trigger.Decision) *Manager {
 	return &Manager{
 		client:   client,
 		jwtCache: generic.NewCache(1 * time.Minute),

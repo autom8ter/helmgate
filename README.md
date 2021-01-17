@@ -18,7 +18,10 @@ an OAuth-protected graphQL API for deploying "serverless" kubernetes application
     - [x] [ruby client sdk](gen/grpc/ruby)
     - [x] [csharp client sdk](gen/grpc/csharp)
 - [x] [graphQL API](schema.graphql)
+    - served on `/graphql` endpoint
 - [x] SSO/Oauth protected graphQL playground(autocomplete/schema-documentation/query-console)
+    - playground served on `/`
+    - oauth callback handler served on `/oauth/callback`
 - [x] Run in cluster
 - [x] Run out of cluster
 - [x] OpenID Connect based Authentication

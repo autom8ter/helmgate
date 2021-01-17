@@ -72,11 +72,6 @@ input AppRef {
     namespace: String!
 }
 
-input LogFilter {
-    app: AppRef
-    expression: String
-}
-
 type Mutation {
     createApp(input: AppConstructor!): App
     updateApp(input: AppUpdate!): App
