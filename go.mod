@@ -25,6 +25,7 @@ require (
 	golang.org/x/oauth2 v0.0.0-20210112200429-01de73cf58bd
 	google.golang.org/grpc v1.33.2
 	google.golang.org/protobuf v1.25.0
+	istio.io/api v0.0.0-20210115162953-da389fc06d2c
 	istio.io/client-go v0.0.0-20210115164403-c9e58f5c6252 // indirect
 	k8s.io/api v0.19.0
 	k8s.io/apimachinery v0.19.0

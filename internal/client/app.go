@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"context"
 	"fmt"
+	v1alpha3 "istio.io/client-go/pkg/apis/networking/v1alpha3"
 	kdeploypb "github.com/autom8ter/kdeploy/gen/grpc/go"
 	"github.com/pkg/errors"
 	"go.uber.org/zap"
@@ -66,12 +67,12 @@ func (m *Manager) UpdateApp(ctx context.Context, app *kdeploypb.AppUpdate) (*kde
 		return nil, err
 	}
 	kapp.deployment = deployment
-	svc, err := m.kclient.Services(app.Namespace).Get(ctx, app.Name, v1.GetOptions{})
+	svc, err := m.iclient.VirtualServices(app.Namespace).Get(ctx, app.Name, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
 	svc = overwriteService(svc, app)
-	svc, err = m.kclient.Services(app.Namespace).Update(ctx, svc, v1.UpdateOptions{})
+	svc, err = m.iclient.VirtualServices(app.Namespace).Update(ctx, svc, v1.UpdateOptions{})
 	if err != nil {
 		return nil, err
 	}
@@ -98,7 +99,7 @@ func (m *Manager) GetApp(ctx context.Context, ref *kdeploypb.Ref) (*kdeploypb.Ap
 		return nil, err
 	}
 	kapp.deployment = deployment
-	svc, err := m.kclient.Services(ref.Namespace).Get(ctx, ref.Name, v1.GetOptions{})
+	svc, err := m.iclient.VirtualServices(ref.Namespace).Get(ctx, ref.Name, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}

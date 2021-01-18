@@ -5,7 +5,9 @@ import (
 	"github.com/autom8ter/kdeploy/internal/helpers"
 	"github.com/pkg/errors"
 	"github.com/spf13/cast"
+	"istio.io/api/meta/v1alpha1"
 	"istio.io/api/networking/v1alpha3"
+	networking "istio.io/client-go/pkg/apis/networking/v1alpha3"
 	apps "k8s.io/api/apps/v1"
 	batchv1 "k8s.io/api/batch/v1"
 	"k8s.io/api/batch/v1beta1"
@@ -130,7 +132,7 @@ func toServicePorts(app *kdeploypb.AppConstructor) []v12.ServicePort {
 	return ports
 }
 
-func overwriteService(svc *v1.Service, app *kdeploypb.AppUpdate) *v1.Service {
+func overwriteService(svc *networking.VirtualService, app *kdeploypb.AppUpdate) *networking.VirtualService {
 	if app.Ports != nil {
 		var ports []v12.ServicePort
 		for name, p := range app.Ports {
@@ -160,14 +162,12 @@ func overwriteService(svc *v1.Service, app *kdeploypb.AppUpdate) *v1.Service {
 	Status: v1.ServiceStatus{},
 */
 
-func toService(app *kdeploypb.AppConstructor) *v1alpha3.VirtualService {
-	return &v1alpha3.VirtualService{
-		Hosts:    nil,
-		Gateways: nil,
-		Http:     nil,
-		Tls:      nil,
-		Tcp:      nil,
-		ExportTo: []string{"*"},
+func toService(app *kdeploypb.AppConstructor) *networking.VirtualService {
+	return &networking.VirtualService{
+		TypeMeta:   metav1.TypeMeta{},
+		ObjectMeta: metav1.ObjectMeta{},
+		Spec:       v1alpha3.VirtualService{},
+		Status:     v1alpha1.IstioStatus{},
 	}
 }
 
@@ -351,7 +351,7 @@ func overwriteTask(cronJob *v1beta1.CronJob, task *kdeploypb.TaskUpdate) (*v1bet
 type k8sApp struct {
 	namespace  *v12.Namespace
 	deployment *apps.Deployment
-	service    *v1alpha3.VirtualService
+	service    *networking.VirtualService
 }
 
 func (k *k8sApp) toApp() *kdeploypb.App {
