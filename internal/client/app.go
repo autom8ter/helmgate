@@ -15,9 +15,9 @@ import (
 
 func (m *Manager) CreateApp(ctx context.Context, app *kdeploypb.AppConstructor) (*kdeploypb.App, error) {
 	kapp := &k8sApp{}
-	namespace, err := m.client.Namespaces().Get(ctx, app.Namespace, v1.GetOptions{})
+	namespace, err := m.kclient.Namespaces().Get(ctx, app.Namespace, v1.GetOptions{})
 	if err != nil {
-		namespace, err = m.client.Namespaces().Create(ctx, toNamespace(app), v1.CreateOptions{})
+		namespace, err = m.kclient.Namespaces().Create(ctx, toNamespace(app), v1.CreateOptions{})
 		if err != nil {
 			return nil, err
 		}
@@ -27,12 +27,12 @@ func (m *Manager) CreateApp(ctx context.Context, app *kdeploypb.AppConstructor) 
 	if err != nil {
 		return nil, err
 	}
-	deployment, err := m.client.Deployments(app.Namespace).Create(ctx, dep, v1.CreateOptions{})
+	deployment, err := m.kclient.Deployments(app.Namespace).Create(ctx, dep, v1.CreateOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.deployment = deployment
-	svc, err := m.client.Services(app.Namespace).Create(ctx, toService(app), v1.CreateOptions{})
+	svc, err := m.kclient.Services(app.Namespace).Create(ctx, toService(app), v1.CreateOptions{})
 	if err != nil {
 		return nil, err
 	}
@@ -48,12 +48,12 @@ func (m *Manager) CreateApp(ctx context.Context, app *kdeploypb.AppConstructor) 
 
 func (m *Manager) UpdateApp(ctx context.Context, app *kdeploypb.AppUpdate) (*kdeploypb.App, error) {
 	kapp := &k8sApp{}
-	namespace, err := m.client.Namespaces().Get(ctx, app.Namespace, v1.GetOptions{})
+	namespace, err := m.kclient.Namespaces().Get(ctx, app.Namespace, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.namespace = namespace
-	deployment, err := m.client.Deployments(app.Namespace).Get(ctx, app.Name, v1.GetOptions{})
+	deployment, err := m.kclient.Deployments(app.Namespace).Get(ctx, app.Name, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
@@ -61,17 +61,17 @@ func (m *Manager) UpdateApp(ctx context.Context, app *kdeploypb.AppUpdate) (*kde
 	if err != nil {
 		return nil, err
 	}
-	deployment, err = m.client.Deployments(app.Namespace).Update(ctx, deployment, v1.UpdateOptions{})
+	deployment, err = m.kclient.Deployments(app.Namespace).Update(ctx, deployment, v1.UpdateOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.deployment = deployment
-	svc, err := m.client.Services(app.Namespace).Get(ctx, app.Name, v1.GetOptions{})
+	svc, err := m.kclient.Services(app.Namespace).Get(ctx, app.Name, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
 	svc = overwriteService(svc, app)
-	svc, err = m.client.Services(app.Namespace).Update(ctx, svc, v1.UpdateOptions{})
+	svc, err = m.kclient.Services(app.Namespace).Update(ctx, svc, v1.UpdateOptions{})
 	if err != nil {
 		return nil, err
 	}
@@ -88,17 +88,17 @@ func (m *Manager) UpdateApp(ctx context.Context, app *kdeploypb.AppUpdate) (*kde
 func (m *Manager) GetApp(ctx context.Context, ref *kdeploypb.Ref) (*kdeploypb.App, error) {
 	kapp := &k8sApp{}
 
-	ns, err := m.client.Namespaces().Get(ctx, ref.Namespace, v1.GetOptions{})
+	ns, err := m.kclient.Namespaces().Get(ctx, ref.Namespace, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.namespace = ns
-	deployment, err := m.client.Deployments(ref.Namespace).Get(ctx, ref.Name, v1.GetOptions{})
+	deployment, err := m.kclient.Deployments(ref.Namespace).Get(ctx, ref.Name, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.deployment = deployment
-	svc, err := m.client.Services(ref.Namespace).Get(ctx, ref.Name, v1.GetOptions{})
+	svc, err := m.kclient.Services(ref.Namespace).Get(ctx, ref.Name, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
@@ -113,14 +113,14 @@ func (m *Manager) GetApp(ctx context.Context, ref *kdeploypb.Ref) (*kdeploypb.Ap
 }
 
 func (m *Manager) DeleteApp(ctx context.Context, ref *kdeploypb.Ref) error {
-	if err := m.client.Services(ref.Namespace).Delete(ctx, ref.Name, v1.DeleteOptions{}); err != nil {
+	if err := m.kclient.Services(ref.Namespace).Delete(ctx, ref.Name, v1.DeleteOptions{}); err != nil {
 		m.logger.Error("failed to delete service",
 			zap.Error(err),
 			zap.String("name", ref.Name),
 			zap.String("namespace", ref.Namespace),
 		)
 	}
-	if err := m.client.Deployments(ref.Namespace).Delete(ctx, ref.Name, v1.DeleteOptions{}); err != nil {
+	if err := m.kclient.Deployments(ref.Namespace).Delete(ctx, ref.Name, v1.DeleteOptions{}); err != nil {
 		m.logger.Error("failed to delete deployment",
 			zap.Error(err),
 			zap.String("name", ref.Name),
@@ -131,14 +131,14 @@ func (m *Manager) DeleteApp(ctx context.Context, ref *kdeploypb.Ref) error {
 }
 
 func (m *Manager) DeleteAll(ctx context.Context, ref *kdeploypb.Namespace) error {
-	if err := m.client.Namespaces().Delete(ctx, ref.GetNamespace(), v1.DeleteOptions{}); err != nil {
+	if err := m.kclient.Namespaces().Delete(ctx, ref.GetNamespace(), v1.DeleteOptions{}); err != nil {
 		return err
 	}
 	return nil
 }
 
 func (m *Manager) ListNamespaces(ctx context.Context) (*kdeploypb.Namespaces, error) {
-	namespaces, err := m.client.Namespaces().List(ctx, v1.ListOptions{
+	namespaces, err := m.kclient.Namespaces().List(ctx, v1.ListOptions{
 		LabelSelector: labelSelector,
 	})
 	if err != nil {
@@ -154,11 +154,11 @@ func (m *Manager) ListNamespaces(ctx context.Context) (*kdeploypb.Namespaces, er
 func (m *Manager) ListApps(ctx context.Context, namespace *kdeploypb.Namespace) (*kdeploypb.Apps, error) {
 	var kapps = &kdeploypb.Apps{}
 
-	ns, err := m.client.Namespaces().Get(ctx, namespace.GetNamespace(), v1.GetOptions{})
+	ns, err := m.kclient.Namespaces().Get(ctx, namespace.GetNamespace(), v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
-	deployments, err := m.client.Deployments(namespace.GetNamespace()).List(ctx, v1.ListOptions{
+	deployments, err := m.kclient.Deployments(namespace.GetNamespace()).List(ctx, v1.ListOptions{
 		TypeMeta:      v1.TypeMeta{},
 		LabelSelector: labelSelector,
 	})
@@ -166,7 +166,7 @@ func (m *Manager) ListApps(ctx context.Context, namespace *kdeploypb.Namespace) 
 		return nil, err
 	}
 	for _, deployment := range deployments.Items {
-		svc, err := m.client.Services(namespace.GetNamespace()).Get(ctx, deployment.Name, v1.GetOptions{})
+		svc, err := m.kclient.Services(namespace.GetNamespace()).Get(ctx, deployment.Name, v1.GetOptions{})
 		if err != nil {
 			return nil, err
 		}
@@ -187,7 +187,7 @@ func (m *Manager) ListApps(ctx context.Context, namespace *kdeploypb.Namespace) 
 }
 
 func (m *Manager) StreamLogs(ctx context.Context, ref *kdeploypb.Ref) (chan string, error) {
-	pods, err := m.client.Pods(ref.Namespace).List(ctx, v1.ListOptions{
+	pods, err := m.kclient.Pods(ref.Namespace).List(ctx, v1.ListOptions{
 		TypeMeta:      v1.TypeMeta{},
 		Watch:         false,
 		LabelSelector: fmt.Sprintf("kdeploy.app = %s", ref.Name),
@@ -202,7 +202,7 @@ func (m *Manager) StreamLogs(ctx context.Context, ref *kdeploypb.Ref) (chan stri
 	var streamMu = sync.RWMutex{}
 	for _, pod := range pods.Items {
 		go func(p corev1.Pod) {
-			closer, err := m.client.GetLogs(context.Background(), p.Name, p.Namespace, &corev1.PodLogOptions{
+			closer, err := m.kclient.GetLogs(context.Background(), p.Name, p.Namespace, &corev1.PodLogOptions{
 				TypeMeta:  v1.TypeMeta{},
 				Container: ref.Name,
 				//Container: name,

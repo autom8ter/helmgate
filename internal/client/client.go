@@ -19,7 +19,8 @@ const (
 )
 
 type Manager struct {
-	client             *kubego.Client
+	kclient            *kubego.Kube
+	iclient            *kubego.Istio
 	jwtCache           generic.Cache
 	logger             *logger.Logger
 	rootUsers          []string
@@ -27,9 +28,10 @@ type Manager struct {
 	userInfoEndpoint   string
 }
 
-func New(client *kubego.Client, logger *logger.Logger, rootUsers []string, userInfoEndpoint string, authorizers []*trigger.Decision) *Manager {
+func New(kclient *kubego.Kube, iclient *kubego.Istio, logger *logger.Logger, rootUsers []string, userInfoEndpoint string, authorizers []*trigger.Decision) *Manager {
 	return &Manager{
-		client:             client,
+		kclient:            kclient,
+		iclient:            iclient,
 		jwtCache:           generic.NewCache(1 * time.Minute),
 		logger:             logger,
 		rootUsers:          rootUsers,
@@ -44,7 +46,7 @@ func (m *Manager) L() *logger.Logger {
 
 func (m *Manager) getStatus(ctx context.Context, namespace, name string) (*kdeploypb.AppStatus, error) {
 	var replicas []*kdeploypb.Replica
-	pods, err := m.client.Pods(namespace).List(ctx, v1.ListOptions{
+	pods, err := m.kclient.Pods(namespace).List(ctx, v1.ListOptions{
 		TypeMeta:      v1.TypeMeta{},
 		LabelSelector: fmt.Sprintf("kdeploy.app = %s", name),
 	})

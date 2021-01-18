@@ -2,8 +2,10 @@ package client
 
 import (
 	kdeploypb "github.com/autom8ter/kdeploy/gen/grpc/go"
+	"github.com/autom8ter/kdeploy/internal/helpers"
 	"github.com/pkg/errors"
 	"github.com/spf13/cast"
+	"istio.io/api/networking/v1alpha3"
 	apps "k8s.io/api/apps/v1"
 	batchv1 "k8s.io/api/batch/v1"
 	"k8s.io/api/batch/v1beta1"
@@ -142,20 +144,30 @@ func overwriteService(svc *v1.Service, app *kdeploypb.AppUpdate) *v1.Service {
 	return svc
 }
 
-func toService(app *kdeploypb.AppConstructor) *v1.Service {
-	return &v1.Service{
-		TypeMeta: metav1.TypeMeta{},
-		ObjectMeta: metav1.ObjectMeta{
-			Name:      app.Name,
-			Namespace: app.Namespace,
-			Labels:    appLabels(app),
-		},
-		Spec: v1.ServiceSpec{
-			Ports:    toServicePorts(app),
-			Selector: appLabels(app),
-			Type:     "",
-		},
-		Status: v1.ServiceStatus{},
+/*
+
+	TypeMeta: metav1.TypeMeta{},
+	ObjectMeta: metav1.ObjectMeta{
+		Name:      app.Name,
+		Namespace: app.Namespace,
+		Labels:    appLabels(app),
+	},
+	Spec: v1.ServiceSpec{
+		Ports:    toServicePorts(app),
+		Selector: appLabels(app),
+		Type:     "",
+	},
+	Status: v1.ServiceStatus{},
+*/
+
+func toService(app *kdeploypb.AppConstructor) *v1alpha3.VirtualService {
+	return &v1alpha3.VirtualService{
+		Hosts:    nil,
+		Gateways: nil,
+		Http:     nil,
+		Tls:      nil,
+		Tcp:      nil,
+		ExportTo: []string{"*"},
 	}
 }
 
@@ -225,7 +237,7 @@ func toTask(app *kdeploypb.TaskConstructor) (*v1beta1.CronJob, error) {
 			JobTemplate: v1beta1.JobTemplateSpec{
 				ObjectMeta: metav1.ObjectMeta{},
 				Spec: batchv1.JobSpec{
-					Completions:           int32Pointer(app.Completions),
+					Completions: helpers.Int32Pointer(app.Completions),
 					Template: v12.PodTemplateSpec{
 						ObjectMeta: metav1.ObjectMeta{
 							Name:      app.Name,
@@ -308,7 +320,7 @@ func overwriteTask(cronJob *v1beta1.CronJob, task *kdeploypb.TaskUpdate) (*v1bet
 		cronJob.Spec.Schedule = task.Schedule
 	}
 	if task.Completions != 0 {
-		cronJob.Spec.JobTemplate.Spec.Completions = int32Pointer(task.Completions)
+		cronJob.Spec.JobTemplate.Spec.Completions = helpers.Int32Pointer(task.Completions)
 	}
 	if task.Image != "" {
 		container.Image = task.Image
@@ -339,13 +351,13 @@ func overwriteTask(cronJob *v1beta1.CronJob, task *kdeploypb.TaskUpdate) (*v1bet
 type k8sApp struct {
 	namespace  *v12.Namespace
 	deployment *apps.Deployment
-	service    *v1.Service
+	service    *v1alpha3.VirtualService
 }
 
 func (k *k8sApp) toApp() *kdeploypb.App {
 	a := &kdeploypb.App{
-		Name:      k.service.Name,
-		Namespace: k.service.Namespace,
+		Name:      k.deployment.Name,
+		Namespace: k.deployment.Namespace,
 	}
 	a.Replicas = uint32(*k.deployment.Spec.Replicas)
 	a.Image = k.deployment.Spec.Template.Spec.Containers[0].Image
@@ -402,12 +414,4 @@ func (k *k8sTask) toTask() *kdeploypb.Task {
 		ports[p.Name] = cast.ToUint32(p.ContainerPort)
 	}
 	return a
-}
-
-func int32Pointer(value uint32) *int32 {
-	if value != 0 {
-		i := int32(value)
-		return &i
-	}
-	return nil
 }

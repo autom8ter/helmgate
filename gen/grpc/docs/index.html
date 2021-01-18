@@ -235,11 +235,19 @@
                 </li>
               
                 <li>
+                  <a href="#kdeploy.Networking"><span class="badge">M</span>Networking</a>
+                </li>
+              
+                <li>
                   <a href="#kdeploy.Ref"><span class="badge">M</span>Ref</a>
                 </li>
               
                 <li>
                   <a href="#kdeploy.Replica"><span class="badge">M</span>Replica</a>
+                </li>
+              
+                <li>
+                  <a href="#kdeploy.Route"><span class="badge">M</span>Route</a>
                 </li>
               
                 <li>
@@ -349,6 +357,13 @@
                   <td><a href="#uint32">uint32</a></td>
                   <td></td>
                   <td><p>number of deployment replicas </p></td>
+                </tr>
+              
+                <tr>
+                  <td>networking</td>
+                  <td><a href="#kdeploy.Networking">Networking</a></td>
+                  <td></td>
+                  <td><p> </p></td>
                 </tr>
               
                 <tr>
@@ -484,6 +499,13 @@
                   <td><a href="#uint32">uint32</a></td>
                   <td></td>
                   <td><p>number of deployment replicas </p></td>
+                </tr>
+              
+                <tr>
+                  <td>networking</td>
+                  <td><a href="#kdeploy.Networking">Networking</a></td>
+                  <td></td>
+                  <td><p> </p></td>
                 </tr>
               
             </tbody>
@@ -685,6 +707,13 @@
                   <td><a href="#uint32">uint32</a></td>
                   <td></td>
                   <td><p>number of deployment replicas </p></td>
+                </tr>
+              
+                <tr>
+                  <td>networking</td>
+                  <td><a href="#kdeploy.Networking">Networking</a></td>
+                  <td></td>
+                  <td><p> </p></td>
                 </tr>
               
             </tbody>
@@ -890,6 +919,37 @@
 
         
       
+        <h3 id="kdeploy.Networking">Networking</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>routes</td>
+                  <td><a href="#kdeploy.Route">Route</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>export</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="kdeploy.Ref">Ref</h3>
         <p></p>
 
@@ -986,6 +1046,86 @@
                 <tr>
                   <td>reason</td>
                   <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="kdeploy.Route">Route</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>hosts</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>gateways</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>path_prefix</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>rewrite_uri</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>allow_origins</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>allow_methods</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>allow_headers</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>expose_headers</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>allow_credentials</td>
+                  <td><a href="#bool">bool</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>

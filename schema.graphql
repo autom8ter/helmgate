@@ -3,6 +3,40 @@ scalar Time
 # Map is a k/v map where the key is a string and the value is any value
 scalar Map
 
+type Route {
+    hosts: [String!]
+    gateways: [String!]
+    path_prefix: String
+    rewrite_uri: String
+    allow_origins: [String!]
+    allow_methods: [String!]
+    allow_headers: [String!]
+    expose_headers: [String!]
+    allow_credentials: Boolean
+}
+
+type Networking {
+    routes: [Route!]!
+    export: Boolean
+}
+
+input RouteInput {
+    hosts: [String!]
+    gateways: [String!]
+    path_prefix: String
+    rewrite_uri: String
+    allow_origins: [String!]
+    allow_methods: [String!]
+    allow_headers: [String!]
+    expose_headers: [String!]
+    allow_credentials: Boolean
+}
+
+input NetworkingInput {
+    routes: [RouteInput!]!
+    export: Boolean
+}
+
 # App is a stateless application
 type App {
     # name of the application
@@ -19,6 +53,7 @@ type App {
     ports: Map!
     # number of deployment replicas min:1
     replicas: Int!
+    networking: Networking!
     # status tracks the state of the application during it's lifecycle
     status: AppStatus!
 }
@@ -84,6 +119,7 @@ input AppConstructor {
     ports: Map!
     # number of deployment replicas min:1
     replicas: Int!
+    networking: NetworkingInput!
 }
 
 # TaskConstructor creates a new task(cron job)
@@ -119,6 +155,7 @@ input AppUpdate {
     ports: Map
     # number of deployment replicas min:1
     replicas: Int
+    networking: NetworkingInput
 }
 
 input TaskUpdate {
@@ -144,6 +181,7 @@ input Ref {
     # application namespace
     namespace: String!
 }
+
 
 type Mutation {
     # createApp creates a new stateless application(k8s deployment), exposed with a single load balancer(k8s service) within a single namespace(k8s namespace)

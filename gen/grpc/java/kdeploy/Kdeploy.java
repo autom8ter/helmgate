@@ -14,6 +14,2745 @@ public final class Kdeploy {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  public interface RouteOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:kdeploy.Route)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated string hosts = 1;</code>
+     */
+    java.util.List<java.lang.String>
+        getHostsList();
+    /**
+     * <code>repeated string hosts = 1;</code>
+     */
+    int getHostsCount();
+    /**
+     * <code>repeated string hosts = 1;</code>
+     */
+    java.lang.String getHosts(int index);
+    /**
+     * <code>repeated string hosts = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getHostsBytes(int index);
+
+    /**
+     * <code>repeated string gateways = 2;</code>
+     */
+    java.util.List<java.lang.String>
+        getGatewaysList();
+    /**
+     * <code>repeated string gateways = 2;</code>
+     */
+    int getGatewaysCount();
+    /**
+     * <code>repeated string gateways = 2;</code>
+     */
+    java.lang.String getGateways(int index);
+    /**
+     * <code>repeated string gateways = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getGatewaysBytes(int index);
+
+    /**
+     * <code>string path_prefix = 3;</code>
+     */
+    java.lang.String getPathPrefix();
+    /**
+     * <code>string path_prefix = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getPathPrefixBytes();
+
+    /**
+     * <code>string rewrite_uri = 4;</code>
+     */
+    java.lang.String getRewriteUri();
+    /**
+     * <code>string rewrite_uri = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getRewriteUriBytes();
+
+    /**
+     * <code>repeated string allow_origins = 5;</code>
+     */
+    java.util.List<java.lang.String>
+        getAllowOriginsList();
+    /**
+     * <code>repeated string allow_origins = 5;</code>
+     */
+    int getAllowOriginsCount();
+    /**
+     * <code>repeated string allow_origins = 5;</code>
+     */
+    java.lang.String getAllowOrigins(int index);
+    /**
+     * <code>repeated string allow_origins = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getAllowOriginsBytes(int index);
+
+    /**
+     * <code>repeated string allow_methods = 6;</code>
+     */
+    java.util.List<java.lang.String>
+        getAllowMethodsList();
+    /**
+     * <code>repeated string allow_methods = 6;</code>
+     */
+    int getAllowMethodsCount();
+    /**
+     * <code>repeated string allow_methods = 6;</code>
+     */
+    java.lang.String getAllowMethods(int index);
+    /**
+     * <code>repeated string allow_methods = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getAllowMethodsBytes(int index);
+
+    /**
+     * <code>repeated string allow_headers = 7;</code>
+     */
+    java.util.List<java.lang.String>
+        getAllowHeadersList();
+    /**
+     * <code>repeated string allow_headers = 7;</code>
+     */
+    int getAllowHeadersCount();
+    /**
+     * <code>repeated string allow_headers = 7;</code>
+     */
+    java.lang.String getAllowHeaders(int index);
+    /**
+     * <code>repeated string allow_headers = 7;</code>
+     */
+    com.google.protobuf.ByteString
+        getAllowHeadersBytes(int index);
+
+    /**
+     * <code>repeated string expose_headers = 8;</code>
+     */
+    java.util.List<java.lang.String>
+        getExposeHeadersList();
+    /**
+     * <code>repeated string expose_headers = 8;</code>
+     */
+    int getExposeHeadersCount();
+    /**
+     * <code>repeated string expose_headers = 8;</code>
+     */
+    java.lang.String getExposeHeaders(int index);
+    /**
+     * <code>repeated string expose_headers = 8;</code>
+     */
+    com.google.protobuf.ByteString
+        getExposeHeadersBytes(int index);
+
+    /**
+     * <code>bool allow_credentials = 9;</code>
+     */
+    boolean getAllowCredentials();
+  }
+  /**
+   * Protobuf type {@code kdeploy.Route}
+   */
+  public  static final class Route extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:kdeploy.Route)
+      RouteOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Route.newBuilder() to construct.
+    private Route(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Route() {
+      hosts_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      gateways_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      pathPrefix_ = "";
+      rewriteUri_ = "";
+      allowOrigins_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      allowMethods_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      allowHeaders_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      exposeHeaders_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      allowCredentials_ = false;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Route(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                hosts_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              hosts_.add(s);
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                gateways_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              gateways_.add(s);
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              pathPrefix_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              rewriteUri_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+                allowOrigins_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              allowOrigins_.add(s);
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+                allowMethods_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000020;
+              }
+              allowMethods_.add(s);
+              break;
+            }
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+                allowHeaders_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000040;
+              }
+              allowHeaders_.add(s);
+              break;
+            }
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+                exposeHeaders_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000080;
+              }
+              exposeHeaders_.add(s);
+              break;
+            }
+            case 72: {
+
+              allowCredentials_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          hosts_ = hosts_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          gateways_ = gateways_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+          allowOrigins_ = allowOrigins_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+          allowMethods_ = allowMethods_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+          allowHeaders_ = allowHeaders_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+          exposeHeaders_ = exposeHeaders_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return kdeploy.Kdeploy.internal_static_kdeploy_Route_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return kdeploy.Kdeploy.internal_static_kdeploy_Route_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              kdeploy.Kdeploy.Route.class, kdeploy.Kdeploy.Route.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int HOSTS_FIELD_NUMBER = 1;
+    private com.google.protobuf.LazyStringList hosts_;
+    /**
+     * <code>repeated string hosts = 1;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getHostsList() {
+      return hosts_;
+    }
+    /**
+     * <code>repeated string hosts = 1;</code>
+     */
+    public int getHostsCount() {
+      return hosts_.size();
+    }
+    /**
+     * <code>repeated string hosts = 1;</code>
+     */
+    public java.lang.String getHosts(int index) {
+      return hosts_.get(index);
+    }
+    /**
+     * <code>repeated string hosts = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getHostsBytes(int index) {
+      return hosts_.getByteString(index);
+    }
+
+    public static final int GATEWAYS_FIELD_NUMBER = 2;
+    private com.google.protobuf.LazyStringList gateways_;
+    /**
+     * <code>repeated string gateways = 2;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getGatewaysList() {
+      return gateways_;
+    }
+    /**
+     * <code>repeated string gateways = 2;</code>
+     */
+    public int getGatewaysCount() {
+      return gateways_.size();
+    }
+    /**
+     * <code>repeated string gateways = 2;</code>
+     */
+    public java.lang.String getGateways(int index) {
+      return gateways_.get(index);
+    }
+    /**
+     * <code>repeated string gateways = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getGatewaysBytes(int index) {
+      return gateways_.getByteString(index);
+    }
+
+    public static final int PATH_PREFIX_FIELD_NUMBER = 3;
+    private volatile java.lang.Object pathPrefix_;
+    /**
+     * <code>string path_prefix = 3;</code>
+     */
+    public java.lang.String getPathPrefix() {
+      java.lang.Object ref = pathPrefix_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        pathPrefix_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string path_prefix = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPathPrefixBytes() {
+      java.lang.Object ref = pathPrefix_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        pathPrefix_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int REWRITE_URI_FIELD_NUMBER = 4;
+    private volatile java.lang.Object rewriteUri_;
+    /**
+     * <code>string rewrite_uri = 4;</code>
+     */
+    public java.lang.String getRewriteUri() {
+      java.lang.Object ref = rewriteUri_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        rewriteUri_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string rewrite_uri = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getRewriteUriBytes() {
+      java.lang.Object ref = rewriteUri_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        rewriteUri_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ALLOW_ORIGINS_FIELD_NUMBER = 5;
+    private com.google.protobuf.LazyStringList allowOrigins_;
+    /**
+     * <code>repeated string allow_origins = 5;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getAllowOriginsList() {
+      return allowOrigins_;
+    }
+    /**
+     * <code>repeated string allow_origins = 5;</code>
+     */
+    public int getAllowOriginsCount() {
+      return allowOrigins_.size();
+    }
+    /**
+     * <code>repeated string allow_origins = 5;</code>
+     */
+    public java.lang.String getAllowOrigins(int index) {
+      return allowOrigins_.get(index);
+    }
+    /**
+     * <code>repeated string allow_origins = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAllowOriginsBytes(int index) {
+      return allowOrigins_.getByteString(index);
+    }
+
+    public static final int ALLOW_METHODS_FIELD_NUMBER = 6;
+    private com.google.protobuf.LazyStringList allowMethods_;
+    /**
+     * <code>repeated string allow_methods = 6;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getAllowMethodsList() {
+      return allowMethods_;
+    }
+    /**
+     * <code>repeated string allow_methods = 6;</code>
+     */
+    public int getAllowMethodsCount() {
+      return allowMethods_.size();
+    }
+    /**
+     * <code>repeated string allow_methods = 6;</code>
+     */
+    public java.lang.String getAllowMethods(int index) {
+      return allowMethods_.get(index);
+    }
+    /**
+     * <code>repeated string allow_methods = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAllowMethodsBytes(int index) {
+      return allowMethods_.getByteString(index);
+    }
+
+    public static final int ALLOW_HEADERS_FIELD_NUMBER = 7;
+    private com.google.protobuf.LazyStringList allowHeaders_;
+    /**
+     * <code>repeated string allow_headers = 7;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getAllowHeadersList() {
+      return allowHeaders_;
+    }
+    /**
+     * <code>repeated string allow_headers = 7;</code>
+     */
+    public int getAllowHeadersCount() {
+      return allowHeaders_.size();
+    }
+    /**
+     * <code>repeated string allow_headers = 7;</code>
+     */
+    public java.lang.String getAllowHeaders(int index) {
+      return allowHeaders_.get(index);
+    }
+    /**
+     * <code>repeated string allow_headers = 7;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAllowHeadersBytes(int index) {
+      return allowHeaders_.getByteString(index);
+    }
+
+    public static final int EXPOSE_HEADERS_FIELD_NUMBER = 8;
+    private com.google.protobuf.LazyStringList exposeHeaders_;
+    /**
+     * <code>repeated string expose_headers = 8;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getExposeHeadersList() {
+      return exposeHeaders_;
+    }
+    /**
+     * <code>repeated string expose_headers = 8;</code>
+     */
+    public int getExposeHeadersCount() {
+      return exposeHeaders_.size();
+    }
+    /**
+     * <code>repeated string expose_headers = 8;</code>
+     */
+    public java.lang.String getExposeHeaders(int index) {
+      return exposeHeaders_.get(index);
+    }
+    /**
+     * <code>repeated string expose_headers = 8;</code>
+     */
+    public com.google.protobuf.ByteString
+        getExposeHeadersBytes(int index) {
+      return exposeHeaders_.getByteString(index);
+    }
+
+    public static final int ALLOW_CREDENTIALS_FIELD_NUMBER = 9;
+    private boolean allowCredentials_;
+    /**
+     * <code>bool allow_credentials = 9;</code>
+     */
+    public boolean getAllowCredentials() {
+      return allowCredentials_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < hosts_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, hosts_.getRaw(i));
+      }
+      for (int i = 0; i < gateways_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, gateways_.getRaw(i));
+      }
+      if (!getPathPrefixBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, pathPrefix_);
+      }
+      if (!getRewriteUriBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, rewriteUri_);
+      }
+      for (int i = 0; i < allowOrigins_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, allowOrigins_.getRaw(i));
+      }
+      for (int i = 0; i < allowMethods_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, allowMethods_.getRaw(i));
+      }
+      for (int i = 0; i < allowHeaders_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, allowHeaders_.getRaw(i));
+      }
+      for (int i = 0; i < exposeHeaders_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, exposeHeaders_.getRaw(i));
+      }
+      if (allowCredentials_ != false) {
+        output.writeBool(9, allowCredentials_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < hosts_.size(); i++) {
+          dataSize += computeStringSizeNoTag(hosts_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getHostsList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < gateways_.size(); i++) {
+          dataSize += computeStringSizeNoTag(gateways_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getGatewaysList().size();
+      }
+      if (!getPathPrefixBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, pathPrefix_);
+      }
+      if (!getRewriteUriBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, rewriteUri_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < allowOrigins_.size(); i++) {
+          dataSize += computeStringSizeNoTag(allowOrigins_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getAllowOriginsList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < allowMethods_.size(); i++) {
+          dataSize += computeStringSizeNoTag(allowMethods_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getAllowMethodsList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < allowHeaders_.size(); i++) {
+          dataSize += computeStringSizeNoTag(allowHeaders_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getAllowHeadersList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < exposeHeaders_.size(); i++) {
+          dataSize += computeStringSizeNoTag(exposeHeaders_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getExposeHeadersList().size();
+      }
+      if (allowCredentials_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(9, allowCredentials_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof kdeploy.Kdeploy.Route)) {
+        return super.equals(obj);
+      }
+      kdeploy.Kdeploy.Route other = (kdeploy.Kdeploy.Route) obj;
+
+      boolean result = true;
+      result = result && getHostsList()
+          .equals(other.getHostsList());
+      result = result && getGatewaysList()
+          .equals(other.getGatewaysList());
+      result = result && getPathPrefix()
+          .equals(other.getPathPrefix());
+      result = result && getRewriteUri()
+          .equals(other.getRewriteUri());
+      result = result && getAllowOriginsList()
+          .equals(other.getAllowOriginsList());
+      result = result && getAllowMethodsList()
+          .equals(other.getAllowMethodsList());
+      result = result && getAllowHeadersList()
+          .equals(other.getAllowHeadersList());
+      result = result && getExposeHeadersList()
+          .equals(other.getExposeHeadersList());
+      result = result && (getAllowCredentials()
+          == other.getAllowCredentials());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getHostsCount() > 0) {
+        hash = (37 * hash) + HOSTS_FIELD_NUMBER;
+        hash = (53 * hash) + getHostsList().hashCode();
+      }
+      if (getGatewaysCount() > 0) {
+        hash = (37 * hash) + GATEWAYS_FIELD_NUMBER;
+        hash = (53 * hash) + getGatewaysList().hashCode();
+      }
+      hash = (37 * hash) + PATH_PREFIX_FIELD_NUMBER;
+      hash = (53 * hash) + getPathPrefix().hashCode();
+      hash = (37 * hash) + REWRITE_URI_FIELD_NUMBER;
+      hash = (53 * hash) + getRewriteUri().hashCode();
+      if (getAllowOriginsCount() > 0) {
+        hash = (37 * hash) + ALLOW_ORIGINS_FIELD_NUMBER;
+        hash = (53 * hash) + getAllowOriginsList().hashCode();
+      }
+      if (getAllowMethodsCount() > 0) {
+        hash = (37 * hash) + ALLOW_METHODS_FIELD_NUMBER;
+        hash = (53 * hash) + getAllowMethodsList().hashCode();
+      }
+      if (getAllowHeadersCount() > 0) {
+        hash = (37 * hash) + ALLOW_HEADERS_FIELD_NUMBER;
+        hash = (53 * hash) + getAllowHeadersList().hashCode();
+      }
+      if (getExposeHeadersCount() > 0) {
+        hash = (37 * hash) + EXPOSE_HEADERS_FIELD_NUMBER;
+        hash = (53 * hash) + getExposeHeadersList().hashCode();
+      }
+      hash = (37 * hash) + ALLOW_CREDENTIALS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getAllowCredentials());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static kdeploy.Kdeploy.Route parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static kdeploy.Kdeploy.Route parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.Route parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static kdeploy.Kdeploy.Route parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.Route parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static kdeploy.Kdeploy.Route parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.Route parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static kdeploy.Kdeploy.Route parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.Route parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static kdeploy.Kdeploy.Route parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.Route parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static kdeploy.Kdeploy.Route parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(kdeploy.Kdeploy.Route prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code kdeploy.Route}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:kdeploy.Route)
+        kdeploy.Kdeploy.RouteOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return kdeploy.Kdeploy.internal_static_kdeploy_Route_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return kdeploy.Kdeploy.internal_static_kdeploy_Route_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                kdeploy.Kdeploy.Route.class, kdeploy.Kdeploy.Route.Builder.class);
+      }
+
+      // Construct using kdeploy.Kdeploy.Route.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        hosts_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        gateways_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        pathPrefix_ = "";
+
+        rewriteUri_ = "";
+
+        allowOrigins_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        allowMethods_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        allowHeaders_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000040);
+        exposeHeaders_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        allowCredentials_ = false;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return kdeploy.Kdeploy.internal_static_kdeploy_Route_descriptor;
+      }
+
+      @java.lang.Override
+      public kdeploy.Kdeploy.Route getDefaultInstanceForType() {
+        return kdeploy.Kdeploy.Route.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public kdeploy.Kdeploy.Route build() {
+        kdeploy.Kdeploy.Route result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public kdeploy.Kdeploy.Route buildPartial() {
+        kdeploy.Kdeploy.Route result = new kdeploy.Kdeploy.Route(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          hosts_ = hosts_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.hosts_ = hosts_;
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          gateways_ = gateways_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.gateways_ = gateways_;
+        result.pathPrefix_ = pathPrefix_;
+        result.rewriteUri_ = rewriteUri_;
+        if (((bitField0_ & 0x00000010) == 0x00000010)) {
+          allowOrigins_ = allowOrigins_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000010);
+        }
+        result.allowOrigins_ = allowOrigins_;
+        if (((bitField0_ & 0x00000020) == 0x00000020)) {
+          allowMethods_ = allowMethods_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000020);
+        }
+        result.allowMethods_ = allowMethods_;
+        if (((bitField0_ & 0x00000040) == 0x00000040)) {
+          allowHeaders_ = allowHeaders_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000040);
+        }
+        result.allowHeaders_ = allowHeaders_;
+        if (((bitField0_ & 0x00000080) == 0x00000080)) {
+          exposeHeaders_ = exposeHeaders_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000080);
+        }
+        result.exposeHeaders_ = exposeHeaders_;
+        result.allowCredentials_ = allowCredentials_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof kdeploy.Kdeploy.Route) {
+          return mergeFrom((kdeploy.Kdeploy.Route)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(kdeploy.Kdeploy.Route other) {
+        if (other == kdeploy.Kdeploy.Route.getDefaultInstance()) return this;
+        if (!other.hosts_.isEmpty()) {
+          if (hosts_.isEmpty()) {
+            hosts_ = other.hosts_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureHostsIsMutable();
+            hosts_.addAll(other.hosts_);
+          }
+          onChanged();
+        }
+        if (!other.gateways_.isEmpty()) {
+          if (gateways_.isEmpty()) {
+            gateways_ = other.gateways_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureGatewaysIsMutable();
+            gateways_.addAll(other.gateways_);
+          }
+          onChanged();
+        }
+        if (!other.getPathPrefix().isEmpty()) {
+          pathPrefix_ = other.pathPrefix_;
+          onChanged();
+        }
+        if (!other.getRewriteUri().isEmpty()) {
+          rewriteUri_ = other.rewriteUri_;
+          onChanged();
+        }
+        if (!other.allowOrigins_.isEmpty()) {
+          if (allowOrigins_.isEmpty()) {
+            allowOrigins_ = other.allowOrigins_;
+            bitField0_ = (bitField0_ & ~0x00000010);
+          } else {
+            ensureAllowOriginsIsMutable();
+            allowOrigins_.addAll(other.allowOrigins_);
+          }
+          onChanged();
+        }
+        if (!other.allowMethods_.isEmpty()) {
+          if (allowMethods_.isEmpty()) {
+            allowMethods_ = other.allowMethods_;
+            bitField0_ = (bitField0_ & ~0x00000020);
+          } else {
+            ensureAllowMethodsIsMutable();
+            allowMethods_.addAll(other.allowMethods_);
+          }
+          onChanged();
+        }
+        if (!other.allowHeaders_.isEmpty()) {
+          if (allowHeaders_.isEmpty()) {
+            allowHeaders_ = other.allowHeaders_;
+            bitField0_ = (bitField0_ & ~0x00000040);
+          } else {
+            ensureAllowHeadersIsMutable();
+            allowHeaders_.addAll(other.allowHeaders_);
+          }
+          onChanged();
+        }
+        if (!other.exposeHeaders_.isEmpty()) {
+          if (exposeHeaders_.isEmpty()) {
+            exposeHeaders_ = other.exposeHeaders_;
+            bitField0_ = (bitField0_ & ~0x00000080);
+          } else {
+            ensureExposeHeadersIsMutable();
+            exposeHeaders_.addAll(other.exposeHeaders_);
+          }
+          onChanged();
+        }
+        if (other.getAllowCredentials() != false) {
+          setAllowCredentials(other.getAllowCredentials());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        kdeploy.Kdeploy.Route parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (kdeploy.Kdeploy.Route) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.LazyStringList hosts_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureHostsIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          hosts_ = new com.google.protobuf.LazyStringArrayList(hosts_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated string hosts = 1;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getHostsList() {
+        return hosts_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string hosts = 1;</code>
+       */
+      public int getHostsCount() {
+        return hosts_.size();
+      }
+      /**
+       * <code>repeated string hosts = 1;</code>
+       */
+      public java.lang.String getHosts(int index) {
+        return hosts_.get(index);
+      }
+      /**
+       * <code>repeated string hosts = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getHostsBytes(int index) {
+        return hosts_.getByteString(index);
+      }
+      /**
+       * <code>repeated string hosts = 1;</code>
+       */
+      public Builder setHosts(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureHostsIsMutable();
+        hosts_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string hosts = 1;</code>
+       */
+      public Builder addHosts(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureHostsIsMutable();
+        hosts_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string hosts = 1;</code>
+       */
+      public Builder addAllHosts(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureHostsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, hosts_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string hosts = 1;</code>
+       */
+      public Builder clearHosts() {
+        hosts_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string hosts = 1;</code>
+       */
+      public Builder addHostsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureHostsIsMutable();
+        hosts_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList gateways_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureGatewaysIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          gateways_ = new com.google.protobuf.LazyStringArrayList(gateways_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <code>repeated string gateways = 2;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getGatewaysList() {
+        return gateways_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string gateways = 2;</code>
+       */
+      public int getGatewaysCount() {
+        return gateways_.size();
+      }
+      /**
+       * <code>repeated string gateways = 2;</code>
+       */
+      public java.lang.String getGateways(int index) {
+        return gateways_.get(index);
+      }
+      /**
+       * <code>repeated string gateways = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getGatewaysBytes(int index) {
+        return gateways_.getByteString(index);
+      }
+      /**
+       * <code>repeated string gateways = 2;</code>
+       */
+      public Builder setGateways(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureGatewaysIsMutable();
+        gateways_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string gateways = 2;</code>
+       */
+      public Builder addGateways(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureGatewaysIsMutable();
+        gateways_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string gateways = 2;</code>
+       */
+      public Builder addAllGateways(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureGatewaysIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, gateways_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string gateways = 2;</code>
+       */
+      public Builder clearGateways() {
+        gateways_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string gateways = 2;</code>
+       */
+      public Builder addGatewaysBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureGatewaysIsMutable();
+        gateways_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object pathPrefix_ = "";
+      /**
+       * <code>string path_prefix = 3;</code>
+       */
+      public java.lang.String getPathPrefix() {
+        java.lang.Object ref = pathPrefix_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          pathPrefix_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string path_prefix = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPathPrefixBytes() {
+        java.lang.Object ref = pathPrefix_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          pathPrefix_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string path_prefix = 3;</code>
+       */
+      public Builder setPathPrefix(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        pathPrefix_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string path_prefix = 3;</code>
+       */
+      public Builder clearPathPrefix() {
+        
+        pathPrefix_ = getDefaultInstance().getPathPrefix();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string path_prefix = 3;</code>
+       */
+      public Builder setPathPrefixBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        pathPrefix_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object rewriteUri_ = "";
+      /**
+       * <code>string rewrite_uri = 4;</code>
+       */
+      public java.lang.String getRewriteUri() {
+        java.lang.Object ref = rewriteUri_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          rewriteUri_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string rewrite_uri = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getRewriteUriBytes() {
+        java.lang.Object ref = rewriteUri_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          rewriteUri_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string rewrite_uri = 4;</code>
+       */
+      public Builder setRewriteUri(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        rewriteUri_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string rewrite_uri = 4;</code>
+       */
+      public Builder clearRewriteUri() {
+        
+        rewriteUri_ = getDefaultInstance().getRewriteUri();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string rewrite_uri = 4;</code>
+       */
+      public Builder setRewriteUriBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        rewriteUri_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList allowOrigins_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureAllowOriginsIsMutable() {
+        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+          allowOrigins_ = new com.google.protobuf.LazyStringArrayList(allowOrigins_);
+          bitField0_ |= 0x00000010;
+         }
+      }
+      /**
+       * <code>repeated string allow_origins = 5;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getAllowOriginsList() {
+        return allowOrigins_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string allow_origins = 5;</code>
+       */
+      public int getAllowOriginsCount() {
+        return allowOrigins_.size();
+      }
+      /**
+       * <code>repeated string allow_origins = 5;</code>
+       */
+      public java.lang.String getAllowOrigins(int index) {
+        return allowOrigins_.get(index);
+      }
+      /**
+       * <code>repeated string allow_origins = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAllowOriginsBytes(int index) {
+        return allowOrigins_.getByteString(index);
+      }
+      /**
+       * <code>repeated string allow_origins = 5;</code>
+       */
+      public Builder setAllowOrigins(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAllowOriginsIsMutable();
+        allowOrigins_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string allow_origins = 5;</code>
+       */
+      public Builder addAllowOrigins(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAllowOriginsIsMutable();
+        allowOrigins_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string allow_origins = 5;</code>
+       */
+      public Builder addAllAllowOrigins(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureAllowOriginsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, allowOrigins_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string allow_origins = 5;</code>
+       */
+      public Builder clearAllowOrigins() {
+        allowOrigins_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string allow_origins = 5;</code>
+       */
+      public Builder addAllowOriginsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureAllowOriginsIsMutable();
+        allowOrigins_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList allowMethods_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureAllowMethodsIsMutable() {
+        if (!((bitField0_ & 0x00000020) == 0x00000020)) {
+          allowMethods_ = new com.google.protobuf.LazyStringArrayList(allowMethods_);
+          bitField0_ |= 0x00000020;
+         }
+      }
+      /**
+       * <code>repeated string allow_methods = 6;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getAllowMethodsList() {
+        return allowMethods_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string allow_methods = 6;</code>
+       */
+      public int getAllowMethodsCount() {
+        return allowMethods_.size();
+      }
+      /**
+       * <code>repeated string allow_methods = 6;</code>
+       */
+      public java.lang.String getAllowMethods(int index) {
+        return allowMethods_.get(index);
+      }
+      /**
+       * <code>repeated string allow_methods = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAllowMethodsBytes(int index) {
+        return allowMethods_.getByteString(index);
+      }
+      /**
+       * <code>repeated string allow_methods = 6;</code>
+       */
+      public Builder setAllowMethods(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAllowMethodsIsMutable();
+        allowMethods_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string allow_methods = 6;</code>
+       */
+      public Builder addAllowMethods(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAllowMethodsIsMutable();
+        allowMethods_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string allow_methods = 6;</code>
+       */
+      public Builder addAllAllowMethods(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureAllowMethodsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, allowMethods_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string allow_methods = 6;</code>
+       */
+      public Builder clearAllowMethods() {
+        allowMethods_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string allow_methods = 6;</code>
+       */
+      public Builder addAllowMethodsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureAllowMethodsIsMutable();
+        allowMethods_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList allowHeaders_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureAllowHeadersIsMutable() {
+        if (!((bitField0_ & 0x00000040) == 0x00000040)) {
+          allowHeaders_ = new com.google.protobuf.LazyStringArrayList(allowHeaders_);
+          bitField0_ |= 0x00000040;
+         }
+      }
+      /**
+       * <code>repeated string allow_headers = 7;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getAllowHeadersList() {
+        return allowHeaders_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string allow_headers = 7;</code>
+       */
+      public int getAllowHeadersCount() {
+        return allowHeaders_.size();
+      }
+      /**
+       * <code>repeated string allow_headers = 7;</code>
+       */
+      public java.lang.String getAllowHeaders(int index) {
+        return allowHeaders_.get(index);
+      }
+      /**
+       * <code>repeated string allow_headers = 7;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAllowHeadersBytes(int index) {
+        return allowHeaders_.getByteString(index);
+      }
+      /**
+       * <code>repeated string allow_headers = 7;</code>
+       */
+      public Builder setAllowHeaders(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAllowHeadersIsMutable();
+        allowHeaders_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string allow_headers = 7;</code>
+       */
+      public Builder addAllowHeaders(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAllowHeadersIsMutable();
+        allowHeaders_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string allow_headers = 7;</code>
+       */
+      public Builder addAllAllowHeaders(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureAllowHeadersIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, allowHeaders_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string allow_headers = 7;</code>
+       */
+      public Builder clearAllowHeaders() {
+        allowHeaders_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000040);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string allow_headers = 7;</code>
+       */
+      public Builder addAllowHeadersBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureAllowHeadersIsMutable();
+        allowHeaders_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList exposeHeaders_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureExposeHeadersIsMutable() {
+        if (!((bitField0_ & 0x00000080) == 0x00000080)) {
+          exposeHeaders_ = new com.google.protobuf.LazyStringArrayList(exposeHeaders_);
+          bitField0_ |= 0x00000080;
+         }
+      }
+      /**
+       * <code>repeated string expose_headers = 8;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getExposeHeadersList() {
+        return exposeHeaders_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string expose_headers = 8;</code>
+       */
+      public int getExposeHeadersCount() {
+        return exposeHeaders_.size();
+      }
+      /**
+       * <code>repeated string expose_headers = 8;</code>
+       */
+      public java.lang.String getExposeHeaders(int index) {
+        return exposeHeaders_.get(index);
+      }
+      /**
+       * <code>repeated string expose_headers = 8;</code>
+       */
+      public com.google.protobuf.ByteString
+          getExposeHeadersBytes(int index) {
+        return exposeHeaders_.getByteString(index);
+      }
+      /**
+       * <code>repeated string expose_headers = 8;</code>
+       */
+      public Builder setExposeHeaders(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureExposeHeadersIsMutable();
+        exposeHeaders_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string expose_headers = 8;</code>
+       */
+      public Builder addExposeHeaders(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureExposeHeadersIsMutable();
+        exposeHeaders_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string expose_headers = 8;</code>
+       */
+      public Builder addAllExposeHeaders(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureExposeHeadersIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, exposeHeaders_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string expose_headers = 8;</code>
+       */
+      public Builder clearExposeHeaders() {
+        exposeHeaders_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string expose_headers = 8;</code>
+       */
+      public Builder addExposeHeadersBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureExposeHeadersIsMutable();
+        exposeHeaders_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private boolean allowCredentials_ ;
+      /**
+       * <code>bool allow_credentials = 9;</code>
+       */
+      public boolean getAllowCredentials() {
+        return allowCredentials_;
+      }
+      /**
+       * <code>bool allow_credentials = 9;</code>
+       */
+      public Builder setAllowCredentials(boolean value) {
+        
+        allowCredentials_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool allow_credentials = 9;</code>
+       */
+      public Builder clearAllowCredentials() {
+        
+        allowCredentials_ = false;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:kdeploy.Route)
+    }
+
+    // @@protoc_insertion_point(class_scope:kdeploy.Route)
+    private static final kdeploy.Kdeploy.Route DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new kdeploy.Kdeploy.Route();
+    }
+
+    public static kdeploy.Kdeploy.Route getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Route>
+        PARSER = new com.google.protobuf.AbstractParser<Route>() {
+      @java.lang.Override
+      public Route parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Route(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Route> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Route> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public kdeploy.Kdeploy.Route getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface NetworkingOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:kdeploy.Networking)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .kdeploy.Route routes = 1;</code>
+     */
+    java.util.List<kdeploy.Kdeploy.Route> 
+        getRoutesList();
+    /**
+     * <code>repeated .kdeploy.Route routes = 1;</code>
+     */
+    kdeploy.Kdeploy.Route getRoutes(int index);
+    /**
+     * <code>repeated .kdeploy.Route routes = 1;</code>
+     */
+    int getRoutesCount();
+    /**
+     * <code>repeated .kdeploy.Route routes = 1;</code>
+     */
+    java.util.List<? extends kdeploy.Kdeploy.RouteOrBuilder> 
+        getRoutesOrBuilderList();
+    /**
+     * <code>repeated .kdeploy.Route routes = 1;</code>
+     */
+    kdeploy.Kdeploy.RouteOrBuilder getRoutesOrBuilder(
+        int index);
+
+    /**
+     * <code>bool export = 2;</code>
+     */
+    boolean getExport();
+  }
+  /**
+   * Protobuf type {@code kdeploy.Networking}
+   */
+  public  static final class Networking extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:kdeploy.Networking)
+      NetworkingOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Networking.newBuilder() to construct.
+    private Networking(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Networking() {
+      routes_ = java.util.Collections.emptyList();
+      export_ = false;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Networking(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                routes_ = new java.util.ArrayList<kdeploy.Kdeploy.Route>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              routes_.add(
+                  input.readMessage(kdeploy.Kdeploy.Route.parser(), extensionRegistry));
+              break;
+            }
+            case 16: {
+
+              export_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          routes_ = java.util.Collections.unmodifiableList(routes_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return kdeploy.Kdeploy.internal_static_kdeploy_Networking_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return kdeploy.Kdeploy.internal_static_kdeploy_Networking_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              kdeploy.Kdeploy.Networking.class, kdeploy.Kdeploy.Networking.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int ROUTES_FIELD_NUMBER = 1;
+    private java.util.List<kdeploy.Kdeploy.Route> routes_;
+    /**
+     * <code>repeated .kdeploy.Route routes = 1;</code>
+     */
+    public java.util.List<kdeploy.Kdeploy.Route> getRoutesList() {
+      return routes_;
+    }
+    /**
+     * <code>repeated .kdeploy.Route routes = 1;</code>
+     */
+    public java.util.List<? extends kdeploy.Kdeploy.RouteOrBuilder> 
+        getRoutesOrBuilderList() {
+      return routes_;
+    }
+    /**
+     * <code>repeated .kdeploy.Route routes = 1;</code>
+     */
+    public int getRoutesCount() {
+      return routes_.size();
+    }
+    /**
+     * <code>repeated .kdeploy.Route routes = 1;</code>
+     */
+    public kdeploy.Kdeploy.Route getRoutes(int index) {
+      return routes_.get(index);
+    }
+    /**
+     * <code>repeated .kdeploy.Route routes = 1;</code>
+     */
+    public kdeploy.Kdeploy.RouteOrBuilder getRoutesOrBuilder(
+        int index) {
+      return routes_.get(index);
+    }
+
+    public static final int EXPORT_FIELD_NUMBER = 2;
+    private boolean export_;
+    /**
+     * <code>bool export = 2;</code>
+     */
+    public boolean getExport() {
+      return export_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < routes_.size(); i++) {
+        output.writeMessage(1, routes_.get(i));
+      }
+      if (export_ != false) {
+        output.writeBool(2, export_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < routes_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, routes_.get(i));
+      }
+      if (export_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(2, export_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof kdeploy.Kdeploy.Networking)) {
+        return super.equals(obj);
+      }
+      kdeploy.Kdeploy.Networking other = (kdeploy.Kdeploy.Networking) obj;
+
+      boolean result = true;
+      result = result && getRoutesList()
+          .equals(other.getRoutesList());
+      result = result && (getExport()
+          == other.getExport());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getRoutesCount() > 0) {
+        hash = (37 * hash) + ROUTES_FIELD_NUMBER;
+        hash = (53 * hash) + getRoutesList().hashCode();
+      }
+      hash = (37 * hash) + EXPORT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getExport());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static kdeploy.Kdeploy.Networking parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static kdeploy.Kdeploy.Networking parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.Networking parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static kdeploy.Kdeploy.Networking parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.Networking parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static kdeploy.Kdeploy.Networking parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.Networking parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static kdeploy.Kdeploy.Networking parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.Networking parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static kdeploy.Kdeploy.Networking parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.Networking parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static kdeploy.Kdeploy.Networking parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(kdeploy.Kdeploy.Networking prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code kdeploy.Networking}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:kdeploy.Networking)
+        kdeploy.Kdeploy.NetworkingOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return kdeploy.Kdeploy.internal_static_kdeploy_Networking_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return kdeploy.Kdeploy.internal_static_kdeploy_Networking_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                kdeploy.Kdeploy.Networking.class, kdeploy.Kdeploy.Networking.Builder.class);
+      }
+
+      // Construct using kdeploy.Kdeploy.Networking.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getRoutesFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (routesBuilder_ == null) {
+          routes_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          routesBuilder_.clear();
+        }
+        export_ = false;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return kdeploy.Kdeploy.internal_static_kdeploy_Networking_descriptor;
+      }
+
+      @java.lang.Override
+      public kdeploy.Kdeploy.Networking getDefaultInstanceForType() {
+        return kdeploy.Kdeploy.Networking.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public kdeploy.Kdeploy.Networking build() {
+        kdeploy.Kdeploy.Networking result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public kdeploy.Kdeploy.Networking buildPartial() {
+        kdeploy.Kdeploy.Networking result = new kdeploy.Kdeploy.Networking(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (routesBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            routes_ = java.util.Collections.unmodifiableList(routes_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.routes_ = routes_;
+        } else {
+          result.routes_ = routesBuilder_.build();
+        }
+        result.export_ = export_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof kdeploy.Kdeploy.Networking) {
+          return mergeFrom((kdeploy.Kdeploy.Networking)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(kdeploy.Kdeploy.Networking other) {
+        if (other == kdeploy.Kdeploy.Networking.getDefaultInstance()) return this;
+        if (routesBuilder_ == null) {
+          if (!other.routes_.isEmpty()) {
+            if (routes_.isEmpty()) {
+              routes_ = other.routes_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureRoutesIsMutable();
+              routes_.addAll(other.routes_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.routes_.isEmpty()) {
+            if (routesBuilder_.isEmpty()) {
+              routesBuilder_.dispose();
+              routesBuilder_ = null;
+              routes_ = other.routes_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              routesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getRoutesFieldBuilder() : null;
+            } else {
+              routesBuilder_.addAllMessages(other.routes_);
+            }
+          }
+        }
+        if (other.getExport() != false) {
+          setExport(other.getExport());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        kdeploy.Kdeploy.Networking parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (kdeploy.Kdeploy.Networking) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<kdeploy.Kdeploy.Route> routes_ =
+        java.util.Collections.emptyList();
+      private void ensureRoutesIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          routes_ = new java.util.ArrayList<kdeploy.Kdeploy.Route>(routes_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          kdeploy.Kdeploy.Route, kdeploy.Kdeploy.Route.Builder, kdeploy.Kdeploy.RouteOrBuilder> routesBuilder_;
+
+      /**
+       * <code>repeated .kdeploy.Route routes = 1;</code>
+       */
+      public java.util.List<kdeploy.Kdeploy.Route> getRoutesList() {
+        if (routesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(routes_);
+        } else {
+          return routesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .kdeploy.Route routes = 1;</code>
+       */
+      public int getRoutesCount() {
+        if (routesBuilder_ == null) {
+          return routes_.size();
+        } else {
+          return routesBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .kdeploy.Route routes = 1;</code>
+       */
+      public kdeploy.Kdeploy.Route getRoutes(int index) {
+        if (routesBuilder_ == null) {
+          return routes_.get(index);
+        } else {
+          return routesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .kdeploy.Route routes = 1;</code>
+       */
+      public Builder setRoutes(
+          int index, kdeploy.Kdeploy.Route value) {
+        if (routesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRoutesIsMutable();
+          routes_.set(index, value);
+          onChanged();
+        } else {
+          routesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.Route routes = 1;</code>
+       */
+      public Builder setRoutes(
+          int index, kdeploy.Kdeploy.Route.Builder builderForValue) {
+        if (routesBuilder_ == null) {
+          ensureRoutesIsMutable();
+          routes_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          routesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.Route routes = 1;</code>
+       */
+      public Builder addRoutes(kdeploy.Kdeploy.Route value) {
+        if (routesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRoutesIsMutable();
+          routes_.add(value);
+          onChanged();
+        } else {
+          routesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.Route routes = 1;</code>
+       */
+      public Builder addRoutes(
+          int index, kdeploy.Kdeploy.Route value) {
+        if (routesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRoutesIsMutable();
+          routes_.add(index, value);
+          onChanged();
+        } else {
+          routesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.Route routes = 1;</code>
+       */
+      public Builder addRoutes(
+          kdeploy.Kdeploy.Route.Builder builderForValue) {
+        if (routesBuilder_ == null) {
+          ensureRoutesIsMutable();
+          routes_.add(builderForValue.build());
+          onChanged();
+        } else {
+          routesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.Route routes = 1;</code>
+       */
+      public Builder addRoutes(
+          int index, kdeploy.Kdeploy.Route.Builder builderForValue) {
+        if (routesBuilder_ == null) {
+          ensureRoutesIsMutable();
+          routes_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          routesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.Route routes = 1;</code>
+       */
+      public Builder addAllRoutes(
+          java.lang.Iterable<? extends kdeploy.Kdeploy.Route> values) {
+        if (routesBuilder_ == null) {
+          ensureRoutesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, routes_);
+          onChanged();
+        } else {
+          routesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.Route routes = 1;</code>
+       */
+      public Builder clearRoutes() {
+        if (routesBuilder_ == null) {
+          routes_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          routesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.Route routes = 1;</code>
+       */
+      public Builder removeRoutes(int index) {
+        if (routesBuilder_ == null) {
+          ensureRoutesIsMutable();
+          routes_.remove(index);
+          onChanged();
+        } else {
+          routesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.Route routes = 1;</code>
+       */
+      public kdeploy.Kdeploy.Route.Builder getRoutesBuilder(
+          int index) {
+        return getRoutesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .kdeploy.Route routes = 1;</code>
+       */
+      public kdeploy.Kdeploy.RouteOrBuilder getRoutesOrBuilder(
+          int index) {
+        if (routesBuilder_ == null) {
+          return routes_.get(index);  } else {
+          return routesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .kdeploy.Route routes = 1;</code>
+       */
+      public java.util.List<? extends kdeploy.Kdeploy.RouteOrBuilder> 
+           getRoutesOrBuilderList() {
+        if (routesBuilder_ != null) {
+          return routesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(routes_);
+        }
+      }
+      /**
+       * <code>repeated .kdeploy.Route routes = 1;</code>
+       */
+      public kdeploy.Kdeploy.Route.Builder addRoutesBuilder() {
+        return getRoutesFieldBuilder().addBuilder(
+            kdeploy.Kdeploy.Route.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .kdeploy.Route routes = 1;</code>
+       */
+      public kdeploy.Kdeploy.Route.Builder addRoutesBuilder(
+          int index) {
+        return getRoutesFieldBuilder().addBuilder(
+            index, kdeploy.Kdeploy.Route.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .kdeploy.Route routes = 1;</code>
+       */
+      public java.util.List<kdeploy.Kdeploy.Route.Builder> 
+           getRoutesBuilderList() {
+        return getRoutesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          kdeploy.Kdeploy.Route, kdeploy.Kdeploy.Route.Builder, kdeploy.Kdeploy.RouteOrBuilder> 
+          getRoutesFieldBuilder() {
+        if (routesBuilder_ == null) {
+          routesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              kdeploy.Kdeploy.Route, kdeploy.Kdeploy.Route.Builder, kdeploy.Kdeploy.RouteOrBuilder>(
+                  routes_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          routes_ = null;
+        }
+        return routesBuilder_;
+      }
+
+      private boolean export_ ;
+      /**
+       * <code>bool export = 2;</code>
+       */
+      public boolean getExport() {
+        return export_;
+      }
+      /**
+       * <code>bool export = 2;</code>
+       */
+      public Builder setExport(boolean value) {
+        
+        export_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool export = 2;</code>
+       */
+      public Builder clearExport() {
+        
+        export_ = false;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:kdeploy.Networking)
+    }
+
+    // @@protoc_insertion_point(class_scope:kdeploy.Networking)
+    private static final kdeploy.Kdeploy.Networking DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new kdeploy.Kdeploy.Networking();
+    }
+
+    public static kdeploy.Kdeploy.Networking getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Networking>
+        PARSER = new com.google.protobuf.AbstractParser<Networking>() {
+      @java.lang.Override
+      public Networking parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Networking(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Networking> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Networking> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public kdeploy.Kdeploy.Networking getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface AppOrBuilder extends
       // @@protoc_insertion_point(interface_extends:kdeploy.App)
       com.google.protobuf.MessageOrBuilder {
@@ -225,11 +2964,24 @@ public final class Kdeploy {
     int getReplicas();
 
     /**
+     * <code>.kdeploy.Networking networking = 9;</code>
+     */
+    boolean hasNetworking();
+    /**
+     * <code>.kdeploy.Networking networking = 9;</code>
+     */
+    kdeploy.Kdeploy.Networking getNetworking();
+    /**
+     * <code>.kdeploy.Networking networking = 9;</code>
+     */
+    kdeploy.Kdeploy.NetworkingOrBuilder getNetworkingOrBuilder();
+
+    /**
      * <pre>
      * status tracks the state of the application during it's lifecycle
      * </pre>
      *
-     * <code>.kdeploy.AppStatus status = 9;</code>
+     * <code>.kdeploy.AppStatus status = 20;</code>
      */
     boolean hasStatus();
     /**
@@ -237,7 +2989,7 @@ public final class Kdeploy {
      * status tracks the state of the application during it's lifecycle
      * </pre>
      *
-     * <code>.kdeploy.AppStatus status = 9;</code>
+     * <code>.kdeploy.AppStatus status = 20;</code>
      */
     kdeploy.Kdeploy.AppStatus getStatus();
     /**
@@ -245,7 +2997,7 @@ public final class Kdeploy {
      * status tracks the state of the application during it's lifecycle
      * </pre>
      *
-     * <code>.kdeploy.AppStatus status = 9;</code>
+     * <code>.kdeploy.AppStatus status = 20;</code>
      */
     kdeploy.Kdeploy.AppStatusOrBuilder getStatusOrBuilder();
   }
@@ -356,6 +3108,19 @@ public final class Kdeploy {
               break;
             }
             case 74: {
+              kdeploy.Kdeploy.Networking.Builder subBuilder = null;
+              if (networking_ != null) {
+                subBuilder = networking_.toBuilder();
+              }
+              networking_ = input.readMessage(kdeploy.Kdeploy.Networking.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(networking_);
+                networking_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 162: {
               kdeploy.Kdeploy.AppStatus.Builder subBuilder = null;
               if (status_ != null) {
                 subBuilder = status_.toBuilder();
@@ -786,14 +3551,35 @@ public final class Kdeploy {
       return replicas_;
     }
 
-    public static final int STATUS_FIELD_NUMBER = 9;
+    public static final int NETWORKING_FIELD_NUMBER = 9;
+    private kdeploy.Kdeploy.Networking networking_;
+    /**
+     * <code>.kdeploy.Networking networking = 9;</code>
+     */
+    public boolean hasNetworking() {
+      return networking_ != null;
+    }
+    /**
+     * <code>.kdeploy.Networking networking = 9;</code>
+     */
+    public kdeploy.Kdeploy.Networking getNetworking() {
+      return networking_ == null ? kdeploy.Kdeploy.Networking.getDefaultInstance() : networking_;
+    }
+    /**
+     * <code>.kdeploy.Networking networking = 9;</code>
+     */
+    public kdeploy.Kdeploy.NetworkingOrBuilder getNetworkingOrBuilder() {
+      return getNetworking();
+    }
+
+    public static final int STATUS_FIELD_NUMBER = 20;
     private kdeploy.Kdeploy.AppStatus status_;
     /**
      * <pre>
      * status tracks the state of the application during it's lifecycle
      * </pre>
      *
-     * <code>.kdeploy.AppStatus status = 9;</code>
+     * <code>.kdeploy.AppStatus status = 20;</code>
      */
     public boolean hasStatus() {
       return status_ != null;
@@ -803,7 +3589,7 @@ public final class Kdeploy {
      * status tracks the state of the application during it's lifecycle
      * </pre>
      *
-     * <code>.kdeploy.AppStatus status = 9;</code>
+     * <code>.kdeploy.AppStatus status = 20;</code>
      */
     public kdeploy.Kdeploy.AppStatus getStatus() {
       return status_ == null ? kdeploy.Kdeploy.AppStatus.getDefaultInstance() : status_;
@@ -813,7 +3599,7 @@ public final class Kdeploy {
      * status tracks the state of the application during it's lifecycle
      * </pre>
      *
-     * <code>.kdeploy.AppStatus status = 9;</code>
+     * <code>.kdeploy.AppStatus status = 20;</code>
      */
     public kdeploy.Kdeploy.AppStatusOrBuilder getStatusOrBuilder() {
       return getStatus();
@@ -860,8 +3646,11 @@ public final class Kdeploy {
       if (replicas_ != 0) {
         output.writeUInt32(8, replicas_);
       }
+      if (networking_ != null) {
+        output.writeMessage(9, getNetworking());
+      }
       if (status_ != null) {
-        output.writeMessage(9, getStatus());
+        output.writeMessage(20, getStatus());
       }
       unknownFields.writeTo(output);
     }
@@ -913,9 +3702,13 @@ public final class Kdeploy {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(8, replicas_);
       }
+      if (networking_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(9, getNetworking());
+      }
       if (status_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(9, getStatus());
+          .computeMessageSize(20, getStatus());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -947,6 +3740,11 @@ public final class Kdeploy {
           other.internalGetPorts());
       result = result && (getReplicas()
           == other.getReplicas());
+      result = result && (hasNetworking() == other.hasNetworking());
+      if (hasNetworking()) {
+        result = result && getNetworking()
+            .equals(other.getNetworking());
+      }
       result = result && (hasStatus() == other.hasStatus());
       if (hasStatus()) {
         result = result && getStatus()
@@ -983,6 +3781,10 @@ public final class Kdeploy {
       }
       hash = (37 * hash) + REPLICAS_FIELD_NUMBER;
       hash = (53 * hash) + getReplicas();
+      if (hasNetworking()) {
+        hash = (37 * hash) + NETWORKING_FIELD_NUMBER;
+        hash = (53 * hash) + getNetworking().hashCode();
+      }
       if (hasStatus()) {
         hash = (37 * hash) + STATUS_FIELD_NUMBER;
         hash = (53 * hash) + getStatus().hashCode();
@@ -1162,6 +3964,12 @@ public final class Kdeploy {
         internalGetMutablePorts().clear();
         replicas_ = 0;
 
+        if (networkingBuilder_ == null) {
+          networking_ = null;
+        } else {
+          networking_ = null;
+          networkingBuilder_ = null;
+        }
         if (statusBuilder_ == null) {
           status_ = null;
         } else {
@@ -1209,6 +4017,11 @@ public final class Kdeploy {
         result.ports_ = internalGetPorts();
         result.ports_.makeImmutable();
         result.replicas_ = replicas_;
+        if (networkingBuilder_ == null) {
+          result.networking_ = networking_;
+        } else {
+          result.networking_ = networkingBuilder_.build();
+        }
         if (statusBuilder_ == null) {
           result.status_ = status_;
         } else {
@@ -1291,6 +4104,9 @@ public final class Kdeploy {
             other.internalGetPorts());
         if (other.getReplicas() != 0) {
           setReplicas(other.getReplicas());
+        }
+        if (other.hasNetworking()) {
+          mergeNetworking(other.getNetworking());
         }
         if (other.hasStatus()) {
           mergeStatus(other.getStatus());
@@ -2062,6 +4878,123 @@ public final class Kdeploy {
         return this;
       }
 
+      private kdeploy.Kdeploy.Networking networking_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          kdeploy.Kdeploy.Networking, kdeploy.Kdeploy.Networking.Builder, kdeploy.Kdeploy.NetworkingOrBuilder> networkingBuilder_;
+      /**
+       * <code>.kdeploy.Networking networking = 9;</code>
+       */
+      public boolean hasNetworking() {
+        return networkingBuilder_ != null || networking_ != null;
+      }
+      /**
+       * <code>.kdeploy.Networking networking = 9;</code>
+       */
+      public kdeploy.Kdeploy.Networking getNetworking() {
+        if (networkingBuilder_ == null) {
+          return networking_ == null ? kdeploy.Kdeploy.Networking.getDefaultInstance() : networking_;
+        } else {
+          return networkingBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.kdeploy.Networking networking = 9;</code>
+       */
+      public Builder setNetworking(kdeploy.Kdeploy.Networking value) {
+        if (networkingBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          networking_ = value;
+          onChanged();
+        } else {
+          networkingBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.kdeploy.Networking networking = 9;</code>
+       */
+      public Builder setNetworking(
+          kdeploy.Kdeploy.Networking.Builder builderForValue) {
+        if (networkingBuilder_ == null) {
+          networking_ = builderForValue.build();
+          onChanged();
+        } else {
+          networkingBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.kdeploy.Networking networking = 9;</code>
+       */
+      public Builder mergeNetworking(kdeploy.Kdeploy.Networking value) {
+        if (networkingBuilder_ == null) {
+          if (networking_ != null) {
+            networking_ =
+              kdeploy.Kdeploy.Networking.newBuilder(networking_).mergeFrom(value).buildPartial();
+          } else {
+            networking_ = value;
+          }
+          onChanged();
+        } else {
+          networkingBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.kdeploy.Networking networking = 9;</code>
+       */
+      public Builder clearNetworking() {
+        if (networkingBuilder_ == null) {
+          networking_ = null;
+          onChanged();
+        } else {
+          networking_ = null;
+          networkingBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.kdeploy.Networking networking = 9;</code>
+       */
+      public kdeploy.Kdeploy.Networking.Builder getNetworkingBuilder() {
+        
+        onChanged();
+        return getNetworkingFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.kdeploy.Networking networking = 9;</code>
+       */
+      public kdeploy.Kdeploy.NetworkingOrBuilder getNetworkingOrBuilder() {
+        if (networkingBuilder_ != null) {
+          return networkingBuilder_.getMessageOrBuilder();
+        } else {
+          return networking_ == null ?
+              kdeploy.Kdeploy.Networking.getDefaultInstance() : networking_;
+        }
+      }
+      /**
+       * <code>.kdeploy.Networking networking = 9;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          kdeploy.Kdeploy.Networking, kdeploy.Kdeploy.Networking.Builder, kdeploy.Kdeploy.NetworkingOrBuilder> 
+          getNetworkingFieldBuilder() {
+        if (networkingBuilder_ == null) {
+          networkingBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              kdeploy.Kdeploy.Networking, kdeploy.Kdeploy.Networking.Builder, kdeploy.Kdeploy.NetworkingOrBuilder>(
+                  getNetworking(),
+                  getParentForChildren(),
+                  isClean());
+          networking_ = null;
+        }
+        return networkingBuilder_;
+      }
+
       private kdeploy.Kdeploy.AppStatus status_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
           kdeploy.Kdeploy.AppStatus, kdeploy.Kdeploy.AppStatus.Builder, kdeploy.Kdeploy.AppStatusOrBuilder> statusBuilder_;
@@ -2070,7 +5003,7 @@ public final class Kdeploy {
        * status tracks the state of the application during it's lifecycle
        * </pre>
        *
-       * <code>.kdeploy.AppStatus status = 9;</code>
+       * <code>.kdeploy.AppStatus status = 20;</code>
        */
       public boolean hasStatus() {
         return statusBuilder_ != null || status_ != null;
@@ -2080,7 +5013,7 @@ public final class Kdeploy {
        * status tracks the state of the application during it's lifecycle
        * </pre>
        *
-       * <code>.kdeploy.AppStatus status = 9;</code>
+       * <code>.kdeploy.AppStatus status = 20;</code>
        */
       public kdeploy.Kdeploy.AppStatus getStatus() {
         if (statusBuilder_ == null) {
@@ -2094,7 +5027,7 @@ public final class Kdeploy {
        * status tracks the state of the application during it's lifecycle
        * </pre>
        *
-       * <code>.kdeploy.AppStatus status = 9;</code>
+       * <code>.kdeploy.AppStatus status = 20;</code>
        */
       public Builder setStatus(kdeploy.Kdeploy.AppStatus value) {
         if (statusBuilder_ == null) {
@@ -2114,7 +5047,7 @@ public final class Kdeploy {
        * status tracks the state of the application during it's lifecycle
        * </pre>
        *
-       * <code>.kdeploy.AppStatus status = 9;</code>
+       * <code>.kdeploy.AppStatus status = 20;</code>
        */
       public Builder setStatus(
           kdeploy.Kdeploy.AppStatus.Builder builderForValue) {
@@ -2132,7 +5065,7 @@ public final class Kdeploy {
        * status tracks the state of the application during it's lifecycle
        * </pre>
        *
-       * <code>.kdeploy.AppStatus status = 9;</code>
+       * <code>.kdeploy.AppStatus status = 20;</code>
        */
       public Builder mergeStatus(kdeploy.Kdeploy.AppStatus value) {
         if (statusBuilder_ == null) {
@@ -2154,7 +5087,7 @@ public final class Kdeploy {
        * status tracks the state of the application during it's lifecycle
        * </pre>
        *
-       * <code>.kdeploy.AppStatus status = 9;</code>
+       * <code>.kdeploy.AppStatus status = 20;</code>
        */
       public Builder clearStatus() {
         if (statusBuilder_ == null) {
@@ -2172,7 +5105,7 @@ public final class Kdeploy {
        * status tracks the state of the application during it's lifecycle
        * </pre>
        *
-       * <code>.kdeploy.AppStatus status = 9;</code>
+       * <code>.kdeploy.AppStatus status = 20;</code>
        */
       public kdeploy.Kdeploy.AppStatus.Builder getStatusBuilder() {
         
@@ -2184,7 +5117,7 @@ public final class Kdeploy {
        * status tracks the state of the application during it's lifecycle
        * </pre>
        *
-       * <code>.kdeploy.AppStatus status = 9;</code>
+       * <code>.kdeploy.AppStatus status = 20;</code>
        */
       public kdeploy.Kdeploy.AppStatusOrBuilder getStatusOrBuilder() {
         if (statusBuilder_ != null) {
@@ -2199,7 +5132,7 @@ public final class Kdeploy {
        * status tracks the state of the application during it's lifecycle
        * </pre>
        *
-       * <code>.kdeploy.AppStatus status = 9;</code>
+       * <code>.kdeploy.AppStatus status = 20;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           kdeploy.Kdeploy.AppStatus, kdeploy.Kdeploy.AppStatus.Builder, kdeploy.Kdeploy.AppStatusOrBuilder> 
@@ -7963,6 +10896,19 @@ public final class Kdeploy {
      * <code>uint32 replicas = 7;</code>
      */
     int getReplicas();
+
+    /**
+     * <code>.kdeploy.Networking networking = 9;</code>
+     */
+    boolean hasNetworking();
+    /**
+     * <code>.kdeploy.Networking networking = 9;</code>
+     */
+    kdeploy.Kdeploy.Networking getNetworking();
+    /**
+     * <code>.kdeploy.Networking networking = 9;</code>
+     */
+    kdeploy.Kdeploy.NetworkingOrBuilder getNetworkingOrBuilder();
   }
   /**
    * <pre>
@@ -8068,6 +11014,19 @@ public final class Kdeploy {
             case 56: {
 
               replicas_ = input.readUInt32();
+              break;
+            }
+            case 74: {
+              kdeploy.Kdeploy.Networking.Builder subBuilder = null;
+              if (networking_ != null) {
+                subBuilder = networking_.toBuilder();
+              }
+              networking_ = input.readMessage(kdeploy.Kdeploy.Networking.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(networking_);
+                networking_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -8488,6 +11447,27 @@ public final class Kdeploy {
       return replicas_;
     }
 
+    public static final int NETWORKING_FIELD_NUMBER = 9;
+    private kdeploy.Kdeploy.Networking networking_;
+    /**
+     * <code>.kdeploy.Networking networking = 9;</code>
+     */
+    public boolean hasNetworking() {
+      return networking_ != null;
+    }
+    /**
+     * <code>.kdeploy.Networking networking = 9;</code>
+     */
+    public kdeploy.Kdeploy.Networking getNetworking() {
+      return networking_ == null ? kdeploy.Kdeploy.Networking.getDefaultInstance() : networking_;
+    }
+    /**
+     * <code>.kdeploy.Networking networking = 9;</code>
+     */
+    public kdeploy.Kdeploy.NetworkingOrBuilder getNetworkingOrBuilder() {
+      return getNetworking();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -8528,6 +11508,9 @@ public final class Kdeploy {
           6);
       if (replicas_ != 0) {
         output.writeUInt32(7, replicas_);
+      }
+      if (networking_ != null) {
+        output.writeMessage(9, getNetworking());
       }
       unknownFields.writeTo(output);
     }
@@ -8579,6 +11562,10 @@ public final class Kdeploy {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(7, replicas_);
       }
+      if (networking_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(9, getNetworking());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -8609,6 +11596,11 @@ public final class Kdeploy {
           other.internalGetPorts());
       result = result && (getReplicas()
           == other.getReplicas());
+      result = result && (hasNetworking() == other.hasNetworking());
+      if (hasNetworking()) {
+        result = result && getNetworking()
+            .equals(other.getNetworking());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -8640,6 +11632,10 @@ public final class Kdeploy {
       }
       hash = (37 * hash) + REPLICAS_FIELD_NUMBER;
       hash = (53 * hash) + getReplicas();
+      if (hasNetworking()) {
+        hash = (37 * hash) + NETWORKING_FIELD_NUMBER;
+        hash = (53 * hash) + getNetworking().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -8815,6 +11811,12 @@ public final class Kdeploy {
         internalGetMutablePorts().clear();
         replicas_ = 0;
 
+        if (networkingBuilder_ == null) {
+          networking_ = null;
+        } else {
+          networking_ = null;
+          networkingBuilder_ = null;
+        }
         return this;
       }
 
@@ -8856,6 +11858,11 @@ public final class Kdeploy {
         result.ports_ = internalGetPorts();
         result.ports_.makeImmutable();
         result.replicas_ = replicas_;
+        if (networkingBuilder_ == null) {
+          result.networking_ = networking_;
+        } else {
+          result.networking_ = networkingBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -8933,6 +11940,9 @@ public final class Kdeploy {
             other.internalGetPorts());
         if (other.getReplicas() != 0) {
           setReplicas(other.getReplicas());
+        }
+        if (other.hasNetworking()) {
+          mergeNetworking(other.getNetworking());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -9700,6 +12710,123 @@ public final class Kdeploy {
         onChanged();
         return this;
       }
+
+      private kdeploy.Kdeploy.Networking networking_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          kdeploy.Kdeploy.Networking, kdeploy.Kdeploy.Networking.Builder, kdeploy.Kdeploy.NetworkingOrBuilder> networkingBuilder_;
+      /**
+       * <code>.kdeploy.Networking networking = 9;</code>
+       */
+      public boolean hasNetworking() {
+        return networkingBuilder_ != null || networking_ != null;
+      }
+      /**
+       * <code>.kdeploy.Networking networking = 9;</code>
+       */
+      public kdeploy.Kdeploy.Networking getNetworking() {
+        if (networkingBuilder_ == null) {
+          return networking_ == null ? kdeploy.Kdeploy.Networking.getDefaultInstance() : networking_;
+        } else {
+          return networkingBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.kdeploy.Networking networking = 9;</code>
+       */
+      public Builder setNetworking(kdeploy.Kdeploy.Networking value) {
+        if (networkingBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          networking_ = value;
+          onChanged();
+        } else {
+          networkingBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.kdeploy.Networking networking = 9;</code>
+       */
+      public Builder setNetworking(
+          kdeploy.Kdeploy.Networking.Builder builderForValue) {
+        if (networkingBuilder_ == null) {
+          networking_ = builderForValue.build();
+          onChanged();
+        } else {
+          networkingBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.kdeploy.Networking networking = 9;</code>
+       */
+      public Builder mergeNetworking(kdeploy.Kdeploy.Networking value) {
+        if (networkingBuilder_ == null) {
+          if (networking_ != null) {
+            networking_ =
+              kdeploy.Kdeploy.Networking.newBuilder(networking_).mergeFrom(value).buildPartial();
+          } else {
+            networking_ = value;
+          }
+          onChanged();
+        } else {
+          networkingBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.kdeploy.Networking networking = 9;</code>
+       */
+      public Builder clearNetworking() {
+        if (networkingBuilder_ == null) {
+          networking_ = null;
+          onChanged();
+        } else {
+          networking_ = null;
+          networkingBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.kdeploy.Networking networking = 9;</code>
+       */
+      public kdeploy.Kdeploy.Networking.Builder getNetworkingBuilder() {
+        
+        onChanged();
+        return getNetworkingFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.kdeploy.Networking networking = 9;</code>
+       */
+      public kdeploy.Kdeploy.NetworkingOrBuilder getNetworkingOrBuilder() {
+        if (networkingBuilder_ != null) {
+          return networkingBuilder_.getMessageOrBuilder();
+        } else {
+          return networking_ == null ?
+              kdeploy.Kdeploy.Networking.getDefaultInstance() : networking_;
+        }
+      }
+      /**
+       * <code>.kdeploy.Networking networking = 9;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          kdeploy.Kdeploy.Networking, kdeploy.Kdeploy.Networking.Builder, kdeploy.Kdeploy.NetworkingOrBuilder> 
+          getNetworkingFieldBuilder() {
+        if (networkingBuilder_ == null) {
+          networkingBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              kdeploy.Kdeploy.Networking, kdeploy.Kdeploy.Networking.Builder, kdeploy.Kdeploy.NetworkingOrBuilder>(
+                  getNetworking(),
+                  getParentForChildren(),
+                  isClean());
+          networking_ = null;
+        }
+        return networkingBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -9962,6 +13089,19 @@ public final class Kdeploy {
      * <code>uint32 replicas = 7;</code>
      */
     int getReplicas();
+
+    /**
+     * <code>.kdeploy.Networking networking = 9;</code>
+     */
+    boolean hasNetworking();
+    /**
+     * <code>.kdeploy.Networking networking = 9;</code>
+     */
+    kdeploy.Kdeploy.Networking getNetworking();
+    /**
+     * <code>.kdeploy.Networking networking = 9;</code>
+     */
+    kdeploy.Kdeploy.NetworkingOrBuilder getNetworkingOrBuilder();
   }
   /**
    * <pre>
@@ -10067,6 +13207,19 @@ public final class Kdeploy {
             case 56: {
 
               replicas_ = input.readUInt32();
+              break;
+            }
+            case 74: {
+              kdeploy.Kdeploy.Networking.Builder subBuilder = null;
+              if (networking_ != null) {
+                subBuilder = networking_.toBuilder();
+              }
+              networking_ = input.readMessage(kdeploy.Kdeploy.Networking.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(networking_);
+                networking_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -10487,6 +13640,27 @@ public final class Kdeploy {
       return replicas_;
     }
 
+    public static final int NETWORKING_FIELD_NUMBER = 9;
+    private kdeploy.Kdeploy.Networking networking_;
+    /**
+     * <code>.kdeploy.Networking networking = 9;</code>
+     */
+    public boolean hasNetworking() {
+      return networking_ != null;
+    }
+    /**
+     * <code>.kdeploy.Networking networking = 9;</code>
+     */
+    public kdeploy.Kdeploy.Networking getNetworking() {
+      return networking_ == null ? kdeploy.Kdeploy.Networking.getDefaultInstance() : networking_;
+    }
+    /**
+     * <code>.kdeploy.Networking networking = 9;</code>
+     */
+    public kdeploy.Kdeploy.NetworkingOrBuilder getNetworkingOrBuilder() {
+      return getNetworking();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -10527,6 +13701,9 @@ public final class Kdeploy {
           6);
       if (replicas_ != 0) {
         output.writeUInt32(7, replicas_);
+      }
+      if (networking_ != null) {
+        output.writeMessage(9, getNetworking());
       }
       unknownFields.writeTo(output);
     }
@@ -10578,6 +13755,10 @@ public final class Kdeploy {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(7, replicas_);
       }
+      if (networking_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(9, getNetworking());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -10608,6 +13789,11 @@ public final class Kdeploy {
           other.internalGetPorts());
       result = result && (getReplicas()
           == other.getReplicas());
+      result = result && (hasNetworking() == other.hasNetworking());
+      if (hasNetworking()) {
+        result = result && getNetworking()
+            .equals(other.getNetworking());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -10639,6 +13825,10 @@ public final class Kdeploy {
       }
       hash = (37 * hash) + REPLICAS_FIELD_NUMBER;
       hash = (53 * hash) + getReplicas();
+      if (hasNetworking()) {
+        hash = (37 * hash) + NETWORKING_FIELD_NUMBER;
+        hash = (53 * hash) + getNetworking().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -10814,6 +14004,12 @@ public final class Kdeploy {
         internalGetMutablePorts().clear();
         replicas_ = 0;
 
+        if (networkingBuilder_ == null) {
+          networking_ = null;
+        } else {
+          networking_ = null;
+          networkingBuilder_ = null;
+        }
         return this;
       }
 
@@ -10855,6 +14051,11 @@ public final class Kdeploy {
         result.ports_ = internalGetPorts();
         result.ports_.makeImmutable();
         result.replicas_ = replicas_;
+        if (networkingBuilder_ == null) {
+          result.networking_ = networking_;
+        } else {
+          result.networking_ = networkingBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -10932,6 +14133,9 @@ public final class Kdeploy {
             other.internalGetPorts());
         if (other.getReplicas() != 0) {
           setReplicas(other.getReplicas());
+        }
+        if (other.hasNetworking()) {
+          mergeNetworking(other.getNetworking());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -11698,6 +14902,123 @@ public final class Kdeploy {
         replicas_ = 0;
         onChanged();
         return this;
+      }
+
+      private kdeploy.Kdeploy.Networking networking_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          kdeploy.Kdeploy.Networking, kdeploy.Kdeploy.Networking.Builder, kdeploy.Kdeploy.NetworkingOrBuilder> networkingBuilder_;
+      /**
+       * <code>.kdeploy.Networking networking = 9;</code>
+       */
+      public boolean hasNetworking() {
+        return networkingBuilder_ != null || networking_ != null;
+      }
+      /**
+       * <code>.kdeploy.Networking networking = 9;</code>
+       */
+      public kdeploy.Kdeploy.Networking getNetworking() {
+        if (networkingBuilder_ == null) {
+          return networking_ == null ? kdeploy.Kdeploy.Networking.getDefaultInstance() : networking_;
+        } else {
+          return networkingBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.kdeploy.Networking networking = 9;</code>
+       */
+      public Builder setNetworking(kdeploy.Kdeploy.Networking value) {
+        if (networkingBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          networking_ = value;
+          onChanged();
+        } else {
+          networkingBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.kdeploy.Networking networking = 9;</code>
+       */
+      public Builder setNetworking(
+          kdeploy.Kdeploy.Networking.Builder builderForValue) {
+        if (networkingBuilder_ == null) {
+          networking_ = builderForValue.build();
+          onChanged();
+        } else {
+          networkingBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.kdeploy.Networking networking = 9;</code>
+       */
+      public Builder mergeNetworking(kdeploy.Kdeploy.Networking value) {
+        if (networkingBuilder_ == null) {
+          if (networking_ != null) {
+            networking_ =
+              kdeploy.Kdeploy.Networking.newBuilder(networking_).mergeFrom(value).buildPartial();
+          } else {
+            networking_ = value;
+          }
+          onChanged();
+        } else {
+          networkingBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.kdeploy.Networking networking = 9;</code>
+       */
+      public Builder clearNetworking() {
+        if (networkingBuilder_ == null) {
+          networking_ = null;
+          onChanged();
+        } else {
+          networking_ = null;
+          networkingBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.kdeploy.Networking networking = 9;</code>
+       */
+      public kdeploy.Kdeploy.Networking.Builder getNetworkingBuilder() {
+        
+        onChanged();
+        return getNetworkingFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.kdeploy.Networking networking = 9;</code>
+       */
+      public kdeploy.Kdeploy.NetworkingOrBuilder getNetworkingOrBuilder() {
+        if (networkingBuilder_ != null) {
+          return networkingBuilder_.getMessageOrBuilder();
+        } else {
+          return networking_ == null ?
+              kdeploy.Kdeploy.Networking.getDefaultInstance() : networking_;
+        }
+      }
+      /**
+       * <code>.kdeploy.Networking networking = 9;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          kdeploy.Kdeploy.Networking, kdeploy.Kdeploy.Networking.Builder, kdeploy.Kdeploy.NetworkingOrBuilder> 
+          getNetworkingFieldBuilder() {
+        if (networkingBuilder_ == null) {
+          networkingBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              kdeploy.Kdeploy.Networking, kdeploy.Kdeploy.Networking.Builder, kdeploy.Kdeploy.NetworkingOrBuilder>(
+                  getNetworking(),
+                  getParentForChildren(),
+                  isClean());
+          networking_ = null;
+        }
+        return networkingBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -17386,6 +20707,16 @@ public final class Kdeploy {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_kdeploy_Route_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_kdeploy_Route_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_kdeploy_Networking_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_kdeploy_Networking_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_kdeploy_App_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -17514,75 +20845,84 @@ public final class Kdeploy {
       "p.proto\032\031google/protobuf/any.proto\032\033goog" +
       "le/protobuf/empty.proto\0326github.com/mwit" +
       "kow/go-proto-validators/validator.proto\"" +
-      "\237\002\n\003App\022\014\n\004name\030\001 \001(\t\022\021\n\tnamespace\030\002 \001(\t" +
-      "\022\r\n\005image\030\003 \001(\t\022\014\n\004args\030\005 \003(\t\022\"\n\003env\030\006 \003" +
-      "(\0132\025.kdeploy.App.EnvEntry\022&\n\005ports\030\007 \003(\013" +
-      "2\027.kdeploy.App.PortsEntry\022\020\n\010replicas\030\010 " +
-      "\001(\r\022\"\n\006status\030\t \001(\0132\022.kdeploy.AppStatus\032" +
-      "*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:" +
-      "\0028\001\032,\n\nPortsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
-      "\002 \001(\r:\0028\001\"\274\001\n\004Task\022\014\n\004name\030\001 \001(\t\022\021\n\tname" +
-      "space\030\002 \001(\t\022\r\n\005image\030\003 \001(\t\022\014\n\004args\030\005 \003(\t" +
-      "\022#\n\003env\030\006 \003(\0132\026.kdeploy.Task.EnvEntry\022\020\n" +
-      "\010schedule\030\007 \001(\t\022\023\n\013completions\030\010 \001(\r\032*\n\010" +
-      "EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001" +
-      "\"\232\002\n\017TaskConstructor\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014" +
-      "\n\n^.{1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^" +
-      ".{1,225}$\022\037\n\005image\030\003 \001(\tB\020\342\337\037\014\n\n^.{1,225" +
-      "}$\022\014\n\004args\030\005 \003(\t\022.\n\003env\030\006 \003(\0132!.kdeploy." +
-      "TaskConstructor.EnvEntry\022\"\n\010schedule\030\007 \001" +
-      "(\tB\020\342\337\037\014\n\n^.{1,225}$\022\023\n\013completions\030\010 \001(" +
-      "\r\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(" +
-      "\t:\0028\001\"\354\001\n\nTaskUpdate\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014" +
-      "\n\n^.{1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^" +
-      ".{1,225}$\022\r\n\005image\030\003 \001(\t\022\014\n\004args\030\005 \003(\t\022)" +
-      "\n\003env\030\006 \003(\0132\034.kdeploy.TaskUpdate.EnvEntr" +
-      "y\022\020\n\010schedule\030\007 \001(\t\022\023\n\013completions\030\010 \001(\r" +
-      "\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t" +
-      ":\0028\001\"\322\002\n\016AppConstructor\022\036\n\004name\030\001 \001(\tB\020\342" +
-      "\337\037\014\n\n^.{1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014" +
-      "\n\n^.{1,225}$\022\037\n\005image\030\003 \001(\tB\020\342\337\037\014\n\n^.{1," +
-      "225}$\022\014\n\004args\030\004 \003(\t\022-\n\003env\030\005 \003(\0132 .kdepl" +
-      "oy.AppConstructor.EnvEntry\0221\n\005ports\030\006 \003(" +
-      "\0132\".kdeploy.AppConstructor.PortsEntry\022\020\n" +
-      "\010replicas\030\007 \001(\r\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t" +
-      "\022\r\n\005value\030\002 \001(\t:\0028\001\032,\n\nPortsEntry\022\013\n\003key" +
-      "\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\"\261\002\n\tAppUpdate\022" +
-      "\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022#\n\tnames" +
-      "pace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\r\n\005image\030\003 " +
-      "\001(\t\022\014\n\004args\030\004 \003(\t\022(\n\003env\030\005 \003(\0132\033.kdeploy" +
-      ".AppUpdate.EnvEntry\022,\n\005ports\030\006 \003(\0132\035.kde" +
-      "ploy.AppUpdate.PortsEntry\022\020\n\010replicas\030\007 " +
-      "\001(\r\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 " +
-      "\001(\t:\0028\001\032,\n\nPortsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
-      "lue\030\002 \001(\r:\0028\001\"J\n\003Ref\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014" +
-      "\n\n^.{1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^" +
-      ".{1,225}$\";\n\007Replica\022\r\n\005phase\030\001 \001(\t\022\021\n\tc" +
-      "ondition\030\002 \001(\t\022\016\n\006reason\030\003 \001(\t\"/\n\tAppSta" +
-      "tus\022\"\n\010replicas\030\001 \003(\0132\020.kdeploy.Replica\"" +
-      "\026\n\003Log\022\017\n\007message\030\001 \001(\t\"*\n\004Apps\022\"\n\014appli" +
-      "cations\030\001 \003(\0132\014.kdeploy.App\"%\n\005Tasks\022\034\n\005" +
-      "tasks\030\001 \003(\0132\r.kdeploy.Task\"\036\n\tNamespace\022" +
-      "\021\n\tnamespace\030\001 \001(\t\" \n\nNamespaces\022\022\n\nname" +
-      "spaces\030\001 \003(\t2\257\005\n\016KdeployService\0224\n\tCreat" +
-      "eApp\022\027.kdeploy.AppConstructor\032\014.kdeploy." +
-      "App\"\000\022/\n\tUpdateApp\022\022.kdeploy.AppUpdate\032\014" +
-      ".kdeploy.App\"\000\0223\n\tDeleteApp\022\014.kdeploy.Re" +
-      "f\032\026.google.protobuf.Empty\"\000\022&\n\006GetApp\022\014." +
-      "kdeploy.Ref\032\014.kdeploy.App\"\000\022/\n\010ListApps\022" +
-      "\022.kdeploy.Namespace\032\r.kdeploy.Apps\"\000\022?\n\016" +
-      "ListNamespaces\022\026.google.protobuf.Empty\032\023" +
-      ".kdeploy.Namespaces\"\000\0229\n\tDeleteAll\022\022.kde" +
-      "ploy.Namespace\032\026.google.protobuf.Empty\"\000" +
-      "\0227\n\nCreateTask\022\030.kdeploy.TaskConstructor" +
-      "\032\r.kdeploy.Task\"\000\0222\n\nUpdateTask\022\023.kdeplo" +
-      "y.TaskUpdate\032\r.kdeploy.Task\"\000\0224\n\nDeleteT" +
-      "ask\022\014.kdeploy.Ref\032\026.google.protobuf.Empt" +
-      "y\"\000\022(\n\007GetTask\022\014.kdeploy.Ref\032\r.kdeploy.T" +
-      "ask\"\000\0221\n\tListTasks\022\022.kdeploy.Namespace\032\016" +
-      ".kdeploy.Tasks\"\000\022,\n\nStreamLogs\022\014.kdeploy" +
-      ".Ref\032\014.kdeploy.Log\"\0000\001B\013Z\tkdeploypbb\006pro" +
-      "to3"
+      "\312\001\n\005Route\022\r\n\005hosts\030\001 \003(\t\022\020\n\010gateways\030\002 \003" +
+      "(\t\022\023\n\013path_prefix\030\003 \001(\t\022\023\n\013rewrite_uri\030\004" +
+      " \001(\t\022\025\n\rallow_origins\030\005 \003(\t\022\025\n\rallow_met" +
+      "hods\030\006 \003(\t\022\025\n\rallow_headers\030\007 \003(\t\022\026\n\016exp" +
+      "ose_headers\030\010 \003(\t\022\031\n\021allow_credentials\030\t" +
+      " \001(\010\"<\n\nNetworking\022\036\n\006routes\030\001 \003(\0132\016.kde" +
+      "ploy.Route\022\016\n\006export\030\002 \001(\010\"\310\002\n\003App\022\014\n\004na" +
+      "me\030\001 \001(\t\022\021\n\tnamespace\030\002 \001(\t\022\r\n\005image\030\003 \001" +
+      "(\t\022\014\n\004args\030\005 \003(\t\022\"\n\003env\030\006 \003(\0132\025.kdeploy." +
+      "App.EnvEntry\022&\n\005ports\030\007 \003(\0132\027.kdeploy.Ap" +
+      "p.PortsEntry\022\020\n\010replicas\030\010 \001(\r\022\'\n\nnetwor" +
+      "king\030\t \001(\0132\023.kdeploy.Networking\022\"\n\006statu" +
+      "s\030\024 \001(\0132\022.kdeploy.AppStatus\032*\n\010EnvEntry\022" +
+      "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032,\n\nPorts" +
+      "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\"\274\001" +
+      "\n\004Task\022\014\n\004name\030\001 \001(\t\022\021\n\tnamespace\030\002 \001(\t\022" +
+      "\r\n\005image\030\003 \001(\t\022\014\n\004args\030\005 \003(\t\022#\n\003env\030\006 \003(" +
+      "\0132\026.kdeploy.Task.EnvEntry\022\020\n\010schedule\030\007 " +
+      "\001(\t\022\023\n\013completions\030\010 \001(\r\032*\n\010EnvEntry\022\013\n\003" +
+      "key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\232\002\n\017TaskCon" +
+      "structor\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$" +
+      "\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\037\n" +
+      "\005image\030\003 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\014\n\004args\030\005" +
+      " \003(\t\022.\n\003env\030\006 \003(\0132!.kdeploy.TaskConstruc" +
+      "tor.EnvEntry\022\"\n\010schedule\030\007 \001(\tB\020\342\337\037\014\n\n^." +
+      "{1,225}$\022\023\n\013completions\030\010 \001(\r\032*\n\010EnvEntr" +
+      "y\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\354\001\n\nTa" +
+      "skUpdate\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$" +
+      "\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\r\n" +
+      "\005image\030\003 \001(\t\022\014\n\004args\030\005 \003(\t\022)\n\003env\030\006 \003(\0132" +
+      "\034.kdeploy.TaskUpdate.EnvEntry\022\020\n\010schedul" +
+      "e\030\007 \001(\t\022\023\n\013completions\030\010 \001(\r\032*\n\010EnvEntry" +
+      "\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\373\002\n\016App" +
+      "Constructor\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,22" +
+      "5}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$" +
+      "\022\037\n\005image\030\003 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\014\n\004arg" +
+      "s\030\004 \003(\t\022-\n\003env\030\005 \003(\0132 .kdeploy.AppConstr" +
+      "uctor.EnvEntry\0221\n\005ports\030\006 \003(\0132\".kdeploy." +
+      "AppConstructor.PortsEntry\022\020\n\010replicas\030\007 " +
+      "\001(\r\022\'\n\nnetworking\030\t \001(\0132\023.kdeploy.Networ" +
+      "king\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002" +
+      " \001(\t:\0028\001\032,\n\nPortsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005v" +
+      "alue\030\002 \001(\r:\0028\001\"\332\002\n\tAppUpdate\022\036\n\004name\030\001 \001" +
+      "(\tB\020\342\337\037\014\n\n^.{1,225}$\022#\n\tnamespace\030\002 \001(\tB" +
+      "\020\342\337\037\014\n\n^.{1,225}$\022\r\n\005image\030\003 \001(\t\022\014\n\004args" +
+      "\030\004 \003(\t\022(\n\003env\030\005 \003(\0132\033.kdeploy.AppUpdate." +
+      "EnvEntry\022,\n\005ports\030\006 \003(\0132\035.kdeploy.AppUpd" +
+      "ate.PortsEntry\022\020\n\010replicas\030\007 \001(\r\022\'\n\nnetw" +
+      "orking\030\t \001(\0132\023.kdeploy.Networking\032*\n\010Env" +
+      "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032,\n" +
+      "\nPortsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:" +
+      "\0028\001\"J\n\003Ref\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225" +
+      "}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\"" +
+      ";\n\007Replica\022\r\n\005phase\030\001 \001(\t\022\021\n\tcondition\030\002" +
+      " \001(\t\022\016\n\006reason\030\003 \001(\t\"/\n\tAppStatus\022\"\n\010rep" +
+      "licas\030\001 \003(\0132\020.kdeploy.Replica\"\026\n\003Log\022\017\n\007" +
+      "message\030\001 \001(\t\"*\n\004Apps\022\"\n\014applications\030\001 " +
+      "\003(\0132\014.kdeploy.App\"%\n\005Tasks\022\034\n\005tasks\030\001 \003(" +
+      "\0132\r.kdeploy.Task\"\036\n\tNamespace\022\021\n\tnamespa" +
+      "ce\030\001 \001(\t\" \n\nNamespaces\022\022\n\nnamespaces\030\001 \003" +
+      "(\t2\257\005\n\016KdeployService\0224\n\tCreateApp\022\027.kde" +
+      "ploy.AppConstructor\032\014.kdeploy.App\"\000\022/\n\tU" +
+      "pdateApp\022\022.kdeploy.AppUpdate\032\014.kdeploy.A" +
+      "pp\"\000\0223\n\tDeleteApp\022\014.kdeploy.Ref\032\026.google" +
+      ".protobuf.Empty\"\000\022&\n\006GetApp\022\014.kdeploy.Re" +
+      "f\032\014.kdeploy.App\"\000\022/\n\010ListApps\022\022.kdeploy." +
+      "Namespace\032\r.kdeploy.Apps\"\000\022?\n\016ListNamesp" +
+      "aces\022\026.google.protobuf.Empty\032\023.kdeploy.N" +
+      "amespaces\"\000\0229\n\tDeleteAll\022\022.kdeploy.Names" +
+      "pace\032\026.google.protobuf.Empty\"\000\0227\n\nCreate" +
+      "Task\022\030.kdeploy.TaskConstructor\032\r.kdeploy" +
+      ".Task\"\000\0222\n\nUpdateTask\022\023.kdeploy.TaskUpda" +
+      "te\032\r.kdeploy.Task\"\000\0224\n\nDeleteTask\022\014.kdep" +
+      "loy.Ref\032\026.google.protobuf.Empty\"\000\022(\n\007Get" +
+      "Task\022\014.kdeploy.Ref\032\r.kdeploy.Task\"\000\0221\n\tL" +
+      "istTasks\022\022.kdeploy.Namespace\032\016.kdeploy.T" +
+      "asks\"\000\022,\n\nStreamLogs\022\014.kdeploy.Ref\032\014.kde" +
+      "ploy.Log\"\0000\001B\013Z\tkdeploypbb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -17601,12 +20941,24 @@ public final class Kdeploy {
           com.google.protobuf.EmptyProto.getDescriptor(),
           validator.Validator.getDescriptor(),
         }, assigner);
-    internal_static_kdeploy_App_descriptor =
+    internal_static_kdeploy_Route_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_kdeploy_Route_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_kdeploy_Route_descriptor,
+        new java.lang.String[] { "Hosts", "Gateways", "PathPrefix", "RewriteUri", "AllowOrigins", "AllowMethods", "AllowHeaders", "ExposeHeaders", "AllowCredentials", });
+    internal_static_kdeploy_Networking_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_kdeploy_Networking_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_kdeploy_Networking_descriptor,
+        new java.lang.String[] { "Routes", "Export", });
+    internal_static_kdeploy_App_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_kdeploy_App_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_App_descriptor,
-        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", "Status", });
+        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", "Networking", "Status", });
     internal_static_kdeploy_App_EnvEntry_descriptor =
       internal_static_kdeploy_App_descriptor.getNestedTypes().get(0);
     internal_static_kdeploy_App_EnvEntry_fieldAccessorTable = new
@@ -17620,7 +20972,7 @@ public final class Kdeploy {
         internal_static_kdeploy_App_PortsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_kdeploy_Task_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_kdeploy_Task_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Task_descriptor,
@@ -17632,7 +20984,7 @@ public final class Kdeploy {
         internal_static_kdeploy_Task_EnvEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_kdeploy_TaskConstructor_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_kdeploy_TaskConstructor_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_TaskConstructor_descriptor,
@@ -17644,7 +20996,7 @@ public final class Kdeploy {
         internal_static_kdeploy_TaskConstructor_EnvEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_kdeploy_TaskUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_kdeploy_TaskUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_TaskUpdate_descriptor,
@@ -17656,11 +21008,11 @@ public final class Kdeploy {
         internal_static_kdeploy_TaskUpdate_EnvEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_kdeploy_AppConstructor_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_kdeploy_AppConstructor_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_AppConstructor_descriptor,
-        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", });
+        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", "Networking", });
     internal_static_kdeploy_AppConstructor_EnvEntry_descriptor =
       internal_static_kdeploy_AppConstructor_descriptor.getNestedTypes().get(0);
     internal_static_kdeploy_AppConstructor_EnvEntry_fieldAccessorTable = new
@@ -17674,11 +21026,11 @@ public final class Kdeploy {
         internal_static_kdeploy_AppConstructor_PortsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_kdeploy_AppUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_kdeploy_AppUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_AppUpdate_descriptor,
-        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", });
+        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", "Networking", });
     internal_static_kdeploy_AppUpdate_EnvEntry_descriptor =
       internal_static_kdeploy_AppUpdate_descriptor.getNestedTypes().get(0);
     internal_static_kdeploy_AppUpdate_EnvEntry_fieldAccessorTable = new
@@ -17692,49 +21044,49 @@ public final class Kdeploy {
         internal_static_kdeploy_AppUpdate_PortsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_kdeploy_Ref_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_kdeploy_Ref_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Ref_descriptor,
         new java.lang.String[] { "Name", "Namespace", });
     internal_static_kdeploy_Replica_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_kdeploy_Replica_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Replica_descriptor,
         new java.lang.String[] { "Phase", "Condition", "Reason", });
     internal_static_kdeploy_AppStatus_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_kdeploy_AppStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_AppStatus_descriptor,
         new java.lang.String[] { "Replicas", });
     internal_static_kdeploy_Log_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_kdeploy_Log_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Log_descriptor,
         new java.lang.String[] { "Message", });
     internal_static_kdeploy_Apps_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_kdeploy_Apps_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Apps_descriptor,
         new java.lang.String[] { "Applications", });
     internal_static_kdeploy_Tasks_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_kdeploy_Tasks_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Tasks_descriptor,
         new java.lang.String[] { "Tasks", });
     internal_static_kdeploy_Namespace_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_kdeploy_Namespace_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Namespace_descriptor,
         new java.lang.String[] { "Namespace", });
     internal_static_kdeploy_Namespaces_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_kdeploy_Namespaces_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Namespaces_descriptor,

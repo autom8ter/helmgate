@@ -8,9 +8,9 @@ import (
 
 func (m *Manager) CreateTask(ctx context.Context, task *kdeploypb.TaskConstructor) (*kdeploypb.Task, error) {
 	kapp := &k8sTask{}
-	namespace, err := m.client.Namespaces().Get(ctx, task.Namespace, v1.GetOptions{})
+	namespace, err := m.kclient.Namespaces().Get(ctx, task.Namespace, v1.GetOptions{})
 	if err != nil {
-		namespace, err = m.client.Namespaces().Create(ctx, toTaskNamespace(task), v1.CreateOptions{})
+		namespace, err = m.kclient.Namespaces().Create(ctx, toTaskNamespace(task), v1.CreateOptions{})
 		if err != nil {
 			return nil, err
 		}
@@ -20,7 +20,7 @@ func (m *Manager) CreateTask(ctx context.Context, task *kdeploypb.TaskConstructo
 	if err != nil {
 		return nil, err
 	}
-	cronJob, err := m.client.CronJobs(task.Namespace).Create(ctx, tsk, v1.CreateOptions{})
+	cronJob, err := m.kclient.CronJobs(task.Namespace).Create(ctx, tsk, v1.CreateOptions{})
 	if err != nil {
 		return nil, err
 	}
@@ -30,12 +30,12 @@ func (m *Manager) CreateTask(ctx context.Context, task *kdeploypb.TaskConstructo
 
 func (m *Manager) UpdateTask(ctx context.Context, task *kdeploypb.TaskUpdate) (*kdeploypb.Task, error) {
 	kapp := &k8sTask{}
-	namespace, err := m.client.Namespaces().Get(ctx, task.Namespace, v1.GetOptions{})
+	namespace, err := m.kclient.Namespaces().Get(ctx, task.Namespace, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.namespace = namespace
-	cronJob, err := m.client.CronJobs(task.Namespace).Get(ctx, task.Name, v1.GetOptions{})
+	cronJob, err := m.kclient.CronJobs(task.Namespace).Get(ctx, task.Name, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
@@ -43,7 +43,7 @@ func (m *Manager) UpdateTask(ctx context.Context, task *kdeploypb.TaskUpdate) (*
 	if err != nil {
 		return nil, err
 	}
-	cronJob, err = m.client.CronJobs(task.Namespace).Update(ctx, cronJob, v1.UpdateOptions{})
+	cronJob, err = m.kclient.CronJobs(task.Namespace).Update(ctx, cronJob, v1.UpdateOptions{})
 	if err != nil {
 		return nil, err
 	}
@@ -54,12 +54,12 @@ func (m *Manager) UpdateTask(ctx context.Context, task *kdeploypb.TaskUpdate) (*
 func (m *Manager) GetTask(ctx context.Context, ref *kdeploypb.Ref) (*kdeploypb.Task, error) {
 	kapp := &k8sTask{}
 
-	ns, err := m.client.Namespaces().Get(ctx, ref.Namespace, v1.GetOptions{})
+	ns, err := m.kclient.Namespaces().Get(ctx, ref.Namespace, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.namespace = ns
-	cronJob, err := m.client.CronJobs(ref.Namespace).Get(ctx, ref.Name, v1.GetOptions{})
+	cronJob, err := m.kclient.CronJobs(ref.Namespace).Get(ctx, ref.Name, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +68,7 @@ func (m *Manager) GetTask(ctx context.Context, ref *kdeploypb.Ref) (*kdeploypb.T
 }
 
 func (m *Manager) DeleteTask(ctx context.Context, ref *kdeploypb.Ref) error {
-	if err := m.client.CronJobs(ref.Namespace).Delete(ctx, ref.Name, v1.DeleteOptions{}); err != nil {
+	if err := m.kclient.CronJobs(ref.Namespace).Delete(ctx, ref.Name, v1.DeleteOptions{}); err != nil {
 		return err
 	}
 	return nil
@@ -76,11 +76,11 @@ func (m *Manager) DeleteTask(ctx context.Context, ref *kdeploypb.Ref) error {
 
 func (m *Manager) ListTasks(ctx context.Context, namespace *kdeploypb.Namespace) (*kdeploypb.Tasks, error) {
 	var kapps = &kdeploypb.Tasks{}
-	ns, err := m.client.Namespaces().Get(ctx, namespace.GetNamespace(), v1.GetOptions{})
+	ns, err := m.kclient.Namespaces().Get(ctx, namespace.GetNamespace(), v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
-	cronJobs, err := m.client.CronJobs(namespace.GetNamespace()).List(ctx, v1.ListOptions{
+	cronJobs, err := m.kclient.CronJobs(namespace.GetNamespace()).List(ctx, v1.ListOptions{
 		TypeMeta:      v1.TypeMeta{},
 		LabelSelector: labelSelector,
 	})

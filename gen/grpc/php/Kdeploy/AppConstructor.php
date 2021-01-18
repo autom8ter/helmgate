@@ -57,6 +57,10 @@ class AppConstructor extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>uint32 replicas = 7;</code>
      */
     private $replicas = 0;
+    /**
+     * Generated from protobuf field <code>.kdeploy.Networking networking = 9;</code>
+     */
+    private $networking = null;
 
     /**
      * Constructor.
@@ -78,6 +82,7 @@ class AppConstructor extends \Google\Protobuf\Internal\Message
      *           k/v map of ports to expose ex: http: 80 https: 443
      *     @type int $replicas
      *           number of deployment replicas
+     *     @type \Kdeploy\Networking $networking
      * }
      */
     public function __construct($data = NULL) {
@@ -263,6 +268,28 @@ class AppConstructor extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint32($var);
         $this->replicas = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.kdeploy.Networking networking = 9;</code>
+     * @return \Kdeploy\Networking
+     */
+    public function getNetworking()
+    {
+        return $this->networking;
+    }
+
+    /**
+     * Generated from protobuf field <code>.kdeploy.Networking networking = 9;</code>
+     * @param \Kdeploy\Networking $var
+     * @return $this
+     */
+    public function setNetworking($var)
+    {
+        GPBUtil::checkMessage($var, \Kdeploy\Networking::class);
+        $this->networking = $var;
 
         return $this;
     }

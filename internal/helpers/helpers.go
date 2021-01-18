@@ -94,3 +94,11 @@ func JSONString(obj interface{}) string {
 	bits, _ := json.MarshalIndent(obj, "", "    ")
 	return string(bits)
 }
+
+func Int32Pointer(value uint32) *int32 {
+	if value != 0 {
+		i := int32(value)
+		return &i
+	}
+	return nil
+}

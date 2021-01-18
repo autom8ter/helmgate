@@ -3,24 +3,26 @@
 package model
 
 type App struct {
-	Name      string                 `json:"name"`
-	Namespace string                 `json:"namespace"`
-	Image     string                 `json:"image"`
-	Args      []string               `json:"args"`
-	Env       map[string]interface{} `json:"env"`
-	Ports     map[string]interface{} `json:"ports"`
-	Replicas  int                    `json:"replicas"`
-	Status    *AppStatus             `json:"status"`
+	Name       string                 `json:"name"`
+	Namespace  string                 `json:"namespace"`
+	Image      string                 `json:"image"`
+	Args       []string               `json:"args"`
+	Env        map[string]interface{} `json:"env"`
+	Ports      map[string]interface{} `json:"ports"`
+	Replicas   int                    `json:"replicas"`
+	Networking *Networking            `json:"networking"`
+	Status     *AppStatus             `json:"status"`
 }
 
 type AppConstructor struct {
-	Name      string                 `json:"name"`
-	Namespace string                 `json:"namespace"`
-	Image     string                 `json:"image"`
-	Args      []string               `json:"args"`
-	Env       map[string]interface{} `json:"env"`
-	Ports     map[string]interface{} `json:"ports"`
-	Replicas  int                    `json:"replicas"`
+	Name       string                 `json:"name"`
+	Namespace  string                 `json:"namespace"`
+	Image      string                 `json:"image"`
+	Args       []string               `json:"args"`
+	Env        map[string]interface{} `json:"env"`
+	Ports      map[string]interface{} `json:"ports"`
+	Replicas   int                    `json:"replicas"`
+	Networking *NetworkingInput       `json:"networking"`
 }
 
 type AppStatus struct {
@@ -28,13 +30,14 @@ type AppStatus struct {
 }
 
 type AppUpdate struct {
-	Name      string                 `json:"name"`
-	Namespace string                 `json:"namespace"`
-	Image     *string                `json:"image"`
-	Args      []string               `json:"args"`
-	Env       map[string]interface{} `json:"env"`
-	Ports     map[string]interface{} `json:"ports"`
-	Replicas  *int                   `json:"replicas"`
+	Name       string                 `json:"name"`
+	Namespace  string                 `json:"namespace"`
+	Image      *string                `json:"image"`
+	Args       []string               `json:"args"`
+	Env        map[string]interface{} `json:"env"`
+	Ports      map[string]interface{} `json:"ports"`
+	Replicas   *int                   `json:"replicas"`
+	Networking *NetworkingInput       `json:"networking"`
 }
 
 type Log struct {
@@ -49,6 +52,16 @@ type Namespaces struct {
 	Namespaces []string `json:"namespaces"`
 }
 
+type Networking struct {
+	Routes []*Route `json:"routes"`
+	Export *bool    `json:"export"`
+}
+
+type NetworkingInput struct {
+	Routes []*RouteInput `json:"routes"`
+	Export *bool         `json:"export"`
+}
+
 type Ref struct {
 	Name      string `json:"name"`
 	Namespace string `json:"namespace"`
@@ -58,6 +71,30 @@ type Replica struct {
 	Phase     string `json:"phase"`
 	Condition string `json:"condition"`
 	Reason    string `json:"reason"`
+}
+
+type Route struct {
+	Hosts            []string `json:"hosts"`
+	Gateways         []string `json:"gateways"`
+	PathPrefix       *string  `json:"path_prefix"`
+	RewriteURI       *string  `json:"rewrite_uri"`
+	AllowOrigins     []string `json:"allow_origins"`
+	AllowMethods     []string `json:"allow_methods"`
+	AllowHeaders     []string `json:"allow_headers"`
+	ExposeHeaders    []string `json:"expose_headers"`
+	AllowCredentials *bool    `json:"allow_credentials"`
+}
+
+type RouteInput struct {
+	Hosts            []string `json:"hosts"`
+	Gateways         []string `json:"gateways"`
+	PathPrefix       *string  `json:"path_prefix"`
+	RewriteURI       *string  `json:"rewrite_uri"`
+	AllowOrigins     []string `json:"allow_origins"`
+	AllowMethods     []string `json:"allow_methods"`
+	AllowHeaders     []string `json:"allow_headers"`
+	ExposeHeaders    []string `json:"expose_headers"`
+	AllowCredentials *bool    `json:"allow_credentials"`
 }
 
 type Task struct {

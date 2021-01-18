@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="./styles/graphdoc.css" />
-    <title>Map</title>
+    <title>Route</title>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
 </head>
 <body class="slds-scrollable--y">
@@ -55,7 +55,7 @@
                 Int
             </a>
         </li>
-        <li class="slds-is-active" title="Map">
+        <li  title="Map">
             <a href="map.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Map
             </a>
@@ -120,7 +120,7 @@
                 Replica
             </a>
         </li>
-        <li  title="Route">
+        <li class="slds-is-active" title="Route">
             <a href="route.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Route
             </a>
@@ -240,10 +240,9 @@
         </div>
     </div>
     <div class="container">
-        <p class="slds-text-title--caps slds-text-color--weak">SCALAR</p>
-        <h1 class="slds-text-heading--large">Map</h1>
-        <div class="slds-text-body--regular"><p>Map is a k/v map where the key is a string and the value is any value</p>
-</div>
+        <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
+        <h1 class="slds-text-heading--large">Route</h1>
+        <div class="slds-text-body--regular"></div>
     </div>
 </section>
 <section>
@@ -254,7 +253,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">scalar</span> <span class="identifier">Map</span></li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Route</span> {</li><li></li><li><span class="tab"><span class="meta">hosts</span>: [<a class="support type" href="string.doc.html">String</a>!] </span></li><li></li><li><span class="tab"><span class="meta">gateways</span>: [<a class="support type" href="string.doc.html">String</a>!] </span></li><li></li><li><span class="tab"><span class="meta">path_prefix</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">rewrite_uri</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">allow_origins</span>: [<a class="support type" href="string.doc.html">String</a>!] </span></li><li></li><li><span class="tab"><span class="meta">allow_methods</span>: [<a class="support type" href="string.doc.html">String</a>!] </span></li><li></li><li><span class="tab"><span class="meta">allow_headers</span>: [<a class="support type" href="string.doc.html">String</a>!] </span></li><li></li><li><span class="tab"><span class="meta">expose_headers</span>: [<a class="support type" href="string.doc.html">String</a>!] </span></li><li></li><li><span class="tab"><span class="meta">allow_credentials</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -265,7 +264,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="app.doc.html" title="App - App is a stateless application">App<em>App is a stateless application</em></a><li><li><a href="appconstructor.doc.html" title="AppConstructor - AppConstructor creates a new stateless Application">AppConstructor<em>AppConstructor creates a new stateless Application</em></a><li><li><a href="appupdate.doc.html" title="AppUpdate - ">AppUpdate<em></em></a><li><li><a href="task.doc.html" title="Task - Task is scheduled cron job">Task<em>Task is scheduled cron job</em></a><li><li><a href="taskconstructor.doc.html" title="TaskConstructor - TaskConstructor creates a new task(cron job)">TaskConstructor<em>TaskConstructor creates a new task(cron job)</em></a><li><li><a href="taskupdate.doc.html" title="TaskUpdate - ">TaskUpdate<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="networking.doc.html" title="Networking - ">Networking<em></em></a><li></ul>
     </div>
 </section>
 <footer>

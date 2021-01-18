@@ -8,6 +8,21 @@ require 'google/protobuf/timestamp_pb'
 require 'google/protobuf/any_pb'
 require 'google/protobuf/empty_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
+  add_message "kdeploy.Route" do
+    repeated :hosts, :string, 1
+    repeated :gateways, :string, 2
+    optional :path_prefix, :string, 3
+    optional :rewrite_uri, :string, 4
+    repeated :allow_origins, :string, 5
+    repeated :allow_methods, :string, 6
+    repeated :allow_headers, :string, 7
+    repeated :expose_headers, :string, 8
+    optional :allow_credentials, :bool, 9
+  end
+  add_message "kdeploy.Networking" do
+    repeated :routes, :message, 1, "kdeploy.Route"
+    optional :export, :bool, 2
+  end
   add_message "kdeploy.App" do
     optional :name, :string, 1
     optional :namespace, :string, 2
@@ -16,7 +31,8 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     map :env, :string, :string, 6
     map :ports, :string, :uint32, 7
     optional :replicas, :uint32, 8
-    optional :status, :message, 9, "kdeploy.AppStatus"
+    optional :networking, :message, 9, "kdeploy.Networking"
+    optional :status, :message, 20, "kdeploy.AppStatus"
   end
   add_message "kdeploy.Task" do
     optional :name, :string, 1
@@ -53,6 +69,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     map :env, :string, :string, 5
     map :ports, :string, :uint32, 6
     optional :replicas, :uint32, 7
+    optional :networking, :message, 9, "kdeploy.Networking"
   end
   add_message "kdeploy.AppUpdate" do
     optional :name, :string, 1
@@ -62,6 +79,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     map :env, :string, :string, 5
     map :ports, :string, :uint32, 6
     optional :replicas, :uint32, 7
+    optional :networking, :message, 9, "kdeploy.Networking"
   end
   add_message "kdeploy.Ref" do
     optional :name, :string, 1
@@ -93,6 +111,8 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
 end
 
 module Kdeploy
+  Route = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Route").msgclass
+  Networking = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Networking").msgclass
   App = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.App").msgclass
   Task = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Task").msgclass
   TaskConstructor = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.TaskConstructor").msgclass

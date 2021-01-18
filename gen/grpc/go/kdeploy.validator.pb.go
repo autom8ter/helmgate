@@ -5,15 +5,15 @@ package kdeploypb
 
 import (
 	fmt "fmt"
-	math "math"
 	proto "github.com/golang/protobuf/proto"
 	_ "github.com/golang/protobuf/ptypes/any"
 	_ "github.com/golang/protobuf/ptypes/empty"
-	_ "github.com/mwitkow/go-proto-validators"
 	_ "github.com/golang/protobuf/ptypes/struct"
 	_ "github.com/golang/protobuf/ptypes/timestamp"
-	regexp "regexp"
+	_ "github.com/mwitkow/go-proto-validators"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
+	math "math"
+	regexp "regexp"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -21,9 +21,27 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+func (this *Route) Validate() error {
+	return nil
+}
+func (this *Networking) Validate() error {
+	for _, item := range this.Routes {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Routes", err)
+			}
+		}
+	}
+	return nil
+}
 func (this *App) Validate() error {
 	// Validation of proto3 map<> fields is unsupported.
 	// Validation of proto3 map<> fields is unsupported.
+	if this.Networking != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Networking); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Networking", err)
+		}
+	}
 	if this.Status != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
 			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
@@ -88,6 +106,11 @@ func (this *AppConstructor) Validate() error {
 	}
 	// Validation of proto3 map<> fields is unsupported.
 	// Validation of proto3 map<> fields is unsupported.
+	if this.Networking != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Networking); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Networking", err)
+		}
+	}
 	return nil
 }
 
@@ -103,6 +126,11 @@ func (this *AppUpdate) Validate() error {
 	}
 	// Validation of proto3 map<> fields is unsupported.
 	// Validation of proto3 map<> fields is unsupported.
+	if this.Networking != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Networking); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Networking", err)
+		}
+	}
 	return nil
 }
 
