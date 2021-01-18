@@ -80,8 +80,10 @@ type ComplexityRoot struct {
 	}
 
 	Networking struct {
-		Export func(childComplexity int) int
-		Routes func(childComplexity int) int
+		Export   func(childComplexity int) int
+		Gateways func(childComplexity int) int
+		Hosts    func(childComplexity int) int
+		Routes   func(childComplexity int) int
 	}
 
 	Query struct {
@@ -104,9 +106,9 @@ type ComplexityRoot struct {
 		AllowMethods     func(childComplexity int) int
 		AllowOrigins     func(childComplexity int) int
 		ExposeHeaders    func(childComplexity int) int
-		Gateways         func(childComplexity int) int
-		Hosts            func(childComplexity int) int
+		Name             func(childComplexity int) int
 		PathPrefix       func(childComplexity int) int
+		Port             func(childComplexity int) int
 		RewriteURI       func(childComplexity int) int
 	}
 
@@ -335,6 +337,20 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Networking.Export(childComplexity), true
 
+	case "Networking.gateways":
+		if e.complexity.Networking.Gateways == nil {
+			break
+		}
+
+		return e.complexity.Networking.Gateways(childComplexity), true
+
+	case "Networking.hosts":
+		if e.complexity.Networking.Hosts == nil {
+			break
+		}
+
+		return e.complexity.Networking.Hosts(childComplexity), true
+
 	case "Networking.routes":
 		if e.complexity.Networking.Routes == nil {
 			break
@@ -458,19 +474,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Route.ExposeHeaders(childComplexity), true
 
-	case "Route.gateways":
-		if e.complexity.Route.Gateways == nil {
+	case "Route.name":
+		if e.complexity.Route.Name == nil {
 			break
 		}
 
-		return e.complexity.Route.Gateways(childComplexity), true
-
-	case "Route.hosts":
-		if e.complexity.Route.Hosts == nil {
-			break
-		}
-
-		return e.complexity.Route.Hosts(childComplexity), true
+		return e.complexity.Route.Name(childComplexity), true
 
 	case "Route.path_prefix":
 		if e.complexity.Route.PathPrefix == nil {
@@ -478,6 +487,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Route.PathPrefix(childComplexity), true
+
+	case "Route.port":
+		if e.complexity.Route.Port == nil {
+			break
+		}
+
+		return e.complexity.Route.Port(childComplexity), true
 
 	case "Route.rewrite_uri":
 		if e.complexity.Route.RewriteURI == nil {
@@ -634,8 +650,8 @@ scalar Time
 scalar Map
 
 type Route {
-    hosts: [String!]
-    gateways: [String!]
+    name: String!
+    port: Int!
     path_prefix: String
     rewrite_uri: String
     allow_origins: [String!]
@@ -646,13 +662,15 @@ type Route {
 }
 
 type Networking {
-    routes: [Route!]!
+    gateways: [String!]
+    hosts: [String!]
     export: Boolean
+    routes: [Route!]
 }
 
 input RouteInput {
-    hosts: [String!]
-    gateways: [String!]
+    name: String!
+    port: Int!
     path_prefix: String
     rewrite_uri: String
     allow_origins: [String!]
@@ -663,8 +681,10 @@ input RouteInput {
 }
 
 input NetworkingInput {
-    routes: [RouteInput!]!
+    gateways: [String!]
+    hosts: [String!]
     export: Boolean
+    routes: [RouteInput!]
 }
 
 # App is a stateless application
@@ -781,10 +801,11 @@ input AppUpdate {
     args: [String!]
     # k/v map of environmental variables
     env: Map
-    # k/v map of ports to expose ex: http: 80 https: 443
+    # k/v map of ports to expose on each instance/replica ex: http: 80 https: 443
     ports: Map
     # number of deployment replicas min:1
     replicas: Int
+    #
     networking: NetworkingInput
 }
 
@@ -1789,7 +1810,7 @@ func (ec *executionContext) _Namespaces_namespaces(ctx context.Context, field gr
 	return ec.marshalOString2ᚕstringᚄ(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Networking_routes(ctx context.Context, field graphql.CollectedField, obj *model.Networking) (ret graphql.Marshaler) {
+func (ec *executionContext) _Networking_gateways(ctx context.Context, field graphql.CollectedField, obj *model.Networking) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -1807,21 +1828,50 @@ func (ec *executionContext) _Networking_routes(ctx context.Context, field graphq
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Routes, nil
+		return obj.Gateways, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
-	res := resTmp.([]*model.Route)
+	res := resTmp.([]string)
 	fc.Result = res
-	return ec.marshalNRoute2ᚕᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐRouteᚄ(ctx, field.Selections, res)
+	return ec.marshalOString2ᚕstringᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Networking_hosts(ctx context.Context, field graphql.CollectedField, obj *model.Networking) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Networking",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Hosts, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.([]string)
+	fc.Result = res
+	return ec.marshalOString2ᚕstringᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Networking_export(ctx context.Context, field graphql.CollectedField, obj *model.Networking) (ret graphql.Marshaler) {
@@ -1854,6 +1904,38 @@ func (ec *executionContext) _Networking_export(ctx context.Context, field graphq
 	res := resTmp.(*bool)
 	fc.Result = res
 	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Networking_routes(ctx context.Context, field graphql.CollectedField, obj *model.Networking) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Networking",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Routes, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.([]*model.Route)
+	fc.Result = res
+	return ec.marshalORoute2ᚕᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐRouteᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_getApp(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -2230,7 +2312,7 @@ func (ec *executionContext) _Replica_reason(ctx context.Context, field graphql.C
 	return ec.marshalNString2string(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Route_hosts(ctx context.Context, field graphql.CollectedField, obj *model.Route) (ret graphql.Marshaler) {
+func (ec *executionContext) _Route_name(ctx context.Context, field graphql.CollectedField, obj *model.Route) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -2248,21 +2330,24 @@ func (ec *executionContext) _Route_hosts(ctx context.Context, field graphql.Coll
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Hosts, nil
+		return obj.Name, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
-	res := resTmp.([]string)
+	res := resTmp.(string)
 	fc.Result = res
-	return ec.marshalOString2ᚕstringᚄ(ctx, field.Selections, res)
+	return ec.marshalNString2string(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Route_gateways(ctx context.Context, field graphql.CollectedField, obj *model.Route) (ret graphql.Marshaler) {
+func (ec *executionContext) _Route_port(ctx context.Context, field graphql.CollectedField, obj *model.Route) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -2280,18 +2365,21 @@ func (ec *executionContext) _Route_gateways(ctx context.Context, field graphql.C
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Gateways, nil
+		return obj.Port, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
-	res := resTmp.([]string)
+	res := resTmp.(int)
 	fc.Result = res
-	return ec.marshalOString2ᚕstringᚄ(ctx, field.Selections, res)
+	return ec.marshalNInt2int(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Route_path_prefix(ctx context.Context, field graphql.CollectedField, obj *model.Route) (ret graphql.Marshaler) {
@@ -4071,11 +4159,19 @@ func (ec *executionContext) unmarshalInputNetworkingInput(ctx context.Context, o
 
 	for k, v := range asMap {
 		switch k {
-		case "routes":
+		case "gateways":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("routes"))
-			it.Routes, err = ec.unmarshalNRouteInput2ᚕᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐRouteInputᚄ(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("gateways"))
+			it.Gateways, err = ec.unmarshalOString2ᚕstringᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "hosts":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("hosts"))
+			it.Hosts, err = ec.unmarshalOString2ᚕstringᚄ(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -4084,6 +4180,14 @@ func (ec *executionContext) unmarshalInputNetworkingInput(ctx context.Context, o
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("export"))
 			it.Export, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "routes":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("routes"))
+			it.Routes, err = ec.unmarshalORouteInput2ᚕᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐRouteInputᚄ(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -4127,19 +4231,19 @@ func (ec *executionContext) unmarshalInputRouteInput(ctx context.Context, obj in
 
 	for k, v := range asMap {
 		switch k {
-		case "hosts":
+		case "name":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("hosts"))
-			it.Hosts, err = ec.unmarshalOString2ᚕstringᚄ(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "gateways":
+		case "port":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("gateways"))
-			it.Gateways, err = ec.unmarshalOString2ᚕstringᚄ(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("port"))
+			it.Port, err = ec.unmarshalNInt2int(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -4539,13 +4643,14 @@ func (ec *executionContext) _Networking(ctx context.Context, sel ast.SelectionSe
 		switch field.Name {
 		case "__typename":
 			out.Values[i] = graphql.MarshalString("Networking")
-		case "routes":
-			out.Values[i] = ec._Networking_routes(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
+		case "gateways":
+			out.Values[i] = ec._Networking_gateways(ctx, field, obj)
+		case "hosts":
+			out.Values[i] = ec._Networking_hosts(ctx, field, obj)
 		case "export":
 			out.Values[i] = ec._Networking_export(ctx, field, obj)
+		case "routes":
+			out.Values[i] = ec._Networking_routes(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -4693,10 +4798,16 @@ func (ec *executionContext) _Route(ctx context.Context, sel ast.SelectionSet, ob
 		switch field.Name {
 		case "__typename":
 			out.Values[i] = graphql.MarshalString("Route")
-		case "hosts":
-			out.Values[i] = ec._Route_hosts(ctx, field, obj)
-		case "gateways":
-			out.Values[i] = ec._Route_gateways(ctx, field, obj)
+		case "name":
+			out.Values[i] = ec._Route_name(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "port":
+			out.Values[i] = ec._Route_port(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "path_prefix":
 			out.Values[i] = ec._Route_path_prefix(ctx, field, obj)
 		case "rewrite_uri":
@@ -5192,43 +5303,6 @@ func (ec *executionContext) marshalNReplica2ᚕᚖgithubᚗcomᚋautom8terᚋkde
 	return ret
 }
 
-func (ec *executionContext) marshalNRoute2ᚕᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐRouteᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.Route) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNRoute2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐRoute(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-	return ret
-}
-
 func (ec *executionContext) marshalNRoute2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐRoute(ctx context.Context, sel ast.SelectionSet, v *model.Route) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
@@ -5237,27 +5311,6 @@ func (ec *executionContext) marshalNRoute2ᚖgithubᚗcomᚋautom8terᚋkdeploy�
 		return graphql.Null
 	}
 	return ec._Route(ctx, sel, v)
-}
-
-func (ec *executionContext) unmarshalNRouteInput2ᚕᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐRouteInputᚄ(ctx context.Context, v interface{}) ([]*model.RouteInput, error) {
-	var vSlice []interface{}
-	if v != nil {
-		if tmp1, ok := v.([]interface{}); ok {
-			vSlice = tmp1
-		} else {
-			vSlice = []interface{}{v}
-		}
-	}
-	var err error
-	res := make([]*model.RouteInput, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNRouteInput2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐRouteInput(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
 }
 
 func (ec *executionContext) unmarshalNRouteInput2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐRouteInput(ctx context.Context, v interface{}) (*model.RouteInput, error) {
@@ -5643,6 +5696,70 @@ func (ec *executionContext) marshalOReplica2ᚖgithubᚗcomᚋautom8terᚋkdeplo
 		return graphql.Null
 	}
 	return ec._Replica(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalORoute2ᚕᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐRouteᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.Route) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNRoute2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐRoute(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+	return ret
+}
+
+func (ec *executionContext) unmarshalORouteInput2ᚕᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐRouteInputᚄ(ctx context.Context, v interface{}) ([]*model.RouteInput, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]*model.RouteInput, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNRouteInput2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐRouteInput(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
 }
 
 func (ec *executionContext) unmarshalOString2string(ctx context.Context, v interface{}) (string, error) {

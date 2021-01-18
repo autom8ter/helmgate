@@ -53,13 +53,17 @@ type Namespaces struct {
 }
 
 type Networking struct {
-	Routes []*Route `json:"routes"`
-	Export *bool    `json:"export"`
+	Gateways []string `json:"gateways"`
+	Hosts    []string `json:"hosts"`
+	Export   *bool    `json:"export"`
+	Routes   []*Route `json:"routes"`
 }
 
 type NetworkingInput struct {
-	Routes []*RouteInput `json:"routes"`
-	Export *bool         `json:"export"`
+	Gateways []string      `json:"gateways"`
+	Hosts    []string      `json:"hosts"`
+	Export   *bool         `json:"export"`
+	Routes   []*RouteInput `json:"routes"`
 }
 
 type Ref struct {
@@ -74,8 +78,8 @@ type Replica struct {
 }
 
 type Route struct {
-	Hosts            []string `json:"hosts"`
-	Gateways         []string `json:"gateways"`
+	Name             string   `json:"name"`
+	Port             int      `json:"port"`
 	PathPrefix       *string  `json:"path_prefix"`
 	RewriteURI       *string  `json:"rewrite_uri"`
 	AllowOrigins     []string `json:"allow_origins"`
@@ -86,8 +90,8 @@ type Route struct {
 }
 
 type RouteInput struct {
-	Hosts            []string `json:"hosts"`
-	Gateways         []string `json:"gateways"`
+	Name             string   `json:"name"`
+	Port             int      `json:"port"`
 	PathPrefix       *string  `json:"path_prefix"`
 	RewriteURI       *string  `json:"rewrite_uri"`
 	AllowOrigins     []string `json:"allow_origins"`

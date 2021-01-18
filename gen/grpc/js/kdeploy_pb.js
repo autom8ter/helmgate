@@ -55,7 +55,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.kdeploy.Route.repeatedFields_ = [1,2,5,6,7,8];
+proto.kdeploy.Route.repeatedFields_ = [5,6,7,8];
 
 
 
@@ -86,8 +86,8 @@ proto.kdeploy.Route.prototype.toObject = function(opt_includeInstance) {
  */
 proto.kdeploy.Route.toObject = function(includeInstance, msg) {
   var f, obj = {
-    hostsList: jspb.Message.getRepeatedField(msg, 1),
-    gatewaysList: jspb.Message.getRepeatedField(msg, 2),
+    name: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    port: jspb.Message.getFieldWithDefault(msg, 2, 0),
     pathPrefix: jspb.Message.getFieldWithDefault(msg, 3, ""),
     rewriteUri: jspb.Message.getFieldWithDefault(msg, 4, ""),
     allowOriginsList: jspb.Message.getRepeatedField(msg, 5),
@@ -133,11 +133,11 @@ proto.kdeploy.Route.deserializeBinaryFromReader = function(msg, reader) {
     switch (field) {
     case 1:
       var value = /** @type {string} */ (reader.readString());
-      msg.addHosts(value);
+      msg.setName(value);
       break;
     case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.addGateways(value);
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setPort(value);
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
@@ -196,16 +196,16 @@ proto.kdeploy.Route.prototype.serializeBinary = function() {
  */
 proto.kdeploy.Route.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getHostsList();
+  f = message.getName();
   if (f.length > 0) {
-    writer.writeRepeatedString(
+    writer.writeString(
       1,
       f
     );
   }
-  f = message.getGatewaysList();
-  if (f.length > 0) {
-    writer.writeRepeatedString(
+  f = message.getPort();
+  if (f !== 0) {
+    writer.writeUint32(
       2,
       f
     );
@@ -263,60 +263,32 @@ proto.kdeploy.Route.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * repeated string hosts = 1;
- * @return {!Array<string>}
+ * optional string name = 1;
+ * @return {string}
  */
-proto.kdeploy.Route.prototype.getHostsList = function() {
-  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 1));
+proto.kdeploy.Route.prototype.getName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {!Array<string>} value */
-proto.kdeploy.Route.prototype.setHostsList = function(value) {
-  jspb.Message.setField(this, 1, value || []);
+/** @param {string} value */
+proto.kdeploy.Route.prototype.setName = function(value) {
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
 /**
- * @param {!string} value
- * @param {number=} opt_index
+ * optional uint32 port = 2;
+ * @return {number}
  */
-proto.kdeploy.Route.prototype.addHosts = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 1, value, opt_index);
+proto.kdeploy.Route.prototype.getPort = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
-proto.kdeploy.Route.prototype.clearHostsList = function() {
-  this.setHostsList([]);
-};
-
-
-/**
- * repeated string gateways = 2;
- * @return {!Array<string>}
- */
-proto.kdeploy.Route.prototype.getGatewaysList = function() {
-  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 2));
-};
-
-
-/** @param {!Array<string>} value */
-proto.kdeploy.Route.prototype.setGatewaysList = function(value) {
-  jspb.Message.setField(this, 2, value || []);
-};
-
-
-/**
- * @param {!string} value
- * @param {number=} opt_index
- */
-proto.kdeploy.Route.prototype.addGateways = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 2, value, opt_index);
-};
-
-
-proto.kdeploy.Route.prototype.clearGatewaysList = function() {
-  this.setGatewaysList([]);
+/** @param {number} value */
+proto.kdeploy.Route.prototype.setPort = function(value) {
+  jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -506,7 +478,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.kdeploy.Networking.repeatedFields_ = [1];
+proto.kdeploy.Networking.repeatedFields_ = [1,2,4];
 
 
 
@@ -537,9 +509,11 @@ proto.kdeploy.Networking.prototype.toObject = function(opt_includeInstance) {
  */
 proto.kdeploy.Networking.toObject = function(includeInstance, msg) {
   var f, obj = {
+    gatewaysList: jspb.Message.getRepeatedField(msg, 1),
+    hostsList: jspb.Message.getRepeatedField(msg, 2),
+    pb_export: jspb.Message.getFieldWithDefault(msg, 3, false),
     routesList: jspb.Message.toObjectList(msg.getRoutesList(),
-    proto.kdeploy.Route.toObject, includeInstance),
-    pb_export: jspb.Message.getFieldWithDefault(msg, 2, false)
+    proto.kdeploy.Route.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -577,13 +551,21 @@ proto.kdeploy.Networking.deserializeBinaryFromReader = function(msg, reader) {
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.addGateways(value);
+      break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.addHosts(value);
+      break;
+    case 3:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setExport(value);
+      break;
+    case 4:
       var value = new proto.kdeploy.Route;
       reader.readMessage(value,proto.kdeploy.Route.deserializeBinaryFromReader);
       msg.addRoutes(value);
-      break;
-    case 2:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setExport(value);
       break;
     default:
       reader.skipField();
@@ -614,37 +596,126 @@ proto.kdeploy.Networking.prototype.serializeBinary = function() {
  */
 proto.kdeploy.Networking.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getRoutesList();
+  f = message.getGatewaysList();
   if (f.length > 0) {
-    writer.writeRepeatedMessage(
+    writer.writeRepeatedString(
       1,
-      f,
-      proto.kdeploy.Route.serializeBinaryToWriter
+      f
+    );
+  }
+  f = message.getHostsList();
+  if (f.length > 0) {
+    writer.writeRepeatedString(
+      2,
+      f
     );
   }
   f = message.getExport();
   if (f) {
     writer.writeBool(
-      2,
+      3,
       f
+    );
+  }
+  f = message.getRoutesList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      4,
+      f,
+      proto.kdeploy.Route.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * repeated Route routes = 1;
+ * repeated string gateways = 1;
+ * @return {!Array<string>}
+ */
+proto.kdeploy.Networking.prototype.getGatewaysList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 1));
+};
+
+
+/** @param {!Array<string>} value */
+proto.kdeploy.Networking.prototype.setGatewaysList = function(value) {
+  jspb.Message.setField(this, 1, value || []);
+};
+
+
+/**
+ * @param {!string} value
+ * @param {number=} opt_index
+ */
+proto.kdeploy.Networking.prototype.addGateways = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 1, value, opt_index);
+};
+
+
+proto.kdeploy.Networking.prototype.clearGatewaysList = function() {
+  this.setGatewaysList([]);
+};
+
+
+/**
+ * repeated string hosts = 2;
+ * @return {!Array<string>}
+ */
+proto.kdeploy.Networking.prototype.getHostsList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 2));
+};
+
+
+/** @param {!Array<string>} value */
+proto.kdeploy.Networking.prototype.setHostsList = function(value) {
+  jspb.Message.setField(this, 2, value || []);
+};
+
+
+/**
+ * @param {!string} value
+ * @param {number=} opt_index
+ */
+proto.kdeploy.Networking.prototype.addHosts = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 2, value, opt_index);
+};
+
+
+proto.kdeploy.Networking.prototype.clearHostsList = function() {
+  this.setHostsList([]);
+};
+
+
+/**
+ * optional bool export = 3;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.kdeploy.Networking.prototype.getExport = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 3, false));
+};
+
+
+/** @param {boolean} value */
+proto.kdeploy.Networking.prototype.setExport = function(value) {
+  jspb.Message.setProto3BooleanField(this, 3, value);
+};
+
+
+/**
+ * repeated Route routes = 4;
  * @return {!Array<!proto.kdeploy.Route>}
  */
 proto.kdeploy.Networking.prototype.getRoutesList = function() {
   return /** @type{!Array<!proto.kdeploy.Route>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.kdeploy.Route, 1));
+    jspb.Message.getRepeatedWrapperField(this, proto.kdeploy.Route, 4));
 };
 
 
 /** @param {!Array<!proto.kdeploy.Route>} value */
 proto.kdeploy.Networking.prototype.setRoutesList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 1, value);
+  jspb.Message.setRepeatedWrapperField(this, 4, value);
 };
 
 
@@ -654,29 +725,12 @@ proto.kdeploy.Networking.prototype.setRoutesList = function(value) {
  * @return {!proto.kdeploy.Route}
  */
 proto.kdeploy.Networking.prototype.addRoutes = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.kdeploy.Route, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 4, opt_value, proto.kdeploy.Route, opt_index);
 };
 
 
 proto.kdeploy.Networking.prototype.clearRoutesList = function() {
   this.setRoutesList([]);
-};
-
-
-/**
- * optional bool export = 2;
- * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
- * You should avoid comparisons like {@code val === true/false} in those cases.
- * @return {boolean}
- */
-proto.kdeploy.Networking.prototype.getExport = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 2, false));
-};
-
-
-/** @param {boolean} value */
-proto.kdeploy.Networking.prototype.setExport = function(value) {
-  jspb.Message.setProto3BooleanField(this, 2, value);
 };
 
 

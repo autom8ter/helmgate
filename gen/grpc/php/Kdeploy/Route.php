@@ -9,18 +9,20 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
+ * Route is a single http route(istio HttpRoute)
+ *
  * Generated from protobuf message <code>kdeploy.Route</code>
  */
 class Route extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>repeated string hosts = 1;</code>
+     * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      */
-    private $hosts;
+    private $name = '';
     /**
-     * Generated from protobuf field <code>repeated string gateways = 2;</code>
+     * Generated from protobuf field <code>uint32 port = 2 [(.validator.field) = {</code>
      */
-    private $gateways;
+    private $port = 0;
     /**
      * Generated from protobuf field <code>string path_prefix = 3;</code>
      */
@@ -56,8 +58,8 @@ class Route extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $hosts
-     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $gateways
+     *     @type string $name
+     *     @type int $port
      *     @type string $path_prefix
      *     @type string $rewrite_uri
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $allow_origins
@@ -73,45 +75,45 @@ class Route extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated string hosts = 1;</code>
-     * @return \Google\Protobuf\Internal\RepeatedField
+     * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
+     * @return string
      */
-    public function getHosts()
+    public function getName()
     {
-        return $this->hosts;
+        return $this->name;
     }
 
     /**
-     * Generated from protobuf field <code>repeated string hosts = 1;</code>
-     * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
+     * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
+     * @param string $var
      * @return $this
      */
-    public function setHosts($var)
+    public function setName($var)
     {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->hosts = $arr;
+        GPBUtil::checkString($var, True);
+        $this->name = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>repeated string gateways = 2;</code>
-     * @return \Google\Protobuf\Internal\RepeatedField
+     * Generated from protobuf field <code>uint32 port = 2 [(.validator.field) = {</code>
+     * @return int
      */
-    public function getGateways()
+    public function getPort()
     {
-        return $this->gateways;
+        return $this->port;
     }
 
     /**
-     * Generated from protobuf field <code>repeated string gateways = 2;</code>
-     * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
+     * Generated from protobuf field <code>uint32 port = 2 [(.validator.field) = {</code>
+     * @param int $var
      * @return $this
      */
-    public function setGateways($var)
+    public function setPort($var)
     {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->gateways = $arr;
+        GPBUtil::checkUint32($var);
+        $this->port = $var;
 
         return $this;
     }

@@ -1,6 +1,7 @@
 package client
 
 import (
+	"fmt"
 	kdeploypb "github.com/autom8ter/kdeploy/gen/grpc/go"
 	"github.com/autom8ter/kdeploy/internal/helpers"
 	"github.com/pkg/errors"
@@ -133,15 +134,77 @@ func toServicePorts(app *kdeploypb.AppConstructor) []v12.ServicePort {
 }
 
 func overwriteService(svc *networking.VirtualService, app *kdeploypb.AppUpdate) *networking.VirtualService {
-	if app.Ports != nil {
-		var ports []v12.ServicePort
-		for name, p := range app.Ports {
-			ports = append(ports, v12.ServicePort{
-				Name: name,
-				Port: cast.ToInt32(p),
+	if svc.Namespace != "" {
+		svc.Namespace = app.Namespace
+	}
+	if svc.Name != "" {
+		svc.Name = app.Name
+	}
+	if app.GetNetworking().GetGateways() != nil {
+		svc.Spec.Gateways = app.GetNetworking().GetGateways()
+	}
+	if app.GetNetworking().GetHosts() != nil {
+		svc.Spec.Hosts = app.GetNetworking().GetHosts()
+	}
+	if app.GetNetworking().GetExport() {
+		svc.Spec.ExportTo = []string{"*"}
+	} else {
+		svc.Spec.ExportTo = []string{"."}
+	}
+	if app.GetNetworking().GetRoutes() != nil {
+		var (
+			routes       []*v1alpha3.HTTPRoute
+			origins      []*v1alpha3.StringMatch
+			destinations []*v1alpha3.Destination
+		)
+
+		for _, h := range app.GetNetworking().GetRoutes() {
+			for _, o := range h.AllowOrigins {
+				origins = append(origins, &v1alpha3.StringMatch{
+					MatchType: &v1alpha3.StringMatch_Exact{Exact: o},
+				})
+			}
+			destinations = append(destinations, &v1alpha3.Destination{
+				Host: fmt.Sprintf("%s.%s.svc.cluster.local", app.Name, app.Namespace),
+				Port: &v1alpha3.PortSelector{
+					Number: h.Port,
+				},
 			})
 		}
-		svc.Spec.Ports = ports
+		for _, h := range app.GetNetworking().GetRoutes() {
+			routes = append(routes, &v1alpha3.HTTPRoute{
+				Name:  h.Name,
+				Match: nil,
+				Route: []*v1alpha3.HTTPRouteDestination{
+					{
+						Destination: &v1alpha3.Destination{
+							Host:   app.Name,
+							Subset: "",
+							Port: &v1alpha3.PortSelector{
+								Number: h.Port,
+							},
+						},
+					},
+				},
+				Rewrite: &v1alpha3.HTTPRewrite{
+					Uri:       h.RewriteUri,
+					Authority: "",
+				},
+				Timeout:          nil,
+				Retries:          nil,
+				Fault:            nil,
+				Mirror:           nil,
+				MirrorPercent:    nil,
+				MirrorPercentage: nil,
+				CorsPolicy: &v1alpha3.CorsPolicy{
+					AllowOrigins:  origins,
+					AllowMethods:  h.AllowMethods,
+					AllowHeaders:  h.AllowHeaders,
+					ExposeHeaders: h.ExposeHeaders,
+				},
+				Headers: nil,
+			})
+		}
 	}
 	return svc
 }
@@ -163,12 +226,26 @@ func overwriteService(svc *networking.VirtualService, app *kdeploypb.AppUpdate) 
 */
 
 func toService(app *kdeploypb.AppConstructor) *networking.VirtualService {
-	return &networking.VirtualService{
-		TypeMeta:   metav1.TypeMeta{},
-		ObjectMeta: metav1.ObjectMeta{},
-		Spec:       v1alpha3.VirtualService{},
-		Status:     v1alpha1.IstioStatus{},
+	svc := &networking.VirtualService{
+		TypeMeta: metav1.TypeMeta{},
+		ObjectMeta: metav1.ObjectMeta{
+			Name:      app.Name,
+			Namespace: app.Namespace,
+			Labels:    appLabels(app),
+		},
+		Spec:   v1alpha3.VirtualService{},
+		Status: v1alpha1.IstioStatus{},
 	}
+	return overwriteService(svc, &kdeploypb.AppUpdate{
+		Name:       app.Name,
+		Namespace:  app.Namespace,
+		Image:      app.Image,
+		Args:       app.Args,
+		Env:        app.Env,
+		Ports:      app.Ports,
+		Replicas:   app.Replicas,
+		Networking: app.Networking,
+	})
 }
 
 func toDeployment(app *kdeploypb.AppConstructor) (*apps.Deployment, error) {

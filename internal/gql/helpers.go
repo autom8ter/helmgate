@@ -3,6 +3,7 @@ package gql
 import (
 	"github.com/autom8ter/kdeploy/gen/gql/go/model"
 	kdeploypb "github.com/autom8ter/kdeploy/gen/grpc/go"
+	"github.com/autom8ter/kdeploy/internal/helpers"
 	"github.com/spf13/cast"
 )
 
@@ -72,13 +73,14 @@ func toAppU(input model.AppUpdate) *kdeploypb.AppUpdate {
 		replicas = uint32(*input.Replicas)
 	}
 	return &kdeploypb.AppUpdate{
-		Name:      input.Name,
-		Namespace: input.Namespace,
-		Image:     image,
-		Env:       env,
-		Ports:     ports,
-		Replicas:  replicas,
-		Args:      input.Args,
+		Name:       input.Name,
+		Namespace:  input.Namespace,
+		Image:      image,
+		Env:        env,
+		Ports:      ports,
+		Replicas:   replicas,
+		Args:       input.Args,
+		Networking: toNetworking(input.Networking),
 	}
 }
 
@@ -138,14 +140,74 @@ func fromApp(app *kdeploypb.App) *model.App {
 		})
 	}
 	return &model.App{
-		Name:      app.Name,
-		Namespace: app.Namespace,
-		Image:     app.Image,
-		Env:       env,
-		Ports:     ports,
-		Replicas:  int(app.Replicas),
-		Status:    status,
-		Args:      app.Args,
+		Name:       app.Name,
+		Namespace:  app.Namespace,
+		Image:      app.Image,
+		Args:       app.Args,
+		Env:        env,
+		Ports:      ports,
+		Replicas:   int(app.Replicas),
+		Networking: fromNetworking(app.GetNetworking()),
+		Status:     status,
+	}
+}
+
+func toNetworking(input *model.NetworkingInput) *kdeploypb.Networking {
+	if input == nil {
+		return nil
+	}
+	var routes []*kdeploypb.Route
+	for _, r := range input.Routes {
+		route := &kdeploypb.Route{
+			Name:          r.Name,
+			Port:          uint32(r.Port),
+			AllowOrigins:  r.AllowOrigins,
+			AllowMethods:  r.AllowMethods,
+			AllowHeaders:  r.AllowHeaders,
+			ExposeHeaders: r.ExposeHeaders,
+		}
+		if r.RewriteURI != nil {
+			route.RewriteUri = *r.RewriteURI
+		}
+		if r.PathPrefix != nil {
+			route.PathPrefix = *r.PathPrefix
+		}
+		if r.AllowCredentials != nil {
+			route.AllowCredentials = *r.AllowCredentials
+		}
+		routes = append(routes, route)
+	}
+	n := &kdeploypb.Networking{
+		Gateways: input.Gateways,
+		Hosts:    input.Hosts,
+		Routes:   routes,
+	}
+	if input.Export != nil {
+		n.Export = *input.Export
+	}
+	return n
+}
+
+func fromNetworking(networking *kdeploypb.Networking) *model.Networking {
+	var routes []*model.Route
+	for _, r := range networking.GetRoutes() {
+		routes = append(routes, &model.Route{
+			Name:             r.Name,
+			Port:             int(r.Port),
+			PathPrefix:       helpers.StringPointer(r.PathPrefix),
+			RewriteURI:       helpers.StringPointer(r.RewriteUri),
+			AllowOrigins:     r.AllowOrigins,
+			AllowMethods:     r.AllowMethods,
+			AllowHeaders:     r.AllowHeaders,
+			ExposeHeaders:    r.ExposeHeaders,
+			AllowCredentials: helpers.BoolPointer(r.AllowCredentials),
+		})
+	}
+	return &model.Networking{
+		Gateways: networking.GetGateways(),
+		Hosts:    networking.GetHosts(),
+		Export:   &networking.Export,
+		Routes:   routes,
 	}
 }
 
@@ -171,39 +233,5 @@ func fromTask(app *kdeploypb.Task) *model.Task {
 		Env:         env,
 		Schedule:    app.Schedule,
 		Completions: &completions,
-	}
-}
-
-func toApp(input *model.App) *kdeploypb.App {
-	var (
-		env   map[string]string
-		ports map[string]uint32
-	)
-	if input.Env != nil {
-		env = cast.ToStringMapString(input.Env)
-	}
-	if input.Ports != nil {
-		ports = map[string]uint32{}
-		for k, v := range input.Ports {
-			ports[k] = cast.ToUint32(v)
-		}
-	}
-	var status = &kdeploypb.AppStatus{}
-	for _, replica := range input.Status.Replicas {
-		status.Replicas = append(status.Replicas, &kdeploypb.Replica{
-			Phase:     replica.Phase,
-			Condition: replica.Condition,
-			Reason:    replica.Reason,
-		})
-	}
-	return &kdeploypb.App{
-		Name:      input.Name,
-		Namespace: input.Namespace,
-		Image:     input.Image,
-		Args:      input.Args,
-		Env:       env,
-		Ports:     ports,
-		Replicas:  uint32(input.Replicas),
-		Status:    status,
 	}
 }

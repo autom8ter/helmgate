@@ -102,3 +102,14 @@ func Int32Pointer(value uint32) *int32 {
 	}
 	return nil
 }
+
+func StringPointer(this string) *string {
+	if this != "" {
+		return &this
+	}
+	return nil
+}
+
+func BoolPointer(this bool) *bool {
+	return &this
+}

@@ -9,13 +9,18 @@ import (
 )
 
 func TestApps(t *testing.T) {
-	kclient, err := kubego.NewOutOfClusterClient()
+	kclient, err := kubego.NewOutOfClusterKubeClient()
+	if err != nil {
+		t.Fatal(err.Error())
+	}
+	iclient, err := kubego.NewOutOfClusterIstioClient()
 	if err != nil {
 		t.Fatal(err.Error())
 	}
 	lgger := logger.New(true)
 	cli := client.New(
 		kclient,
+		iclient,
 		lgger,
 		nil,
 		"https://openidconnect.googleapis.com/v1/userinfo",

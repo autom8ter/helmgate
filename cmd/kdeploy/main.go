@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"fmt"
 	kdeploypb "github.com/autom8ter/kdeploy/gen/grpc/go"
-	"github.com/autom8ter/kdeploy/gql"
 	"github.com/autom8ter/kdeploy/internal/client"
+	"github.com/autom8ter/kdeploy/internal/gql"
 	"github.com/autom8ter/kdeploy/internal/helpers"
 	"github.com/autom8ter/kdeploy/internal/logger"
 	"github.com/autom8ter/kdeploy/internal/service"
@@ -188,19 +188,29 @@ func run(ctx context.Context) {
 
 	var cli *client.Manager
 	if outOfCluster {
-		kclient, err := kubego.NewOutOfClusterClient()
+		kclient, err := kubego.NewOutOfClusterKubeClient()
 		if err != nil {
-			lgger.Error("failed to create out of cluster k8s client", zap.Error(err))
+			lgger.Error(err.Error())
 			return
 		}
-		cli = client.New(kclient, lgger, rootUsers, openID["userinfo_endpoint"].(string), authorizers)
+		iclient, err := kubego.NewOutOfClusterIstioClient()
+		if err != nil {
+			lgger.Error(err.Error())
+			return
+		}
+		cli = client.New(kclient, iclient, lgger, rootUsers, openID["userinfo_endpoint"].(string), authorizers)
 	} else {
-		kclient, err := kubego.NewInClusterClient()
+		kclient, err := kubego.NewInClusterKubeClient()
 		if err != nil {
-			lgger.Error("failed to create in cluster k8s client", zap.Error(err))
+			lgger.Error(err.Error())
 			return
 		}
-		cli = client.New(kclient, lgger, rootUsers, openID["userinfo_endpoint"].(string), authorizers)
+		iclient, err := kubego.NewInClusterIstioClient()
+		if err != nil {
+			lgger.Error(err.Error())
+			return
+		}
+		cli = client.New(kclient, iclient, lgger, rootUsers, openID["userinfo_endpoint"].(string), authorizers)
 	}
 
 	gopts := []grpc.ServerOption{

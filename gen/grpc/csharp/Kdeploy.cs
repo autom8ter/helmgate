@@ -28,81 +28,82 @@ namespace Kdeploy {
             "dWN0LnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvGhln",
             "b29nbGUvcHJvdG9idWYvYW55LnByb3RvGhtnb29nbGUvcHJvdG9idWYvZW1w",
             "dHkucHJvdG8aNmdpdGh1Yi5jb20vbXdpdGtvdy9nby1wcm90by12YWxpZGF0",
-            "b3JzL3ZhbGlkYXRvci5wcm90byLKAQoFUm91dGUSDQoFaG9zdHMYASADKAkS",
-            "EAoIZ2F0ZXdheXMYAiADKAkSEwoLcGF0aF9wcmVmaXgYAyABKAkSEwoLcmV3",
-            "cml0ZV91cmkYBCABKAkSFQoNYWxsb3dfb3JpZ2lucxgFIAMoCRIVCg1hbGxv",
-            "d19tZXRob2RzGAYgAygJEhUKDWFsbG93X2hlYWRlcnMYByADKAkSFgoOZXhw",
-            "b3NlX2hlYWRlcnMYCCADKAkSGQoRYWxsb3dfY3JlZGVudGlhbHMYCSABKAgi",
-            "PAoKTmV0d29ya2luZxIeCgZyb3V0ZXMYASADKAsyDi5rZGVwbG95LlJvdXRl",
-            "Eg4KBmV4cG9ydBgCIAEoCCLIAgoDQXBwEgwKBG5hbWUYASABKAkSEQoJbmFt",
-            "ZXNwYWNlGAIgASgJEg0KBWltYWdlGAMgASgJEgwKBGFyZ3MYBSADKAkSIgoD",
-            "ZW52GAYgAygLMhUua2RlcGxveS5BcHAuRW52RW50cnkSJgoFcG9ydHMYByAD",
-            "KAsyFy5rZGVwbG95LkFwcC5Qb3J0c0VudHJ5EhAKCHJlcGxpY2FzGAggASgN",
-            "EicKCm5ldHdvcmtpbmcYCSABKAsyEy5rZGVwbG95Lk5ldHdvcmtpbmcSIgoG",
-            "c3RhdHVzGBQgASgLMhIua2RlcGxveS5BcHBTdGF0dXMaKgoIRW52RW50cnkS",
-            "CwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ARosCgpQb3J0c0VudHJ5",
-            "EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoDToCOAEivAEKBFRhc2sSDAoE",
-            "bmFtZRgBIAEoCRIRCgluYW1lc3BhY2UYAiABKAkSDQoFaW1hZ2UYAyABKAkS",
-            "DAoEYXJncxgFIAMoCRIjCgNlbnYYBiADKAsyFi5rZGVwbG95LlRhc2suRW52",
-            "RW50cnkSEAoIc2NoZWR1bGUYByABKAkSEwoLY29tcGxldGlvbnMYCCABKA0a",
-            "KgoIRW52RW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ASKa",
-            "AgoPVGFza0NvbnN0cnVjdG9yEh4KBG5hbWUYASABKAlCEOLfHwwKCl4uezEs",
-            "MjI1fSQSIwoJbmFtZXNwYWNlGAIgASgJQhDi3x8MCgpeLnsxLDIyNX0kEh8K",
-            "BWltYWdlGAMgASgJQhDi3x8MCgpeLnsxLDIyNX0kEgwKBGFyZ3MYBSADKAkS",
-            "LgoDZW52GAYgAygLMiEua2RlcGxveS5UYXNrQ29uc3RydWN0b3IuRW52RW50",
-            "cnkSIgoIc2NoZWR1bGUYByABKAlCEOLfHwwKCl4uezEsMjI1fSQSEwoLY29t",
-            "cGxldGlvbnMYCCABKA0aKgoIRW52RW50cnkSCwoDa2V5GAEgASgJEg0KBXZh",
-            "bHVlGAIgASgJOgI4ASLsAQoKVGFza1VwZGF0ZRIeCgRuYW1lGAEgASgJQhDi",
-            "3x8MCgpeLnsxLDIyNX0kEiMKCW5hbWVzcGFjZRgCIAEoCUIQ4t8fDAoKXi57",
-            "MSwyMjV9JBINCgVpbWFnZRgDIAEoCRIMCgRhcmdzGAUgAygJEikKA2VudhgG",
-            "IAMoCzIcLmtkZXBsb3kuVGFza1VwZGF0ZS5FbnZFbnRyeRIQCghzY2hlZHVs",
-            "ZRgHIAEoCRITCgtjb21wbGV0aW9ucxgIIAEoDRoqCghFbnZFbnRyeRILCgNr",
-            "ZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBIvsCCg5BcHBDb25zdHJ1Y3Rv",
-            "chIeCgRuYW1lGAEgASgJQhDi3x8MCgpeLnsxLDIyNX0kEiMKCW5hbWVzcGFj",
-            "ZRgCIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIfCgVpbWFnZRgDIAEoCUIQ4t8f",
-            "DAoKXi57MSwyMjV9JBIMCgRhcmdzGAQgAygJEi0KA2VudhgFIAMoCzIgLmtk",
-            "ZXBsb3kuQXBwQ29uc3RydWN0b3IuRW52RW50cnkSMQoFcG9ydHMYBiADKAsy",
-            "Ii5rZGVwbG95LkFwcENvbnN0cnVjdG9yLlBvcnRzRW50cnkSEAoIcmVwbGlj",
-            "YXMYByABKA0SJwoKbmV0d29ya2luZxgJIAEoCzITLmtkZXBsb3kuTmV0d29y",
-            "a2luZxoqCghFbnZFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6",
-            "AjgBGiwKClBvcnRzRW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgN",
-            "OgI4ASLaAgoJQXBwVXBkYXRlEh4KBG5hbWUYASABKAlCEOLfHwwKCl4uezEs",
-            "MjI1fSQSIwoJbmFtZXNwYWNlGAIgASgJQhDi3x8MCgpeLnsxLDIyNX0kEg0K",
-            "BWltYWdlGAMgASgJEgwKBGFyZ3MYBCADKAkSKAoDZW52GAUgAygLMhsua2Rl",
-            "cGxveS5BcHBVcGRhdGUuRW52RW50cnkSLAoFcG9ydHMYBiADKAsyHS5rZGVw",
-            "bG95LkFwcFVwZGF0ZS5Qb3J0c0VudHJ5EhAKCHJlcGxpY2FzGAcgASgNEicK",
-            "Cm5ldHdvcmtpbmcYCSABKAsyEy5rZGVwbG95Lk5ldHdvcmtpbmcaKgoIRW52",
-            "RW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ARosCgpQb3J0",
-            "c0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoDToCOAEiSgoDUmVm",
-            "Eh4KBG5hbWUYASABKAlCEOLfHwwKCl4uezEsMjI1fSQSIwoJbmFtZXNwYWNl",
-            "GAIgASgJQhDi3x8MCgpeLnsxLDIyNX0kIjsKB1JlcGxpY2ESDQoFcGhhc2UY",
-            "ASABKAkSEQoJY29uZGl0aW9uGAIgASgJEg4KBnJlYXNvbhgDIAEoCSIvCglB",
-            "cHBTdGF0dXMSIgoIcmVwbGljYXMYASADKAsyEC5rZGVwbG95LlJlcGxpY2Ei",
-            "FgoDTG9nEg8KB21lc3NhZ2UYASABKAkiKgoEQXBwcxIiCgxhcHBsaWNhdGlv",
-            "bnMYASADKAsyDC5rZGVwbG95LkFwcCIlCgVUYXNrcxIcCgV0YXNrcxgBIAMo",
-            "CzINLmtkZXBsb3kuVGFzayIeCglOYW1lc3BhY2USEQoJbmFtZXNwYWNlGAEg",
-            "ASgJIiAKCk5hbWVzcGFjZXMSEgoKbmFtZXNwYWNlcxgBIAMoCTKvBQoOS2Rl",
-            "cGxveVNlcnZpY2USNAoJQ3JlYXRlQXBwEhcua2RlcGxveS5BcHBDb25zdHJ1",
-            "Y3RvchoMLmtkZXBsb3kuQXBwIgASLwoJVXBkYXRlQXBwEhIua2RlcGxveS5B",
-            "cHBVcGRhdGUaDC5rZGVwbG95LkFwcCIAEjMKCURlbGV0ZUFwcBIMLmtkZXBs",
-            "b3kuUmVmGhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgASJgoGR2V0QXBwEgwu",
-            "a2RlcGxveS5SZWYaDC5rZGVwbG95LkFwcCIAEi8KCExpc3RBcHBzEhIua2Rl",
-            "cGxveS5OYW1lc3BhY2UaDS5rZGVwbG95LkFwcHMiABI/Cg5MaXN0TmFtZXNw",
-            "YWNlcxIWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRoTLmtkZXBsb3kuTmFtZXNw",
-            "YWNlcyIAEjkKCURlbGV0ZUFsbBISLmtkZXBsb3kuTmFtZXNwYWNlGhYuZ29v",
-            "Z2xlLnByb3RvYnVmLkVtcHR5IgASNwoKQ3JlYXRlVGFzaxIYLmtkZXBsb3ku",
-            "VGFza0NvbnN0cnVjdG9yGg0ua2RlcGxveS5UYXNrIgASMgoKVXBkYXRlVGFz",
-            "axITLmtkZXBsb3kuVGFza1VwZGF0ZRoNLmtkZXBsb3kuVGFzayIAEjQKCkRl",
-            "bGV0ZVRhc2sSDC5rZGVwbG95LlJlZhoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0",
-            "eSIAEigKB0dldFRhc2sSDC5rZGVwbG95LlJlZhoNLmtkZXBsb3kuVGFzayIA",
-            "EjEKCUxpc3RUYXNrcxISLmtkZXBsb3kuTmFtZXNwYWNlGg4ua2RlcGxveS5U",
-            "YXNrcyIAEiwKClN0cmVhbUxvZ3MSDC5rZGVwbG95LlJlZhoMLmtkZXBsb3ku",
-            "TG9nIgAwAUILWglrZGVwbG95cGJiBnByb3RvMw=="));
+            "b3JzL3ZhbGlkYXRvci5wcm90byLfAQoFUm91dGUSHgoEbmFtZRgBIAEoCUIQ",
+            "4t8fDAoKXi57MSwyMjV9JBIUCgRwb3J0GAIgASgNQgbi3x8CEAASEwoLcGF0",
+            "aF9wcmVmaXgYAyABKAkSEwoLcmV3cml0ZV91cmkYBCABKAkSFQoNYWxsb3df",
+            "b3JpZ2lucxgFIAMoCRIVCg1hbGxvd19tZXRob2RzGAYgAygJEhUKDWFsbG93",
+            "X2hlYWRlcnMYByADKAkSFgoOZXhwb3NlX2hlYWRlcnMYCCADKAkSGQoRYWxs",
+            "b3dfY3JlZGVudGlhbHMYCSABKAgiXQoKTmV0d29ya2luZxIQCghnYXRld2F5",
+            "cxgBIAMoCRINCgVob3N0cxgCIAMoCRIOCgZleHBvcnQYAyABKAgSHgoGcm91",
+            "dGVzGAQgAygLMg4ua2RlcGxveS5Sb3V0ZSLIAgoDQXBwEgwKBG5hbWUYASAB",
+            "KAkSEQoJbmFtZXNwYWNlGAIgASgJEg0KBWltYWdlGAMgASgJEgwKBGFyZ3MY",
+            "BSADKAkSIgoDZW52GAYgAygLMhUua2RlcGxveS5BcHAuRW52RW50cnkSJgoF",
+            "cG9ydHMYByADKAsyFy5rZGVwbG95LkFwcC5Qb3J0c0VudHJ5EhAKCHJlcGxp",
+            "Y2FzGAggASgNEicKCm5ldHdvcmtpbmcYCSABKAsyEy5rZGVwbG95Lk5ldHdv",
+            "cmtpbmcSIgoGc3RhdHVzGBQgASgLMhIua2RlcGxveS5BcHBTdGF0dXMaKgoI",
+            "RW52RW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ARosCgpQ",
+            "b3J0c0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoDToCOAEivAEK",
+            "BFRhc2sSDAoEbmFtZRgBIAEoCRIRCgluYW1lc3BhY2UYAiABKAkSDQoFaW1h",
+            "Z2UYAyABKAkSDAoEYXJncxgFIAMoCRIjCgNlbnYYBiADKAsyFi5rZGVwbG95",
+            "LlRhc2suRW52RW50cnkSEAoIc2NoZWR1bGUYByABKAkSEwoLY29tcGxldGlv",
+            "bnMYCCABKA0aKgoIRW52RW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIg",
+            "ASgJOgI4ASKaAgoPVGFza0NvbnN0cnVjdG9yEh4KBG5hbWUYASABKAlCEOLf",
+            "HwwKCl4uezEsMjI1fSQSIwoJbmFtZXNwYWNlGAIgASgJQhDi3x8MCgpeLnsx",
+            "LDIyNX0kEh8KBWltYWdlGAMgASgJQhDi3x8MCgpeLnsxLDIyNX0kEgwKBGFy",
+            "Z3MYBSADKAkSLgoDZW52GAYgAygLMiEua2RlcGxveS5UYXNrQ29uc3RydWN0",
+            "b3IuRW52RW50cnkSIgoIc2NoZWR1bGUYByABKAlCEOLfHwwKCl4uezEsMjI1",
+            "fSQSEwoLY29tcGxldGlvbnMYCCABKA0aKgoIRW52RW50cnkSCwoDa2V5GAEg",
+            "ASgJEg0KBXZhbHVlGAIgASgJOgI4ASLsAQoKVGFza1VwZGF0ZRIeCgRuYW1l",
+            "GAEgASgJQhDi3x8MCgpeLnsxLDIyNX0kEiMKCW5hbWVzcGFjZRgCIAEoCUIQ",
+            "4t8fDAoKXi57MSwyMjV9JBINCgVpbWFnZRgDIAEoCRIMCgRhcmdzGAUgAygJ",
+            "EikKA2VudhgGIAMoCzIcLmtkZXBsb3kuVGFza1VwZGF0ZS5FbnZFbnRyeRIQ",
+            "CghzY2hlZHVsZRgHIAEoCRITCgtjb21wbGV0aW9ucxgIIAEoDRoqCghFbnZF",
+            "bnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBIoMDCg5BcHBD",
+            "b25zdHJ1Y3RvchIeCgRuYW1lGAEgASgJQhDi3x8MCgpeLnsxLDIyNX0kEiMK",
+            "CW5hbWVzcGFjZRgCIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIfCgVpbWFnZRgD",
+            "IAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIMCgRhcmdzGAQgAygJEi0KA2VudhgF",
+            "IAMoCzIgLmtkZXBsb3kuQXBwQ29uc3RydWN0b3IuRW52RW50cnkSMQoFcG9y",
+            "dHMYBiADKAsyIi5rZGVwbG95LkFwcENvbnN0cnVjdG9yLlBvcnRzRW50cnkS",
+            "EAoIcmVwbGljYXMYByABKA0SLwoKbmV0d29ya2luZxgJIAEoCzITLmtkZXBs",
+            "b3kuTmV0d29ya2luZ0IG4t8fAiABGioKCEVudkVudHJ5EgsKA2tleRgBIAEo",
+            "CRINCgV2YWx1ZRgCIAEoCToCOAEaLAoKUG9ydHNFbnRyeRILCgNrZXkYASAB",
+            "KAkSDQoFdmFsdWUYAiABKA06AjgBItoCCglBcHBVcGRhdGUSHgoEbmFtZRgB",
+            "IAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIjCgluYW1lc3BhY2UYAiABKAlCEOLf",
+            "HwwKCl4uezEsMjI1fSQSDQoFaW1hZ2UYAyABKAkSDAoEYXJncxgEIAMoCRIo",
+            "CgNlbnYYBSADKAsyGy5rZGVwbG95LkFwcFVwZGF0ZS5FbnZFbnRyeRIsCgVw",
+            "b3J0cxgGIAMoCzIdLmtkZXBsb3kuQXBwVXBkYXRlLlBvcnRzRW50cnkSEAoI",
+            "cmVwbGljYXMYByABKA0SJwoKbmV0d29ya2luZxgJIAEoCzITLmtkZXBsb3ku",
+            "TmV0d29ya2luZxoqCghFbnZFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUY",
+            "AiABKAk6AjgBGiwKClBvcnRzRW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVl",
+            "GAIgASgNOgI4ASJKCgNSZWYSHgoEbmFtZRgBIAEoCUIQ4t8fDAoKXi57MSwy",
+            "MjV9JBIjCgluYW1lc3BhY2UYAiABKAlCEOLfHwwKCl4uezEsMjI1fSQiOwoH",
+            "UmVwbGljYRINCgVwaGFzZRgBIAEoCRIRCgljb25kaXRpb24YAiABKAkSDgoG",
+            "cmVhc29uGAMgASgJIi8KCUFwcFN0YXR1cxIiCghyZXBsaWNhcxgBIAMoCzIQ",
+            "LmtkZXBsb3kuUmVwbGljYSIWCgNMb2cSDwoHbWVzc2FnZRgBIAEoCSIqCgRB",
+            "cHBzEiIKDGFwcGxpY2F0aW9ucxgBIAMoCzIMLmtkZXBsb3kuQXBwIiUKBVRh",
+            "c2tzEhwKBXRhc2tzGAEgAygLMg0ua2RlcGxveS5UYXNrIh4KCU5hbWVzcGFj",
+            "ZRIRCgluYW1lc3BhY2UYASABKAkiIAoKTmFtZXNwYWNlcxISCgpuYW1lc3Bh",
+            "Y2VzGAEgAygJMq8FCg5LZGVwbG95U2VydmljZRI0CglDcmVhdGVBcHASFy5r",
+            "ZGVwbG95LkFwcENvbnN0cnVjdG9yGgwua2RlcGxveS5BcHAiABIvCglVcGRh",
+            "dGVBcHASEi5rZGVwbG95LkFwcFVwZGF0ZRoMLmtkZXBsb3kuQXBwIgASMwoJ",
+            "RGVsZXRlQXBwEgwua2RlcGxveS5SZWYaFi5nb29nbGUucHJvdG9idWYuRW1w",
+            "dHkiABImCgZHZXRBcHASDC5rZGVwbG95LlJlZhoMLmtkZXBsb3kuQXBwIgAS",
+            "LwoITGlzdEFwcHMSEi5rZGVwbG95Lk5hbWVzcGFjZRoNLmtkZXBsb3kuQXBw",
+            "cyIAEj8KDkxpc3ROYW1lc3BhY2VzEhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5",
+            "GhMua2RlcGxveS5OYW1lc3BhY2VzIgASOQoJRGVsZXRlQWxsEhIua2RlcGxv",
+            "eS5OYW1lc3BhY2UaFi5nb29nbGUucHJvdG9idWYuRW1wdHkiABI3CgpDcmVh",
+            "dGVUYXNrEhgua2RlcGxveS5UYXNrQ29uc3RydWN0b3IaDS5rZGVwbG95LlRh",
+            "c2siABIyCgpVcGRhdGVUYXNrEhMua2RlcGxveS5UYXNrVXBkYXRlGg0ua2Rl",
+            "cGxveS5UYXNrIgASNAoKRGVsZXRlVGFzaxIMLmtkZXBsb3kuUmVmGhYuZ29v",
+            "Z2xlLnByb3RvYnVmLkVtcHR5IgASKAoHR2V0VGFzaxIMLmtkZXBsb3kuUmVm",
+            "Gg0ua2RlcGxveS5UYXNrIgASMQoJTGlzdFRhc2tzEhIua2RlcGxveS5OYW1l",
+            "c3BhY2UaDi5rZGVwbG95LlRhc2tzIgASLAoKU3RyZWFtTG9ncxIMLmtkZXBs",
+            "b3kuUmVmGgwua2RlcGxveS5Mb2ciADABQgtaCWtkZXBsb3lwYmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Validator.ValidatorReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.Route), global::Kdeploy.Route.Parser, new[]{ "Hosts", "Gateways", "PathPrefix", "RewriteUri", "AllowOrigins", "AllowMethods", "AllowHeaders", "ExposeHeaders", "AllowCredentials" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.Networking), global::Kdeploy.Networking.Parser, new[]{ "Routes", "Export" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.Route), global::Kdeploy.Route.Parser, new[]{ "Name", "Port", "PathPrefix", "RewriteUri", "AllowOrigins", "AllowMethods", "AllowHeaders", "ExposeHeaders", "AllowCredentials" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.Networking), global::Kdeploy.Networking.Parser, new[]{ "Gateways", "Hosts", "Export", "Routes" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.App), global::Kdeploy.App.Parser, new[]{ "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", "Networking", "Status" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.Task), global::Kdeploy.Task.Parser, new[]{ "Name", "Namespace", "Image", "Args", "Env", "Schedule", "Completions" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.TaskConstructor), global::Kdeploy.TaskConstructor.Parser, new[]{ "Name", "Namespace", "Image", "Args", "Env", "Schedule", "Completions" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
@@ -123,6 +124,9 @@ namespace Kdeploy {
 
   }
   #region Messages
+  /// <summary>
+  /// Route is a single http route(istio HttpRoute)
+  /// </summary>
   public sealed partial class Route : pb::IMessage<Route> {
     private static readonly pb::MessageParser<Route> _parser = new pb::MessageParser<Route>(() => new Route());
     private pb::UnknownFieldSet _unknownFields;
@@ -148,8 +152,8 @@ namespace Kdeploy {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public Route(Route other) : this() {
-      hosts_ = other.hosts_.Clone();
-      gateways_ = other.gateways_.Clone();
+      name_ = other.name_;
+      port_ = other.port_;
       pathPrefix_ = other.pathPrefix_;
       rewriteUri_ = other.rewriteUri_;
       allowOrigins_ = other.allowOrigins_.Clone();
@@ -165,24 +169,26 @@ namespace Kdeploy {
       return new Route(this);
     }
 
-    /// <summary>Field number for the "hosts" field.</summary>
-    public const int HostsFieldNumber = 1;
-    private static readonly pb::FieldCodec<string> _repeated_hosts_codec
-        = pb::FieldCodec.ForString(10);
-    private readonly pbc::RepeatedField<string> hosts_ = new pbc::RepeatedField<string>();
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 1;
+    private string name_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<string> Hosts {
-      get { return hosts_; }
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
     }
 
-    /// <summary>Field number for the "gateways" field.</summary>
-    public const int GatewaysFieldNumber = 2;
-    private static readonly pb::FieldCodec<string> _repeated_gateways_codec
-        = pb::FieldCodec.ForString(18);
-    private readonly pbc::RepeatedField<string> gateways_ = new pbc::RepeatedField<string>();
+    /// <summary>Field number for the "port" field.</summary>
+    public const int PortFieldNumber = 2;
+    private uint port_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<string> Gateways {
-      get { return gateways_; }
+    public uint Port {
+      get { return port_; }
+      set {
+        port_ = value;
+      }
     }
 
     /// <summary>Field number for the "path_prefix" field.</summary>
@@ -271,8 +277,8 @@ namespace Kdeploy {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!hosts_.Equals(other.hosts_)) return false;
-      if(!gateways_.Equals(other.gateways_)) return false;
+      if (Name != other.Name) return false;
+      if (Port != other.Port) return false;
       if (PathPrefix != other.PathPrefix) return false;
       if (RewriteUri != other.RewriteUri) return false;
       if(!allowOrigins_.Equals(other.allowOrigins_)) return false;
@@ -286,8 +292,8 @@ namespace Kdeploy {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= hosts_.GetHashCode();
-      hash ^= gateways_.GetHashCode();
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (Port != 0) hash ^= Port.GetHashCode();
       if (PathPrefix.Length != 0) hash ^= PathPrefix.GetHashCode();
       if (RewriteUri.Length != 0) hash ^= RewriteUri.GetHashCode();
       hash ^= allowOrigins_.GetHashCode();
@@ -308,8 +314,14 @@ namespace Kdeploy {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      hosts_.WriteTo(output, _repeated_hosts_codec);
-      gateways_.WriteTo(output, _repeated_gateways_codec);
+      if (Name.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Name);
+      }
+      if (Port != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Port);
+      }
       if (PathPrefix.Length != 0) {
         output.WriteRawTag(26);
         output.WriteString(PathPrefix);
@@ -334,8 +346,12 @@ namespace Kdeploy {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      size += hosts_.CalculateSize(_repeated_hosts_codec);
-      size += gateways_.CalculateSize(_repeated_gateways_codec);
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (Port != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Port);
+      }
       if (PathPrefix.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(PathPrefix);
       }
@@ -360,8 +376,12 @@ namespace Kdeploy {
       if (other == null) {
         return;
       }
-      hosts_.Add(other.hosts_);
-      gateways_.Add(other.gateways_);
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+      if (other.Port != 0) {
+        Port = other.Port;
+      }
       if (other.PathPrefix.Length != 0) {
         PathPrefix = other.PathPrefix;
       }
@@ -387,11 +407,11 @@ namespace Kdeploy {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            hosts_.AddEntriesFrom(input, _repeated_hosts_codec);
+            Name = input.ReadString();
             break;
           }
-          case 18: {
-            gateways_.AddEntriesFrom(input, _repeated_gateways_codec);
+          case 16: {
+            Port = input.ReadUInt32();
             break;
           }
           case 26: {
@@ -453,8 +473,10 @@ namespace Kdeploy {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public Networking(Networking other) : this() {
-      routes_ = other.routes_.Clone();
+      gateways_ = other.gateways_.Clone();
+      hosts_ = other.hosts_.Clone();
       export_ = other.export_;
+      routes_ = other.routes_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -463,18 +485,28 @@ namespace Kdeploy {
       return new Networking(this);
     }
 
-    /// <summary>Field number for the "routes" field.</summary>
-    public const int RoutesFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Kdeploy.Route> _repeated_routes_codec
-        = pb::FieldCodec.ForMessage(10, global::Kdeploy.Route.Parser);
-    private readonly pbc::RepeatedField<global::Kdeploy.Route> routes_ = new pbc::RepeatedField<global::Kdeploy.Route>();
+    /// <summary>Field number for the "gateways" field.</summary>
+    public const int GatewaysFieldNumber = 1;
+    private static readonly pb::FieldCodec<string> _repeated_gateways_codec
+        = pb::FieldCodec.ForString(10);
+    private readonly pbc::RepeatedField<string> gateways_ = new pbc::RepeatedField<string>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Kdeploy.Route> Routes {
-      get { return routes_; }
+    public pbc::RepeatedField<string> Gateways {
+      get { return gateways_; }
+    }
+
+    /// <summary>Field number for the "hosts" field.</summary>
+    public const int HostsFieldNumber = 2;
+    private static readonly pb::FieldCodec<string> _repeated_hosts_codec
+        = pb::FieldCodec.ForString(18);
+    private readonly pbc::RepeatedField<string> hosts_ = new pbc::RepeatedField<string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<string> Hosts {
+      get { return hosts_; }
     }
 
     /// <summary>Field number for the "export" field.</summary>
-    public const int ExportFieldNumber = 2;
+    public const int ExportFieldNumber = 3;
     private bool export_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Export {
@@ -482,6 +514,16 @@ namespace Kdeploy {
       set {
         export_ = value;
       }
+    }
+
+    /// <summary>Field number for the "routes" field.</summary>
+    public const int RoutesFieldNumber = 4;
+    private static readonly pb::FieldCodec<global::Kdeploy.Route> _repeated_routes_codec
+        = pb::FieldCodec.ForMessage(34, global::Kdeploy.Route.Parser);
+    private readonly pbc::RepeatedField<global::Kdeploy.Route> routes_ = new pbc::RepeatedField<global::Kdeploy.Route>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Kdeploy.Route> Routes {
+      get { return routes_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -497,16 +539,20 @@ namespace Kdeploy {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!routes_.Equals(other.routes_)) return false;
+      if(!gateways_.Equals(other.gateways_)) return false;
+      if(!hosts_.Equals(other.hosts_)) return false;
       if (Export != other.Export) return false;
+      if(!routes_.Equals(other.routes_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= routes_.GetHashCode();
+      hash ^= gateways_.GetHashCode();
+      hash ^= hosts_.GetHashCode();
       if (Export != false) hash ^= Export.GetHashCode();
+      hash ^= routes_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -520,11 +566,13 @@ namespace Kdeploy {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      routes_.WriteTo(output, _repeated_routes_codec);
+      gateways_.WriteTo(output, _repeated_gateways_codec);
+      hosts_.WriteTo(output, _repeated_hosts_codec);
       if (Export != false) {
-        output.WriteRawTag(16);
+        output.WriteRawTag(24);
         output.WriteBool(Export);
       }
+      routes_.WriteTo(output, _repeated_routes_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -533,10 +581,12 @@ namespace Kdeploy {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      size += routes_.CalculateSize(_repeated_routes_codec);
+      size += gateways_.CalculateSize(_repeated_gateways_codec);
+      size += hosts_.CalculateSize(_repeated_hosts_codec);
       if (Export != false) {
         size += 1 + 1;
       }
+      size += routes_.CalculateSize(_repeated_routes_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -548,10 +598,12 @@ namespace Kdeploy {
       if (other == null) {
         return;
       }
-      routes_.Add(other.routes_);
+      gateways_.Add(other.gateways_);
+      hosts_.Add(other.hosts_);
       if (other.Export != false) {
         Export = other.Export;
       }
+      routes_.Add(other.routes_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -564,11 +616,19 @@ namespace Kdeploy {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            routes_.AddEntriesFrom(input, _repeated_routes_codec);
+            gateways_.AddEntriesFrom(input, _repeated_gateways_codec);
             break;
           }
-          case 16: {
+          case 18: {
+            hosts_.AddEntriesFrom(input, _repeated_hosts_codec);
+            break;
+          }
+          case 24: {
             Export = input.ReadBool();
+            break;
+          }
+          case 34: {
+            routes_.AddEntriesFrom(input, _repeated_routes_codec);
             break;
           }
         }

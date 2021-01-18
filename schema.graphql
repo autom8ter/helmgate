@@ -4,8 +4,8 @@ scalar Time
 scalar Map
 
 type Route {
-    hosts: [String!]
-    gateways: [String!]
+    name: String!
+    port: Int!
     path_prefix: String
     rewrite_uri: String
     allow_origins: [String!]
@@ -16,13 +16,15 @@ type Route {
 }
 
 type Networking {
-    routes: [Route!]!
+    gateways: [String!]
+    hosts: [String!]
     export: Boolean
+    routes: [Route!]
 }
 
 input RouteInput {
-    hosts: [String!]
-    gateways: [String!]
+    name: String!
+    port: Int!
     path_prefix: String
     rewrite_uri: String
     allow_origins: [String!]
@@ -33,8 +35,10 @@ input RouteInput {
 }
 
 input NetworkingInput {
-    routes: [RouteInput!]!
+    gateways: [String!]
+    hosts: [String!]
     export: Boolean
+    routes: [RouteInput!]
 }
 
 # App is a stateless application
@@ -151,10 +155,11 @@ input AppUpdate {
     args: [String!]
     # k/v map of environmental variables
     env: Map
-    # k/v map of ports to expose ex: http: 80 https: 443
+    # k/v map of ports to expose on each instance/replica ex: http: 80 https: 443
     ports: Map
     # number of deployment replicas min:1
     replicas: Int
+    #
     networking: NetworkingInput
 }
 

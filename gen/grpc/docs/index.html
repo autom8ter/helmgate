@@ -557,6 +557,17 @@
                   </td>
                 </tr>
               
+                <tr>
+                  <td>networking</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
               </tbody>
             </table>
             
@@ -930,8 +941,15 @@
             <tbody>
               
                 <tr>
-                  <td>routes</td>
-                  <td><a href="#kdeploy.Route">Route</a></td>
+                  <td>gateways</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>hosts</td>
+                  <td><a href="#string">string</a></td>
                   <td>repeated</td>
                   <td><p> </p></td>
                 </tr>
@@ -940,6 +958,13 @@
                   <td>export</td>
                   <td><a href="#bool">bool</a></td>
                   <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>routes</td>
+                  <td><a href="#kdeploy.Route">Route</a></td>
+                  <td>repeated</td>
                   <td><p> </p></td>
                 </tr>
               
@@ -1058,7 +1083,7 @@
         
       
         <h3 id="kdeploy.Route">Route</h3>
-        <p></p>
+        <p>Route is a single http route(istio HttpRoute)</p>
 
         
           <table class="field-table">
@@ -1068,16 +1093,16 @@
             <tbody>
               
                 <tr>
-                  <td>hosts</td>
+                  <td>name</td>
                   <td><a href="#string">string</a></td>
-                  <td>repeated</td>
+                  <td></td>
                   <td><p> </p></td>
                 </tr>
               
                 <tr>
-                  <td>gateways</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
+                  <td>port</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
                   <td><p> </p></td>
                 </tr>
               
@@ -1133,6 +1158,44 @@
             </tbody>
           </table>
 
+          
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>port</td>
+                  <td>
+                    <ul>
+                    
+                      <li>int_gt: 0</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
           
 
         

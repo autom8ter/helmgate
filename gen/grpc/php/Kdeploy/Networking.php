@@ -14,13 +14,21 @@ use Google\Protobuf\Internal\GPBUtil;
 class Networking extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>repeated .kdeploy.Route routes = 1;</code>
+     * Generated from protobuf field <code>repeated string gateways = 1;</code>
      */
-    private $routes;
+    private $gateways;
     /**
-     * Generated from protobuf field <code>bool export = 2;</code>
+     * Generated from protobuf field <code>repeated string hosts = 2;</code>
+     */
+    private $hosts;
+    /**
+     * Generated from protobuf field <code>bool export = 3;</code>
      */
     private $export = false;
+    /**
+     * Generated from protobuf field <code>repeated .kdeploy.Route routes = 4;</code>
+     */
+    private $routes;
 
     /**
      * Constructor.
@@ -28,8 +36,10 @@ class Networking extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type \Kdeploy\Route[]|\Google\Protobuf\Internal\RepeatedField $routes
+     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $gateways
+     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $hosts
      *     @type bool $export
+     *     @type \Kdeploy\Route[]|\Google\Protobuf\Internal\RepeatedField $routes
      * }
      */
     public function __construct($data = NULL) {
@@ -38,29 +48,51 @@ class Networking extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .kdeploy.Route routes = 1;</code>
+     * Generated from protobuf field <code>repeated string gateways = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
-    public function getRoutes()
+    public function getGateways()
     {
-        return $this->routes;
+        return $this->gateways;
     }
 
     /**
-     * Generated from protobuf field <code>repeated .kdeploy.Route routes = 1;</code>
-     * @param \Kdeploy\Route[]|\Google\Protobuf\Internal\RepeatedField $var
+     * Generated from protobuf field <code>repeated string gateways = 1;</code>
+     * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
-    public function setRoutes($var)
+    public function setGateways($var)
     {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Kdeploy\Route::class);
-        $this->routes = $arr;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
+        $this->gateways = $arr;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>bool export = 2;</code>
+     * Generated from protobuf field <code>repeated string hosts = 2;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
+     */
+    public function getHosts()
+    {
+        return $this->hosts;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated string hosts = 2;</code>
+     * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
+     */
+    public function setHosts($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
+        $this->hosts = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool export = 3;</code>
      * @return bool
      */
     public function getExport()
@@ -69,7 +101,7 @@ class Networking extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>bool export = 2;</code>
+     * Generated from protobuf field <code>bool export = 3;</code>
      * @param bool $var
      * @return $this
      */
@@ -77,6 +109,28 @@ class Networking extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkBool($var);
         $this->export = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .kdeploy.Route routes = 4;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
+     */
+    public function getRoutes()
+    {
+        return $this->routes;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .kdeploy.Route routes = 4;</code>
+     * @param \Kdeploy\Route[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
+     */
+    public function setRoutes($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Kdeploy\Route::class);
+        $this->routes = $arr;
 
         return $this;
     }

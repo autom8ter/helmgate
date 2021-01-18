@@ -21,7 +21,15 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+var _regex_Route_Name = regexp.MustCompile(`^.{1,225}$`)
+
 func (this *Route) Validate() error {
+	if !_regex_Route_Name.MatchString(this.Name) {
+		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
+	}
+	if !(this.Port > 0) {
+		return github_com_mwitkow_go_proto_validators.FieldError("Port", fmt.Errorf(`value '%v' must be greater than '0'`, this.Port))
+	}
 	return nil
 }
 func (this *Networking) Validate() error {
@@ -106,6 +114,9 @@ func (this *AppConstructor) Validate() error {
 	}
 	// Validation of proto3 map<> fields is unsupported.
 	// Validation of proto3 map<> fields is unsupported.
+	if nil == this.Networking {
+		return github_com_mwitkow_go_proto_validators.FieldError("Networking", fmt.Errorf("message must exist"))
+	}
 	if this.Networking != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Networking); err != nil {
 			return github_com_mwitkow_go_proto_validators.FieldError("Networking", err)

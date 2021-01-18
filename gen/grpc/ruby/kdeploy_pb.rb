@@ -9,8 +9,8 @@ require 'google/protobuf/any_pb'
 require 'google/protobuf/empty_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_message "kdeploy.Route" do
-    repeated :hosts, :string, 1
-    repeated :gateways, :string, 2
+    optional :name, :string, 1
+    optional :port, :uint32, 2
     optional :path_prefix, :string, 3
     optional :rewrite_uri, :string, 4
     repeated :allow_origins, :string, 5
@@ -20,8 +20,10 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     optional :allow_credentials, :bool, 9
   end
   add_message "kdeploy.Networking" do
-    repeated :routes, :message, 1, "kdeploy.Route"
-    optional :export, :bool, 2
+    repeated :gateways, :string, 1
+    repeated :hosts, :string, 2
+    optional :export, :bool, 3
+    repeated :routes, :message, 4, "kdeploy.Route"
   end
   add_message "kdeploy.App" do
     optional :name, :string, 1

@@ -58,7 +58,7 @@ class AppConstructor extends \Google\Protobuf\Internal\Message
      */
     private $replicas = 0;
     /**
-     * Generated from protobuf field <code>.kdeploy.Networking networking = 9;</code>
+     * Generated from protobuf field <code>.kdeploy.Networking networking = 9 [(.validator.field) = {</code>
      */
     private $networking = null;
 
@@ -273,7 +273,7 @@ class AppConstructor extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.kdeploy.Networking networking = 9;</code>
+     * Generated from protobuf field <code>.kdeploy.Networking networking = 9 [(.validator.field) = {</code>
      * @return \Kdeploy\Networking
      */
     public function getNetworking()
@@ -282,7 +282,7 @@ class AppConstructor extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.kdeploy.Networking networking = 9;</code>
+     * Generated from protobuf field <code>.kdeploy.Networking networking = 9 [(.validator.field) = {</code>
      * @param \Kdeploy\Networking $var
      * @return $this
      */

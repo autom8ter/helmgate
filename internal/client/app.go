@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"context"
 	"fmt"
-	v1alpha3 "istio.io/client-go/pkg/apis/networking/v1alpha3"
 	kdeploypb "github.com/autom8ter/kdeploy/gen/grpc/go"
 	"github.com/pkg/errors"
 	"go.uber.org/zap"
@@ -33,7 +32,7 @@ func (m *Manager) CreateApp(ctx context.Context, app *kdeploypb.AppConstructor) 
 		return nil, err
 	}
 	kapp.deployment = deployment
-	svc, err := m.kclient.Services(app.Namespace).Create(ctx, toService(app), v1.CreateOptions{})
+	svc, err := m.iclient.VirtualServices(app.Namespace).Create(ctx, toService(app), v1.CreateOptions{})
 	if err != nil {
 		return nil, err
 	}
@@ -167,7 +166,7 @@ func (m *Manager) ListApps(ctx context.Context, namespace *kdeploypb.Namespace) 
 		return nil, err
 	}
 	for _, deployment := range deployments.Items {
-		svc, err := m.kclient.Services(namespace.GetNamespace()).Get(ctx, deployment.Name, v1.GetOptions{})
+		svc, err := m.iclient.VirtualServices(namespace.GetNamespace()).Get(ctx, deployment.Name, v1.GetOptions{})
 		if err != nil {
 			return nil, err
 		}

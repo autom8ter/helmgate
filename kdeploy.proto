@@ -10,9 +10,10 @@ import "google/protobuf/any.proto";
 import "google/protobuf/empty.proto";
 import "github.com/mwitkow/go-proto-validators/validator.proto";
 
+// Route is a single http route(istio HttpRoute)
 message Route {
-  repeated string hosts =1;
-  repeated string gateways =2;
+  string name =1[(validator.field) = {regex : "^.{1,225}$"}];
+  uint32 port =2 [(validator.field) = {int_gt: 0}];
   string path_prefix =3;
   string rewrite_uri = 4;
   repeated string allow_origins =5;
@@ -23,8 +24,10 @@ message Route {
 }
 
 message Networking {
-  repeated Route routes =1;
-  bool export =2;
+  repeated string gateways =1;
+  repeated string hosts =2;
+  bool export =3;
+  repeated Route routes =4;
 }
 
 // App is a stateless application
@@ -119,7 +122,7 @@ message AppConstructor {
   map<string, uint32> ports =6;
   // number of deployment replicas
   uint32 replicas =7;
-  Networking networking =9;
+  Networking networking =9[(validator.field) = {msg_exists : true}];
 }
 
 // AppUpdate updates an App
@@ -147,6 +150,7 @@ message Ref {
   // application namespace
   string namespace =2[(validator.field) = {regex : "^.{1,225}$"}];
 }
+//repeated_count_min
 
 message Replica {
   string phase =1;
