@@ -24,44 +24,6 @@ const Always = "Always"
 const OnFailure = "OnFailure"
 const RWO = "ReadWriteOnce"
 
-func gwLabels(app *kdeploypb.Gateway) map[string]string {
-	labels := map[string]string{
-		"kdeploy.gateway": app.Name,
-		"kdeploy":         "true",
-	}
-	for k, v := range app.Labels {
-		labels[k] = v
-	}
-	return labels
-}
-
-func appLabels(app *kdeploypb.AppInput) map[string]string {
-	return map[string]string{
-		"kdeploy.app": app.Name,
-		"kdeploy":     "true",
-	}
-}
-
-func taskLabels(app *kdeploypb.TaskInput) map[string]string {
-	return map[string]string{
-		"kdeploy.task": app.Name,
-		"kdeploy":      "true",
-	}
-}
-
-func namespaceLabels() map[string]string {
-	return map[string]string{
-		"kdeploy": "true",
-	}
-}
-
-func deploymentLabels(dep *apps.Deployment) map[string]string {
-	return map[string]string{
-		"kdeploy.app": dep.Name,
-		"kdeploy":     "true",
-	}
-}
-
 func appContainers(app *kdeploypb.AppInput) ([]v12.Container, error) {
 	ports := []v12.ContainerPort{}
 	for name, p := range app.Ports {
@@ -116,20 +78,19 @@ func toNamespace(app *kdeploypb.AppInput) *v12.Namespace {
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      app.Namespace,
 			Namespace: app.Namespace,
-			Labels:    namespaceLabels(),
 		},
 		Spec:   v12.NamespaceSpec{},
 		Status: v12.NamespaceStatus{},
 	}
 }
 
-func toGwNamespace(gw *kdeploypb.Gateway) *v12.Namespace {
+func toGwNamespace(gw *kdeploypb.GatewayInput) *v12.Namespace {
 	return &v12.Namespace{
 		TypeMeta: metav1.TypeMeta{},
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      gw.Namespace,
 			Namespace: gw.Namespace,
-			Labels:    gwLabels(gw),
+			Labels:    gw.Labels,
 		},
 		Spec:   v12.NamespaceSpec{},
 		Status: v12.NamespaceStatus{},
@@ -142,7 +103,6 @@ func toTaskNamespace(app *kdeploypb.TaskInput) *v12.Namespace {
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      app.Namespace,
 			Namespace: app.Namespace,
-			Labels:    namespaceLabels(),
 		},
 		Spec:   v12.NamespaceSpec{},
 		Status: v12.NamespaceStatus{},
@@ -243,11 +203,11 @@ func overwriteService(svc *networking.VirtualService, app *kdeploypb.AppInput) *
 	ObjectMeta: metav1.ObjectMeta{
 		Name:      app.Name,
 		Namespace: app.Namespace,
-		Labels:    appLabels(app),
+		Labels:    app.Labels,
 	},
 	Spec: v1.ServiceSpec{
 		Ports:    toServicePorts(app),
-		Selector: appLabels(app),
+		Selector: app.Labels,
 		Type:     "",
 	},
 	Status: v1.ServiceStatus{},
@@ -259,7 +219,7 @@ func toService(app *kdeploypb.AppInput) *networking.VirtualService {
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      app.Name,
 			Namespace: app.Namespace,
-			Labels:    appLabels(app),
+			Labels:    app.Labels,
 		},
 		Spec:   v1alpha3.VirtualService{},
 		Status: v1alpha1.IstioStatus{},
@@ -292,18 +252,18 @@ func toDeployment(app *kdeploypb.AppInput) (*apps.Deployment, error) {
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      app.Name,
 			Namespace: app.Namespace,
-			Labels:    appLabels(app),
+			Labels:    app.Labels,
 		},
 		Spec: apps.DeploymentSpec{
 			Replicas: &replicas,
 			Selector: &metav1.LabelSelector{
-				MatchLabels: appLabels(app),
+				MatchLabels: app.Selector,
 			},
 			Template: v12.PodTemplateSpec{
 				ObjectMeta: metav1.ObjectMeta{
 					Name:      app.Name,
 					Namespace: app.Namespace,
-					Labels:    appLabels(app),
+					Labels:    app.Labels,
 				},
 				Spec: v12.PodSpec{
 					Containers:    containers,
@@ -335,7 +295,7 @@ func toTask(app *kdeploypb.TaskInput) (*v1beta1.CronJob, error) {
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      app.Name,
 			Namespace: app.Namespace,
-			Labels:    taskLabels(app),
+			Labels:    app.Labels,
 		},
 		Spec: v1beta1.CronJobSpec{
 			Schedule: app.Schedule,
@@ -343,11 +303,14 @@ func toTask(app *kdeploypb.TaskInput) (*v1beta1.CronJob, error) {
 				ObjectMeta: metav1.ObjectMeta{},
 				Spec: batchv1.JobSpec{
 					Completions: helpers.Int32Pointer(app.Completions),
+					Selector: &metav1.LabelSelector{
+						MatchLabels: app.Selector,
+					},
 					Template: v12.PodTemplateSpec{
 						ObjectMeta: metav1.ObjectMeta{
 							Name:      app.Name,
 							Namespace: app.Namespace,
-							Labels:    taskLabels(app),
+							Labels:    app.Labels,
 						},
 						Spec: v12.PodSpec{
 							Containers:    containers,
@@ -407,16 +370,22 @@ func overwriteDeployment(deployment *apps.Deployment, app *kdeploypb.AppInput) (
 			containers = append(containers, c)
 		}
 	}
+	if app.Labels != nil {
+		deployment.Labels = app.Labels
+	}
+	if app.Selector != nil {
+		deployment.Spec.Selector = &metav1.LabelSelector{MatchLabels: app.Selector}
+	}
 	deployment.Spec.Template.Spec.Containers = containers
 	return deployment, nil
 }
 
-func overwriteGateway(gateway *pkgnv1alpha3.Gateway, gw *kdeploypb.Gateway) *pkgnv1alpha3.Gateway {
+func overwriteGateway(gateway *pkgnv1alpha3.Gateway, gw *kdeploypb.GatewayInput) *pkgnv1alpha3.Gateway {
 
 	return gateway
 }
 
-func toGateway(gateway *kdeploypb.Gateway) *pkgnv1alpha3.Gateway {
+func toGateway(gateway *kdeploypb.GatewayInput) *pkgnv1alpha3.Gateway {
 	var servers []*nv1alpha3.Server
 	for _, l := range gateway.GetListeners() {
 		var tls *nv1alpha3.ServerTLSSettings
@@ -467,11 +436,11 @@ func toGateway(gateway *kdeploypb.Gateway) *pkgnv1alpha3.Gateway {
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      gateway.GetName(),
 			Namespace: gateway.GetNamespace(),
-			Labels:    gwLabels(gateway),
+			Labels:    gateway.GetLabels(),
 		},
 		Spec: nv1alpha3.Gateway{
 			Servers:  servers,
-			Selector: gateway.Labels,
+			Selector: gateway.GetSelector(),
 		},
 		Status: v1alpha1.IstioStatus{},
 	}
@@ -650,6 +619,7 @@ func (k *k8sGateway) toGateway() *kdeploypb.Gateway {
 		Name:      k.gateway.ObjectMeta.Name,
 		Namespace: k.gateway.ObjectMeta.Namespace,
 		Listeners: listeners,
-		Labels:    k.gateway.Spec.GetSelector(),
+		Labels:    k.gateway.ObjectMeta.Labels,
+		Selector:  k.gateway.Spec.Selector,
 	}
 }

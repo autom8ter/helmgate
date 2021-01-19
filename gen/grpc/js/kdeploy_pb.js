@@ -833,7 +833,7 @@ proto.kdeploy.Gateway.toObject = function(includeInstance, msg) {
     listenersList: jspb.Message.toObjectList(msg.getListenersList(),
     proto.kdeploy.GatewayListener.toObject, includeInstance),
     labelsMap: (f = msg.getLabelsMap()) ? f.toObject(includeInstance, undefined) : [],
-    selectorsMap: (f = msg.getSelectorsMap()) ? f.toObject(includeInstance, undefined) : []
+    selectorMap: (f = msg.getSelectorMap()) ? f.toObject(includeInstance, undefined) : []
   };
 
   if (includeInstance) {
@@ -890,7 +890,7 @@ proto.kdeploy.Gateway.deserializeBinaryFromReader = function(msg, reader) {
          });
       break;
     case 5:
-      var value = msg.getSelectorsMap();
+      var value = msg.getSelectorMap();
       reader.readMessage(value, function(message, reader) {
         jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "");
          });
@@ -950,7 +950,7 @@ proto.kdeploy.Gateway.serializeBinaryToWriter = function(message, writer) {
   if (f && f.getLength() > 0) {
     f.serializeBinary(4, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
-  f = message.getSelectorsMap(true);
+  f = message.getSelectorMap(true);
   if (f && f.getLength() > 0) {
     f.serializeBinary(5, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
@@ -1037,20 +1037,20 @@ proto.kdeploy.Gateway.prototype.clearLabelsMap = function() {
 
 
 /**
- * map<string, string> selectors = 5;
+ * map<string, string> selector = 5;
  * @param {boolean=} opt_noLazyCreate Do not create the map if
  * empty, instead returning `undefined`
  * @return {!jspb.Map<string,string>}
  */
-proto.kdeploy.Gateway.prototype.getSelectorsMap = function(opt_noLazyCreate) {
+proto.kdeploy.Gateway.prototype.getSelectorMap = function(opt_noLazyCreate) {
   return /** @type {!jspb.Map<string,string>} */ (
       jspb.Message.getMapField(this, 5, opt_noLazyCreate,
       null));
 };
 
 
-proto.kdeploy.Gateway.prototype.clearSelectorsMap = function() {
-  this.getSelectorsMap().clear();
+proto.kdeploy.Gateway.prototype.clearSelectorMap = function() {
+  this.getSelectorMap().clear();
 };
 
 
@@ -1113,7 +1113,7 @@ proto.kdeploy.GatewayInput.toObject = function(includeInstance, msg) {
     listenersList: jspb.Message.toObjectList(msg.getListenersList(),
     proto.kdeploy.GatewayListener.toObject, includeInstance),
     labelsMap: (f = msg.getLabelsMap()) ? f.toObject(includeInstance, undefined) : [],
-    selectorsMap: (f = msg.getSelectorsMap()) ? f.toObject(includeInstance, undefined) : []
+    selectorMap: (f = msg.getSelectorMap()) ? f.toObject(includeInstance, undefined) : []
   };
 
   if (includeInstance) {
@@ -1170,7 +1170,7 @@ proto.kdeploy.GatewayInput.deserializeBinaryFromReader = function(msg, reader) {
          });
       break;
     case 5:
-      var value = msg.getSelectorsMap();
+      var value = msg.getSelectorMap();
       reader.readMessage(value, function(message, reader) {
         jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "");
          });
@@ -1230,7 +1230,7 @@ proto.kdeploy.GatewayInput.serializeBinaryToWriter = function(message, writer) {
   if (f && f.getLength() > 0) {
     f.serializeBinary(4, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
-  f = message.getSelectorsMap(true);
+  f = message.getSelectorMap(true);
   if (f && f.getLength() > 0) {
     f.serializeBinary(5, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
@@ -1317,20 +1317,20 @@ proto.kdeploy.GatewayInput.prototype.clearLabelsMap = function() {
 
 
 /**
- * map<string, string> selectors = 5;
+ * map<string, string> selector = 5;
  * @param {boolean=} opt_noLazyCreate Do not create the map if
  * empty, instead returning `undefined`
  * @return {!jspb.Map<string,string>}
  */
-proto.kdeploy.GatewayInput.prototype.getSelectorsMap = function(opt_noLazyCreate) {
+proto.kdeploy.GatewayInput.prototype.getSelectorMap = function(opt_noLazyCreate) {
   return /** @type {!jspb.Map<string,string>} */ (
       jspb.Message.getMapField(this, 5, opt_noLazyCreate,
       null));
 };
 
 
-proto.kdeploy.GatewayInput.prototype.clearSelectorsMap = function() {
-  this.getSelectorsMap().clear();
+proto.kdeploy.GatewayInput.prototype.clearSelectorMap = function() {
+  this.getSelectorMap().clear();
 };
 
 
@@ -2098,7 +2098,7 @@ proto.kdeploy.App.toObject = function(includeInstance, msg) {
     portsMap: (f = msg.getPortsMap()) ? f.toObject(includeInstance, undefined) : [],
     replicas: jspb.Message.getFieldWithDefault(msg, 8, 0),
     labelsMap: (f = msg.getLabelsMap()) ? f.toObject(includeInstance, undefined) : [],
-    selectorsMap: (f = msg.getSelectorsMap()) ? f.toObject(includeInstance, undefined) : [],
+    selectorMap: (f = msg.getSelectorMap()) ? f.toObject(includeInstance, undefined) : [],
     networking: (f = msg.getNetworking()) && proto.kdeploy.Networking.toObject(includeInstance, f),
     status: (f = msg.getStatus()) && proto.kdeploy.AppStatus.toObject(includeInstance, f)
   };
@@ -2176,7 +2176,7 @@ proto.kdeploy.App.deserializeBinaryFromReader = function(msg, reader) {
          });
       break;
     case 10:
-      var value = msg.getSelectorsMap();
+      var value = msg.getSelectorMap();
       reader.readMessage(value, function(message, reader) {
         jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "");
          });
@@ -2267,7 +2267,7 @@ proto.kdeploy.App.serializeBinaryToWriter = function(message, writer) {
   if (f && f.getLength() > 0) {
     f.serializeBinary(9, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
-  f = message.getSelectorsMap(true);
+  f = message.getSelectorMap(true);
   if (f && f.getLength() > 0) {
     f.serializeBinary(10, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
@@ -2434,20 +2434,20 @@ proto.kdeploy.App.prototype.clearLabelsMap = function() {
 
 
 /**
- * map<string, string> selectors = 10;
+ * map<string, string> selector = 10;
  * @param {boolean=} opt_noLazyCreate Do not create the map if
  * empty, instead returning `undefined`
  * @return {!jspb.Map<string,string>}
  */
-proto.kdeploy.App.prototype.getSelectorsMap = function(opt_noLazyCreate) {
+proto.kdeploy.App.prototype.getSelectorMap = function(opt_noLazyCreate) {
   return /** @type {!jspb.Map<string,string>} */ (
       jspb.Message.getMapField(this, 10, opt_noLazyCreate,
       null));
 };
 
 
-proto.kdeploy.App.prototype.clearSelectorsMap = function() {
-  this.getSelectorsMap().clear();
+proto.kdeploy.App.prototype.clearSelectorMap = function() {
+  this.getSelectorMap().clear();
 };
 
 
@@ -2572,6 +2572,7 @@ proto.kdeploy.Task.toObject = function(includeInstance, msg) {
     envMap: (f = msg.getEnvMap()) ? f.toObject(includeInstance, undefined) : [],
     schedule: jspb.Message.getFieldWithDefault(msg, 7, ""),
     completions: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    labelsMap: (f = msg.getLabelsMap()) ? f.toObject(includeInstance, undefined) : [],
     selectorMap: (f = msg.getSelectorMap()) ? f.toObject(includeInstance, undefined) : []
   };
 
@@ -2640,6 +2641,12 @@ proto.kdeploy.Task.deserializeBinaryFromReader = function(msg, reader) {
       msg.setCompletions(value);
       break;
     case 9:
+      var value = msg.getLabelsMap();
+      reader.readMessage(value, function(message, reader) {
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "");
+         });
+      break;
+    case 10:
       var value = msg.getSelectorMap();
       reader.readMessage(value, function(message, reader) {
         jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "");
@@ -2720,9 +2727,13 @@ proto.kdeploy.Task.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getSelectorMap(true);
+  f = message.getLabelsMap(true);
   if (f && f.getLength() > 0) {
     f.serializeBinary(9, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
+  }
+  f = message.getSelectorMap(true);
+  if (f && f.getLength() > 0) {
+    f.serializeBinary(10, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
 };
 
@@ -2850,14 +2861,32 @@ proto.kdeploy.Task.prototype.setCompletions = function(value) {
 
 
 /**
- * map<string, string> selector = 9;
+ * map<string, string> labels = 9;
+ * @param {boolean=} opt_noLazyCreate Do not create the map if
+ * empty, instead returning `undefined`
+ * @return {!jspb.Map<string,string>}
+ */
+proto.kdeploy.Task.prototype.getLabelsMap = function(opt_noLazyCreate) {
+  return /** @type {!jspb.Map<string,string>} */ (
+      jspb.Message.getMapField(this, 9, opt_noLazyCreate,
+      null));
+};
+
+
+proto.kdeploy.Task.prototype.clearLabelsMap = function() {
+  this.getLabelsMap().clear();
+};
+
+
+/**
+ * map<string, string> selector = 10;
  * @param {boolean=} opt_noLazyCreate Do not create the map if
  * empty, instead returning `undefined`
  * @return {!jspb.Map<string,string>}
  */
 proto.kdeploy.Task.prototype.getSelectorMap = function(opt_noLazyCreate) {
   return /** @type {!jspb.Map<string,string>} */ (
-      jspb.Message.getMapField(this, 9, opt_noLazyCreate,
+      jspb.Message.getMapField(this, 10, opt_noLazyCreate,
       null));
 };
 
@@ -2928,6 +2957,7 @@ proto.kdeploy.TaskInput.toObject = function(includeInstance, msg) {
     envMap: (f = msg.getEnvMap()) ? f.toObject(includeInstance, undefined) : [],
     schedule: jspb.Message.getFieldWithDefault(msg, 7, ""),
     completions: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    labelsMap: (f = msg.getLabelsMap()) ? f.toObject(includeInstance, undefined) : [],
     selectorMap: (f = msg.getSelectorMap()) ? f.toObject(includeInstance, undefined) : []
   };
 
@@ -2996,6 +3026,12 @@ proto.kdeploy.TaskInput.deserializeBinaryFromReader = function(msg, reader) {
       msg.setCompletions(value);
       break;
     case 9:
+      var value = msg.getLabelsMap();
+      reader.readMessage(value, function(message, reader) {
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "");
+         });
+      break;
+    case 10:
       var value = msg.getSelectorMap();
       reader.readMessage(value, function(message, reader) {
         jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "");
@@ -3076,9 +3112,13 @@ proto.kdeploy.TaskInput.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getSelectorMap(true);
+  f = message.getLabelsMap(true);
   if (f && f.getLength() > 0) {
     f.serializeBinary(9, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
+  }
+  f = message.getSelectorMap(true);
+  if (f && f.getLength() > 0) {
+    f.serializeBinary(10, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
 };
 
@@ -3206,14 +3246,32 @@ proto.kdeploy.TaskInput.prototype.setCompletions = function(value) {
 
 
 /**
- * map<string, string> selector = 9;
+ * map<string, string> labels = 9;
+ * @param {boolean=} opt_noLazyCreate Do not create the map if
+ * empty, instead returning `undefined`
+ * @return {!jspb.Map<string,string>}
+ */
+proto.kdeploy.TaskInput.prototype.getLabelsMap = function(opt_noLazyCreate) {
+  return /** @type {!jspb.Map<string,string>} */ (
+      jspb.Message.getMapField(this, 9, opt_noLazyCreate,
+      null));
+};
+
+
+proto.kdeploy.TaskInput.prototype.clearLabelsMap = function() {
+  this.getLabelsMap().clear();
+};
+
+
+/**
+ * map<string, string> selector = 10;
  * @param {boolean=} opt_noLazyCreate Do not create the map if
  * empty, instead returning `undefined`
  * @return {!jspb.Map<string,string>}
  */
 proto.kdeploy.TaskInput.prototype.getSelectorMap = function(opt_noLazyCreate) {
   return /** @type {!jspb.Map<string,string>} */ (
-      jspb.Message.getMapField(this, 9, opt_noLazyCreate,
+      jspb.Message.getMapField(this, 10, opt_noLazyCreate,
       null));
 };
 
@@ -3286,7 +3344,7 @@ proto.kdeploy.AppInput.toObject = function(includeInstance, msg) {
     replicas: jspb.Message.getFieldWithDefault(msg, 7, 0),
     networking: (f = msg.getNetworking()) && proto.kdeploy.Networking.toObject(includeInstance, f),
     labelsMap: (f = msg.getLabelsMap()) ? f.toObject(includeInstance, undefined) : [],
-    selectorsMap: (f = msg.getSelectorsMap()) ? f.toObject(includeInstance, undefined) : []
+    selectorMap: (f = msg.getSelectorMap()) ? f.toObject(includeInstance, undefined) : []
   };
 
   if (includeInstance) {
@@ -3367,7 +3425,7 @@ proto.kdeploy.AppInput.deserializeBinaryFromReader = function(msg, reader) {
          });
       break;
     case 11:
-      var value = msg.getSelectorsMap();
+      var value = msg.getSelectorMap();
       reader.readMessage(value, function(message, reader) {
         jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "");
          });
@@ -3456,7 +3514,7 @@ proto.kdeploy.AppInput.serializeBinaryToWriter = function(message, writer) {
   if (f && f.getLength() > 0) {
     f.serializeBinary(10, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
-  f = message.getSelectorsMap(true);
+  f = message.getSelectorMap(true);
   if (f && f.getLength() > 0) {
     f.serializeBinary(11, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
@@ -3637,20 +3695,20 @@ proto.kdeploy.AppInput.prototype.clearLabelsMap = function() {
 
 
 /**
- * map<string, string> selectors = 11;
+ * map<string, string> selector = 11;
  * @param {boolean=} opt_noLazyCreate Do not create the map if
  * empty, instead returning `undefined`
  * @return {!jspb.Map<string,string>}
  */
-proto.kdeploy.AppInput.prototype.getSelectorsMap = function(opt_noLazyCreate) {
+proto.kdeploy.AppInput.prototype.getSelectorMap = function(opt_noLazyCreate) {
   return /** @type {!jspb.Map<string,string>} */ (
       jspb.Message.getMapField(this, 11, opt_noLazyCreate,
       null));
 };
 
 
-proto.kdeploy.AppInput.prototype.clearSelectorsMap = function() {
-  this.getSelectorsMap().clear();
+proto.kdeploy.AppInput.prototype.clearSelectorMap = function() {
+  this.getSelectorMap().clear();
 };
 
 

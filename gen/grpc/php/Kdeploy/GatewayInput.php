@@ -26,7 +26,7 @@ class GatewayInput extends \Google\Protobuf\Internal\Message
      */
     private $namespace = '';
     /**
-     * Generated from protobuf field <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
      */
     private $listeners;
     /**
@@ -34,9 +34,9 @@ class GatewayInput extends \Google\Protobuf\Internal\Message
      */
     private $labels;
     /**
-     * Generated from protobuf field <code>map<string, string> selectors = 5 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>map<string, string> selector = 5 [(.validator.field) = {</code>
      */
-    private $selectors;
+    private $selector;
 
     /**
      * Constructor.
@@ -50,7 +50,7 @@ class GatewayInput extends \Google\Protobuf\Internal\Message
      *           application namespace
      *     @type \Kdeploy\GatewayListener[]|\Google\Protobuf\Internal\RepeatedField $listeners
      *     @type array|\Google\Protobuf\Internal\MapField $labels
-     *     @type array|\Google\Protobuf\Internal\MapField $selectors
+     *     @type array|\Google\Protobuf\Internal\MapField $selector
      * }
      */
     public function __construct($data = NULL) {
@@ -111,7 +111,7 @@ class GatewayInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getListeners()
@@ -120,7 +120,7 @@ class GatewayInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
      * @param \Kdeploy\GatewayListener[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
@@ -155,23 +155,23 @@ class GatewayInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>map<string, string> selectors = 5 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>map<string, string> selector = 5 [(.validator.field) = {</code>
      * @return \Google\Protobuf\Internal\MapField
      */
-    public function getSelectors()
+    public function getSelector()
     {
-        return $this->selectors;
+        return $this->selector;
     }
 
     /**
-     * Generated from protobuf field <code>map<string, string> selectors = 5 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>map<string, string> selector = 5 [(.validator.field) = {</code>
      * @param array|\Google\Protobuf\Internal\MapField $var
      * @return $this
      */
-    public function setSelectors($var)
+    public function setSelector($var)
     {
         $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->selectors = $arr;
+        $this->selector = $arr;
 
         return $this;
     }

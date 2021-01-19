@@ -93,11 +93,11 @@ func (k KdeployService) ListTasks(ctx context.Context, ns *kdeploypb.Namespace) 
 	return k.client.ListTasks(ctx, ns)
 }
 
-func (k KdeployService) CreateGateway(ctx context.Context, gateway *kdeploypb.Gateway) (*kdeploypb.Gateway, error) {
+func (k KdeployService) CreateGateway(ctx context.Context, gateway *kdeploypb.GatewayInput) (*kdeploypb.Gateway, error) {
 	return k.client.CreateGateway(ctx, gateway)
 }
 
-func (k KdeployService) UpdateGateway(ctx context.Context, gateway *kdeploypb.Gateway) (*kdeploypb.Gateway, error) {
+func (k KdeployService) UpdateGateway(ctx context.Context, gateway *kdeploypb.GatewayInput) (*kdeploypb.Gateway, error) {
 	return k.client.UpdateGateway(ctx, gateway)
 }
 

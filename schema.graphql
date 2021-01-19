@@ -5,9 +5,9 @@ scalar Map
 
 type HTTPRoute {
     # The name assigned to the route for debugging purposes
-    name: String
+    name: String!
     # forward to specific port on application
-    port: Int
+    port: Int!
     # prefix-based path match
     path_prefix: String
     # rewrite HTTP URIs before they reach the application
@@ -114,7 +114,7 @@ type App {
     # status tracks the state of the application during it's lifecycle
     status: AppStatus!
     labels: Map!
-    selectors: Map!
+    selector: Map!
 }
 
 # Task is scheduled cron job
@@ -134,7 +134,7 @@ type Task {
     # completions is the number of times to execute the task. If completions = 0, the task will run forever
     completions: Int
     labels: Map!
-    selectors: Map!
+    selector: Map!
 }
 
 # Replica tracks the state of a single instance
@@ -183,7 +183,7 @@ input AppInput {
     # gateway/servicemesh configuration
     networking: NetworkingInput!
     labels: Map!
-    selectors: Map!
+    selector: Map!
 }
 
 # TaskInput creates a new task(cron job)
@@ -203,7 +203,7 @@ input TaskInput {
     # completions is the number of times to execute the task. If completions = 0, the task will run forever
     completions: Int
     labels: Map!
-    selectors: Map!
+    selector: Map!
 }
 
 input Ref {

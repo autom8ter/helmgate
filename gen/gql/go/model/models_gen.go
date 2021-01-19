@@ -13,7 +13,7 @@ type App struct {
 	Networking *Networking            `json:"networking"`
 	Status     *AppStatus             `json:"status"`
 	Labels     map[string]interface{} `json:"labels"`
-	Selectors  map[string]interface{} `json:"selectors"`
+	Selector   map[string]interface{} `json:"selector"`
 }
 
 type AppInput struct {
@@ -26,7 +26,7 @@ type AppInput struct {
 	Replicas   int                    `json:"replicas"`
 	Networking *NetworkingInput       `json:"networking"`
 	Labels     map[string]interface{} `json:"labels"`
-	Selectors  map[string]interface{} `json:"selectors"`
+	Selector   map[string]interface{} `json:"selector"`
 }
 
 type AppStatus struct {
@@ -34,8 +34,8 @@ type AppStatus struct {
 }
 
 type HTTPRoute struct {
-	Name             *string  `json:"name"`
-	Port             *int     `json:"port"`
+	Name             string   `json:"name"`
+	Port             int      `json:"port"`
 	PathPrefix       *string  `json:"path_prefix"`
 	RewriteURI       *string  `json:"rewrite_uri"`
 	AllowOrigins     []string `json:"allow_origins"`
@@ -103,7 +103,7 @@ type Task struct {
 	Schedule    string                 `json:"schedule"`
 	Completions *int                   `json:"completions"`
 	Labels      map[string]interface{} `json:"labels"`
-	Selectors   map[string]interface{} `json:"selectors"`
+	Selector    map[string]interface{} `json:"selector"`
 }
 
 type TaskInput struct {
@@ -115,5 +115,5 @@ type TaskInput struct {
 	Schedule    string                 `json:"schedule"`
 	Completions *int                   `json:"completions"`
 	Labels      map[string]interface{} `json:"labels"`
-	Selectors   map[string]interface{} `json:"selectors"`
+	Selector    map[string]interface{} `json:"selector"`
 }

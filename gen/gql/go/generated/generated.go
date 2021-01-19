@@ -55,7 +55,7 @@ type ComplexityRoot struct {
 		Networking func(childComplexity int) int
 		Ports      func(childComplexity int) int
 		Replicas   func(childComplexity int) int
-		Selectors  func(childComplexity int) int
+		Selector   func(childComplexity int) int
 		Status     func(childComplexity int) int
 	}
 
@@ -127,7 +127,7 @@ type ComplexityRoot struct {
 		Name        func(childComplexity int) int
 		Namespace   func(childComplexity int) int
 		Schedule    func(childComplexity int) int
-		Selectors   func(childComplexity int) int
+		Selector    func(childComplexity int) int
 	}
 }
 
@@ -229,12 +229,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.App.Replicas(childComplexity), true
 
-	case "App.selectors":
-		if e.complexity.App.Selectors == nil {
+	case "App.selector":
+		if e.complexity.App.Selector == nil {
 			break
 		}
 
-		return e.complexity.App.Selectors(childComplexity), true
+		return e.complexity.App.Selector(childComplexity), true
 
 	case "App.status":
 		if e.complexity.App.Status == nil {
@@ -588,12 +588,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Task.Schedule(childComplexity), true
 
-	case "Task.selectors":
-		if e.complexity.Task.Selectors == nil {
+	case "Task.selector":
+		if e.complexity.Task.Selector == nil {
 			break
 		}
 
-		return e.complexity.Task.Selectors(childComplexity), true
+		return e.complexity.Task.Selector(childComplexity), true
 
 	}
 	return 0, false
@@ -683,9 +683,9 @@ scalar Map
 
 type HTTPRoute {
     # The name assigned to the route for debugging purposes
-    name: String
+    name: String!
     # forward to specific port on application
-    port: Int
+    port: Int!
     # prefix-based path match
     path_prefix: String
     # rewrite HTTP URIs before they reach the application
@@ -792,7 +792,7 @@ type App {
     # status tracks the state of the application during it's lifecycle
     status: AppStatus!
     labels: Map!
-    selectors: Map!
+    selector: Map!
 }
 
 # Task is scheduled cron job
@@ -812,7 +812,7 @@ type Task {
     # completions is the number of times to execute the task. If completions = 0, the task will run forever
     completions: Int
     labels: Map!
-    selectors: Map!
+    selector: Map!
 }
 
 # Replica tracks the state of a single instance
@@ -861,7 +861,7 @@ input AppInput {
     # gateway/servicemesh configuration
     networking: NetworkingInput!
     labels: Map!
-    selectors: Map!
+    selector: Map!
 }
 
 # TaskInput creates a new task(cron job)
@@ -881,7 +881,7 @@ input TaskInput {
     # completions is the number of times to execute the task. If completions = 0, the task will run forever
     completions: Int
     labels: Map!
-    selectors: Map!
+    selector: Map!
 }
 
 input Ref {
@@ -1528,7 +1528,7 @@ func (ec *executionContext) _App_labels(ctx context.Context, field graphql.Colle
 	return ec.marshalNMap2map(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _App_selectors(ctx context.Context, field graphql.CollectedField, obj *model.App) (ret graphql.Marshaler) {
+func (ec *executionContext) _App_selector(ctx context.Context, field graphql.CollectedField, obj *model.App) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -1546,7 +1546,7 @@ func (ec *executionContext) _App_selectors(ctx context.Context, field graphql.Co
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Selectors, nil
+		return obj.Selector, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -1623,11 +1623,14 @@ func (ec *executionContext) _HTTPRoute_name(ctx context.Context, field graphql.C
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(string)
 	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalNString2string(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _HTTPRoute_port(ctx context.Context, field graphql.CollectedField, obj *model.HTTPRoute) (ret graphql.Marshaler) {
@@ -1655,11 +1658,14 @@ func (ec *executionContext) _HTTPRoute_port(ctx context.Context, field graphql.C
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
-	res := resTmp.(*int)
+	res := resTmp.(int)
 	fc.Result = res
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+	return ec.marshalNInt2int(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _HTTPRoute_path_prefix(ctx context.Context, field graphql.CollectedField, obj *model.HTTPRoute) (ret graphql.Marshaler) {
@@ -3063,7 +3069,7 @@ func (ec *executionContext) _Task_labels(ctx context.Context, field graphql.Coll
 	return ec.marshalNMap2map(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Task_selectors(ctx context.Context, field graphql.CollectedField, obj *model.Task) (ret graphql.Marshaler) {
+func (ec *executionContext) _Task_selector(ctx context.Context, field graphql.CollectedField, obj *model.Task) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3081,7 +3087,7 @@ func (ec *executionContext) _Task_selectors(ctx context.Context, field graphql.C
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Selectors, nil
+		return obj.Selector, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -4263,11 +4269,11 @@ func (ec *executionContext) unmarshalInputAppInput(ctx context.Context, obj inte
 			if err != nil {
 				return it, err
 			}
-		case "selectors":
+		case "selector":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("selectors"))
-			it.Selectors, err = ec.unmarshalNMap2map(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("selector"))
+			it.Selector, err = ec.unmarshalNMap2map(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -4523,11 +4529,11 @@ func (ec *executionContext) unmarshalInputTaskInput(ctx context.Context, obj int
 			if err != nil {
 				return it, err
 			}
-		case "selectors":
+		case "selector":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("selectors"))
-			it.Selectors, err = ec.unmarshalNMap2map(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("selector"))
+			it.Selector, err = ec.unmarshalNMap2map(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -4600,8 +4606,8 @@ func (ec *executionContext) _App(ctx context.Context, sel ast.SelectionSet, obj 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "selectors":
-			out.Values[i] = ec._App_selectors(ctx, field, obj)
+		case "selector":
+			out.Values[i] = ec._App_selector(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
@@ -4656,8 +4662,14 @@ func (ec *executionContext) _HTTPRoute(ctx context.Context, sel ast.SelectionSet
 			out.Values[i] = graphql.MarshalString("HTTPRoute")
 		case "name":
 			out.Values[i] = ec._HTTPRoute_name(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "port":
 			out.Values[i] = ec._HTTPRoute_port(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "path_prefix":
 			out.Values[i] = ec._HTTPRoute_path_prefix(ctx, field, obj)
 		case "rewrite_uri":
@@ -5003,8 +5015,8 @@ func (ec *executionContext) _Task(ctx context.Context, sel ast.SelectionSet, obj
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "selectors":
-			out.Values[i] = ec._Task_selectors(ctx, field, obj)
+		case "selector":
+			out.Values[i] = ec._Task_selector(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}

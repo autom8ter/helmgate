@@ -95,6 +95,8 @@ func toTaskU(input model.TaskInput) *kdeploypb.TaskInput {
 		Env:         env,
 		Schedule:    input.Schedule,
 		Completions: uint32(completions),
+		Labels:      helpers.ConvertMapS(input.Labels),
+		Selector:    helpers.ConvertMapS(input.Selector),
 	}
 }
 
@@ -133,6 +135,8 @@ func fromApp(app *kdeploypb.App) *model.App {
 		Replicas:   int(app.Replicas),
 		Networking: fromNetworking(app.GetNetworking()),
 		Status:     status,
+		Labels:     helpers.ConvertMap(app.Labels),
+		Selector:   helpers.ConvertMap(app.Selector),
 	}
 }
 
@@ -181,6 +185,8 @@ func fromNetworking(networking *kdeploypb.Networking) *model.Networking {
 	var routes []*model.HTTPRoute
 	for _, r := range networking.GetHttpRoutes() {
 		route := &model.HTTPRoute{
+			Name:             r.Name,
+			Port:             int(r.Port),
 			PathPrefix:       helpers.StringPointer(r.PathPrefix),
 			RewriteURI:       helpers.StringPointer(r.RewriteUri),
 			AllowOrigins:     r.AllowOrigins,
@@ -190,11 +196,10 @@ func fromNetworking(networking *kdeploypb.Networking) *model.Networking {
 			AllowCredentials: helpers.BoolPointer(r.AllowCredentials),
 		}
 		if r.Name != "" {
-			route.Name = &r.Name
+			route.Name = r.Name
 		}
 		if r.Port != 0 {
-			p := int(r.Port)
-			route.Port = &p
+			route.Port = int(r.Port)
 		}
 		routes = append(routes, route)
 	}
@@ -228,5 +233,7 @@ func fromTask(app *kdeploypb.Task) *model.Task {
 		Env:         env,
 		Schedule:    app.Schedule,
 		Completions: &completions,
+		Labels:      helpers.ConvertMap(app.Labels),
+		Selector:    helpers.ConvertMap(app.Selector),
 	}
 }

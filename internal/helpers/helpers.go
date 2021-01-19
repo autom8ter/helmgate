@@ -5,6 +5,7 @@ import (
 	"encoding/binary"
 	"encoding/hex"
 	"encoding/json"
+	"github.com/spf13/cast"
 	"google.golang.org/protobuf/encoding/protojson"
 	"google.golang.org/protobuf/proto"
 	"os"
@@ -112,4 +113,20 @@ func StringPointer(this string) *string {
 
 func BoolPointer(this bool) *bool {
 	return &this
+}
+
+func ConvertMap(labels map[string]string) map[string]interface{} {
+	values := map[string]interface{}{}
+	for k, v := range labels {
+		values[k] = v
+	}
+	return values
+}
+
+func ConvertMapS(labels map[string]interface{}) map[string]string {
+	values := map[string]string{}
+	for k, v := range labels {
+		values[k] = cast.ToString(v)
+	}
+	return values
 }

@@ -6,7 +6,7 @@ import (
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
-func (m *Manager) CreateGateway(ctx context.Context, gateway *kdeploypb.Gateway) (*kdeploypb.Gateway, error) {
+func (m *Manager) CreateGateway(ctx context.Context, gateway *kdeploypb.GatewayInput) (*kdeploypb.Gateway, error) {
 	kapp := &k8sGateway{}
 	namespace, err := m.kclient.Namespaces().Get(ctx, gateway.Namespace, v1.GetOptions{})
 	if err != nil {
@@ -25,7 +25,7 @@ func (m *Manager) CreateGateway(ctx context.Context, gateway *kdeploypb.Gateway)
 	return kapp.toGateway(), nil
 }
 
-func (m *Manager) UpdateGateway(ctx context.Context, gateway *kdeploypb.Gateway) (*kdeploypb.Gateway, error) {
+func (m *Manager) UpdateGateway(ctx context.Context, gateway *kdeploypb.GatewayInput) (*kdeploypb.Gateway, error) {
 	kapp := &k8sGateway{}
 	namespace, err := m.kclient.Namespaces().Get(ctx, gateway.Namespace, v1.GetOptions{})
 	if err != nil {

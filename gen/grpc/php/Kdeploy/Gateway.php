@@ -16,13 +16,13 @@ class Gateway extends \Google\Protobuf\Internal\Message
     /**
      * name of the application
      *
-     * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string name = 1;</code>
      */
     private $name = '';
     /**
      * application namespace
      *
-     * Generated from protobuf field <code>string namespace = 2 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string namespace = 2;</code>
      */
     private $namespace = '';
     /**
@@ -30,13 +30,13 @@ class Gateway extends \Google\Protobuf\Internal\Message
      */
     private $listeners;
     /**
-     * Generated from protobuf field <code>map<string, string> labels = 4 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>map<string, string> labels = 4;</code>
      */
     private $labels;
     /**
-     * Generated from protobuf field <code>map<string, string> selectors = 5 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>map<string, string> selector = 5;</code>
      */
-    private $selectors;
+    private $selector;
 
     /**
      * Constructor.
@@ -50,7 +50,7 @@ class Gateway extends \Google\Protobuf\Internal\Message
      *           application namespace
      *     @type \Kdeploy\GatewayListener[]|\Google\Protobuf\Internal\RepeatedField $listeners
      *     @type array|\Google\Protobuf\Internal\MapField $labels
-     *     @type array|\Google\Protobuf\Internal\MapField $selectors
+     *     @type array|\Google\Protobuf\Internal\MapField $selector
      * }
      */
     public function __construct($data = NULL) {
@@ -61,7 +61,7 @@ class Gateway extends \Google\Protobuf\Internal\Message
     /**
      * name of the application
      *
-     * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string name = 1;</code>
      * @return string
      */
     public function getName()
@@ -72,7 +72,7 @@ class Gateway extends \Google\Protobuf\Internal\Message
     /**
      * name of the application
      *
-     * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string name = 1;</code>
      * @param string $var
      * @return $this
      */
@@ -87,7 +87,7 @@ class Gateway extends \Google\Protobuf\Internal\Message
     /**
      * application namespace
      *
-     * Generated from protobuf field <code>string namespace = 2 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string namespace = 2;</code>
      * @return string
      */
     public function getNamespace()
@@ -98,7 +98,7 @@ class Gateway extends \Google\Protobuf\Internal\Message
     /**
      * application namespace
      *
-     * Generated from protobuf field <code>string namespace = 2 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string namespace = 2;</code>
      * @param string $var
      * @return $this
      */
@@ -133,7 +133,7 @@ class Gateway extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>map<string, string> labels = 4 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>map<string, string> labels = 4;</code>
      * @return \Google\Protobuf\Internal\MapField
      */
     public function getLabels()
@@ -142,7 +142,7 @@ class Gateway extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>map<string, string> labels = 4 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>map<string, string> labels = 4;</code>
      * @param array|\Google\Protobuf\Internal\MapField $var
      * @return $this
      */
@@ -155,23 +155,23 @@ class Gateway extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>map<string, string> selectors = 5 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>map<string, string> selector = 5;</code>
      * @return \Google\Protobuf\Internal\MapField
      */
-    public function getSelectors()
+    public function getSelector()
     {
-        return $this->selectors;
+        return $this->selector;
     }
 
     /**
-     * Generated from protobuf field <code>map<string, string> selectors = 5 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>map<string, string> selector = 5;</code>
      * @param array|\Google\Protobuf\Internal\MapField $var
      * @return $this
      */
-    public function setSelectors($var)
+    public function setSelector($var)
     {
         $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->selectors = $arr;
+        $this->selector = $arr;
 
         return $this;
     }

@@ -25,7 +25,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='kdeploy',
   syntax='proto3',
   serialized_options=_b('Z\tkdeploypb'),
-  serialized_pb=_b('\n\rkdeploy.proto\x12\x07kdeploy\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x19google/protobuf/any.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x36github.com/mwitkow/go-proto-validators/validator.proto\"\xa2\x02\n\x11ServerTLSSettings\x12\x16\n\x0ehttps_redirect\x18\x01 \x01(\x08\x12\x1e\n\x04mode\x18\x02 \x01(\x0e\x32\x10.kdeploy.TLSmode\x12\x1a\n\x12server_certificate\x18\x03 \x01(\t\x12\x13\n\x0bprivate_key\x18\x04 \x01(\t\x12\x17\n\x0f\x63\x61_certificates\x18\x05 \x01(\t\x12\x17\n\x0f\x63redential_name\x18\n \x01(\t\x12\x19\n\x11subject_alt_names\x18\x06 \x03(\t\x12\x1f\n\x17verify_certificate_spki\x18\x0b \x03(\t\x12\x1f\n\x17verify_certificate_hash\x18\x0c \x03(\t\x12\x15\n\rcipher_suites\x18\t \x03(\t\"\xbb\x01\n\x0fGatewayListener\x12\x14\n\x04port\x18\x01 \x01(\rB\x06\xe2\xdf\x1f\x02\x10\x00\x12\x1e\n\x04name\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12+\n\x08protocol\x18\x03 \x01(\x0e\x32\x11.kdeploy.ProtocolB\x06\xe2\xdf\x1f\x02\x10\x00\x12\x15\n\x05hosts\x18\x04 \x03(\tB\x06\xe2\xdf\x1f\x02`\x00\x12.\n\ntls_config\x18\x05 \x01(\x0b\x32\x1a.kdeploy.ServerTLSSettings\"\xce\x02\n\x07Gateway\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12+\n\tlisteners\x18\x03 \x03(\x0b\x32\x18.kdeploy.GatewayListener\x12\x34\n\x06labels\x18\x04 \x03(\x0b\x32\x1c.kdeploy.Gateway.LabelsEntryB\x06\xe2\xdf\x1f\x02 \x01\x12:\n\tselectors\x18\x05 \x03(\x0b\x32\x1f.kdeploy.Gateway.SelectorsEntryB\x06\xe2\xdf\x1f\x02 \x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a\x30\n\x0eSelectorsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xe5\x02\n\x0cGatewayInput\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x33\n\tlisteners\x18\x03 \x03(\x0b\x32\x18.kdeploy.GatewayListenerB\x06\xe2\xdf\x1f\x02`\x00\x12\x39\n\x06labels\x18\x04 \x03(\x0b\x32!.kdeploy.GatewayInput.LabelsEntryB\x06\xe2\xdf\x1f\x02 \x01\x12?\n\tselectors\x18\x05 \x03(\x0b\x32$.kdeploy.GatewayInput.SelectorsEntryB\x06\xe2\xdf\x1f\x02 \x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a\x30\n\x0eSelectorsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xe3\x01\n\tHTTPRoute\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x14\n\x04port\x18\x02 \x01(\rB\x06\xe2\xdf\x1f\x02\x10\x00\x12\x13\n\x0bpath_prefix\x18\x03 \x01(\t\x12\x13\n\x0brewrite_uri\x18\x04 \x01(\t\x12\x15\n\rallow_origins\x18\x05 \x03(\t\x12\x15\n\rallow_methods\x18\x06 \x03(\t\x12\x15\n\rallow_headers\x18\x07 \x03(\t\x12\x16\n\x0e\x65xpose_headers\x18\x08 \x03(\t\x12\x19\n\x11\x61llow_credentials\x18\t \x01(\x08\"f\n\nNetworking\x12\x10\n\x08gateways\x18\x01 \x03(\t\x12\r\n\x05hosts\x18\x02 \x03(\t\x12\x0e\n\x06\x65xport\x18\x03 \x01(\x08\x12\'\n\x0bhttp_routes\x18\x04 \x03(\x0b\x32\x12.kdeploy.HTTPRoute\"\xe1\x04\n\x03\x41pp\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05image\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x0c\n\x04\x61rgs\x18\x05 \x03(\t\x12\"\n\x03\x65nv\x18\x06 \x03(\x0b\x32\x15.kdeploy.App.EnvEntry\x12.\n\x05ports\x18\x07 \x03(\x0b\x32\x17.kdeploy.App.PortsEntryB\x06\xe2\xdf\x1f\x02 \x01\x12\x10\n\x08replicas\x18\x08 \x01(\r\x12\x30\n\x06labels\x18\t \x03(\x0b\x32\x18.kdeploy.App.LabelsEntryB\x06\xe2\xdf\x1f\x02 \x01\x12\x36\n\tselectors\x18\n \x03(\x0b\x32\x1b.kdeploy.App.SelectorsEntryB\x06\xe2\xdf\x1f\x02 \x01\x12/\n\nnetworking\x18\x0b \x01(\x0b\x32\x13.kdeploy.NetworkingB\x06\xe2\xdf\x1f\x02 \x01\x12*\n\x06status\x18\x14 \x01(\x0b\x32\x12.kdeploy.AppStatusB\x06\xe2\xdf\x1f\x02 \x01\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a,\n\nPortsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\r:\x02\x38\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a\x30\n\x0eSelectorsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xe4\x02\n\x04Task\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05image\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x0c\n\x04\x61rgs\x18\x05 \x03(\t\x12#\n\x03\x65nv\x18\x06 \x03(\x0b\x32\x16.kdeploy.Task.EnvEntry\x12\"\n\x08schedule\x18\x07 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x13\n\x0b\x63ompletions\x18\x08 \x01(\r\x12-\n\x08selector\x18\t \x03(\x0b\x32\x1b.kdeploy.Task.SelectorEntry\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a/\n\rSelectorEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xf3\x02\n\tTaskInput\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05image\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x0c\n\x04\x61rgs\x18\x05 \x03(\t\x12(\n\x03\x65nv\x18\x06 \x03(\x0b\x32\x1b.kdeploy.TaskInput.EnvEntry\x12\"\n\x08schedule\x18\x07 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x13\n\x0b\x63ompletions\x18\x08 \x01(\r\x12\x32\n\x08selector\x18\t \x03(\x0b\x32 .kdeploy.TaskInput.SelectorEntry\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a/\n\rSelectorEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xce\x04\n\x08\x41ppInput\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05image\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x0c\n\x04\x61rgs\x18\x04 \x03(\t\x12\'\n\x03\x65nv\x18\x05 \x03(\x0b\x32\x1a.kdeploy.AppInput.EnvEntry\x12\x33\n\x05ports\x18\x06 \x03(\x0b\x32\x1c.kdeploy.AppInput.PortsEntryB\x06\xe2\xdf\x1f\x02 \x01\x12\x10\n\x08replicas\x18\x07 \x01(\r\x12/\n\nnetworking\x18\t \x01(\x0b\x32\x13.kdeploy.NetworkingB\x06\xe2\xdf\x1f\x02 \x01\x12\x35\n\x06labels\x18\n \x03(\x0b\x32\x1d.kdeploy.AppInput.LabelsEntryB\x06\xe2\xdf\x1f\x02 \x01\x12;\n\tselectors\x18\x0b \x03(\x0b\x32 .kdeploy.AppInput.SelectorsEntryB\x06\xe2\xdf\x1f\x02 \x01\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a,\n\nPortsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\r:\x02\x38\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a\x30\n\x0eSelectorsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"J\n\x03Ref\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\";\n\x07Replica\x12\r\n\x05phase\x18\x01 \x01(\t\x12\x11\n\tcondition\x18\x02 \x01(\t\x12\x0e\n\x06reason\x18\x03 \x01(\t\"/\n\tAppStatus\x12\"\n\x08replicas\x18\x01 \x03(\x0b\x32\x10.kdeploy.Replica\"\x16\n\x03Log\x12\x0f\n\x07message\x18\x01 \x01(\t\"*\n\x04\x41pps\x12\"\n\x0c\x61pplications\x18\x01 \x03(\x0b\x32\x0c.kdeploy.App\"%\n\x05Tasks\x12\x1c\n\x05tasks\x18\x01 \x03(\x0b\x32\r.kdeploy.Task\"\x1e\n\tNamespace\x12\x11\n\tnamespace\x18\x01 \x01(\t\" \n\nNamespaces\x12\x12\n\nnamespaces\x18\x01 \x03(\t*g\n\x08Protocol\x12\x14\n\x10INVALID_PROTOCOL\x10\x00\x12\x08\n\x04HTTP\x10\x01\x12\t\n\x05HTTPS\x10\x02\x12\x08\n\x04GRPC\x10\x03\x12\t\n\x05HTTP2\x10\x04\x12\t\n\x05MONGO\x10\x05\x12\x07\n\x03TCP\x10\x06\x12\x07\n\x03TLS\x10\x07*Z\n\x07TLSmode\x12\x0f\n\x0bPASSTHROUGH\x10\x00\x12\n\n\x06SIMPLE\x10\x01\x12\n\n\x06MUTUAL\x10\x02\x12\x14\n\x10\x41UTO_PASSTHROUGH\x10\x03\x12\x10\n\x0cISTIO_MUTUAL\x10\x04\x32\xf8\x06\n\x0eKdeployService\x12.\n\tCreateApp\x12\x11.kdeploy.AppInput\x1a\x0c.kdeploy.App\"\x00\x12.\n\tUpdateApp\x12\x11.kdeploy.AppInput\x1a\x0c.kdeploy.App\"\x00\x12\x33\n\tDeleteApp\x12\x0c.kdeploy.Ref\x1a\x16.google.protobuf.Empty\"\x00\x12&\n\x06GetApp\x12\x0c.kdeploy.Ref\x1a\x0c.kdeploy.App\"\x00\x12/\n\x08ListApps\x12\x12.kdeploy.Namespace\x1a\r.kdeploy.Apps\"\x00\x12?\n\x0eListNamespaces\x12\x16.google.protobuf.Empty\x1a\x13.kdeploy.Namespaces\"\x00\x12\x39\n\tDeleteAll\x12\x12.kdeploy.Namespace\x1a\x16.google.protobuf.Empty\"\x00\x12\x31\n\nCreateTask\x12\x12.kdeploy.TaskInput\x1a\r.kdeploy.Task\"\x00\x12\x31\n\nUpdateTask\x12\x12.kdeploy.TaskInput\x1a\r.kdeploy.Task\"\x00\x12\x34\n\nDeleteTask\x12\x0c.kdeploy.Ref\x1a\x16.google.protobuf.Empty\"\x00\x12(\n\x07GetTask\x12\x0c.kdeploy.Ref\x1a\r.kdeploy.Task\"\x00\x12\x31\n\tListTasks\x12\x12.kdeploy.Namespace\x1a\x0e.kdeploy.Tasks\"\x00\x12,\n\nStreamLogs\x12\x0c.kdeploy.Ref\x1a\x0c.kdeploy.Log\"\x00\x30\x01\x12\x35\n\rCreateGateway\x12\x10.kdeploy.Gateway\x1a\x10.kdeploy.Gateway\"\x00\x12\x35\n\rUpdateGateway\x12\x10.kdeploy.Gateway\x1a\x10.kdeploy.Gateway\"\x00\x12\x37\n\rDeleteGateway\x12\x0c.kdeploy.Ref\x1a\x16.google.protobuf.Empty\"\x00\x12.\n\nGetGateway\x12\x0c.kdeploy.Ref\x1a\x10.kdeploy.Gateway\"\x00\x42\x0bZ\tkdeploypbb\x06proto3')
+  serialized_pb=_b('\n\rkdeploy.proto\x12\x07kdeploy\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x19google/protobuf/any.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x36github.com/mwitkow/go-proto-validators/validator.proto\"\xa2\x02\n\x11ServerTLSSettings\x12\x16\n\x0ehttps_redirect\x18\x01 \x01(\x08\x12\x1e\n\x04mode\x18\x02 \x01(\x0e\x32\x10.kdeploy.TLSmode\x12\x1a\n\x12server_certificate\x18\x03 \x01(\t\x12\x13\n\x0bprivate_key\x18\x04 \x01(\t\x12\x17\n\x0f\x63\x61_certificates\x18\x05 \x01(\t\x12\x17\n\x0f\x63redential_name\x18\n \x01(\t\x12\x19\n\x11subject_alt_names\x18\x06 \x03(\t\x12\x1f\n\x17verify_certificate_spki\x18\x0b \x03(\t\x12\x1f\n\x17verify_certificate_hash\x18\x0c \x03(\t\x12\x15\n\rcipher_suites\x18\t \x03(\t\"\xbb\x01\n\x0fGatewayListener\x12\x14\n\x04port\x18\x01 \x01(\rB\x06\xe2\xdf\x1f\x02\x10\x00\x12\x1e\n\x04name\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12+\n\x08protocol\x18\x03 \x01(\x0e\x32\x11.kdeploy.ProtocolB\x06\xe2\xdf\x1f\x02\x10\x00\x12\x15\n\x05hosts\x18\x04 \x03(\tB\x06\xe2\xdf\x1f\x02`\x00\x12.\n\ntls_config\x18\x05 \x01(\x0b\x32\x1a.kdeploy.ServerTLSSettings\"\x97\x02\n\x07Gateway\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tnamespace\x18\x02 \x01(\t\x12+\n\tlisteners\x18\x03 \x03(\x0b\x32\x18.kdeploy.GatewayListener\x12,\n\x06labels\x18\x04 \x03(\x0b\x32\x1c.kdeploy.Gateway.LabelsEntry\x12\x30\n\x08selector\x18\x05 \x03(\x0b\x32\x1e.kdeploy.Gateway.SelectorEntry\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a/\n\rSelectorEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xda\x02\n\x0cGatewayInput\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12+\n\tlisteners\x18\x03 \x03(\x0b\x32\x18.kdeploy.GatewayListener\x12\x39\n\x06labels\x18\x04 \x03(\x0b\x32!.kdeploy.GatewayInput.LabelsEntryB\x06\xe2\xdf\x1f\x02 \x01\x12=\n\x08selector\x18\x05 \x03(\x0b\x32#.kdeploy.GatewayInput.SelectorEntryB\x06\xe2\xdf\x1f\x02 \x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a/\n\rSelectorEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xe3\x01\n\tHTTPRoute\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x14\n\x04port\x18\x02 \x01(\rB\x06\xe2\xdf\x1f\x02\x10\x00\x12\x13\n\x0bpath_prefix\x18\x03 \x01(\t\x12\x13\n\x0brewrite_uri\x18\x04 \x01(\t\x12\x15\n\rallow_origins\x18\x05 \x03(\t\x12\x15\n\rallow_methods\x18\x06 \x03(\t\x12\x15\n\rallow_headers\x18\x07 \x03(\t\x12\x16\n\x0e\x65xpose_headers\x18\x08 \x03(\t\x12\x19\n\x11\x61llow_credentials\x18\t \x01(\x08\"f\n\nNetworking\x12\x10\n\x08gateways\x18\x01 \x03(\t\x12\r\n\x05hosts\x18\x02 \x03(\t\x12\x0e\n\x06\x65xport\x18\x03 \x01(\x08\x12\'\n\x0bhttp_routes\x18\x04 \x03(\x0b\x32\x12.kdeploy.HTTPRoute\"\xde\x04\n\x03\x41pp\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05image\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x0c\n\x04\x61rgs\x18\x05 \x03(\t\x12\"\n\x03\x65nv\x18\x06 \x03(\x0b\x32\x15.kdeploy.App.EnvEntry\x12.\n\x05ports\x18\x07 \x03(\x0b\x32\x17.kdeploy.App.PortsEntryB\x06\xe2\xdf\x1f\x02 \x01\x12\x10\n\x08replicas\x18\x08 \x01(\r\x12\x30\n\x06labels\x18\t \x03(\x0b\x32\x18.kdeploy.App.LabelsEntryB\x06\xe2\xdf\x1f\x02 \x01\x12\x34\n\x08selector\x18\n \x03(\x0b\x32\x1a.kdeploy.App.SelectorEntryB\x06\xe2\xdf\x1f\x02 \x01\x12/\n\nnetworking\x18\x0b \x01(\x0b\x32\x13.kdeploy.NetworkingB\x06\xe2\xdf\x1f\x02 \x01\x12*\n\x06status\x18\x14 \x01(\x0b\x32\x12.kdeploy.AppStatusB\x06\xe2\xdf\x1f\x02 \x01\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a,\n\nPortsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\r:\x02\x38\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a/\n\rSelectorEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xce\x03\n\x04Task\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05image\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x0c\n\x04\x61rgs\x18\x05 \x03(\t\x12#\n\x03\x65nv\x18\x06 \x03(\x0b\x32\x16.kdeploy.Task.EnvEntry\x12\"\n\x08schedule\x18\x07 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x13\n\x0b\x63ompletions\x18\x08 \x01(\r\x12\x31\n\x06labels\x18\t \x03(\x0b\x32\x19.kdeploy.Task.LabelsEntryB\x06\xe2\xdf\x1f\x02 \x01\x12\x35\n\x08selector\x18\n \x03(\x0b\x32\x1b.kdeploy.Task.SelectorEntryB\x06\xe2\xdf\x1f\x02 \x01\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a/\n\rSelectorEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xe2\x03\n\tTaskInput\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05image\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x0c\n\x04\x61rgs\x18\x05 \x03(\t\x12(\n\x03\x65nv\x18\x06 \x03(\x0b\x32\x1b.kdeploy.TaskInput.EnvEntry\x12\"\n\x08schedule\x18\x07 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x13\n\x0b\x63ompletions\x18\x08 \x01(\r\x12\x36\n\x06labels\x18\t \x03(\x0b\x32\x1e.kdeploy.TaskInput.LabelsEntryB\x06\xe2\xdf\x1f\x02 \x01\x12:\n\x08selector\x18\n \x03(\x0b\x32 .kdeploy.TaskInput.SelectorEntryB\x06\xe2\xdf\x1f\x02 \x01\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a/\n\rSelectorEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xcb\x04\n\x08\x41ppInput\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05image\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x0c\n\x04\x61rgs\x18\x04 \x03(\t\x12\'\n\x03\x65nv\x18\x05 \x03(\x0b\x32\x1a.kdeploy.AppInput.EnvEntry\x12\x33\n\x05ports\x18\x06 \x03(\x0b\x32\x1c.kdeploy.AppInput.PortsEntryB\x06\xe2\xdf\x1f\x02 \x01\x12\x10\n\x08replicas\x18\x07 \x01(\r\x12/\n\nnetworking\x18\t \x01(\x0b\x32\x13.kdeploy.NetworkingB\x06\xe2\xdf\x1f\x02 \x01\x12\x35\n\x06labels\x18\n \x03(\x0b\x32\x1d.kdeploy.AppInput.LabelsEntryB\x06\xe2\xdf\x1f\x02 \x01\x12\x39\n\x08selector\x18\x0b \x03(\x0b\x32\x1f.kdeploy.AppInput.SelectorEntryB\x06\xe2\xdf\x1f\x02 \x01\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a,\n\nPortsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\r:\x02\x38\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a/\n\rSelectorEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"J\n\x03Ref\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\";\n\x07Replica\x12\r\n\x05phase\x18\x01 \x01(\t\x12\x11\n\tcondition\x18\x02 \x01(\t\x12\x0e\n\x06reason\x18\x03 \x01(\t\"/\n\tAppStatus\x12\"\n\x08replicas\x18\x01 \x03(\x0b\x32\x10.kdeploy.Replica\"\x16\n\x03Log\x12\x0f\n\x07message\x18\x01 \x01(\t\"*\n\x04\x41pps\x12\"\n\x0c\x61pplications\x18\x01 \x03(\x0b\x32\x0c.kdeploy.App\"%\n\x05Tasks\x12\x1c\n\x05tasks\x18\x01 \x03(\x0b\x32\r.kdeploy.Task\"\x1e\n\tNamespace\x12\x11\n\tnamespace\x18\x01 \x01(\t\" \n\nNamespaces\x12\x12\n\nnamespaces\x18\x01 \x03(\t*g\n\x08Protocol\x12\x14\n\x10INVALID_PROTOCOL\x10\x00\x12\x08\n\x04HTTP\x10\x01\x12\t\n\x05HTTPS\x10\x02\x12\x08\n\x04GRPC\x10\x03\x12\t\n\x05HTTP2\x10\x04\x12\t\n\x05MONGO\x10\x05\x12\x07\n\x03TCP\x10\x06\x12\x07\n\x03TLS\x10\x07*Z\n\x07TLSmode\x12\x0f\n\x0bPASSTHROUGH\x10\x00\x12\n\n\x06SIMPLE\x10\x01\x12\n\n\x06MUTUAL\x10\x02\x12\x14\n\x10\x41UTO_PASSTHROUGH\x10\x03\x12\x10\n\x0cISTIO_MUTUAL\x10\x04\x32\x82\x07\n\x0eKdeployService\x12.\n\tCreateApp\x12\x11.kdeploy.AppInput\x1a\x0c.kdeploy.App\"\x00\x12.\n\tUpdateApp\x12\x11.kdeploy.AppInput\x1a\x0c.kdeploy.App\"\x00\x12\x33\n\tDeleteApp\x12\x0c.kdeploy.Ref\x1a\x16.google.protobuf.Empty\"\x00\x12&\n\x06GetApp\x12\x0c.kdeploy.Ref\x1a\x0c.kdeploy.App\"\x00\x12/\n\x08ListApps\x12\x12.kdeploy.Namespace\x1a\r.kdeploy.Apps\"\x00\x12?\n\x0eListNamespaces\x12\x16.google.protobuf.Empty\x1a\x13.kdeploy.Namespaces\"\x00\x12\x39\n\tDeleteAll\x12\x12.kdeploy.Namespace\x1a\x16.google.protobuf.Empty\"\x00\x12\x31\n\nCreateTask\x12\x12.kdeploy.TaskInput\x1a\r.kdeploy.Task\"\x00\x12\x31\n\nUpdateTask\x12\x12.kdeploy.TaskInput\x1a\r.kdeploy.Task\"\x00\x12\x34\n\nDeleteTask\x12\x0c.kdeploy.Ref\x1a\x16.google.protobuf.Empty\"\x00\x12(\n\x07GetTask\x12\x0c.kdeploy.Ref\x1a\r.kdeploy.Task\"\x00\x12\x31\n\tListTasks\x12\x12.kdeploy.Namespace\x1a\x0e.kdeploy.Tasks\"\x00\x12,\n\nStreamLogs\x12\x0c.kdeploy.Ref\x1a\x0c.kdeploy.Log\"\x00\x30\x01\x12:\n\rCreateGateway\x12\x15.kdeploy.GatewayInput\x1a\x10.kdeploy.Gateway\"\x00\x12:\n\rUpdateGateway\x12\x15.kdeploy.GatewayInput\x1a\x10.kdeploy.Gateway\"\x00\x12\x37\n\rDeleteGateway\x12\x0c.kdeploy.Ref\x1a\x16.google.protobuf.Empty\"\x00\x12.\n\nGetGateway\x12\x0c.kdeploy.Ref\x1a\x10.kdeploy.Gateway\"\x00\x42\x0bZ\tkdeploypbb\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_any__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,github_dot_com_dot_mwitkow_dot_go__proto__validators_dot_validator__pb2.DESCRIPTOR,])
 
@@ -70,8 +70,8 @@ _PROTOCOL = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4012,
-  serialized_end=4115,
+  serialized_start=4157,
+  serialized_end=4260,
 )
 _sym_db.RegisterEnumDescriptor(_PROTOCOL)
 
@@ -105,8 +105,8 @@ _TLSMODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4117,
-  serialized_end=4207,
+  serialized_start=4262,
+  serialized_end=4352,
 )
 _sym_db.RegisterEnumDescriptor(_TLSMODE)
 
@@ -313,26 +313,26 @@ _GATEWAY_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=924,
-  serialized_end=969,
+  serialized_start=870,
+  serialized_end=915,
 )
 
-_GATEWAY_SELECTORSENTRY = _descriptor.Descriptor(
-  name='SelectorsEntry',
-  full_name='kdeploy.Gateway.SelectorsEntry',
+_GATEWAY_SELECTORENTRY = _descriptor.Descriptor(
+  name='SelectorEntry',
+  full_name='kdeploy.Gateway.SelectorEntry',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='key', full_name='kdeploy.Gateway.SelectorsEntry.key', index=0,
+      name='key', full_name='kdeploy.Gateway.SelectorEntry.key', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='value', full_name='kdeploy.Gateway.SelectorsEntry.value', index=1,
+      name='value', full_name='kdeploy.Gateway.SelectorEntry.value', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -350,8 +350,8 @@ _GATEWAY_SELECTORSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=971,
-  serialized_end=1019,
+  serialized_start=917,
+  serialized_end=964,
 )
 
 _GATEWAY = _descriptor.Descriptor(
@@ -367,14 +367,14 @@ _GATEWAY = _descriptor.Descriptor(
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=_b('\342\337\037\014\n\n^.{1,225}$'), file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='namespace', full_name='kdeploy.Gateway.namespace', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=_b('\342\337\037\014\n\n^.{1,225}$'), file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='listeners', full_name='kdeploy.Gateway.listeners', index=2,
       number=3, type=11, cpp_type=10, label=3,
@@ -388,18 +388,18 @@ _GATEWAY = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=_b('\342\337\037\002 \001'), file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='selectors', full_name='kdeploy.Gateway.selectors', index=4,
+      name='selector', full_name='kdeploy.Gateway.selector', index=4,
       number=5, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=_b('\342\337\037\002 \001'), file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
-  nested_types=[_GATEWAY_LABELSENTRY, _GATEWAY_SELECTORSENTRY, ],
+  nested_types=[_GATEWAY_LABELSENTRY, _GATEWAY_SELECTORENTRY, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -409,7 +409,7 @@ _GATEWAY = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=685,
-  serialized_end=1019,
+  serialized_end=964,
 )
 
 
@@ -446,26 +446,26 @@ _GATEWAYINPUT_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=924,
-  serialized_end=969,
+  serialized_start=870,
+  serialized_end=915,
 )
 
-_GATEWAYINPUT_SELECTORSENTRY = _descriptor.Descriptor(
-  name='SelectorsEntry',
-  full_name='kdeploy.GatewayInput.SelectorsEntry',
+_GATEWAYINPUT_SELECTORENTRY = _descriptor.Descriptor(
+  name='SelectorEntry',
+  full_name='kdeploy.GatewayInput.SelectorEntry',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='key', full_name='kdeploy.GatewayInput.SelectorsEntry.key', index=0,
+      name='key', full_name='kdeploy.GatewayInput.SelectorEntry.key', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='value', full_name='kdeploy.GatewayInput.SelectorsEntry.value', index=1,
+      name='value', full_name='kdeploy.GatewayInput.SelectorEntry.value', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -483,8 +483,8 @@ _GATEWAYINPUT_SELECTORSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=971,
-  serialized_end=1019,
+  serialized_start=917,
+  serialized_end=964,
 )
 
 _GATEWAYINPUT = _descriptor.Descriptor(
@@ -514,7 +514,7 @@ _GATEWAYINPUT = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=_b('\342\337\037\002`\000'), file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='labels', full_name='kdeploy.GatewayInput.labels', index=3,
       number=4, type=11, cpp_type=10, label=3,
@@ -523,7 +523,7 @@ _GATEWAYINPUT = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=_b('\342\337\037\002 \001'), file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='selectors', full_name='kdeploy.GatewayInput.selectors', index=4,
+      name='selector', full_name='kdeploy.GatewayInput.selector', index=4,
       number=5, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -532,7 +532,7 @@ _GATEWAYINPUT = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_GATEWAYINPUT_LABELSENTRY, _GATEWAYINPUT_SELECTORSENTRY, ],
+  nested_types=[_GATEWAYINPUT_LABELSENTRY, _GATEWAYINPUT_SELECTORENTRY, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -541,8 +541,8 @@ _GATEWAYINPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1022,
-  serialized_end=1379,
+  serialized_start=967,
+  serialized_end=1313,
 )
 
 
@@ -628,8 +628,8 @@ _HTTPROUTE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1382,
-  serialized_end=1609,
+  serialized_start=1316,
+  serialized_end=1543,
 )
 
 
@@ -680,8 +680,8 @@ _NETWORKING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1611,
-  serialized_end=1713,
+  serialized_start=1545,
+  serialized_end=1647,
 )
 
 
@@ -718,8 +718,8 @@ _APP_ENVENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2140,
-  serialized_end=2182,
+  serialized_start=2072,
+  serialized_end=2114,
 )
 
 _APP_PORTSENTRY = _descriptor.Descriptor(
@@ -755,8 +755,8 @@ _APP_PORTSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2184,
-  serialized_end=2228,
+  serialized_start=2116,
+  serialized_end=2160,
 )
 
 _APP_LABELSENTRY = _descriptor.Descriptor(
@@ -792,26 +792,26 @@ _APP_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=924,
-  serialized_end=969,
+  serialized_start=870,
+  serialized_end=915,
 )
 
-_APP_SELECTORSENTRY = _descriptor.Descriptor(
-  name='SelectorsEntry',
-  full_name='kdeploy.App.SelectorsEntry',
+_APP_SELECTORENTRY = _descriptor.Descriptor(
+  name='SelectorEntry',
+  full_name='kdeploy.App.SelectorEntry',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='key', full_name='kdeploy.App.SelectorsEntry.key', index=0,
+      name='key', full_name='kdeploy.App.SelectorEntry.key', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='value', full_name='kdeploy.App.SelectorsEntry.value', index=1,
+      name='value', full_name='kdeploy.App.SelectorEntry.value', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -829,8 +829,8 @@ _APP_SELECTORSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=971,
-  serialized_end=1019,
+  serialized_start=917,
+  serialized_end=964,
 )
 
 _APP = _descriptor.Descriptor(
@@ -897,7 +897,7 @@ _APP = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=_b('\342\337\037\002 \001'), file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='selectors', full_name='kdeploy.App.selectors', index=8,
+      name='selector', full_name='kdeploy.App.selector', index=8,
       number=10, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -920,7 +920,7 @@ _APP = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_APP_ENVENTRY, _APP_PORTSENTRY, _APP_LABELSENTRY, _APP_SELECTORSENTRY, ],
+  nested_types=[_APP_ENVENTRY, _APP_PORTSENTRY, _APP_LABELSENTRY, _APP_SELECTORENTRY, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -929,8 +929,8 @@ _APP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1716,
-  serialized_end=2325,
+  serialized_start=1650,
+  serialized_end=2256,
 )
 
 
@@ -967,8 +967,45 @@ _TASK_ENVENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2140,
-  serialized_end=2182,
+  serialized_start=2072,
+  serialized_end=2114,
+)
+
+_TASK_LABELSENTRY = _descriptor.Descriptor(
+  name='LabelsEntry',
+  full_name='kdeploy.Task.LabelsEntry',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='kdeploy.Task.LabelsEntry.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='kdeploy.Task.LabelsEntry.value', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=_b('8\001'),
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=870,
+  serialized_end=915,
 )
 
 _TASK_SELECTORENTRY = _descriptor.Descriptor(
@@ -1004,8 +1041,8 @@ _TASK_SELECTORENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2637,
-  serialized_end=2684,
+  serialized_start=917,
+  serialized_end=964,
 )
 
 _TASK = _descriptor.Descriptor(
@@ -1065,16 +1102,23 @@ _TASK = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='selector', full_name='kdeploy.Task.selector', index=7,
+      name='labels', full_name='kdeploy.Task.labels', index=7,
       number=9, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=_b('\342\337\037\002 \001'), file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='selector', full_name='kdeploy.Task.selector', index=8,
+      number=10, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=_b('\342\337\037\002 \001'), file=DESCRIPTOR),
   ],
   extensions=[
   ],
-  nested_types=[_TASK_ENVENTRY, _TASK_SELECTORENTRY, ],
+  nested_types=[_TASK_ENVENTRY, _TASK_LABELSENTRY, _TASK_SELECTORENTRY, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -1083,8 +1127,8 @@ _TASK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2328,
-  serialized_end=2684,
+  serialized_start=2259,
+  serialized_end=2721,
 )
 
 
@@ -1121,8 +1165,45 @@ _TASKINPUT_ENVENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2140,
-  serialized_end=2182,
+  serialized_start=2072,
+  serialized_end=2114,
+)
+
+_TASKINPUT_LABELSENTRY = _descriptor.Descriptor(
+  name='LabelsEntry',
+  full_name='kdeploy.TaskInput.LabelsEntry',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='kdeploy.TaskInput.LabelsEntry.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='kdeploy.TaskInput.LabelsEntry.value', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=_b('8\001'),
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=870,
+  serialized_end=915,
 )
 
 _TASKINPUT_SELECTORENTRY = _descriptor.Descriptor(
@@ -1158,8 +1239,8 @@ _TASKINPUT_SELECTORENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2637,
-  serialized_end=2684,
+  serialized_start=917,
+  serialized_end=964,
 )
 
 _TASKINPUT = _descriptor.Descriptor(
@@ -1219,16 +1300,23 @@ _TASKINPUT = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='selector', full_name='kdeploy.TaskInput.selector', index=7,
+      name='labels', full_name='kdeploy.TaskInput.labels', index=7,
       number=9, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=_b('\342\337\037\002 \001'), file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='selector', full_name='kdeploy.TaskInput.selector', index=8,
+      number=10, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=_b('\342\337\037\002 \001'), file=DESCRIPTOR),
   ],
   extensions=[
   ],
-  nested_types=[_TASKINPUT_ENVENTRY, _TASKINPUT_SELECTORENTRY, ],
+  nested_types=[_TASKINPUT_ENVENTRY, _TASKINPUT_LABELSENTRY, _TASKINPUT_SELECTORENTRY, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -1237,8 +1325,8 @@ _TASKINPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2687,
-  serialized_end=3058,
+  serialized_start=2724,
+  serialized_end=3206,
 )
 
 
@@ -1275,8 +1363,8 @@ _APPINPUT_ENVENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2140,
-  serialized_end=2182,
+  serialized_start=2072,
+  serialized_end=2114,
 )
 
 _APPINPUT_PORTSENTRY = _descriptor.Descriptor(
@@ -1312,8 +1400,8 @@ _APPINPUT_PORTSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2184,
-  serialized_end=2228,
+  serialized_start=2116,
+  serialized_end=2160,
 )
 
 _APPINPUT_LABELSENTRY = _descriptor.Descriptor(
@@ -1349,26 +1437,26 @@ _APPINPUT_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=924,
-  serialized_end=969,
+  serialized_start=870,
+  serialized_end=915,
 )
 
-_APPINPUT_SELECTORSENTRY = _descriptor.Descriptor(
-  name='SelectorsEntry',
-  full_name='kdeploy.AppInput.SelectorsEntry',
+_APPINPUT_SELECTORENTRY = _descriptor.Descriptor(
+  name='SelectorEntry',
+  full_name='kdeploy.AppInput.SelectorEntry',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='key', full_name='kdeploy.AppInput.SelectorsEntry.key', index=0,
+      name='key', full_name='kdeploy.AppInput.SelectorEntry.key', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='value', full_name='kdeploy.AppInput.SelectorsEntry.value', index=1,
+      name='value', full_name='kdeploy.AppInput.SelectorEntry.value', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -1386,8 +1474,8 @@ _APPINPUT_SELECTORSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=971,
-  serialized_end=1019,
+  serialized_start=917,
+  serialized_end=964,
 )
 
 _APPINPUT = _descriptor.Descriptor(
@@ -1461,7 +1549,7 @@ _APPINPUT = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=_b('\342\337\037\002 \001'), file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='selectors', full_name='kdeploy.AppInput.selectors', index=9,
+      name='selector', full_name='kdeploy.AppInput.selector', index=9,
       number=11, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -1470,7 +1558,7 @@ _APPINPUT = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_APPINPUT_ENVENTRY, _APPINPUT_PORTSENTRY, _APPINPUT_LABELSENTRY, _APPINPUT_SELECTORSENTRY, ],
+  nested_types=[_APPINPUT_ENVENTRY, _APPINPUT_PORTSENTRY, _APPINPUT_LABELSENTRY, _APPINPUT_SELECTORENTRY, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -1479,8 +1567,8 @@ _APPINPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3061,
-  serialized_end=3651,
+  serialized_start=3209,
+  serialized_end=3796,
 )
 
 
@@ -1517,8 +1605,8 @@ _REF = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3653,
-  serialized_end=3727,
+  serialized_start=3798,
+  serialized_end=3872,
 )
 
 
@@ -1562,8 +1650,8 @@ _REPLICA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3729,
-  serialized_end=3788,
+  serialized_start=3874,
+  serialized_end=3933,
 )
 
 
@@ -1593,8 +1681,8 @@ _APPSTATUS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3790,
-  serialized_end=3837,
+  serialized_start=3935,
+  serialized_end=3982,
 )
 
 
@@ -1624,8 +1712,8 @@ _LOG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3839,
-  serialized_end=3861,
+  serialized_start=3984,
+  serialized_end=4006,
 )
 
 
@@ -1655,8 +1743,8 @@ _APPS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3863,
-  serialized_end=3905,
+  serialized_start=4008,
+  serialized_end=4050,
 )
 
 
@@ -1686,8 +1774,8 @@ _TASKS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3907,
-  serialized_end=3944,
+  serialized_start=4052,
+  serialized_end=4089,
 )
 
 
@@ -1717,8 +1805,8 @@ _NAMESPACE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3946,
-  serialized_end=3976,
+  serialized_start=4091,
+  serialized_end=4121,
 )
 
 
@@ -1748,51 +1836,55 @@ _NAMESPACES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3978,
-  serialized_end=4010,
+  serialized_start=4123,
+  serialized_end=4155,
 )
 
 _SERVERTLSSETTINGS.fields_by_name['mode'].enum_type = _TLSMODE
 _GATEWAYLISTENER.fields_by_name['protocol'].enum_type = _PROTOCOL
 _GATEWAYLISTENER.fields_by_name['tls_config'].message_type = _SERVERTLSSETTINGS
 _GATEWAY_LABELSENTRY.containing_type = _GATEWAY
-_GATEWAY_SELECTORSENTRY.containing_type = _GATEWAY
+_GATEWAY_SELECTORENTRY.containing_type = _GATEWAY
 _GATEWAY.fields_by_name['listeners'].message_type = _GATEWAYLISTENER
 _GATEWAY.fields_by_name['labels'].message_type = _GATEWAY_LABELSENTRY
-_GATEWAY.fields_by_name['selectors'].message_type = _GATEWAY_SELECTORSENTRY
+_GATEWAY.fields_by_name['selector'].message_type = _GATEWAY_SELECTORENTRY
 _GATEWAYINPUT_LABELSENTRY.containing_type = _GATEWAYINPUT
-_GATEWAYINPUT_SELECTORSENTRY.containing_type = _GATEWAYINPUT
+_GATEWAYINPUT_SELECTORENTRY.containing_type = _GATEWAYINPUT
 _GATEWAYINPUT.fields_by_name['listeners'].message_type = _GATEWAYLISTENER
 _GATEWAYINPUT.fields_by_name['labels'].message_type = _GATEWAYINPUT_LABELSENTRY
-_GATEWAYINPUT.fields_by_name['selectors'].message_type = _GATEWAYINPUT_SELECTORSENTRY
+_GATEWAYINPUT.fields_by_name['selector'].message_type = _GATEWAYINPUT_SELECTORENTRY
 _NETWORKING.fields_by_name['http_routes'].message_type = _HTTPROUTE
 _APP_ENVENTRY.containing_type = _APP
 _APP_PORTSENTRY.containing_type = _APP
 _APP_LABELSENTRY.containing_type = _APP
-_APP_SELECTORSENTRY.containing_type = _APP
+_APP_SELECTORENTRY.containing_type = _APP
 _APP.fields_by_name['env'].message_type = _APP_ENVENTRY
 _APP.fields_by_name['ports'].message_type = _APP_PORTSENTRY
 _APP.fields_by_name['labels'].message_type = _APP_LABELSENTRY
-_APP.fields_by_name['selectors'].message_type = _APP_SELECTORSENTRY
+_APP.fields_by_name['selector'].message_type = _APP_SELECTORENTRY
 _APP.fields_by_name['networking'].message_type = _NETWORKING
 _APP.fields_by_name['status'].message_type = _APPSTATUS
 _TASK_ENVENTRY.containing_type = _TASK
+_TASK_LABELSENTRY.containing_type = _TASK
 _TASK_SELECTORENTRY.containing_type = _TASK
 _TASK.fields_by_name['env'].message_type = _TASK_ENVENTRY
+_TASK.fields_by_name['labels'].message_type = _TASK_LABELSENTRY
 _TASK.fields_by_name['selector'].message_type = _TASK_SELECTORENTRY
 _TASKINPUT_ENVENTRY.containing_type = _TASKINPUT
+_TASKINPUT_LABELSENTRY.containing_type = _TASKINPUT
 _TASKINPUT_SELECTORENTRY.containing_type = _TASKINPUT
 _TASKINPUT.fields_by_name['env'].message_type = _TASKINPUT_ENVENTRY
+_TASKINPUT.fields_by_name['labels'].message_type = _TASKINPUT_LABELSENTRY
 _TASKINPUT.fields_by_name['selector'].message_type = _TASKINPUT_SELECTORENTRY
 _APPINPUT_ENVENTRY.containing_type = _APPINPUT
 _APPINPUT_PORTSENTRY.containing_type = _APPINPUT
 _APPINPUT_LABELSENTRY.containing_type = _APPINPUT
-_APPINPUT_SELECTORSENTRY.containing_type = _APPINPUT
+_APPINPUT_SELECTORENTRY.containing_type = _APPINPUT
 _APPINPUT.fields_by_name['env'].message_type = _APPINPUT_ENVENTRY
 _APPINPUT.fields_by_name['ports'].message_type = _APPINPUT_PORTSENTRY
 _APPINPUT.fields_by_name['networking'].message_type = _NETWORKING
 _APPINPUT.fields_by_name['labels'].message_type = _APPINPUT_LABELSENTRY
-_APPINPUT.fields_by_name['selectors'].message_type = _APPINPUT_SELECTORSENTRY
+_APPINPUT.fields_by_name['selector'].message_type = _APPINPUT_SELECTORENTRY
 _APPSTATUS.fields_by_name['replicas'].message_type = _REPLICA
 _APPS.fields_by_name['applications'].message_type = _APP
 _TASKS.fields_by_name['tasks'].message_type = _TASK
@@ -1841,10 +1933,10 @@ Gateway = _reflection.GeneratedProtocolMessageType('Gateway', (_message.Message,
     ))
   ,
 
-  SelectorsEntry = _reflection.GeneratedProtocolMessageType('SelectorsEntry', (_message.Message,), dict(
-    DESCRIPTOR = _GATEWAY_SELECTORSENTRY,
+  SelectorEntry = _reflection.GeneratedProtocolMessageType('SelectorEntry', (_message.Message,), dict(
+    DESCRIPTOR = _GATEWAY_SELECTORENTRY,
     __module__ = 'kdeploy_pb2'
-    # @@protoc_insertion_point(class_scope:kdeploy.Gateway.SelectorsEntry)
+    # @@protoc_insertion_point(class_scope:kdeploy.Gateway.SelectorEntry)
     ))
   ,
   DESCRIPTOR = _GATEWAY,
@@ -1853,7 +1945,7 @@ Gateway = _reflection.GeneratedProtocolMessageType('Gateway', (_message.Message,
   ))
 _sym_db.RegisterMessage(Gateway)
 _sym_db.RegisterMessage(Gateway.LabelsEntry)
-_sym_db.RegisterMessage(Gateway.SelectorsEntry)
+_sym_db.RegisterMessage(Gateway.SelectorEntry)
 
 GatewayInput = _reflection.GeneratedProtocolMessageType('GatewayInput', (_message.Message,), dict(
 
@@ -1864,10 +1956,10 @@ GatewayInput = _reflection.GeneratedProtocolMessageType('GatewayInput', (_messag
     ))
   ,
 
-  SelectorsEntry = _reflection.GeneratedProtocolMessageType('SelectorsEntry', (_message.Message,), dict(
-    DESCRIPTOR = _GATEWAYINPUT_SELECTORSENTRY,
+  SelectorEntry = _reflection.GeneratedProtocolMessageType('SelectorEntry', (_message.Message,), dict(
+    DESCRIPTOR = _GATEWAYINPUT_SELECTORENTRY,
     __module__ = 'kdeploy_pb2'
-    # @@protoc_insertion_point(class_scope:kdeploy.GatewayInput.SelectorsEntry)
+    # @@protoc_insertion_point(class_scope:kdeploy.GatewayInput.SelectorEntry)
     ))
   ,
   DESCRIPTOR = _GATEWAYINPUT,
@@ -1876,7 +1968,7 @@ GatewayInput = _reflection.GeneratedProtocolMessageType('GatewayInput', (_messag
   ))
 _sym_db.RegisterMessage(GatewayInput)
 _sym_db.RegisterMessage(GatewayInput.LabelsEntry)
-_sym_db.RegisterMessage(GatewayInput.SelectorsEntry)
+_sym_db.RegisterMessage(GatewayInput.SelectorEntry)
 
 HTTPRoute = _reflection.GeneratedProtocolMessageType('HTTPRoute', (_message.Message,), dict(
   DESCRIPTOR = _HTTPROUTE,
@@ -1915,10 +2007,10 @@ App = _reflection.GeneratedProtocolMessageType('App', (_message.Message,), dict(
     ))
   ,
 
-  SelectorsEntry = _reflection.GeneratedProtocolMessageType('SelectorsEntry', (_message.Message,), dict(
-    DESCRIPTOR = _APP_SELECTORSENTRY,
+  SelectorEntry = _reflection.GeneratedProtocolMessageType('SelectorEntry', (_message.Message,), dict(
+    DESCRIPTOR = _APP_SELECTORENTRY,
     __module__ = 'kdeploy_pb2'
-    # @@protoc_insertion_point(class_scope:kdeploy.App.SelectorsEntry)
+    # @@protoc_insertion_point(class_scope:kdeploy.App.SelectorEntry)
     ))
   ,
   DESCRIPTOR = _APP,
@@ -1929,7 +2021,7 @@ _sym_db.RegisterMessage(App)
 _sym_db.RegisterMessage(App.EnvEntry)
 _sym_db.RegisterMessage(App.PortsEntry)
 _sym_db.RegisterMessage(App.LabelsEntry)
-_sym_db.RegisterMessage(App.SelectorsEntry)
+_sym_db.RegisterMessage(App.SelectorEntry)
 
 Task = _reflection.GeneratedProtocolMessageType('Task', (_message.Message,), dict(
 
@@ -1937,6 +2029,13 @@ Task = _reflection.GeneratedProtocolMessageType('Task', (_message.Message,), dic
     DESCRIPTOR = _TASK_ENVENTRY,
     __module__ = 'kdeploy_pb2'
     # @@protoc_insertion_point(class_scope:kdeploy.Task.EnvEntry)
+    ))
+  ,
+
+  LabelsEntry = _reflection.GeneratedProtocolMessageType('LabelsEntry', (_message.Message,), dict(
+    DESCRIPTOR = _TASK_LABELSENTRY,
+    __module__ = 'kdeploy_pb2'
+    # @@protoc_insertion_point(class_scope:kdeploy.Task.LabelsEntry)
     ))
   ,
 
@@ -1952,6 +2051,7 @@ Task = _reflection.GeneratedProtocolMessageType('Task', (_message.Message,), dic
   ))
 _sym_db.RegisterMessage(Task)
 _sym_db.RegisterMessage(Task.EnvEntry)
+_sym_db.RegisterMessage(Task.LabelsEntry)
 _sym_db.RegisterMessage(Task.SelectorEntry)
 
 TaskInput = _reflection.GeneratedProtocolMessageType('TaskInput', (_message.Message,), dict(
@@ -1960,6 +2060,13 @@ TaskInput = _reflection.GeneratedProtocolMessageType('TaskInput', (_message.Mess
     DESCRIPTOR = _TASKINPUT_ENVENTRY,
     __module__ = 'kdeploy_pb2'
     # @@protoc_insertion_point(class_scope:kdeploy.TaskInput.EnvEntry)
+    ))
+  ,
+
+  LabelsEntry = _reflection.GeneratedProtocolMessageType('LabelsEntry', (_message.Message,), dict(
+    DESCRIPTOR = _TASKINPUT_LABELSENTRY,
+    __module__ = 'kdeploy_pb2'
+    # @@protoc_insertion_point(class_scope:kdeploy.TaskInput.LabelsEntry)
     ))
   ,
 
@@ -1975,6 +2082,7 @@ TaskInput = _reflection.GeneratedProtocolMessageType('TaskInput', (_message.Mess
   ))
 _sym_db.RegisterMessage(TaskInput)
 _sym_db.RegisterMessage(TaskInput.EnvEntry)
+_sym_db.RegisterMessage(TaskInput.LabelsEntry)
 _sym_db.RegisterMessage(TaskInput.SelectorEntry)
 
 AppInput = _reflection.GeneratedProtocolMessageType('AppInput', (_message.Message,), dict(
@@ -2000,10 +2108,10 @@ AppInput = _reflection.GeneratedProtocolMessageType('AppInput', (_message.Messag
     ))
   ,
 
-  SelectorsEntry = _reflection.GeneratedProtocolMessageType('SelectorsEntry', (_message.Message,), dict(
-    DESCRIPTOR = _APPINPUT_SELECTORSENTRY,
+  SelectorEntry = _reflection.GeneratedProtocolMessageType('SelectorEntry', (_message.Message,), dict(
+    DESCRIPTOR = _APPINPUT_SELECTORENTRY,
     __module__ = 'kdeploy_pb2'
-    # @@protoc_insertion_point(class_scope:kdeploy.AppInput.SelectorsEntry)
+    # @@protoc_insertion_point(class_scope:kdeploy.AppInput.SelectorEntry)
     ))
   ,
   DESCRIPTOR = _APPINPUT,
@@ -2014,7 +2122,7 @@ _sym_db.RegisterMessage(AppInput)
 _sym_db.RegisterMessage(AppInput.EnvEntry)
 _sym_db.RegisterMessage(AppInput.PortsEntry)
 _sym_db.RegisterMessage(AppInput.LabelsEntry)
-_sym_db.RegisterMessage(AppInput.SelectorsEntry)
+_sym_db.RegisterMessage(AppInput.SelectorEntry)
 
 Ref = _reflection.GeneratedProtocolMessageType('Ref', (_message.Message,), dict(
   DESCRIPTOR = _REF,
@@ -2079,55 +2187,56 @@ _GATEWAYLISTENER.fields_by_name['name']._options = None
 _GATEWAYLISTENER.fields_by_name['protocol']._options = None
 _GATEWAYLISTENER.fields_by_name['hosts']._options = None
 _GATEWAY_LABELSENTRY._options = None
-_GATEWAY_SELECTORSENTRY._options = None
-_GATEWAY.fields_by_name['name']._options = None
-_GATEWAY.fields_by_name['namespace']._options = None
-_GATEWAY.fields_by_name['labels']._options = None
-_GATEWAY.fields_by_name['selectors']._options = None
+_GATEWAY_SELECTORENTRY._options = None
 _GATEWAYINPUT_LABELSENTRY._options = None
-_GATEWAYINPUT_SELECTORSENTRY._options = None
+_GATEWAYINPUT_SELECTORENTRY._options = None
 _GATEWAYINPUT.fields_by_name['name']._options = None
 _GATEWAYINPUT.fields_by_name['namespace']._options = None
-_GATEWAYINPUT.fields_by_name['listeners']._options = None
 _GATEWAYINPUT.fields_by_name['labels']._options = None
-_GATEWAYINPUT.fields_by_name['selectors']._options = None
+_GATEWAYINPUT.fields_by_name['selector']._options = None
 _HTTPROUTE.fields_by_name['name']._options = None
 _HTTPROUTE.fields_by_name['port']._options = None
 _APP_ENVENTRY._options = None
 _APP_PORTSENTRY._options = None
 _APP_LABELSENTRY._options = None
-_APP_SELECTORSENTRY._options = None
+_APP_SELECTORENTRY._options = None
 _APP.fields_by_name['name']._options = None
 _APP.fields_by_name['namespace']._options = None
 _APP.fields_by_name['image']._options = None
 _APP.fields_by_name['ports']._options = None
 _APP.fields_by_name['labels']._options = None
-_APP.fields_by_name['selectors']._options = None
+_APP.fields_by_name['selector']._options = None
 _APP.fields_by_name['networking']._options = None
 _APP.fields_by_name['status']._options = None
 _TASK_ENVENTRY._options = None
+_TASK_LABELSENTRY._options = None
 _TASK_SELECTORENTRY._options = None
 _TASK.fields_by_name['name']._options = None
 _TASK.fields_by_name['namespace']._options = None
 _TASK.fields_by_name['image']._options = None
 _TASK.fields_by_name['schedule']._options = None
+_TASK.fields_by_name['labels']._options = None
+_TASK.fields_by_name['selector']._options = None
 _TASKINPUT_ENVENTRY._options = None
+_TASKINPUT_LABELSENTRY._options = None
 _TASKINPUT_SELECTORENTRY._options = None
 _TASKINPUT.fields_by_name['name']._options = None
 _TASKINPUT.fields_by_name['namespace']._options = None
 _TASKINPUT.fields_by_name['image']._options = None
 _TASKINPUT.fields_by_name['schedule']._options = None
+_TASKINPUT.fields_by_name['labels']._options = None
+_TASKINPUT.fields_by_name['selector']._options = None
 _APPINPUT_ENVENTRY._options = None
 _APPINPUT_PORTSENTRY._options = None
 _APPINPUT_LABELSENTRY._options = None
-_APPINPUT_SELECTORSENTRY._options = None
+_APPINPUT_SELECTORENTRY._options = None
 _APPINPUT.fields_by_name['name']._options = None
 _APPINPUT.fields_by_name['namespace']._options = None
 _APPINPUT.fields_by_name['image']._options = None
 _APPINPUT.fields_by_name['ports']._options = None
 _APPINPUT.fields_by_name['networking']._options = None
 _APPINPUT.fields_by_name['labels']._options = None
-_APPINPUT.fields_by_name['selectors']._options = None
+_APPINPUT.fields_by_name['selector']._options = None
 _REF.fields_by_name['name']._options = None
 _REF.fields_by_name['namespace']._options = None
 
@@ -2137,8 +2246,8 @@ _KDEPLOYSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=4210,
-  serialized_end=5098,
+  serialized_start=4355,
+  serialized_end=5253,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateApp',
@@ -2262,7 +2371,7 @@ _KDEPLOYSERVICE = _descriptor.ServiceDescriptor(
     full_name='kdeploy.KdeployService.CreateGateway',
     index=13,
     containing_service=None,
-    input_type=_GATEWAY,
+    input_type=_GATEWAYINPUT,
     output_type=_GATEWAY,
     serialized_options=None,
   ),
@@ -2271,7 +2380,7 @@ _KDEPLOYSERVICE = _descriptor.ServiceDescriptor(
     full_name='kdeploy.KdeployService.UpdateGateway',
     index=14,
     containing_service=None,
-    input_type=_GATEWAY,
+    input_type=_GATEWAYINPUT,
     output_type=_GATEWAY,
     serialized_options=None,
   ),

@@ -44,17 +44,7 @@ func (this *GatewayListener) Validate() error {
 	}
 	return nil
 }
-
-var _regex_Gateway_Name = regexp.MustCompile(`^.{1,225}$`)
-var _regex_Gateway_Namespace = regexp.MustCompile(`^.{1,225}$`)
-
 func (this *Gateway) Validate() error {
-	if !_regex_Gateway_Name.MatchString(this.Name) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
-	}
-	if !_regex_Gateway_Namespace.MatchString(this.Namespace) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Namespace", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Namespace))
-	}
 	for _, item := range this.Listeners {
 		if item != nil {
 			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
@@ -76,9 +66,6 @@ func (this *GatewayInput) Validate() error {
 	}
 	if !_regex_GatewayInput_Namespace.MatchString(this.Namespace) {
 		return github_com_mwitkow_go_proto_validators.FieldError("Namespace", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Namespace))
-	}
-	if len(this.Listeners) < 0 {
-		return github_com_mwitkow_go_proto_validators.FieldError("Listeners", fmt.Errorf(`value '%v' must contain at least 0 elements`, this.Listeners))
 	}
 	for _, item := range this.Listeners {
 		if item != nil {
@@ -171,6 +158,7 @@ func (this *Task) Validate() error {
 		return github_com_mwitkow_go_proto_validators.FieldError("Schedule", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Schedule))
 	}
 	// Validation of proto3 map<> fields is unsupported.
+	// Validation of proto3 map<> fields is unsupported.
 	return nil
 }
 
@@ -193,6 +181,7 @@ func (this *TaskInput) Validate() error {
 	if !_regex_TaskInput_Schedule.MatchString(this.Schedule) {
 		return github_com_mwitkow_go_proto_validators.FieldError("Schedule", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Schedule))
 	}
+	// Validation of proto3 map<> fields is unsupported.
 	// Validation of proto3 map<> fields is unsupported.
 	return nil
 }

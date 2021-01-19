@@ -3275,7 +3275,7 @@ public final class Kdeploy {
      * name of the application
      * </pre>
      *
-     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     * <code>string name = 1;</code>
      */
     java.lang.String getName();
     /**
@@ -3283,7 +3283,7 @@ public final class Kdeploy {
      * name of the application
      * </pre>
      *
-     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     * <code>string name = 1;</code>
      */
     com.google.protobuf.ByteString
         getNameBytes();
@@ -3293,7 +3293,7 @@ public final class Kdeploy {
      * application namespace
      * </pre>
      *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+     * <code>string namespace = 2;</code>
      */
     java.lang.String getNamespace();
     /**
@@ -3301,7 +3301,7 @@ public final class Kdeploy {
      * application namespace
      * </pre>
      *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+     * <code>string namespace = 2;</code>
      */
     com.google.protobuf.ByteString
         getNamespaceBytes();
@@ -3331,11 +3331,11 @@ public final class Kdeploy {
         int index);
 
     /**
-     * <code>map&lt;string, string&gt; labels = 4 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; labels = 4;</code>
      */
     int getLabelsCount();
     /**
-     * <code>map&lt;string, string&gt; labels = 4 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; labels = 4;</code>
      */
     boolean containsLabels(
         java.lang.String key);
@@ -3346,56 +3346,56 @@ public final class Kdeploy {
     java.util.Map<java.lang.String, java.lang.String>
     getLabels();
     /**
-     * <code>map&lt;string, string&gt; labels = 4 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; labels = 4;</code>
      */
     java.util.Map<java.lang.String, java.lang.String>
     getLabelsMap();
     /**
-     * <code>map&lt;string, string&gt; labels = 4 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; labels = 4;</code>
      */
 
     java.lang.String getLabelsOrDefault(
         java.lang.String key,
         java.lang.String defaultValue);
     /**
-     * <code>map&lt;string, string&gt; labels = 4 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; labels = 4;</code>
      */
 
     java.lang.String getLabelsOrThrow(
         java.lang.String key);
 
     /**
-     * <code>map&lt;string, string&gt; selectors = 5 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 5;</code>
      */
-    int getSelectorsCount();
+    int getSelectorCount();
     /**
-     * <code>map&lt;string, string&gt; selectors = 5 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 5;</code>
      */
-    boolean containsSelectors(
+    boolean containsSelector(
         java.lang.String key);
     /**
-     * Use {@link #getSelectorsMap()} instead.
+     * Use {@link #getSelectorMap()} instead.
      */
     @java.lang.Deprecated
     java.util.Map<java.lang.String, java.lang.String>
-    getSelectors();
+    getSelector();
     /**
-     * <code>map&lt;string, string&gt; selectors = 5 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 5;</code>
      */
     java.util.Map<java.lang.String, java.lang.String>
-    getSelectorsMap();
+    getSelectorMap();
     /**
-     * <code>map&lt;string, string&gt; selectors = 5 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 5;</code>
      */
 
-    java.lang.String getSelectorsOrDefault(
+    java.lang.String getSelectorOrDefault(
         java.lang.String key,
         java.lang.String defaultValue);
     /**
-     * <code>map&lt;string, string&gt; selectors = 5 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 5;</code>
      */
 
-    java.lang.String getSelectorsOrThrow(
+    java.lang.String getSelectorOrThrow(
         java.lang.String key);
   }
   /**
@@ -3476,15 +3476,15 @@ public final class Kdeploy {
             }
             case 42: {
               if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-                selectors_ = com.google.protobuf.MapField.newMapField(
-                    SelectorsDefaultEntryHolder.defaultEntry);
+                selector_ = com.google.protobuf.MapField.newMapField(
+                    SelectorDefaultEntryHolder.defaultEntry);
                 mutable_bitField0_ |= 0x00000010;
               }
               com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              selectors__ = input.readMessage(
-                  SelectorsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              selectors_.getMutableMap().put(
-                  selectors__.getKey(), selectors__.getValue());
+              selector__ = input.readMessage(
+                  SelectorDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              selector_.getMutableMap().put(
+                  selector__.getKey(), selector__.getValue());
               break;
             }
             default: {
@@ -3522,7 +3522,7 @@ public final class Kdeploy {
         case 4:
           return internalGetLabels();
         case 5:
-          return internalGetSelectors();
+          return internalGetSelector();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -3544,7 +3544,7 @@ public final class Kdeploy {
      * name of the application
      * </pre>
      *
-     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     * <code>string name = 1;</code>
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -3563,7 +3563,7 @@ public final class Kdeploy {
      * name of the application
      * </pre>
      *
-     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     * <code>string name = 1;</code>
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -3586,7 +3586,7 @@ public final class Kdeploy {
      * application namespace
      * </pre>
      *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+     * <code>string namespace = 2;</code>
      */
     public java.lang.String getNamespace() {
       java.lang.Object ref = namespace_;
@@ -3605,7 +3605,7 @@ public final class Kdeploy {
      * application namespace
      * </pre>
      *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+     * <code>string namespace = 2;</code>
      */
     public com.google.protobuf.ByteString
         getNamespaceBytes() {
@@ -3683,7 +3683,7 @@ public final class Kdeploy {
       return internalGetLabels().getMap().size();
     }
     /**
-     * <code>map&lt;string, string&gt; labels = 4 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; labels = 4;</code>
      */
 
     public boolean containsLabels(
@@ -3699,14 +3699,14 @@ public final class Kdeploy {
       return getLabelsMap();
     }
     /**
-     * <code>map&lt;string, string&gt; labels = 4 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; labels = 4;</code>
      */
 
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
     /**
-     * <code>map&lt;string, string&gt; labels = 4 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; labels = 4;</code>
      */
 
     public java.lang.String getLabelsOrDefault(
@@ -3718,7 +3718,7 @@ public final class Kdeploy {
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;string, string&gt; labels = 4 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; labels = 4;</code>
      */
 
     public java.lang.String getLabelsOrThrow(
@@ -3732,76 +3732,76 @@ public final class Kdeploy {
       return map.get(key);
     }
 
-    public static final int SELECTORS_FIELD_NUMBER = 5;
-    private static final class SelectorsDefaultEntryHolder {
+    public static final int SELECTOR_FIELD_NUMBER = 5;
+    private static final class SelectorDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
           java.lang.String, java.lang.String> defaultEntry =
               com.google.protobuf.MapEntry
               .<java.lang.String, java.lang.String>newDefaultInstance(
-                  kdeploy.Kdeploy.internal_static_kdeploy_Gateway_SelectorsEntry_descriptor, 
+                  kdeploy.Kdeploy.internal_static_kdeploy_Gateway_SelectorEntry_descriptor, 
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "",
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "");
     }
     private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> selectors_;
+        java.lang.String, java.lang.String> selector_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetSelectors() {
-      if (selectors_ == null) {
+    internalGetSelector() {
+      if (selector_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
-            SelectorsDefaultEntryHolder.defaultEntry);
+            SelectorDefaultEntryHolder.defaultEntry);
       }
-      return selectors_;
+      return selector_;
     }
 
-    public int getSelectorsCount() {
-      return internalGetSelectors().getMap().size();
+    public int getSelectorCount() {
+      return internalGetSelector().getMap().size();
     }
     /**
-     * <code>map&lt;string, string&gt; selectors = 5 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 5;</code>
      */
 
-    public boolean containsSelectors(
+    public boolean containsSelector(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetSelectors().getMap().containsKey(key);
+      return internalGetSelector().getMap().containsKey(key);
     }
     /**
-     * Use {@link #getSelectorsMap()} instead.
+     * Use {@link #getSelectorMap()} instead.
      */
     @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getSelectors() {
-      return getSelectorsMap();
+    public java.util.Map<java.lang.String, java.lang.String> getSelector() {
+      return getSelectorMap();
     }
     /**
-     * <code>map&lt;string, string&gt; selectors = 5 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 5;</code>
      */
 
-    public java.util.Map<java.lang.String, java.lang.String> getSelectorsMap() {
-      return internalGetSelectors().getMap();
+    public java.util.Map<java.lang.String, java.lang.String> getSelectorMap() {
+      return internalGetSelector().getMap();
     }
     /**
-     * <code>map&lt;string, string&gt; selectors = 5 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 5;</code>
      */
 
-    public java.lang.String getSelectorsOrDefault(
+    public java.lang.String getSelectorOrDefault(
         java.lang.String key,
         java.lang.String defaultValue) {
       if (key == null) { throw new java.lang.NullPointerException(); }
       java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetSelectors().getMap();
+          internalGetSelector().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;string, string&gt; selectors = 5 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 5;</code>
      */
 
-    public java.lang.String getSelectorsOrThrow(
+    public java.lang.String getSelectorOrThrow(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
       java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetSelectors().getMap();
+          internalGetSelector().getMap();
       if (!map.containsKey(key)) {
         throw new java.lang.IllegalArgumentException();
       }
@@ -3840,8 +3840,8 @@ public final class Kdeploy {
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
           output,
-          internalGetSelectors(),
-          SelectorsDefaultEntryHolder.defaultEntry,
+          internalGetSelector(),
+          SelectorDefaultEntryHolder.defaultEntry,
           5);
       unknownFields.writeTo(output);
     }
@@ -3873,14 +3873,14 @@ public final class Kdeploy {
             .computeMessageSize(4, labels__);
       }
       for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetSelectors().getMap().entrySet()) {
+           : internalGetSelector().getMap().entrySet()) {
         com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        selectors__ = SelectorsDefaultEntryHolder.defaultEntry.newBuilderForType()
+        selector__ = SelectorDefaultEntryHolder.defaultEntry.newBuilderForType()
             .setKey(entry.getKey())
             .setValue(entry.getValue())
             .build();
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(5, selectors__);
+            .computeMessageSize(5, selector__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3906,8 +3906,8 @@ public final class Kdeploy {
           .equals(other.getListenersList());
       result = result && internalGetLabels().equals(
           other.internalGetLabels());
-      result = result && internalGetSelectors().equals(
-          other.internalGetSelectors());
+      result = result && internalGetSelector().equals(
+          other.internalGetSelector());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -3931,9 +3931,9 @@ public final class Kdeploy {
         hash = (37 * hash) + LABELS_FIELD_NUMBER;
         hash = (53 * hash) + internalGetLabels().hashCode();
       }
-      if (!internalGetSelectors().getMap().isEmpty()) {
-        hash = (37 * hash) + SELECTORS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetSelectors().hashCode();
+      if (!internalGetSelector().getMap().isEmpty()) {
+        hash = (37 * hash) + SELECTOR_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetSelector().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -4049,7 +4049,7 @@ public final class Kdeploy {
           case 4:
             return internalGetLabels();
           case 5:
-            return internalGetSelectors();
+            return internalGetSelector();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -4062,7 +4062,7 @@ public final class Kdeploy {
           case 4:
             return internalGetMutableLabels();
           case 5:
-            return internalGetMutableSelectors();
+            return internalGetMutableSelector();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -4106,7 +4106,7 @@ public final class Kdeploy {
           listenersBuilder_.clear();
         }
         internalGetMutableLabels().clear();
-        internalGetMutableSelectors().clear();
+        internalGetMutableSelector().clear();
         return this;
       }
 
@@ -4148,8 +4148,8 @@ public final class Kdeploy {
         }
         result.labels_ = internalGetLabels();
         result.labels_.makeImmutable();
-        result.selectors_ = internalGetSelectors();
-        result.selectors_.makeImmutable();
+        result.selector_ = internalGetSelector();
+        result.selector_.makeImmutable();
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -4235,8 +4235,8 @@ public final class Kdeploy {
         }
         internalGetMutableLabels().mergeFrom(
             other.internalGetLabels());
-        internalGetMutableSelectors().mergeFrom(
-            other.internalGetSelectors());
+        internalGetMutableSelector().mergeFrom(
+            other.internalGetSelector());
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -4273,7 +4273,7 @@ public final class Kdeploy {
        * name of the application
        * </pre>
        *
-       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       * <code>string name = 1;</code>
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -4292,7 +4292,7 @@ public final class Kdeploy {
        * name of the application
        * </pre>
        *
-       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       * <code>string name = 1;</code>
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -4312,7 +4312,7 @@ public final class Kdeploy {
        * name of the application
        * </pre>
        *
-       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       * <code>string name = 1;</code>
        */
       public Builder setName(
           java.lang.String value) {
@@ -4329,7 +4329,7 @@ public final class Kdeploy {
        * name of the application
        * </pre>
        *
-       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       * <code>string name = 1;</code>
        */
       public Builder clearName() {
         
@@ -4342,7 +4342,7 @@ public final class Kdeploy {
        * name of the application
        * </pre>
        *
-       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       * <code>string name = 1;</code>
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -4362,7 +4362,7 @@ public final class Kdeploy {
        * application namespace
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string namespace = 2;</code>
        */
       public java.lang.String getNamespace() {
         java.lang.Object ref = namespace_;
@@ -4381,7 +4381,7 @@ public final class Kdeploy {
        * application namespace
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string namespace = 2;</code>
        */
       public com.google.protobuf.ByteString
           getNamespaceBytes() {
@@ -4401,7 +4401,7 @@ public final class Kdeploy {
        * application namespace
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string namespace = 2;</code>
        */
       public Builder setNamespace(
           java.lang.String value) {
@@ -4418,7 +4418,7 @@ public final class Kdeploy {
        * application namespace
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string namespace = 2;</code>
        */
       public Builder clearNamespace() {
         
@@ -4431,7 +4431,7 @@ public final class Kdeploy {
        * application namespace
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string namespace = 2;</code>
        */
       public Builder setNamespaceBytes(
           com.google.protobuf.ByteString value) {
@@ -4712,7 +4712,7 @@ public final class Kdeploy {
         return internalGetLabels().getMap().size();
       }
       /**
-       * <code>map&lt;string, string&gt; labels = 4 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; labels = 4;</code>
        */
 
       public boolean containsLabels(
@@ -4728,14 +4728,14 @@ public final class Kdeploy {
         return getLabelsMap();
       }
       /**
-       * <code>map&lt;string, string&gt; labels = 4 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; labels = 4;</code>
        */
 
       public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
         return internalGetLabels().getMap();
       }
       /**
-       * <code>map&lt;string, string&gt; labels = 4 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; labels = 4;</code>
        */
 
       public java.lang.String getLabelsOrDefault(
@@ -4747,7 +4747,7 @@ public final class Kdeploy {
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
       /**
-       * <code>map&lt;string, string&gt; labels = 4 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; labels = 4;</code>
        */
 
       public java.lang.String getLabelsOrThrow(
@@ -4767,7 +4767,7 @@ public final class Kdeploy {
         return this;
       }
       /**
-       * <code>map&lt;string, string&gt; labels = 4 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; labels = 4;</code>
        */
 
       public Builder removeLabels(
@@ -4786,7 +4786,7 @@ public final class Kdeploy {
         return internalGetMutableLabels().getMutableMap();
       }
       /**
-       * <code>map&lt;string, string&gt; labels = 4 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; labels = 4;</code>
        */
       public Builder putLabels(
           java.lang.String key,
@@ -4798,7 +4798,7 @@ public final class Kdeploy {
         return this;
       }
       /**
-       * <code>map&lt;string, string&gt; labels = 4 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; labels = 4;</code>
        */
 
       public Builder putAllLabels(
@@ -4809,94 +4809,94 @@ public final class Kdeploy {
       }
 
       private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> selectors_;
+          java.lang.String, java.lang.String> selector_;
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetSelectors() {
-        if (selectors_ == null) {
+      internalGetSelector() {
+        if (selector_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
-              SelectorsDefaultEntryHolder.defaultEntry);
+              SelectorDefaultEntryHolder.defaultEntry);
         }
-        return selectors_;
+        return selector_;
       }
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableSelectors() {
+      internalGetMutableSelector() {
         onChanged();;
-        if (selectors_ == null) {
-          selectors_ = com.google.protobuf.MapField.newMapField(
-              SelectorsDefaultEntryHolder.defaultEntry);
+        if (selector_ == null) {
+          selector_ = com.google.protobuf.MapField.newMapField(
+              SelectorDefaultEntryHolder.defaultEntry);
         }
-        if (!selectors_.isMutable()) {
-          selectors_ = selectors_.copy();
+        if (!selector_.isMutable()) {
+          selector_ = selector_.copy();
         }
-        return selectors_;
+        return selector_;
       }
 
-      public int getSelectorsCount() {
-        return internalGetSelectors().getMap().size();
+      public int getSelectorCount() {
+        return internalGetSelector().getMap().size();
       }
       /**
-       * <code>map&lt;string, string&gt; selectors = 5 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; selector = 5;</code>
        */
 
-      public boolean containsSelectors(
+      public boolean containsSelector(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetSelectors().getMap().containsKey(key);
+        return internalGetSelector().getMap().containsKey(key);
       }
       /**
-       * Use {@link #getSelectorsMap()} instead.
+       * Use {@link #getSelectorMap()} instead.
        */
       @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getSelectors() {
-        return getSelectorsMap();
+      public java.util.Map<java.lang.String, java.lang.String> getSelector() {
+        return getSelectorMap();
       }
       /**
-       * <code>map&lt;string, string&gt; selectors = 5 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; selector = 5;</code>
        */
 
-      public java.util.Map<java.lang.String, java.lang.String> getSelectorsMap() {
-        return internalGetSelectors().getMap();
+      public java.util.Map<java.lang.String, java.lang.String> getSelectorMap() {
+        return internalGetSelector().getMap();
       }
       /**
-       * <code>map&lt;string, string&gt; selectors = 5 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; selector = 5;</code>
        */
 
-      public java.lang.String getSelectorsOrDefault(
+      public java.lang.String getSelectorOrDefault(
           java.lang.String key,
           java.lang.String defaultValue) {
         if (key == null) { throw new java.lang.NullPointerException(); }
         java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetSelectors().getMap();
+            internalGetSelector().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
       /**
-       * <code>map&lt;string, string&gt; selectors = 5 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; selector = 5;</code>
        */
 
-      public java.lang.String getSelectorsOrThrow(
+      public java.lang.String getSelectorOrThrow(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
         java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetSelectors().getMap();
+            internalGetSelector().getMap();
         if (!map.containsKey(key)) {
           throw new java.lang.IllegalArgumentException();
         }
         return map.get(key);
       }
 
-      public Builder clearSelectors() {
-        internalGetMutableSelectors().getMutableMap()
+      public Builder clearSelector() {
+        internalGetMutableSelector().getMutableMap()
             .clear();
         return this;
       }
       /**
-       * <code>map&lt;string, string&gt; selectors = 5 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; selector = 5;</code>
        */
 
-      public Builder removeSelectors(
+      public Builder removeSelector(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableSelectors().getMutableMap()
+        internalGetMutableSelector().getMutableMap()
             .remove(key);
         return this;
       }
@@ -4905,28 +4905,28 @@ public final class Kdeploy {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.String>
-      getMutableSelectors() {
-        return internalGetMutableSelectors().getMutableMap();
+      getMutableSelector() {
+        return internalGetMutableSelector().getMutableMap();
       }
       /**
-       * <code>map&lt;string, string&gt; selectors = 5 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; selector = 5;</code>
        */
-      public Builder putSelectors(
+      public Builder putSelector(
           java.lang.String key,
           java.lang.String value) {
         if (key == null) { throw new java.lang.NullPointerException(); }
         if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableSelectors().getMutableMap()
+        internalGetMutableSelector().getMutableMap()
             .put(key, value);
         return this;
       }
       /**
-       * <code>map&lt;string, string&gt; selectors = 5 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; selector = 5;</code>
        */
 
-      public Builder putAllSelectors(
+      public Builder putAllSelector(
           java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableSelectors().getMutableMap()
+        internalGetMutableSelector().getMutableMap()
             .putAll(values);
         return this;
       }
@@ -5024,25 +5024,25 @@ public final class Kdeploy {
         getNamespaceBytes();
 
     /**
-     * <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
      */
     java.util.List<kdeploy.Kdeploy.GatewayListener> 
         getListenersList();
     /**
-     * <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
      */
     kdeploy.Kdeploy.GatewayListener getListeners(int index);
     /**
-     * <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
      */
     int getListenersCount();
     /**
-     * <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
      */
     java.util.List<? extends kdeploy.Kdeploy.GatewayListenerOrBuilder> 
         getListenersOrBuilderList();
     /**
-     * <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
      */
     kdeploy.Kdeploy.GatewayListenerOrBuilder getListenersOrBuilder(
         int index);
@@ -5082,37 +5082,37 @@ public final class Kdeploy {
         java.lang.String key);
 
     /**
-     * <code>map&lt;string, string&gt; selectors = 5 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 5 [(.validator.field) = { ... }</code>
      */
-    int getSelectorsCount();
+    int getSelectorCount();
     /**
-     * <code>map&lt;string, string&gt; selectors = 5 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 5 [(.validator.field) = { ... }</code>
      */
-    boolean containsSelectors(
+    boolean containsSelector(
         java.lang.String key);
     /**
-     * Use {@link #getSelectorsMap()} instead.
+     * Use {@link #getSelectorMap()} instead.
      */
     @java.lang.Deprecated
     java.util.Map<java.lang.String, java.lang.String>
-    getSelectors();
+    getSelector();
     /**
-     * <code>map&lt;string, string&gt; selectors = 5 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 5 [(.validator.field) = { ... }</code>
      */
     java.util.Map<java.lang.String, java.lang.String>
-    getSelectorsMap();
+    getSelectorMap();
     /**
-     * <code>map&lt;string, string&gt; selectors = 5 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 5 [(.validator.field) = { ... }</code>
      */
 
-    java.lang.String getSelectorsOrDefault(
+    java.lang.String getSelectorOrDefault(
         java.lang.String key,
         java.lang.String defaultValue);
     /**
-     * <code>map&lt;string, string&gt; selectors = 5 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 5 [(.validator.field) = { ... }</code>
      */
 
-    java.lang.String getSelectorsOrThrow(
+    java.lang.String getSelectorOrThrow(
         java.lang.String key);
   }
   /**
@@ -5193,15 +5193,15 @@ public final class Kdeploy {
             }
             case 42: {
               if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-                selectors_ = com.google.protobuf.MapField.newMapField(
-                    SelectorsDefaultEntryHolder.defaultEntry);
+                selector_ = com.google.protobuf.MapField.newMapField(
+                    SelectorDefaultEntryHolder.defaultEntry);
                 mutable_bitField0_ |= 0x00000010;
               }
               com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              selectors__ = input.readMessage(
-                  SelectorsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              selectors_.getMutableMap().put(
-                  selectors__.getKey(), selectors__.getValue());
+              selector__ = input.readMessage(
+                  SelectorDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              selector_.getMutableMap().put(
+                  selector__.getKey(), selector__.getValue());
               break;
             }
             default: {
@@ -5239,7 +5239,7 @@ public final class Kdeploy {
         case 4:
           return internalGetLabels();
         case 5:
-          return internalGetSelectors();
+          return internalGetSelector();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -5341,32 +5341,32 @@ public final class Kdeploy {
     public static final int LISTENERS_FIELD_NUMBER = 3;
     private java.util.List<kdeploy.Kdeploy.GatewayListener> listeners_;
     /**
-     * <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
      */
     public java.util.List<kdeploy.Kdeploy.GatewayListener> getListenersList() {
       return listeners_;
     }
     /**
-     * <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
      */
     public java.util.List<? extends kdeploy.Kdeploy.GatewayListenerOrBuilder> 
         getListenersOrBuilderList() {
       return listeners_;
     }
     /**
-     * <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
      */
     public int getListenersCount() {
       return listeners_.size();
     }
     /**
-     * <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
      */
     public kdeploy.Kdeploy.GatewayListener getListeners(int index) {
       return listeners_.get(index);
     }
     /**
-     * <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
      */
     public kdeploy.Kdeploy.GatewayListenerOrBuilder getListenersOrBuilder(
         int index) {
@@ -5449,76 +5449,76 @@ public final class Kdeploy {
       return map.get(key);
     }
 
-    public static final int SELECTORS_FIELD_NUMBER = 5;
-    private static final class SelectorsDefaultEntryHolder {
+    public static final int SELECTOR_FIELD_NUMBER = 5;
+    private static final class SelectorDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
           java.lang.String, java.lang.String> defaultEntry =
               com.google.protobuf.MapEntry
               .<java.lang.String, java.lang.String>newDefaultInstance(
-                  kdeploy.Kdeploy.internal_static_kdeploy_GatewayInput_SelectorsEntry_descriptor, 
+                  kdeploy.Kdeploy.internal_static_kdeploy_GatewayInput_SelectorEntry_descriptor, 
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "",
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "");
     }
     private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> selectors_;
+        java.lang.String, java.lang.String> selector_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetSelectors() {
-      if (selectors_ == null) {
+    internalGetSelector() {
+      if (selector_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
-            SelectorsDefaultEntryHolder.defaultEntry);
+            SelectorDefaultEntryHolder.defaultEntry);
       }
-      return selectors_;
+      return selector_;
     }
 
-    public int getSelectorsCount() {
-      return internalGetSelectors().getMap().size();
+    public int getSelectorCount() {
+      return internalGetSelector().getMap().size();
     }
     /**
-     * <code>map&lt;string, string&gt; selectors = 5 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 5 [(.validator.field) = { ... }</code>
      */
 
-    public boolean containsSelectors(
+    public boolean containsSelector(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetSelectors().getMap().containsKey(key);
+      return internalGetSelector().getMap().containsKey(key);
     }
     /**
-     * Use {@link #getSelectorsMap()} instead.
+     * Use {@link #getSelectorMap()} instead.
      */
     @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getSelectors() {
-      return getSelectorsMap();
+    public java.util.Map<java.lang.String, java.lang.String> getSelector() {
+      return getSelectorMap();
     }
     /**
-     * <code>map&lt;string, string&gt; selectors = 5 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 5 [(.validator.field) = { ... }</code>
      */
 
-    public java.util.Map<java.lang.String, java.lang.String> getSelectorsMap() {
-      return internalGetSelectors().getMap();
+    public java.util.Map<java.lang.String, java.lang.String> getSelectorMap() {
+      return internalGetSelector().getMap();
     }
     /**
-     * <code>map&lt;string, string&gt; selectors = 5 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 5 [(.validator.field) = { ... }</code>
      */
 
-    public java.lang.String getSelectorsOrDefault(
+    public java.lang.String getSelectorOrDefault(
         java.lang.String key,
         java.lang.String defaultValue) {
       if (key == null) { throw new java.lang.NullPointerException(); }
       java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetSelectors().getMap();
+          internalGetSelector().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;string, string&gt; selectors = 5 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 5 [(.validator.field) = { ... }</code>
      */
 
-    public java.lang.String getSelectorsOrThrow(
+    public java.lang.String getSelectorOrThrow(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
       java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetSelectors().getMap();
+          internalGetSelector().getMap();
       if (!map.containsKey(key)) {
         throw new java.lang.IllegalArgumentException();
       }
@@ -5557,8 +5557,8 @@ public final class Kdeploy {
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
           output,
-          internalGetSelectors(),
-          SelectorsDefaultEntryHolder.defaultEntry,
+          internalGetSelector(),
+          SelectorDefaultEntryHolder.defaultEntry,
           5);
       unknownFields.writeTo(output);
     }
@@ -5590,14 +5590,14 @@ public final class Kdeploy {
             .computeMessageSize(4, labels__);
       }
       for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetSelectors().getMap().entrySet()) {
+           : internalGetSelector().getMap().entrySet()) {
         com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        selectors__ = SelectorsDefaultEntryHolder.defaultEntry.newBuilderForType()
+        selector__ = SelectorDefaultEntryHolder.defaultEntry.newBuilderForType()
             .setKey(entry.getKey())
             .setValue(entry.getValue())
             .build();
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(5, selectors__);
+            .computeMessageSize(5, selector__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5623,8 +5623,8 @@ public final class Kdeploy {
           .equals(other.getListenersList());
       result = result && internalGetLabels().equals(
           other.internalGetLabels());
-      result = result && internalGetSelectors().equals(
-          other.internalGetSelectors());
+      result = result && internalGetSelector().equals(
+          other.internalGetSelector());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -5648,9 +5648,9 @@ public final class Kdeploy {
         hash = (37 * hash) + LABELS_FIELD_NUMBER;
         hash = (53 * hash) + internalGetLabels().hashCode();
       }
-      if (!internalGetSelectors().getMap().isEmpty()) {
-        hash = (37 * hash) + SELECTORS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetSelectors().hashCode();
+      if (!internalGetSelector().getMap().isEmpty()) {
+        hash = (37 * hash) + SELECTOR_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetSelector().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -5766,7 +5766,7 @@ public final class Kdeploy {
           case 4:
             return internalGetLabels();
           case 5:
-            return internalGetSelectors();
+            return internalGetSelector();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -5779,7 +5779,7 @@ public final class Kdeploy {
           case 4:
             return internalGetMutableLabels();
           case 5:
-            return internalGetMutableSelectors();
+            return internalGetMutableSelector();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -5823,7 +5823,7 @@ public final class Kdeploy {
           listenersBuilder_.clear();
         }
         internalGetMutableLabels().clear();
-        internalGetMutableSelectors().clear();
+        internalGetMutableSelector().clear();
         return this;
       }
 
@@ -5865,8 +5865,8 @@ public final class Kdeploy {
         }
         result.labels_ = internalGetLabels();
         result.labels_.makeImmutable();
-        result.selectors_ = internalGetSelectors();
-        result.selectors_.makeImmutable();
+        result.selector_ = internalGetSelector();
+        result.selector_.makeImmutable();
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -5952,8 +5952,8 @@ public final class Kdeploy {
         }
         internalGetMutableLabels().mergeFrom(
             other.internalGetLabels());
-        internalGetMutableSelectors().mergeFrom(
-            other.internalGetSelectors());
+        internalGetMutableSelector().mergeFrom(
+            other.internalGetSelector());
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -6175,7 +6175,7 @@ public final class Kdeploy {
           kdeploy.Kdeploy.GatewayListener, kdeploy.Kdeploy.GatewayListener.Builder, kdeploy.Kdeploy.GatewayListenerOrBuilder> listenersBuilder_;
 
       /**
-       * <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
        */
       public java.util.List<kdeploy.Kdeploy.GatewayListener> getListenersList() {
         if (listenersBuilder_ == null) {
@@ -6185,7 +6185,7 @@ public final class Kdeploy {
         }
       }
       /**
-       * <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
        */
       public int getListenersCount() {
         if (listenersBuilder_ == null) {
@@ -6195,7 +6195,7 @@ public final class Kdeploy {
         }
       }
       /**
-       * <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
        */
       public kdeploy.Kdeploy.GatewayListener getListeners(int index) {
         if (listenersBuilder_ == null) {
@@ -6205,7 +6205,7 @@ public final class Kdeploy {
         }
       }
       /**
-       * <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
        */
       public Builder setListeners(
           int index, kdeploy.Kdeploy.GatewayListener value) {
@@ -6222,7 +6222,7 @@ public final class Kdeploy {
         return this;
       }
       /**
-       * <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
        */
       public Builder setListeners(
           int index, kdeploy.Kdeploy.GatewayListener.Builder builderForValue) {
@@ -6236,7 +6236,7 @@ public final class Kdeploy {
         return this;
       }
       /**
-       * <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
        */
       public Builder addListeners(kdeploy.Kdeploy.GatewayListener value) {
         if (listenersBuilder_ == null) {
@@ -6252,7 +6252,7 @@ public final class Kdeploy {
         return this;
       }
       /**
-       * <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
        */
       public Builder addListeners(
           int index, kdeploy.Kdeploy.GatewayListener value) {
@@ -6269,7 +6269,7 @@ public final class Kdeploy {
         return this;
       }
       /**
-       * <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
        */
       public Builder addListeners(
           kdeploy.Kdeploy.GatewayListener.Builder builderForValue) {
@@ -6283,7 +6283,7 @@ public final class Kdeploy {
         return this;
       }
       /**
-       * <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
        */
       public Builder addListeners(
           int index, kdeploy.Kdeploy.GatewayListener.Builder builderForValue) {
@@ -6297,7 +6297,7 @@ public final class Kdeploy {
         return this;
       }
       /**
-       * <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
        */
       public Builder addAllListeners(
           java.lang.Iterable<? extends kdeploy.Kdeploy.GatewayListener> values) {
@@ -6312,7 +6312,7 @@ public final class Kdeploy {
         return this;
       }
       /**
-       * <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
        */
       public Builder clearListeners() {
         if (listenersBuilder_ == null) {
@@ -6325,7 +6325,7 @@ public final class Kdeploy {
         return this;
       }
       /**
-       * <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
        */
       public Builder removeListeners(int index) {
         if (listenersBuilder_ == null) {
@@ -6338,14 +6338,14 @@ public final class Kdeploy {
         return this;
       }
       /**
-       * <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
        */
       public kdeploy.Kdeploy.GatewayListener.Builder getListenersBuilder(
           int index) {
         return getListenersFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
        */
       public kdeploy.Kdeploy.GatewayListenerOrBuilder getListenersOrBuilder(
           int index) {
@@ -6355,7 +6355,7 @@ public final class Kdeploy {
         }
       }
       /**
-       * <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
        */
       public java.util.List<? extends kdeploy.Kdeploy.GatewayListenerOrBuilder> 
            getListenersOrBuilderList() {
@@ -6366,14 +6366,14 @@ public final class Kdeploy {
         }
       }
       /**
-       * <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
        */
       public kdeploy.Kdeploy.GatewayListener.Builder addListenersBuilder() {
         return getListenersFieldBuilder().addBuilder(
             kdeploy.Kdeploy.GatewayListener.getDefaultInstance());
       }
       /**
-       * <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
        */
       public kdeploy.Kdeploy.GatewayListener.Builder addListenersBuilder(
           int index) {
@@ -6381,7 +6381,7 @@ public final class Kdeploy {
             index, kdeploy.Kdeploy.GatewayListener.getDefaultInstance());
       }
       /**
-       * <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
        */
       public java.util.List<kdeploy.Kdeploy.GatewayListener.Builder> 
            getListenersBuilderList() {
@@ -6526,94 +6526,94 @@ public final class Kdeploy {
       }
 
       private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> selectors_;
+          java.lang.String, java.lang.String> selector_;
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetSelectors() {
-        if (selectors_ == null) {
+      internalGetSelector() {
+        if (selector_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
-              SelectorsDefaultEntryHolder.defaultEntry);
+              SelectorDefaultEntryHolder.defaultEntry);
         }
-        return selectors_;
+        return selector_;
       }
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableSelectors() {
+      internalGetMutableSelector() {
         onChanged();;
-        if (selectors_ == null) {
-          selectors_ = com.google.protobuf.MapField.newMapField(
-              SelectorsDefaultEntryHolder.defaultEntry);
+        if (selector_ == null) {
+          selector_ = com.google.protobuf.MapField.newMapField(
+              SelectorDefaultEntryHolder.defaultEntry);
         }
-        if (!selectors_.isMutable()) {
-          selectors_ = selectors_.copy();
+        if (!selector_.isMutable()) {
+          selector_ = selector_.copy();
         }
-        return selectors_;
+        return selector_;
       }
 
-      public int getSelectorsCount() {
-        return internalGetSelectors().getMap().size();
+      public int getSelectorCount() {
+        return internalGetSelector().getMap().size();
       }
       /**
-       * <code>map&lt;string, string&gt; selectors = 5 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; selector = 5 [(.validator.field) = { ... }</code>
        */
 
-      public boolean containsSelectors(
+      public boolean containsSelector(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetSelectors().getMap().containsKey(key);
+        return internalGetSelector().getMap().containsKey(key);
       }
       /**
-       * Use {@link #getSelectorsMap()} instead.
+       * Use {@link #getSelectorMap()} instead.
        */
       @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getSelectors() {
-        return getSelectorsMap();
+      public java.util.Map<java.lang.String, java.lang.String> getSelector() {
+        return getSelectorMap();
       }
       /**
-       * <code>map&lt;string, string&gt; selectors = 5 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; selector = 5 [(.validator.field) = { ... }</code>
        */
 
-      public java.util.Map<java.lang.String, java.lang.String> getSelectorsMap() {
-        return internalGetSelectors().getMap();
+      public java.util.Map<java.lang.String, java.lang.String> getSelectorMap() {
+        return internalGetSelector().getMap();
       }
       /**
-       * <code>map&lt;string, string&gt; selectors = 5 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; selector = 5 [(.validator.field) = { ... }</code>
        */
 
-      public java.lang.String getSelectorsOrDefault(
+      public java.lang.String getSelectorOrDefault(
           java.lang.String key,
           java.lang.String defaultValue) {
         if (key == null) { throw new java.lang.NullPointerException(); }
         java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetSelectors().getMap();
+            internalGetSelector().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
       /**
-       * <code>map&lt;string, string&gt; selectors = 5 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; selector = 5 [(.validator.field) = { ... }</code>
        */
 
-      public java.lang.String getSelectorsOrThrow(
+      public java.lang.String getSelectorOrThrow(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
         java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetSelectors().getMap();
+            internalGetSelector().getMap();
         if (!map.containsKey(key)) {
           throw new java.lang.IllegalArgumentException();
         }
         return map.get(key);
       }
 
-      public Builder clearSelectors() {
-        internalGetMutableSelectors().getMutableMap()
+      public Builder clearSelector() {
+        internalGetMutableSelector().getMutableMap()
             .clear();
         return this;
       }
       /**
-       * <code>map&lt;string, string&gt; selectors = 5 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; selector = 5 [(.validator.field) = { ... }</code>
        */
 
-      public Builder removeSelectors(
+      public Builder removeSelector(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableSelectors().getMutableMap()
+        internalGetMutableSelector().getMutableMap()
             .remove(key);
         return this;
       }
@@ -6622,28 +6622,28 @@ public final class Kdeploy {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.String>
-      getMutableSelectors() {
-        return internalGetMutableSelectors().getMutableMap();
+      getMutableSelector() {
+        return internalGetMutableSelector().getMutableMap();
       }
       /**
-       * <code>map&lt;string, string&gt; selectors = 5 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; selector = 5 [(.validator.field) = { ... }</code>
        */
-      public Builder putSelectors(
+      public Builder putSelector(
           java.lang.String key,
           java.lang.String value) {
         if (key == null) { throw new java.lang.NullPointerException(); }
         if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableSelectors().getMutableMap()
+        internalGetMutableSelector().getMutableMap()
             .put(key, value);
         return this;
       }
       /**
-       * <code>map&lt;string, string&gt; selectors = 5 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; selector = 5 [(.validator.field) = { ... }</code>
        */
 
-      public Builder putAllSelectors(
+      public Builder putAllSelector(
           java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableSelectors().getMutableMap()
+        internalGetMutableSelector().getMutableMap()
             .putAll(values);
         return this;
       }
@@ -10184,37 +10184,37 @@ public final class Kdeploy {
         java.lang.String key);
 
     /**
-     * <code>map&lt;string, string&gt; selectors = 10 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
      */
-    int getSelectorsCount();
+    int getSelectorCount();
     /**
-     * <code>map&lt;string, string&gt; selectors = 10 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
      */
-    boolean containsSelectors(
+    boolean containsSelector(
         java.lang.String key);
     /**
-     * Use {@link #getSelectorsMap()} instead.
+     * Use {@link #getSelectorMap()} instead.
      */
     @java.lang.Deprecated
     java.util.Map<java.lang.String, java.lang.String>
-    getSelectors();
+    getSelector();
     /**
-     * <code>map&lt;string, string&gt; selectors = 10 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
      */
     java.util.Map<java.lang.String, java.lang.String>
-    getSelectorsMap();
+    getSelectorMap();
     /**
-     * <code>map&lt;string, string&gt; selectors = 10 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
      */
 
-    java.lang.String getSelectorsOrDefault(
+    java.lang.String getSelectorOrDefault(
         java.lang.String key,
         java.lang.String defaultValue);
     /**
-     * <code>map&lt;string, string&gt; selectors = 10 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
      */
 
-    java.lang.String getSelectorsOrThrow(
+    java.lang.String getSelectorOrThrow(
         java.lang.String key);
 
     /**
@@ -10388,15 +10388,15 @@ public final class Kdeploy {
             }
             case 82: {
               if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
-                selectors_ = com.google.protobuf.MapField.newMapField(
-                    SelectorsDefaultEntryHolder.defaultEntry);
+                selector_ = com.google.protobuf.MapField.newMapField(
+                    SelectorDefaultEntryHolder.defaultEntry);
                 mutable_bitField0_ |= 0x00000100;
               }
               com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              selectors__ = input.readMessage(
-                  SelectorsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              selectors_.getMutableMap().put(
-                  selectors__.getKey(), selectors__.getValue());
+              selector__ = input.readMessage(
+                  SelectorDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              selector_.getMutableMap().put(
+                  selector__.getKey(), selector__.getValue());
               break;
             }
             case 90: {
@@ -10464,7 +10464,7 @@ public final class Kdeploy {
         case 9:
           return internalGetLabels();
         case 10:
-          return internalGetSelectors();
+          return internalGetSelector();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -10923,76 +10923,76 @@ public final class Kdeploy {
       return map.get(key);
     }
 
-    public static final int SELECTORS_FIELD_NUMBER = 10;
-    private static final class SelectorsDefaultEntryHolder {
+    public static final int SELECTOR_FIELD_NUMBER = 10;
+    private static final class SelectorDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
           java.lang.String, java.lang.String> defaultEntry =
               com.google.protobuf.MapEntry
               .<java.lang.String, java.lang.String>newDefaultInstance(
-                  kdeploy.Kdeploy.internal_static_kdeploy_App_SelectorsEntry_descriptor, 
+                  kdeploy.Kdeploy.internal_static_kdeploy_App_SelectorEntry_descriptor, 
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "",
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "");
     }
     private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> selectors_;
+        java.lang.String, java.lang.String> selector_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetSelectors() {
-      if (selectors_ == null) {
+    internalGetSelector() {
+      if (selector_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
-            SelectorsDefaultEntryHolder.defaultEntry);
+            SelectorDefaultEntryHolder.defaultEntry);
       }
-      return selectors_;
+      return selector_;
     }
 
-    public int getSelectorsCount() {
-      return internalGetSelectors().getMap().size();
+    public int getSelectorCount() {
+      return internalGetSelector().getMap().size();
     }
     /**
-     * <code>map&lt;string, string&gt; selectors = 10 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
      */
 
-    public boolean containsSelectors(
+    public boolean containsSelector(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetSelectors().getMap().containsKey(key);
+      return internalGetSelector().getMap().containsKey(key);
     }
     /**
-     * Use {@link #getSelectorsMap()} instead.
+     * Use {@link #getSelectorMap()} instead.
      */
     @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getSelectors() {
-      return getSelectorsMap();
+    public java.util.Map<java.lang.String, java.lang.String> getSelector() {
+      return getSelectorMap();
     }
     /**
-     * <code>map&lt;string, string&gt; selectors = 10 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
      */
 
-    public java.util.Map<java.lang.String, java.lang.String> getSelectorsMap() {
-      return internalGetSelectors().getMap();
+    public java.util.Map<java.lang.String, java.lang.String> getSelectorMap() {
+      return internalGetSelector().getMap();
     }
     /**
-     * <code>map&lt;string, string&gt; selectors = 10 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
      */
 
-    public java.lang.String getSelectorsOrDefault(
+    public java.lang.String getSelectorOrDefault(
         java.lang.String key,
         java.lang.String defaultValue) {
       if (key == null) { throw new java.lang.NullPointerException(); }
       java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetSelectors().getMap();
+          internalGetSelector().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;string, string&gt; selectors = 10 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
      */
 
-    public java.lang.String getSelectorsOrThrow(
+    public java.lang.String getSelectorOrThrow(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
       java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetSelectors().getMap();
+          internalGetSelector().getMap();
       if (!map.containsKey(key)) {
         throw new java.lang.IllegalArgumentException();
       }
@@ -11115,8 +11115,8 @@ public final class Kdeploy {
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
           output,
-          internalGetSelectors(),
-          SelectorsDefaultEntryHolder.defaultEntry,
+          internalGetSelector(),
+          SelectorDefaultEntryHolder.defaultEntry,
           10);
       if (networking_ != null) {
         output.writeMessage(11, getNetworking());
@@ -11185,14 +11185,14 @@ public final class Kdeploy {
             .computeMessageSize(9, labels__);
       }
       for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetSelectors().getMap().entrySet()) {
+           : internalGetSelector().getMap().entrySet()) {
         com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        selectors__ = SelectorsDefaultEntryHolder.defaultEntry.newBuilderForType()
+        selector__ = SelectorDefaultEntryHolder.defaultEntry.newBuilderForType()
             .setKey(entry.getKey())
             .setValue(entry.getValue())
             .build();
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(10, selectors__);
+            .computeMessageSize(10, selector__);
       }
       if (networking_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -11234,8 +11234,8 @@ public final class Kdeploy {
           == other.getReplicas());
       result = result && internalGetLabels().equals(
           other.internalGetLabels());
-      result = result && internalGetSelectors().equals(
-          other.internalGetSelectors());
+      result = result && internalGetSelector().equals(
+          other.internalGetSelector());
       result = result && (hasNetworking() == other.hasNetworking());
       if (hasNetworking()) {
         result = result && getNetworking()
@@ -11281,9 +11281,9 @@ public final class Kdeploy {
         hash = (37 * hash) + LABELS_FIELD_NUMBER;
         hash = (53 * hash) + internalGetLabels().hashCode();
       }
-      if (!internalGetSelectors().getMap().isEmpty()) {
-        hash = (37 * hash) + SELECTORS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetSelectors().hashCode();
+      if (!internalGetSelector().getMap().isEmpty()) {
+        hash = (37 * hash) + SELECTOR_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetSelector().hashCode();
       }
       if (hasNetworking()) {
         hash = (37 * hash) + NETWORKING_FIELD_NUMBER;
@@ -11415,7 +11415,7 @@ public final class Kdeploy {
           case 9:
             return internalGetLabels();
           case 10:
-            return internalGetSelectors();
+            return internalGetSelector();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -11432,7 +11432,7 @@ public final class Kdeploy {
           case 9:
             return internalGetMutableLabels();
           case 10:
-            return internalGetMutableSelectors();
+            return internalGetMutableSelector();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -11477,7 +11477,7 @@ public final class Kdeploy {
         replicas_ = 0;
 
         internalGetMutableLabels().clear();
-        internalGetMutableSelectors().clear();
+        internalGetMutableSelector().clear();
         if (networkingBuilder_ == null) {
           networking_ = null;
         } else {
@@ -11533,8 +11533,8 @@ public final class Kdeploy {
         result.replicas_ = replicas_;
         result.labels_ = internalGetLabels();
         result.labels_.makeImmutable();
-        result.selectors_ = internalGetSelectors();
-        result.selectors_.makeImmutable();
+        result.selector_ = internalGetSelector();
+        result.selector_.makeImmutable();
         if (networkingBuilder_ == null) {
           result.networking_ = networking_;
         } else {
@@ -11625,8 +11625,8 @@ public final class Kdeploy {
         }
         internalGetMutableLabels().mergeFrom(
             other.internalGetLabels());
-        internalGetMutableSelectors().mergeFrom(
-            other.internalGetSelectors());
+        internalGetMutableSelector().mergeFrom(
+            other.internalGetSelector());
         if (other.hasNetworking()) {
           mergeNetworking(other.getNetworking());
         }
@@ -12524,94 +12524,94 @@ public final class Kdeploy {
       }
 
       private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> selectors_;
+          java.lang.String, java.lang.String> selector_;
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetSelectors() {
-        if (selectors_ == null) {
+      internalGetSelector() {
+        if (selector_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
-              SelectorsDefaultEntryHolder.defaultEntry);
+              SelectorDefaultEntryHolder.defaultEntry);
         }
-        return selectors_;
+        return selector_;
       }
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableSelectors() {
+      internalGetMutableSelector() {
         onChanged();;
-        if (selectors_ == null) {
-          selectors_ = com.google.protobuf.MapField.newMapField(
-              SelectorsDefaultEntryHolder.defaultEntry);
+        if (selector_ == null) {
+          selector_ = com.google.protobuf.MapField.newMapField(
+              SelectorDefaultEntryHolder.defaultEntry);
         }
-        if (!selectors_.isMutable()) {
-          selectors_ = selectors_.copy();
+        if (!selector_.isMutable()) {
+          selector_ = selector_.copy();
         }
-        return selectors_;
+        return selector_;
       }
 
-      public int getSelectorsCount() {
-        return internalGetSelectors().getMap().size();
+      public int getSelectorCount() {
+        return internalGetSelector().getMap().size();
       }
       /**
-       * <code>map&lt;string, string&gt; selectors = 10 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
        */
 
-      public boolean containsSelectors(
+      public boolean containsSelector(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetSelectors().getMap().containsKey(key);
+        return internalGetSelector().getMap().containsKey(key);
       }
       /**
-       * Use {@link #getSelectorsMap()} instead.
+       * Use {@link #getSelectorMap()} instead.
        */
       @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getSelectors() {
-        return getSelectorsMap();
+      public java.util.Map<java.lang.String, java.lang.String> getSelector() {
+        return getSelectorMap();
       }
       /**
-       * <code>map&lt;string, string&gt; selectors = 10 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
        */
 
-      public java.util.Map<java.lang.String, java.lang.String> getSelectorsMap() {
-        return internalGetSelectors().getMap();
+      public java.util.Map<java.lang.String, java.lang.String> getSelectorMap() {
+        return internalGetSelector().getMap();
       }
       /**
-       * <code>map&lt;string, string&gt; selectors = 10 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
        */
 
-      public java.lang.String getSelectorsOrDefault(
+      public java.lang.String getSelectorOrDefault(
           java.lang.String key,
           java.lang.String defaultValue) {
         if (key == null) { throw new java.lang.NullPointerException(); }
         java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetSelectors().getMap();
+            internalGetSelector().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
       /**
-       * <code>map&lt;string, string&gt; selectors = 10 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
        */
 
-      public java.lang.String getSelectorsOrThrow(
+      public java.lang.String getSelectorOrThrow(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
         java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetSelectors().getMap();
+            internalGetSelector().getMap();
         if (!map.containsKey(key)) {
           throw new java.lang.IllegalArgumentException();
         }
         return map.get(key);
       }
 
-      public Builder clearSelectors() {
-        internalGetMutableSelectors().getMutableMap()
+      public Builder clearSelector() {
+        internalGetMutableSelector().getMutableMap()
             .clear();
         return this;
       }
       /**
-       * <code>map&lt;string, string&gt; selectors = 10 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
        */
 
-      public Builder removeSelectors(
+      public Builder removeSelector(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableSelectors().getMutableMap()
+        internalGetMutableSelector().getMutableMap()
             .remove(key);
         return this;
       }
@@ -12620,28 +12620,28 @@ public final class Kdeploy {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.String>
-      getMutableSelectors() {
-        return internalGetMutableSelectors().getMutableMap();
+      getMutableSelector() {
+        return internalGetMutableSelector().getMutableMap();
       }
       /**
-       * <code>map&lt;string, string&gt; selectors = 10 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
        */
-      public Builder putSelectors(
+      public Builder putSelector(
           java.lang.String key,
           java.lang.String value) {
         if (key == null) { throw new java.lang.NullPointerException(); }
         if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableSelectors().getMutableMap()
+        internalGetMutableSelector().getMutableMap()
             .put(key, value);
         return this;
       }
       /**
-       * <code>map&lt;string, string&gt; selectors = 10 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
        */
 
-      public Builder putAllSelectors(
+      public Builder putAllSelector(
           java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableSelectors().getMutableMap()
+        internalGetMutableSelector().getMutableMap()
             .putAll(values);
         return this;
       }
@@ -13179,11 +13179,45 @@ public final class Kdeploy {
     int getCompletions();
 
     /**
-     * <code>map&lt;string, string&gt; selector = 9;</code>
+     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
+     */
+    int getLabelsCount();
+    /**
+     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
+     */
+    boolean containsLabels(
+        java.lang.String key);
+    /**
+     * Use {@link #getLabelsMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
+    getLabels();
+    /**
+     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
+     */
+    java.util.Map<java.lang.String, java.lang.String>
+    getLabelsMap();
+    /**
+     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
+     */
+
+    java.lang.String getLabelsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue);
+    /**
+     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
+     */
+
+    java.lang.String getLabelsOrThrow(
+        java.lang.String key);
+
+    /**
+     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
      */
     int getSelectorCount();
     /**
-     * <code>map&lt;string, string&gt; selector = 9;</code>
+     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
      */
     boolean containsSelector(
         java.lang.String key);
@@ -13194,19 +13228,19 @@ public final class Kdeploy {
     java.util.Map<java.lang.String, java.lang.String>
     getSelector();
     /**
-     * <code>map&lt;string, string&gt; selector = 9;</code>
+     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
      */
     java.util.Map<java.lang.String, java.lang.String>
     getSelectorMap();
     /**
-     * <code>map&lt;string, string&gt; selector = 9;</code>
+     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
      */
 
     java.lang.String getSelectorOrDefault(
         java.lang.String key,
         java.lang.String defaultValue);
     /**
-     * <code>map&lt;string, string&gt; selector = 9;</code>
+     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
      */
 
     java.lang.String getSelectorOrThrow(
@@ -13314,9 +13348,22 @@ public final class Kdeploy {
             }
             case 74: {
               if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+                labels_ = com.google.protobuf.MapField.newMapField(
+                    LabelsDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000080;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              labels_.getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              break;
+            }
+            case 82: {
+              if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
                 selector_ = com.google.protobuf.MapField.newMapField(
                     SelectorDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000080;
+                mutable_bitField0_ |= 0x00000100;
               }
               com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
               selector__ = input.readMessage(
@@ -13360,6 +13407,8 @@ public final class Kdeploy {
         case 6:
           return internalGetEnv();
         case 9:
+          return internalGetLabels();
+        case 10:
           return internalGetSelector();
         default:
           throw new RuntimeException(
@@ -13693,7 +13742,83 @@ public final class Kdeploy {
       return completions_;
     }
 
-    public static final int SELECTOR_FIELD_NUMBER = 9;
+    public static final int LABELS_FIELD_NUMBER = 9;
+    private static final class LabelsDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  kdeploy.Kdeploy.internal_static_kdeploy_Task_LabelsEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> labels_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetLabels() {
+      if (labels_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            LabelsDefaultEntryHolder.defaultEntry);
+      }
+      return labels_;
+    }
+
+    public int getLabelsCount() {
+      return internalGetLabels().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
+     */
+
+    public boolean containsLabels(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetLabels().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getLabelsMap()} instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getLabels() {
+      return getLabelsMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
+     */
+
+    public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
+      return internalGetLabels().getMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
+     */
+
+    public java.lang.String getLabelsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetLabels().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
+     */
+
+    public java.lang.String getLabelsOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetLabels().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    public static final int SELECTOR_FIELD_NUMBER = 10;
     private static final class SelectorDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
           java.lang.String, java.lang.String> defaultEntry =
@@ -13720,7 +13845,7 @@ public final class Kdeploy {
       return internalGetSelector().getMap().size();
     }
     /**
-     * <code>map&lt;string, string&gt; selector = 9;</code>
+     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
      */
 
     public boolean containsSelector(
@@ -13736,14 +13861,14 @@ public final class Kdeploy {
       return getSelectorMap();
     }
     /**
-     * <code>map&lt;string, string&gt; selector = 9;</code>
+     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
      */
 
     public java.util.Map<java.lang.String, java.lang.String> getSelectorMap() {
       return internalGetSelector().getMap();
     }
     /**
-     * <code>map&lt;string, string&gt; selector = 9;</code>
+     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
      */
 
     public java.lang.String getSelectorOrDefault(
@@ -13755,7 +13880,7 @@ public final class Kdeploy {
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;string, string&gt; selector = 9;</code>
+     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
      */
 
     public java.lang.String getSelectorOrThrow(
@@ -13810,9 +13935,15 @@ public final class Kdeploy {
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
           output,
+          internalGetLabels(),
+          LabelsDefaultEntryHolder.defaultEntry,
+          9);
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
           internalGetSelector(),
           SelectorDefaultEntryHolder.defaultEntry,
-          9);
+          10);
       unknownFields.writeTo(output);
     }
 
@@ -13857,6 +13988,16 @@ public final class Kdeploy {
           .computeUInt32Size(8, completions_);
       }
       for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+           : internalGetLabels().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+        labels__ = LabelsDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(9, labels__);
+      }
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
            : internalGetSelector().getMap().entrySet()) {
         com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
         selector__ = SelectorDefaultEntryHolder.defaultEntry.newBuilderForType()
@@ -13864,7 +14005,7 @@ public final class Kdeploy {
             .setValue(entry.getValue())
             .build();
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(9, selector__);
+            .computeMessageSize(10, selector__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -13896,6 +14037,8 @@ public final class Kdeploy {
           .equals(other.getSchedule());
       result = result && (getCompletions()
           == other.getCompletions());
+      result = result && internalGetLabels().equals(
+          other.internalGetLabels());
       result = result && internalGetSelector().equals(
           other.internalGetSelector());
       result = result && unknownFields.equals(other.unknownFields);
@@ -13927,6 +14070,10 @@ public final class Kdeploy {
       hash = (53 * hash) + getSchedule().hashCode();
       hash = (37 * hash) + COMPLETIONS_FIELD_NUMBER;
       hash = (53 * hash) + getCompletions();
+      if (!internalGetLabels().getMap().isEmpty()) {
+        hash = (37 * hash) + LABELS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetLabels().hashCode();
+      }
       if (!internalGetSelector().getMap().isEmpty()) {
         hash = (37 * hash) + SELECTOR_FIELD_NUMBER;
         hash = (53 * hash) + internalGetSelector().hashCode();
@@ -14049,6 +14196,8 @@ public final class Kdeploy {
           case 6:
             return internalGetEnv();
           case 9:
+            return internalGetLabels();
+          case 10:
             return internalGetSelector();
           default:
             throw new RuntimeException(
@@ -14062,6 +14211,8 @@ public final class Kdeploy {
           case 6:
             return internalGetMutableEnv();
           case 9:
+            return internalGetMutableLabels();
+          case 10:
             return internalGetMutableSelector();
           default:
             throw new RuntimeException(
@@ -14107,6 +14258,7 @@ public final class Kdeploy {
 
         completions_ = 0;
 
+        internalGetMutableLabels().clear();
         internalGetMutableSelector().clear();
         return this;
       }
@@ -14148,6 +14300,8 @@ public final class Kdeploy {
         result.env_.makeImmutable();
         result.schedule_ = schedule_;
         result.completions_ = completions_;
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
         result.selector_ = internalGetSelector();
         result.selector_.makeImmutable();
         result.bitField0_ = to_bitField0_;
@@ -14230,6 +14384,8 @@ public final class Kdeploy {
         if (other.getCompletions() != 0) {
           setCompletions(other.getCompletions());
         }
+        internalGetMutableLabels().mergeFrom(
+            other.internalGetLabels());
         internalGetMutableSelector().mergeFrom(
             other.internalGetSelector());
         this.mergeUnknownFields(other.unknownFields);
@@ -14938,6 +15094,129 @@ public final class Kdeploy {
       }
 
       private com.google.protobuf.MapField<
+          java.lang.String, java.lang.String> labels_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetLabels() {
+        if (labels_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              LabelsDefaultEntryHolder.defaultEntry);
+        }
+        return labels_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableLabels() {
+        onChanged();;
+        if (labels_ == null) {
+          labels_ = com.google.protobuf.MapField.newMapField(
+              LabelsDefaultEntryHolder.defaultEntry);
+        }
+        if (!labels_.isMutable()) {
+          labels_ = labels_.copy();
+        }
+        return labels_;
+      }
+
+      public int getLabelsCount() {
+        return internalGetLabels().getMap().size();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
+       */
+
+      public boolean containsLabels(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        return internalGetLabels().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getLabelsMap()} instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getLabels() {
+        return getLabelsMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
+       */
+
+      public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
+        return internalGetLabels().getMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
+       */
+
+      public java.lang.String getLabelsOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetLabels().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
+       */
+
+      public java.lang.String getLabelsOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetLabels().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearLabels() {
+        internalGetMutableLabels().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
+       */
+
+      public Builder removeLabels(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableLabels().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
+      getMutableLabels() {
+        return internalGetMutableLabels().getMutableMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
+       */
+      public Builder putLabels(
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableLabels().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
+       */
+
+      public Builder putAllLabels(
+          java.util.Map<java.lang.String, java.lang.String> values) {
+        internalGetMutableLabels().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+
+      private com.google.protobuf.MapField<
           java.lang.String, java.lang.String> selector_;
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
       internalGetSelector() {
@@ -14964,7 +15243,7 @@ public final class Kdeploy {
         return internalGetSelector().getMap().size();
       }
       /**
-       * <code>map&lt;string, string&gt; selector = 9;</code>
+       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
        */
 
       public boolean containsSelector(
@@ -14980,14 +15259,14 @@ public final class Kdeploy {
         return getSelectorMap();
       }
       /**
-       * <code>map&lt;string, string&gt; selector = 9;</code>
+       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
        */
 
       public java.util.Map<java.lang.String, java.lang.String> getSelectorMap() {
         return internalGetSelector().getMap();
       }
       /**
-       * <code>map&lt;string, string&gt; selector = 9;</code>
+       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
        */
 
       public java.lang.String getSelectorOrDefault(
@@ -14999,7 +15278,7 @@ public final class Kdeploy {
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
       /**
-       * <code>map&lt;string, string&gt; selector = 9;</code>
+       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
        */
 
       public java.lang.String getSelectorOrThrow(
@@ -15019,7 +15298,7 @@ public final class Kdeploy {
         return this;
       }
       /**
-       * <code>map&lt;string, string&gt; selector = 9;</code>
+       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
        */
 
       public Builder removeSelector(
@@ -15038,7 +15317,7 @@ public final class Kdeploy {
         return internalGetMutableSelector().getMutableMap();
       }
       /**
-       * <code>map&lt;string, string&gt; selector = 9;</code>
+       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
        */
       public Builder putSelector(
           java.lang.String key,
@@ -15050,7 +15329,7 @@ public final class Kdeploy {
         return this;
       }
       /**
-       * <code>map&lt;string, string&gt; selector = 9;</code>
+       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
        */
 
       public Builder putAllSelector(
@@ -15287,11 +15566,45 @@ public final class Kdeploy {
     int getCompletions();
 
     /**
-     * <code>map&lt;string, string&gt; selector = 9;</code>
+     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
+     */
+    int getLabelsCount();
+    /**
+     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
+     */
+    boolean containsLabels(
+        java.lang.String key);
+    /**
+     * Use {@link #getLabelsMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
+    getLabels();
+    /**
+     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
+     */
+    java.util.Map<java.lang.String, java.lang.String>
+    getLabelsMap();
+    /**
+     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
+     */
+
+    java.lang.String getLabelsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue);
+    /**
+     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
+     */
+
+    java.lang.String getLabelsOrThrow(
+        java.lang.String key);
+
+    /**
+     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
      */
     int getSelectorCount();
     /**
-     * <code>map&lt;string, string&gt; selector = 9;</code>
+     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
      */
     boolean containsSelector(
         java.lang.String key);
@@ -15302,19 +15615,19 @@ public final class Kdeploy {
     java.util.Map<java.lang.String, java.lang.String>
     getSelector();
     /**
-     * <code>map&lt;string, string&gt; selector = 9;</code>
+     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
      */
     java.util.Map<java.lang.String, java.lang.String>
     getSelectorMap();
     /**
-     * <code>map&lt;string, string&gt; selector = 9;</code>
+     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
      */
 
     java.lang.String getSelectorOrDefault(
         java.lang.String key,
         java.lang.String defaultValue);
     /**
-     * <code>map&lt;string, string&gt; selector = 9;</code>
+     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
      */
 
     java.lang.String getSelectorOrThrow(
@@ -15422,9 +15735,22 @@ public final class Kdeploy {
             }
             case 74: {
               if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+                labels_ = com.google.protobuf.MapField.newMapField(
+                    LabelsDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000080;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              labels_.getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              break;
+            }
+            case 82: {
+              if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
                 selector_ = com.google.protobuf.MapField.newMapField(
                     SelectorDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000080;
+                mutable_bitField0_ |= 0x00000100;
               }
               com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
               selector__ = input.readMessage(
@@ -15468,6 +15794,8 @@ public final class Kdeploy {
         case 6:
           return internalGetEnv();
         case 9:
+          return internalGetLabels();
+        case 10:
           return internalGetSelector();
         default:
           throw new RuntimeException(
@@ -15801,7 +16129,83 @@ public final class Kdeploy {
       return completions_;
     }
 
-    public static final int SELECTOR_FIELD_NUMBER = 9;
+    public static final int LABELS_FIELD_NUMBER = 9;
+    private static final class LabelsDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  kdeploy.Kdeploy.internal_static_kdeploy_TaskInput_LabelsEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> labels_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetLabels() {
+      if (labels_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            LabelsDefaultEntryHolder.defaultEntry);
+      }
+      return labels_;
+    }
+
+    public int getLabelsCount() {
+      return internalGetLabels().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
+     */
+
+    public boolean containsLabels(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetLabels().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getLabelsMap()} instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getLabels() {
+      return getLabelsMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
+     */
+
+    public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
+      return internalGetLabels().getMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
+     */
+
+    public java.lang.String getLabelsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetLabels().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
+     */
+
+    public java.lang.String getLabelsOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetLabels().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    public static final int SELECTOR_FIELD_NUMBER = 10;
     private static final class SelectorDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
           java.lang.String, java.lang.String> defaultEntry =
@@ -15828,7 +16232,7 @@ public final class Kdeploy {
       return internalGetSelector().getMap().size();
     }
     /**
-     * <code>map&lt;string, string&gt; selector = 9;</code>
+     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
      */
 
     public boolean containsSelector(
@@ -15844,14 +16248,14 @@ public final class Kdeploy {
       return getSelectorMap();
     }
     /**
-     * <code>map&lt;string, string&gt; selector = 9;</code>
+     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
      */
 
     public java.util.Map<java.lang.String, java.lang.String> getSelectorMap() {
       return internalGetSelector().getMap();
     }
     /**
-     * <code>map&lt;string, string&gt; selector = 9;</code>
+     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
      */
 
     public java.lang.String getSelectorOrDefault(
@@ -15863,7 +16267,7 @@ public final class Kdeploy {
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;string, string&gt; selector = 9;</code>
+     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
      */
 
     public java.lang.String getSelectorOrThrow(
@@ -15918,9 +16322,15 @@ public final class Kdeploy {
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
           output,
+          internalGetLabels(),
+          LabelsDefaultEntryHolder.defaultEntry,
+          9);
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
           internalGetSelector(),
           SelectorDefaultEntryHolder.defaultEntry,
-          9);
+          10);
       unknownFields.writeTo(output);
     }
 
@@ -15965,6 +16375,16 @@ public final class Kdeploy {
           .computeUInt32Size(8, completions_);
       }
       for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+           : internalGetLabels().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+        labels__ = LabelsDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(9, labels__);
+      }
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
            : internalGetSelector().getMap().entrySet()) {
         com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
         selector__ = SelectorDefaultEntryHolder.defaultEntry.newBuilderForType()
@@ -15972,7 +16392,7 @@ public final class Kdeploy {
             .setValue(entry.getValue())
             .build();
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(9, selector__);
+            .computeMessageSize(10, selector__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -16004,6 +16424,8 @@ public final class Kdeploy {
           .equals(other.getSchedule());
       result = result && (getCompletions()
           == other.getCompletions());
+      result = result && internalGetLabels().equals(
+          other.internalGetLabels());
       result = result && internalGetSelector().equals(
           other.internalGetSelector());
       result = result && unknownFields.equals(other.unknownFields);
@@ -16035,6 +16457,10 @@ public final class Kdeploy {
       hash = (53 * hash) + getSchedule().hashCode();
       hash = (37 * hash) + COMPLETIONS_FIELD_NUMBER;
       hash = (53 * hash) + getCompletions();
+      if (!internalGetLabels().getMap().isEmpty()) {
+        hash = (37 * hash) + LABELS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetLabels().hashCode();
+      }
       if (!internalGetSelector().getMap().isEmpty()) {
         hash = (37 * hash) + SELECTOR_FIELD_NUMBER;
         hash = (53 * hash) + internalGetSelector().hashCode();
@@ -16157,6 +16583,8 @@ public final class Kdeploy {
           case 6:
             return internalGetEnv();
           case 9:
+            return internalGetLabels();
+          case 10:
             return internalGetSelector();
           default:
             throw new RuntimeException(
@@ -16170,6 +16598,8 @@ public final class Kdeploy {
           case 6:
             return internalGetMutableEnv();
           case 9:
+            return internalGetMutableLabels();
+          case 10:
             return internalGetMutableSelector();
           default:
             throw new RuntimeException(
@@ -16215,6 +16645,7 @@ public final class Kdeploy {
 
         completions_ = 0;
 
+        internalGetMutableLabels().clear();
         internalGetMutableSelector().clear();
         return this;
       }
@@ -16256,6 +16687,8 @@ public final class Kdeploy {
         result.env_.makeImmutable();
         result.schedule_ = schedule_;
         result.completions_ = completions_;
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
         result.selector_ = internalGetSelector();
         result.selector_.makeImmutable();
         result.bitField0_ = to_bitField0_;
@@ -16338,6 +16771,8 @@ public final class Kdeploy {
         if (other.getCompletions() != 0) {
           setCompletions(other.getCompletions());
         }
+        internalGetMutableLabels().mergeFrom(
+            other.internalGetLabels());
         internalGetMutableSelector().mergeFrom(
             other.internalGetSelector());
         this.mergeUnknownFields(other.unknownFields);
@@ -17046,6 +17481,129 @@ public final class Kdeploy {
       }
 
       private com.google.protobuf.MapField<
+          java.lang.String, java.lang.String> labels_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetLabels() {
+        if (labels_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              LabelsDefaultEntryHolder.defaultEntry);
+        }
+        return labels_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableLabels() {
+        onChanged();;
+        if (labels_ == null) {
+          labels_ = com.google.protobuf.MapField.newMapField(
+              LabelsDefaultEntryHolder.defaultEntry);
+        }
+        if (!labels_.isMutable()) {
+          labels_ = labels_.copy();
+        }
+        return labels_;
+      }
+
+      public int getLabelsCount() {
+        return internalGetLabels().getMap().size();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
+       */
+
+      public boolean containsLabels(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        return internalGetLabels().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getLabelsMap()} instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getLabels() {
+        return getLabelsMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
+       */
+
+      public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
+        return internalGetLabels().getMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
+       */
+
+      public java.lang.String getLabelsOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetLabels().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
+       */
+
+      public java.lang.String getLabelsOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetLabels().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearLabels() {
+        internalGetMutableLabels().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
+       */
+
+      public Builder removeLabels(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableLabels().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
+      getMutableLabels() {
+        return internalGetMutableLabels().getMutableMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
+       */
+      public Builder putLabels(
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableLabels().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
+       */
+
+      public Builder putAllLabels(
+          java.util.Map<java.lang.String, java.lang.String> values) {
+        internalGetMutableLabels().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+
+      private com.google.protobuf.MapField<
           java.lang.String, java.lang.String> selector_;
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
       internalGetSelector() {
@@ -17072,7 +17630,7 @@ public final class Kdeploy {
         return internalGetSelector().getMap().size();
       }
       /**
-       * <code>map&lt;string, string&gt; selector = 9;</code>
+       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
        */
 
       public boolean containsSelector(
@@ -17088,14 +17646,14 @@ public final class Kdeploy {
         return getSelectorMap();
       }
       /**
-       * <code>map&lt;string, string&gt; selector = 9;</code>
+       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
        */
 
       public java.util.Map<java.lang.String, java.lang.String> getSelectorMap() {
         return internalGetSelector().getMap();
       }
       /**
-       * <code>map&lt;string, string&gt; selector = 9;</code>
+       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
        */
 
       public java.lang.String getSelectorOrDefault(
@@ -17107,7 +17665,7 @@ public final class Kdeploy {
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
       /**
-       * <code>map&lt;string, string&gt; selector = 9;</code>
+       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
        */
 
       public java.lang.String getSelectorOrThrow(
@@ -17127,7 +17685,7 @@ public final class Kdeploy {
         return this;
       }
       /**
-       * <code>map&lt;string, string&gt; selector = 9;</code>
+       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
        */
 
       public Builder removeSelector(
@@ -17146,7 +17704,7 @@ public final class Kdeploy {
         return internalGetMutableSelector().getMutableMap();
       }
       /**
-       * <code>map&lt;string, string&gt; selector = 9;</code>
+       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
        */
       public Builder putSelector(
           java.lang.String key,
@@ -17158,7 +17716,7 @@ public final class Kdeploy {
         return this;
       }
       /**
-       * <code>map&lt;string, string&gt; selector = 9;</code>
+       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
        */
 
       public Builder putAllSelector(
@@ -17478,37 +18036,37 @@ public final class Kdeploy {
         java.lang.String key);
 
     /**
-     * <code>map&lt;string, string&gt; selectors = 11 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 11 [(.validator.field) = { ... }</code>
      */
-    int getSelectorsCount();
+    int getSelectorCount();
     /**
-     * <code>map&lt;string, string&gt; selectors = 11 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 11 [(.validator.field) = { ... }</code>
      */
-    boolean containsSelectors(
+    boolean containsSelector(
         java.lang.String key);
     /**
-     * Use {@link #getSelectorsMap()} instead.
+     * Use {@link #getSelectorMap()} instead.
      */
     @java.lang.Deprecated
     java.util.Map<java.lang.String, java.lang.String>
-    getSelectors();
+    getSelector();
     /**
-     * <code>map&lt;string, string&gt; selectors = 11 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 11 [(.validator.field) = { ... }</code>
      */
     java.util.Map<java.lang.String, java.lang.String>
-    getSelectorsMap();
+    getSelectorMap();
     /**
-     * <code>map&lt;string, string&gt; selectors = 11 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 11 [(.validator.field) = { ... }</code>
      */
 
-    java.lang.String getSelectorsOrDefault(
+    java.lang.String getSelectorOrDefault(
         java.lang.String key,
         java.lang.String defaultValue);
     /**
-     * <code>map&lt;string, string&gt; selectors = 11 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 11 [(.validator.field) = { ... }</code>
      */
 
-    java.lang.String getSelectorsOrThrow(
+    java.lang.String getSelectorOrThrow(
         java.lang.String key);
   }
   /**
@@ -17645,15 +18203,15 @@ public final class Kdeploy {
             }
             case 90: {
               if (!((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
-                selectors_ = com.google.protobuf.MapField.newMapField(
-                    SelectorsDefaultEntryHolder.defaultEntry);
+                selector_ = com.google.protobuf.MapField.newMapField(
+                    SelectorDefaultEntryHolder.defaultEntry);
                 mutable_bitField0_ |= 0x00000200;
               }
               com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              selectors__ = input.readMessage(
-                  SelectorsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              selectors_.getMutableMap().put(
-                  selectors__.getKey(), selectors__.getValue());
+              selector__ = input.readMessage(
+                  SelectorDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              selector_.getMutableMap().put(
+                  selector__.getKey(), selector__.getValue());
               break;
             }
             default: {
@@ -17695,7 +18253,7 @@ public final class Kdeploy {
         case 10:
           return internalGetLabels();
         case 11:
-          return internalGetSelectors();
+          return internalGetSelector();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -18175,76 +18733,76 @@ public final class Kdeploy {
       return map.get(key);
     }
 
-    public static final int SELECTORS_FIELD_NUMBER = 11;
-    private static final class SelectorsDefaultEntryHolder {
+    public static final int SELECTOR_FIELD_NUMBER = 11;
+    private static final class SelectorDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
           java.lang.String, java.lang.String> defaultEntry =
               com.google.protobuf.MapEntry
               .<java.lang.String, java.lang.String>newDefaultInstance(
-                  kdeploy.Kdeploy.internal_static_kdeploy_AppInput_SelectorsEntry_descriptor, 
+                  kdeploy.Kdeploy.internal_static_kdeploy_AppInput_SelectorEntry_descriptor, 
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "",
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "");
     }
     private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> selectors_;
+        java.lang.String, java.lang.String> selector_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetSelectors() {
-      if (selectors_ == null) {
+    internalGetSelector() {
+      if (selector_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
-            SelectorsDefaultEntryHolder.defaultEntry);
+            SelectorDefaultEntryHolder.defaultEntry);
       }
-      return selectors_;
+      return selector_;
     }
 
-    public int getSelectorsCount() {
-      return internalGetSelectors().getMap().size();
+    public int getSelectorCount() {
+      return internalGetSelector().getMap().size();
     }
     /**
-     * <code>map&lt;string, string&gt; selectors = 11 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 11 [(.validator.field) = { ... }</code>
      */
 
-    public boolean containsSelectors(
+    public boolean containsSelector(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetSelectors().getMap().containsKey(key);
+      return internalGetSelector().getMap().containsKey(key);
     }
     /**
-     * Use {@link #getSelectorsMap()} instead.
+     * Use {@link #getSelectorMap()} instead.
      */
     @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getSelectors() {
-      return getSelectorsMap();
+    public java.util.Map<java.lang.String, java.lang.String> getSelector() {
+      return getSelectorMap();
     }
     /**
-     * <code>map&lt;string, string&gt; selectors = 11 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 11 [(.validator.field) = { ... }</code>
      */
 
-    public java.util.Map<java.lang.String, java.lang.String> getSelectorsMap() {
-      return internalGetSelectors().getMap();
+    public java.util.Map<java.lang.String, java.lang.String> getSelectorMap() {
+      return internalGetSelector().getMap();
     }
     /**
-     * <code>map&lt;string, string&gt; selectors = 11 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 11 [(.validator.field) = { ... }</code>
      */
 
-    public java.lang.String getSelectorsOrDefault(
+    public java.lang.String getSelectorOrDefault(
         java.lang.String key,
         java.lang.String defaultValue) {
       if (key == null) { throw new java.lang.NullPointerException(); }
       java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetSelectors().getMap();
+          internalGetSelector().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;string, string&gt; selectors = 11 [(.validator.field) = { ... }</code>
+     * <code>map&lt;string, string&gt; selector = 11 [(.validator.field) = { ... }</code>
      */
 
-    public java.lang.String getSelectorsOrThrow(
+    public java.lang.String getSelectorOrThrow(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
       java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetSelectors().getMap();
+          internalGetSelector().getMap();
       if (!map.containsKey(key)) {
         throw new java.lang.IllegalArgumentException();
       }
@@ -18304,8 +18862,8 @@ public final class Kdeploy {
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
           output,
-          internalGetSelectors(),
-          SelectorsDefaultEntryHolder.defaultEntry,
+          internalGetSelector(),
+          SelectorDefaultEntryHolder.defaultEntry,
           11);
       unknownFields.writeTo(output);
     }
@@ -18372,14 +18930,14 @@ public final class Kdeploy {
             .computeMessageSize(10, labels__);
       }
       for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetSelectors().getMap().entrySet()) {
+           : internalGetSelector().getMap().entrySet()) {
         com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        selectors__ = SelectorsDefaultEntryHolder.defaultEntry.newBuilderForType()
+        selector__ = SelectorDefaultEntryHolder.defaultEntry.newBuilderForType()
             .setKey(entry.getKey())
             .setValue(entry.getValue())
             .build();
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(11, selectors__);
+            .computeMessageSize(11, selector__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -18418,8 +18976,8 @@ public final class Kdeploy {
       }
       result = result && internalGetLabels().equals(
           other.internalGetLabels());
-      result = result && internalGetSelectors().equals(
-          other.internalGetSelectors());
+      result = result && internalGetSelector().equals(
+          other.internalGetSelector());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -18459,9 +19017,9 @@ public final class Kdeploy {
         hash = (37 * hash) + LABELS_FIELD_NUMBER;
         hash = (53 * hash) + internalGetLabels().hashCode();
       }
-      if (!internalGetSelectors().getMap().isEmpty()) {
-        hash = (37 * hash) + SELECTORS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetSelectors().hashCode();
+      if (!internalGetSelector().getMap().isEmpty()) {
+        hash = (37 * hash) + SELECTOR_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetSelector().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -18585,7 +19143,7 @@ public final class Kdeploy {
           case 10:
             return internalGetLabels();
           case 11:
-            return internalGetSelectors();
+            return internalGetSelector();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -18602,7 +19160,7 @@ public final class Kdeploy {
           case 10:
             return internalGetMutableLabels();
           case 11:
-            return internalGetMutableSelectors();
+            return internalGetMutableSelector();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -18653,7 +19211,7 @@ public final class Kdeploy {
           networkingBuilder_ = null;
         }
         internalGetMutableLabels().clear();
-        internalGetMutableSelectors().clear();
+        internalGetMutableSelector().clear();
         return this;
       }
 
@@ -18702,8 +19260,8 @@ public final class Kdeploy {
         }
         result.labels_ = internalGetLabels();
         result.labels_.makeImmutable();
-        result.selectors_ = internalGetSelectors();
-        result.selectors_.makeImmutable();
+        result.selector_ = internalGetSelector();
+        result.selector_.makeImmutable();
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -18787,8 +19345,8 @@ public final class Kdeploy {
         }
         internalGetMutableLabels().mergeFrom(
             other.internalGetLabels());
-        internalGetMutableSelectors().mergeFrom(
-            other.internalGetSelectors());
+        internalGetMutableSelector().mergeFrom(
+            other.internalGetSelector());
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -19797,94 +20355,94 @@ public final class Kdeploy {
       }
 
       private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> selectors_;
+          java.lang.String, java.lang.String> selector_;
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetSelectors() {
-        if (selectors_ == null) {
+      internalGetSelector() {
+        if (selector_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
-              SelectorsDefaultEntryHolder.defaultEntry);
+              SelectorDefaultEntryHolder.defaultEntry);
         }
-        return selectors_;
+        return selector_;
       }
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableSelectors() {
+      internalGetMutableSelector() {
         onChanged();;
-        if (selectors_ == null) {
-          selectors_ = com.google.protobuf.MapField.newMapField(
-              SelectorsDefaultEntryHolder.defaultEntry);
+        if (selector_ == null) {
+          selector_ = com.google.protobuf.MapField.newMapField(
+              SelectorDefaultEntryHolder.defaultEntry);
         }
-        if (!selectors_.isMutable()) {
-          selectors_ = selectors_.copy();
+        if (!selector_.isMutable()) {
+          selector_ = selector_.copy();
         }
-        return selectors_;
+        return selector_;
       }
 
-      public int getSelectorsCount() {
-        return internalGetSelectors().getMap().size();
+      public int getSelectorCount() {
+        return internalGetSelector().getMap().size();
       }
       /**
-       * <code>map&lt;string, string&gt; selectors = 11 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; selector = 11 [(.validator.field) = { ... }</code>
        */
 
-      public boolean containsSelectors(
+      public boolean containsSelector(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetSelectors().getMap().containsKey(key);
+        return internalGetSelector().getMap().containsKey(key);
       }
       /**
-       * Use {@link #getSelectorsMap()} instead.
+       * Use {@link #getSelectorMap()} instead.
        */
       @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getSelectors() {
-        return getSelectorsMap();
+      public java.util.Map<java.lang.String, java.lang.String> getSelector() {
+        return getSelectorMap();
       }
       /**
-       * <code>map&lt;string, string&gt; selectors = 11 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; selector = 11 [(.validator.field) = { ... }</code>
        */
 
-      public java.util.Map<java.lang.String, java.lang.String> getSelectorsMap() {
-        return internalGetSelectors().getMap();
+      public java.util.Map<java.lang.String, java.lang.String> getSelectorMap() {
+        return internalGetSelector().getMap();
       }
       /**
-       * <code>map&lt;string, string&gt; selectors = 11 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; selector = 11 [(.validator.field) = { ... }</code>
        */
 
-      public java.lang.String getSelectorsOrDefault(
+      public java.lang.String getSelectorOrDefault(
           java.lang.String key,
           java.lang.String defaultValue) {
         if (key == null) { throw new java.lang.NullPointerException(); }
         java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetSelectors().getMap();
+            internalGetSelector().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
       /**
-       * <code>map&lt;string, string&gt; selectors = 11 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; selector = 11 [(.validator.field) = { ... }</code>
        */
 
-      public java.lang.String getSelectorsOrThrow(
+      public java.lang.String getSelectorOrThrow(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
         java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetSelectors().getMap();
+            internalGetSelector().getMap();
         if (!map.containsKey(key)) {
           throw new java.lang.IllegalArgumentException();
         }
         return map.get(key);
       }
 
-      public Builder clearSelectors() {
-        internalGetMutableSelectors().getMutableMap()
+      public Builder clearSelector() {
+        internalGetMutableSelector().getMutableMap()
             .clear();
         return this;
       }
       /**
-       * <code>map&lt;string, string&gt; selectors = 11 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; selector = 11 [(.validator.field) = { ... }</code>
        */
 
-      public Builder removeSelectors(
+      public Builder removeSelector(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableSelectors().getMutableMap()
+        internalGetMutableSelector().getMutableMap()
             .remove(key);
         return this;
       }
@@ -19893,28 +20451,28 @@ public final class Kdeploy {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.String>
-      getMutableSelectors() {
-        return internalGetMutableSelectors().getMutableMap();
+      getMutableSelector() {
+        return internalGetMutableSelector().getMutableMap();
       }
       /**
-       * <code>map&lt;string, string&gt; selectors = 11 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; selector = 11 [(.validator.field) = { ... }</code>
        */
-      public Builder putSelectors(
+      public Builder putSelector(
           java.lang.String key,
           java.lang.String value) {
         if (key == null) { throw new java.lang.NullPointerException(); }
         if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableSelectors().getMutableMap()
+        internalGetMutableSelector().getMutableMap()
             .put(key, value);
         return this;
       }
       /**
-       * <code>map&lt;string, string&gt; selectors = 11 [(.validator.field) = { ... }</code>
+       * <code>map&lt;string, string&gt; selector = 11 [(.validator.field) = { ... }</code>
        */
 
-      public Builder putAllSelectors(
+      public Builder putAllSelector(
           java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableSelectors().getMutableMap()
+        internalGetMutableSelector().getMutableMap()
             .putAll(values);
         return this;
       }
@@ -25625,10 +26183,10 @@ public final class Kdeploy {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_kdeploy_Gateway_LabelsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_kdeploy_Gateway_SelectorsEntry_descriptor;
+    internal_static_kdeploy_Gateway_SelectorEntry_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_kdeploy_Gateway_SelectorsEntry_fieldAccessorTable;
+      internal_static_kdeploy_Gateway_SelectorEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_kdeploy_GatewayInput_descriptor;
   private static final 
@@ -25640,10 +26198,10 @@ public final class Kdeploy {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_kdeploy_GatewayInput_LabelsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_kdeploy_GatewayInput_SelectorsEntry_descriptor;
+    internal_static_kdeploy_GatewayInput_SelectorEntry_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_kdeploy_GatewayInput_SelectorsEntry_fieldAccessorTable;
+      internal_static_kdeploy_GatewayInput_SelectorEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_kdeploy_HTTPRoute_descriptor;
   private static final 
@@ -25675,10 +26233,10 @@ public final class Kdeploy {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_kdeploy_App_LabelsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_kdeploy_App_SelectorsEntry_descriptor;
+    internal_static_kdeploy_App_SelectorEntry_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_kdeploy_App_SelectorsEntry_fieldAccessorTable;
+      internal_static_kdeploy_App_SelectorEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_kdeploy_Task_descriptor;
   private static final 
@@ -25689,6 +26247,11 @@ public final class Kdeploy {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_kdeploy_Task_EnvEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_kdeploy_Task_LabelsEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_kdeploy_Task_LabelsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_kdeploy_Task_SelectorEntry_descriptor;
   private static final 
@@ -25704,6 +26267,11 @@ public final class Kdeploy {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_kdeploy_TaskInput_EnvEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_kdeploy_TaskInput_LabelsEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_kdeploy_TaskInput_LabelsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_kdeploy_TaskInput_SelectorEntry_descriptor;
   private static final 
@@ -25730,10 +26298,10 @@ public final class Kdeploy {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_kdeploy_AppInput_LabelsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_kdeploy_AppInput_SelectorsEntry_descriptor;
+    internal_static_kdeploy_AppInput_SelectorEntry_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_kdeploy_AppInput_SelectorsEntry_fieldAccessorTable;
+      internal_static_kdeploy_AppInput_SelectorEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_kdeploy_Ref_descriptor;
   private static final 
@@ -25800,117 +26368,121 @@ public final class Kdeploy {
       ",225}$\022+\n\010protocol\030\003 \001(\0162\021.kdeploy.Proto" +
       "colB\006\342\337\037\002\020\000\022\025\n\005hosts\030\004 \003(\tB\006\342\337\037\002`\000\022.\n\ntl" +
       "s_config\030\005 \001(\0132\032.kdeploy.ServerTLSSettin" +
-      "gs\"\316\002\n\007Gateway\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1" +
-      ",225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,22" +
-      "5}$\022+\n\tlisteners\030\003 \003(\0132\030.kdeploy.Gateway" +
-      "Listener\0224\n\006labels\030\004 \003(\0132\034.kdeploy.Gatew" +
-      "ay.LabelsEntryB\006\342\337\037\002 \001\022:\n\tselectors\030\005 \003(" +
-      "\0132\037.kdeploy.Gateway.SelectorsEntryB\006\342\337\037\002" +
-      " \001\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
-      "\002 \001(\t:\0028\001\0320\n\016SelectorsEntry\022\013\n\003key\030\001 \001(\t" +
-      "\022\r\n\005value\030\002 \001(\t:\0028\001\"\345\002\n\014GatewayInput\022\036\n\004" +
-      "name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022#\n\tnamespac" +
-      "e\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\0223\n\tlisteners\030\003" +
-      " \003(\0132\030.kdeploy.GatewayListenerB\006\342\337\037\002`\000\0229" +
-      "\n\006labels\030\004 \003(\0132!.kdeploy.GatewayInput.La" +
-      "belsEntryB\006\342\337\037\002 \001\022?\n\tselectors\030\005 \003(\0132$.k" +
-      "deploy.GatewayInput.SelectorsEntryB\006\342\337\037\002" +
-      " \001\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
-      "\002 \001(\t:\0028\001\0320\n\016SelectorsEntry\022\013\n\003key\030\001 \001(\t" +
-      "\022\r\n\005value\030\002 \001(\t:\0028\001\"\343\001\n\tHTTPRoute\022\036\n\004nam" +
-      "e\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\024\n\004port\030\002 \001(\rB" +
-      "\006\342\337\037\002\020\000\022\023\n\013path_prefix\030\003 \001(\t\022\023\n\013rewrite_" +
-      "uri\030\004 \001(\t\022\025\n\rallow_origins\030\005 \003(\t\022\025\n\rallo" +
-      "w_methods\030\006 \003(\t\022\025\n\rallow_headers\030\007 \003(\t\022\026" +
-      "\n\016expose_headers\030\010 \003(\t\022\031\n\021allow_credenti" +
-      "als\030\t \001(\010\"f\n\nNetworking\022\020\n\010gateways\030\001 \003(" +
-      "\t\022\r\n\005hosts\030\002 \003(\t\022\016\n\006export\030\003 \001(\010\022\'\n\013http" +
-      "_routes\030\004 \003(\0132\022.kdeploy.HTTPRoute\"\341\004\n\003Ap" +
-      "p\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022#\n\tnam" +
-      "espace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\037\n\005image\030" +
-      "\003 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\014\n\004args\030\005 \003(\t\022\"\n" +
-      "\003env\030\006 \003(\0132\025.kdeploy.App.EnvEntry\022.\n\005por" +
-      "ts\030\007 \003(\0132\027.kdeploy.App.PortsEntryB\006\342\337\037\002 " +
-      "\001\022\020\n\010replicas\030\010 \001(\r\0220\n\006labels\030\t \003(\0132\030.kd" +
-      "eploy.App.LabelsEntryB\006\342\337\037\002 \001\0226\n\tselecto" +
-      "rs\030\n \003(\0132\033.kdeploy.App.SelectorsEntryB\006\342" +
-      "\337\037\002 \001\022/\n\nnetworking\030\013 \001(\0132\023.kdeploy.Netw" +
-      "orkingB\006\342\337\037\002 \001\022*\n\006status\030\024 \001(\0132\022.kdeploy" +
-      ".AppStatusB\006\342\337\037\002 \001\032*\n\010EnvEntry\022\013\n\003key\030\001 " +
-      "\001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032,\n\nPortsEntry\022\013\n\003" +
-      "key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\032-\n\013LabelsEn" +
-      "try\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\0320\n\016S" +
-      "electorsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(" +
-      "\t:\0028\001\"\344\002\n\004Task\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1" +
-      ",225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,22" +
-      "5}$\022\037\n\005image\030\003 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\014\n\004" +
-      "args\030\005 \003(\t\022#\n\003env\030\006 \003(\0132\026.kdeploy.Task.E" +
-      "nvEntry\022\"\n\010schedule\030\007 \001(\tB\020\342\337\037\014\n\n^.{1,22" +
-      "5}$\022\023\n\013completions\030\010 \001(\r\022-\n\010selector\030\t \003" +
-      "(\0132\033.kdeploy.Task.SelectorEntry\032*\n\010EnvEn" +
+      "gs\"\227\002\n\007Gateway\022\014\n\004name\030\001 \001(\t\022\021\n\tnamespac" +
+      "e\030\002 \001(\t\022+\n\tlisteners\030\003 \003(\0132\030.kdeploy.Gat" +
+      "ewayListener\022,\n\006labels\030\004 \003(\0132\034.kdeploy.G" +
+      "ateway.LabelsEntry\0220\n\010selector\030\005 \003(\0132\036.k" +
+      "deploy.Gateway.SelectorEntry\032-\n\013LabelsEn" +
       "try\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032/\n\rS" +
       "electorEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t" +
-      ":\0028\001\"\363\002\n\tTaskInput\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n" +
-      "^.{1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{" +
-      "1,225}$\022\037\n\005image\030\003 \001(\tB\020\342\337\037\014\n\n^.{1,225}$" +
-      "\022\014\n\004args\030\005 \003(\t\022(\n\003env\030\006 \003(\0132\033.kdeploy.Ta" +
-      "skInput.EnvEntry\022\"\n\010schedule\030\007 \001(\tB\020\342\337\037\014" +
-      "\n\n^.{1,225}$\022\023\n\013completions\030\010 \001(\r\0222\n\010sel" +
-      "ector\030\t \003(\0132 .kdeploy.TaskInput.Selector" +
-      "Entry\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
-      "\002 \001(\t:\0028\001\032/\n\rSelectorEntry\022\013\n\003key\030\001 \001(\t\022" +
-      "\r\n\005value\030\002 \001(\t:\0028\001\"\316\004\n\010AppInput\022\036\n\004name\030" +
-      "\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022#\n\tnamespace\030\002 \001" +
-      "(\tB\020\342\337\037\014\n\n^.{1,225}$\022\037\n\005image\030\003 \001(\tB\020\342\337\037" +
-      "\014\n\n^.{1,225}$\022\014\n\004args\030\004 \003(\t\022\'\n\003env\030\005 \003(\013" +
-      "2\032.kdeploy.AppInput.EnvEntry\0223\n\005ports\030\006 " +
-      "\003(\0132\034.kdeploy.AppInput.PortsEntryB\006\342\337\037\002 " +
-      "\001\022\020\n\010replicas\030\007 \001(\r\022/\n\nnetworking\030\t \001(\0132" +
-      "\023.kdeploy.NetworkingB\006\342\337\037\002 \001\0225\n\006labels\030\n" +
-      " \003(\0132\035.kdeploy.AppInput.LabelsEntryB\006\342\337\037" +
-      "\002 \001\022;\n\tselectors\030\013 \003(\0132 .kdeploy.AppInpu" +
-      "t.SelectorsEntryB\006\342\337\037\002 \001\032*\n\010EnvEntry\022\013\n\003" +
-      "key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032,\n\nPortsEnt" +
-      "ry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\032-\n\013La" +
-      "belsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028" +
-      "\001\0320\n\016SelectorsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005valu" +
-      "e\030\002 \001(\t:\0028\001\"J\n\003Ref\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n" +
-      "^.{1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{" +
-      "1,225}$\";\n\007Replica\022\r\n\005phase\030\001 \001(\t\022\021\n\tcon" +
-      "dition\030\002 \001(\t\022\016\n\006reason\030\003 \001(\t\"/\n\tAppStatu" +
-      "s\022\"\n\010replicas\030\001 \003(\0132\020.kdeploy.Replica\"\026\n" +
-      "\003Log\022\017\n\007message\030\001 \001(\t\"*\n\004Apps\022\"\n\014applica" +
-      "tions\030\001 \003(\0132\014.kdeploy.App\"%\n\005Tasks\022\034\n\005ta" +
-      "sks\030\001 \003(\0132\r.kdeploy.Task\"\036\n\tNamespace\022\021\n" +
-      "\tnamespace\030\001 \001(\t\" \n\nNamespaces\022\022\n\nnamesp" +
-      "aces\030\001 \003(\t*g\n\010Protocol\022\024\n\020INVALID_PROTOC" +
-      "OL\020\000\022\010\n\004HTTP\020\001\022\t\n\005HTTPS\020\002\022\010\n\004GRPC\020\003\022\t\n\005H" +
-      "TTP2\020\004\022\t\n\005MONGO\020\005\022\007\n\003TCP\020\006\022\007\n\003TLS\020\007*Z\n\007T" +
-      "LSmode\022\017\n\013PASSTHROUGH\020\000\022\n\n\006SIMPLE\020\001\022\n\n\006M" +
-      "UTUAL\020\002\022\024\n\020AUTO_PASSTHROUGH\020\003\022\020\n\014ISTIO_M" +
-      "UTUAL\020\0042\370\006\n\016KdeployService\022.\n\tCreateApp\022" +
-      "\021.kdeploy.AppInput\032\014.kdeploy.App\"\000\022.\n\tUp" +
-      "dateApp\022\021.kdeploy.AppInput\032\014.kdeploy.App" +
-      "\"\000\0223\n\tDeleteApp\022\014.kdeploy.Ref\032\026.google.p" +
-      "rotobuf.Empty\"\000\022&\n\006GetApp\022\014.kdeploy.Ref\032" +
-      "\014.kdeploy.App\"\000\022/\n\010ListApps\022\022.kdeploy.Na" +
-      "mespace\032\r.kdeploy.Apps\"\000\022?\n\016ListNamespac" +
-      "es\022\026.google.protobuf.Empty\032\023.kdeploy.Nam" +
-      "espaces\"\000\0229\n\tDeleteAll\022\022.kdeploy.Namespa" +
-      "ce\032\026.google.protobuf.Empty\"\000\0221\n\nCreateTa" +
-      "sk\022\022.kdeploy.TaskInput\032\r.kdeploy.Task\"\000\022" +
-      "1\n\nUpdateTask\022\022.kdeploy.TaskInput\032\r.kdep" +
-      "loy.Task\"\000\0224\n\nDeleteTask\022\014.kdeploy.Ref\032\026" +
-      ".google.protobuf.Empty\"\000\022(\n\007GetTask\022\014.kd" +
-      "eploy.Ref\032\r.kdeploy.Task\"\000\0221\n\tListTasks\022" +
-      "\022.kdeploy.Namespace\032\016.kdeploy.Tasks\"\000\022,\n" +
-      "\nStreamLogs\022\014.kdeploy.Ref\032\014.kdeploy.Log\"" +
-      "\0000\001\0225\n\rCreateGateway\022\020.kdeploy.Gateway\032\020" +
-      ".kdeploy.Gateway\"\000\0225\n\rUpdateGateway\022\020.kd" +
-      "eploy.Gateway\032\020.kdeploy.Gateway\"\000\0227\n\rDel" +
-      "eteGateway\022\014.kdeploy.Ref\032\026.google.protob" +
-      "uf.Empty\"\000\022.\n\nGetGateway\022\014.kdeploy.Ref\032\020" +
-      ".kdeploy.Gateway\"\000B\013Z\tkdeploypbb\006proto3"
+      ":\0028\001\"\332\002\n\014GatewayInput\022\036\n\004name\030\001 \001(\tB\020\342\337\037" +
+      "\014\n\n^.{1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n" +
+      "^.{1,225}$\022+\n\tlisteners\030\003 \003(\0132\030.kdeploy." +
+      "GatewayListener\0229\n\006labels\030\004 \003(\0132!.kdeplo" +
+      "y.GatewayInput.LabelsEntryB\006\342\337\037\002 \001\022=\n\010se" +
+      "lector\030\005 \003(\0132#.kdeploy.GatewayInput.Sele" +
+      "ctorEntryB\006\342\337\037\002 \001\032-\n\013LabelsEntry\022\013\n\003key\030" +
+      "\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032/\n\rSelectorEntr" +
+      "y\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\343\001\n\tHT" +
+      "TPRoute\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022" +
+      "\024\n\004port\030\002 \001(\rB\006\342\337\037\002\020\000\022\023\n\013path_prefix\030\003 \001" +
+      "(\t\022\023\n\013rewrite_uri\030\004 \001(\t\022\025\n\rallow_origins" +
+      "\030\005 \003(\t\022\025\n\rallow_methods\030\006 \003(\t\022\025\n\rallow_h" +
+      "eaders\030\007 \003(\t\022\026\n\016expose_headers\030\010 \003(\t\022\031\n\021" +
+      "allow_credentials\030\t \001(\010\"f\n\nNetworking\022\020\n" +
+      "\010gateways\030\001 \003(\t\022\r\n\005hosts\030\002 \003(\t\022\016\n\006export" +
+      "\030\003 \001(\010\022\'\n\013http_routes\030\004 \003(\0132\022.kdeploy.HT" +
+      "TPRoute\"\336\004\n\003App\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{" +
+      "1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,2" +
+      "25}$\022\037\n\005image\030\003 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\014\n" +
+      "\004args\030\005 \003(\t\022\"\n\003env\030\006 \003(\0132\025.kdeploy.App.E" +
+      "nvEntry\022.\n\005ports\030\007 \003(\0132\027.kdeploy.App.Por" +
+      "tsEntryB\006\342\337\037\002 \001\022\020\n\010replicas\030\010 \001(\r\0220\n\006lab" +
+      "els\030\t \003(\0132\030.kdeploy.App.LabelsEntryB\006\342\337\037" +
+      "\002 \001\0224\n\010selector\030\n \003(\0132\032.kdeploy.App.Sele" +
+      "ctorEntryB\006\342\337\037\002 \001\022/\n\nnetworking\030\013 \001(\0132\023." +
+      "kdeploy.NetworkingB\006\342\337\037\002 \001\022*\n\006status\030\024 \001" +
+      "(\0132\022.kdeploy.AppStatusB\006\342\337\037\002 \001\032*\n\010EnvEnt" +
+      "ry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032,\n\nPo" +
+      "rtsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001" +
+      "\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 " +
+      "\001(\t:\0028\001\032/\n\rSelectorEntry\022\013\n\003key\030\001 \001(\t\022\r\n" +
+      "\005value\030\002 \001(\t:\0028\001\"\316\003\n\004Task\022\036\n\004name\030\001 \001(\tB" +
+      "\020\342\337\037\014\n\n^.{1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337" +
+      "\037\014\n\n^.{1,225}$\022\037\n\005image\030\003 \001(\tB\020\342\337\037\014\n\n^.{" +
+      "1,225}$\022\014\n\004args\030\005 \003(\t\022#\n\003env\030\006 \003(\0132\026.kde" +
+      "ploy.Task.EnvEntry\022\"\n\010schedule\030\007 \001(\tB\020\342\337" +
+      "\037\014\n\n^.{1,225}$\022\023\n\013completions\030\010 \001(\r\0221\n\006l" +
+      "abels\030\t \003(\0132\031.kdeploy.Task.LabelsEntryB\006" +
+      "\342\337\037\002 \001\0225\n\010selector\030\n \003(\0132\033.kdeploy.Task." +
+      "SelectorEntryB\006\342\337\037\002 \001\032*\n\010EnvEntry\022\013\n\003key" +
+      "\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032-\n\013LabelsEntry" +
+      "\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032/\n\rSele" +
+      "ctorEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028" +
+      "\001\"\342\003\n\tTaskInput\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{" +
+      "1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,2" +
+      "25}$\022\037\n\005image\030\003 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\014\n" +
+      "\004args\030\005 \003(\t\022(\n\003env\030\006 \003(\0132\033.kdeploy.TaskI" +
+      "nput.EnvEntry\022\"\n\010schedule\030\007 \001(\tB\020\342\337\037\014\n\n^" +
+      ".{1,225}$\022\023\n\013completions\030\010 \001(\r\0226\n\006labels" +
+      "\030\t \003(\0132\036.kdeploy.TaskInput.LabelsEntryB\006" +
+      "\342\337\037\002 \001\022:\n\010selector\030\n \003(\0132 .kdeploy.TaskI" +
+      "nput.SelectorEntryB\006\342\337\037\002 \001\032*\n\010EnvEntry\022\013" +
+      "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032-\n\013Labels" +
+      "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032/\n" +
+      "\rSelectorEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001" +
+      "(\t:\0028\001\"\313\004\n\010AppInput\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n" +
+      "\n^.{1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^." +
+      "{1,225}$\022\037\n\005image\030\003 \001(\tB\020\342\337\037\014\n\n^.{1,225}" +
+      "$\022\014\n\004args\030\004 \003(\t\022\'\n\003env\030\005 \003(\0132\032.kdeploy.A" +
+      "ppInput.EnvEntry\0223\n\005ports\030\006 \003(\0132\034.kdeplo" +
+      "y.AppInput.PortsEntryB\006\342\337\037\002 \001\022\020\n\010replica" +
+      "s\030\007 \001(\r\022/\n\nnetworking\030\t \001(\0132\023.kdeploy.Ne" +
+      "tworkingB\006\342\337\037\002 \001\0225\n\006labels\030\n \003(\0132\035.kdepl" +
+      "oy.AppInput.LabelsEntryB\006\342\337\037\002 \001\0229\n\010selec" +
+      "tor\030\013 \003(\0132\037.kdeploy.AppInput.SelectorEnt" +
+      "ryB\006\342\337\037\002 \001\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005v" +
+      "alue\030\002 \001(\t:\0028\001\032,\n\nPortsEntry\022\013\n\003key\030\001 \001(" +
+      "\t\022\r\n\005value\030\002 \001(\r:\0028\001\032-\n\013LabelsEntry\022\013\n\003k" +
+      "ey\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032/\n\rSelectorE" +
+      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"J\n\003" +
+      "Ref\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022#\n\tn" +
+      "amespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\";\n\007Repl" +
+      "ica\022\r\n\005phase\030\001 \001(\t\022\021\n\tcondition\030\002 \001(\t\022\016\n" +
+      "\006reason\030\003 \001(\t\"/\n\tAppStatus\022\"\n\010replicas\030\001" +
+      " \003(\0132\020.kdeploy.Replica\"\026\n\003Log\022\017\n\007message" +
+      "\030\001 \001(\t\"*\n\004Apps\022\"\n\014applications\030\001 \003(\0132\014.k" +
+      "deploy.App\"%\n\005Tasks\022\034\n\005tasks\030\001 \003(\0132\r.kde" +
+      "ploy.Task\"\036\n\tNamespace\022\021\n\tnamespace\030\001 \001(" +
+      "\t\" \n\nNamespaces\022\022\n\nnamespaces\030\001 \003(\t*g\n\010P" +
+      "rotocol\022\024\n\020INVALID_PROTOCOL\020\000\022\010\n\004HTTP\020\001\022" +
+      "\t\n\005HTTPS\020\002\022\010\n\004GRPC\020\003\022\t\n\005HTTP2\020\004\022\t\n\005MONGO" +
+      "\020\005\022\007\n\003TCP\020\006\022\007\n\003TLS\020\007*Z\n\007TLSmode\022\017\n\013PASST" +
+      "HROUGH\020\000\022\n\n\006SIMPLE\020\001\022\n\n\006MUTUAL\020\002\022\024\n\020AUTO" +
+      "_PASSTHROUGH\020\003\022\020\n\014ISTIO_MUTUAL\020\0042\202\007\n\016Kde" +
+      "ployService\022.\n\tCreateApp\022\021.kdeploy.AppIn" +
+      "put\032\014.kdeploy.App\"\000\022.\n\tUpdateApp\022\021.kdepl" +
+      "oy.AppInput\032\014.kdeploy.App\"\000\0223\n\tDeleteApp" +
+      "\022\014.kdeploy.Ref\032\026.google.protobuf.Empty\"\000" +
+      "\022&\n\006GetApp\022\014.kdeploy.Ref\032\014.kdeploy.App\"\000" +
+      "\022/\n\010ListApps\022\022.kdeploy.Namespace\032\r.kdepl" +
+      "oy.Apps\"\000\022?\n\016ListNamespaces\022\026.google.pro" +
+      "tobuf.Empty\032\023.kdeploy.Namespaces\"\000\0229\n\tDe" +
+      "leteAll\022\022.kdeploy.Namespace\032\026.google.pro" +
+      "tobuf.Empty\"\000\0221\n\nCreateTask\022\022.kdeploy.Ta" +
+      "skInput\032\r.kdeploy.Task\"\000\0221\n\nUpdateTask\022\022" +
+      ".kdeploy.TaskInput\032\r.kdeploy.Task\"\000\0224\n\nD" +
+      "eleteTask\022\014.kdeploy.Ref\032\026.google.protobu" +
+      "f.Empty\"\000\022(\n\007GetTask\022\014.kdeploy.Ref\032\r.kde" +
+      "ploy.Task\"\000\0221\n\tListTasks\022\022.kdeploy.Names" +
+      "pace\032\016.kdeploy.Tasks\"\000\022,\n\nStreamLogs\022\014.k" +
+      "deploy.Ref\032\014.kdeploy.Log\"\0000\001\022:\n\rCreateGa" +
+      "teway\022\025.kdeploy.GatewayInput\032\020.kdeploy.G" +
+      "ateway\"\000\022:\n\rUpdateGateway\022\025.kdeploy.Gate" +
+      "wayInput\032\020.kdeploy.Gateway\"\000\0227\n\rDeleteGa" +
+      "teway\022\014.kdeploy.Ref\032\026.google.protobuf.Em" +
+      "pty\"\000\022.\n\nGetGateway\022\014.kdeploy.Ref\032\020.kdep" +
+      "loy.Gateway\"\000B\013Z\tkdeploypbb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -25946,36 +26518,36 @@ public final class Kdeploy {
     internal_static_kdeploy_Gateway_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Gateway_descriptor,
-        new java.lang.String[] { "Name", "Namespace", "Listeners", "Labels", "Selectors", });
+        new java.lang.String[] { "Name", "Namespace", "Listeners", "Labels", "Selector", });
     internal_static_kdeploy_Gateway_LabelsEntry_descriptor =
       internal_static_kdeploy_Gateway_descriptor.getNestedTypes().get(0);
     internal_static_kdeploy_Gateway_LabelsEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Gateway_LabelsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_kdeploy_Gateway_SelectorsEntry_descriptor =
+    internal_static_kdeploy_Gateway_SelectorEntry_descriptor =
       internal_static_kdeploy_Gateway_descriptor.getNestedTypes().get(1);
-    internal_static_kdeploy_Gateway_SelectorsEntry_fieldAccessorTable = new
+    internal_static_kdeploy_Gateway_SelectorEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_kdeploy_Gateway_SelectorsEntry_descriptor,
+        internal_static_kdeploy_Gateway_SelectorEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_kdeploy_GatewayInput_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_kdeploy_GatewayInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_GatewayInput_descriptor,
-        new java.lang.String[] { "Name", "Namespace", "Listeners", "Labels", "Selectors", });
+        new java.lang.String[] { "Name", "Namespace", "Listeners", "Labels", "Selector", });
     internal_static_kdeploy_GatewayInput_LabelsEntry_descriptor =
       internal_static_kdeploy_GatewayInput_descriptor.getNestedTypes().get(0);
     internal_static_kdeploy_GatewayInput_LabelsEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_GatewayInput_LabelsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_kdeploy_GatewayInput_SelectorsEntry_descriptor =
+    internal_static_kdeploy_GatewayInput_SelectorEntry_descriptor =
       internal_static_kdeploy_GatewayInput_descriptor.getNestedTypes().get(1);
-    internal_static_kdeploy_GatewayInput_SelectorsEntry_fieldAccessorTable = new
+    internal_static_kdeploy_GatewayInput_SelectorEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_kdeploy_GatewayInput_SelectorsEntry_descriptor,
+        internal_static_kdeploy_GatewayInput_SelectorEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_kdeploy_HTTPRoute_descriptor =
       getDescriptor().getMessageTypes().get(4);
@@ -25994,7 +26566,7 @@ public final class Kdeploy {
     internal_static_kdeploy_App_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_App_descriptor,
-        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", "Labels", "Selectors", "Networking", "Status", });
+        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", "Labels", "Selector", "Networking", "Status", });
     internal_static_kdeploy_App_EnvEntry_descriptor =
       internal_static_kdeploy_App_descriptor.getNestedTypes().get(0);
     internal_static_kdeploy_App_EnvEntry_fieldAccessorTable = new
@@ -26013,26 +26585,32 @@ public final class Kdeploy {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_App_LabelsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_kdeploy_App_SelectorsEntry_descriptor =
+    internal_static_kdeploy_App_SelectorEntry_descriptor =
       internal_static_kdeploy_App_descriptor.getNestedTypes().get(3);
-    internal_static_kdeploy_App_SelectorsEntry_fieldAccessorTable = new
+    internal_static_kdeploy_App_SelectorEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_kdeploy_App_SelectorsEntry_descriptor,
+        internal_static_kdeploy_App_SelectorEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_kdeploy_Task_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_kdeploy_Task_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Task_descriptor,
-        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Schedule", "Completions", "Selector", });
+        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Schedule", "Completions", "Labels", "Selector", });
     internal_static_kdeploy_Task_EnvEntry_descriptor =
       internal_static_kdeploy_Task_descriptor.getNestedTypes().get(0);
     internal_static_kdeploy_Task_EnvEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Task_EnvEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_kdeploy_Task_SelectorEntry_descriptor =
+    internal_static_kdeploy_Task_LabelsEntry_descriptor =
       internal_static_kdeploy_Task_descriptor.getNestedTypes().get(1);
+    internal_static_kdeploy_Task_LabelsEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_kdeploy_Task_LabelsEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_kdeploy_Task_SelectorEntry_descriptor =
+      internal_static_kdeploy_Task_descriptor.getNestedTypes().get(2);
     internal_static_kdeploy_Task_SelectorEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Task_SelectorEntry_descriptor,
@@ -26042,15 +26620,21 @@ public final class Kdeploy {
     internal_static_kdeploy_TaskInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_TaskInput_descriptor,
-        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Schedule", "Completions", "Selector", });
+        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Schedule", "Completions", "Labels", "Selector", });
     internal_static_kdeploy_TaskInput_EnvEntry_descriptor =
       internal_static_kdeploy_TaskInput_descriptor.getNestedTypes().get(0);
     internal_static_kdeploy_TaskInput_EnvEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_TaskInput_EnvEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_kdeploy_TaskInput_SelectorEntry_descriptor =
+    internal_static_kdeploy_TaskInput_LabelsEntry_descriptor =
       internal_static_kdeploy_TaskInput_descriptor.getNestedTypes().get(1);
+    internal_static_kdeploy_TaskInput_LabelsEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_kdeploy_TaskInput_LabelsEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_kdeploy_TaskInput_SelectorEntry_descriptor =
+      internal_static_kdeploy_TaskInput_descriptor.getNestedTypes().get(2);
     internal_static_kdeploy_TaskInput_SelectorEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_TaskInput_SelectorEntry_descriptor,
@@ -26060,7 +26644,7 @@ public final class Kdeploy {
     internal_static_kdeploy_AppInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_AppInput_descriptor,
-        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", "Networking", "Labels", "Selectors", });
+        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", "Networking", "Labels", "Selector", });
     internal_static_kdeploy_AppInput_EnvEntry_descriptor =
       internal_static_kdeploy_AppInput_descriptor.getNestedTypes().get(0);
     internal_static_kdeploy_AppInput_EnvEntry_fieldAccessorTable = new
@@ -26079,11 +26663,11 @@ public final class Kdeploy {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_AppInput_LabelsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_kdeploy_AppInput_SelectorsEntry_descriptor =
+    internal_static_kdeploy_AppInput_SelectorEntry_descriptor =
       internal_static_kdeploy_AppInput_descriptor.getNestedTypes().get(3);
-    internal_static_kdeploy_AppInput_SelectorsEntry_fieldAccessorTable = new
+    internal_static_kdeploy_AppInput_SelectorEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_kdeploy_AppInput_SelectorsEntry_descriptor,
+        internal_static_kdeploy_AppInput_SelectorEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_kdeploy_Ref_descriptor =
       getDescriptor().getMessageTypes().get(10);
