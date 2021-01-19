@@ -28,148 +28,183 @@ namespace Meshpaas {
             "dWN0LnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvGhln",
             "b29nbGUvcHJvdG9idWYvYW55LnByb3RvGhtnb29nbGUvcHJvdG9idWYvZW1w",
             "dHkucHJvdG8aNmdpdGh1Yi5jb20vbXdpdGtvdy9nby1wcm90by12YWxpZGF0",
-            "b3JzL3ZhbGlkYXRvci5wcm90byKjAgoRU2VydmVyVExTU2V0dGluZ3MSFgoO",
-            "aHR0cHNfcmVkaXJlY3QYASABKAgSHwoEbW9kZRgCIAEoDjIRLm1lc2hwYWFz",
-            "LlRMU21vZGUSGgoSc2VydmVyX2NlcnRpZmljYXRlGAMgASgJEhMKC3ByaXZh",
-            "dGVfa2V5GAQgASgJEhcKD2NhX2NlcnRpZmljYXRlcxgFIAEoCRIXCg9jcmVk",
-            "ZW50aWFsX25hbWUYCiABKAkSGQoRc3ViamVjdF9hbHRfbmFtZXMYBiADKAkS",
-            "HwoXdmVyaWZ5X2NlcnRpZmljYXRlX3Nwa2kYCyADKAkSHwoXdmVyaWZ5X2Nl",
-            "cnRpZmljYXRlX2hhc2gYDCADKAkSFQoNY2lwaGVyX3N1aXRlcxgJIAMoCSK9",
-            "AQoPR2F0ZXdheUxpc3RlbmVyEhQKBHBvcnQYASABKA1CBuLfHwIQABIeCgRu",
-            "YW1lGAIgASgJQhDi3x8MCgpeLnsxLDIyNX0kEiwKCHByb3RvY29sGAMgASgO",
-            "MhIubWVzaHBhYXMuUHJvdG9jb2xCBuLfHwIQABIVCgVob3N0cxgEIAMoCUIG",
-            "4t8fAmAAEi8KCnRsc19jb25maWcYBSABKAsyGy5tZXNocGFhcy5TZXJ2ZXJU",
-            "TFNTZXR0aW5ncyKaAgoHR2F0ZXdheRIMCgRuYW1lGAEgASgJEhEKCW5hbWVz",
-            "cGFjZRgCIAEoCRIsCglsaXN0ZW5lcnMYAyADKAsyGS5tZXNocGFhcy5HYXRl",
-            "d2F5TGlzdGVuZXISLQoGbGFiZWxzGAQgAygLMh0ubWVzaHBhYXMuR2F0ZXdh",
-            "eS5MYWJlbHNFbnRyeRIxCghzZWxlY3RvchgFIAMoCzIfLm1lc2hwYWFzLkdh",
-            "dGV3YXkuU2VsZWN0b3JFbnRyeRotCgtMYWJlbHNFbnRyeRILCgNrZXkYASAB",
-            "KAkSDQoFdmFsdWUYAiABKAk6AjgBGi8KDVNlbGVjdG9yRW50cnkSCwoDa2V5",
-            "GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ASLdAgoMR2F0ZXdheUlucHV0Eh4K",
-            "BG5hbWUYASABKAlCEOLfHwwKCl4uezEsMjI1fSQSIwoJbmFtZXNwYWNlGAIg",
-            "ASgJQhDi3x8MCgpeLnsxLDIyNX0kEiwKCWxpc3RlbmVycxgDIAMoCzIZLm1l",
-            "c2hwYWFzLkdhdGV3YXlMaXN0ZW5lchI6CgZsYWJlbHMYBCADKAsyIi5tZXNo",
-            "cGFhcy5HYXRld2F5SW5wdXQuTGFiZWxzRW50cnlCBuLfHwIgARI+CghzZWxl",
-            "Y3RvchgFIAMoCzIkLm1lc2hwYWFzLkdhdGV3YXlJbnB1dC5TZWxlY3RvckVu",
-            "dHJ5Qgbi3x8CIAEaLQoLTGFiZWxzRW50cnkSCwoDa2V5GAEgASgJEg0KBXZh",
-            "bHVlGAIgASgJOgI4ARovCg1TZWxlY3RvckVudHJ5EgsKA2tleRgBIAEoCRIN",
-            "CgV2YWx1ZRgCIAEoCToCOAEi4wEKCUhUVFBSb3V0ZRIeCgRuYW1lGAEgASgJ",
-            "QhDi3x8MCgpeLnsxLDIyNX0kEhQKBHBvcnQYAiABKA1CBuLfHwIQABITCgtw",
-            "YXRoX3ByZWZpeBgDIAEoCRITCgtyZXdyaXRlX3VyaRgEIAEoCRIVCg1hbGxv",
-            "d19vcmlnaW5zGAUgAygJEhUKDWFsbG93X21ldGhvZHMYBiADKAkSFQoNYWxs",
-            "b3dfaGVhZGVycxgHIAMoCRIWCg5leHBvc2VfaGVhZGVycxgIIAMoCRIZChFh",
-            "bGxvd19jcmVkZW50aWFscxgJIAEoCCJnCgpOZXR3b3JraW5nEhAKCGdhdGV3",
-            "YXlzGAEgAygJEg0KBWhvc3RzGAIgAygJEg4KBmV4cG9ydBgDIAEoCBIoCgto",
-            "dHRwX3JvdXRlcxgEIAMoCzITLm1lc2hwYWFzLkhUVFBSb3V0ZSLkBAoDQXBw",
-            "Eh4KBG5hbWUYASABKAlCEOLfHwwKCl4uezEsMjI1fSQSIwoJbmFtZXNwYWNl",
-            "GAIgASgJQhDi3x8MCgpeLnsxLDIyNX0kEh8KBWltYWdlGAMgASgJQhDi3x8M",
-            "CgpeLnsxLDIyNX0kEgwKBGFyZ3MYBSADKAkSIwoDZW52GAYgAygLMhYubWVz",
-            "aHBhYXMuQXBwLkVudkVudHJ5Ei8KBXBvcnRzGAcgAygLMhgubWVzaHBhYXMu",
-            "QXBwLlBvcnRzRW50cnlCBuLfHwIgARIQCghyZXBsaWNhcxgIIAEoDRIxCgZs",
-            "YWJlbHMYCSADKAsyGS5tZXNocGFhcy5BcHAuTGFiZWxzRW50cnlCBuLfHwIg",
-            "ARI1CghzZWxlY3RvchgKIAMoCzIbLm1lc2hwYWFzLkFwcC5TZWxlY3RvckVu",
-            "dHJ5Qgbi3x8CIAESMAoKbmV0d29ya2luZxgLIAEoCzIULm1lc2hwYWFzLk5l",
-            "dHdvcmtpbmdCBuLfHwIgARIrCgZzdGF0dXMYFCABKAsyEy5tZXNocGFhcy5B",
-            "cHBTdGF0dXNCBuLfHwIgARoqCghFbnZFbnRyeRILCgNrZXkYASABKAkSDQoF",
-            "dmFsdWUYAiABKAk6AjgBGiwKClBvcnRzRW50cnkSCwoDa2V5GAEgASgJEg0K",
-            "BXZhbHVlGAIgASgNOgI4ARotCgtMYWJlbHNFbnRyeRILCgNrZXkYASABKAkS",
-            "DQoFdmFsdWUYAiABKAk6AjgBGi8KDVNlbGVjdG9yRW50cnkSCwoDa2V5GAEg",
-            "ASgJEg0KBXZhbHVlGAIgASgJOgI4ASLRAwoEVGFzaxIeCgRuYW1lGAEgASgJ",
-            "QhDi3x8MCgpeLnsxLDIyNX0kEiMKCW5hbWVzcGFjZRgCIAEoCUIQ4t8fDAoK",
-            "Xi57MSwyMjV9JBIfCgVpbWFnZRgDIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIM",
-            "CgRhcmdzGAUgAygJEiQKA2VudhgGIAMoCzIXLm1lc2hwYWFzLlRhc2suRW52",
-            "RW50cnkSIgoIc2NoZWR1bGUYByABKAlCEOLfHwwKCl4uezEsMjI1fSQSEwoL",
-            "Y29tcGxldGlvbnMYCCABKA0SMgoGbGFiZWxzGAkgAygLMhoubWVzaHBhYXMu",
-            "VGFzay5MYWJlbHNFbnRyeUIG4t8fAiABEjYKCHNlbGVjdG9yGAogAygLMhwu",
-            "bWVzaHBhYXMuVGFzay5TZWxlY3RvckVudHJ5Qgbi3x8CIAEaKgoIRW52RW50",
-            "cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ARotCgtMYWJlbHNF",
-            "bnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBGi8KDVNlbGVj",
-            "dG9yRW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ASLlAwoJ",
-            "VGFza0lucHV0Eh4KBG5hbWUYASABKAlCEOLfHwwKCl4uezEsMjI1fSQSIwoJ",
-            "bmFtZXNwYWNlGAIgASgJQhDi3x8MCgpeLnsxLDIyNX0kEh8KBWltYWdlGAMg",
-            "ASgJQhDi3x8MCgpeLnsxLDIyNX0kEgwKBGFyZ3MYBSADKAkSKQoDZW52GAYg",
-            "AygLMhwubWVzaHBhYXMuVGFza0lucHV0LkVudkVudHJ5EiIKCHNjaGVkdWxl",
-            "GAcgASgJQhDi3x8MCgpeLnsxLDIyNX0kEhMKC2NvbXBsZXRpb25zGAggASgN",
-            "EjcKBmxhYmVscxgJIAMoCzIfLm1lc2hwYWFzLlRhc2tJbnB1dC5MYWJlbHNF",
-            "bnRyeUIG4t8fAiABEjsKCHNlbGVjdG9yGAogAygLMiEubWVzaHBhYXMuVGFz",
-            "a0lucHV0LlNlbGVjdG9yRW50cnlCBuLfHwIgARoqCghFbnZFbnRyeRILCgNr",
-            "ZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBGi0KC0xhYmVsc0VudHJ5EgsK",
-            "A2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEaLwoNU2VsZWN0b3JFbnRy",
-            "eRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBItAECghBcHBJbnB1",
-            "dBIeCgRuYW1lGAEgASgJQhDi3x8MCgpeLnsxLDIyNX0kEiMKCW5hbWVzcGFj",
-            "ZRgCIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIfCgVpbWFnZRgDIAEoCUIQ4t8f",
-            "DAoKXi57MSwyMjV9JBIMCgRhcmdzGAQgAygJEigKA2VudhgFIAMoCzIbLm1l",
-            "c2hwYWFzLkFwcElucHV0LkVudkVudHJ5EjQKBXBvcnRzGAYgAygLMh0ubWVz",
-            "aHBhYXMuQXBwSW5wdXQuUG9ydHNFbnRyeUIG4t8fAiABEhAKCHJlcGxpY2Fz",
-            "GAcgASgNEjAKCm5ldHdvcmtpbmcYCSABKAsyFC5tZXNocGFhcy5OZXR3b3Jr",
-            "aW5nQgbi3x8CIAESNgoGbGFiZWxzGAogAygLMh4ubWVzaHBhYXMuQXBwSW5w",
-            "dXQuTGFiZWxzRW50cnlCBuLfHwIgARI6CghzZWxlY3RvchgLIAMoCzIgLm1l",
-            "c2hwYWFzLkFwcElucHV0LlNlbGVjdG9yRW50cnlCBuLfHwIgARoqCghFbnZF",
-            "bnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBGiwKClBvcnRz",
-            "RW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgNOgI4ARotCgtMYWJl",
-            "bHNFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBGi8KDVNl",
-            "bGVjdG9yRW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ASJK",
-            "CgNSZWYSHgoEbmFtZRgBIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIjCgluYW1l",
-            "c3BhY2UYAiABKAlCEOLfHwwKCl4uezEsMjI1fSQiOwoHUmVwbGljYRINCgVw",
-            "aGFzZRgBIAEoCRIRCgljb25kaXRpb24YAiABKAkSDgoGcmVhc29uGAMgASgJ",
-            "IjAKCUFwcFN0YXR1cxIjCghyZXBsaWNhcxgBIAMoCzIRLm1lc2hwYWFzLlJl",
-            "cGxpY2EiFgoDTG9nEg8KB21lc3NhZ2UYASABKAkiKwoEQXBwcxIjCgxhcHBs",
-            "aWNhdGlvbnMYASADKAsyDS5tZXNocGFhcy5BcHAiJgoFVGFza3MSHQoFdGFz",
-            "a3MYASADKAsyDi5tZXNocGFhcy5UYXNrIh4KCU5hbWVzcGFjZRIRCgluYW1l",
-            "c3BhY2UYASABKAkiIAoKTmFtZXNwYWNlcxISCgpuYW1lc3BhY2VzGAEgAygJ",
-            "KmcKCFByb3RvY29sEhQKEElOVkFMSURfUFJPVE9DT0wQABIICgRIVFRQEAES",
-            "CQoFSFRUUFMQAhIICgRHUlBDEAMSCQoFSFRUUDIQBBIJCgVNT05HTxAFEgcK",
-            "A1RDUBAGEgcKA1RMUxAHKloKB1RMU21vZGUSDwoLUEFTU1RIUk9VR0gQABIK",
-            "CgZTSU1QTEUQARIKCgZNVVRVQUwQAhIUChBBVVRPX1BBU1NUSFJPVUdIEAMS",
-            "EAoMSVNUSU9fTVVUVUFMEAQynwcKDktkZXBsb3lTZXJ2aWNlEjAKCUNyZWF0",
-            "ZUFwcBISLm1lc2hwYWFzLkFwcElucHV0Gg0ubWVzaHBhYXMuQXBwIgASMAoJ",
-            "VXBkYXRlQXBwEhIubWVzaHBhYXMuQXBwSW5wdXQaDS5tZXNocGFhcy5BcHAi",
-            "ABI0CglEZWxldGVBcHASDS5tZXNocGFhcy5SZWYaFi5nb29nbGUucHJvdG9i",
-            "dWYuRW1wdHkiABIoCgZHZXRBcHASDS5tZXNocGFhcy5SZWYaDS5tZXNocGFh",
-            "cy5BcHAiABIxCghMaXN0QXBwcxITLm1lc2hwYWFzLk5hbWVzcGFjZRoOLm1l",
-            "c2hwYWFzLkFwcHMiABJACg5MaXN0TmFtZXNwYWNlcxIWLmdvb2dsZS5wcm90",
-            "b2J1Zi5FbXB0eRoULm1lc2hwYWFzLk5hbWVzcGFjZXMiABI6CglEZWxldGVB",
-            "bGwSEy5tZXNocGFhcy5OYW1lc3BhY2UaFi5nb29nbGUucHJvdG9idWYuRW1w",
-            "dHkiABIzCgpDcmVhdGVUYXNrEhMubWVzaHBhYXMuVGFza0lucHV0Gg4ubWVz",
-            "aHBhYXMuVGFzayIAEjMKClVwZGF0ZVRhc2sSEy5tZXNocGFhcy5UYXNrSW5w",
-            "dXQaDi5tZXNocGFhcy5UYXNrIgASNQoKRGVsZXRlVGFzaxINLm1lc2hwYWFz",
-            "LlJlZhoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAEioKB0dldFRhc2sSDS5t",
-            "ZXNocGFhcy5SZWYaDi5tZXNocGFhcy5UYXNrIgASMwoJTGlzdFRhc2tzEhMu",
-            "bWVzaHBhYXMuTmFtZXNwYWNlGg8ubWVzaHBhYXMuVGFza3MiABIuCgpTdHJl",
-            "YW1Mb2dzEg0ubWVzaHBhYXMuUmVmGg0ubWVzaHBhYXMuTG9nIgAwARI8Cg1D",
-            "cmVhdGVHYXRld2F5EhYubWVzaHBhYXMuR2F0ZXdheUlucHV0GhEubWVzaHBh",
-            "YXMuR2F0ZXdheSIAEjwKDVVwZGF0ZUdhdGV3YXkSFi5tZXNocGFhcy5HYXRl",
-            "d2F5SW5wdXQaES5tZXNocGFhcy5HYXRld2F5IgASOAoNRGVsZXRlR2F0ZXdh",
-            "eRINLm1lc2hwYWFzLlJlZhoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAEjAK",
-            "CkdldEdhdGV3YXkSDS5tZXNocGFhcy5SZWYaES5tZXNocGFhcy5HYXRld2F5",
-            "IgBCDFoKbWVzaHBhYXNwYmIGcHJvdG8z"));
+            "b3JzL3ZhbGlkYXRvci5wcm90byLVAgoLU2VjcmV0SW5wdXQSHgoEbmFtZRgB",
+            "IAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIhCgdwcm9qZWN0GAIgASgJQhDi3x8M",
+            "CgpeLnsxLDIyNX0kEiIKBHR5cGUYAyABKA4yFC5tZXNocGFhcy5TZWNyZXRU",
+            "eXBlEhEKCWltbXV0YWJsZRgEIAEoCBI1CgRkYXRhGAUgAygLMh8ubWVzaHBh",
+            "YXMuU2VjcmV0SW5wdXQuRGF0YUVudHJ5Qgbi3x8CIAESOQoGbGFiZWxzGAYg",
+            "AygLMiEubWVzaHBhYXMuU2VjcmV0SW5wdXQuTGFiZWxzRW50cnlCBuLfHwIg",
+            "ARorCglEYXRhRW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4",
+            "ARotCgtMYWJlbHNFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6",
+            "AjgBIsYCCgZTZWNyZXQSHgoEbmFtZRgBIAEoCUIQ4t8fDAoKXi57MSwyMjV9",
+            "JBIhCgdwcm9qZWN0GAIgASgJQhDi3x8MCgpeLnsxLDIyNX0kEiIKBHR5cGUY",
+            "AyABKA4yFC5tZXNocGFhcy5TZWNyZXRUeXBlEhEKCWltbXV0YWJsZRgEIAEo",
+            "CBIwCgRkYXRhGAUgAygLMhoubWVzaHBhYXMuU2VjcmV0LkRhdGFFbnRyeUIG",
+            "4t8fAiABEjQKBmxhYmVscxgGIAMoCzIcLm1lc2hwYWFzLlNlY3JldC5MYWJl",
+            "bHNFbnRyeUIG4t8fAiABGisKCURhdGFFbnRyeRILCgNrZXkYASABKAkSDQoF",
+            "dmFsdWUYAiABKAk6AjgBGi0KC0xhYmVsc0VudHJ5EgsKA2tleRgBIAEoCRIN",
+            "CgV2YWx1ZRgCIAEoCToCOAEi2QEKEVNlcnZlclRMU1NldHRpbmdzEhYKDmh0",
+            "dHBzX3JlZGlyZWN0GAEgASgIEh8KBG1vZGUYAiABKA4yES5tZXNocGFhcy5U",
+            "TFNtb2RlEhcKD2NyZWRlbnRpYWxfbmFtZRgDIAEoCRIZChFzdWJqZWN0X2Fs",
+            "dF9uYW1lcxgEIAMoCRIfChd2ZXJpZnlfY2VydGlmaWNhdGVfc3BraRgFIAMo",
+            "CRIfChd2ZXJpZnlfY2VydGlmaWNhdGVfaGFzaBgGIAMoCRIVCg1jaXBoZXJf",
+            "c3VpdGVzGAcgAygJIr0BCg9HYXRld2F5TGlzdGVuZXISFAoEcG9ydBgBIAEo",
+            "DUIG4t8fAhAAEh4KBG5hbWUYAiABKAlCEOLfHwwKCl4uezEsMjI1fSQSLAoI",
+            "cHJvdG9jb2wYAyABKA4yEi5tZXNocGFhcy5Qcm90b2NvbEIG4t8fAhAAEhUK",
+            "BWhvc3RzGAQgAygJQgbi3x8CYAASLwoKdGxzX2NvbmZpZxgFIAEoCzIbLm1l",
+            "c2hwYWFzLlNlcnZlclRMU1NldHRpbmdzIpgCCgdHYXRld2F5EgwKBG5hbWUY",
+            "ASABKAkSDwoHcHJvamVjdBgCIAEoCRIsCglsaXN0ZW5lcnMYAyADKAsyGS5t",
+            "ZXNocGFhcy5HYXRld2F5TGlzdGVuZXISLQoGbGFiZWxzGAQgAygLMh0ubWVz",
+            "aHBhYXMuR2F0ZXdheS5MYWJlbHNFbnRyeRIxCghzZWxlY3RvchgFIAMoCzIf",
+            "Lm1lc2hwYWFzLkdhdGV3YXkuU2VsZWN0b3JFbnRyeRotCgtMYWJlbHNFbnRy",
+            "eRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBGi8KDVNlbGVjdG9y",
+            "RW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ASLbAgoMR2F0",
+            "ZXdheUlucHV0Eh4KBG5hbWUYASABKAlCEOLfHwwKCl4uezEsMjI1fSQSIQoH",
+            "cHJvamVjdBgCIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIsCglsaXN0ZW5lcnMY",
+            "AyADKAsyGS5tZXNocGFhcy5HYXRld2F5TGlzdGVuZXISOgoGbGFiZWxzGAQg",
+            "AygLMiIubWVzaHBhYXMuR2F0ZXdheUlucHV0LkxhYmVsc0VudHJ5Qgbi3x8C",
+            "IAESPgoIc2VsZWN0b3IYBSADKAsyJC5tZXNocGFhcy5HYXRld2F5SW5wdXQu",
+            "U2VsZWN0b3JFbnRyeUIG4t8fAiABGi0KC0xhYmVsc0VudHJ5EgsKA2tleRgB",
+            "IAEoCRINCgV2YWx1ZRgCIAEoCToCOAEaLwoNU2VsZWN0b3JFbnRyeRILCgNr",
+            "ZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBIuMBCglIVFRQUm91dGUSHgoE",
+            "bmFtZRgBIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIUCgRwb3J0GAIgASgNQgbi",
+            "3x8CEAASEwoLcGF0aF9wcmVmaXgYAyABKAkSEwoLcmV3cml0ZV91cmkYBSAB",
+            "KAkSFQoNYWxsb3dfb3JpZ2lucxgGIAMoCRIVCg1hbGxvd19tZXRob2RzGAcg",
+            "AygJEhUKDWFsbG93X2hlYWRlcnMYCCADKAkSFgoOZXhwb3NlX2hlYWRlcnMY",
+            "CSADKAkSGQoRYWxsb3dfY3JlZGVudGlhbHMYCiABKAgiZwoKTmV0d29ya2lu",
+            "ZxIQCghnYXRld2F5cxgBIAMoCRINCgVob3N0cxgCIAMoCRIOCgZleHBvcnQY",
+            "AyABKAgSKAoLaHR0cF9yb3V0ZXMYBCADKAsyEy5tZXNocGFhcy5IVFRQUm91",
+            "dGUilgIKCUNvbnRhaW5lchIeCgRuYW1lGAEgASgJQhDi3x8MCgpeLnsxLDIy",
+            "NX0kEh8KBWltYWdlGAIgASgJQhDi3x8MCgpeLnsxLDIyNX0kEgwKBGFyZ3MY",
+            "AyADKAkSKQoDZW52GAQgAygLMhwubWVzaHBhYXMuQ29udGFpbmVyLkVudkVu",
+            "dHJ5EjUKBXBvcnRzGAUgAygLMh4ubWVzaHBhYXMuQ29udGFpbmVyLlBvcnRz",
+            "RW50cnlCBuLfHwIgARoqCghFbnZFbnRyeRILCgNrZXkYASABKAkSDQoFdmFs",
+            "dWUYAiABKAk6AjgBGiwKClBvcnRzRW50cnkSCwoDa2V5GAEgASgJEg0KBXZh",
+            "bHVlGAIgASgNOgI4ASK0AwoDQXBwEh4KBG5hbWUYASABKAlCEOLfHwwKCl4u",
+            "ezEsMjI1fSQSIQoHcHJvamVjdBgCIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIv",
+            "Cgpjb250YWluZXJzGAMgAygLMhMubWVzaHBhYXMuQ29udGFpbmVyQgbi3x8C",
+            "IAESEAoIcmVwbGljYXMYCCABKA0SMQoGbGFiZWxzGAkgAygLMhkubWVzaHBh",
+            "YXMuQXBwLkxhYmVsc0VudHJ5Qgbi3x8CIAESNQoIc2VsZWN0b3IYCiADKAsy",
+            "Gy5tZXNocGFhcy5BcHAuU2VsZWN0b3JFbnRyeUIG4t8fAiABEjAKCm5ldHdv",
+            "cmtpbmcYCyABKAsyFC5tZXNocGFhcy5OZXR3b3JraW5nQgbi3x8CIAESKwoG",
+            "c3RhdHVzGBQgASgLMhMubWVzaHBhYXMuQXBwU3RhdHVzQgbi3x8CIAEaLQoL",
+            "TGFiZWxzRW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ARov",
+            "Cg1TZWxlY3RvckVudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToC",
+            "OAEi/wIKBFRhc2sSHgoEbmFtZRgBIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIh",
+            "Cgdwcm9qZWN0GAIgASgJQhDi3x8MCgpeLnsxLDIyNX0kEi8KCmNvbnRhaW5l",
+            "cnMYAyADKAsyEy5tZXNocGFhcy5Db250YWluZXJCBuLfHwIgARIiCghzY2hl",
+            "ZHVsZRgHIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBITCgtjb21wbGV0aW9ucxgI",
+            "IAEoDRIyCgZsYWJlbHMYCSADKAsyGi5tZXNocGFhcy5UYXNrLkxhYmVsc0Vu",
+            "dHJ5Qgbi3x8CIAESNgoIc2VsZWN0b3IYCiADKAsyHC5tZXNocGFhcy5UYXNr",
+            "LlNlbGVjdG9yRW50cnlCBuLfHwIgARotCgtMYWJlbHNFbnRyeRILCgNrZXkY",
+            "ASABKAkSDQoFdmFsdWUYAiABKAk6AjgBGi8KDVNlbGVjdG9yRW50cnkSCwoD",
+            "a2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ASKOAwoJVGFza0lucHV0Eh4K",
+            "BG5hbWUYASABKAlCEOLfHwwKCl4uezEsMjI1fSQSIQoHcHJvamVjdBgCIAEo",
+            "CUIQ4t8fDAoKXi57MSwyMjV9JBIvCgpjb250YWluZXJzGAMgAygLMhMubWVz",
+            "aHBhYXMuQ29udGFpbmVyQgbi3x8CIAESIgoIc2NoZWR1bGUYByABKAlCEOLf",
+            "HwwKCl4uezEsMjI1fSQSEwoLY29tcGxldGlvbnMYCCABKA0SNwoGbGFiZWxz",
+            "GAkgAygLMh8ubWVzaHBhYXMuVGFza0lucHV0LkxhYmVsc0VudHJ5Qgbi3x8C",
+            "IAESOwoIc2VsZWN0b3IYCiADKAsyIS5tZXNocGFhcy5UYXNrSW5wdXQuU2Vs",
+            "ZWN0b3JFbnRyeUIG4t8fAiABGi0KC0xhYmVsc0VudHJ5EgsKA2tleRgBIAEo",
+            "CRINCgV2YWx1ZRgCIAEoCToCOAEaLwoNU2VsZWN0b3JFbnRyeRILCgNrZXkY",
+            "ASABKAkSDQoFdmFsdWUYAiABKAk6AjgBIpYDCghBcHBJbnB1dBIeCgRuYW1l",
+            "GAEgASgJQhDi3x8MCgpeLnsxLDIyNX0kEiEKB3Byb2plY3QYAiABKAlCEOLf",
+            "HwwKCl4uezEsMjI1fSQSLwoKY29udGFpbmVycxgDIAMoCzITLm1lc2hwYWFz",
+            "LkNvbnRhaW5lckIG4t8fAiABEhAKCHJlcGxpY2FzGAcgASgNEjAKCm5ldHdv",
+            "cmtpbmcYCSABKAsyFC5tZXNocGFhcy5OZXR3b3JraW5nQgbi3x8CIAESNgoG",
+            "bGFiZWxzGAogAygLMh4ubWVzaHBhYXMuQXBwSW5wdXQuTGFiZWxzRW50cnlC",
+            "BuLfHwIgARI6CghzZWxlY3RvchgLIAMoCzIgLm1lc2hwYWFzLkFwcElucHV0",
+            "LlNlbGVjdG9yRW50cnlCBuLfHwIgARotCgtMYWJlbHNFbnRyeRILCgNrZXkY",
+            "ASABKAkSDQoFdmFsdWUYAiABKAk6AjgBGi8KDVNlbGVjdG9yRW50cnkSCwoD",
+            "a2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ASJICgNSZWYSHgoEbmFtZRgB",
+            "IAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIhCgdwcm9qZWN0GAIgASgJQhDi3x8M",
+            "CgpeLnsxLDIyNX0kIjsKB1JlcGxpY2ESDQoFcGhhc2UYASABKAkSEQoJY29u",
+            "ZGl0aW9uGAIgASgJEg4KBnJlYXNvbhgDIAEoCSIwCglBcHBTdGF0dXMSIwoI",
+            "cmVwbGljYXMYASADKAsyES5tZXNocGFhcy5SZXBsaWNhIhYKA0xvZxIPCgdt",
+            "ZXNzYWdlGAEgASgJIisKBEFwcHMSIwoMYXBwbGljYXRpb25zGAEgAygLMg0u",
+            "bWVzaHBhYXMuQXBwIiYKBVRhc2tzEh0KBXRhc2tzGAEgAygLMg4ubWVzaHBh",
+            "YXMuVGFzayKZAQoMUHJvamVjdElucHV0Eh4KBG5hbWUYASABKAlCEOLfHwwK",
+            "Cl4uezEsMjI1fSQSOgoGbGFiZWxzGAIgAygLMiIubWVzaHBhYXMuUHJvamVj",
+            "dElucHV0LkxhYmVsc0VudHJ5Qgbi3x8CIAEaLQoLTGFiZWxzRW50cnkSCwoD",
+            "a2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ASJ1CgdQcm9qZWN0EgwKBG5h",
+            "bWUYASABKAkSLQoGbGFiZWxzGAIgAygLMh0ubWVzaHBhYXMuUHJvamVjdC5M",
+            "YWJlbHNFbnRyeRotCgtMYWJlbHNFbnRyeRILCgNrZXkYASABKAkSDQoFdmFs",
+            "dWUYAiABKAk6AjgBIiwKClByb2plY3RSZWYSHgoEbmFtZRgBIAEoCUIQ4t8f",
+            "DAoKXi57MSwyMjV9JCIcCghQcm9qZWN0cxIQCghwcm9qZWN0cxgBIAMoCSo9",
+            "CgpTZWNyZXRUeXBlEgoKBk9QQVFVRRAAEhAKDFRMU19DRVJUX0tFWRABEhEK",
+            "DURPQ0tFUl9DT05GSUcQAipnCghQcm90b2NvbBIUChBJTlZBTElEX1BST1RP",
+            "Q09MEAASCAoESFRUUBABEgkKBUhUVFBTEAISCAoER1JQQxADEgkKBUhUVFAy",
+            "EAQSCQoFTU9OR08QBRIHCgNUQ1AQBhIHCgNUTFMQBypaCgdUTFNtb2RlEg8K",
+            "C1BBU1NUSFJPVUdIEAASCgoGU0lNUExFEAESCgoGTVVUVUFMEAISFAoQQVVU",
+            "T19QQVNTVEhST1VHSBADEhAKDElTVElPX01VVFVBTBAEMrcKCg9NZXNoUGFh",
+            "c1NlcnZpY2USPAoNQ3JlYXRlUHJvamVjdBIWLm1lc2hwYWFzLlByb2plY3RJ",
+            "bnB1dBoRLm1lc2hwYWFzLlByb2plY3QiABI8CgxMaXN0UHJvamVjdHMSFi5n",
+            "b29nbGUucHJvdG9idWYuRW1wdHkaEi5tZXNocGFhcy5Qcm9qZWN0cyIAEj8K",
+            "DURlbGV0ZVByb2plY3QSFC5tZXNocGFhcy5Qcm9qZWN0UmVmGhYuZ29vZ2xl",
+            "LnByb3RvYnVmLkVtcHR5IgASNwoKR2V0UHJvamVjdBIULm1lc2hwYWFzLlBy",
+            "b2plY3RSZWYaES5tZXNocGFhcy5Qcm9qZWN0IgASPAoNVXBkYXRlUHJvamVj",
+            "dBIWLm1lc2hwYWFzLlByb2plY3RJbnB1dBoRLm1lc2hwYWFzLlByb2plY3Qi",
+            "ABIwCglDcmVhdGVBcHASEi5tZXNocGFhcy5BcHBJbnB1dBoNLm1lc2hwYWFz",
+            "LkFwcCIAEjAKCVVwZGF0ZUFwcBISLm1lc2hwYWFzLkFwcElucHV0Gg0ubWVz",
+            "aHBhYXMuQXBwIgASNAoJRGVsZXRlQXBwEg0ubWVzaHBhYXMuUmVmGhYuZ29v",
+            "Z2xlLnByb3RvYnVmLkVtcHR5IgASKAoGR2V0QXBwEg0ubWVzaHBhYXMuUmVm",
+            "Gg0ubWVzaHBhYXMuQXBwIgASMgoITGlzdEFwcHMSFC5tZXNocGFhcy5Qcm9q",
+            "ZWN0UmVmGg4ubWVzaHBhYXMuQXBwcyIAEjMKCkNyZWF0ZVRhc2sSEy5tZXNo",
+            "cGFhcy5UYXNrSW5wdXQaDi5tZXNocGFhcy5UYXNrIgASMwoKVXBkYXRlVGFz",
+            "axITLm1lc2hwYWFzLlRhc2tJbnB1dBoOLm1lc2hwYWFzLlRhc2siABI1CgpE",
+            "ZWxldGVUYXNrEg0ubWVzaHBhYXMuUmVmGhYuZ29vZ2xlLnByb3RvYnVmLkVt",
+            "cHR5IgASKgoHR2V0VGFzaxINLm1lc2hwYWFzLlJlZhoOLm1lc2hwYWFzLlRh",
+            "c2siABI0CglMaXN0VGFza3MSFC5tZXNocGFhcy5Qcm9qZWN0UmVmGg8ubWVz",
+            "aHBhYXMuVGFza3MiABI8Cg1DcmVhdGVHYXRld2F5EhYubWVzaHBhYXMuR2F0",
+            "ZXdheUlucHV0GhEubWVzaHBhYXMuR2F0ZXdheSIAEjwKDVVwZGF0ZUdhdGV3",
+            "YXkSFi5tZXNocGFhcy5HYXRld2F5SW5wdXQaES5tZXNocGFhcy5HYXRld2F5",
+            "IgASOAoNRGVsZXRlR2F0ZXdheRINLm1lc2hwYWFzLlJlZhoWLmdvb2dsZS5w",
+            "cm90b2J1Zi5FbXB0eSIAEjAKCkdldEdhdGV3YXkSDS5tZXNocGFhcy5SZWYa",
+            "ES5tZXNocGFhcy5HYXRld2F5IgASOQoMQ3JlYXRlU2VjcmV0EhUubWVzaHBh",
+            "YXMuU2VjcmV0SW5wdXQaEC5tZXNocGFhcy5TZWNyZXQiABI5CgxVcGRhdGVT",
+            "ZWNyZXQSFS5tZXNocGFhcy5TZWNyZXRJbnB1dBoQLm1lc2hwYWFzLlNlY3Jl",
+            "dCIAEjcKDERlbGV0ZVNlY3JldBINLm1lc2hwYWFzLlJlZhoWLmdvb2dsZS5w",
+            "cm90b2J1Zi5FbXB0eSIAEi4KCUdldFNlY3JldBINLm1lc2hwYWFzLlJlZhoQ",
+            "Lm1lc2hwYWFzLlNlY3JldCIAEi4KClN0cmVhbUxvZ3MSDS5tZXNocGFhcy5S",
+            "ZWYaDS5tZXNocGFhcy5Mb2ciADABQgxaCm1lc2hwYWFzcGJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Validator.ValidatorReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Meshpaas.Protocol), typeof(global::Meshpaas.TLSmode), }, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.ServerTLSSettings), global::Meshpaas.ServerTLSSettings.Parser, new[]{ "HttpsRedirect", "Mode", "ServerCertificate", "PrivateKey", "CaCertificates", "CredentialName", "SubjectAltNames", "VerifyCertificateSpki", "VerifyCertificateHash", "CipherSuites" }, null, null, null),
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Meshpaas.SecretType), typeof(global::Meshpaas.Protocol), typeof(global::Meshpaas.TLSmode), }, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.SecretInput), global::Meshpaas.SecretInput.Parser, new[]{ "Name", "Project", "Type", "Immutable", "Data", "Labels" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Secret), global::Meshpaas.Secret.Parser, new[]{ "Name", "Project", "Type", "Immutable", "Data", "Labels" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.ServerTLSSettings), global::Meshpaas.ServerTLSSettings.Parser, new[]{ "HttpsRedirect", "Mode", "CredentialName", "SubjectAltNames", "VerifyCertificateSpki", "VerifyCertificateHash", "CipherSuites" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.GatewayListener), global::Meshpaas.GatewayListener.Parser, new[]{ "Port", "Name", "Protocol", "Hosts", "TlsConfig" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Gateway), global::Meshpaas.Gateway.Parser, new[]{ "Name", "Namespace", "Listeners", "Labels", "Selector" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.GatewayInput), global::Meshpaas.GatewayInput.Parser, new[]{ "Name", "Namespace", "Listeners", "Labels", "Selector" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Gateway), global::Meshpaas.Gateway.Parser, new[]{ "Name", "Project", "Listeners", "Labels", "Selector" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.GatewayInput), global::Meshpaas.GatewayInput.Parser, new[]{ "Name", "Project", "Listeners", "Labels", "Selector" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.HTTPRoute), global::Meshpaas.HTTPRoute.Parser, new[]{ "Name", "Port", "PathPrefix", "RewriteUri", "AllowOrigins", "AllowMethods", "AllowHeaders", "ExposeHeaders", "AllowCredentials" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Networking), global::Meshpaas.Networking.Parser, new[]{ "Gateways", "Hosts", "Export", "HttpRoutes" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.App), global::Meshpaas.App.Parser, new[]{ "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", "Labels", "Selector", "Networking", "Status" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, null, null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Task), global::Meshpaas.Task.Parser, new[]{ "Name", "Namespace", "Image", "Args", "Env", "Schedule", "Completions", "Labels", "Selector" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.TaskInput), global::Meshpaas.TaskInput.Parser, new[]{ "Name", "Namespace", "Image", "Args", "Env", "Schedule", "Completions", "Labels", "Selector" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.AppInput), global::Meshpaas.AppInput.Parser, new[]{ "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", "Networking", "Labels", "Selector" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, null, null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Ref), global::Meshpaas.Ref.Parser, new[]{ "Name", "Namespace" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Container), global::Meshpaas.Container.Parser, new[]{ "Name", "Image", "Args", "Env", "Ports" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.App), global::Meshpaas.App.Parser, new[]{ "Name", "Project", "Containers", "Replicas", "Labels", "Selector", "Networking", "Status" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Task), global::Meshpaas.Task.Parser, new[]{ "Name", "Project", "Containers", "Schedule", "Completions", "Labels", "Selector" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.TaskInput), global::Meshpaas.TaskInput.Parser, new[]{ "Name", "Project", "Containers", "Schedule", "Completions", "Labels", "Selector" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.AppInput), global::Meshpaas.AppInput.Parser, new[]{ "Name", "Project", "Containers", "Replicas", "Networking", "Labels", "Selector" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Ref), global::Meshpaas.Ref.Parser, new[]{ "Name", "Project" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Replica), global::Meshpaas.Replica.Parser, new[]{ "Phase", "Condition", "Reason" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.AppStatus), global::Meshpaas.AppStatus.Parser, new[]{ "Replicas" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Log), global::Meshpaas.Log.Parser, new[]{ "Message" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Apps), global::Meshpaas.Apps.Parser, new[]{ "Applications" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Tasks), global::Meshpaas.Tasks.Parser, new[]{ "Tasks_" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Namespace), global::Meshpaas.Namespace.Parser, new[]{ "Namespace_" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Namespaces), global::Meshpaas.Namespaces.Parser, new[]{ "Namespaces_" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.ProjectInput), global::Meshpaas.ProjectInput.Parser, new[]{ "Name", "Labels" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Project), global::Meshpaas.Project.Parser, new[]{ "Name", "Labels" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.ProjectRef), global::Meshpaas.ProjectRef.Parser, new[]{ "Name" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Projects), global::Meshpaas.Projects.Parser, new[]{ "Projects_" }, null, null, null)
           }));
     }
     #endregion
 
   }
   #region Enums
+  public enum SecretType {
+    [pbr::OriginalName("OPAQUE")] Opaque = 0,
+    [pbr::OriginalName("TLS_CERT_KEY")] TlsCertKey = 1,
+    [pbr::OriginalName("DOCKER_CONFIG")] DockerConfig = 2,
+  }
+
   public enum Protocol {
     [pbr::OriginalName("INVALID_PROTOCOL")] InvalidProtocol = 0,
     [pbr::OriginalName("HTTP")] Http = 1,
@@ -192,6 +227,524 @@ namespace Meshpaas {
   #endregion
 
   #region Messages
+  public sealed partial class SecretInput : pb::IMessage<SecretInput> {
+    private static readonly pb::MessageParser<SecretInput> _parser = new pb::MessageParser<SecretInput>(() => new SecretInput());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SecretInput> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[0]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SecretInput() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SecretInput(SecretInput other) : this() {
+      name_ = other.name_;
+      project_ = other.project_;
+      type_ = other.type_;
+      immutable_ = other.immutable_;
+      data_ = other.data_.Clone();
+      labels_ = other.labels_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SecretInput Clone() {
+      return new SecretInput(this);
+    }
+
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 1;
+    private string name_ = "";
+    /// <summary>
+    /// name of the secret
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "project" field.</summary>
+    public const int ProjectFieldNumber = 2;
+    private string project_ = "";
+    /// <summary>
+    /// secret project
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Project {
+      get { return project_; }
+      set {
+        project_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "type" field.</summary>
+    public const int TypeFieldNumber = 3;
+    private global::Meshpaas.SecretType type_ = 0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Meshpaas.SecretType Type {
+      get { return type_; }
+      set {
+        type_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "immutable" field.</summary>
+    public const int ImmutableFieldNumber = 4;
+    private bool immutable_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Immutable {
+      get { return immutable_; }
+      set {
+        immutable_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "data" field.</summary>
+    public const int DataFieldNumber = 5;
+    private static readonly pbc::MapField<string, string>.Codec _map_data_codec
+        = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForString(18), 42);
+    private readonly pbc::MapField<string, string> data_ = new pbc::MapField<string, string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::MapField<string, string> Data {
+      get { return data_; }
+    }
+
+    /// <summary>Field number for the "labels" field.</summary>
+    public const int LabelsFieldNumber = 6;
+    private static readonly pbc::MapField<string, string>.Codec _map_labels_codec
+        = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForString(18), 50);
+    private readonly pbc::MapField<string, string> labels_ = new pbc::MapField<string, string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::MapField<string, string> Labels {
+      get { return labels_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SecretInput);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SecretInput other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Name != other.Name) return false;
+      if (Project != other.Project) return false;
+      if (Type != other.Type) return false;
+      if (Immutable != other.Immutable) return false;
+      if (!Data.Equals(other.Data)) return false;
+      if (!Labels.Equals(other.Labels)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (Project.Length != 0) hash ^= Project.GetHashCode();
+      if (Type != 0) hash ^= Type.GetHashCode();
+      if (Immutable != false) hash ^= Immutable.GetHashCode();
+      hash ^= Data.GetHashCode();
+      hash ^= Labels.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Name.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Name);
+      }
+      if (Project.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Project);
+      }
+      if (Type != 0) {
+        output.WriteRawTag(24);
+        output.WriteEnum((int) Type);
+      }
+      if (Immutable != false) {
+        output.WriteRawTag(32);
+        output.WriteBool(Immutable);
+      }
+      data_.WriteTo(output, _map_data_codec);
+      labels_.WriteTo(output, _map_labels_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (Project.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Project);
+      }
+      if (Type != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
+      }
+      if (Immutable != false) {
+        size += 1 + 1;
+      }
+      size += data_.CalculateSize(_map_data_codec);
+      size += labels_.CalculateSize(_map_labels_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SecretInput other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+      if (other.Project.Length != 0) {
+        Project = other.Project;
+      }
+      if (other.Type != 0) {
+        Type = other.Type;
+      }
+      if (other.Immutable != false) {
+        Immutable = other.Immutable;
+      }
+      data_.Add(other.data_);
+      labels_.Add(other.labels_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Name = input.ReadString();
+            break;
+          }
+          case 18: {
+            Project = input.ReadString();
+            break;
+          }
+          case 24: {
+            type_ = (global::Meshpaas.SecretType) input.ReadEnum();
+            break;
+          }
+          case 32: {
+            Immutable = input.ReadBool();
+            break;
+          }
+          case 42: {
+            data_.AddEntriesFrom(input, _map_data_codec);
+            break;
+          }
+          case 50: {
+            labels_.AddEntriesFrom(input, _map_labels_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class Secret : pb::IMessage<Secret> {
+    private static readonly pb::MessageParser<Secret> _parser = new pb::MessageParser<Secret>(() => new Secret());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<Secret> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[1]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Secret() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Secret(Secret other) : this() {
+      name_ = other.name_;
+      project_ = other.project_;
+      type_ = other.type_;
+      immutable_ = other.immutable_;
+      data_ = other.data_.Clone();
+      labels_ = other.labels_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Secret Clone() {
+      return new Secret(this);
+    }
+
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 1;
+    private string name_ = "";
+    /// <summary>
+    /// name of the secret
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "project" field.</summary>
+    public const int ProjectFieldNumber = 2;
+    private string project_ = "";
+    /// <summary>
+    /// secret project
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Project {
+      get { return project_; }
+      set {
+        project_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "type" field.</summary>
+    public const int TypeFieldNumber = 3;
+    private global::Meshpaas.SecretType type_ = 0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Meshpaas.SecretType Type {
+      get { return type_; }
+      set {
+        type_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "immutable" field.</summary>
+    public const int ImmutableFieldNumber = 4;
+    private bool immutable_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Immutable {
+      get { return immutable_; }
+      set {
+        immutable_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "data" field.</summary>
+    public const int DataFieldNumber = 5;
+    private static readonly pbc::MapField<string, string>.Codec _map_data_codec
+        = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForString(18), 42);
+    private readonly pbc::MapField<string, string> data_ = new pbc::MapField<string, string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::MapField<string, string> Data {
+      get { return data_; }
+    }
+
+    /// <summary>Field number for the "labels" field.</summary>
+    public const int LabelsFieldNumber = 6;
+    private static readonly pbc::MapField<string, string>.Codec _map_labels_codec
+        = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForString(18), 50);
+    private readonly pbc::MapField<string, string> labels_ = new pbc::MapField<string, string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::MapField<string, string> Labels {
+      get { return labels_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as Secret);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(Secret other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Name != other.Name) return false;
+      if (Project != other.Project) return false;
+      if (Type != other.Type) return false;
+      if (Immutable != other.Immutable) return false;
+      if (!Data.Equals(other.Data)) return false;
+      if (!Labels.Equals(other.Labels)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (Project.Length != 0) hash ^= Project.GetHashCode();
+      if (Type != 0) hash ^= Type.GetHashCode();
+      if (Immutable != false) hash ^= Immutable.GetHashCode();
+      hash ^= Data.GetHashCode();
+      hash ^= Labels.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Name.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Name);
+      }
+      if (Project.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Project);
+      }
+      if (Type != 0) {
+        output.WriteRawTag(24);
+        output.WriteEnum((int) Type);
+      }
+      if (Immutable != false) {
+        output.WriteRawTag(32);
+        output.WriteBool(Immutable);
+      }
+      data_.WriteTo(output, _map_data_codec);
+      labels_.WriteTo(output, _map_labels_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (Project.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Project);
+      }
+      if (Type != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
+      }
+      if (Immutable != false) {
+        size += 1 + 1;
+      }
+      size += data_.CalculateSize(_map_data_codec);
+      size += labels_.CalculateSize(_map_labels_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(Secret other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+      if (other.Project.Length != 0) {
+        Project = other.Project;
+      }
+      if (other.Type != 0) {
+        Type = other.Type;
+      }
+      if (other.Immutable != false) {
+        Immutable = other.Immutable;
+      }
+      data_.Add(other.data_);
+      labels_.Add(other.labels_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Name = input.ReadString();
+            break;
+          }
+          case 18: {
+            Project = input.ReadString();
+            break;
+          }
+          case 24: {
+            type_ = (global::Meshpaas.SecretType) input.ReadEnum();
+            break;
+          }
+          case 32: {
+            Immutable = input.ReadBool();
+            break;
+          }
+          case 42: {
+            data_.AddEntriesFrom(input, _map_data_codec);
+            break;
+          }
+          case 50: {
+            labels_.AddEntriesFrom(input, _map_labels_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
   public sealed partial class ServerTLSSettings : pb::IMessage<ServerTLSSettings> {
     private static readonly pb::MessageParser<ServerTLSSettings> _parser = new pb::MessageParser<ServerTLSSettings>(() => new ServerTLSSettings());
     private pb::UnknownFieldSet _unknownFields;
@@ -200,7 +753,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -219,9 +772,6 @@ namespace Meshpaas {
     public ServerTLSSettings(ServerTLSSettings other) : this() {
       httpsRedirect_ = other.httpsRedirect_;
       mode_ = other.mode_;
-      serverCertificate_ = other.serverCertificate_;
-      privateKey_ = other.privateKey_;
-      caCertificates_ = other.caCertificates_;
       credentialName_ = other.credentialName_;
       subjectAltNames_ = other.subjectAltNames_.Clone();
       verifyCertificateSpki_ = other.verifyCertificateSpki_.Clone();
@@ -257,41 +807,8 @@ namespace Meshpaas {
       }
     }
 
-    /// <summary>Field number for the "server_certificate" field.</summary>
-    public const int ServerCertificateFieldNumber = 3;
-    private string serverCertificate_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string ServerCertificate {
-      get { return serverCertificate_; }
-      set {
-        serverCertificate_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "private_key" field.</summary>
-    public const int PrivateKeyFieldNumber = 4;
-    private string privateKey_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string PrivateKey {
-      get { return privateKey_; }
-      set {
-        privateKey_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "ca_certificates" field.</summary>
-    public const int CaCertificatesFieldNumber = 5;
-    private string caCertificates_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string CaCertificates {
-      get { return caCertificates_; }
-      set {
-        caCertificates_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
     /// <summary>Field number for the "credential_name" field.</summary>
-    public const int CredentialNameFieldNumber = 10;
+    public const int CredentialNameFieldNumber = 3;
     private string credentialName_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string CredentialName {
@@ -302,9 +819,9 @@ namespace Meshpaas {
     }
 
     /// <summary>Field number for the "subject_alt_names" field.</summary>
-    public const int SubjectAltNamesFieldNumber = 6;
+    public const int SubjectAltNamesFieldNumber = 4;
     private static readonly pb::FieldCodec<string> _repeated_subjectAltNames_codec
-        = pb::FieldCodec.ForString(50);
+        = pb::FieldCodec.ForString(34);
     private readonly pbc::RepeatedField<string> subjectAltNames_ = new pbc::RepeatedField<string>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<string> SubjectAltNames {
@@ -312,9 +829,9 @@ namespace Meshpaas {
     }
 
     /// <summary>Field number for the "verify_certificate_spki" field.</summary>
-    public const int VerifyCertificateSpkiFieldNumber = 11;
+    public const int VerifyCertificateSpkiFieldNumber = 5;
     private static readonly pb::FieldCodec<string> _repeated_verifyCertificateSpki_codec
-        = pb::FieldCodec.ForString(90);
+        = pb::FieldCodec.ForString(42);
     private readonly pbc::RepeatedField<string> verifyCertificateSpki_ = new pbc::RepeatedField<string>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<string> VerifyCertificateSpki {
@@ -322,9 +839,9 @@ namespace Meshpaas {
     }
 
     /// <summary>Field number for the "verify_certificate_hash" field.</summary>
-    public const int VerifyCertificateHashFieldNumber = 12;
+    public const int VerifyCertificateHashFieldNumber = 6;
     private static readonly pb::FieldCodec<string> _repeated_verifyCertificateHash_codec
-        = pb::FieldCodec.ForString(98);
+        = pb::FieldCodec.ForString(50);
     private readonly pbc::RepeatedField<string> verifyCertificateHash_ = new pbc::RepeatedField<string>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<string> VerifyCertificateHash {
@@ -332,9 +849,9 @@ namespace Meshpaas {
     }
 
     /// <summary>Field number for the "cipher_suites" field.</summary>
-    public const int CipherSuitesFieldNumber = 9;
+    public const int CipherSuitesFieldNumber = 7;
     private static readonly pb::FieldCodec<string> _repeated_cipherSuites_codec
-        = pb::FieldCodec.ForString(74);
+        = pb::FieldCodec.ForString(58);
     private readonly pbc::RepeatedField<string> cipherSuites_ = new pbc::RepeatedField<string>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<string> CipherSuites {
@@ -356,9 +873,6 @@ namespace Meshpaas {
       }
       if (HttpsRedirect != other.HttpsRedirect) return false;
       if (Mode != other.Mode) return false;
-      if (ServerCertificate != other.ServerCertificate) return false;
-      if (PrivateKey != other.PrivateKey) return false;
-      if (CaCertificates != other.CaCertificates) return false;
       if (CredentialName != other.CredentialName) return false;
       if(!subjectAltNames_.Equals(other.subjectAltNames_)) return false;
       if(!verifyCertificateSpki_.Equals(other.verifyCertificateSpki_)) return false;
@@ -372,9 +886,6 @@ namespace Meshpaas {
       int hash = 1;
       if (HttpsRedirect != false) hash ^= HttpsRedirect.GetHashCode();
       if (Mode != 0) hash ^= Mode.GetHashCode();
-      if (ServerCertificate.Length != 0) hash ^= ServerCertificate.GetHashCode();
-      if (PrivateKey.Length != 0) hash ^= PrivateKey.GetHashCode();
-      if (CaCertificates.Length != 0) hash ^= CaCertificates.GetHashCode();
       if (CredentialName.Length != 0) hash ^= CredentialName.GetHashCode();
       hash ^= subjectAltNames_.GetHashCode();
       hash ^= verifyCertificateSpki_.GetHashCode();
@@ -401,26 +912,14 @@ namespace Meshpaas {
         output.WriteRawTag(16);
         output.WriteEnum((int) Mode);
       }
-      if (ServerCertificate.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(ServerCertificate);
-      }
-      if (PrivateKey.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteString(PrivateKey);
-      }
-      if (CaCertificates.Length != 0) {
-        output.WriteRawTag(42);
-        output.WriteString(CaCertificates);
-      }
-      subjectAltNames_.WriteTo(output, _repeated_subjectAltNames_codec);
-      cipherSuites_.WriteTo(output, _repeated_cipherSuites_codec);
       if (CredentialName.Length != 0) {
-        output.WriteRawTag(82);
+        output.WriteRawTag(26);
         output.WriteString(CredentialName);
       }
+      subjectAltNames_.WriteTo(output, _repeated_subjectAltNames_codec);
       verifyCertificateSpki_.WriteTo(output, _repeated_verifyCertificateSpki_codec);
       verifyCertificateHash_.WriteTo(output, _repeated_verifyCertificateHash_codec);
+      cipherSuites_.WriteTo(output, _repeated_cipherSuites_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -434,15 +933,6 @@ namespace Meshpaas {
       }
       if (Mode != 0) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Mode);
-      }
-      if (ServerCertificate.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(ServerCertificate);
-      }
-      if (PrivateKey.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(PrivateKey);
-      }
-      if (CaCertificates.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(CaCertificates);
       }
       if (CredentialName.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(CredentialName);
@@ -467,15 +957,6 @@ namespace Meshpaas {
       }
       if (other.Mode != 0) {
         Mode = other.Mode;
-      }
-      if (other.ServerCertificate.Length != 0) {
-        ServerCertificate = other.ServerCertificate;
-      }
-      if (other.PrivateKey.Length != 0) {
-        PrivateKey = other.PrivateKey;
-      }
-      if (other.CaCertificates.Length != 0) {
-        CaCertificates = other.CaCertificates;
       }
       if (other.CredentialName.Length != 0) {
         CredentialName = other.CredentialName;
@@ -504,35 +985,23 @@ namespace Meshpaas {
             break;
           }
           case 26: {
-            ServerCertificate = input.ReadString();
-            break;
-          }
-          case 34: {
-            PrivateKey = input.ReadString();
-            break;
-          }
-          case 42: {
-            CaCertificates = input.ReadString();
-            break;
-          }
-          case 50: {
-            subjectAltNames_.AddEntriesFrom(input, _repeated_subjectAltNames_codec);
-            break;
-          }
-          case 74: {
-            cipherSuites_.AddEntriesFrom(input, _repeated_cipherSuites_codec);
-            break;
-          }
-          case 82: {
             CredentialName = input.ReadString();
             break;
           }
-          case 90: {
+          case 34: {
+            subjectAltNames_.AddEntriesFrom(input, _repeated_subjectAltNames_codec);
+            break;
+          }
+          case 42: {
             verifyCertificateSpki_.AddEntriesFrom(input, _repeated_verifyCertificateSpki_codec);
             break;
           }
-          case 98: {
+          case 50: {
             verifyCertificateHash_.AddEntriesFrom(input, _repeated_verifyCertificateHash_codec);
+            break;
+          }
+          case 58: {
+            cipherSuites_.AddEntriesFrom(input, _repeated_cipherSuites_codec);
             break;
           }
         }
@@ -549,7 +1018,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -788,7 +1257,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -806,7 +1275,7 @@ namespace Meshpaas {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public Gateway(Gateway other) : this() {
       name_ = other.name_;
-      namespace_ = other.namespace_;
+      project_ = other.project_;
       listeners_ = other.listeners_.Clone();
       labels_ = other.labels_.Clone();
       selector_ = other.selector_.Clone();
@@ -832,17 +1301,17 @@ namespace Meshpaas {
       }
     }
 
-    /// <summary>Field number for the "namespace" field.</summary>
-    public const int NamespaceFieldNumber = 2;
-    private string namespace_ = "";
+    /// <summary>Field number for the "project" field.</summary>
+    public const int ProjectFieldNumber = 2;
+    private string project_ = "";
     /// <summary>
-    /// application namespace
+    /// application project
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Namespace {
-      get { return namespace_; }
+    public string Project {
+      get { return project_; }
       set {
-        namespace_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        project_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -890,7 +1359,7 @@ namespace Meshpaas {
         return true;
       }
       if (Name != other.Name) return false;
-      if (Namespace != other.Namespace) return false;
+      if (Project != other.Project) return false;
       if(!listeners_.Equals(other.listeners_)) return false;
       if (!Labels.Equals(other.Labels)) return false;
       if (!Selector.Equals(other.Selector)) return false;
@@ -901,7 +1370,7 @@ namespace Meshpaas {
     public override int GetHashCode() {
       int hash = 1;
       if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (Namespace.Length != 0) hash ^= Namespace.GetHashCode();
+      if (Project.Length != 0) hash ^= Project.GetHashCode();
       hash ^= listeners_.GetHashCode();
       hash ^= Labels.GetHashCode();
       hash ^= Selector.GetHashCode();
@@ -922,9 +1391,9 @@ namespace Meshpaas {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (Namespace.Length != 0) {
+      if (Project.Length != 0) {
         output.WriteRawTag(18);
-        output.WriteString(Namespace);
+        output.WriteString(Project);
       }
       listeners_.WriteTo(output, _repeated_listeners_codec);
       labels_.WriteTo(output, _map_labels_codec);
@@ -940,8 +1409,8 @@ namespace Meshpaas {
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
       }
-      if (Namespace.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Namespace);
+      if (Project.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Project);
       }
       size += listeners_.CalculateSize(_repeated_listeners_codec);
       size += labels_.CalculateSize(_map_labels_codec);
@@ -960,8 +1429,8 @@ namespace Meshpaas {
       if (other.Name.Length != 0) {
         Name = other.Name;
       }
-      if (other.Namespace.Length != 0) {
-        Namespace = other.Namespace;
+      if (other.Project.Length != 0) {
+        Project = other.Project;
       }
       listeners_.Add(other.listeners_);
       labels_.Add(other.labels_);
@@ -982,7 +1451,7 @@ namespace Meshpaas {
             break;
           }
           case 18: {
-            Namespace = input.ReadString();
+            Project = input.ReadString();
             break;
           }
           case 26: {
@@ -1011,7 +1480,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1029,7 +1498,7 @@ namespace Meshpaas {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public GatewayInput(GatewayInput other) : this() {
       name_ = other.name_;
-      namespace_ = other.namespace_;
+      project_ = other.project_;
       listeners_ = other.listeners_.Clone();
       labels_ = other.labels_.Clone();
       selector_ = other.selector_.Clone();
@@ -1055,17 +1524,17 @@ namespace Meshpaas {
       }
     }
 
-    /// <summary>Field number for the "namespace" field.</summary>
-    public const int NamespaceFieldNumber = 2;
-    private string namespace_ = "";
+    /// <summary>Field number for the "project" field.</summary>
+    public const int ProjectFieldNumber = 2;
+    private string project_ = "";
     /// <summary>
-    /// application namespace
+    /// application project
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Namespace {
-      get { return namespace_; }
+    public string Project {
+      get { return project_; }
       set {
-        namespace_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        project_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -1113,7 +1582,7 @@ namespace Meshpaas {
         return true;
       }
       if (Name != other.Name) return false;
-      if (Namespace != other.Namespace) return false;
+      if (Project != other.Project) return false;
       if(!listeners_.Equals(other.listeners_)) return false;
       if (!Labels.Equals(other.Labels)) return false;
       if (!Selector.Equals(other.Selector)) return false;
@@ -1124,7 +1593,7 @@ namespace Meshpaas {
     public override int GetHashCode() {
       int hash = 1;
       if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (Namespace.Length != 0) hash ^= Namespace.GetHashCode();
+      if (Project.Length != 0) hash ^= Project.GetHashCode();
       hash ^= listeners_.GetHashCode();
       hash ^= Labels.GetHashCode();
       hash ^= Selector.GetHashCode();
@@ -1145,9 +1614,9 @@ namespace Meshpaas {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (Namespace.Length != 0) {
+      if (Project.Length != 0) {
         output.WriteRawTag(18);
-        output.WriteString(Namespace);
+        output.WriteString(Project);
       }
       listeners_.WriteTo(output, _repeated_listeners_codec);
       labels_.WriteTo(output, _map_labels_codec);
@@ -1163,8 +1632,8 @@ namespace Meshpaas {
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
       }
-      if (Namespace.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Namespace);
+      if (Project.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Project);
       }
       size += listeners_.CalculateSize(_repeated_listeners_codec);
       size += labels_.CalculateSize(_map_labels_codec);
@@ -1183,8 +1652,8 @@ namespace Meshpaas {
       if (other.Name.Length != 0) {
         Name = other.Name;
       }
-      if (other.Namespace.Length != 0) {
-        Namespace = other.Namespace;
+      if (other.Project.Length != 0) {
+        Project = other.Project;
       }
       listeners_.Add(other.listeners_);
       labels_.Add(other.labels_);
@@ -1205,7 +1674,7 @@ namespace Meshpaas {
             break;
           }
           case 18: {
-            Namespace = input.ReadString();
+            Project = input.ReadString();
             break;
           }
           case 26: {
@@ -1237,7 +1706,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1305,7 +1774,7 @@ namespace Meshpaas {
     }
 
     /// <summary>Field number for the "rewrite_uri" field.</summary>
-    public const int RewriteUriFieldNumber = 4;
+    public const int RewriteUriFieldNumber = 5;
     private string rewriteUri_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string RewriteUri {
@@ -1316,9 +1785,9 @@ namespace Meshpaas {
     }
 
     /// <summary>Field number for the "allow_origins" field.</summary>
-    public const int AllowOriginsFieldNumber = 5;
+    public const int AllowOriginsFieldNumber = 6;
     private static readonly pb::FieldCodec<string> _repeated_allowOrigins_codec
-        = pb::FieldCodec.ForString(42);
+        = pb::FieldCodec.ForString(50);
     private readonly pbc::RepeatedField<string> allowOrigins_ = new pbc::RepeatedField<string>();
     /// <summary>
     /// The list of origins that are allowed to perform CORS requests
@@ -1329,9 +1798,9 @@ namespace Meshpaas {
     }
 
     /// <summary>Field number for the "allow_methods" field.</summary>
-    public const int AllowMethodsFieldNumber = 6;
+    public const int AllowMethodsFieldNumber = 7;
     private static readonly pb::FieldCodec<string> _repeated_allowMethods_codec
-        = pb::FieldCodec.ForString(50);
+        = pb::FieldCodec.ForString(58);
     private readonly pbc::RepeatedField<string> allowMethods_ = new pbc::RepeatedField<string>();
     /// <summary>
     /// The list of methods that are allowed to perform CORS requests
@@ -1342,9 +1811,9 @@ namespace Meshpaas {
     }
 
     /// <summary>Field number for the "allow_headers" field.</summary>
-    public const int AllowHeadersFieldNumber = 7;
+    public const int AllowHeadersFieldNumber = 8;
     private static readonly pb::FieldCodec<string> _repeated_allowHeaders_codec
-        = pb::FieldCodec.ForString(58);
+        = pb::FieldCodec.ForString(66);
     private readonly pbc::RepeatedField<string> allowHeaders_ = new pbc::RepeatedField<string>();
     /// <summary>
     /// The list of headers that are allowed to perform CORS requests
@@ -1355,9 +1824,9 @@ namespace Meshpaas {
     }
 
     /// <summary>Field number for the "expose_headers" field.</summary>
-    public const int ExposeHeadersFieldNumber = 8;
+    public const int ExposeHeadersFieldNumber = 9;
     private static readonly pb::FieldCodec<string> _repeated_exposeHeaders_codec
-        = pb::FieldCodec.ForString(66);
+        = pb::FieldCodec.ForString(74);
     private readonly pbc::RepeatedField<string> exposeHeaders_ = new pbc::RepeatedField<string>();
     /// <summary>
     /// The list of origins that are allowed to perform CORS requests
@@ -1368,7 +1837,7 @@ namespace Meshpaas {
     }
 
     /// <summary>Field number for the "allow_credentials" field.</summary>
-    public const int AllowCredentialsFieldNumber = 9;
+    public const int AllowCredentialsFieldNumber = 10;
     private bool allowCredentials_;
     /// <summary>
     /// adds `Access-Control-Allow-Credentials` header
@@ -1444,7 +1913,7 @@ namespace Meshpaas {
         output.WriteString(PathPrefix);
       }
       if (RewriteUri.Length != 0) {
-        output.WriteRawTag(34);
+        output.WriteRawTag(42);
         output.WriteString(RewriteUri);
       }
       allowOrigins_.WriteTo(output, _repeated_allowOrigins_codec);
@@ -1452,7 +1921,7 @@ namespace Meshpaas {
       allowHeaders_.WriteTo(output, _repeated_allowHeaders_codec);
       exposeHeaders_.WriteTo(output, _repeated_exposeHeaders_codec);
       if (AllowCredentials != false) {
-        output.WriteRawTag(72);
+        output.WriteRawTag(80);
         output.WriteBool(AllowCredentials);
       }
       if (_unknownFields != null) {
@@ -1535,27 +2004,27 @@ namespace Meshpaas {
             PathPrefix = input.ReadString();
             break;
           }
-          case 34: {
+          case 42: {
             RewriteUri = input.ReadString();
             break;
           }
-          case 42: {
+          case 50: {
             allowOrigins_.AddEntriesFrom(input, _repeated_allowOrigins_codec);
             break;
           }
-          case 50: {
+          case 58: {
             allowMethods_.AddEntriesFrom(input, _repeated_allowMethods_codec);
             break;
           }
-          case 58: {
+          case 66: {
             allowHeaders_.AddEntriesFrom(input, _repeated_allowHeaders_codec);
             break;
           }
-          case 66: {
+          case 74: {
             exposeHeaders_.AddEntriesFrom(input, _repeated_exposeHeaders_codec);
             break;
           }
-          case 72: {
+          case 80: {
             AllowCredentials = input.ReadBool();
             break;
           }
@@ -1573,7 +2042,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1755,6 +2224,241 @@ namespace Meshpaas {
   }
 
   /// <summary>
+  /// Container is a single docker container
+  /// </summary>
+  public sealed partial class Container : pb::IMessage<Container> {
+    private static readonly pb::MessageParser<Container> _parser = new pb::MessageParser<Container>(() => new Container());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<Container> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[8]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Container() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Container(Container other) : this() {
+      name_ = other.name_;
+      image_ = other.image_;
+      args_ = other.args_.Clone();
+      env_ = other.env_.Clone();
+      ports_ = other.ports_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Container Clone() {
+      return new Container(this);
+    }
+
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 1;
+    private string name_ = "";
+    /// <summary>
+    /// name of the application
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "image" field.</summary>
+    public const int ImageFieldNumber = 2;
+    private string image_ = "";
+    /// <summary>
+    /// docker image of application
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Image {
+      get { return image_; }
+      set {
+        image_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "args" field.</summary>
+    public const int ArgsFieldNumber = 3;
+    private static readonly pb::FieldCodec<string> _repeated_args_codec
+        = pb::FieldCodec.ForString(26);
+    private readonly pbc::RepeatedField<string> args_ = new pbc::RepeatedField<string>();
+    /// <summary>
+    /// args are arguments given to the docker image at startup
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<string> Args {
+      get { return args_; }
+    }
+
+    /// <summary>Field number for the "env" field.</summary>
+    public const int EnvFieldNumber = 4;
+    private static readonly pbc::MapField<string, string>.Codec _map_env_codec
+        = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForString(18), 34);
+    private readonly pbc::MapField<string, string> env_ = new pbc::MapField<string, string>();
+    /// <summary>
+    /// k/v map of environmental variables
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::MapField<string, string> Env {
+      get { return env_; }
+    }
+
+    /// <summary>Field number for the "ports" field.</summary>
+    public const int PortsFieldNumber = 5;
+    private static readonly pbc::MapField<string, uint>.Codec _map_ports_codec
+        = new pbc::MapField<string, uint>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForUInt32(16), 42);
+    private readonly pbc::MapField<string, uint> ports_ = new pbc::MapField<string, uint>();
+    /// <summary>
+    /// k/v map of ports to expose ex: http: 80 https: 443
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::MapField<string, uint> Ports {
+      get { return ports_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as Container);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(Container other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Name != other.Name) return false;
+      if (Image != other.Image) return false;
+      if(!args_.Equals(other.args_)) return false;
+      if (!Env.Equals(other.Env)) return false;
+      if (!Ports.Equals(other.Ports)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (Image.Length != 0) hash ^= Image.GetHashCode();
+      hash ^= args_.GetHashCode();
+      hash ^= Env.GetHashCode();
+      hash ^= Ports.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Name.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Name);
+      }
+      if (Image.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Image);
+      }
+      args_.WriteTo(output, _repeated_args_codec);
+      env_.WriteTo(output, _map_env_codec);
+      ports_.WriteTo(output, _map_ports_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (Image.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Image);
+      }
+      size += args_.CalculateSize(_repeated_args_codec);
+      size += env_.CalculateSize(_map_env_codec);
+      size += ports_.CalculateSize(_map_ports_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(Container other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+      if (other.Image.Length != 0) {
+        Image = other.Image;
+      }
+      args_.Add(other.args_);
+      env_.Add(other.env_);
+      ports_.Add(other.ports_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Name = input.ReadString();
+            break;
+          }
+          case 18: {
+            Image = input.ReadString();
+            break;
+          }
+          case 26: {
+            args_.AddEntriesFrom(input, _repeated_args_codec);
+            break;
+          }
+          case 34: {
+            env_.AddEntriesFrom(input, _map_env_codec);
+            break;
+          }
+          case 42: {
+            ports_.AddEntriesFrom(input, _map_ports_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
   /// App is a stateless application
   /// </summary>
   public sealed partial class App : pb::IMessage<App> {
@@ -1765,7 +2469,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1783,11 +2487,8 @@ namespace Meshpaas {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public App(App other) : this() {
       name_ = other.name_;
-      namespace_ = other.namespace_;
-      image_ = other.image_;
-      args_ = other.args_.Clone();
-      env_ = other.env_.Clone();
-      ports_ = other.ports_.Clone();
+      project_ = other.project_;
+      containers_ = other.containers_.Clone();
       replicas_ = other.replicas_;
       labels_ = other.labels_.Clone();
       selector_ = other.selector_.Clone();
@@ -1815,71 +2516,28 @@ namespace Meshpaas {
       }
     }
 
-    /// <summary>Field number for the "namespace" field.</summary>
-    public const int NamespaceFieldNumber = 2;
-    private string namespace_ = "";
+    /// <summary>Field number for the "project" field.</summary>
+    public const int ProjectFieldNumber = 2;
+    private string project_ = "";
     /// <summary>
-    /// application namespace
+    /// application project
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Namespace {
-      get { return namespace_; }
+    public string Project {
+      get { return project_; }
       set {
-        namespace_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        project_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
-    /// <summary>Field number for the "image" field.</summary>
-    public const int ImageFieldNumber = 3;
-    private string image_ = "";
-    /// <summary>
-    /// docker image of application
-    /// </summary>
+    /// <summary>Field number for the "containers" field.</summary>
+    public const int ContainersFieldNumber = 3;
+    private static readonly pb::FieldCodec<global::Meshpaas.Container> _repeated_containers_codec
+        = pb::FieldCodec.ForMessage(26, global::Meshpaas.Container.Parser);
+    private readonly pbc::RepeatedField<global::Meshpaas.Container> containers_ = new pbc::RepeatedField<global::Meshpaas.Container>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Image {
-      get { return image_; }
-      set {
-        image_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "args" field.</summary>
-    public const int ArgsFieldNumber = 5;
-    private static readonly pb::FieldCodec<string> _repeated_args_codec
-        = pb::FieldCodec.ForString(42);
-    private readonly pbc::RepeatedField<string> args_ = new pbc::RepeatedField<string>();
-    /// <summary>
-    /// args are arguments given to the docker image at startup
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<string> Args {
-      get { return args_; }
-    }
-
-    /// <summary>Field number for the "env" field.</summary>
-    public const int EnvFieldNumber = 6;
-    private static readonly pbc::MapField<string, string>.Codec _map_env_codec
-        = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForString(18), 50);
-    private readonly pbc::MapField<string, string> env_ = new pbc::MapField<string, string>();
-    /// <summary>
-    /// k/v map of environmental variables
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::MapField<string, string> Env {
-      get { return env_; }
-    }
-
-    /// <summary>Field number for the "ports" field.</summary>
-    public const int PortsFieldNumber = 7;
-    private static readonly pbc::MapField<string, uint>.Codec _map_ports_codec
-        = new pbc::MapField<string, uint>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForUInt32(16), 58);
-    private readonly pbc::MapField<string, uint> ports_ = new pbc::MapField<string, uint>();
-    /// <summary>
-    /// k/v map of ports to expose ex: http: 80 https: 443
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::MapField<string, uint> Ports {
-      get { return ports_; }
+    public pbc::RepeatedField<global::Meshpaas.Container> Containers {
+      get { return containers_; }
     }
 
     /// <summary>Field number for the "replicas" field.</summary>
@@ -1958,11 +2616,8 @@ namespace Meshpaas {
         return true;
       }
       if (Name != other.Name) return false;
-      if (Namespace != other.Namespace) return false;
-      if (Image != other.Image) return false;
-      if(!args_.Equals(other.args_)) return false;
-      if (!Env.Equals(other.Env)) return false;
-      if (!Ports.Equals(other.Ports)) return false;
+      if (Project != other.Project) return false;
+      if(!containers_.Equals(other.containers_)) return false;
       if (Replicas != other.Replicas) return false;
       if (!Labels.Equals(other.Labels)) return false;
       if (!Selector.Equals(other.Selector)) return false;
@@ -1975,11 +2630,8 @@ namespace Meshpaas {
     public override int GetHashCode() {
       int hash = 1;
       if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (Namespace.Length != 0) hash ^= Namespace.GetHashCode();
-      if (Image.Length != 0) hash ^= Image.GetHashCode();
-      hash ^= args_.GetHashCode();
-      hash ^= Env.GetHashCode();
-      hash ^= Ports.GetHashCode();
+      if (Project.Length != 0) hash ^= Project.GetHashCode();
+      hash ^= containers_.GetHashCode();
       if (Replicas != 0) hash ^= Replicas.GetHashCode();
       hash ^= Labels.GetHashCode();
       hash ^= Selector.GetHashCode();
@@ -2002,17 +2654,11 @@ namespace Meshpaas {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (Namespace.Length != 0) {
+      if (Project.Length != 0) {
         output.WriteRawTag(18);
-        output.WriteString(Namespace);
+        output.WriteString(Project);
       }
-      if (Image.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(Image);
-      }
-      args_.WriteTo(output, _repeated_args_codec);
-      env_.WriteTo(output, _map_env_codec);
-      ports_.WriteTo(output, _map_ports_codec);
+      containers_.WriteTo(output, _repeated_containers_codec);
       if (Replicas != 0) {
         output.WriteRawTag(64);
         output.WriteUInt32(Replicas);
@@ -2038,15 +2684,10 @@ namespace Meshpaas {
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
       }
-      if (Namespace.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Namespace);
+      if (Project.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Project);
       }
-      if (Image.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Image);
-      }
-      size += args_.CalculateSize(_repeated_args_codec);
-      size += env_.CalculateSize(_map_env_codec);
-      size += ports_.CalculateSize(_map_ports_codec);
+      size += containers_.CalculateSize(_repeated_containers_codec);
       if (Replicas != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Replicas);
       }
@@ -2072,15 +2713,10 @@ namespace Meshpaas {
       if (other.Name.Length != 0) {
         Name = other.Name;
       }
-      if (other.Namespace.Length != 0) {
-        Namespace = other.Namespace;
+      if (other.Project.Length != 0) {
+        Project = other.Project;
       }
-      if (other.Image.Length != 0) {
-        Image = other.Image;
-      }
-      args_.Add(other.args_);
-      env_.Add(other.env_);
-      ports_.Add(other.ports_);
+      containers_.Add(other.containers_);
       if (other.Replicas != 0) {
         Replicas = other.Replicas;
       }
@@ -2114,23 +2750,11 @@ namespace Meshpaas {
             break;
           }
           case 18: {
-            Namespace = input.ReadString();
+            Project = input.ReadString();
             break;
           }
           case 26: {
-            Image = input.ReadString();
-            break;
-          }
-          case 42: {
-            args_.AddEntriesFrom(input, _repeated_args_codec);
-            break;
-          }
-          case 50: {
-            env_.AddEntriesFrom(input, _map_env_codec);
-            break;
-          }
-          case 58: {
-            ports_.AddEntriesFrom(input, _map_ports_codec);
+            containers_.AddEntriesFrom(input, _repeated_containers_codec);
             break;
           }
           case 64: {
@@ -2176,7 +2800,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[7]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2194,10 +2818,8 @@ namespace Meshpaas {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public Task(Task other) : this() {
       name_ = other.name_;
-      namespace_ = other.namespace_;
-      image_ = other.image_;
-      args_ = other.args_.Clone();
-      env_ = other.env_.Clone();
+      project_ = other.project_;
+      containers_ = other.containers_.Clone();
       schedule_ = other.schedule_;
       completions_ = other.completions_;
       labels_ = other.labels_.Clone();
@@ -2224,58 +2846,28 @@ namespace Meshpaas {
       }
     }
 
-    /// <summary>Field number for the "namespace" field.</summary>
-    public const int NamespaceFieldNumber = 2;
-    private string namespace_ = "";
+    /// <summary>Field number for the "project" field.</summary>
+    public const int ProjectFieldNumber = 2;
+    private string project_ = "";
     /// <summary>
-    /// task namespace
+    /// task project
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Namespace {
-      get { return namespace_; }
+    public string Project {
+      get { return project_; }
       set {
-        namespace_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        project_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
-    /// <summary>Field number for the "image" field.</summary>
-    public const int ImageFieldNumber = 3;
-    private string image_ = "";
-    /// <summary>
-    /// docker image of task
-    /// </summary>
+    /// <summary>Field number for the "containers" field.</summary>
+    public const int ContainersFieldNumber = 3;
+    private static readonly pb::FieldCodec<global::Meshpaas.Container> _repeated_containers_codec
+        = pb::FieldCodec.ForMessage(26, global::Meshpaas.Container.Parser);
+    private readonly pbc::RepeatedField<global::Meshpaas.Container> containers_ = new pbc::RepeatedField<global::Meshpaas.Container>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Image {
-      get { return image_; }
-      set {
-        image_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "args" field.</summary>
-    public const int ArgsFieldNumber = 5;
-    private static readonly pb::FieldCodec<string> _repeated_args_codec
-        = pb::FieldCodec.ForString(42);
-    private readonly pbc::RepeatedField<string> args_ = new pbc::RepeatedField<string>();
-    /// <summary>
-    /// args are arguments given to docker image at startup
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<string> Args {
-      get { return args_; }
-    }
-
-    /// <summary>Field number for the "env" field.</summary>
-    public const int EnvFieldNumber = 6;
-    private static readonly pbc::MapField<string, string>.Codec _map_env_codec
-        = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForString(18), 50);
-    private readonly pbc::MapField<string, string> env_ = new pbc::MapField<string, string>();
-    /// <summary>
-    /// k/v map of environmental variables
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::MapField<string, string> Env {
-      get { return env_; }
+    public pbc::RepeatedField<global::Meshpaas.Container> Containers {
+      get { return containers_; }
     }
 
     /// <summary>Field number for the "schedule" field.</summary>
@@ -2340,10 +2932,8 @@ namespace Meshpaas {
         return true;
       }
       if (Name != other.Name) return false;
-      if (Namespace != other.Namespace) return false;
-      if (Image != other.Image) return false;
-      if(!args_.Equals(other.args_)) return false;
-      if (!Env.Equals(other.Env)) return false;
+      if (Project != other.Project) return false;
+      if(!containers_.Equals(other.containers_)) return false;
       if (Schedule != other.Schedule) return false;
       if (Completions != other.Completions) return false;
       if (!Labels.Equals(other.Labels)) return false;
@@ -2355,10 +2945,8 @@ namespace Meshpaas {
     public override int GetHashCode() {
       int hash = 1;
       if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (Namespace.Length != 0) hash ^= Namespace.GetHashCode();
-      if (Image.Length != 0) hash ^= Image.GetHashCode();
-      hash ^= args_.GetHashCode();
-      hash ^= Env.GetHashCode();
+      if (Project.Length != 0) hash ^= Project.GetHashCode();
+      hash ^= containers_.GetHashCode();
       if (Schedule.Length != 0) hash ^= Schedule.GetHashCode();
       if (Completions != 0) hash ^= Completions.GetHashCode();
       hash ^= Labels.GetHashCode();
@@ -2380,16 +2968,11 @@ namespace Meshpaas {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (Namespace.Length != 0) {
+      if (Project.Length != 0) {
         output.WriteRawTag(18);
-        output.WriteString(Namespace);
+        output.WriteString(Project);
       }
-      if (Image.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(Image);
-      }
-      args_.WriteTo(output, _repeated_args_codec);
-      env_.WriteTo(output, _map_env_codec);
+      containers_.WriteTo(output, _repeated_containers_codec);
       if (Schedule.Length != 0) {
         output.WriteRawTag(58);
         output.WriteString(Schedule);
@@ -2411,14 +2994,10 @@ namespace Meshpaas {
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
       }
-      if (Namespace.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Namespace);
+      if (Project.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Project);
       }
-      if (Image.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Image);
-      }
-      size += args_.CalculateSize(_repeated_args_codec);
-      size += env_.CalculateSize(_map_env_codec);
+      size += containers_.CalculateSize(_repeated_containers_codec);
       if (Schedule.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Schedule);
       }
@@ -2441,14 +3020,10 @@ namespace Meshpaas {
       if (other.Name.Length != 0) {
         Name = other.Name;
       }
-      if (other.Namespace.Length != 0) {
-        Namespace = other.Namespace;
+      if (other.Project.Length != 0) {
+        Project = other.Project;
       }
-      if (other.Image.Length != 0) {
-        Image = other.Image;
-      }
-      args_.Add(other.args_);
-      env_.Add(other.env_);
+      containers_.Add(other.containers_);
       if (other.Schedule.Length != 0) {
         Schedule = other.Schedule;
       }
@@ -2473,19 +3048,11 @@ namespace Meshpaas {
             break;
           }
           case 18: {
-            Namespace = input.ReadString();
+            Project = input.ReadString();
             break;
           }
           case 26: {
-            Image = input.ReadString();
-            break;
-          }
-          case 42: {
-            args_.AddEntriesFrom(input, _repeated_args_codec);
-            break;
-          }
-          case 50: {
-            env_.AddEntriesFrom(input, _map_env_codec);
+            containers_.AddEntriesFrom(input, _repeated_containers_codec);
             break;
           }
           case 58: {
@@ -2521,7 +3088,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[8]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2539,10 +3106,8 @@ namespace Meshpaas {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public TaskInput(TaskInput other) : this() {
       name_ = other.name_;
-      namespace_ = other.namespace_;
-      image_ = other.image_;
-      args_ = other.args_.Clone();
-      env_ = other.env_.Clone();
+      project_ = other.project_;
+      containers_ = other.containers_.Clone();
       schedule_ = other.schedule_;
       completions_ = other.completions_;
       labels_ = other.labels_.Clone();
@@ -2569,58 +3134,28 @@ namespace Meshpaas {
       }
     }
 
-    /// <summary>Field number for the "namespace" field.</summary>
-    public const int NamespaceFieldNumber = 2;
-    private string namespace_ = "";
+    /// <summary>Field number for the "project" field.</summary>
+    public const int ProjectFieldNumber = 2;
+    private string project_ = "";
     /// <summary>
-    /// task namespace
+    /// task project
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Namespace {
-      get { return namespace_; }
+    public string Project {
+      get { return project_; }
       set {
-        namespace_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        project_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
-    /// <summary>Field number for the "image" field.</summary>
-    public const int ImageFieldNumber = 3;
-    private string image_ = "";
-    /// <summary>
-    /// docker image of task
-    /// </summary>
+    /// <summary>Field number for the "containers" field.</summary>
+    public const int ContainersFieldNumber = 3;
+    private static readonly pb::FieldCodec<global::Meshpaas.Container> _repeated_containers_codec
+        = pb::FieldCodec.ForMessage(26, global::Meshpaas.Container.Parser);
+    private readonly pbc::RepeatedField<global::Meshpaas.Container> containers_ = new pbc::RepeatedField<global::Meshpaas.Container>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Image {
-      get { return image_; }
-      set {
-        image_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "args" field.</summary>
-    public const int ArgsFieldNumber = 5;
-    private static readonly pb::FieldCodec<string> _repeated_args_codec
-        = pb::FieldCodec.ForString(42);
-    private readonly pbc::RepeatedField<string> args_ = new pbc::RepeatedField<string>();
-    /// <summary>
-    /// args are arguments given to docker image at startup
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<string> Args {
-      get { return args_; }
-    }
-
-    /// <summary>Field number for the "env" field.</summary>
-    public const int EnvFieldNumber = 6;
-    private static readonly pbc::MapField<string, string>.Codec _map_env_codec
-        = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForString(18), 50);
-    private readonly pbc::MapField<string, string> env_ = new pbc::MapField<string, string>();
-    /// <summary>
-    /// k/v map of environmental variables
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::MapField<string, string> Env {
-      get { return env_; }
+    public pbc::RepeatedField<global::Meshpaas.Container> Containers {
+      get { return containers_; }
     }
 
     /// <summary>Field number for the "schedule" field.</summary>
@@ -2685,10 +3220,8 @@ namespace Meshpaas {
         return true;
       }
       if (Name != other.Name) return false;
-      if (Namespace != other.Namespace) return false;
-      if (Image != other.Image) return false;
-      if(!args_.Equals(other.args_)) return false;
-      if (!Env.Equals(other.Env)) return false;
+      if (Project != other.Project) return false;
+      if(!containers_.Equals(other.containers_)) return false;
       if (Schedule != other.Schedule) return false;
       if (Completions != other.Completions) return false;
       if (!Labels.Equals(other.Labels)) return false;
@@ -2700,10 +3233,8 @@ namespace Meshpaas {
     public override int GetHashCode() {
       int hash = 1;
       if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (Namespace.Length != 0) hash ^= Namespace.GetHashCode();
-      if (Image.Length != 0) hash ^= Image.GetHashCode();
-      hash ^= args_.GetHashCode();
-      hash ^= Env.GetHashCode();
+      if (Project.Length != 0) hash ^= Project.GetHashCode();
+      hash ^= containers_.GetHashCode();
       if (Schedule.Length != 0) hash ^= Schedule.GetHashCode();
       if (Completions != 0) hash ^= Completions.GetHashCode();
       hash ^= Labels.GetHashCode();
@@ -2725,16 +3256,11 @@ namespace Meshpaas {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (Namespace.Length != 0) {
+      if (Project.Length != 0) {
         output.WriteRawTag(18);
-        output.WriteString(Namespace);
+        output.WriteString(Project);
       }
-      if (Image.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(Image);
-      }
-      args_.WriteTo(output, _repeated_args_codec);
-      env_.WriteTo(output, _map_env_codec);
+      containers_.WriteTo(output, _repeated_containers_codec);
       if (Schedule.Length != 0) {
         output.WriteRawTag(58);
         output.WriteString(Schedule);
@@ -2756,14 +3282,10 @@ namespace Meshpaas {
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
       }
-      if (Namespace.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Namespace);
+      if (Project.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Project);
       }
-      if (Image.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Image);
-      }
-      size += args_.CalculateSize(_repeated_args_codec);
-      size += env_.CalculateSize(_map_env_codec);
+      size += containers_.CalculateSize(_repeated_containers_codec);
       if (Schedule.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Schedule);
       }
@@ -2786,14 +3308,10 @@ namespace Meshpaas {
       if (other.Name.Length != 0) {
         Name = other.Name;
       }
-      if (other.Namespace.Length != 0) {
-        Namespace = other.Namespace;
+      if (other.Project.Length != 0) {
+        Project = other.Project;
       }
-      if (other.Image.Length != 0) {
-        Image = other.Image;
-      }
-      args_.Add(other.args_);
-      env_.Add(other.env_);
+      containers_.Add(other.containers_);
       if (other.Schedule.Length != 0) {
         Schedule = other.Schedule;
       }
@@ -2818,19 +3336,11 @@ namespace Meshpaas {
             break;
           }
           case 18: {
-            Namespace = input.ReadString();
+            Project = input.ReadString();
             break;
           }
           case 26: {
-            Image = input.ReadString();
-            break;
-          }
-          case 42: {
-            args_.AddEntriesFrom(input, _repeated_args_codec);
-            break;
-          }
-          case 50: {
-            env_.AddEntriesFrom(input, _map_env_codec);
+            containers_.AddEntriesFrom(input, _repeated_containers_codec);
             break;
           }
           case 58: {
@@ -2866,7 +3376,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[9]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2884,11 +3394,8 @@ namespace Meshpaas {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public AppInput(AppInput other) : this() {
       name_ = other.name_;
-      namespace_ = other.namespace_;
-      image_ = other.image_;
-      args_ = other.args_.Clone();
-      env_ = other.env_.Clone();
-      ports_ = other.ports_.Clone();
+      project_ = other.project_;
+      containers_ = other.containers_.Clone();
       replicas_ = other.replicas_;
       networking_ = other.networking_ != null ? other.networking_.Clone() : null;
       labels_ = other.labels_.Clone();
@@ -2915,71 +3422,28 @@ namespace Meshpaas {
       }
     }
 
-    /// <summary>Field number for the "namespace" field.</summary>
-    public const int NamespaceFieldNumber = 2;
-    private string namespace_ = "";
+    /// <summary>Field number for the "project" field.</summary>
+    public const int ProjectFieldNumber = 2;
+    private string project_ = "";
     /// <summary>
-    /// application namespace
+    /// application project
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Namespace {
-      get { return namespace_; }
+    public string Project {
+      get { return project_; }
       set {
-        namespace_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        project_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
-    /// <summary>Field number for the "image" field.</summary>
-    public const int ImageFieldNumber = 3;
-    private string image_ = "";
-    /// <summary>
-    /// docker image of application
-    /// </summary>
+    /// <summary>Field number for the "containers" field.</summary>
+    public const int ContainersFieldNumber = 3;
+    private static readonly pb::FieldCodec<global::Meshpaas.Container> _repeated_containers_codec
+        = pb::FieldCodec.ForMessage(26, global::Meshpaas.Container.Parser);
+    private readonly pbc::RepeatedField<global::Meshpaas.Container> containers_ = new pbc::RepeatedField<global::Meshpaas.Container>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Image {
-      get { return image_; }
-      set {
-        image_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "args" field.</summary>
-    public const int ArgsFieldNumber = 4;
-    private static readonly pb::FieldCodec<string> _repeated_args_codec
-        = pb::FieldCodec.ForString(34);
-    private readonly pbc::RepeatedField<string> args_ = new pbc::RepeatedField<string>();
-    /// <summary>
-    /// args are arguments given to the docker image at startup
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<string> Args {
-      get { return args_; }
-    }
-
-    /// <summary>Field number for the "env" field.</summary>
-    public const int EnvFieldNumber = 5;
-    private static readonly pbc::MapField<string, string>.Codec _map_env_codec
-        = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForString(18), 42);
-    private readonly pbc::MapField<string, string> env_ = new pbc::MapField<string, string>();
-    /// <summary>
-    /// k/v map of environmental variables
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::MapField<string, string> Env {
-      get { return env_; }
-    }
-
-    /// <summary>Field number for the "ports" field.</summary>
-    public const int PortsFieldNumber = 6;
-    private static readonly pbc::MapField<string, uint>.Codec _map_ports_codec
-        = new pbc::MapField<string, uint>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForUInt32(16), 50);
-    private readonly pbc::MapField<string, uint> ports_ = new pbc::MapField<string, uint>();
-    /// <summary>
-    /// k/v map of ports to expose ex: http: 80 https: 443
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::MapField<string, uint> Ports {
-      get { return ports_; }
+    public pbc::RepeatedField<global::Meshpaas.Container> Containers {
+      get { return containers_; }
     }
 
     /// <summary>Field number for the "replicas" field.</summary>
@@ -3041,11 +3505,8 @@ namespace Meshpaas {
         return true;
       }
       if (Name != other.Name) return false;
-      if (Namespace != other.Namespace) return false;
-      if (Image != other.Image) return false;
-      if(!args_.Equals(other.args_)) return false;
-      if (!Env.Equals(other.Env)) return false;
-      if (!Ports.Equals(other.Ports)) return false;
+      if (Project != other.Project) return false;
+      if(!containers_.Equals(other.containers_)) return false;
       if (Replicas != other.Replicas) return false;
       if (!object.Equals(Networking, other.Networking)) return false;
       if (!Labels.Equals(other.Labels)) return false;
@@ -3057,11 +3518,8 @@ namespace Meshpaas {
     public override int GetHashCode() {
       int hash = 1;
       if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (Namespace.Length != 0) hash ^= Namespace.GetHashCode();
-      if (Image.Length != 0) hash ^= Image.GetHashCode();
-      hash ^= args_.GetHashCode();
-      hash ^= Env.GetHashCode();
-      hash ^= Ports.GetHashCode();
+      if (Project.Length != 0) hash ^= Project.GetHashCode();
+      hash ^= containers_.GetHashCode();
       if (Replicas != 0) hash ^= Replicas.GetHashCode();
       if (networking_ != null) hash ^= Networking.GetHashCode();
       hash ^= Labels.GetHashCode();
@@ -3083,17 +3541,11 @@ namespace Meshpaas {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (Namespace.Length != 0) {
+      if (Project.Length != 0) {
         output.WriteRawTag(18);
-        output.WriteString(Namespace);
+        output.WriteString(Project);
       }
-      if (Image.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(Image);
-      }
-      args_.WriteTo(output, _repeated_args_codec);
-      env_.WriteTo(output, _map_env_codec);
-      ports_.WriteTo(output, _map_ports_codec);
+      containers_.WriteTo(output, _repeated_containers_codec);
       if (Replicas != 0) {
         output.WriteRawTag(56);
         output.WriteUInt32(Replicas);
@@ -3115,15 +3567,10 @@ namespace Meshpaas {
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
       }
-      if (Namespace.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Namespace);
+      if (Project.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Project);
       }
-      if (Image.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Image);
-      }
-      size += args_.CalculateSize(_repeated_args_codec);
-      size += env_.CalculateSize(_map_env_codec);
-      size += ports_.CalculateSize(_map_ports_codec);
+      size += containers_.CalculateSize(_repeated_containers_codec);
       if (Replicas != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Replicas);
       }
@@ -3146,15 +3593,10 @@ namespace Meshpaas {
       if (other.Name.Length != 0) {
         Name = other.Name;
       }
-      if (other.Namespace.Length != 0) {
-        Namespace = other.Namespace;
+      if (other.Project.Length != 0) {
+        Project = other.Project;
       }
-      if (other.Image.Length != 0) {
-        Image = other.Image;
-      }
-      args_.Add(other.args_);
-      env_.Add(other.env_);
-      ports_.Add(other.ports_);
+      containers_.Add(other.containers_);
       if (other.Replicas != 0) {
         Replicas = other.Replicas;
       }
@@ -3182,23 +3624,11 @@ namespace Meshpaas {
             break;
           }
           case 18: {
-            Namespace = input.ReadString();
+            Project = input.ReadString();
             break;
           }
           case 26: {
-            Image = input.ReadString();
-            break;
-          }
-          case 34: {
-            args_.AddEntriesFrom(input, _repeated_args_codec);
-            break;
-          }
-          case 42: {
-            env_.AddEntriesFrom(input, _map_env_codec);
-            break;
-          }
-          case 50: {
-            ports_.AddEntriesFrom(input, _map_ports_codec);
+            containers_.AddEntriesFrom(input, _repeated_containers_codec);
             break;
           }
           case 56: {
@@ -3234,7 +3664,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[10]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3252,7 +3682,7 @@ namespace Meshpaas {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public Ref(Ref other) : this() {
       name_ = other.name_;
-      namespace_ = other.namespace_;
+      project_ = other.project_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3275,17 +3705,17 @@ namespace Meshpaas {
       }
     }
 
-    /// <summary>Field number for the "namespace" field.</summary>
-    public const int NamespaceFieldNumber = 2;
-    private string namespace_ = "";
+    /// <summary>Field number for the "project" field.</summary>
+    public const int ProjectFieldNumber = 2;
+    private string project_ = "";
     /// <summary>
-    /// application namespace
+    /// application project
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Namespace {
-      get { return namespace_; }
+    public string Project {
+      get { return project_; }
       set {
-        namespace_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        project_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -3303,7 +3733,7 @@ namespace Meshpaas {
         return true;
       }
       if (Name != other.Name) return false;
-      if (Namespace != other.Namespace) return false;
+      if (Project != other.Project) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3311,7 +3741,7 @@ namespace Meshpaas {
     public override int GetHashCode() {
       int hash = 1;
       if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (Namespace.Length != 0) hash ^= Namespace.GetHashCode();
+      if (Project.Length != 0) hash ^= Project.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3329,9 +3759,9 @@ namespace Meshpaas {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (Namespace.Length != 0) {
+      if (Project.Length != 0) {
         output.WriteRawTag(18);
-        output.WriteString(Namespace);
+        output.WriteString(Project);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -3344,8 +3774,8 @@ namespace Meshpaas {
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
       }
-      if (Namespace.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Namespace);
+      if (Project.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Project);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3361,8 +3791,8 @@ namespace Meshpaas {
       if (other.Name.Length != 0) {
         Name = other.Name;
       }
-      if (other.Namespace.Length != 0) {
-        Namespace = other.Namespace;
+      if (other.Project.Length != 0) {
+        Project = other.Project;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -3380,7 +3810,7 @@ namespace Meshpaas {
             break;
           }
           case 18: {
-            Namespace = input.ReadString();
+            Project = input.ReadString();
             break;
           }
         }
@@ -3397,7 +3827,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[11]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3582,7 +4012,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[12]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3703,7 +4133,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[13]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3832,7 +4262,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[14]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3953,7 +4383,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[15]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[18]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4066,15 +4496,15 @@ namespace Meshpaas {
 
   }
 
-  public sealed partial class Namespace : pb::IMessage<Namespace> {
-    private static readonly pb::MessageParser<Namespace> _parser = new pb::MessageParser<Namespace>(() => new Namespace());
+  public sealed partial class ProjectInput : pb::IMessage<ProjectInput> {
+    private static readonly pb::MessageParser<ProjectInput> _parser = new pb::MessageParser<ProjectInput>(() => new ProjectInput());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<Namespace> Parser { get { return _parser; } }
+    public static pb::MessageParser<ProjectInput> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[16]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[19]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4083,55 +4513,68 @@ namespace Meshpaas {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Namespace() {
+    public ProjectInput() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Namespace(Namespace other) : this() {
-      namespace_ = other.namespace_;
+    public ProjectInput(ProjectInput other) : this() {
+      name_ = other.name_;
+      labels_ = other.labels_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Namespace Clone() {
-      return new Namespace(this);
+    public ProjectInput Clone() {
+      return new ProjectInput(this);
     }
 
-    /// <summary>Field number for the "namespace" field.</summary>
-    public const int Namespace_FieldNumber = 1;
-    private string namespace_ = "";
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 1;
+    private string name_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Namespace_ {
-      get { return namespace_; }
+    public string Name {
+      get { return name_; }
       set {
-        namespace_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
+    }
+
+    /// <summary>Field number for the "labels" field.</summary>
+    public const int LabelsFieldNumber = 2;
+    private static readonly pbc::MapField<string, string>.Codec _map_labels_codec
+        = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForString(18), 18);
+    private readonly pbc::MapField<string, string> labels_ = new pbc::MapField<string, string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::MapField<string, string> Labels {
+      get { return labels_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as Namespace);
+      return Equals(other as ProjectInput);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(Namespace other) {
+    public bool Equals(ProjectInput other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Namespace_ != other.Namespace_) return false;
+      if (Name != other.Name) return false;
+      if (!Labels.Equals(other.Labels)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Namespace_.Length != 0) hash ^= Namespace_.GetHashCode();
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      hash ^= Labels.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4145,10 +4588,11 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Namespace_.Length != 0) {
+      if (Name.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(Namespace_);
+        output.WriteString(Name);
       }
+      labels_.WriteTo(output, _map_labels_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -4157,9 +4601,10 @@ namespace Meshpaas {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Namespace_.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Namespace_);
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
       }
+      size += labels_.CalculateSize(_map_labels_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -4167,13 +4612,14 @@ namespace Meshpaas {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(Namespace other) {
+    public void MergeFrom(ProjectInput other) {
       if (other == null) {
         return;
       }
-      if (other.Namespace_.Length != 0) {
-        Namespace_ = other.Namespace_;
+      if (other.Name.Length != 0) {
+        Name = other.Name;
       }
+      labels_.Add(other.labels_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -4186,7 +4632,11 @@ namespace Meshpaas {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Namespace_ = input.ReadString();
+            Name = input.ReadString();
+            break;
+          }
+          case 18: {
+            labels_.AddEntriesFrom(input, _map_labels_codec);
             break;
           }
         }
@@ -4195,15 +4645,15 @@ namespace Meshpaas {
 
   }
 
-  public sealed partial class Namespaces : pb::IMessage<Namespaces> {
-    private static readonly pb::MessageParser<Namespaces> _parser = new pb::MessageParser<Namespaces>(() => new Namespaces());
+  public sealed partial class Project : pb::IMessage<Project> {
+    private static readonly pb::MessageParser<Project> _parser = new pb::MessageParser<Project>(() => new Project());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<Namespaces> Parser { get { return _parser; } }
+    public static pb::MessageParser<Project> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[17]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[20]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4212,54 +4662,68 @@ namespace Meshpaas {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Namespaces() {
+    public Project() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Namespaces(Namespaces other) : this() {
-      namespaces_ = other.namespaces_.Clone();
+    public Project(Project other) : this() {
+      name_ = other.name_;
+      labels_ = other.labels_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Namespaces Clone() {
-      return new Namespaces(this);
+    public Project Clone() {
+      return new Project(this);
     }
 
-    /// <summary>Field number for the "namespaces" field.</summary>
-    public const int Namespaces_FieldNumber = 1;
-    private static readonly pb::FieldCodec<string> _repeated_namespaces_codec
-        = pb::FieldCodec.ForString(10);
-    private readonly pbc::RepeatedField<string> namespaces_ = new pbc::RepeatedField<string>();
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 1;
+    private string name_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<string> Namespaces_ {
-      get { return namespaces_; }
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "labels" field.</summary>
+    public const int LabelsFieldNumber = 2;
+    private static readonly pbc::MapField<string, string>.Codec _map_labels_codec
+        = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForString(18), 18);
+    private readonly pbc::MapField<string, string> labels_ = new pbc::MapField<string, string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::MapField<string, string> Labels {
+      get { return labels_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as Namespaces);
+      return Equals(other as Project);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(Namespaces other) {
+    public bool Equals(Project other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!namespaces_.Equals(other.namespaces_)) return false;
+      if (Name != other.Name) return false;
+      if (!Labels.Equals(other.Labels)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= namespaces_.GetHashCode();
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      hash ^= Labels.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4273,7 +4737,11 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      namespaces_.WriteTo(output, _repeated_namespaces_codec);
+      if (Name.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Name);
+      }
+      labels_.WriteTo(output, _map_labels_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -4282,7 +4750,10 @@ namespace Meshpaas {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      size += namespaces_.CalculateSize(_repeated_namespaces_codec);
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      size += labels_.CalculateSize(_map_labels_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -4290,11 +4761,14 @@ namespace Meshpaas {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(Namespaces other) {
+    public void MergeFrom(Project other) {
       if (other == null) {
         return;
       }
-      namespaces_.Add(other.namespaces_);
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+      labels_.Add(other.labels_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -4307,7 +4781,261 @@ namespace Meshpaas {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            namespaces_.AddEntriesFrom(input, _repeated_namespaces_codec);
+            Name = input.ReadString();
+            break;
+          }
+          case 18: {
+            labels_.AddEntriesFrom(input, _map_labels_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class ProjectRef : pb::IMessage<ProjectRef> {
+    private static readonly pb::MessageParser<ProjectRef> _parser = new pb::MessageParser<ProjectRef>(() => new ProjectRef());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<ProjectRef> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[21]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ProjectRef() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ProjectRef(ProjectRef other) : this() {
+      name_ = other.name_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ProjectRef Clone() {
+      return new ProjectRef(this);
+    }
+
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 1;
+    private string name_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as ProjectRef);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(ProjectRef other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Name != other.Name) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Name.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Name);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(ProjectRef other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Name = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class Projects : pb::IMessage<Projects> {
+    private static readonly pb::MessageParser<Projects> _parser = new pb::MessageParser<Projects>(() => new Projects());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<Projects> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[22]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Projects() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Projects(Projects other) : this() {
+      projects_ = other.projects_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Projects Clone() {
+      return new Projects(this);
+    }
+
+    /// <summary>Field number for the "projects" field.</summary>
+    public const int Projects_FieldNumber = 1;
+    private static readonly pb::FieldCodec<string> _repeated_projects_codec
+        = pb::FieldCodec.ForString(10);
+    private readonly pbc::RepeatedField<string> projects_ = new pbc::RepeatedField<string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<string> Projects_ {
+      get { return projects_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as Projects);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(Projects other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!projects_.Equals(other.projects_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= projects_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      projects_.WriteTo(output, _repeated_projects_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      size += projects_.CalculateSize(_repeated_projects_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(Projects other) {
+      if (other == null) {
+        return;
+      }
+      projects_.Add(other.projects_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            projects_.AddEntriesFrom(input, _repeated_projects_codec);
             break;
           }
         }

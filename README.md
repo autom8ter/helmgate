@@ -75,4 +75,4 @@ to view pods as they spin up, run:
 
     kubectl get pods -n meshpaas -w
 
-Kdeploy is intended to be deployed behind an SSL ingress/proxy and doesn't handle TLS termination.
+MeshPaas is intended to be deployed behind an SSL ingress/proxy and doesn't handle TLS termination.

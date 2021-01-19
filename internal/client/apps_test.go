@@ -26,11 +26,11 @@ func TestApps(t *testing.T) {
 		"https://openidconnect.googleapis.com/v1/userinfo",
 		nil,
 	)
-	namespaces, err := cli.ListNamespaces(context.Background())
+	namespaces, err := cli.ListProjects(context.Background())
 	if err != nil {
 		t.Fatal(err.Error())
 	}
-	for _, n := range namespaces.GetNamespaces() {
+	for _, n := range namespaces.GetProjects() {
 		t.Log(n)
 	}
 }

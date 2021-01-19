@@ -4,7 +4,6 @@ import (
 	"fmt"
 	meshpaaspb "github.com/autom8ter/meshpaas/gen/grpc/go"
 	"github.com/autom8ter/meshpaas/internal/helpers"
-	"github.com/pkg/errors"
 	"github.com/spf13/cast"
 	"istio.io/api/meta/v1alpha1"
 	"istio.io/api/networking/v1alpha3"
@@ -25,59 +24,74 @@ const OnFailure = "OnFailure"
 const RWO = "ReadWriteOnce"
 
 func appContainers(app *meshpaaspb.AppInput) ([]v12.Container, error) {
-	ports := []v12.ContainerPort{}
-	for name, p := range app.Ports {
-		ports = append(ports, v12.ContainerPort{
-			Name:          name,
-			ContainerPort: cast.ToInt32(p),
+	var containers []v12.Container
+	for _, c := range app.Containers {
+		ports := []v12.ContainerPort{}
+		for name, p := range c.Ports {
+			ports = append(ports, v12.ContainerPort{
+				Name:          name,
+				ContainerPort: cast.ToInt32(p),
+			})
+		}
+		env := []v12.EnvVar{}
+		for name, val := range c.Env {
+			env = append(env, v12.EnvVar{
+				Name:  name,
+				Value: cast.ToString(val),
+			})
+		}
+		containers = append(containers, v12.Container{
+			Name:      c.Name,
+			Image:     c.Image,
+			Args:      c.Args,
+			Ports:     ports,
+			Env:       env,
+			Resources: v12.ResourceRequirements{},
 		})
 	}
-	env := []v12.EnvVar{}
-	for name, val := range app.Env {
-		env = append(env, v12.EnvVar{
-			Name:  name,
-			Value: cast.ToString(val),
-		})
-	}
-	return []v12.Container{
-		{
-			Name:            app.Name,
-			Image:           app.Image,
-			Ports:           ports,
-			Env:             env,
-			Args:            app.Args,
-			Resources:       v12.ResourceRequirements{},
-			ImagePullPolicy: Always,
-		},
-	}, nil
+
+	return containers, nil
 }
 
 func taskContainers(app *meshpaaspb.TaskInput) ([]v12.Container, error) {
-	env := []v12.EnvVar{}
-	for name, val := range app.Env {
-		env = append(env, v12.EnvVar{
-			Name:  name,
-			Value: cast.ToString(val),
-		})
-	}
-	return []v12.Container{
-		{
-			Name:            app.Name,
-			Image:           app.Image,
+	var containers []v12.Container
+	for _, c := range app.Containers {
+		env := []v12.EnvVar{}
+		for name, val := range c.Env {
+			env = append(env, v12.EnvVar{
+				Name:  name,
+				Value: cast.ToString(val),
+			})
+		}
+		ports := []v12.ContainerPort{}
+		for name, p := range c.Ports {
+			ports = append(ports, v12.ContainerPort{
+				Name:          name,
+				ContainerPort: cast.ToInt32(p),
+			})
+		}
+		containers = append(containers, v12.Container{
+			Name:            c.Name,
+			Image:           c.Image,
+			Args:            c.Args,
+			Ports:           ports,
 			Env:             env,
-			Args:            app.Args,
 			Resources:       v12.ResourceRequirements{},
 			ImagePullPolicy: Always,
-		},
-	}, nil
+		})
+
+	}
+
+	return containers, nil
 }
 
-func toNamespace(app *meshpaaspb.AppInput) *v12.Namespace {
+func toNamespace(project *meshpaaspb.ProjectInput) *v12.Namespace {
 	return &v12.Namespace{
 		TypeMeta: metav1.TypeMeta{},
 		ObjectMeta: metav1.ObjectMeta{
-			Name:      app.Namespace,
-			Namespace: app.Namespace,
+			Name:      project.Name,
+			Namespace: project.Name,
+			Labels:    project.Labels,
 		},
 		Spec:   v12.NamespaceSpec{},
 		Status: v12.NamespaceStatus{},
@@ -88,9 +102,22 @@ func toGwNamespace(gw *meshpaaspb.GatewayInput) *v12.Namespace {
 	return &v12.Namespace{
 		TypeMeta: metav1.TypeMeta{},
 		ObjectMeta: metav1.ObjectMeta{
-			Name:      gw.Namespace,
-			Namespace: gw.Namespace,
+			Name:      gw.Project,
+			Namespace: gw.Project,
 			Labels:    gw.Labels,
+		},
+		Spec:   v12.NamespaceSpec{},
+		Status: v12.NamespaceStatus{},
+	}
+}
+
+func toSecretNamespace(secret *meshpaaspb.SecretInput) *v12.Namespace {
+	return &v12.Namespace{
+		TypeMeta: metav1.TypeMeta{},
+		ObjectMeta: metav1.ObjectMeta{
+			Name:      secret.Project,
+			Namespace: secret.Project,
+			Labels:    secret.Labels,
 		},
 		Spec:   v12.NamespaceSpec{},
 		Status: v12.NamespaceStatus{},
@@ -101,28 +128,17 @@ func toTaskNamespace(app *meshpaaspb.TaskInput) *v12.Namespace {
 	return &v12.Namespace{
 		TypeMeta: metav1.TypeMeta{},
 		ObjectMeta: metav1.ObjectMeta{
-			Name:      app.Namespace,
-			Namespace: app.Namespace,
+			Name:      app.Project,
+			Namespace: app.Project,
 		},
 		Spec:   v12.NamespaceSpec{},
 		Status: v12.NamespaceStatus{},
 	}
 }
 
-func toServicePorts(app *meshpaaspb.AppInput) []v12.ServicePort {
-	var ports []v12.ServicePort
-	for name, p := range app.Ports {
-		ports = append(ports, v12.ServicePort{
-			Name: name,
-			Port: cast.ToInt32(p),
-		})
-	}
-	return ports
-}
-
 func overwriteService(svc *networking.VirtualService, app *meshpaaspb.AppInput) *networking.VirtualService {
 	if svc.Namespace != "" {
-		svc.Namespace = app.Namespace
+		svc.Namespace = app.Project
 	}
 	if svc.Name != "" {
 		svc.Name = app.Name
@@ -152,7 +168,7 @@ func overwriteService(svc *networking.VirtualService, app *meshpaaspb.AppInput) 
 				})
 			}
 			destinations = append(destinations, &v1alpha3.Destination{
-				Host: fmt.Sprintf("%s.%s.svc.cluster.local", app.Name, app.Namespace),
+				Host: fmt.Sprintf("%s.%s.svc.cluster.local", app.Name, app.Project),
 				Port: &v1alpha3.PortSelector{
 					Number: h.Port,
 				},
@@ -202,7 +218,7 @@ func overwriteService(svc *networking.VirtualService, app *meshpaaspb.AppInput) 
 	TypeMeta: metav1.TypeMeta{},
 	ObjectMeta: metav1.ObjectMeta{
 		Name:      app.Name,
-		Namespace: app.Namespace,
+		Namespace: app.Project,
 		Labels:    app.Labels,
 	},
 	Spec: v1.ServiceSpec{
@@ -218,22 +234,91 @@ func toService(app *meshpaaspb.AppInput) *networking.VirtualService {
 		TypeMeta: metav1.TypeMeta{},
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      app.Name,
-			Namespace: app.Namespace,
+			Namespace: app.Project,
 			Labels:    app.Labels,
 		},
 		Spec:   v1alpha3.VirtualService{},
 		Status: v1alpha1.IstioStatus{},
 	}
-	return overwriteService(svc, &meshpaaspb.AppInput{
-		Name:       app.Name,
-		Namespace:  app.Namespace,
-		Image:      app.Image,
-		Args:       app.Args,
-		Env:        app.Env,
-		Ports:      app.Ports,
-		Replicas:   app.Replicas,
-		Networking: app.Networking,
-	})
+	if svc.Namespace != "" {
+		svc.Namespace = app.Project
+	}
+	if svc.Name != "" {
+		svc.Name = app.Name
+	}
+	if app.GetNetworking().GetGateways() != nil {
+		svc.Spec.Gateways = app.GetNetworking().GetGateways()
+	}
+	if app.GetNetworking().GetHosts() != nil {
+		svc.Spec.Hosts = app.GetNetworking().GetHosts()
+	}
+	if app.GetNetworking().GetExport() {
+		svc.Spec.ExportTo = []string{"*"}
+	} else {
+		svc.Spec.ExportTo = []string{"."}
+	}
+	if app.GetNetworking().GetHttpRoutes() != nil {
+		var (
+			routes []*v1alpha3.HTTPRoute
+		)
+		for _, h := range app.GetNetworking().GetHttpRoutes() {
+			var (
+				origins []*v1alpha3.StringMatch
+			)
+			for _, o := range h.AllowOrigins {
+				origins = append(origins, &v1alpha3.StringMatch{
+					MatchType: &v1alpha3.StringMatch_Exact{Exact: o},
+				})
+			}
+			route := &v1alpha3.HTTPRoute{
+				Name: h.Name,
+				Route: []*v1alpha3.HTTPRouteDestination{
+					{
+						Destination: &v1alpha3.Destination{
+							Host:   fmt.Sprintf("%s.%s.svc.cluster.local", app.Name, app.Project),
+							Subset: "",
+							Port: &v1alpha3.PortSelector{
+								Number: h.Port,
+							},
+						},
+					},
+				},
+				Timeout:          nil,
+				Retries:          nil,
+				Fault:            nil,
+				Mirror:           nil,
+				MirrorPercent:    nil,
+				MirrorPercentage: nil,
+				CorsPolicy: &v1alpha3.CorsPolicy{
+					AllowOrigins:  origins,
+					AllowMethods:  h.AllowMethods,
+					AllowHeaders:  h.AllowHeaders,
+					ExposeHeaders: h.ExposeHeaders,
+				},
+				Headers: nil,
+			}
+			if h.PathPrefix != "" {
+				route.Match = append(route.Match, &v1alpha3.HTTPMatchRequest{
+					Uri: &v1alpha3.StringMatch{
+						MatchType: &v1alpha3.StringMatch_Prefix{
+							Prefix: h.PathPrefix,
+						},
+					},
+					Port: h.Port,
+				})
+			}
+			if h.RewriteUri != "" {
+				route.Rewrite = &v1alpha3.HTTPRewrite{
+					Uri:       h.RewriteUri,
+					Authority: "",
+				}
+			}
+			routes = append(routes, route)
+		}
+		svc.Spec.Http = routes
+	}
+
+	return svc
 }
 
 func toDeployment(app *meshpaaspb.AppInput) (*apps.Deployment, error) {
@@ -251,7 +336,7 @@ func toDeployment(app *meshpaaspb.AppInput) (*apps.Deployment, error) {
 		},
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      app.Name,
-			Namespace: app.Namespace,
+			Namespace: app.Project,
 			Labels:    app.Labels,
 		},
 		Spec: apps.DeploymentSpec{
@@ -262,7 +347,7 @@ func toDeployment(app *meshpaaspb.AppInput) (*apps.Deployment, error) {
 			Template: v12.PodTemplateSpec{
 				ObjectMeta: metav1.ObjectMeta{
 					Name:      app.Name,
-					Namespace: app.Namespace,
+					Namespace: app.Project,
 					Labels:    app.Labels,
 				},
 				Spec: v12.PodSpec{
@@ -294,7 +379,7 @@ func toTask(app *meshpaaspb.TaskInput) (*v1beta1.CronJob, error) {
 		},
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      app.Name,
-			Namespace: app.Namespace,
+			Namespace: app.Project,
 			Labels:    app.Labels,
 		},
 		Spec: v1beta1.CronJobSpec{
@@ -309,7 +394,7 @@ func toTask(app *meshpaaspb.TaskInput) (*v1beta1.CronJob, error) {
 					Template: v12.PodTemplateSpec{
 						ObjectMeta: metav1.ObjectMeta{
 							Name:      app.Name,
-							Namespace: app.Namespace,
+							Namespace: app.Project,
 							Labels:    app.Labels,
 						},
 						Spec: v12.PodSpec{
@@ -325,50 +410,9 @@ func toTask(app *meshpaaspb.TaskInput) (*v1beta1.CronJob, error) {
 }
 
 func overwriteDeployment(deployment *apps.Deployment, app *meshpaaspb.AppInput) (*apps.Deployment, error) {
-	var container *v1.Container
-	for _, c := range deployment.Spec.Template.Spec.Containers {
-		if c.Name == app.Name {
-			container = &c
-		}
-	}
-	if container == nil {
-		return nil, errors.Errorf("failed to find container: %s", app.Name)
-	}
 	replicas := int32(app.Replicas)
 	if replicas != *deployment.Spec.Replicas {
 		deployment.Spec.Replicas = &replicas
-	}
-	if app.Image != "" {
-		container.Image = app.Image
-	}
-	if app.Args != nil {
-		container.Args = app.Args
-	}
-	if app.Ports != nil {
-		ports := []v12.ContainerPort{}
-		for name, p := range app.Ports {
-			ports = append(ports, v12.ContainerPort{
-				Name:          name,
-				ContainerPort: cast.ToInt32(p),
-			})
-		}
-		container.Ports = ports
-	}
-	if app.Env != nil {
-		env := []v12.EnvVar{}
-		for name, val := range app.Env {
-			env = append(env, v12.EnvVar{
-				Name:  name,
-				Value: cast.ToString(val),
-			})
-		}
-		container.Env = env
-	}
-	var containers = []v1.Container{*container}
-	for _, c := range deployment.Spec.Template.Spec.Containers {
-		if c.Name != app.Name {
-			containers = append(containers, c)
-		}
 	}
 	if app.Labels != nil {
 		deployment.Labels = app.Labels
@@ -376,16 +420,24 @@ func overwriteDeployment(deployment *apps.Deployment, app *meshpaaspb.AppInput) 
 	if app.Selector != nil {
 		deployment.Spec.Selector = &metav1.LabelSelector{MatchLabels: app.Selector}
 	}
+	containers, err := appContainers(app)
+	if err != nil {
+		return nil, err
+	}
 	deployment.Spec.Template.Spec.Containers = containers
 	return deployment, nil
 }
 
 func overwriteGateway(gateway *pkgnv1alpha3.Gateway, gw *meshpaaspb.GatewayInput) *pkgnv1alpha3.Gateway {
-
+	gateway.Name = gw.Name
+	gateway.Namespace = gw.Project
+	gateway.Labels = gw.Labels
+	gateway.Spec.Selector = gw.Selector
+	gateway.Spec.Servers = toServers(gw)
 	return gateway
 }
 
-func toGateway(gateway *meshpaaspb.GatewayInput) *pkgnv1alpha3.Gateway {
+func toServers(gateway *meshpaaspb.GatewayInput) []*nv1alpha3.Server {
 	var servers []*nv1alpha3.Server
 	for _, l := range gateway.GetListeners() {
 		var tls *nv1alpha3.ServerTLSSettings
@@ -408,9 +460,6 @@ func toGateway(gateway *meshpaaspb.GatewayInput) *pkgnv1alpha3.Gateway {
 						return nv1alpha3.ServerTLSSettings_SIMPLE
 					}
 				}(),
-				ServerCertificate:     l.TlsConfig.ServerCertificate,
-				PrivateKey:            l.TlsConfig.PrivateKey,
-				CaCertificates:        l.TlsConfig.CaCertificates,
 				CredentialName:        l.TlsConfig.CredentialName,
 				SubjectAltNames:       l.TlsConfig.SubjectAltNames,
 				VerifyCertificateSpki: l.TlsConfig.VerifyCertificateSpki,
@@ -431,15 +480,19 @@ func toGateway(gateway *meshpaaspb.GatewayInput) *pkgnv1alpha3.Gateway {
 			Name:  l.GetName(),
 		})
 	}
+	return servers
+}
+
+func toGateway(gateway *meshpaaspb.GatewayInput) *pkgnv1alpha3.Gateway {
 	return &pkgnv1alpha3.Gateway{
 		TypeMeta: metav1.TypeMeta{},
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      gateway.GetName(),
-			Namespace: gateway.GetNamespace(),
+			Namespace: gateway.GetProject(),
 			Labels:    gateway.GetLabels(),
 		},
 		Spec: nv1alpha3.Gateway{
-			Servers:  servers,
+			Servers:  toServers(gateway),
 			Selector: gateway.GetSelector(),
 		},
 		Status: v1alpha1.IstioStatus{},
@@ -447,42 +500,15 @@ func toGateway(gateway *meshpaaspb.GatewayInput) *pkgnv1alpha3.Gateway {
 }
 
 func overwriteTask(cronJob *v1beta1.CronJob, task *meshpaaspb.TaskInput) (*v1beta1.CronJob, error) {
-	var container *v12.Container
-	for _, c := range cronJob.Spec.JobTemplate.Spec.Template.Spec.Containers {
-		if c.Name == cronJob.Name {
-			container = &c
-		}
-	}
-	if container == nil {
-		return nil, errors.Errorf("failed to find container: %s", task.Name)
+	containers, err := taskContainers(task)
+	if err != nil {
+		return nil, err
 	}
 	if task.Schedule != "" {
 		cronJob.Spec.Schedule = task.Schedule
 	}
 	if task.Completions != 0 {
 		cronJob.Spec.JobTemplate.Spec.Completions = helpers.Int32Pointer(task.Completions)
-	}
-	if task.Image != "" {
-		container.Image = task.Image
-	}
-	if task.Args != nil {
-		container.Args = task.Args
-	}
-	if task.Env != nil {
-		env := []v12.EnvVar{}
-		for name, val := range task.Env {
-			env = append(env, v12.EnvVar{
-				Name:  name,
-				Value: cast.ToString(val),
-			})
-		}
-		container.Env = env
-	}
-	var containers = []v1.Container{*container}
-	for _, c := range cronJob.Spec.JobTemplate.Spec.Template.Spec.Containers {
-		if c.Name != task.Name {
-			containers = append(containers, c)
-		}
 	}
 	cronJob.Spec.JobTemplate.Spec.Template.Spec.Containers = containers
 	return cronJob, nil
@@ -496,30 +522,55 @@ type k8sApp struct {
 
 func (k *k8sApp) toApp() *meshpaaspb.App {
 	a := &meshpaaspb.App{
-		Name:      k.deployment.Name,
-		Namespace: k.deployment.Namespace,
+		Name:       k.deployment.Name,
+		Project:    k.deployment.Namespace,
+		Containers: nil,
+		Replicas:   uint32(*k.deployment.Spec.Replicas),
+		Labels:     k.deployment.Labels,
+		Selector:   k.deployment.Spec.Selector.MatchLabels,
+		Networking: &meshpaaspb.Networking{},
+		Status:     nil,
 	}
-	a.Replicas = uint32(*k.deployment.Spec.Replicas)
-	a.Image = k.deployment.Spec.Template.Spec.Containers[0].Image
-	var container *v1.Container
-	for _, c := range k.deployment.Spec.Template.Spec.Containers {
-		if c.Name == a.Name {
-			container = &c
+	a.Networking.Gateways = k.service.Spec.Gateways
+	a.Networking.Hosts = k.service.Spec.Hosts
+	if len(k.service.Spec.ExportTo) > 0 {
+		a.Networking.Export = k.service.Spec.ExportTo[0] == "*"
+	}
+	for _, r := range k.service.Spec.Http {
+		var origins []string
+		var prefix string
+		if len(r.Match) > 0 {
+			prefix = r.Match[0].Uri.GetPrefix()
 		}
+		a.Networking.HttpRoutes = append(a.Networking.HttpRoutes, &meshpaaspb.HTTPRoute{
+			Name:             r.Name,
+			Port:             r.Route[0].Destination.Port.Number,
+			PathPrefix:       prefix,
+			RewriteUri:       r.Rewrite.GetUri(),
+			AllowOrigins:     origins,
+			AllowMethods:     r.CorsPolicy.AllowMethods,
+			AllowHeaders:     r.CorsPolicy.AllowHeaders,
+			ExposeHeaders:    r.CorsPolicy.ExposeHeaders,
+			AllowCredentials: r.CorsPolicy.AllowCredentials != nil && r.CorsPolicy.AllowCredentials.Value,
+		})
 	}
-	if container == nil {
-		panic("failed to find container")
+	for _, c := range k.deployment.Spec.Template.Spec.Containers {
+		var env = map[string]string{}
+		for _, e := range c.Env {
+			env[e.Name] = e.Value
+		}
+		var ports = map[string]uint32{}
+		for _, p := range c.Ports {
+			ports[p.Name] = cast.ToUint32(p.ContainerPort)
+		}
+		a.Containers = append(a.Containers, &meshpaaspb.Container{
+			Name:  c.Name,
+			Image: c.Image,
+			Args:  c.Args,
+			Env:   env,
+			Ports: ports,
+		})
 	}
-	var env = map[string]string{}
-	for _, e := range container.Env {
-		env[e.Name] = e.Value
-	}
-	a.Env = env
-	var ports = map[string]uint32{}
-	for _, p := range container.Ports {
-		ports[p.Name] = cast.ToUint32(p.ContainerPort)
-	}
-	a.Ports = ports
 	return a
 }
 
@@ -530,28 +581,29 @@ type k8sTask struct {
 
 func (k *k8sTask) toTask() *meshpaaspb.Task {
 	a := &meshpaaspb.Task{
-		Name:      k.cronJob.Name,
-		Namespace: k.cronJob.Namespace,
+		Name:    k.cronJob.Name,
+		Project: k.cronJob.Namespace,
 	}
-	var container v12.Container
 	for _, c := range k.cronJob.Spec.JobTemplate.Spec.Template.Spec.Containers {
-		if c.Name == k.cronJob.Name {
-			container = c
+		var env = map[string]string{}
+		for _, e := range c.Env {
+			env[e.Name] = e.Value
 		}
-	}
-	a.Image = container.Image
-	var env = map[string]string{}
-	for _, e := range container.Env {
-		env[e.Name] = e.Value
-	}
-	a.Schedule = k.cronJob.Spec.Schedule
-	if k.cronJob.Spec.JobTemplate.Spec.Completions != nil {
-		a.Completions = uint32(*k.cronJob.Spec.JobTemplate.Spec.Completions)
-	}
-	a.Env = env
-	var ports = map[string]uint32{}
-	for _, p := range container.Ports {
-		ports[p.Name] = cast.ToUint32(p.ContainerPort)
+		a.Schedule = k.cronJob.Spec.Schedule
+		if k.cronJob.Spec.JobTemplate.Spec.Completions != nil {
+			a.Completions = uint32(*k.cronJob.Spec.JobTemplate.Spec.Completions)
+		}
+		var ports = map[string]uint32{}
+		for _, p := range c.Ports {
+			ports[p.Name] = cast.ToUint32(p.ContainerPort)
+		}
+		a.Containers = append(a.Containers, &meshpaaspb.Container{
+			Name:  c.Name,
+			Image: c.Image,
+			Args:  c.Args,
+			Env:   env,
+			Ports: ports,
+		})
 	}
 	return a
 }
@@ -604,9 +656,6 @@ func (k *k8sGateway) toGateway() *meshpaaspb.Gateway {
 						return meshpaaspb.TLSmode_SIMPLE
 					}
 				}(),
-				ServerCertificate:     l.GetTls().GetServerCertificate(),
-				PrivateKey:            l.GetTls().GetPrivateKey(),
-				CaCertificates:        l.GetTls().GetCaCertificates(),
 				CredentialName:        l.GetTls().GetCredentialName(),
 				SubjectAltNames:       l.GetTls().GetSubjectAltNames(),
 				VerifyCertificateSpki: l.GetTls().GetVerifyCertificateSpki(),
@@ -617,9 +666,73 @@ func (k *k8sGateway) toGateway() *meshpaaspb.Gateway {
 	}
 	return &meshpaaspb.Gateway{
 		Name:      k.gateway.ObjectMeta.Name,
-		Namespace: k.gateway.ObjectMeta.Namespace,
+		Project:   k.gateway.ObjectMeta.Namespace,
 		Listeners: listeners,
 		Labels:    k.gateway.ObjectMeta.Labels,
 		Selector:  k.gateway.Spec.Selector,
 	}
+}
+
+type k8sSecret struct {
+	namespace *v12.Namespace
+	secret    *v1.Secret
+}
+
+func (k *k8sSecret) toSecret() *meshpaaspb.Secret {
+	return &meshpaaspb.Secret{
+		Name:    k.secret.Name,
+		Project: k.secret.Namespace,
+		Type: func() meshpaaspb.SecretType {
+			switch k.secret.Type {
+			case v1.DockerConfigKey:
+				return meshpaaspb.SecretType_DOCKER_CONFIG
+			case v1.SecretTypeTLS:
+				return meshpaaspb.SecretType_TLS_CERT_KEY
+			default:
+				return meshpaaspb.SecretType_OPAQUE
+			}
+		}(),
+		Immutable: *k.secret.Immutable,
+		Data: func() map[string]string {
+			var data = map[string]string{}
+			for k, v := range k.secret.Data {
+				data[k] = cast.ToString(v)
+			}
+			return data
+		}(),
+		Labels: k.secret.Labels,
+	}
+}
+
+func toSecret(secret *meshpaaspb.SecretInput) *v1.Secret {
+	return &v1.Secret{
+		TypeMeta: metav1.TypeMeta{},
+		ObjectMeta: metav1.ObjectMeta{
+			Name:      secret.GetName(),
+			Namespace: secret.GetProject(),
+			Labels:    secret.GetLabels(),
+		},
+		Immutable:  &secret.Immutable,
+		Data:       nil,
+		StringData: secret.Data,
+		Type: func() v1.SecretType {
+			switch secret.Type {
+			case meshpaaspb.SecretType_DOCKER_CONFIG:
+				return v1.SecretTypeDockercfg
+			case meshpaaspb.SecretType_TLS_CERT_KEY:
+				return v1.SecretTypeTLS
+			default:
+				return v1.SecretTypeOpaque
+			}
+		}(),
+	}
+}
+
+func overwriteSecret(secret *v1.Secret, update *meshpaaspb.SecretInput) *v1.Secret {
+	secret.Namespace = update.Project
+	secret.Name = update.Name
+	secret.Labels = update.Labels
+	secret.Immutable = &update.Immutable
+	secret.StringData = update.Data
+	return secret
 }

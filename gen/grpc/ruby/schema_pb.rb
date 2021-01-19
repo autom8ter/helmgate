@@ -8,17 +8,30 @@ require 'google/protobuf/timestamp_pb'
 require 'google/protobuf/any_pb'
 require 'google/protobuf/empty_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
+  add_message "meshpaas.SecretInput" do
+    optional :name, :string, 1
+    optional :project, :string, 2
+    optional :type, :enum, 3, "meshpaas.SecretType"
+    optional :immutable, :bool, 4
+    map :data, :string, :string, 5
+    map :labels, :string, :string, 6
+  end
+  add_message "meshpaas.Secret" do
+    optional :name, :string, 1
+    optional :project, :string, 2
+    optional :type, :enum, 3, "meshpaas.SecretType"
+    optional :immutable, :bool, 4
+    map :data, :string, :string, 5
+    map :labels, :string, :string, 6
+  end
   add_message "meshpaas.ServerTLSSettings" do
     optional :https_redirect, :bool, 1
     optional :mode, :enum, 2, "meshpaas.TLSmode"
-    optional :server_certificate, :string, 3
-    optional :private_key, :string, 4
-    optional :ca_certificates, :string, 5
-    optional :credential_name, :string, 10
-    repeated :subject_alt_names, :string, 6
-    repeated :verify_certificate_spki, :string, 11
-    repeated :verify_certificate_hash, :string, 12
-    repeated :cipher_suites, :string, 9
+    optional :credential_name, :string, 3
+    repeated :subject_alt_names, :string, 4
+    repeated :verify_certificate_spki, :string, 5
+    repeated :verify_certificate_hash, :string, 6
+    repeated :cipher_suites, :string, 7
   end
   add_message "meshpaas.GatewayListener" do
     optional :port, :uint32, 1
@@ -29,14 +42,14 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   end
   add_message "meshpaas.Gateway" do
     optional :name, :string, 1
-    optional :namespace, :string, 2
+    optional :project, :string, 2
     repeated :listeners, :message, 3, "meshpaas.GatewayListener"
     map :labels, :string, :string, 4
     map :selector, :string, :string, 5
   end
   add_message "meshpaas.GatewayInput" do
     optional :name, :string, 1
-    optional :namespace, :string, 2
+    optional :project, :string, 2
     repeated :listeners, :message, 3, "meshpaas.GatewayListener"
     map :labels, :string, :string, 4
     map :selector, :string, :string, 5
@@ -45,12 +58,12 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     optional :name, :string, 1
     optional :port, :uint32, 2
     optional :path_prefix, :string, 3
-    optional :rewrite_uri, :string, 4
-    repeated :allow_origins, :string, 5
-    repeated :allow_methods, :string, 6
-    repeated :allow_headers, :string, 7
-    repeated :expose_headers, :string, 8
-    optional :allow_credentials, :bool, 9
+    optional :rewrite_uri, :string, 5
+    repeated :allow_origins, :string, 6
+    repeated :allow_methods, :string, 7
+    repeated :allow_headers, :string, 8
+    repeated :expose_headers, :string, 9
+    optional :allow_credentials, :bool, 10
   end
   add_message "meshpaas.Networking" do
     repeated :gateways, :string, 1
@@ -58,13 +71,17 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     optional :export, :bool, 3
     repeated :http_routes, :message, 4, "meshpaas.HTTPRoute"
   end
+  add_message "meshpaas.Container" do
+    optional :name, :string, 1
+    optional :image, :string, 2
+    repeated :args, :string, 3
+    map :env, :string, :string, 4
+    map :ports, :string, :uint32, 5
+  end
   add_message "meshpaas.App" do
     optional :name, :string, 1
-    optional :namespace, :string, 2
-    optional :image, :string, 3
-    repeated :args, :string, 5
-    map :env, :string, :string, 6
-    map :ports, :string, :uint32, 7
+    optional :project, :string, 2
+    repeated :containers, :message, 3, "meshpaas.Container"
     optional :replicas, :uint32, 8
     map :labels, :string, :string, 9
     map :selector, :string, :string, 10
@@ -73,10 +90,8 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   end
   add_message "meshpaas.Task" do
     optional :name, :string, 1
-    optional :namespace, :string, 2
-    optional :image, :string, 3
-    repeated :args, :string, 5
-    map :env, :string, :string, 6
+    optional :project, :string, 2
+    repeated :containers, :message, 3, "meshpaas.Container"
     optional :schedule, :string, 7
     optional :completions, :uint32, 8
     map :labels, :string, :string, 9
@@ -84,10 +99,8 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   end
   add_message "meshpaas.TaskInput" do
     optional :name, :string, 1
-    optional :namespace, :string, 2
-    optional :image, :string, 3
-    repeated :args, :string, 5
-    map :env, :string, :string, 6
+    optional :project, :string, 2
+    repeated :containers, :message, 3, "meshpaas.Container"
     optional :schedule, :string, 7
     optional :completions, :uint32, 8
     map :labels, :string, :string, 9
@@ -95,11 +108,8 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   end
   add_message "meshpaas.AppInput" do
     optional :name, :string, 1
-    optional :namespace, :string, 2
-    optional :image, :string, 3
-    repeated :args, :string, 4
-    map :env, :string, :string, 5
-    map :ports, :string, :uint32, 6
+    optional :project, :string, 2
+    repeated :containers, :message, 3, "meshpaas.Container"
     optional :replicas, :uint32, 7
     optional :networking, :message, 9, "meshpaas.Networking"
     map :labels, :string, :string, 10
@@ -107,7 +117,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   end
   add_message "meshpaas.Ref" do
     optional :name, :string, 1
-    optional :namespace, :string, 2
+    optional :project, :string, 2
   end
   add_message "meshpaas.Replica" do
     optional :phase, :string, 1
@@ -126,11 +136,24 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   add_message "meshpaas.Tasks" do
     repeated :tasks, :message, 1, "meshpaas.Task"
   end
-  add_message "meshpaas.Namespace" do
-    optional :namespace, :string, 1
+  add_message "meshpaas.ProjectInput" do
+    optional :name, :string, 1
+    map :labels, :string, :string, 2
   end
-  add_message "meshpaas.Namespaces" do
-    repeated :namespaces, :string, 1
+  add_message "meshpaas.Project" do
+    optional :name, :string, 1
+    map :labels, :string, :string, 2
+  end
+  add_message "meshpaas.ProjectRef" do
+    optional :name, :string, 1
+  end
+  add_message "meshpaas.Projects" do
+    repeated :projects, :string, 1
+  end
+  add_enum "meshpaas.SecretType" do
+    value :OPAQUE, 0
+    value :TLS_CERT_KEY, 1
+    value :DOCKER_CONFIG, 2
   end
   add_enum "meshpaas.Protocol" do
     value :INVALID_PROTOCOL, 0
@@ -152,12 +175,15 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
 end
 
 module Meshpaas
+  SecretInput = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.SecretInput").msgclass
+  Secret = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Secret").msgclass
   ServerTLSSettings = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.ServerTLSSettings").msgclass
   GatewayListener = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.GatewayListener").msgclass
   Gateway = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Gateway").msgclass
   GatewayInput = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.GatewayInput").msgclass
   HTTPRoute = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.HTTPRoute").msgclass
   Networking = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Networking").msgclass
+  Container = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Container").msgclass
   App = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.App").msgclass
   Task = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Task").msgclass
   TaskInput = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.TaskInput").msgclass
@@ -168,8 +194,11 @@ module Meshpaas
   Log = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Log").msgclass
   Apps = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Apps").msgclass
   Tasks = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Tasks").msgclass
-  Namespace = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Namespace").msgclass
-  Namespaces = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Namespaces").msgclass
+  ProjectInput = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.ProjectInput").msgclass
+  Project = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Project").msgclass
+  ProjectRef = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.ProjectRef").msgclass
+  Projects = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Projects").msgclass
+  SecretType = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.SecretType").enummodule
   Protocol = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Protocol").enummodule
   TLSmode = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.TLSmode").enummodule
 end

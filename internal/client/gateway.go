@@ -8,7 +8,7 @@ import (
 
 func (m *Manager) CreateGateway(ctx context.Context, gateway *meshpaaspb.GatewayInput) (*meshpaaspb.Gateway, error) {
 	kapp := &k8sGateway{}
-	namespace, err := m.kclient.Namespaces().Get(ctx, gateway.Namespace, v1.GetOptions{})
+	namespace, err := m.kclient.Namespaces().Get(ctx, gateway.Project, v1.GetOptions{})
 	if err != nil {
 		namespace, err = m.kclient.Namespaces().Create(ctx, toGwNamespace(gateway), v1.CreateOptions{})
 		if err != nil {
@@ -16,7 +16,7 @@ func (m *Manager) CreateGateway(ctx context.Context, gateway *meshpaaspb.Gateway
 		}
 	}
 	kapp.namespace = namespace
-	resp, err := m.iclient.Gateways(gateway.Namespace).Create(ctx, toGateway(gateway), v1.CreateOptions{})
+	resp, err := m.iclient.Gateways(gateway.Project).Create(ctx, toGateway(gateway), v1.CreateOptions{})
 	if err != nil {
 		return nil, err
 	}
@@ -27,20 +27,17 @@ func (m *Manager) CreateGateway(ctx context.Context, gateway *meshpaaspb.Gateway
 
 func (m *Manager) UpdateGateway(ctx context.Context, gateway *meshpaaspb.GatewayInput) (*meshpaaspb.Gateway, error) {
 	kapp := &k8sGateway{}
-	namespace, err := m.kclient.Namespaces().Get(ctx, gateway.Namespace, v1.GetOptions{})
+	namespace, err := m.kclient.Namespaces().Get(ctx, gateway.Project, v1.GetOptions{})
 	if err != nil {
-		namespace, err = m.kclient.Namespaces().Create(ctx, toGwNamespace(gateway), v1.CreateOptions{})
-		if err != nil {
-			return nil, err
-		}
+		return nil, err
 	}
 	kapp.namespace = namespace
-	gw, err := m.iclient.Gateways(gateway.Namespace).Get(ctx, gateway.Name, v1.GetOptions{})
+	gw, err := m.iclient.Gateways(gateway.Project).Get(ctx, gateway.Name, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
 	gw = overwriteGateway(gw, gateway)
-	gw, err = m.iclient.Gateways(gateway.Namespace).Update(ctx, gw, v1.UpdateOptions{})
+	gw, err = m.iclient.Gateways(gateway.Project).Update(ctx, gw, v1.UpdateOptions{})
 	if err != nil {
 		return nil, err
 	}
@@ -49,7 +46,7 @@ func (m *Manager) UpdateGateway(ctx context.Context, gateway *meshpaaspb.Gateway
 }
 
 func (m *Manager) DeleteGateway(ctx context.Context, ref *meshpaaspb.Ref) error {
-	err := m.iclient.Gateways(ref.GetNamespace()).Delete(ctx, ref.Name, v1.DeleteOptions{})
+	err := m.iclient.Gateways(ref.GetProject()).Delete(ctx, ref.Name, v1.DeleteOptions{})
 	if err != nil {
 		return err
 	}
@@ -58,13 +55,13 @@ func (m *Manager) DeleteGateway(ctx context.Context, ref *meshpaaspb.Ref) error 
 
 func (m *Manager) GetGateway(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb.Gateway, error) {
 	kapp := &k8sGateway{}
-	namespace, err := m.kclient.Namespaces().Get(ctx, ref.Namespace, v1.GetOptions{})
+	namespace, err := m.kclient.Namespaces().Get(ctx, ref.Project, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 
 	}
 	kapp.namespace = namespace
-	gw, err := m.iclient.Gateways(ref.Namespace).Get(ctx, ref.Name, v1.GetOptions{})
+	gw, err := m.iclient.Gateways(ref.Project).Get(ctx, ref.Name, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}

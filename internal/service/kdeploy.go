@@ -10,23 +10,35 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-type KdeployService struct {
+type MeshPaasService struct {
 	client *client.Manager
 }
 
-func NewKdeployService(client *client.Manager) *KdeployService {
-	return &KdeployService{client: client}
+func NewMeshPaasService(client *client.Manager) *MeshPaasService {
+	return &MeshPaasService{client: client}
 }
 
-func (k KdeployService) CreateApp(ctx context.Context, constructor *meshpaaspb.AppInput) (*meshpaaspb.App, error) {
+func (k MeshPaasService) CreateProject(ctx context.Context, input *meshpaaspb.ProjectInput) (*meshpaaspb.Project, error) {
+	return k.client.CreateProject(ctx, input)
+}
+
+func (k MeshPaasService) GetProject(ctx context.Context, ref *meshpaaspb.ProjectRef) (*meshpaaspb.Project, error) {
+	return k.client.GetProject(ctx, ref)
+}
+
+func (k MeshPaasService) UpdateProject(ctx context.Context, input *meshpaaspb.ProjectInput) (*meshpaaspb.Project, error) {
+	return k.client.UpdateProject(ctx, input)
+}
+
+func (k MeshPaasService) CreateApp(ctx context.Context, constructor *meshpaaspb.AppInput) (*meshpaaspb.App, error) {
 	return k.client.CreateApp(ctx, constructor)
 }
 
-func (k KdeployService) UpdateApp(ctx context.Context, update *meshpaaspb.AppInput) (*meshpaaspb.App, error) {
+func (k MeshPaasService) UpdateApp(ctx context.Context, update *meshpaaspb.AppInput) (*meshpaaspb.App, error) {
 	return k.client.UpdateApp(ctx, update)
 }
 
-func (k KdeployService) DeleteApp(ctx context.Context, ref *meshpaaspb.Ref) (*empty.Empty, error) {
+func (k MeshPaasService) DeleteApp(ctx context.Context, ref *meshpaaspb.Ref) (*empty.Empty, error) {
 	if err := k.client.DeleteApp(ctx, ref); err != nil {
 		k.client.L().Error("failed to delete app", zap.Error(err))
 		return nil, status.Error(codes.Internal, "failed to delete app")
@@ -34,26 +46,26 @@ func (k KdeployService) DeleteApp(ctx context.Context, ref *meshpaaspb.Ref) (*em
 	return &empty.Empty{}, nil
 }
 
-func (k KdeployService) GetApp(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb.App, error) {
+func (k MeshPaasService) GetApp(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb.App, error) {
 	return k.client.GetApp(ctx, ref)
 }
 
-func (k KdeployService) ListNamespaces(ctx context.Context, _ *empty.Empty) (*meshpaaspb.Namespaces, error) {
-	return k.client.ListNamespaces(ctx)
+func (k MeshPaasService) ListProjects(ctx context.Context, _ *empty.Empty) (*meshpaaspb.Projects, error) {
+	return k.client.ListProjects(ctx)
 }
 
-func (k KdeployService) ListApps(ctx context.Context, ns *meshpaaspb.Namespace) (*meshpaaspb.Apps, error) {
-	return k.client.ListApps(ctx, ns)
-}
-
-func (k KdeployService) DeleteAll(ctx context.Context, ns *meshpaaspb.Namespace) (*empty.Empty, error) {
-	if err := k.client.DeleteAll(ctx, ns); err != nil {
+func (k MeshPaasService) DeleteProject(ctx context.Context, ns *meshpaaspb.ProjectRef) (*empty.Empty, error) {
+	if err := k.client.DeleteProject(ctx, ns); err != nil {
 		return nil, err
 	}
 	return &empty.Empty{}, nil
 }
 
-func (k KdeployService) StreamLogs(ref *meshpaaspb.Ref, server meshpaaspb.KdeployService_StreamLogsServer) error {
+func (k MeshPaasService) ListApps(ctx context.Context, ns *meshpaaspb.ProjectRef) (*meshpaaspb.Apps, error) {
+	return k.client.ListApps(ctx, ns)
+}
+
+func (k MeshPaasService) StreamLogs(ref *meshpaaspb.Ref, server meshpaaspb.MeshPaasService_StreamLogsServer) error {
 	stream, err := k.client.StreamLogs(server.Context(), ref)
 	if err != nil {
 		k.client.L().Error("failed to stream logs", zap.Error(err))
@@ -73,39 +85,54 @@ func (k KdeployService) StreamLogs(ref *meshpaaspb.Ref, server meshpaaspb.Kdeplo
 	}
 }
 
-func (k KdeployService) CreateTask(ctx context.Context, constructor *meshpaaspb.TaskInput) (*meshpaaspb.Task, error) {
+func (k MeshPaasService) CreateTask(ctx context.Context, constructor *meshpaaspb.TaskInput) (*meshpaaspb.Task, error) {
 	return k.client.CreateTask(ctx, constructor)
 }
 
-func (k KdeployService) UpdateTask(ctx context.Context, update *meshpaaspb.TaskInput) (*meshpaaspb.Task, error) {
+func (k MeshPaasService) UpdateTask(ctx context.Context, update *meshpaaspb.TaskInput) (*meshpaaspb.Task, error) {
 	return k.client.UpdateTask(ctx, update)
 }
 
-func (k KdeployService) DeleteTask(ctx context.Context, ref *meshpaaspb.Ref) (*empty.Empty, error) {
+func (k MeshPaasService) DeleteTask(ctx context.Context, ref *meshpaaspb.Ref) (*empty.Empty, error) {
 	return &empty.Empty{}, k.client.DeleteTask(ctx, ref)
 }
 
-func (k KdeployService) GetTask(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb.Task, error) {
+func (k MeshPaasService) GetTask(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb.Task, error) {
 	return k.client.GetTask(ctx, ref)
 }
 
-func (k KdeployService) ListTasks(ctx context.Context, ns *meshpaaspb.Namespace) (*meshpaaspb.Tasks, error) {
+func (k MeshPaasService) ListTasks(ctx context.Context, ns *meshpaaspb.ProjectRef) (*meshpaaspb.Tasks, error) {
 	return k.client.ListTasks(ctx, ns)
 }
 
-func (k KdeployService) CreateGateway(ctx context.Context, gateway *meshpaaspb.GatewayInput) (*meshpaaspb.Gateway, error) {
+func (k MeshPaasService) CreateGateway(ctx context.Context, gateway *meshpaaspb.GatewayInput) (*meshpaaspb.Gateway, error) {
 	return k.client.CreateGateway(ctx, gateway)
 }
 
-func (k KdeployService) UpdateGateway(ctx context.Context, gateway *meshpaaspb.GatewayInput) (*meshpaaspb.Gateway, error) {
+func (k MeshPaasService) UpdateGateway(ctx context.Context, gateway *meshpaaspb.GatewayInput) (*meshpaaspb.Gateway, error) {
 	return k.client.UpdateGateway(ctx, gateway)
 }
 
-func (k KdeployService) DeleteGateway(ctx context.Context, ref *meshpaaspb.Ref) (*empty.Empty, error) {
+func (k MeshPaasService) DeleteGateway(ctx context.Context, ref *meshpaaspb.Ref) (*empty.Empty, error) {
 	return &empty.Empty{}, k.client.DeleteGateway(ctx, ref)
 }
 
-func (k KdeployService) GetGateway(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb.Gateway, error) {
+func (k MeshPaasService) GetGateway(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb.Gateway, error) {
 	return k.client.GetGateway(ctx, ref)
+}
 
+func (k MeshPaasService) CreateSecret(ctx context.Context, input *meshpaaspb.SecretInput) (*meshpaaspb.Secret, error) {
+	return k.client.CreateSecret(ctx, input)
+}
+
+func (k MeshPaasService) UpdateSecret(ctx context.Context, input *meshpaaspb.SecretInput) (*meshpaaspb.Secret, error) {
+	return k.client.UpdateSecret(ctx, input)
+}
+
+func (k MeshPaasService) DeleteSecret(ctx context.Context, ref *meshpaaspb.Ref) (*empty.Empty, error) {
+	return &empty.Empty{}, k.client.DeleteSecret(ctx, ref)
+}
+
+func (k MeshPaasService) GetSecret(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb.Secret, error) {
+	return k.client.GetSecret(ctx, ref)
 }

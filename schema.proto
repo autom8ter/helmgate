@@ -10,6 +10,34 @@ import "google/protobuf/any.proto";
 import "google/protobuf/empty.proto";
 import "github.com/mwitkow/go-proto-validators/validator.proto";
 
+enum SecretType {
+  OPAQUE =0;
+  TLS_CERT_KEY =1;
+  DOCKER_CONFIG =2;
+}
+
+message SecretInput {
+  // name of the secret
+  string name =1[(validator.field) = {regex : "^.{1,225}$"}];
+  // secret project
+  string project =2[(validator.field) = {regex : "^.{1,225}$"}];
+  SecretType type =3;
+  bool immutable =4;
+  map<string, string> data =5[(validator.field) = {msg_exists : true}];
+  map<string, string> labels =6[(validator.field) = {msg_exists : true}];
+}
+
+message Secret {
+  // name of the secret
+  string name =1[(validator.field) = {regex : "^.{1,225}$"}];
+  // secret project
+  string project =2[(validator.field) = {regex : "^.{1,225}$"}];
+  SecretType type =3;
+  bool immutable =4;
+  map<string, string> data =5[(validator.field) = {msg_exists : true}];
+  map<string, string> labels =6[(validator.field) = {msg_exists : true}];
+}
+
 enum Protocol {
   INVALID_PROTOCOL =0;
   HTTP =1;
@@ -32,14 +60,11 @@ enum TLSmode {
 message ServerTLSSettings {
   bool https_redirect = 1;
   TLSmode mode = 2;
-  string server_certificate = 3;
-  string private_key = 4;
-  string ca_certificates = 5;
-  string credential_name = 10;
-  repeated string subject_alt_names = 6;
-  repeated string verify_certificate_spki = 11;
-  repeated string verify_certificate_hash = 12;
-  repeated string cipher_suites = 9;
+  string credential_name = 3;
+  repeated string subject_alt_names = 4;
+  repeated string verify_certificate_spki = 5;
+  repeated string verify_certificate_hash = 6;
+  repeated string cipher_suites = 7;
 }
 
 message GatewayListener {
@@ -53,8 +78,8 @@ message GatewayListener {
 message Gateway {
   // name of the application
   string name =1;
-  // application namespace
-  string namespace =2;
+  // application project
+  string project =2;
   repeated GatewayListener listeners = 3;
   map<string, string> labels =4;
   map<string, string> selector =5;
@@ -63,8 +88,8 @@ message Gateway {
 message GatewayInput {
   // name of the application
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // application namespace
-  string namespace =2[(validator.field) = {regex : "^.{1,225}$"}];
+  // application project
+  string project =2[(validator.field) = {regex : "^.{1,225}$"}];
   repeated GatewayListener listeners = 3;
   map<string, string> labels =4[(validator.field) = {msg_exists : true}];
   map<string, string> selector =5[(validator.field) = {msg_exists : true}];
@@ -75,17 +100,17 @@ message HTTPRoute {
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
   uint32 port =2[(validator.field) = {int_gt : 0}];
   string path_prefix =3;
-  string rewrite_uri = 4;
+  string rewrite_uri = 5;
   // The list of origins that are allowed to perform CORS requests
-  repeated string allow_origins =5;
+  repeated string allow_origins =6;
   // The list of methods that are allowed to perform CORS requests
-  repeated string allow_methods =6;
+  repeated string allow_methods =7;
   // The list of headers that are allowed to perform CORS requests
-  repeated string allow_headers =7;
+  repeated string allow_headers =8;
   // The list of origins that are allowed to perform CORS requests
-  repeated string expose_headers =8;
+  repeated string expose_headers =9;
   // adds `Access-Control-Allow-Credentials` header
-  bool allow_credentials =9;
+  bool allow_credentials =10;
 }
 
 message Networking {
@@ -95,20 +120,27 @@ message Networking {
   repeated HTTPRoute http_routes =4;
 }
 
+// Container is a single docker container
+message Container {
+  // name of the application
+  string name =1[(validator.field) = {regex : "^.{1,225}$"}];
+  // docker image of application
+  string image =2[(validator.field) = {regex : "^.{1,225}$"}];
+  // args are arguments given to the docker image at startup
+  repeated string args =3;
+  // k/v map of environmental variables
+  map<string, string> env =4;
+  // k/v map of ports to expose ex: http: 80 https: 443
+  map<string, uint32> ports =5[(validator.field) = {msg_exists : true}];
+}
+
 // App is a stateless application
 message App {
   // name of the application
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // application namespace
-  string namespace =2[(validator.field) = {regex : "^.{1,225}$"}];
-  // docker image of application
-  string image =3[(validator.field) = {regex : "^.{1,225}$"}];
-  // args are arguments given to the docker image at startup
-  repeated string args =5;
-  // k/v map of environmental variables
-  map<string, string> env =6;
-  // k/v map of ports to expose ex: http: 80 https: 443
-  map<string, uint32> ports =7[(validator.field) = {msg_exists : true}];
+  // application project
+  string project =2[(validator.field) = {regex : "^.{1,225}$"}];
+  repeated Container containers =3[(validator.field) = {msg_exists : true}];
   // number of deployment replicas
   uint32 replicas =8;
   map<string, string> labels =9[(validator.field) = {msg_exists : true}];
@@ -124,14 +156,9 @@ message App {
 message Task {
   // name of the task
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // task namespace
-  string namespace =2[(validator.field) = {regex : "^.{1,225}$"}];
-  // docker image of task
-  string image =3[(validator.field) = {regex : "^.{1,225}$"}];
-  // args are arguments given to docker image at startup
-  repeated string args =5;
-  // k/v map of environmental variables
-  map<string, string> env =6;
+  // task project
+  string project =2[(validator.field) = {regex : "^.{1,225}$"}];
+  repeated Container containers =3[(validator.field) = {msg_exists : true}];
   // schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
   string schedule = 7[(validator.field) = {regex : "^.{1,225}$"}];
   // completions is the number of times to execute the task. If completions = 0, the task will run forever
@@ -144,14 +171,9 @@ message Task {
 message TaskInput {
   // name of the task
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // task namespace
-  string namespace =2[(validator.field) = {regex : "^.{1,225}$"}];
-  // docker image of task
-  string image =3[(validator.field) = {regex : "^.{1,225}$"}];
-  // args are arguments given to docker image at startup
-  repeated string args =5;
-  // k/v map of environmental variables
-  map<string, string> env =6;
+  // task project
+  string project =2[(validator.field) = {regex : "^.{1,225}$"}];
+  repeated Container containers =3[(validator.field) = {msg_exists : true}];
   // schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
   string schedule = 7[(validator.field) = {regex : "^.{1,225}$"}];
   // completions is the number of times to execute the task. If completions = 0, the task will run forever
@@ -164,16 +186,9 @@ message TaskInput {
 message AppInput {
   // name of the application
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // application namespace
-  string namespace =2[(validator.field) = {regex : "^.{1,225}$"}];
-  // docker image of application
-  string image =3[(validator.field) = {regex : "^.{1,225}$"}];
-  // args are arguments given to the docker image at startup
-  repeated string args =4;
-  // k/v map of environmental variables
-  map<string, string> env =5;
-  // k/v map of ports to expose ex: http: 80 https: 443
-  map<string, uint32> ports =6[(validator.field) = {msg_exists : true}];
+  // application project
+  string project =2[(validator.field) = {regex : "^.{1,225}$"}];
+  repeated Container containers =3[(validator.field) = {msg_exists : true}];
   // number of deployment replicas
   uint32 replicas =7;
   Networking networking =9[(validator.field) = {msg_exists : true}];
@@ -184,8 +199,8 @@ message AppInput {
 message Ref {
   // name of the application
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // application namespace
-  string namespace =2[(validator.field) = {regex : "^.{1,225}$"}];
+  // application project
+  string project =2[(validator.field) = {regex : "^.{1,225}$"}];
 }
 //repeated_count_min
 
@@ -211,49 +226,82 @@ message Tasks {
   repeated Task tasks =1;
 }
 
-message Namespace {
-  string namespace =1;
+message ProjectInput {
+  string name =1[(validator.field) = {regex : "^.{1,225}$"}];
+  map<string, string> labels =2[(validator.field) = {msg_exists : true}];
 }
 
-message Namespaces {
-  repeated string namespaces =1;
+message Project {
+  string name =1;
+  map<string, string> labels =2;
+}
+
+message ProjectRef {
+  string name =1[(validator.field) = {regex : "^.{1,225}$"}];
+}
+
+message Projects {
+  repeated string projects =1;
 }
 
 
-//
-service KdeployService {
-  // CreateApp creates a new stateless application(k8s deployment & service) within a single namespace(k8s namespace)
-  // the namespace will automatically be created if one does not already exist
+// MeshPaasService is a platform as a service backed by Istio service mesh
+service MeshPaasService {
+  rpc CreateProject(ProjectInput) returns(Project){}
+  // ListProjects lists all projects created by meshpaas
+  rpc ListProjects(google.protobuf.Empty) returns(Projects){}
+  // DeleteProject deletes a project & all its resources
+  rpc DeleteProject(ProjectRef) returns(google.protobuf.Empty){}
+  rpc GetProject(ProjectRef) returns(Project){}
+  rpc UpdateProject(ProjectInput) returns(Project){}
+
+  // CreateApp creates a new stateless application(k8s deployment & service) within a single project(k8s namespace)
+  // the project will automatically be created if one does not already exist
   rpc CreateApp(AppInput) returns(App){}
-  // UpdateApp edits/patches an existing stateless application(k8s deployment & service) within an existing namespace(k8s namespace)
+  // UpdateApp replaces an existing stateless application(k8s deployment & service) within an existing project(k8s namespace)
   rpc UpdateApp(AppInput) returns(App){}
-  // DeleteApp deletes a single stateless application(k8s deployment & service) within an existing namespace
+  // DeleteApp deletes a single stateless application(k8s deployment & service) within an existing project
   rpc DeleteApp(Ref) returns(google.protobuf.Empty){}
-  // GetApp gets an app by name within an existing namespace
+  // GetApp gets an app by name within an existing project
   rpc GetApp(Ref) returns(App){}
-  // ListApps lists all apps within an existing namespace
-  rpc ListApps(Namespace) returns(Apps){}
-  // ListNamespaces lists all namespaces created by meshpaas
-  rpc ListNamespaces(google.protobuf.Empty) returns(Namespaces){}
-  // DeleteAll deletes all apps/tasks within an existing namespace
-  rpc DeleteAll(Namespace) returns(google.protobuf.Empty){}
-  // CreateTask creates a new task(k8s cron job) within a single namespace(k8s namespace)
-  // the namespace will automatically be created if one does not already exist
+  // ListApps lists all apps within an existing project
+  rpc ListApps(ProjectRef) returns(Apps){}
+
+  // CreateTask creates a new task(k8s cron job) within a single project(k8s namespace)
+  // the project will automatically be created if one does not already exist
   rpc CreateTask(TaskInput) returns(Task){}
-  // UpdateTask edits/patches an existing task(k8s cron job) within an existing namespace(k8s namespace)
+  // UpdateTask replaces an existing task(k8s cron job) within an existing project(k8s namespace)
   rpc UpdateTask(TaskInput) returns(Task){}
-  // DeleteTask deletes a single task(k8s cron job) within an existing namespace
+  // DeleteTask deletes a single task(k8s cron job) within an existing project
   rpc DeleteTask(Ref) returns(google.protobuf.Empty){}
-  // GetTask gets a task(k8s cron job) by name within an existing namespace
+  // GetTask gets a task(k8s cron job) by name within an existing project
   rpc GetTask(Ref) returns(Task){}
-  // ListTasks lists all tasks(k8s cron jobs) within an existing namespace
-  rpc ListTasks(Namespace) returns(Tasks){}
-  // StreamLogs streams logs from an app/task within an existing namespace.
+  // ListTasks lists all tasks(k8s cron jobs) within an existing project
+  rpc ListTasks(ProjectRef) returns(Tasks){}
+
+
+  // CreateGateway creates a new gateway(istio gateway) within a single project(k8s namespace)
+  // the project will automatically be created if one does not already exist
+  rpc CreateGateway(GatewayInput) returns(Gateway){}
+  // UpdateGateway replaces an existing gateway(istio gateway) within an existing project(k8s namespace)
+  rpc UpdateGateway(GatewayInput) returns(Gateway){}
+  // DeleteGateway deletes a single gateway(istio gateway) within an existing project
+  rpc DeleteGateway(Ref) returns(google.protobuf.Empty){}
+  // GetGateway gets a gateway(istio gateway) by name within an existing project
+  rpc GetGateway(Ref) returns(Gateway){}
+
+
+  // CreateSecret creates a new secret(k8s secret) within a single project(k8s namespace)
+  // the project will automatically be created if one does not already exist
+  rpc CreateSecret(SecretInput) returns(Secret){}
+  // UpdateSecret replaces an existing secret(k8s secret) within an existing project(k8s namespace)
+  rpc UpdateSecret(SecretInput) returns(Secret){}
+  // DeleteSecret deletes a single secret(k8s secret) within an existing project
+  rpc DeleteSecret(Ref) returns(google.protobuf.Empty){}
+  // GetSecret gets a secret(k8s secret) by name within an existing project
+  rpc GetSecret(Ref) returns(Secret){}
+
+  // StreamLogs streams logs from an app/task within an existing project.
   // Streams are opened to all replicas & converted into a single stream
   rpc StreamLogs(Ref) returns (stream Log){}
-
-  rpc CreateGateway(GatewayInput) returns(Gateway){}
-  rpc UpdateGateway(GatewayInput) returns(Gateway){}
-  rpc DeleteGateway(Ref) returns(google.protobuf.Empty){}
-  rpc GetGateway(Ref) returns(Gateway){}
 }

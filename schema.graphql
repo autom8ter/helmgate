@@ -26,10 +26,10 @@ type HTTPRoute {
 
 type Networking {
     #  The names of gateways and sidecars that should apply these routes.
-    # Gateways in other namespaces may be referred to by
-    # `<gateway namespace>/<gateway name>`; specifying a gateway with no
-    # namespace qualifier is the same as specifying the VirtualService's
-    # namespace. A single VirtualService is used for sidecars inside the mesh as
+    # Gateways in other projects may be referred to by
+    # `<gateway project>/<gateway name>`; specifying a gateway with no
+    # project qualifier is the same as specifying the VirtualService's
+    # project. A single VirtualService is used for sidecars inside the mesh as
     # well as for one or more gateways. The selection condition imposed by this
     # field can be overridden using the source field in the match conditions
     # of protocol-specific routes. The reserved word `mesh` is used to imply
@@ -42,7 +42,7 @@ type Networking {
     # The destination hosts to which traffic is being sent. Could
     # be a DNS name with wildcard prefix or an IP address.
     hosts: [String!]
-    # export to all other namespaces in service mesh
+    # export to all other projects in service mesh
     export: Boolean
     # An ordered list of route rules for HTTP traffic
     http_routes: [HTTPRoute!]
@@ -50,9 +50,9 @@ type Networking {
 
 input HTTPRouteInput {
     # The name assigned to the route for debugging purposes
-    name: String
+    name: String!
     # forward to specific port on application
-    port: Int
+    port: Int!
     # prefix-based path match
     path_prefix: String
     # rewrite HTTP URIs before they reach the application
@@ -71,10 +71,10 @@ input HTTPRouteInput {
 
 input NetworkingInput {
     #  The names of gateways and sidecars that should apply these routes.
-    # Gateways in other namespaces may be referred to by
-    # `<gateway namespace>/<gateway name>`; specifying a gateway with no
-    # namespace qualifier is the same as specifying the VirtualService's
-    # namespace. A single VirtualService is used for sidecars inside the mesh as
+    # Gateways in other projects may be referred to by
+    # `<gateway project>/<gateway name>`; specifying a gateway with no
+    # project qualifier is the same as specifying the VirtualService's
+    # project. A single VirtualService is used for sidecars inside the mesh as
     # well as for one or more gateways. The selection condition imposed by this
     # field can be overridden using the source field in the match conditions
     # of protocol-specific routes. The reserved word `mesh` is used to imply
@@ -93,20 +93,38 @@ input NetworkingInput {
     http_routes: [HTTPRouteInput!]
 }
 
-# App is a stateless application
-type App {
-    # name of the application
+
+type Container {
     name: String!
-    # application namespace
-    namespace: String!
     # docker image of application
     image: String!
     # args are arguments given to the container/image at startup
     args: [String!]
     # k/v map of environmental variables
     env: Map
-    # k/v map of ports to expose ex: http: 80 https: 443
+    # k/v map of ports to expose ex: http-1: 80 https-1: 443
     ports: Map!
+}
+
+input ContainerInput {
+    name: String!
+    # docker image of application
+    image: String!
+    # args are arguments given to the container/image at startup
+    args: [String!]
+    # k/v map of environmental variables
+    env: Map
+    # k/v map of ports to expose ex: http-1: 80 https-1: 443
+    ports: Map!
+}
+
+# App is a stateless application
+type App {
+    # name of the application
+    name: String!
+    # application project
+    project: String!
+    containers: [Container!]!
     # number of deployment replicas min:1
     replicas: Int!
     # gateway/service mesh networking
@@ -121,14 +139,9 @@ type App {
 type Task {
     # name of the application
     name: String!
-    # application namespace
-    namespace: String!
-    # docker image of application
-    image: String!
-    # args are arguments given to the container/image at startup
-    args: [String!]
-    # k/v map of environmental variables
-    env: Map
+    # application project
+    project: String!
+    containers: [Container!]!
     # schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
     schedule: String!
     # completions is the number of times to execute the task. If completions = 0, the task will run forever
@@ -154,30 +167,29 @@ type Log {
     message: String!
 }
 
-# Namespaces is a list of namespaces
-type Namespaces {
-    namespaces: [String!]
+# Projects is a list of projects
+type Projects {
+    projects: [String!]
 }
 
-# Namespace is a primitive used for logical segmentation of apps & tasks
-input Namespace {
-    namespace: String!
+type Project {
+    name: String!
+    labels: Map!
+}
+
+# Project is a primitive used for logical segmentation of resources
+input ProjectInput {
+    name: String!
+    labels: Map!
 }
 
 # AppInput creates a new stateless Application
 input AppInput {
     # name of the application
     name: String!
-    # application namespace
-    namespace: String!
-    # docker image of application
-    image: String!
-    # args are arguments given to the container/image at startup
-    args: [String!]
-    # k/v map of environmental variables
-    env: Map
-    # k/v map of ports to expose ex: http-1: 80 https-1: 443
-    ports: Map!
+    # application project
+    project: String!
+    containers: [ContainerInput!]!
     # number of deployment replicas min:1
     replicas: Int!
     # gateway/servicemesh configuration
@@ -190,14 +202,9 @@ input AppInput {
 input TaskInput {
     # name of the application
     name: String!
-    # application namespace
-    namespace: String!
-    # docker image of application
-    image: String!
-    # args are arguments given to the container/image at startup
-    args: [String!]
-    # k/v map of environmental variables
-    env: Map
+    # application project
+    project: String!
+    containers: [ContainerInput!]!
     # schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
     schedule: String!
     # completions is the number of times to execute the task. If completions = 0, the task will run forever
@@ -207,46 +214,60 @@ input TaskInput {
 }
 
 input Ref {
-    # name of the application
+    # name of the resource
     name: String!
-    # application namespace
-    namespace: String!
+    # resource project
+    project: String!
 }
 
+input ProjectRef {
+    # name of the project
+    name: String!
+}
 
 type Mutation {
-    # createApp creates a new stateless application(k8s deployment), exposed with a single load balancer(k8s service) within a single namespace(k8s namespace)
-    # the namespace will automatically be created if one does not already exist
+    createProject(input: ProjectInput!): Project!
+    updateProject(input: ProjectInput!): Project!
+    # delProject deletes all resources within an existing project
+    delProject(input: ProjectRef!): String
+
+    # createApp creates a new stateless application(k8s deployment), exposed with a single load balancer(k8s service) within a single project(k8s project)
+    # the project will automatically be created if one does not already exist
     createApp(input: AppInput!): App!
-    # updateApp edits/patches an existing stateless application(k8s deployment & service) within an existing namespace(k8s namespace)
+    # updateApp edits/patches an existing stateless application(k8s deployment & service) within an existing project(k8s project)
     updateApp(input: AppInput!): App!
-    # delApp deletes a single stateless application(k8s deployment & service) within an existing namespace
+    # delApp deletes a single stateless application(k8s deployment & service) within an existing project
     delApp(input: Ref!): String
-    # createTask creates a new task(k8s cron job) within a single namespace(k8s namespace)
-    # the namespace will automatically be created if one does not already exist
+
+    # createTask creates a new task(k8s cron job) within a single project(k8s project)
+    # the project will automatically be created if one does not already exist
     createTask(input: TaskInput!): Task!
-    #  UpdateTask edits/patches an existing task(k8s cron job) within an existing namespace(k8s namespace)
+    #  UpdateTask edits/patches an existing task(k8s cron job) within an existing project(k8s project)
     updateTask(input: TaskInput!): Task!
-    # DeleteTask deletes a single task(k8s cron job) within an existing namespace
+    # DeleteTask deletes a single task(k8s cron job) within an existing project
     delTask(input: Ref!): String
-    # delAll deletes all apps/tasks within an existing namespace
-    delAll(input: Namespace!): String
+
+
 }
 
 type Query {
-    # getApp gets an existing stateless application(k8s deployment) by name within an existing namespace
+    # listProjects lists all projects created by meshpaas
+    listProjects(input: String): Projects!
+    getProject(input: ProjectRef!): Project!
+
+    # getApp gets an existing stateless application(k8s deployment) by name within an existing project
     getApp(input: Ref!): App
-    # listApps lists all an existing stateless applications(k8s deployments) within an existing namespace
-    listApps(input: Namespace!): [App!]
-    # getTask gets a task(k8s cron job) by name within an existing namespace
+    # listApps lists all an existing stateless applications(k8s deployments) within an existing project
+    listApps(input: ProjectRef!): [App!]
+
+    # getTask gets a task(k8s cron job) by name within an existing project
     getTask(input: Ref!): Task
-    # listTasks lists all tasks(k8s cron jobs) within an existing namespace
-    listTasks(input: Namespace!): [Task!]
-    # listNamespaces lists all namespaces created by meshpaas
-    listNamespaces(input: String): Namespaces!
+    # listTasks lists all tasks(k8s cron jobs) within an existing project
+    listTasks(input: ProjectRef!): [Task!]
+
 }
 
 type Subscription {
-    # logs streams logs from an an existing stateless application(k8s deployment) within an existing namespace. Streams are opened to all replicas & converted into a single stream
+    # logs streams logs from an an existing stateless application(k8s deployment) within an existing project. Streams are opened to all replicas & converted into a single stream
     streamLogs(input: Ref!): String!
 }

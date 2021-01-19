@@ -15,29 +15,26 @@ import (
 
 func (m *Manager) CreateApp(ctx context.Context, app *meshpaaspb.AppInput) (*meshpaaspb.App, error) {
 	kapp := &k8sApp{}
-	namespace, err := m.kclient.Namespaces().Get(ctx, app.Namespace, v1.GetOptions{})
+	namespace, err := m.kclient.Namespaces().Get(ctx, app.Project, v1.GetOptions{})
 	if err != nil {
-		namespace, err = m.kclient.Namespaces().Create(ctx, toNamespace(app), v1.CreateOptions{})
-		if err != nil {
-			return nil, err
-		}
+		return nil, err
 	}
 	kapp.namespace = namespace
 	dep, err := toDeployment(app)
 	if err != nil {
 		return nil, err
 	}
-	deployment, err := m.kclient.Deployments(app.Namespace).Create(ctx, dep, v1.CreateOptions{})
+	deployment, err := m.kclient.Deployments(app.Project).Create(ctx, dep, v1.CreateOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.deployment = deployment
-	svc, err := m.iclient.VirtualServices(app.Namespace).Create(ctx, toService(app), v1.CreateOptions{})
+	svc, err := m.iclient.VirtualServices(app.Project).Create(ctx, toService(app), v1.CreateOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.service = svc
-	status, err := m.getStatus(ctx, app.Namespace, app.Name)
+	status, err := m.getStatus(ctx, app.Project, app.Name)
 	if err != nil {
 		return nil, err
 	}
@@ -48,12 +45,12 @@ func (m *Manager) CreateApp(ctx context.Context, app *meshpaaspb.AppInput) (*mes
 
 func (m *Manager) UpdateApp(ctx context.Context, app *meshpaaspb.AppInput) (*meshpaaspb.App, error) {
 	kapp := &k8sApp{}
-	namespace, err := m.kclient.Namespaces().Get(ctx, app.Namespace, v1.GetOptions{})
+	namespace, err := m.kclient.Namespaces().Get(ctx, app.Project, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.namespace = namespace
-	deployment, err := m.kclient.Deployments(app.Namespace).Get(ctx, app.Name, v1.GetOptions{})
+	deployment, err := m.kclient.Deployments(app.Project).Get(ctx, app.Name, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
@@ -61,22 +58,22 @@ func (m *Manager) UpdateApp(ctx context.Context, app *meshpaaspb.AppInput) (*mes
 	if err != nil {
 		return nil, err
 	}
-	deployment, err = m.kclient.Deployments(app.Namespace).Update(ctx, deployment, v1.UpdateOptions{})
+	deployment, err = m.kclient.Deployments(app.Project).Update(ctx, deployment, v1.UpdateOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.deployment = deployment
-	svc, err := m.iclient.VirtualServices(app.Namespace).Get(ctx, app.Name, v1.GetOptions{})
+	svc, err := m.iclient.VirtualServices(app.Project).Get(ctx, app.Name, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
 	svc = overwriteService(svc, app)
-	svc, err = m.iclient.VirtualServices(app.Namespace).Update(ctx, svc, v1.UpdateOptions{})
+	svc, err = m.iclient.VirtualServices(app.Project).Update(ctx, svc, v1.UpdateOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.service = svc
-	status, err := m.getStatus(ctx, app.Namespace, app.Name)
+	status, err := m.getStatus(ctx, app.Project, app.Name)
 	if err != nil {
 		return nil, err
 	}
@@ -88,22 +85,22 @@ func (m *Manager) UpdateApp(ctx context.Context, app *meshpaaspb.AppInput) (*mes
 func (m *Manager) GetApp(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb.App, error) {
 	kapp := &k8sApp{}
 
-	ns, err := m.kclient.Namespaces().Get(ctx, ref.Namespace, v1.GetOptions{})
+	ns, err := m.kclient.Namespaces().Get(ctx, ref.Project, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.namespace = ns
-	deployment, err := m.kclient.Deployments(ref.Namespace).Get(ctx, ref.Name, v1.GetOptions{})
+	deployment, err := m.kclient.Deployments(ref.Project).Get(ctx, ref.Name, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.deployment = deployment
-	svc, err := m.iclient.VirtualServices(ref.Namespace).Get(ctx, ref.Name, v1.GetOptions{})
+	svc, err := m.iclient.VirtualServices(ref.Project).Get(ctx, ref.Name, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.service = svc
-	status, err := m.getStatus(ctx, ref.Namespace, ref.Name)
+	status, err := m.getStatus(ctx, ref.Project, ref.Name)
 	if err != nil {
 		return nil, err
 	}
@@ -113,52 +110,31 @@ func (m *Manager) GetApp(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb.
 }
 
 func (m *Manager) DeleteApp(ctx context.Context, ref *meshpaaspb.Ref) error {
-	if err := m.kclient.Services(ref.Namespace).Delete(ctx, ref.Name, v1.DeleteOptions{}); err != nil {
+	if err := m.kclient.Services(ref.Project).Delete(ctx, ref.Name, v1.DeleteOptions{}); err != nil {
 		m.logger.Error("failed to delete service",
 			zap.Error(err),
 			zap.String("name", ref.Name),
-			zap.String("namespace", ref.Namespace),
+			zap.String("namespace", ref.Project),
 		)
 	}
-	if err := m.kclient.Deployments(ref.Namespace).Delete(ctx, ref.Name, v1.DeleteOptions{}); err != nil {
+	if err := m.kclient.Deployments(ref.Project).Delete(ctx, ref.Name, v1.DeleteOptions{}); err != nil {
 		m.logger.Error("failed to delete deployment",
 			zap.Error(err),
 			zap.String("name", ref.Name),
-			zap.String("namespace", ref.Namespace),
+			zap.String("namespace", ref.Project),
 		)
 	}
 	return nil
 }
 
-func (m *Manager) DeleteAll(ctx context.Context, ref *meshpaaspb.Namespace) error {
-	if err := m.kclient.Namespaces().Delete(ctx, ref.GetNamespace(), v1.DeleteOptions{}); err != nil {
-		return err
-	}
-	return nil
-}
-
-func (m *Manager) ListNamespaces(ctx context.Context) (*meshpaaspb.Namespaces, error) {
-	namespaces, err := m.kclient.Namespaces().List(ctx, v1.ListOptions{
-		LabelSelector: labelSelector,
-	})
-	if err != nil {
-		return nil, err
-	}
-	var ns = &meshpaaspb.Namespaces{}
-	for _, n := range namespaces.Items {
-		ns.Namespaces = append(ns.Namespaces, n.Name)
-	}
-	return ns, nil
-}
-
-func (m *Manager) ListApps(ctx context.Context, namespace *meshpaaspb.Namespace) (*meshpaaspb.Apps, error) {
+func (m *Manager) ListApps(ctx context.Context, namespace *meshpaaspb.ProjectRef) (*meshpaaspb.Apps, error) {
 	var kapps = &meshpaaspb.Apps{}
 
-	ns, err := m.kclient.Namespaces().Get(ctx, namespace.GetNamespace(), v1.GetOptions{})
+	ns, err := m.kclient.Namespaces().Get(ctx, namespace.GetName(), v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
-	deployments, err := m.kclient.Deployments(namespace.GetNamespace()).List(ctx, v1.ListOptions{
+	deployments, err := m.kclient.Deployments(namespace.GetName()).List(ctx, v1.ListOptions{
 		TypeMeta:      v1.TypeMeta{},
 		LabelSelector: labelSelector,
 	})
@@ -166,7 +142,7 @@ func (m *Manager) ListApps(ctx context.Context, namespace *meshpaaspb.Namespace)
 		return nil, err
 	}
 	for _, deployment := range deployments.Items {
-		svc, err := m.iclient.VirtualServices(namespace.GetNamespace()).Get(ctx, deployment.Name, v1.GetOptions{})
+		svc, err := m.iclient.VirtualServices(namespace.GetName()).Get(ctx, deployment.Name, v1.GetOptions{})
 		if err != nil {
 			return nil, err
 		}
@@ -176,7 +152,7 @@ func (m *Manager) ListApps(ctx context.Context, namespace *meshpaaspb.Namespace)
 			service:    svc,
 		}
 		a := kapp.toApp()
-		status, err := m.getStatus(ctx, namespace.GetNamespace(), deployment.Name)
+		status, err := m.getStatus(ctx, namespace.GetName(), deployment.Name)
 		if err != nil {
 			return nil, err
 		}
@@ -187,7 +163,7 @@ func (m *Manager) ListApps(ctx context.Context, namespace *meshpaaspb.Namespace)
 }
 
 func (m *Manager) StreamLogs(ctx context.Context, ref *meshpaaspb.Ref) (chan string, error) {
-	pods, err := m.kclient.Pods(ref.Namespace).List(ctx, v1.ListOptions{
+	pods, err := m.kclient.Pods(ref.Project).List(ctx, v1.ListOptions{
 		TypeMeta:      v1.TypeMeta{},
 		Watch:         false,
 		LabelSelector: fmt.Sprintf("meshpaas.app = %s", ref.Name),
@@ -216,7 +192,7 @@ func (m *Manager) StreamLogs(ctx context.Context, ref *meshpaaspb.Ref) (chan str
 				m.logger.Error("failed to stream pod logs",
 					zap.Error(err),
 					zap.String("name", ref.Name),
-					zap.String("namespace", ref.Namespace),
+					zap.String("namespace", ref.Project),
 					zap.String("pod", p.Name),
 				)
 				return

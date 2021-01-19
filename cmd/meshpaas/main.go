@@ -230,7 +230,7 @@ func run(ctx context.Context) {
 		),
 	}
 	gserver := grpc.NewServer(gopts...)
-	meshpaaspb.RegisterKdeployServiceServer(gserver, service.NewKdeployService(cli))
+	meshpaaspb.RegisterMeshPaasServiceServer(gserver, service.NewMeshPaasService(cli))
 	reflection.Register(gserver)
 	grpc_prometheus.Register(gserver)
 	m.Go(func(routine machine.Routine) {
@@ -250,7 +250,7 @@ func run(ctx context.Context) {
 		return
 	}
 	defer conn.Close()
-	resolver := gql.NewResolver(meshpaaspb.NewKdeployServiceClient(conn), cors.New(cors.Options{
+	resolver := gql.NewResolver(meshpaaspb.NewMeshPaasServiceClient(conn), cors.New(cors.Options{
 		AllowedOrigins: allowedOrigins,
 		AllowedMethods: allowedMethods,
 		AllowedHeaders: allowedHeaders,

@@ -9,22 +9,18 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>meshpaas.Ref</code>
+ * Generated from protobuf message <code>meshpaas.ProjectInput</code>
  */
-class Ref extends \Google\Protobuf\Internal\Message
+class ProjectInput extends \Google\Protobuf\Internal\Message
 {
     /**
-     * name of the application
-     *
      * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      */
     private $name = '';
     /**
-     * application project
-     *
-     * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>map<string, string> labels = 2 [(.validator.field) = {</code>
      */
-    private $project = '';
+    private $labels;
 
     /**
      * Constructor.
@@ -33,9 +29,7 @@ class Ref extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $name
-     *           name of the application
-     *     @type string $project
-     *           application project
+     *     @type array|\Google\Protobuf\Internal\MapField $labels
      * }
      */
     public function __construct($data = NULL) {
@@ -44,8 +38,6 @@ class Ref extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * name of the application
-     *
      * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      * @return string
      */
@@ -55,8 +47,6 @@ class Ref extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * name of the application
-     *
      * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      * @param string $var
      * @return $this
@@ -70,27 +60,23 @@ class Ref extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * application project
-     *
-     * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
-     * @return string
+     * Generated from protobuf field <code>map<string, string> labels = 2 [(.validator.field) = {</code>
+     * @return \Google\Protobuf\Internal\MapField
      */
-    public function getProject()
+    public function getLabels()
     {
-        return $this->project;
+        return $this->labels;
     }
 
     /**
-     * application project
-     *
-     * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
-     * @param string $var
+     * Generated from protobuf field <code>map<string, string> labels = 2 [(.validator.field) = {</code>
+     * @param array|\Google\Protobuf\Internal\MapField $var
      * @return $this
      */
-    public function setProject($var)
+    public function setLabels($var)
     {
-        GPBUtil::checkString($var, True);
-        $this->project = $var;
+        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::STRING);
+        $this->labels = $arr;
 
         return $this;
     }

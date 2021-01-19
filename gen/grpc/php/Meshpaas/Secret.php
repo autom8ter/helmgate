@@ -9,34 +9,38 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>meshpaas.GatewayInput</code>
+ * Generated from protobuf message <code>meshpaas.Secret</code>
  */
-class GatewayInput extends \Google\Protobuf\Internal\Message
+class Secret extends \Google\Protobuf\Internal\Message
 {
     /**
-     * name of the application
+     * name of the secret
      *
      * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      */
     private $name = '';
     /**
-     * application project
+     * secret project
      *
      * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
      */
     private $project = '';
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.GatewayListener listeners = 3;</code>
+     * Generated from protobuf field <code>.meshpaas.SecretType type = 3;</code>
      */
-    private $listeners;
+    private $type = 0;
     /**
-     * Generated from protobuf field <code>map<string, string> labels = 4 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>bool immutable = 4;</code>
+     */
+    private $immutable = false;
+    /**
+     * Generated from protobuf field <code>map<string, string> data = 5 [(.validator.field) = {</code>
+     */
+    private $data;
+    /**
+     * Generated from protobuf field <code>map<string, string> labels = 6 [(.validator.field) = {</code>
      */
     private $labels;
-    /**
-     * Generated from protobuf field <code>map<string, string> selector = 5 [(.validator.field) = {</code>
-     */
-    private $selector;
 
     /**
      * Constructor.
@@ -45,12 +49,13 @@ class GatewayInput extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $name
-     *           name of the application
+     *           name of the secret
      *     @type string $project
-     *           application project
-     *     @type \Meshpaas\GatewayListener[]|\Google\Protobuf\Internal\RepeatedField $listeners
+     *           secret project
+     *     @type int $type
+     *     @type bool $immutable
+     *     @type array|\Google\Protobuf\Internal\MapField $data
      *     @type array|\Google\Protobuf\Internal\MapField $labels
-     *     @type array|\Google\Protobuf\Internal\MapField $selector
      * }
      */
     public function __construct($data = NULL) {
@@ -59,7 +64,7 @@ class GatewayInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * name of the application
+     * name of the secret
      *
      * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      * @return string
@@ -70,7 +75,7 @@ class GatewayInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * name of the application
+     * name of the secret
      *
      * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      * @param string $var
@@ -85,7 +90,7 @@ class GatewayInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * application project
+     * secret project
      *
      * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
      * @return string
@@ -96,7 +101,7 @@ class GatewayInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * application project
+     * secret project
      *
      * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
      * @param string $var
@@ -111,29 +116,73 @@ class GatewayInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.GatewayListener listeners = 3;</code>
-     * @return \Google\Protobuf\Internal\RepeatedField
+     * Generated from protobuf field <code>.meshpaas.SecretType type = 3;</code>
+     * @return int
      */
-    public function getListeners()
+    public function getType()
     {
-        return $this->listeners;
+        return $this->type;
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.GatewayListener listeners = 3;</code>
-     * @param \Meshpaas\GatewayListener[]|\Google\Protobuf\Internal\RepeatedField $var
+     * Generated from protobuf field <code>.meshpaas.SecretType type = 3;</code>
+     * @param int $var
      * @return $this
      */
-    public function setListeners($var)
+    public function setType($var)
     {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Meshpaas\GatewayListener::class);
-        $this->listeners = $arr;
+        GPBUtil::checkEnum($var, \Meshpaas\SecretType::class);
+        $this->type = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>map<string, string> labels = 4 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>bool immutable = 4;</code>
+     * @return bool
+     */
+    public function getImmutable()
+    {
+        return $this->immutable;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool immutable = 4;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setImmutable($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->immutable = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>map<string, string> data = 5 [(.validator.field) = {</code>
+     * @return \Google\Protobuf\Internal\MapField
+     */
+    public function getData()
+    {
+        return $this->data;
+    }
+
+    /**
+     * Generated from protobuf field <code>map<string, string> data = 5 [(.validator.field) = {</code>
+     * @param array|\Google\Protobuf\Internal\MapField $var
+     * @return $this
+     */
+    public function setData($var)
+    {
+        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::STRING);
+        $this->data = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>map<string, string> labels = 6 [(.validator.field) = {</code>
      * @return \Google\Protobuf\Internal\MapField
      */
     public function getLabels()
@@ -142,7 +191,7 @@ class GatewayInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>map<string, string> labels = 4 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>map<string, string> labels = 6 [(.validator.field) = {</code>
      * @param array|\Google\Protobuf\Internal\MapField $var
      * @return $this
      */
@@ -150,28 +199,6 @@ class GatewayInput extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::STRING);
         $this->labels = $arr;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>map<string, string> selector = 5 [(.validator.field) = {</code>
-     * @return \Google\Protobuf\Internal\MapField
-     */
-    public function getSelector()
-    {
-        return $this->selector;
-    }
-
-    /**
-     * Generated from protobuf field <code>map<string, string> selector = 5 [(.validator.field) = {</code>
-     * @param array|\Google\Protobuf\Internal\MapField $var
-     * @return $this
-     */
-    public function setSelector($var)
-    {
-        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->selector = $arr;
 
         return $this;
     }

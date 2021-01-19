@@ -4,11 +4,8 @@ package model
 
 type App struct {
 	Name       string                 `json:"name"`
-	Namespace  string                 `json:"namespace"`
-	Image      string                 `json:"image"`
-	Args       []string               `json:"args"`
-	Env        map[string]interface{} `json:"env"`
-	Ports      map[string]interface{} `json:"ports"`
+	Project    string                 `json:"project"`
+	Containers []*Container           `json:"containers"`
 	Replicas   int                    `json:"replicas"`
 	Networking *Networking            `json:"networking"`
 	Status     *AppStatus             `json:"status"`
@@ -18,11 +15,8 @@ type App struct {
 
 type AppInput struct {
 	Name       string                 `json:"name"`
-	Namespace  string                 `json:"namespace"`
-	Image      string                 `json:"image"`
-	Args       []string               `json:"args"`
-	Env        map[string]interface{} `json:"env"`
-	Ports      map[string]interface{} `json:"ports"`
+	Project    string                 `json:"project"`
+	Containers []*ContainerInput      `json:"containers"`
 	Replicas   int                    `json:"replicas"`
 	Networking *NetworkingInput       `json:"networking"`
 	Labels     map[string]interface{} `json:"labels"`
@@ -31,6 +25,22 @@ type AppInput struct {
 
 type AppStatus struct {
 	Replicas []*Replica `json:"replicas"`
+}
+
+type Container struct {
+	Name  string                 `json:"name"`
+	Image string                 `json:"image"`
+	Args  []string               `json:"args"`
+	Env   map[string]interface{} `json:"env"`
+	Ports map[string]interface{} `json:"ports"`
+}
+
+type ContainerInput struct {
+	Name  string                 `json:"name"`
+	Image string                 `json:"image"`
+	Args  []string               `json:"args"`
+	Env   map[string]interface{} `json:"env"`
+	Ports map[string]interface{} `json:"ports"`
 }
 
 type HTTPRoute struct {
@@ -46,8 +56,8 @@ type HTTPRoute struct {
 }
 
 type HTTPRouteInput struct {
-	Name             *string  `json:"name"`
-	Port             *int     `json:"port"`
+	Name             string   `json:"name"`
+	Port             int      `json:"port"`
 	PathPrefix       *string  `json:"path_prefix"`
 	RewriteURI       *string  `json:"rewrite_uri"`
 	AllowOrigins     []string `json:"allow_origins"`
@@ -59,14 +69,6 @@ type HTTPRouteInput struct {
 
 type Log struct {
 	Message string `json:"message"`
-}
-
-type Namespace struct {
-	Namespace string `json:"namespace"`
-}
-
-type Namespaces struct {
-	Namespaces []string `json:"namespaces"`
 }
 
 type Networking struct {
@@ -83,9 +85,27 @@ type NetworkingInput struct {
 	HTTPRoutes []*HTTPRouteInput `json:"http_routes"`
 }
 
+type Project struct {
+	Name   string                 `json:"name"`
+	Labels map[string]interface{} `json:"labels"`
+}
+
+type ProjectInput struct {
+	Name   string                 `json:"name"`
+	Labels map[string]interface{} `json:"labels"`
+}
+
+type ProjectRef struct {
+	Name string `json:"name"`
+}
+
+type Projects struct {
+	Projects []string `json:"projects"`
+}
+
 type Ref struct {
-	Name      string `json:"name"`
-	Namespace string `json:"namespace"`
+	Name    string `json:"name"`
+	Project string `json:"project"`
 }
 
 type Replica struct {
@@ -96,10 +116,8 @@ type Replica struct {
 
 type Task struct {
 	Name        string                 `json:"name"`
-	Namespace   string                 `json:"namespace"`
-	Image       string                 `json:"image"`
-	Args        []string               `json:"args"`
-	Env         map[string]interface{} `json:"env"`
+	Project     string                 `json:"project"`
+	Containers  []*Container           `json:"containers"`
 	Schedule    string                 `json:"schedule"`
 	Completions *int                   `json:"completions"`
 	Labels      map[string]interface{} `json:"labels"`
@@ -108,10 +126,8 @@ type Task struct {
 
 type TaskInput struct {
 	Name        string                 `json:"name"`
-	Namespace   string                 `json:"namespace"`
-	Image       string                 `json:"image"`
-	Args        []string               `json:"args"`
-	Env         map[string]interface{} `json:"env"`
+	Project     string                 `json:"project"`
+	Containers  []*ContainerInput      `json:"containers"`
 	Schedule    string                 `json:"schedule"`
 	Completions *int                   `json:"completions"`
 	Labels      map[string]interface{} `json:"labels"`

@@ -28,37 +28,37 @@ class HTTPRoute extends \Google\Protobuf\Internal\Message
      */
     private $path_prefix = '';
     /**
-     * Generated from protobuf field <code>string rewrite_uri = 4;</code>
+     * Generated from protobuf field <code>string rewrite_uri = 5;</code>
      */
     private $rewrite_uri = '';
     /**
      * The list of origins that are allowed to perform CORS requests
      *
-     * Generated from protobuf field <code>repeated string allow_origins = 5;</code>
+     * Generated from protobuf field <code>repeated string allow_origins = 6;</code>
      */
     private $allow_origins;
     /**
      * The list of methods that are allowed to perform CORS requests
      *
-     * Generated from protobuf field <code>repeated string allow_methods = 6;</code>
+     * Generated from protobuf field <code>repeated string allow_methods = 7;</code>
      */
     private $allow_methods;
     /**
      * The list of headers that are allowed to perform CORS requests
      *
-     * Generated from protobuf field <code>repeated string allow_headers = 7;</code>
+     * Generated from protobuf field <code>repeated string allow_headers = 8;</code>
      */
     private $allow_headers;
     /**
      * The list of origins that are allowed to perform CORS requests
      *
-     * Generated from protobuf field <code>repeated string expose_headers = 8;</code>
+     * Generated from protobuf field <code>repeated string expose_headers = 9;</code>
      */
     private $expose_headers;
     /**
      * adds `Access-Control-Allow-Credentials` header
      *
-     * Generated from protobuf field <code>bool allow_credentials = 9;</code>
+     * Generated from protobuf field <code>bool allow_credentials = 10;</code>
      */
     private $allow_credentials = false;
 
@@ -156,7 +156,7 @@ class HTTPRoute extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string rewrite_uri = 4;</code>
+     * Generated from protobuf field <code>string rewrite_uri = 5;</code>
      * @return string
      */
     public function getRewriteUri()
@@ -165,7 +165,7 @@ class HTTPRoute extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string rewrite_uri = 4;</code>
+     * Generated from protobuf field <code>string rewrite_uri = 5;</code>
      * @param string $var
      * @return $this
      */
@@ -180,7 +180,7 @@ class HTTPRoute extends \Google\Protobuf\Internal\Message
     /**
      * The list of origins that are allowed to perform CORS requests
      *
-     * Generated from protobuf field <code>repeated string allow_origins = 5;</code>
+     * Generated from protobuf field <code>repeated string allow_origins = 6;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getAllowOrigins()
@@ -191,7 +191,7 @@ class HTTPRoute extends \Google\Protobuf\Internal\Message
     /**
      * The list of origins that are allowed to perform CORS requests
      *
-     * Generated from protobuf field <code>repeated string allow_origins = 5;</code>
+     * Generated from protobuf field <code>repeated string allow_origins = 6;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
@@ -206,7 +206,7 @@ class HTTPRoute extends \Google\Protobuf\Internal\Message
     /**
      * The list of methods that are allowed to perform CORS requests
      *
-     * Generated from protobuf field <code>repeated string allow_methods = 6;</code>
+     * Generated from protobuf field <code>repeated string allow_methods = 7;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getAllowMethods()
@@ -217,7 +217,7 @@ class HTTPRoute extends \Google\Protobuf\Internal\Message
     /**
      * The list of methods that are allowed to perform CORS requests
      *
-     * Generated from protobuf field <code>repeated string allow_methods = 6;</code>
+     * Generated from protobuf field <code>repeated string allow_methods = 7;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
@@ -232,7 +232,7 @@ class HTTPRoute extends \Google\Protobuf\Internal\Message
     /**
      * The list of headers that are allowed to perform CORS requests
      *
-     * Generated from protobuf field <code>repeated string allow_headers = 7;</code>
+     * Generated from protobuf field <code>repeated string allow_headers = 8;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getAllowHeaders()
@@ -243,7 +243,7 @@ class HTTPRoute extends \Google\Protobuf\Internal\Message
     /**
      * The list of headers that are allowed to perform CORS requests
      *
-     * Generated from protobuf field <code>repeated string allow_headers = 7;</code>
+     * Generated from protobuf field <code>repeated string allow_headers = 8;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
@@ -258,7 +258,7 @@ class HTTPRoute extends \Google\Protobuf\Internal\Message
     /**
      * The list of origins that are allowed to perform CORS requests
      *
-     * Generated from protobuf field <code>repeated string expose_headers = 8;</code>
+     * Generated from protobuf field <code>repeated string expose_headers = 9;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getExposeHeaders()
@@ -269,7 +269,7 @@ class HTTPRoute extends \Google\Protobuf\Internal\Message
     /**
      * The list of origins that are allowed to perform CORS requests
      *
-     * Generated from protobuf field <code>repeated string expose_headers = 8;</code>
+     * Generated from protobuf field <code>repeated string expose_headers = 9;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
@@ -284,7 +284,7 @@ class HTTPRoute extends \Google\Protobuf\Internal\Message
     /**
      * adds `Access-Control-Allow-Credentials` header
      *
-     * Generated from protobuf field <code>bool allow_credentials = 9;</code>
+     * Generated from protobuf field <code>bool allow_credentials = 10;</code>
      * @return bool
      */
     public function getAllowCredentials()
@@ -295,7 +295,7 @@ class HTTPRoute extends \Google\Protobuf\Internal\Message
     /**
      * adds `Access-Control-Allow-Credentials` header
      *
-     * Generated from protobuf field <code>bool allow_credentials = 9;</code>
+     * Generated from protobuf field <code>bool allow_credentials = 10;</code>
      * @param bool $var
      * @return $this
      */

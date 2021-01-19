@@ -22,35 +22,23 @@ class ServerTLSSettings extends \Google\Protobuf\Internal\Message
      */
     private $mode = 0;
     /**
-     * Generated from protobuf field <code>string server_certificate = 3;</code>
-     */
-    private $server_certificate = '';
-    /**
-     * Generated from protobuf field <code>string private_key = 4;</code>
-     */
-    private $private_key = '';
-    /**
-     * Generated from protobuf field <code>string ca_certificates = 5;</code>
-     */
-    private $ca_certificates = '';
-    /**
-     * Generated from protobuf field <code>string credential_name = 10;</code>
+     * Generated from protobuf field <code>string credential_name = 3;</code>
      */
     private $credential_name = '';
     /**
-     * Generated from protobuf field <code>repeated string subject_alt_names = 6;</code>
+     * Generated from protobuf field <code>repeated string subject_alt_names = 4;</code>
      */
     private $subject_alt_names;
     /**
-     * Generated from protobuf field <code>repeated string verify_certificate_spki = 11;</code>
+     * Generated from protobuf field <code>repeated string verify_certificate_spki = 5;</code>
      */
     private $verify_certificate_spki;
     /**
-     * Generated from protobuf field <code>repeated string verify_certificate_hash = 12;</code>
+     * Generated from protobuf field <code>repeated string verify_certificate_hash = 6;</code>
      */
     private $verify_certificate_hash;
     /**
-     * Generated from protobuf field <code>repeated string cipher_suites = 9;</code>
+     * Generated from protobuf field <code>repeated string cipher_suites = 7;</code>
      */
     private $cipher_suites;
 
@@ -62,9 +50,6 @@ class ServerTLSSettings extends \Google\Protobuf\Internal\Message
      *
      *     @type bool $https_redirect
      *     @type int $mode
-     *     @type string $server_certificate
-     *     @type string $private_key
-     *     @type string $ca_certificates
      *     @type string $credential_name
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $subject_alt_names
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $verify_certificate_spki
@@ -122,73 +107,7 @@ class ServerTLSSettings extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string server_certificate = 3;</code>
-     * @return string
-     */
-    public function getServerCertificate()
-    {
-        return $this->server_certificate;
-    }
-
-    /**
-     * Generated from protobuf field <code>string server_certificate = 3;</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setServerCertificate($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->server_certificate = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>string private_key = 4;</code>
-     * @return string
-     */
-    public function getPrivateKey()
-    {
-        return $this->private_key;
-    }
-
-    /**
-     * Generated from protobuf field <code>string private_key = 4;</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setPrivateKey($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->private_key = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>string ca_certificates = 5;</code>
-     * @return string
-     */
-    public function getCaCertificates()
-    {
-        return $this->ca_certificates;
-    }
-
-    /**
-     * Generated from protobuf field <code>string ca_certificates = 5;</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setCaCertificates($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->ca_certificates = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>string credential_name = 10;</code>
+     * Generated from protobuf field <code>string credential_name = 3;</code>
      * @return string
      */
     public function getCredentialName()
@@ -197,7 +116,7 @@ class ServerTLSSettings extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string credential_name = 10;</code>
+     * Generated from protobuf field <code>string credential_name = 3;</code>
      * @param string $var
      * @return $this
      */
@@ -210,7 +129,7 @@ class ServerTLSSettings extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated string subject_alt_names = 6;</code>
+     * Generated from protobuf field <code>repeated string subject_alt_names = 4;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getSubjectAltNames()
@@ -219,7 +138,7 @@ class ServerTLSSettings extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated string subject_alt_names = 6;</code>
+     * Generated from protobuf field <code>repeated string subject_alt_names = 4;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
@@ -232,7 +151,7 @@ class ServerTLSSettings extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated string verify_certificate_spki = 11;</code>
+     * Generated from protobuf field <code>repeated string verify_certificate_spki = 5;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getVerifyCertificateSpki()
@@ -241,7 +160,7 @@ class ServerTLSSettings extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated string verify_certificate_spki = 11;</code>
+     * Generated from protobuf field <code>repeated string verify_certificate_spki = 5;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
@@ -254,7 +173,7 @@ class ServerTLSSettings extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated string verify_certificate_hash = 12;</code>
+     * Generated from protobuf field <code>repeated string verify_certificate_hash = 6;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getVerifyCertificateHash()
@@ -263,7 +182,7 @@ class ServerTLSSettings extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated string verify_certificate_hash = 12;</code>
+     * Generated from protobuf field <code>repeated string verify_certificate_hash = 6;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
@@ -276,7 +195,7 @@ class ServerTLSSettings extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated string cipher_suites = 9;</code>
+     * Generated from protobuf field <code>repeated string cipher_suites = 7;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getCipherSuites()
@@ -285,7 +204,7 @@ class ServerTLSSettings extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated string cipher_suites = 9;</code>
+     * Generated from protobuf field <code>repeated string cipher_suites = 7;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */

@@ -5,15 +5,15 @@ package meshpaaspb
 
 import (
 	fmt "fmt"
-	math "math"
 	proto "github.com/golang/protobuf/proto"
-	_ "github.com/mwitkow/go-proto-validators"
-	_ "github.com/golang/protobuf/ptypes/struct"
-	_ "github.com/golang/protobuf/ptypes/timestamp"
 	_ "github.com/golang/protobuf/ptypes/any"
 	_ "github.com/golang/protobuf/ptypes/empty"
-	regexp "regexp"
+	_ "github.com/golang/protobuf/ptypes/struct"
+	_ "github.com/golang/protobuf/ptypes/timestamp"
+	_ "github.com/mwitkow/go-proto-validators"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
+	math "math"
+	regexp "regexp"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -21,6 +21,35 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+var _regex_SecretInput_Name = regexp.MustCompile(`^.{1,225}$`)
+var _regex_SecretInput_Project = regexp.MustCompile(`^.{1,225}$`)
+
+func (this *SecretInput) Validate() error {
+	if !_regex_SecretInput_Name.MatchString(this.Name) {
+		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
+	}
+	if !_regex_SecretInput_Project.MatchString(this.Project) {
+		return github_com_mwitkow_go_proto_validators.FieldError("Project", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Project))
+	}
+	// Validation of proto3 map<> fields is unsupported.
+	// Validation of proto3 map<> fields is unsupported.
+	return nil
+}
+
+var _regex_Secret_Name = regexp.MustCompile(`^.{1,225}$`)
+var _regex_Secret_Project = regexp.MustCompile(`^.{1,225}$`)
+
+func (this *Secret) Validate() error {
+	if !_regex_Secret_Name.MatchString(this.Name) {
+		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
+	}
+	if !_regex_Secret_Project.MatchString(this.Project) {
+		return github_com_mwitkow_go_proto_validators.FieldError("Project", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Project))
+	}
+	// Validation of proto3 map<> fields is unsupported.
+	// Validation of proto3 map<> fields is unsupported.
+	return nil
+}
 func (this *ServerTLSSettings) Validate() error {
 	return nil
 }
@@ -58,14 +87,14 @@ func (this *Gateway) Validate() error {
 }
 
 var _regex_GatewayInput_Name = regexp.MustCompile(`^.{1,225}$`)
-var _regex_GatewayInput_Namespace = regexp.MustCompile(`^.{1,225}$`)
+var _regex_GatewayInput_Project = regexp.MustCompile(`^.{1,225}$`)
 
 func (this *GatewayInput) Validate() error {
 	if !_regex_GatewayInput_Name.MatchString(this.Name) {
 		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
 	}
-	if !_regex_GatewayInput_Namespace.MatchString(this.Namespace) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Namespace", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Namespace))
+	if !_regex_GatewayInput_Project.MatchString(this.Project) {
+		return github_com_mwitkow_go_proto_validators.FieldError("Project", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Project))
 	}
 	for _, item := range this.Listeners {
 		if item != nil {
@@ -101,22 +130,38 @@ func (this *Networking) Validate() error {
 	return nil
 }
 
+var _regex_Container_Name = regexp.MustCompile(`^.{1,225}$`)
+var _regex_Container_Image = regexp.MustCompile(`^.{1,225}$`)
+
+func (this *Container) Validate() error {
+	if !_regex_Container_Name.MatchString(this.Name) {
+		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
+	}
+	if !_regex_Container_Image.MatchString(this.Image) {
+		return github_com_mwitkow_go_proto_validators.FieldError("Image", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Image))
+	}
+	// Validation of proto3 map<> fields is unsupported.
+	// Validation of proto3 map<> fields is unsupported.
+	return nil
+}
+
 var _regex_App_Name = regexp.MustCompile(`^.{1,225}$`)
-var _regex_App_Namespace = regexp.MustCompile(`^.{1,225}$`)
-var _regex_App_Image = regexp.MustCompile(`^.{1,225}$`)
+var _regex_App_Project = regexp.MustCompile(`^.{1,225}$`)
 
 func (this *App) Validate() error {
 	if !_regex_App_Name.MatchString(this.Name) {
 		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
 	}
-	if !_regex_App_Namespace.MatchString(this.Namespace) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Namespace", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Namespace))
+	if !_regex_App_Project.MatchString(this.Project) {
+		return github_com_mwitkow_go_proto_validators.FieldError("Project", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Project))
 	}
-	if !_regex_App_Image.MatchString(this.Image) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Image", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Image))
+	for _, item := range this.Containers {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Containers", err)
+			}
+		}
 	}
-	// Validation of proto3 map<> fields is unsupported.
-	// Validation of proto3 map<> fields is unsupported.
 	// Validation of proto3 map<> fields is unsupported.
 	// Validation of proto3 map<> fields is unsupported.
 	if nil == this.Networking {
@@ -139,21 +184,23 @@ func (this *App) Validate() error {
 }
 
 var _regex_Task_Name = regexp.MustCompile(`^.{1,225}$`)
-var _regex_Task_Namespace = regexp.MustCompile(`^.{1,225}$`)
-var _regex_Task_Image = regexp.MustCompile(`^.{1,225}$`)
+var _regex_Task_Project = regexp.MustCompile(`^.{1,225}$`)
 var _regex_Task_Schedule = regexp.MustCompile(`^.{1,225}$`)
 
 func (this *Task) Validate() error {
 	if !_regex_Task_Name.MatchString(this.Name) {
 		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
 	}
-	if !_regex_Task_Namespace.MatchString(this.Namespace) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Namespace", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Namespace))
+	if !_regex_Task_Project.MatchString(this.Project) {
+		return github_com_mwitkow_go_proto_validators.FieldError("Project", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Project))
 	}
-	if !_regex_Task_Image.MatchString(this.Image) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Image", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Image))
+	for _, item := range this.Containers {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Containers", err)
+			}
+		}
 	}
-	// Validation of proto3 map<> fields is unsupported.
 	if !_regex_Task_Schedule.MatchString(this.Schedule) {
 		return github_com_mwitkow_go_proto_validators.FieldError("Schedule", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Schedule))
 	}
@@ -163,21 +210,23 @@ func (this *Task) Validate() error {
 }
 
 var _regex_TaskInput_Name = regexp.MustCompile(`^.{1,225}$`)
-var _regex_TaskInput_Namespace = regexp.MustCompile(`^.{1,225}$`)
-var _regex_TaskInput_Image = regexp.MustCompile(`^.{1,225}$`)
+var _regex_TaskInput_Project = regexp.MustCompile(`^.{1,225}$`)
 var _regex_TaskInput_Schedule = regexp.MustCompile(`^.{1,225}$`)
 
 func (this *TaskInput) Validate() error {
 	if !_regex_TaskInput_Name.MatchString(this.Name) {
 		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
 	}
-	if !_regex_TaskInput_Namespace.MatchString(this.Namespace) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Namespace", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Namespace))
+	if !_regex_TaskInput_Project.MatchString(this.Project) {
+		return github_com_mwitkow_go_proto_validators.FieldError("Project", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Project))
 	}
-	if !_regex_TaskInput_Image.MatchString(this.Image) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Image", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Image))
+	for _, item := range this.Containers {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Containers", err)
+			}
+		}
 	}
-	// Validation of proto3 map<> fields is unsupported.
 	if !_regex_TaskInput_Schedule.MatchString(this.Schedule) {
 		return github_com_mwitkow_go_proto_validators.FieldError("Schedule", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Schedule))
 	}
@@ -187,21 +236,22 @@ func (this *TaskInput) Validate() error {
 }
 
 var _regex_AppInput_Name = regexp.MustCompile(`^.{1,225}$`)
-var _regex_AppInput_Namespace = regexp.MustCompile(`^.{1,225}$`)
-var _regex_AppInput_Image = regexp.MustCompile(`^.{1,225}$`)
+var _regex_AppInput_Project = regexp.MustCompile(`^.{1,225}$`)
 
 func (this *AppInput) Validate() error {
 	if !_regex_AppInput_Name.MatchString(this.Name) {
 		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
 	}
-	if !_regex_AppInput_Namespace.MatchString(this.Namespace) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Namespace", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Namespace))
+	if !_regex_AppInput_Project.MatchString(this.Project) {
+		return github_com_mwitkow_go_proto_validators.FieldError("Project", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Project))
 	}
-	if !_regex_AppInput_Image.MatchString(this.Image) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Image", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Image))
+	for _, item := range this.Containers {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Containers", err)
+			}
+		}
 	}
-	// Validation of proto3 map<> fields is unsupported.
-	// Validation of proto3 map<> fields is unsupported.
 	if nil == this.Networking {
 		return github_com_mwitkow_go_proto_validators.FieldError("Networking", fmt.Errorf("message must exist"))
 	}
@@ -216,14 +266,14 @@ func (this *AppInput) Validate() error {
 }
 
 var _regex_Ref_Name = regexp.MustCompile(`^.{1,225}$`)
-var _regex_Ref_Namespace = regexp.MustCompile(`^.{1,225}$`)
+var _regex_Ref_Project = regexp.MustCompile(`^.{1,225}$`)
 
 func (this *Ref) Validate() error {
 	if !_regex_Ref_Name.MatchString(this.Name) {
 		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
 	}
-	if !_regex_Ref_Namespace.MatchString(this.Namespace) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Namespace", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Namespace))
+	if !_regex_Ref_Project.MatchString(this.Project) {
+		return github_com_mwitkow_go_proto_validators.FieldError("Project", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Project))
 	}
 	return nil
 }
@@ -263,9 +313,29 @@ func (this *Tasks) Validate() error {
 	}
 	return nil
 }
-func (this *Namespace) Validate() error {
+
+var _regex_ProjectInput_Name = regexp.MustCompile(`^.{1,225}$`)
+
+func (this *ProjectInput) Validate() error {
+	if !_regex_ProjectInput_Name.MatchString(this.Name) {
+		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
+	}
+	// Validation of proto3 map<> fields is unsupported.
 	return nil
 }
-func (this *Namespaces) Validate() error {
+func (this *Project) Validate() error {
+	// Validation of proto3 map<> fields is unsupported.
+	return nil
+}
+
+var _regex_ProjectRef_Name = regexp.MustCompile(`^.{1,225}$`)
+
+func (this *ProjectRef) Validate() error {
+	if !_regex_ProjectRef_Name.MatchString(this.Name) {
+		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
+	}
+	return nil
+}
+func (this *Projects) Validate() error {
 	return nil
 }

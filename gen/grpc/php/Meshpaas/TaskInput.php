@@ -22,29 +22,15 @@ class TaskInput extends \Google\Protobuf\Internal\Message
      */
     private $name = '';
     /**
-     * task namespace
+     * task project
      *
-     * Generated from protobuf field <code>string namespace = 2 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
      */
-    private $namespace = '';
+    private $project = '';
     /**
-     * docker image of task
-     *
-     * Generated from protobuf field <code>string image = 3 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = {</code>
      */
-    private $image = '';
-    /**
-     * args are arguments given to docker image at startup
-     *
-     * Generated from protobuf field <code>repeated string args = 5;</code>
-     */
-    private $args;
-    /**
-     * k/v map of environmental variables
-     *
-     * Generated from protobuf field <code>map<string, string> env = 6;</code>
-     */
-    private $env;
+    private $containers;
     /**
      * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
      *
@@ -74,14 +60,9 @@ class TaskInput extends \Google\Protobuf\Internal\Message
      *
      *     @type string $name
      *           name of the task
-     *     @type string $namespace
-     *           task namespace
-     *     @type string $image
-     *           docker image of task
-     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $args
-     *           args are arguments given to docker image at startup
-     *     @type array|\Google\Protobuf\Internal\MapField $env
-     *           k/v map of environmental variables
+     *     @type string $project
+     *           task project
+     *     @type \Meshpaas\Container[]|\Google\Protobuf\Internal\RepeatedField $containers
      *     @type string $schedule
      *           schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
      *     @type int $completions
@@ -122,105 +103,49 @@ class TaskInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * task namespace
+     * task project
      *
-     * Generated from protobuf field <code>string namespace = 2 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
      * @return string
      */
-    public function getNamespace()
+    public function getProject()
     {
-        return $this->namespace;
+        return $this->project;
     }
 
     /**
-     * task namespace
+     * task project
      *
-     * Generated from protobuf field <code>string namespace = 2 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
      * @param string $var
      * @return $this
      */
-    public function setNamespace($var)
+    public function setProject($var)
     {
         GPBUtil::checkString($var, True);
-        $this->namespace = $var;
+        $this->project = $var;
 
         return $this;
     }
 
     /**
-     * docker image of task
-     *
-     * Generated from protobuf field <code>string image = 3 [(.validator.field) = {</code>
-     * @return string
-     */
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    /**
-     * docker image of task
-     *
-     * Generated from protobuf field <code>string image = 3 [(.validator.field) = {</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setImage($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->image = $var;
-
-        return $this;
-    }
-
-    /**
-     * args are arguments given to docker image at startup
-     *
-     * Generated from protobuf field <code>repeated string args = 5;</code>
+     * Generated from protobuf field <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = {</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
-    public function getArgs()
+    public function getContainers()
     {
-        return $this->args;
+        return $this->containers;
     }
 
     /**
-     * args are arguments given to docker image at startup
-     *
-     * Generated from protobuf field <code>repeated string args = 5;</code>
-     * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
+     * Generated from protobuf field <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = {</code>
+     * @param \Meshpaas\Container[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
-    public function setArgs($var)
+    public function setContainers($var)
     {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->args = $arr;
-
-        return $this;
-    }
-
-    /**
-     * k/v map of environmental variables
-     *
-     * Generated from protobuf field <code>map<string, string> env = 6;</code>
-     * @return \Google\Protobuf\Internal\MapField
-     */
-    public function getEnv()
-    {
-        return $this->env;
-    }
-
-    /**
-     * k/v map of environmental variables
-     *
-     * Generated from protobuf field <code>map<string, string> env = 6;</code>
-     * @param array|\Google\Protobuf\Internal\MapField $var
-     * @return $this
-     */
-    public function setEnv($var)
-    {
-        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->env = $arr;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Meshpaas\Container::class);
+        $this->containers = $arr;
 
         return $this;
     }

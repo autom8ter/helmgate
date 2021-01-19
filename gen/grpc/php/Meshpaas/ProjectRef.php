@@ -9,22 +9,14 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>meshpaas.Ref</code>
+ * Generated from protobuf message <code>meshpaas.ProjectRef</code>
  */
-class Ref extends \Google\Protobuf\Internal\Message
+class ProjectRef extends \Google\Protobuf\Internal\Message
 {
     /**
-     * name of the application
-     *
      * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      */
     private $name = '';
-    /**
-     * application project
-     *
-     * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
-     */
-    private $project = '';
 
     /**
      * Constructor.
@@ -33,9 +25,6 @@ class Ref extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $name
-     *           name of the application
-     *     @type string $project
-     *           application project
      * }
      */
     public function __construct($data = NULL) {
@@ -44,8 +33,6 @@ class Ref extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * name of the application
-     *
      * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      * @return string
      */
@@ -55,8 +42,6 @@ class Ref extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * name of the application
-     *
      * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      * @param string $var
      * @return $this
@@ -65,32 +50,6 @@ class Ref extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->name = $var;
-
-        return $this;
-    }
-
-    /**
-     * application project
-     *
-     * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
-     * @return string
-     */
-    public function getProject()
-    {
-        return $this->project;
-    }
-
-    /**
-     * application project
-     *
-     * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setProject($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->project = $var;
 
         return $this;
     }

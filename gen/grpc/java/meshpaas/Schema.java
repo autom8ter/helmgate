@@ -15,6 +15,113 @@ public final class Schema {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   /**
+   * Protobuf enum {@code meshpaas.SecretType}
+   */
+  public enum SecretType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>OPAQUE = 0;</code>
+     */
+    OPAQUE(0),
+    /**
+     * <code>TLS_CERT_KEY = 1;</code>
+     */
+    TLS_CERT_KEY(1),
+    /**
+     * <code>DOCKER_CONFIG = 2;</code>
+     */
+    DOCKER_CONFIG(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>OPAQUE = 0;</code>
+     */
+    public static final int OPAQUE_VALUE = 0;
+    /**
+     * <code>TLS_CERT_KEY = 1;</code>
+     */
+    public static final int TLS_CERT_KEY_VALUE = 1;
+    /**
+     * <code>DOCKER_CONFIG = 2;</code>
+     */
+    public static final int DOCKER_CONFIG_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static SecretType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static SecretType forNumber(int value) {
+      switch (value) {
+        case 0: return OPAQUE;
+        case 1: return TLS_CERT_KEY;
+        case 2: return DOCKER_CONFIG;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<SecretType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        SecretType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<SecretType>() {
+            public SecretType findValueByNumber(int number) {
+              return SecretType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return meshpaas.Schema.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final SecretType[] VALUES = values();
+
+    public static SecretType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private SecretType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:meshpaas.SecretType)
+  }
+
+  /**
    * Protobuf enum {@code meshpaas.Protocol}
    */
   public enum Protocol
@@ -140,7 +247,7 @@ public final class Schema {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return meshpaas.Schema.getDescriptor().getEnumTypes().get(0);
+      return meshpaas.Schema.getDescriptor().getEnumTypes().get(1);
     }
 
     private static final Protocol[] VALUES = values();
@@ -265,7 +372,7 @@ public final class Schema {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return meshpaas.Schema.getDescriptor().getEnumTypes().get(1);
+      return meshpaas.Schema.getDescriptor().getEnumTypes().get(2);
     }
 
     private static final TLSmode[] VALUES = values();
@@ -291,6 +398,3022 @@ public final class Schema {
     // @@protoc_insertion_point(enum_scope:meshpaas.TLSmode)
   }
 
+  public interface SecretInputOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:meshpaas.SecretInput)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * name of the secret
+     * </pre>
+     *
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     */
+    java.lang.String getName();
+    /**
+     * <pre>
+     * name of the secret
+     * </pre>
+     *
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <pre>
+     * secret project
+     * </pre>
+     *
+     * <code>string project = 2 [(.validator.field) = { ... }</code>
+     */
+    java.lang.String getProject();
+    /**
+     * <pre>
+     * secret project
+     * </pre>
+     *
+     * <code>string project = 2 [(.validator.field) = { ... }</code>
+     */
+    com.google.protobuf.ByteString
+        getProjectBytes();
+
+    /**
+     * <code>.meshpaas.SecretType type = 3;</code>
+     */
+    int getTypeValue();
+    /**
+     * <code>.meshpaas.SecretType type = 3;</code>
+     */
+    meshpaas.Schema.SecretType getType();
+
+    /**
+     * <code>bool immutable = 4;</code>
+     */
+    boolean getImmutable();
+
+    /**
+     * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
+     */
+    int getDataCount();
+    /**
+     * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
+     */
+    boolean containsData(
+        java.lang.String key);
+    /**
+     * Use {@link #getDataMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
+    getData();
+    /**
+     * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
+     */
+    java.util.Map<java.lang.String, java.lang.String>
+    getDataMap();
+    /**
+     * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
+     */
+
+    java.lang.String getDataOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue);
+    /**
+     * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
+     */
+
+    java.lang.String getDataOrThrow(
+        java.lang.String key);
+
+    /**
+     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
+     */
+    int getLabelsCount();
+    /**
+     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
+     */
+    boolean containsLabels(
+        java.lang.String key);
+    /**
+     * Use {@link #getLabelsMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
+    getLabels();
+    /**
+     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
+     */
+    java.util.Map<java.lang.String, java.lang.String>
+    getLabelsMap();
+    /**
+     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
+     */
+
+    java.lang.String getLabelsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue);
+    /**
+     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
+     */
+
+    java.lang.String getLabelsOrThrow(
+        java.lang.String key);
+  }
+  /**
+   * Protobuf type {@code meshpaas.SecretInput}
+   */
+  public  static final class SecretInput extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:meshpaas.SecretInput)
+      SecretInputOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SecretInput.newBuilder() to construct.
+    private SecretInput(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SecretInput() {
+      name_ = "";
+      project_ = "";
+      type_ = 0;
+      immutable_ = false;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SecretInput(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              name_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              project_ = s;
+              break;
+            }
+            case 24: {
+              int rawValue = input.readEnum();
+
+              type_ = rawValue;
+              break;
+            }
+            case 32: {
+
+              immutable_ = input.readBool();
+              break;
+            }
+            case 42: {
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+                data_ = com.google.protobuf.MapField.newMapField(
+                    DataDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000010;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              data__ = input.readMessage(
+                  DataDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              data_.getMutableMap().put(
+                  data__.getKey(), data__.getValue());
+              break;
+            }
+            case 50: {
+              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+                labels_ = com.google.protobuf.MapField.newMapField(
+                    LabelsDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000020;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              labels_.getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return meshpaas.Schema.internal_static_meshpaas_SecretInput_descriptor;
+    }
+
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 5:
+          return internalGetData();
+        case 6:
+          return internalGetLabels();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return meshpaas.Schema.internal_static_meshpaas_SecretInput_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              meshpaas.Schema.SecretInput.class, meshpaas.Schema.SecretInput.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object name_;
+    /**
+     * <pre>
+     * name of the secret
+     * </pre>
+     *
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * name of the secret
+     * </pre>
+     *
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PROJECT_FIELD_NUMBER = 2;
+    private volatile java.lang.Object project_;
+    /**
+     * <pre>
+     * secret project
+     * </pre>
+     *
+     * <code>string project = 2 [(.validator.field) = { ... }</code>
+     */
+    public java.lang.String getProject() {
+      java.lang.Object ref = project_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        project_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * secret project
+     * </pre>
+     *
+     * <code>string project = 2 [(.validator.field) = { ... }</code>
+     */
+    public com.google.protobuf.ByteString
+        getProjectBytes() {
+      java.lang.Object ref = project_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        project_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TYPE_FIELD_NUMBER = 3;
+    private int type_;
+    /**
+     * <code>.meshpaas.SecretType type = 3;</code>
+     */
+    public int getTypeValue() {
+      return type_;
+    }
+    /**
+     * <code>.meshpaas.SecretType type = 3;</code>
+     */
+    public meshpaas.Schema.SecretType getType() {
+      @SuppressWarnings("deprecation")
+      meshpaas.Schema.SecretType result = meshpaas.Schema.SecretType.valueOf(type_);
+      return result == null ? meshpaas.Schema.SecretType.UNRECOGNIZED : result;
+    }
+
+    public static final int IMMUTABLE_FIELD_NUMBER = 4;
+    private boolean immutable_;
+    /**
+     * <code>bool immutable = 4;</code>
+     */
+    public boolean getImmutable() {
+      return immutable_;
+    }
+
+    public static final int DATA_FIELD_NUMBER = 5;
+    private static final class DataDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  meshpaas.Schema.internal_static_meshpaas_SecretInput_DataEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> data_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetData() {
+      if (data_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            DataDefaultEntryHolder.defaultEntry);
+      }
+      return data_;
+    }
+
+    public int getDataCount() {
+      return internalGetData().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
+     */
+
+    public boolean containsData(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetData().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getDataMap()} instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getData() {
+      return getDataMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
+     */
+
+    public java.util.Map<java.lang.String, java.lang.String> getDataMap() {
+      return internalGetData().getMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
+     */
+
+    public java.lang.String getDataOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetData().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
+     */
+
+    public java.lang.String getDataOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetData().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    public static final int LABELS_FIELD_NUMBER = 6;
+    private static final class LabelsDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  meshpaas.Schema.internal_static_meshpaas_SecretInput_LabelsEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> labels_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetLabels() {
+      if (labels_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            LabelsDefaultEntryHolder.defaultEntry);
+      }
+      return labels_;
+    }
+
+    public int getLabelsCount() {
+      return internalGetLabels().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
+     */
+
+    public boolean containsLabels(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetLabels().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getLabelsMap()} instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getLabels() {
+      return getLabelsMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
+     */
+
+    public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
+      return internalGetLabels().getMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
+     */
+
+    public java.lang.String getLabelsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetLabels().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
+     */
+
+    public java.lang.String getLabelsOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetLabels().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      }
+      if (!getProjectBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, project_);
+      }
+      if (type_ != meshpaas.Schema.SecretType.OPAQUE.getNumber()) {
+        output.writeEnum(3, type_);
+      }
+      if (immutable_ != false) {
+        output.writeBool(4, immutable_);
+      }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetData(),
+          DataDefaultEntryHolder.defaultEntry,
+          5);
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetLabels(),
+          LabelsDefaultEntryHolder.defaultEntry,
+          6);
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      if (!getProjectBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, project_);
+      }
+      if (type_ != meshpaas.Schema.SecretType.OPAQUE.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(3, type_);
+      }
+      if (immutable_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, immutable_);
+      }
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+           : internalGetData().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+        data__ = DataDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(5, data__);
+      }
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+           : internalGetLabels().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+        labels__ = LabelsDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(6, labels__);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof meshpaas.Schema.SecretInput)) {
+        return super.equals(obj);
+      }
+      meshpaas.Schema.SecretInput other = (meshpaas.Schema.SecretInput) obj;
+
+      boolean result = true;
+      result = result && getName()
+          .equals(other.getName());
+      result = result && getProject()
+          .equals(other.getProject());
+      result = result && type_ == other.type_;
+      result = result && (getImmutable()
+          == other.getImmutable());
+      result = result && internalGetData().equals(
+          other.internalGetData());
+      result = result && internalGetLabels().equals(
+          other.internalGetLabels());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
+      hash = (37 * hash) + PROJECT_FIELD_NUMBER;
+      hash = (53 * hash) + getProject().hashCode();
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + type_;
+      hash = (37 * hash) + IMMUTABLE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getImmutable());
+      if (!internalGetData().getMap().isEmpty()) {
+        hash = (37 * hash) + DATA_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetData().hashCode();
+      }
+      if (!internalGetLabels().getMap().isEmpty()) {
+        hash = (37 * hash) + LABELS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetLabels().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static meshpaas.Schema.SecretInput parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.SecretInput parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.SecretInput parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.SecretInput parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.SecretInput parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.SecretInput parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.SecretInput parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.SecretInput parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static meshpaas.Schema.SecretInput parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.SecretInput parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static meshpaas.Schema.SecretInput parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.SecretInput parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(meshpaas.Schema.SecretInput prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code meshpaas.SecretInput}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:meshpaas.SecretInput)
+        meshpaas.Schema.SecretInputOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return meshpaas.Schema.internal_static_meshpaas_SecretInput_descriptor;
+      }
+
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 5:
+            return internalGetData();
+          case 6:
+            return internalGetLabels();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 5:
+            return internalGetMutableData();
+          case 6:
+            return internalGetMutableLabels();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return meshpaas.Schema.internal_static_meshpaas_SecretInput_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                meshpaas.Schema.SecretInput.class, meshpaas.Schema.SecretInput.Builder.class);
+      }
+
+      // Construct using meshpaas.Schema.SecretInput.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+
+        project_ = "";
+
+        type_ = 0;
+
+        immutable_ = false;
+
+        internalGetMutableData().clear();
+        internalGetMutableLabels().clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return meshpaas.Schema.internal_static_meshpaas_SecretInput_descriptor;
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.SecretInput getDefaultInstanceForType() {
+        return meshpaas.Schema.SecretInput.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.SecretInput build() {
+        meshpaas.Schema.SecretInput result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.SecretInput buildPartial() {
+        meshpaas.Schema.SecretInput result = new meshpaas.Schema.SecretInput(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.name_ = name_;
+        result.project_ = project_;
+        result.type_ = type_;
+        result.immutable_ = immutable_;
+        result.data_ = internalGetData();
+        result.data_.makeImmutable();
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof meshpaas.Schema.SecretInput) {
+          return mergeFrom((meshpaas.Schema.SecretInput)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(meshpaas.Schema.SecretInput other) {
+        if (other == meshpaas.Schema.SecretInput.getDefaultInstance()) return this;
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
+          onChanged();
+        }
+        if (!other.getProject().isEmpty()) {
+          project_ = other.project_;
+          onChanged();
+        }
+        if (other.type_ != 0) {
+          setTypeValue(other.getTypeValue());
+        }
+        if (other.getImmutable() != false) {
+          setImmutable(other.getImmutable());
+        }
+        internalGetMutableData().mergeFrom(
+            other.internalGetData());
+        internalGetMutableLabels().mergeFrom(
+            other.internalGetLabels());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        meshpaas.Schema.SecretInput parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (meshpaas.Schema.SecretInput) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object name_ = "";
+      /**
+       * <pre>
+       * name of the secret
+       * </pre>
+       *
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * name of the secret
+       * </pre>
+       *
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * name of the secret
+       * </pre>
+       *
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * name of the secret
+       * </pre>
+       *
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder clearName() {
+        
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * name of the secret
+       * </pre>
+       *
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object project_ = "";
+      /**
+       * <pre>
+       * secret project
+       * </pre>
+       *
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
+       */
+      public java.lang.String getProject() {
+        java.lang.Object ref = project_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          project_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * secret project
+       * </pre>
+       *
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
+       */
+      public com.google.protobuf.ByteString
+          getProjectBytes() {
+        java.lang.Object ref = project_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          project_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * secret project
+       * </pre>
+       *
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
+       */
+      public Builder setProject(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        project_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * secret project
+       * </pre>
+       *
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
+       */
+      public Builder clearProject() {
+        
+        project_ = getDefaultInstance().getProject();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * secret project
+       * </pre>
+       *
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
+       */
+      public Builder setProjectBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        project_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int type_ = 0;
+      /**
+       * <code>.meshpaas.SecretType type = 3;</code>
+       */
+      public int getTypeValue() {
+        return type_;
+      }
+      /**
+       * <code>.meshpaas.SecretType type = 3;</code>
+       */
+      public Builder setTypeValue(int value) {
+        type_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.meshpaas.SecretType type = 3;</code>
+       */
+      public meshpaas.Schema.SecretType getType() {
+        @SuppressWarnings("deprecation")
+        meshpaas.Schema.SecretType result = meshpaas.Schema.SecretType.valueOf(type_);
+        return result == null ? meshpaas.Schema.SecretType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.meshpaas.SecretType type = 3;</code>
+       */
+      public Builder setType(meshpaas.Schema.SecretType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        type_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.meshpaas.SecretType type = 3;</code>
+       */
+      public Builder clearType() {
+        
+        type_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private boolean immutable_ ;
+      /**
+       * <code>bool immutable = 4;</code>
+       */
+      public boolean getImmutable() {
+        return immutable_;
+      }
+      /**
+       * <code>bool immutable = 4;</code>
+       */
+      public Builder setImmutable(boolean value) {
+        
+        immutable_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool immutable = 4;</code>
+       */
+      public Builder clearImmutable() {
+        
+        immutable_ = false;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.String> data_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetData() {
+        if (data_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              DataDefaultEntryHolder.defaultEntry);
+        }
+        return data_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableData() {
+        onChanged();;
+        if (data_ == null) {
+          data_ = com.google.protobuf.MapField.newMapField(
+              DataDefaultEntryHolder.defaultEntry);
+        }
+        if (!data_.isMutable()) {
+          data_ = data_.copy();
+        }
+        return data_;
+      }
+
+      public int getDataCount() {
+        return internalGetData().getMap().size();
+      }
+      /**
+       * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
+       */
+
+      public boolean containsData(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        return internalGetData().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getDataMap()} instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getData() {
+        return getDataMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
+       */
+
+      public java.util.Map<java.lang.String, java.lang.String> getDataMap() {
+        return internalGetData().getMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
+       */
+
+      public java.lang.String getDataOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetData().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
+       */
+
+      public java.lang.String getDataOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetData().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearData() {
+        internalGetMutableData().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
+       */
+
+      public Builder removeData(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableData().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
+      getMutableData() {
+        return internalGetMutableData().getMutableMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
+       */
+      public Builder putData(
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableData().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
+       */
+
+      public Builder putAllData(
+          java.util.Map<java.lang.String, java.lang.String> values) {
+        internalGetMutableData().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.String> labels_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetLabels() {
+        if (labels_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              LabelsDefaultEntryHolder.defaultEntry);
+        }
+        return labels_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableLabels() {
+        onChanged();;
+        if (labels_ == null) {
+          labels_ = com.google.protobuf.MapField.newMapField(
+              LabelsDefaultEntryHolder.defaultEntry);
+        }
+        if (!labels_.isMutable()) {
+          labels_ = labels_.copy();
+        }
+        return labels_;
+      }
+
+      public int getLabelsCount() {
+        return internalGetLabels().getMap().size();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
+       */
+
+      public boolean containsLabels(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        return internalGetLabels().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getLabelsMap()} instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getLabels() {
+        return getLabelsMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
+       */
+
+      public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
+        return internalGetLabels().getMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
+       */
+
+      public java.lang.String getLabelsOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetLabels().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
+       */
+
+      public java.lang.String getLabelsOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetLabels().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearLabels() {
+        internalGetMutableLabels().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
+       */
+
+      public Builder removeLabels(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableLabels().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
+      getMutableLabels() {
+        return internalGetMutableLabels().getMutableMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
+       */
+      public Builder putLabels(
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableLabels().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
+       */
+
+      public Builder putAllLabels(
+          java.util.Map<java.lang.String, java.lang.String> values) {
+        internalGetMutableLabels().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:meshpaas.SecretInput)
+    }
+
+    // @@protoc_insertion_point(class_scope:meshpaas.SecretInput)
+    private static final meshpaas.Schema.SecretInput DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new meshpaas.Schema.SecretInput();
+    }
+
+    public static meshpaas.Schema.SecretInput getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SecretInput>
+        PARSER = new com.google.protobuf.AbstractParser<SecretInput>() {
+      @java.lang.Override
+      public SecretInput parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SecretInput(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SecretInput> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SecretInput> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public meshpaas.Schema.SecretInput getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SecretOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:meshpaas.Secret)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * name of the secret
+     * </pre>
+     *
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     */
+    java.lang.String getName();
+    /**
+     * <pre>
+     * name of the secret
+     * </pre>
+     *
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <pre>
+     * secret project
+     * </pre>
+     *
+     * <code>string project = 2 [(.validator.field) = { ... }</code>
+     */
+    java.lang.String getProject();
+    /**
+     * <pre>
+     * secret project
+     * </pre>
+     *
+     * <code>string project = 2 [(.validator.field) = { ... }</code>
+     */
+    com.google.protobuf.ByteString
+        getProjectBytes();
+
+    /**
+     * <code>.meshpaas.SecretType type = 3;</code>
+     */
+    int getTypeValue();
+    /**
+     * <code>.meshpaas.SecretType type = 3;</code>
+     */
+    meshpaas.Schema.SecretType getType();
+
+    /**
+     * <code>bool immutable = 4;</code>
+     */
+    boolean getImmutable();
+
+    /**
+     * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
+     */
+    int getDataCount();
+    /**
+     * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
+     */
+    boolean containsData(
+        java.lang.String key);
+    /**
+     * Use {@link #getDataMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
+    getData();
+    /**
+     * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
+     */
+    java.util.Map<java.lang.String, java.lang.String>
+    getDataMap();
+    /**
+     * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
+     */
+
+    java.lang.String getDataOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue);
+    /**
+     * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
+     */
+
+    java.lang.String getDataOrThrow(
+        java.lang.String key);
+
+    /**
+     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
+     */
+    int getLabelsCount();
+    /**
+     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
+     */
+    boolean containsLabels(
+        java.lang.String key);
+    /**
+     * Use {@link #getLabelsMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
+    getLabels();
+    /**
+     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
+     */
+    java.util.Map<java.lang.String, java.lang.String>
+    getLabelsMap();
+    /**
+     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
+     */
+
+    java.lang.String getLabelsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue);
+    /**
+     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
+     */
+
+    java.lang.String getLabelsOrThrow(
+        java.lang.String key);
+  }
+  /**
+   * Protobuf type {@code meshpaas.Secret}
+   */
+  public  static final class Secret extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:meshpaas.Secret)
+      SecretOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Secret.newBuilder() to construct.
+    private Secret(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Secret() {
+      name_ = "";
+      project_ = "";
+      type_ = 0;
+      immutable_ = false;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Secret(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              name_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              project_ = s;
+              break;
+            }
+            case 24: {
+              int rawValue = input.readEnum();
+
+              type_ = rawValue;
+              break;
+            }
+            case 32: {
+
+              immutable_ = input.readBool();
+              break;
+            }
+            case 42: {
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+                data_ = com.google.protobuf.MapField.newMapField(
+                    DataDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000010;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              data__ = input.readMessage(
+                  DataDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              data_.getMutableMap().put(
+                  data__.getKey(), data__.getValue());
+              break;
+            }
+            case 50: {
+              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+                labels_ = com.google.protobuf.MapField.newMapField(
+                    LabelsDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000020;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              labels_.getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return meshpaas.Schema.internal_static_meshpaas_Secret_descriptor;
+    }
+
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 5:
+          return internalGetData();
+        case 6:
+          return internalGetLabels();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return meshpaas.Schema.internal_static_meshpaas_Secret_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              meshpaas.Schema.Secret.class, meshpaas.Schema.Secret.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object name_;
+    /**
+     * <pre>
+     * name of the secret
+     * </pre>
+     *
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * name of the secret
+     * </pre>
+     *
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PROJECT_FIELD_NUMBER = 2;
+    private volatile java.lang.Object project_;
+    /**
+     * <pre>
+     * secret project
+     * </pre>
+     *
+     * <code>string project = 2 [(.validator.field) = { ... }</code>
+     */
+    public java.lang.String getProject() {
+      java.lang.Object ref = project_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        project_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * secret project
+     * </pre>
+     *
+     * <code>string project = 2 [(.validator.field) = { ... }</code>
+     */
+    public com.google.protobuf.ByteString
+        getProjectBytes() {
+      java.lang.Object ref = project_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        project_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TYPE_FIELD_NUMBER = 3;
+    private int type_;
+    /**
+     * <code>.meshpaas.SecretType type = 3;</code>
+     */
+    public int getTypeValue() {
+      return type_;
+    }
+    /**
+     * <code>.meshpaas.SecretType type = 3;</code>
+     */
+    public meshpaas.Schema.SecretType getType() {
+      @SuppressWarnings("deprecation")
+      meshpaas.Schema.SecretType result = meshpaas.Schema.SecretType.valueOf(type_);
+      return result == null ? meshpaas.Schema.SecretType.UNRECOGNIZED : result;
+    }
+
+    public static final int IMMUTABLE_FIELD_NUMBER = 4;
+    private boolean immutable_;
+    /**
+     * <code>bool immutable = 4;</code>
+     */
+    public boolean getImmutable() {
+      return immutable_;
+    }
+
+    public static final int DATA_FIELD_NUMBER = 5;
+    private static final class DataDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  meshpaas.Schema.internal_static_meshpaas_Secret_DataEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> data_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetData() {
+      if (data_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            DataDefaultEntryHolder.defaultEntry);
+      }
+      return data_;
+    }
+
+    public int getDataCount() {
+      return internalGetData().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
+     */
+
+    public boolean containsData(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetData().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getDataMap()} instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getData() {
+      return getDataMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
+     */
+
+    public java.util.Map<java.lang.String, java.lang.String> getDataMap() {
+      return internalGetData().getMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
+     */
+
+    public java.lang.String getDataOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetData().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
+     */
+
+    public java.lang.String getDataOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetData().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    public static final int LABELS_FIELD_NUMBER = 6;
+    private static final class LabelsDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  meshpaas.Schema.internal_static_meshpaas_Secret_LabelsEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> labels_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetLabels() {
+      if (labels_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            LabelsDefaultEntryHolder.defaultEntry);
+      }
+      return labels_;
+    }
+
+    public int getLabelsCount() {
+      return internalGetLabels().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
+     */
+
+    public boolean containsLabels(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetLabels().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getLabelsMap()} instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getLabels() {
+      return getLabelsMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
+     */
+
+    public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
+      return internalGetLabels().getMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
+     */
+
+    public java.lang.String getLabelsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetLabels().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
+     */
+
+    public java.lang.String getLabelsOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetLabels().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      }
+      if (!getProjectBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, project_);
+      }
+      if (type_ != meshpaas.Schema.SecretType.OPAQUE.getNumber()) {
+        output.writeEnum(3, type_);
+      }
+      if (immutable_ != false) {
+        output.writeBool(4, immutable_);
+      }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetData(),
+          DataDefaultEntryHolder.defaultEntry,
+          5);
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetLabels(),
+          LabelsDefaultEntryHolder.defaultEntry,
+          6);
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      if (!getProjectBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, project_);
+      }
+      if (type_ != meshpaas.Schema.SecretType.OPAQUE.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(3, type_);
+      }
+      if (immutable_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, immutable_);
+      }
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+           : internalGetData().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+        data__ = DataDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(5, data__);
+      }
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+           : internalGetLabels().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+        labels__ = LabelsDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(6, labels__);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof meshpaas.Schema.Secret)) {
+        return super.equals(obj);
+      }
+      meshpaas.Schema.Secret other = (meshpaas.Schema.Secret) obj;
+
+      boolean result = true;
+      result = result && getName()
+          .equals(other.getName());
+      result = result && getProject()
+          .equals(other.getProject());
+      result = result && type_ == other.type_;
+      result = result && (getImmutable()
+          == other.getImmutable());
+      result = result && internalGetData().equals(
+          other.internalGetData());
+      result = result && internalGetLabels().equals(
+          other.internalGetLabels());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
+      hash = (37 * hash) + PROJECT_FIELD_NUMBER;
+      hash = (53 * hash) + getProject().hashCode();
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + type_;
+      hash = (37 * hash) + IMMUTABLE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getImmutable());
+      if (!internalGetData().getMap().isEmpty()) {
+        hash = (37 * hash) + DATA_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetData().hashCode();
+      }
+      if (!internalGetLabels().getMap().isEmpty()) {
+        hash = (37 * hash) + LABELS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetLabels().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static meshpaas.Schema.Secret parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.Secret parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.Secret parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.Secret parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.Secret parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.Secret parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.Secret parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.Secret parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static meshpaas.Schema.Secret parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.Secret parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static meshpaas.Schema.Secret parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.Secret parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(meshpaas.Schema.Secret prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code meshpaas.Secret}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:meshpaas.Secret)
+        meshpaas.Schema.SecretOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return meshpaas.Schema.internal_static_meshpaas_Secret_descriptor;
+      }
+
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 5:
+            return internalGetData();
+          case 6:
+            return internalGetLabels();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 5:
+            return internalGetMutableData();
+          case 6:
+            return internalGetMutableLabels();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return meshpaas.Schema.internal_static_meshpaas_Secret_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                meshpaas.Schema.Secret.class, meshpaas.Schema.Secret.Builder.class);
+      }
+
+      // Construct using meshpaas.Schema.Secret.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+
+        project_ = "";
+
+        type_ = 0;
+
+        immutable_ = false;
+
+        internalGetMutableData().clear();
+        internalGetMutableLabels().clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return meshpaas.Schema.internal_static_meshpaas_Secret_descriptor;
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.Secret getDefaultInstanceForType() {
+        return meshpaas.Schema.Secret.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.Secret build() {
+        meshpaas.Schema.Secret result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.Secret buildPartial() {
+        meshpaas.Schema.Secret result = new meshpaas.Schema.Secret(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.name_ = name_;
+        result.project_ = project_;
+        result.type_ = type_;
+        result.immutable_ = immutable_;
+        result.data_ = internalGetData();
+        result.data_.makeImmutable();
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof meshpaas.Schema.Secret) {
+          return mergeFrom((meshpaas.Schema.Secret)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(meshpaas.Schema.Secret other) {
+        if (other == meshpaas.Schema.Secret.getDefaultInstance()) return this;
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
+          onChanged();
+        }
+        if (!other.getProject().isEmpty()) {
+          project_ = other.project_;
+          onChanged();
+        }
+        if (other.type_ != 0) {
+          setTypeValue(other.getTypeValue());
+        }
+        if (other.getImmutable() != false) {
+          setImmutable(other.getImmutable());
+        }
+        internalGetMutableData().mergeFrom(
+            other.internalGetData());
+        internalGetMutableLabels().mergeFrom(
+            other.internalGetLabels());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        meshpaas.Schema.Secret parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (meshpaas.Schema.Secret) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object name_ = "";
+      /**
+       * <pre>
+       * name of the secret
+       * </pre>
+       *
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * name of the secret
+       * </pre>
+       *
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * name of the secret
+       * </pre>
+       *
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * name of the secret
+       * </pre>
+       *
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder clearName() {
+        
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * name of the secret
+       * </pre>
+       *
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object project_ = "";
+      /**
+       * <pre>
+       * secret project
+       * </pre>
+       *
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
+       */
+      public java.lang.String getProject() {
+        java.lang.Object ref = project_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          project_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * secret project
+       * </pre>
+       *
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
+       */
+      public com.google.protobuf.ByteString
+          getProjectBytes() {
+        java.lang.Object ref = project_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          project_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * secret project
+       * </pre>
+       *
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
+       */
+      public Builder setProject(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        project_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * secret project
+       * </pre>
+       *
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
+       */
+      public Builder clearProject() {
+        
+        project_ = getDefaultInstance().getProject();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * secret project
+       * </pre>
+       *
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
+       */
+      public Builder setProjectBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        project_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int type_ = 0;
+      /**
+       * <code>.meshpaas.SecretType type = 3;</code>
+       */
+      public int getTypeValue() {
+        return type_;
+      }
+      /**
+       * <code>.meshpaas.SecretType type = 3;</code>
+       */
+      public Builder setTypeValue(int value) {
+        type_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.meshpaas.SecretType type = 3;</code>
+       */
+      public meshpaas.Schema.SecretType getType() {
+        @SuppressWarnings("deprecation")
+        meshpaas.Schema.SecretType result = meshpaas.Schema.SecretType.valueOf(type_);
+        return result == null ? meshpaas.Schema.SecretType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.meshpaas.SecretType type = 3;</code>
+       */
+      public Builder setType(meshpaas.Schema.SecretType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        type_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.meshpaas.SecretType type = 3;</code>
+       */
+      public Builder clearType() {
+        
+        type_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private boolean immutable_ ;
+      /**
+       * <code>bool immutable = 4;</code>
+       */
+      public boolean getImmutable() {
+        return immutable_;
+      }
+      /**
+       * <code>bool immutable = 4;</code>
+       */
+      public Builder setImmutable(boolean value) {
+        
+        immutable_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool immutable = 4;</code>
+       */
+      public Builder clearImmutable() {
+        
+        immutable_ = false;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.String> data_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetData() {
+        if (data_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              DataDefaultEntryHolder.defaultEntry);
+        }
+        return data_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableData() {
+        onChanged();;
+        if (data_ == null) {
+          data_ = com.google.protobuf.MapField.newMapField(
+              DataDefaultEntryHolder.defaultEntry);
+        }
+        if (!data_.isMutable()) {
+          data_ = data_.copy();
+        }
+        return data_;
+      }
+
+      public int getDataCount() {
+        return internalGetData().getMap().size();
+      }
+      /**
+       * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
+       */
+
+      public boolean containsData(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        return internalGetData().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getDataMap()} instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getData() {
+        return getDataMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
+       */
+
+      public java.util.Map<java.lang.String, java.lang.String> getDataMap() {
+        return internalGetData().getMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
+       */
+
+      public java.lang.String getDataOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetData().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
+       */
+
+      public java.lang.String getDataOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetData().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearData() {
+        internalGetMutableData().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
+       */
+
+      public Builder removeData(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableData().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
+      getMutableData() {
+        return internalGetMutableData().getMutableMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
+       */
+      public Builder putData(
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableData().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
+       */
+
+      public Builder putAllData(
+          java.util.Map<java.lang.String, java.lang.String> values) {
+        internalGetMutableData().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.String> labels_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetLabels() {
+        if (labels_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              LabelsDefaultEntryHolder.defaultEntry);
+        }
+        return labels_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableLabels() {
+        onChanged();;
+        if (labels_ == null) {
+          labels_ = com.google.protobuf.MapField.newMapField(
+              LabelsDefaultEntryHolder.defaultEntry);
+        }
+        if (!labels_.isMutable()) {
+          labels_ = labels_.copy();
+        }
+        return labels_;
+      }
+
+      public int getLabelsCount() {
+        return internalGetLabels().getMap().size();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
+       */
+
+      public boolean containsLabels(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        return internalGetLabels().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getLabelsMap()} instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getLabels() {
+        return getLabelsMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
+       */
+
+      public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
+        return internalGetLabels().getMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
+       */
+
+      public java.lang.String getLabelsOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetLabels().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
+       */
+
+      public java.lang.String getLabelsOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetLabels().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearLabels() {
+        internalGetMutableLabels().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
+       */
+
+      public Builder removeLabels(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableLabels().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
+      getMutableLabels() {
+        return internalGetMutableLabels().getMutableMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
+       */
+      public Builder putLabels(
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableLabels().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
+       */
+
+      public Builder putAllLabels(
+          java.util.Map<java.lang.String, java.lang.String> values) {
+        internalGetMutableLabels().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:meshpaas.Secret)
+    }
+
+    // @@protoc_insertion_point(class_scope:meshpaas.Secret)
+    private static final meshpaas.Schema.Secret DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new meshpaas.Schema.Secret();
+    }
+
+    public static meshpaas.Schema.Secret getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Secret>
+        PARSER = new com.google.protobuf.AbstractParser<Secret>() {
+      @java.lang.Override
+      public Secret parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Secret(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Secret> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Secret> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public meshpaas.Schema.Secret getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface ServerTLSSettingsOrBuilder extends
       // @@protoc_insertion_point(interface_extends:meshpaas.ServerTLSSettings)
       com.google.protobuf.MessageOrBuilder {
@@ -310,117 +3433,87 @@ public final class Schema {
     meshpaas.Schema.TLSmode getMode();
 
     /**
-     * <code>string server_certificate = 3;</code>
-     */
-    java.lang.String getServerCertificate();
-    /**
-     * <code>string server_certificate = 3;</code>
-     */
-    com.google.protobuf.ByteString
-        getServerCertificateBytes();
-
-    /**
-     * <code>string private_key = 4;</code>
-     */
-    java.lang.String getPrivateKey();
-    /**
-     * <code>string private_key = 4;</code>
-     */
-    com.google.protobuf.ByteString
-        getPrivateKeyBytes();
-
-    /**
-     * <code>string ca_certificates = 5;</code>
-     */
-    java.lang.String getCaCertificates();
-    /**
-     * <code>string ca_certificates = 5;</code>
-     */
-    com.google.protobuf.ByteString
-        getCaCertificatesBytes();
-
-    /**
-     * <code>string credential_name = 10;</code>
+     * <code>string credential_name = 3;</code>
      */
     java.lang.String getCredentialName();
     /**
-     * <code>string credential_name = 10;</code>
+     * <code>string credential_name = 3;</code>
      */
     com.google.protobuf.ByteString
         getCredentialNameBytes();
 
     /**
-     * <code>repeated string subject_alt_names = 6;</code>
+     * <code>repeated string subject_alt_names = 4;</code>
      */
     java.util.List<java.lang.String>
         getSubjectAltNamesList();
     /**
-     * <code>repeated string subject_alt_names = 6;</code>
+     * <code>repeated string subject_alt_names = 4;</code>
      */
     int getSubjectAltNamesCount();
     /**
-     * <code>repeated string subject_alt_names = 6;</code>
+     * <code>repeated string subject_alt_names = 4;</code>
      */
     java.lang.String getSubjectAltNames(int index);
     /**
-     * <code>repeated string subject_alt_names = 6;</code>
+     * <code>repeated string subject_alt_names = 4;</code>
      */
     com.google.protobuf.ByteString
         getSubjectAltNamesBytes(int index);
 
     /**
-     * <code>repeated string verify_certificate_spki = 11;</code>
+     * <code>repeated string verify_certificate_spki = 5;</code>
      */
     java.util.List<java.lang.String>
         getVerifyCertificateSpkiList();
     /**
-     * <code>repeated string verify_certificate_spki = 11;</code>
+     * <code>repeated string verify_certificate_spki = 5;</code>
      */
     int getVerifyCertificateSpkiCount();
     /**
-     * <code>repeated string verify_certificate_spki = 11;</code>
+     * <code>repeated string verify_certificate_spki = 5;</code>
      */
     java.lang.String getVerifyCertificateSpki(int index);
     /**
-     * <code>repeated string verify_certificate_spki = 11;</code>
+     * <code>repeated string verify_certificate_spki = 5;</code>
      */
     com.google.protobuf.ByteString
         getVerifyCertificateSpkiBytes(int index);
 
     /**
-     * <code>repeated string verify_certificate_hash = 12;</code>
+     * <code>repeated string verify_certificate_hash = 6;</code>
      */
     java.util.List<java.lang.String>
         getVerifyCertificateHashList();
     /**
-     * <code>repeated string verify_certificate_hash = 12;</code>
+     * <code>repeated string verify_certificate_hash = 6;</code>
      */
     int getVerifyCertificateHashCount();
     /**
-     * <code>repeated string verify_certificate_hash = 12;</code>
+     * <code>repeated string verify_certificate_hash = 6;</code>
      */
     java.lang.String getVerifyCertificateHash(int index);
     /**
-     * <code>repeated string verify_certificate_hash = 12;</code>
+     * <code>repeated string verify_certificate_hash = 6;</code>
      */
     com.google.protobuf.ByteString
         getVerifyCertificateHashBytes(int index);
 
     /**
-     * <code>repeated string cipher_suites = 9;</code>
+     * <code>repeated string cipher_suites = 7;</code>
      */
     java.util.List<java.lang.String>
         getCipherSuitesList();
     /**
-     * <code>repeated string cipher_suites = 9;</code>
+     * <code>repeated string cipher_suites = 7;</code>
      */
     int getCipherSuitesCount();
     /**
-     * <code>repeated string cipher_suites = 9;</code>
+     * <code>repeated string cipher_suites = 7;</code>
      */
     java.lang.String getCipherSuites(int index);
     /**
-     * <code>repeated string cipher_suites = 9;</code>
+     * <code>repeated string cipher_suites = 7;</code>
      */
     com.google.protobuf.ByteString
         getCipherSuitesBytes(int index);
@@ -440,9 +3533,6 @@ public final class Schema {
     private ServerTLSSettings() {
       httpsRedirect_ = false;
       mode_ = 0;
-      serverCertificate_ = "";
-      privateKey_ = "";
-      caCertificates_ = "";
       credentialName_ = "";
       subjectAltNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       verifyCertificateSpki_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -488,61 +3578,43 @@ public final class Schema {
             case 26: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              serverCertificate_ = s;
+              credentialName_ = s;
               break;
             }
             case 34: {
               java.lang.String s = input.readStringRequireUtf8();
-
-              privateKey_ = s;
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              caCertificates_ = s;
-              break;
-            }
-            case 50: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
                 subjectAltNames_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000040;
+                mutable_bitField0_ |= 0x00000008;
               }
               subjectAltNames_.add(s);
               break;
             }
-            case 74: {
+            case 42: {
               java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
-                cipherSuites_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000200;
-              }
-              cipherSuites_.add(s);
-              break;
-            }
-            case 82: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              credentialName_ = s;
-              break;
-            }
-            case 90: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
                 verifyCertificateSpki_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000080;
+                mutable_bitField0_ |= 0x00000010;
               }
               verifyCertificateSpki_.add(s);
               break;
             }
-            case 98: {
+            case 50: {
               java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
+              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
                 verifyCertificateHash_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000100;
+                mutable_bitField0_ |= 0x00000020;
               }
               verifyCertificateHash_.add(s);
+              break;
+            }
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+                cipherSuites_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000040;
+              }
+              cipherSuites_.add(s);
               break;
             }
             default: {
@@ -560,17 +3632,17 @@ public final class Schema {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
           subjectAltNames_ = subjectAltNames_.getUnmodifiableView();
         }
-        if (((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
-          cipherSuites_ = cipherSuites_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
           verifyCertificateSpki_ = verifyCertificateSpki_.getUnmodifiableView();
         }
-        if (((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
+        if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
           verifyCertificateHash_ = verifyCertificateHash_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+          cipherSuites_ = cipherSuites_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -616,112 +3688,10 @@ public final class Schema {
       return result == null ? meshpaas.Schema.TLSmode.UNRECOGNIZED : result;
     }
 
-    public static final int SERVER_CERTIFICATE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object serverCertificate_;
-    /**
-     * <code>string server_certificate = 3;</code>
-     */
-    public java.lang.String getServerCertificate() {
-      java.lang.Object ref = serverCertificate_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        serverCertificate_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string server_certificate = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getServerCertificateBytes() {
-      java.lang.Object ref = serverCertificate_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        serverCertificate_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int PRIVATE_KEY_FIELD_NUMBER = 4;
-    private volatile java.lang.Object privateKey_;
-    /**
-     * <code>string private_key = 4;</code>
-     */
-    public java.lang.String getPrivateKey() {
-      java.lang.Object ref = privateKey_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        privateKey_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string private_key = 4;</code>
-     */
-    public com.google.protobuf.ByteString
-        getPrivateKeyBytes() {
-      java.lang.Object ref = privateKey_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        privateKey_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int CA_CERTIFICATES_FIELD_NUMBER = 5;
-    private volatile java.lang.Object caCertificates_;
-    /**
-     * <code>string ca_certificates = 5;</code>
-     */
-    public java.lang.String getCaCertificates() {
-      java.lang.Object ref = caCertificates_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        caCertificates_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string ca_certificates = 5;</code>
-     */
-    public com.google.protobuf.ByteString
-        getCaCertificatesBytes() {
-      java.lang.Object ref = caCertificates_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        caCertificates_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int CREDENTIAL_NAME_FIELD_NUMBER = 10;
+    public static final int CREDENTIAL_NAME_FIELD_NUMBER = 3;
     private volatile java.lang.Object credentialName_;
     /**
-     * <code>string credential_name = 10;</code>
+     * <code>string credential_name = 3;</code>
      */
     public java.lang.String getCredentialName() {
       java.lang.Object ref = credentialName_;
@@ -736,7 +3706,7 @@ public final class Schema {
       }
     }
     /**
-     * <code>string credential_name = 10;</code>
+     * <code>string credential_name = 3;</code>
      */
     public com.google.protobuf.ByteString
         getCredentialNameBytes() {
@@ -752,116 +3722,116 @@ public final class Schema {
       }
     }
 
-    public static final int SUBJECT_ALT_NAMES_FIELD_NUMBER = 6;
+    public static final int SUBJECT_ALT_NAMES_FIELD_NUMBER = 4;
     private com.google.protobuf.LazyStringList subjectAltNames_;
     /**
-     * <code>repeated string subject_alt_names = 6;</code>
+     * <code>repeated string subject_alt_names = 4;</code>
      */
     public com.google.protobuf.ProtocolStringList
         getSubjectAltNamesList() {
       return subjectAltNames_;
     }
     /**
-     * <code>repeated string subject_alt_names = 6;</code>
+     * <code>repeated string subject_alt_names = 4;</code>
      */
     public int getSubjectAltNamesCount() {
       return subjectAltNames_.size();
     }
     /**
-     * <code>repeated string subject_alt_names = 6;</code>
+     * <code>repeated string subject_alt_names = 4;</code>
      */
     public java.lang.String getSubjectAltNames(int index) {
       return subjectAltNames_.get(index);
     }
     /**
-     * <code>repeated string subject_alt_names = 6;</code>
+     * <code>repeated string subject_alt_names = 4;</code>
      */
     public com.google.protobuf.ByteString
         getSubjectAltNamesBytes(int index) {
       return subjectAltNames_.getByteString(index);
     }
 
-    public static final int VERIFY_CERTIFICATE_SPKI_FIELD_NUMBER = 11;
+    public static final int VERIFY_CERTIFICATE_SPKI_FIELD_NUMBER = 5;
     private com.google.protobuf.LazyStringList verifyCertificateSpki_;
     /**
-     * <code>repeated string verify_certificate_spki = 11;</code>
+     * <code>repeated string verify_certificate_spki = 5;</code>
      */
     public com.google.protobuf.ProtocolStringList
         getVerifyCertificateSpkiList() {
       return verifyCertificateSpki_;
     }
     /**
-     * <code>repeated string verify_certificate_spki = 11;</code>
+     * <code>repeated string verify_certificate_spki = 5;</code>
      */
     public int getVerifyCertificateSpkiCount() {
       return verifyCertificateSpki_.size();
     }
     /**
-     * <code>repeated string verify_certificate_spki = 11;</code>
+     * <code>repeated string verify_certificate_spki = 5;</code>
      */
     public java.lang.String getVerifyCertificateSpki(int index) {
       return verifyCertificateSpki_.get(index);
     }
     /**
-     * <code>repeated string verify_certificate_spki = 11;</code>
+     * <code>repeated string verify_certificate_spki = 5;</code>
      */
     public com.google.protobuf.ByteString
         getVerifyCertificateSpkiBytes(int index) {
       return verifyCertificateSpki_.getByteString(index);
     }
 
-    public static final int VERIFY_CERTIFICATE_HASH_FIELD_NUMBER = 12;
+    public static final int VERIFY_CERTIFICATE_HASH_FIELD_NUMBER = 6;
     private com.google.protobuf.LazyStringList verifyCertificateHash_;
     /**
-     * <code>repeated string verify_certificate_hash = 12;</code>
+     * <code>repeated string verify_certificate_hash = 6;</code>
      */
     public com.google.protobuf.ProtocolStringList
         getVerifyCertificateHashList() {
       return verifyCertificateHash_;
     }
     /**
-     * <code>repeated string verify_certificate_hash = 12;</code>
+     * <code>repeated string verify_certificate_hash = 6;</code>
      */
     public int getVerifyCertificateHashCount() {
       return verifyCertificateHash_.size();
     }
     /**
-     * <code>repeated string verify_certificate_hash = 12;</code>
+     * <code>repeated string verify_certificate_hash = 6;</code>
      */
     public java.lang.String getVerifyCertificateHash(int index) {
       return verifyCertificateHash_.get(index);
     }
     /**
-     * <code>repeated string verify_certificate_hash = 12;</code>
+     * <code>repeated string verify_certificate_hash = 6;</code>
      */
     public com.google.protobuf.ByteString
         getVerifyCertificateHashBytes(int index) {
       return verifyCertificateHash_.getByteString(index);
     }
 
-    public static final int CIPHER_SUITES_FIELD_NUMBER = 9;
+    public static final int CIPHER_SUITES_FIELD_NUMBER = 7;
     private com.google.protobuf.LazyStringList cipherSuites_;
     /**
-     * <code>repeated string cipher_suites = 9;</code>
+     * <code>repeated string cipher_suites = 7;</code>
      */
     public com.google.protobuf.ProtocolStringList
         getCipherSuitesList() {
       return cipherSuites_;
     }
     /**
-     * <code>repeated string cipher_suites = 9;</code>
+     * <code>repeated string cipher_suites = 7;</code>
      */
     public int getCipherSuitesCount() {
       return cipherSuites_.size();
     }
     /**
-     * <code>repeated string cipher_suites = 9;</code>
+     * <code>repeated string cipher_suites = 7;</code>
      */
     public java.lang.String getCipherSuites(int index) {
       return cipherSuites_.get(index);
     }
     /**
-     * <code>repeated string cipher_suites = 9;</code>
+     * <code>repeated string cipher_suites = 7;</code>
      */
     public com.google.protobuf.ByteString
         getCipherSuitesBytes(int index) {
@@ -888,29 +3858,20 @@ public final class Schema {
       if (mode_ != meshpaas.Schema.TLSmode.PASSTHROUGH.getNumber()) {
         output.writeEnum(2, mode_);
       }
-      if (!getServerCertificateBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, serverCertificate_);
-      }
-      if (!getPrivateKeyBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, privateKey_);
-      }
-      if (!getCaCertificatesBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, caCertificates_);
+      if (!getCredentialNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, credentialName_);
       }
       for (int i = 0; i < subjectAltNames_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, subjectAltNames_.getRaw(i));
-      }
-      for (int i = 0; i < cipherSuites_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, cipherSuites_.getRaw(i));
-      }
-      if (!getCredentialNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, credentialName_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, subjectAltNames_.getRaw(i));
       }
       for (int i = 0; i < verifyCertificateSpki_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 11, verifyCertificateSpki_.getRaw(i));
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, verifyCertificateSpki_.getRaw(i));
       }
       for (int i = 0; i < verifyCertificateHash_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 12, verifyCertificateHash_.getRaw(i));
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, verifyCertificateHash_.getRaw(i));
+      }
+      for (int i = 0; i < cipherSuites_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, cipherSuites_.getRaw(i));
       }
       unknownFields.writeTo(output);
     }
@@ -929,14 +3890,8 @@ public final class Schema {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, mode_);
       }
-      if (!getServerCertificateBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, serverCertificate_);
-      }
-      if (!getPrivateKeyBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, privateKey_);
-      }
-      if (!getCaCertificatesBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, caCertificates_);
+      if (!getCredentialNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, credentialName_);
       }
       {
         int dataSize = 0;
@@ -945,17 +3900,6 @@ public final class Schema {
         }
         size += dataSize;
         size += 1 * getSubjectAltNamesList().size();
-      }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < cipherSuites_.size(); i++) {
-          dataSize += computeStringSizeNoTag(cipherSuites_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getCipherSuitesList().size();
-      }
-      if (!getCredentialNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, credentialName_);
       }
       {
         int dataSize = 0;
@@ -972,6 +3916,14 @@ public final class Schema {
         }
         size += dataSize;
         size += 1 * getVerifyCertificateHashList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < cipherSuites_.size(); i++) {
+          dataSize += computeStringSizeNoTag(cipherSuites_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getCipherSuitesList().size();
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -992,12 +3944,6 @@ public final class Schema {
       result = result && (getHttpsRedirect()
           == other.getHttpsRedirect());
       result = result && mode_ == other.mode_;
-      result = result && getServerCertificate()
-          .equals(other.getServerCertificate());
-      result = result && getPrivateKey()
-          .equals(other.getPrivateKey());
-      result = result && getCaCertificates()
-          .equals(other.getCaCertificates());
       result = result && getCredentialName()
           .equals(other.getCredentialName());
       result = result && getSubjectAltNamesList()
@@ -1024,12 +3970,6 @@ public final class Schema {
           getHttpsRedirect());
       hash = (37 * hash) + MODE_FIELD_NUMBER;
       hash = (53 * hash) + mode_;
-      hash = (37 * hash) + SERVER_CERTIFICATE_FIELD_NUMBER;
-      hash = (53 * hash) + getServerCertificate().hashCode();
-      hash = (37 * hash) + PRIVATE_KEY_FIELD_NUMBER;
-      hash = (53 * hash) + getPrivateKey().hashCode();
-      hash = (37 * hash) + CA_CERTIFICATES_FIELD_NUMBER;
-      hash = (53 * hash) + getCaCertificates().hashCode();
       hash = (37 * hash) + CREDENTIAL_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getCredentialName().hashCode();
       if (getSubjectAltNamesCount() > 0) {
@@ -1185,22 +4125,16 @@ public final class Schema {
 
         mode_ = 0;
 
-        serverCertificate_ = "";
-
-        privateKey_ = "";
-
-        caCertificates_ = "";
-
         credentialName_ = "";
 
         subjectAltNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000008);
         verifyCertificateSpki_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000010);
         verifyCertificateHash_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x00000020);
         cipherSuites_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x00000040);
         return this;
       }
 
@@ -1231,28 +4165,25 @@ public final class Schema {
         int to_bitField0_ = 0;
         result.httpsRedirect_ = httpsRedirect_;
         result.mode_ = mode_;
-        result.serverCertificate_ = serverCertificate_;
-        result.privateKey_ = privateKey_;
-        result.caCertificates_ = caCertificates_;
         result.credentialName_ = credentialName_;
-        if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
           subjectAltNames_ = subjectAltNames_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000040);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.subjectAltNames_ = subjectAltNames_;
-        if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        if (((bitField0_ & 0x00000010) == 0x00000010)) {
           verifyCertificateSpki_ = verifyCertificateSpki_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000080);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.verifyCertificateSpki_ = verifyCertificateSpki_;
-        if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        if (((bitField0_ & 0x00000020) == 0x00000020)) {
           verifyCertificateHash_ = verifyCertificateHash_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000100);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.verifyCertificateHash_ = verifyCertificateHash_;
-        if (((bitField0_ & 0x00000200) == 0x00000200)) {
+        if (((bitField0_ & 0x00000040) == 0x00000040)) {
           cipherSuites_ = cipherSuites_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000200);
+          bitField0_ = (bitField0_ & ~0x00000040);
         }
         result.cipherSuites_ = cipherSuites_;
         result.bitField0_ = to_bitField0_;
@@ -1310,18 +4241,6 @@ public final class Schema {
         if (other.mode_ != 0) {
           setModeValue(other.getModeValue());
         }
-        if (!other.getServerCertificate().isEmpty()) {
-          serverCertificate_ = other.serverCertificate_;
-          onChanged();
-        }
-        if (!other.getPrivateKey().isEmpty()) {
-          privateKey_ = other.privateKey_;
-          onChanged();
-        }
-        if (!other.getCaCertificates().isEmpty()) {
-          caCertificates_ = other.caCertificates_;
-          onChanged();
-        }
         if (!other.getCredentialName().isEmpty()) {
           credentialName_ = other.credentialName_;
           onChanged();
@@ -1329,7 +4248,7 @@ public final class Schema {
         if (!other.subjectAltNames_.isEmpty()) {
           if (subjectAltNames_.isEmpty()) {
             subjectAltNames_ = other.subjectAltNames_;
-            bitField0_ = (bitField0_ & ~0x00000040);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureSubjectAltNamesIsMutable();
             subjectAltNames_.addAll(other.subjectAltNames_);
@@ -1339,7 +4258,7 @@ public final class Schema {
         if (!other.verifyCertificateSpki_.isEmpty()) {
           if (verifyCertificateSpki_.isEmpty()) {
             verifyCertificateSpki_ = other.verifyCertificateSpki_;
-            bitField0_ = (bitField0_ & ~0x00000080);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureVerifyCertificateSpkiIsMutable();
             verifyCertificateSpki_.addAll(other.verifyCertificateSpki_);
@@ -1349,7 +4268,7 @@ public final class Schema {
         if (!other.verifyCertificateHash_.isEmpty()) {
           if (verifyCertificateHash_.isEmpty()) {
             verifyCertificateHash_ = other.verifyCertificateHash_;
-            bitField0_ = (bitField0_ & ~0x00000100);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureVerifyCertificateHashIsMutable();
             verifyCertificateHash_.addAll(other.verifyCertificateHash_);
@@ -1359,7 +4278,7 @@ public final class Schema {
         if (!other.cipherSuites_.isEmpty()) {
           if (cipherSuites_.isEmpty()) {
             cipherSuites_ = other.cipherSuites_;
-            bitField0_ = (bitField0_ & ~0x00000200);
+            bitField0_ = (bitField0_ & ~0x00000040);
           } else {
             ensureCipherSuitesIsMutable();
             cipherSuites_.addAll(other.cipherSuites_);
@@ -1467,216 +4386,9 @@ public final class Schema {
         return this;
       }
 
-      private java.lang.Object serverCertificate_ = "";
-      /**
-       * <code>string server_certificate = 3;</code>
-       */
-      public java.lang.String getServerCertificate() {
-        java.lang.Object ref = serverCertificate_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          serverCertificate_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string server_certificate = 3;</code>
-       */
-      public com.google.protobuf.ByteString
-          getServerCertificateBytes() {
-        java.lang.Object ref = serverCertificate_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          serverCertificate_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string server_certificate = 3;</code>
-       */
-      public Builder setServerCertificate(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        serverCertificate_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string server_certificate = 3;</code>
-       */
-      public Builder clearServerCertificate() {
-        
-        serverCertificate_ = getDefaultInstance().getServerCertificate();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string server_certificate = 3;</code>
-       */
-      public Builder setServerCertificateBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        serverCertificate_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object privateKey_ = "";
-      /**
-       * <code>string private_key = 4;</code>
-       */
-      public java.lang.String getPrivateKey() {
-        java.lang.Object ref = privateKey_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          privateKey_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string private_key = 4;</code>
-       */
-      public com.google.protobuf.ByteString
-          getPrivateKeyBytes() {
-        java.lang.Object ref = privateKey_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          privateKey_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string private_key = 4;</code>
-       */
-      public Builder setPrivateKey(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        privateKey_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string private_key = 4;</code>
-       */
-      public Builder clearPrivateKey() {
-        
-        privateKey_ = getDefaultInstance().getPrivateKey();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string private_key = 4;</code>
-       */
-      public Builder setPrivateKeyBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        privateKey_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object caCertificates_ = "";
-      /**
-       * <code>string ca_certificates = 5;</code>
-       */
-      public java.lang.String getCaCertificates() {
-        java.lang.Object ref = caCertificates_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          caCertificates_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string ca_certificates = 5;</code>
-       */
-      public com.google.protobuf.ByteString
-          getCaCertificatesBytes() {
-        java.lang.Object ref = caCertificates_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          caCertificates_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string ca_certificates = 5;</code>
-       */
-      public Builder setCaCertificates(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        caCertificates_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string ca_certificates = 5;</code>
-       */
-      public Builder clearCaCertificates() {
-        
-        caCertificates_ = getDefaultInstance().getCaCertificates();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string ca_certificates = 5;</code>
-       */
-      public Builder setCaCertificatesBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        caCertificates_ = value;
-        onChanged();
-        return this;
-      }
-
       private java.lang.Object credentialName_ = "";
       /**
-       * <code>string credential_name = 10;</code>
+       * <code>string credential_name = 3;</code>
        */
       public java.lang.String getCredentialName() {
         java.lang.Object ref = credentialName_;
@@ -1691,7 +4403,7 @@ public final class Schema {
         }
       }
       /**
-       * <code>string credential_name = 10;</code>
+       * <code>string credential_name = 3;</code>
        */
       public com.google.protobuf.ByteString
           getCredentialNameBytes() {
@@ -1707,7 +4419,7 @@ public final class Schema {
         }
       }
       /**
-       * <code>string credential_name = 10;</code>
+       * <code>string credential_name = 3;</code>
        */
       public Builder setCredentialName(
           java.lang.String value) {
@@ -1720,7 +4432,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>string credential_name = 10;</code>
+       * <code>string credential_name = 3;</code>
        */
       public Builder clearCredentialName() {
         
@@ -1729,7 +4441,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>string credential_name = 10;</code>
+       * <code>string credential_name = 3;</code>
        */
       public Builder setCredentialNameBytes(
           com.google.protobuf.ByteString value) {
@@ -1745,39 +4457,39 @@ public final class Schema {
 
       private com.google.protobuf.LazyStringList subjectAltNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureSubjectAltNamesIsMutable() {
-        if (!((bitField0_ & 0x00000040) == 0x00000040)) {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
           subjectAltNames_ = new com.google.protobuf.LazyStringArrayList(subjectAltNames_);
-          bitField0_ |= 0x00000040;
+          bitField0_ |= 0x00000008;
          }
       }
       /**
-       * <code>repeated string subject_alt_names = 6;</code>
+       * <code>repeated string subject_alt_names = 4;</code>
        */
       public com.google.protobuf.ProtocolStringList
           getSubjectAltNamesList() {
         return subjectAltNames_.getUnmodifiableView();
       }
       /**
-       * <code>repeated string subject_alt_names = 6;</code>
+       * <code>repeated string subject_alt_names = 4;</code>
        */
       public int getSubjectAltNamesCount() {
         return subjectAltNames_.size();
       }
       /**
-       * <code>repeated string subject_alt_names = 6;</code>
+       * <code>repeated string subject_alt_names = 4;</code>
        */
       public java.lang.String getSubjectAltNames(int index) {
         return subjectAltNames_.get(index);
       }
       /**
-       * <code>repeated string subject_alt_names = 6;</code>
+       * <code>repeated string subject_alt_names = 4;</code>
        */
       public com.google.protobuf.ByteString
           getSubjectAltNamesBytes(int index) {
         return subjectAltNames_.getByteString(index);
       }
       /**
-       * <code>repeated string subject_alt_names = 6;</code>
+       * <code>repeated string subject_alt_names = 4;</code>
        */
       public Builder setSubjectAltNames(
           int index, java.lang.String value) {
@@ -1790,7 +4502,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>repeated string subject_alt_names = 6;</code>
+       * <code>repeated string subject_alt_names = 4;</code>
        */
       public Builder addSubjectAltNames(
           java.lang.String value) {
@@ -1803,7 +4515,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>repeated string subject_alt_names = 6;</code>
+       * <code>repeated string subject_alt_names = 4;</code>
        */
       public Builder addAllSubjectAltNames(
           java.lang.Iterable<java.lang.String> values) {
@@ -1814,16 +4526,16 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>repeated string subject_alt_names = 6;</code>
+       * <code>repeated string subject_alt_names = 4;</code>
        */
       public Builder clearSubjectAltNames() {
         subjectAltNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string subject_alt_names = 6;</code>
+       * <code>repeated string subject_alt_names = 4;</code>
        */
       public Builder addSubjectAltNamesBytes(
           com.google.protobuf.ByteString value) {
@@ -1839,39 +4551,39 @@ public final class Schema {
 
       private com.google.protobuf.LazyStringList verifyCertificateSpki_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureVerifyCertificateSpkiIsMutable() {
-        if (!((bitField0_ & 0x00000080) == 0x00000080)) {
+        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
           verifyCertificateSpki_ = new com.google.protobuf.LazyStringArrayList(verifyCertificateSpki_);
-          bitField0_ |= 0x00000080;
+          bitField0_ |= 0x00000010;
          }
       }
       /**
-       * <code>repeated string verify_certificate_spki = 11;</code>
+       * <code>repeated string verify_certificate_spki = 5;</code>
        */
       public com.google.protobuf.ProtocolStringList
           getVerifyCertificateSpkiList() {
         return verifyCertificateSpki_.getUnmodifiableView();
       }
       /**
-       * <code>repeated string verify_certificate_spki = 11;</code>
+       * <code>repeated string verify_certificate_spki = 5;</code>
        */
       public int getVerifyCertificateSpkiCount() {
         return verifyCertificateSpki_.size();
       }
       /**
-       * <code>repeated string verify_certificate_spki = 11;</code>
+       * <code>repeated string verify_certificate_spki = 5;</code>
        */
       public java.lang.String getVerifyCertificateSpki(int index) {
         return verifyCertificateSpki_.get(index);
       }
       /**
-       * <code>repeated string verify_certificate_spki = 11;</code>
+       * <code>repeated string verify_certificate_spki = 5;</code>
        */
       public com.google.protobuf.ByteString
           getVerifyCertificateSpkiBytes(int index) {
         return verifyCertificateSpki_.getByteString(index);
       }
       /**
-       * <code>repeated string verify_certificate_spki = 11;</code>
+       * <code>repeated string verify_certificate_spki = 5;</code>
        */
       public Builder setVerifyCertificateSpki(
           int index, java.lang.String value) {
@@ -1884,7 +4596,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>repeated string verify_certificate_spki = 11;</code>
+       * <code>repeated string verify_certificate_spki = 5;</code>
        */
       public Builder addVerifyCertificateSpki(
           java.lang.String value) {
@@ -1897,7 +4609,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>repeated string verify_certificate_spki = 11;</code>
+       * <code>repeated string verify_certificate_spki = 5;</code>
        */
       public Builder addAllVerifyCertificateSpki(
           java.lang.Iterable<java.lang.String> values) {
@@ -1908,16 +4620,16 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>repeated string verify_certificate_spki = 11;</code>
+       * <code>repeated string verify_certificate_spki = 5;</code>
        */
       public Builder clearVerifyCertificateSpki() {
         verifyCertificateSpki_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string verify_certificate_spki = 11;</code>
+       * <code>repeated string verify_certificate_spki = 5;</code>
        */
       public Builder addVerifyCertificateSpkiBytes(
           com.google.protobuf.ByteString value) {
@@ -1933,39 +4645,39 @@ public final class Schema {
 
       private com.google.protobuf.LazyStringList verifyCertificateHash_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureVerifyCertificateHashIsMutable() {
-        if (!((bitField0_ & 0x00000100) == 0x00000100)) {
+        if (!((bitField0_ & 0x00000020) == 0x00000020)) {
           verifyCertificateHash_ = new com.google.protobuf.LazyStringArrayList(verifyCertificateHash_);
-          bitField0_ |= 0x00000100;
+          bitField0_ |= 0x00000020;
          }
       }
       /**
-       * <code>repeated string verify_certificate_hash = 12;</code>
+       * <code>repeated string verify_certificate_hash = 6;</code>
        */
       public com.google.protobuf.ProtocolStringList
           getVerifyCertificateHashList() {
         return verifyCertificateHash_.getUnmodifiableView();
       }
       /**
-       * <code>repeated string verify_certificate_hash = 12;</code>
+       * <code>repeated string verify_certificate_hash = 6;</code>
        */
       public int getVerifyCertificateHashCount() {
         return verifyCertificateHash_.size();
       }
       /**
-       * <code>repeated string verify_certificate_hash = 12;</code>
+       * <code>repeated string verify_certificate_hash = 6;</code>
        */
       public java.lang.String getVerifyCertificateHash(int index) {
         return verifyCertificateHash_.get(index);
       }
       /**
-       * <code>repeated string verify_certificate_hash = 12;</code>
+       * <code>repeated string verify_certificate_hash = 6;</code>
        */
       public com.google.protobuf.ByteString
           getVerifyCertificateHashBytes(int index) {
         return verifyCertificateHash_.getByteString(index);
       }
       /**
-       * <code>repeated string verify_certificate_hash = 12;</code>
+       * <code>repeated string verify_certificate_hash = 6;</code>
        */
       public Builder setVerifyCertificateHash(
           int index, java.lang.String value) {
@@ -1978,7 +4690,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>repeated string verify_certificate_hash = 12;</code>
+       * <code>repeated string verify_certificate_hash = 6;</code>
        */
       public Builder addVerifyCertificateHash(
           java.lang.String value) {
@@ -1991,7 +4703,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>repeated string verify_certificate_hash = 12;</code>
+       * <code>repeated string verify_certificate_hash = 6;</code>
        */
       public Builder addAllVerifyCertificateHash(
           java.lang.Iterable<java.lang.String> values) {
@@ -2002,16 +4714,16 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>repeated string verify_certificate_hash = 12;</code>
+       * <code>repeated string verify_certificate_hash = 6;</code>
        */
       public Builder clearVerifyCertificateHash() {
         verifyCertificateHash_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string verify_certificate_hash = 12;</code>
+       * <code>repeated string verify_certificate_hash = 6;</code>
        */
       public Builder addVerifyCertificateHashBytes(
           com.google.protobuf.ByteString value) {
@@ -2027,39 +4739,39 @@ public final class Schema {
 
       private com.google.protobuf.LazyStringList cipherSuites_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureCipherSuitesIsMutable() {
-        if (!((bitField0_ & 0x00000200) == 0x00000200)) {
+        if (!((bitField0_ & 0x00000040) == 0x00000040)) {
           cipherSuites_ = new com.google.protobuf.LazyStringArrayList(cipherSuites_);
-          bitField0_ |= 0x00000200;
+          bitField0_ |= 0x00000040;
          }
       }
       /**
-       * <code>repeated string cipher_suites = 9;</code>
+       * <code>repeated string cipher_suites = 7;</code>
        */
       public com.google.protobuf.ProtocolStringList
           getCipherSuitesList() {
         return cipherSuites_.getUnmodifiableView();
       }
       /**
-       * <code>repeated string cipher_suites = 9;</code>
+       * <code>repeated string cipher_suites = 7;</code>
        */
       public int getCipherSuitesCount() {
         return cipherSuites_.size();
       }
       /**
-       * <code>repeated string cipher_suites = 9;</code>
+       * <code>repeated string cipher_suites = 7;</code>
        */
       public java.lang.String getCipherSuites(int index) {
         return cipherSuites_.get(index);
       }
       /**
-       * <code>repeated string cipher_suites = 9;</code>
+       * <code>repeated string cipher_suites = 7;</code>
        */
       public com.google.protobuf.ByteString
           getCipherSuitesBytes(int index) {
         return cipherSuites_.getByteString(index);
       }
       /**
-       * <code>repeated string cipher_suites = 9;</code>
+       * <code>repeated string cipher_suites = 7;</code>
        */
       public Builder setCipherSuites(
           int index, java.lang.String value) {
@@ -2072,7 +4784,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>repeated string cipher_suites = 9;</code>
+       * <code>repeated string cipher_suites = 7;</code>
        */
       public Builder addCipherSuites(
           java.lang.String value) {
@@ -2085,7 +4797,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>repeated string cipher_suites = 9;</code>
+       * <code>repeated string cipher_suites = 7;</code>
        */
       public Builder addAllCipherSuites(
           java.lang.Iterable<java.lang.String> values) {
@@ -2096,16 +4808,16 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>repeated string cipher_suites = 9;</code>
+       * <code>repeated string cipher_suites = 7;</code>
        */
       public Builder clearCipherSuites() {
         cipherSuites_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string cipher_suites = 9;</code>
+       * <code>repeated string cipher_suites = 7;</code>
        */
       public Builder addCipherSuitesBytes(
           com.google.protobuf.ByteString value) {
@@ -3290,21 +6002,21 @@ public final class Schema {
 
     /**
      * <pre>
-     * application namespace
+     * application project
      * </pre>
      *
-     * <code>string namespace = 2;</code>
+     * <code>string project = 2;</code>
      */
-    java.lang.String getNamespace();
+    java.lang.String getProject();
     /**
      * <pre>
-     * application namespace
+     * application project
      * </pre>
      *
-     * <code>string namespace = 2;</code>
+     * <code>string project = 2;</code>
      */
     com.google.protobuf.ByteString
-        getNamespaceBytes();
+        getProjectBytes();
 
     /**
      * <code>repeated .meshpaas.GatewayListener listeners = 3;</code>
@@ -3412,7 +6124,7 @@ public final class Schema {
     }
     private Gateway() {
       name_ = "";
-      namespace_ = "";
+      project_ = "";
       listeners_ = java.util.Collections.emptyList();
     }
 
@@ -3449,7 +6161,7 @@ public final class Schema {
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              namespace_ = s;
+              project_ = s;
               break;
             }
             case 26: {
@@ -3579,42 +6291,42 @@ public final class Schema {
       }
     }
 
-    public static final int NAMESPACE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object namespace_;
+    public static final int PROJECT_FIELD_NUMBER = 2;
+    private volatile java.lang.Object project_;
     /**
      * <pre>
-     * application namespace
+     * application project
      * </pre>
      *
-     * <code>string namespace = 2;</code>
+     * <code>string project = 2;</code>
      */
-    public java.lang.String getNamespace() {
-      java.lang.Object ref = namespace_;
+    public java.lang.String getProject() {
+      java.lang.Object ref = project_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        namespace_ = s;
+        project_ = s;
         return s;
       }
     }
     /**
      * <pre>
-     * application namespace
+     * application project
      * </pre>
      *
-     * <code>string namespace = 2;</code>
+     * <code>string project = 2;</code>
      */
     public com.google.protobuf.ByteString
-        getNamespaceBytes() {
-      java.lang.Object ref = namespace_;
+        getProjectBytes() {
+      java.lang.Object ref = project_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        namespace_ = b;
+        project_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -3825,8 +6537,8 @@ public final class Schema {
       if (!getNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
-      if (!getNamespaceBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, namespace_);
+      if (!getProjectBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, project_);
       }
       for (int i = 0; i < listeners_.size(); i++) {
         output.writeMessage(3, listeners_.get(i));
@@ -3855,8 +6567,8 @@ public final class Schema {
       if (!getNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
-      if (!getNamespaceBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, namespace_);
+      if (!getProjectBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, project_);
       }
       for (int i = 0; i < listeners_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
@@ -3900,8 +6612,8 @@ public final class Schema {
       boolean result = true;
       result = result && getName()
           .equals(other.getName());
-      result = result && getNamespace()
-          .equals(other.getNamespace());
+      result = result && getProject()
+          .equals(other.getProject());
       result = result && getListenersList()
           .equals(other.getListenersList());
       result = result && internalGetLabels().equals(
@@ -3921,8 +6633,8 @@ public final class Schema {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + NAMESPACE_FIELD_NUMBER;
-      hash = (53 * hash) + getNamespace().hashCode();
+      hash = (37 * hash) + PROJECT_FIELD_NUMBER;
+      hash = (53 * hash) + getProject().hashCode();
       if (getListenersCount() > 0) {
         hash = (37 * hash) + LISTENERS_FIELD_NUMBER;
         hash = (53 * hash) + getListenersList().hashCode();
@@ -4097,7 +6809,7 @@ public final class Schema {
         super.clear();
         name_ = "";
 
-        namespace_ = "";
+        project_ = "";
 
         if (listenersBuilder_ == null) {
           listeners_ = java.util.Collections.emptyList();
@@ -4136,7 +6848,7 @@ public final class Schema {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         result.name_ = name_;
-        result.namespace_ = namespace_;
+        result.project_ = project_;
         if (listenersBuilder_ == null) {
           if (((bitField0_ & 0x00000004) == 0x00000004)) {
             listeners_ = java.util.Collections.unmodifiableList(listeners_);
@@ -4203,8 +6915,8 @@ public final class Schema {
           name_ = other.name_;
           onChanged();
         }
-        if (!other.getNamespace().isEmpty()) {
-          namespace_ = other.namespace_;
+        if (!other.getProject().isEmpty()) {
+          project_ = other.project_;
           onChanged();
         }
         if (listenersBuilder_ == null) {
@@ -4356,21 +7068,21 @@ public final class Schema {
         return this;
       }
 
-      private java.lang.Object namespace_ = "";
+      private java.lang.Object project_ = "";
       /**
        * <pre>
-       * application namespace
+       * application project
        * </pre>
        *
-       * <code>string namespace = 2;</code>
+       * <code>string project = 2;</code>
        */
-      public java.lang.String getNamespace() {
-        java.lang.Object ref = namespace_;
+      public java.lang.String getProject() {
+        java.lang.Object ref = project_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          namespace_ = s;
+          project_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -4378,19 +7090,19 @@ public final class Schema {
       }
       /**
        * <pre>
-       * application namespace
+       * application project
        * </pre>
        *
-       * <code>string namespace = 2;</code>
+       * <code>string project = 2;</code>
        */
       public com.google.protobuf.ByteString
-          getNamespaceBytes() {
-        java.lang.Object ref = namespace_;
+          getProjectBytes() {
+        java.lang.Object ref = project_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          namespace_ = b;
+          project_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -4398,49 +7110,49 @@ public final class Schema {
       }
       /**
        * <pre>
-       * application namespace
+       * application project
        * </pre>
        *
-       * <code>string namespace = 2;</code>
+       * <code>string project = 2;</code>
        */
-      public Builder setNamespace(
+      public Builder setProject(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        namespace_ = value;
+        project_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * application namespace
+       * application project
        * </pre>
        *
-       * <code>string namespace = 2;</code>
+       * <code>string project = 2;</code>
        */
-      public Builder clearNamespace() {
+      public Builder clearProject() {
         
-        namespace_ = getDefaultInstance().getNamespace();
+        project_ = getDefaultInstance().getProject();
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * application namespace
+       * application project
        * </pre>
        *
-       * <code>string namespace = 2;</code>
+       * <code>string project = 2;</code>
        */
-      public Builder setNamespaceBytes(
+      public Builder setProjectBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        namespace_ = value;
+        project_ = value;
         onChanged();
         return this;
       }
@@ -5007,21 +7719,21 @@ public final class Schema {
 
     /**
      * <pre>
-     * application namespace
+     * application project
      * </pre>
      *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+     * <code>string project = 2 [(.validator.field) = { ... }</code>
      */
-    java.lang.String getNamespace();
+    java.lang.String getProject();
     /**
      * <pre>
-     * application namespace
+     * application project
      * </pre>
      *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+     * <code>string project = 2 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
-        getNamespaceBytes();
+        getProjectBytes();
 
     /**
      * <code>repeated .meshpaas.GatewayListener listeners = 3;</code>
@@ -5129,7 +7841,7 @@ public final class Schema {
     }
     private GatewayInput() {
       name_ = "";
-      namespace_ = "";
+      project_ = "";
       listeners_ = java.util.Collections.emptyList();
     }
 
@@ -5166,7 +7878,7 @@ public final class Schema {
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              namespace_ = s;
+              project_ = s;
               break;
             }
             case 26: {
@@ -5296,42 +8008,42 @@ public final class Schema {
       }
     }
 
-    public static final int NAMESPACE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object namespace_;
+    public static final int PROJECT_FIELD_NUMBER = 2;
+    private volatile java.lang.Object project_;
     /**
      * <pre>
-     * application namespace
+     * application project
      * </pre>
      *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+     * <code>string project = 2 [(.validator.field) = { ... }</code>
      */
-    public java.lang.String getNamespace() {
-      java.lang.Object ref = namespace_;
+    public java.lang.String getProject() {
+      java.lang.Object ref = project_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        namespace_ = s;
+        project_ = s;
         return s;
       }
     }
     /**
      * <pre>
-     * application namespace
+     * application project
      * </pre>
      *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+     * <code>string project = 2 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
-        getNamespaceBytes() {
-      java.lang.Object ref = namespace_;
+        getProjectBytes() {
+      java.lang.Object ref = project_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        namespace_ = b;
+        project_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -5542,8 +8254,8 @@ public final class Schema {
       if (!getNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
-      if (!getNamespaceBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, namespace_);
+      if (!getProjectBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, project_);
       }
       for (int i = 0; i < listeners_.size(); i++) {
         output.writeMessage(3, listeners_.get(i));
@@ -5572,8 +8284,8 @@ public final class Schema {
       if (!getNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
-      if (!getNamespaceBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, namespace_);
+      if (!getProjectBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, project_);
       }
       for (int i = 0; i < listeners_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
@@ -5617,8 +8329,8 @@ public final class Schema {
       boolean result = true;
       result = result && getName()
           .equals(other.getName());
-      result = result && getNamespace()
-          .equals(other.getNamespace());
+      result = result && getProject()
+          .equals(other.getProject());
       result = result && getListenersList()
           .equals(other.getListenersList());
       result = result && internalGetLabels().equals(
@@ -5638,8 +8350,8 @@ public final class Schema {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + NAMESPACE_FIELD_NUMBER;
-      hash = (53 * hash) + getNamespace().hashCode();
+      hash = (37 * hash) + PROJECT_FIELD_NUMBER;
+      hash = (53 * hash) + getProject().hashCode();
       if (getListenersCount() > 0) {
         hash = (37 * hash) + LISTENERS_FIELD_NUMBER;
         hash = (53 * hash) + getListenersList().hashCode();
@@ -5814,7 +8526,7 @@ public final class Schema {
         super.clear();
         name_ = "";
 
-        namespace_ = "";
+        project_ = "";
 
         if (listenersBuilder_ == null) {
           listeners_ = java.util.Collections.emptyList();
@@ -5853,7 +8565,7 @@ public final class Schema {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         result.name_ = name_;
-        result.namespace_ = namespace_;
+        result.project_ = project_;
         if (listenersBuilder_ == null) {
           if (((bitField0_ & 0x00000004) == 0x00000004)) {
             listeners_ = java.util.Collections.unmodifiableList(listeners_);
@@ -5920,8 +8632,8 @@ public final class Schema {
           name_ = other.name_;
           onChanged();
         }
-        if (!other.getNamespace().isEmpty()) {
-          namespace_ = other.namespace_;
+        if (!other.getProject().isEmpty()) {
+          project_ = other.project_;
           onChanged();
         }
         if (listenersBuilder_ == null) {
@@ -6073,21 +8785,21 @@ public final class Schema {
         return this;
       }
 
-      private java.lang.Object namespace_ = "";
+      private java.lang.Object project_ = "";
       /**
        * <pre>
-       * application namespace
+       * application project
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
        */
-      public java.lang.String getNamespace() {
-        java.lang.Object ref = namespace_;
+      public java.lang.String getProject() {
+        java.lang.Object ref = project_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          namespace_ = s;
+          project_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -6095,19 +8807,19 @@ public final class Schema {
       }
       /**
        * <pre>
-       * application namespace
+       * application project
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
-          getNamespaceBytes() {
-        java.lang.Object ref = namespace_;
+          getProjectBytes() {
+        java.lang.Object ref = project_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          namespace_ = b;
+          project_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -6115,49 +8827,49 @@ public final class Schema {
       }
       /**
        * <pre>
-       * application namespace
+       * application project
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
        */
-      public Builder setNamespace(
+      public Builder setProject(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        namespace_ = value;
+        project_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * application namespace
+       * application project
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
        */
-      public Builder clearNamespace() {
+      public Builder clearProject() {
         
-        namespace_ = getDefaultInstance().getNamespace();
+        project_ = getDefaultInstance().getProject();
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * application namespace
+       * application project
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
        */
-      public Builder setNamespaceBytes(
+      public Builder setProjectBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        namespace_ = value;
+        project_ = value;
         onChanged();
         return this;
       }
@@ -6730,11 +9442,11 @@ public final class Schema {
         getPathPrefixBytes();
 
     /**
-     * <code>string rewrite_uri = 4;</code>
+     * <code>string rewrite_uri = 5;</code>
      */
     java.lang.String getRewriteUri();
     /**
-     * <code>string rewrite_uri = 4;</code>
+     * <code>string rewrite_uri = 5;</code>
      */
     com.google.protobuf.ByteString
         getRewriteUriBytes();
@@ -6744,7 +9456,7 @@ public final class Schema {
      * The list of origins that are allowed to perform CORS requests
      * </pre>
      *
-     * <code>repeated string allow_origins = 5;</code>
+     * <code>repeated string allow_origins = 6;</code>
      */
     java.util.List<java.lang.String>
         getAllowOriginsList();
@@ -6753,7 +9465,7 @@ public final class Schema {
      * The list of origins that are allowed to perform CORS requests
      * </pre>
      *
-     * <code>repeated string allow_origins = 5;</code>
+     * <code>repeated string allow_origins = 6;</code>
      */
     int getAllowOriginsCount();
     /**
@@ -6761,7 +9473,7 @@ public final class Schema {
      * The list of origins that are allowed to perform CORS requests
      * </pre>
      *
-     * <code>repeated string allow_origins = 5;</code>
+     * <code>repeated string allow_origins = 6;</code>
      */
     java.lang.String getAllowOrigins(int index);
     /**
@@ -6769,7 +9481,7 @@ public final class Schema {
      * The list of origins that are allowed to perform CORS requests
      * </pre>
      *
-     * <code>repeated string allow_origins = 5;</code>
+     * <code>repeated string allow_origins = 6;</code>
      */
     com.google.protobuf.ByteString
         getAllowOriginsBytes(int index);
@@ -6779,7 +9491,7 @@ public final class Schema {
      * The list of methods that are allowed to perform CORS requests
      * </pre>
      *
-     * <code>repeated string allow_methods = 6;</code>
+     * <code>repeated string allow_methods = 7;</code>
      */
     java.util.List<java.lang.String>
         getAllowMethodsList();
@@ -6788,7 +9500,7 @@ public final class Schema {
      * The list of methods that are allowed to perform CORS requests
      * </pre>
      *
-     * <code>repeated string allow_methods = 6;</code>
+     * <code>repeated string allow_methods = 7;</code>
      */
     int getAllowMethodsCount();
     /**
@@ -6796,7 +9508,7 @@ public final class Schema {
      * The list of methods that are allowed to perform CORS requests
      * </pre>
      *
-     * <code>repeated string allow_methods = 6;</code>
+     * <code>repeated string allow_methods = 7;</code>
      */
     java.lang.String getAllowMethods(int index);
     /**
@@ -6804,7 +9516,7 @@ public final class Schema {
      * The list of methods that are allowed to perform CORS requests
      * </pre>
      *
-     * <code>repeated string allow_methods = 6;</code>
+     * <code>repeated string allow_methods = 7;</code>
      */
     com.google.protobuf.ByteString
         getAllowMethodsBytes(int index);
@@ -6814,7 +9526,7 @@ public final class Schema {
      * The list of headers that are allowed to perform CORS requests
      * </pre>
      *
-     * <code>repeated string allow_headers = 7;</code>
+     * <code>repeated string allow_headers = 8;</code>
      */
     java.util.List<java.lang.String>
         getAllowHeadersList();
@@ -6823,7 +9535,7 @@ public final class Schema {
      * The list of headers that are allowed to perform CORS requests
      * </pre>
      *
-     * <code>repeated string allow_headers = 7;</code>
+     * <code>repeated string allow_headers = 8;</code>
      */
     int getAllowHeadersCount();
     /**
@@ -6831,7 +9543,7 @@ public final class Schema {
      * The list of headers that are allowed to perform CORS requests
      * </pre>
      *
-     * <code>repeated string allow_headers = 7;</code>
+     * <code>repeated string allow_headers = 8;</code>
      */
     java.lang.String getAllowHeaders(int index);
     /**
@@ -6839,7 +9551,7 @@ public final class Schema {
      * The list of headers that are allowed to perform CORS requests
      * </pre>
      *
-     * <code>repeated string allow_headers = 7;</code>
+     * <code>repeated string allow_headers = 8;</code>
      */
     com.google.protobuf.ByteString
         getAllowHeadersBytes(int index);
@@ -6849,7 +9561,7 @@ public final class Schema {
      * The list of origins that are allowed to perform CORS requests
      * </pre>
      *
-     * <code>repeated string expose_headers = 8;</code>
+     * <code>repeated string expose_headers = 9;</code>
      */
     java.util.List<java.lang.String>
         getExposeHeadersList();
@@ -6858,7 +9570,7 @@ public final class Schema {
      * The list of origins that are allowed to perform CORS requests
      * </pre>
      *
-     * <code>repeated string expose_headers = 8;</code>
+     * <code>repeated string expose_headers = 9;</code>
      */
     int getExposeHeadersCount();
     /**
@@ -6866,7 +9578,7 @@ public final class Schema {
      * The list of origins that are allowed to perform CORS requests
      * </pre>
      *
-     * <code>repeated string expose_headers = 8;</code>
+     * <code>repeated string expose_headers = 9;</code>
      */
     java.lang.String getExposeHeaders(int index);
     /**
@@ -6874,7 +9586,7 @@ public final class Schema {
      * The list of origins that are allowed to perform CORS requests
      * </pre>
      *
-     * <code>repeated string expose_headers = 8;</code>
+     * <code>repeated string expose_headers = 9;</code>
      */
     com.google.protobuf.ByteString
         getExposeHeadersBytes(int index);
@@ -6884,7 +9596,7 @@ public final class Schema {
      * adds `Access-Control-Allow-Credentials` header
      * </pre>
      *
-     * <code>bool allow_credentials = 9;</code>
+     * <code>bool allow_credentials = 10;</code>
      */
     boolean getAllowCredentials();
   }
@@ -6957,13 +9669,13 @@ public final class Schema {
               pathPrefix_ = s;
               break;
             }
-            case 34: {
+            case 42: {
               java.lang.String s = input.readStringRequireUtf8();
 
               rewriteUri_ = s;
               break;
             }
-            case 42: {
+            case 50: {
               java.lang.String s = input.readStringRequireUtf8();
               if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
                 allowOrigins_ = new com.google.protobuf.LazyStringArrayList();
@@ -6972,7 +9684,7 @@ public final class Schema {
               allowOrigins_.add(s);
               break;
             }
-            case 50: {
+            case 58: {
               java.lang.String s = input.readStringRequireUtf8();
               if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
                 allowMethods_ = new com.google.protobuf.LazyStringArrayList();
@@ -6981,7 +9693,7 @@ public final class Schema {
               allowMethods_.add(s);
               break;
             }
-            case 58: {
+            case 66: {
               java.lang.String s = input.readStringRequireUtf8();
               if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
                 allowHeaders_ = new com.google.protobuf.LazyStringArrayList();
@@ -6990,7 +9702,7 @@ public final class Schema {
               allowHeaders_.add(s);
               break;
             }
-            case 66: {
+            case 74: {
               java.lang.String s = input.readStringRequireUtf8();
               if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
                 exposeHeaders_ = new com.google.protobuf.LazyStringArrayList();
@@ -6999,7 +9711,7 @@ public final class Schema {
               exposeHeaders_.add(s);
               break;
             }
-            case 72: {
+            case 80: {
 
               allowCredentials_ = input.readBool();
               break;
@@ -7126,10 +9838,10 @@ public final class Schema {
       }
     }
 
-    public static final int REWRITE_URI_FIELD_NUMBER = 4;
+    public static final int REWRITE_URI_FIELD_NUMBER = 5;
     private volatile java.lang.Object rewriteUri_;
     /**
-     * <code>string rewrite_uri = 4;</code>
+     * <code>string rewrite_uri = 5;</code>
      */
     public java.lang.String getRewriteUri() {
       java.lang.Object ref = rewriteUri_;
@@ -7144,7 +9856,7 @@ public final class Schema {
       }
     }
     /**
-     * <code>string rewrite_uri = 4;</code>
+     * <code>string rewrite_uri = 5;</code>
      */
     public com.google.protobuf.ByteString
         getRewriteUriBytes() {
@@ -7160,14 +9872,14 @@ public final class Schema {
       }
     }
 
-    public static final int ALLOW_ORIGINS_FIELD_NUMBER = 5;
+    public static final int ALLOW_ORIGINS_FIELD_NUMBER = 6;
     private com.google.protobuf.LazyStringList allowOrigins_;
     /**
      * <pre>
      * The list of origins that are allowed to perform CORS requests
      * </pre>
      *
-     * <code>repeated string allow_origins = 5;</code>
+     * <code>repeated string allow_origins = 6;</code>
      */
     public com.google.protobuf.ProtocolStringList
         getAllowOriginsList() {
@@ -7178,7 +9890,7 @@ public final class Schema {
      * The list of origins that are allowed to perform CORS requests
      * </pre>
      *
-     * <code>repeated string allow_origins = 5;</code>
+     * <code>repeated string allow_origins = 6;</code>
      */
     public int getAllowOriginsCount() {
       return allowOrigins_.size();
@@ -7188,7 +9900,7 @@ public final class Schema {
      * The list of origins that are allowed to perform CORS requests
      * </pre>
      *
-     * <code>repeated string allow_origins = 5;</code>
+     * <code>repeated string allow_origins = 6;</code>
      */
     public java.lang.String getAllowOrigins(int index) {
       return allowOrigins_.get(index);
@@ -7198,21 +9910,21 @@ public final class Schema {
      * The list of origins that are allowed to perform CORS requests
      * </pre>
      *
-     * <code>repeated string allow_origins = 5;</code>
+     * <code>repeated string allow_origins = 6;</code>
      */
     public com.google.protobuf.ByteString
         getAllowOriginsBytes(int index) {
       return allowOrigins_.getByteString(index);
     }
 
-    public static final int ALLOW_METHODS_FIELD_NUMBER = 6;
+    public static final int ALLOW_METHODS_FIELD_NUMBER = 7;
     private com.google.protobuf.LazyStringList allowMethods_;
     /**
      * <pre>
      * The list of methods that are allowed to perform CORS requests
      * </pre>
      *
-     * <code>repeated string allow_methods = 6;</code>
+     * <code>repeated string allow_methods = 7;</code>
      */
     public com.google.protobuf.ProtocolStringList
         getAllowMethodsList() {
@@ -7223,7 +9935,7 @@ public final class Schema {
      * The list of methods that are allowed to perform CORS requests
      * </pre>
      *
-     * <code>repeated string allow_methods = 6;</code>
+     * <code>repeated string allow_methods = 7;</code>
      */
     public int getAllowMethodsCount() {
       return allowMethods_.size();
@@ -7233,7 +9945,7 @@ public final class Schema {
      * The list of methods that are allowed to perform CORS requests
      * </pre>
      *
-     * <code>repeated string allow_methods = 6;</code>
+     * <code>repeated string allow_methods = 7;</code>
      */
     public java.lang.String getAllowMethods(int index) {
       return allowMethods_.get(index);
@@ -7243,21 +9955,21 @@ public final class Schema {
      * The list of methods that are allowed to perform CORS requests
      * </pre>
      *
-     * <code>repeated string allow_methods = 6;</code>
+     * <code>repeated string allow_methods = 7;</code>
      */
     public com.google.protobuf.ByteString
         getAllowMethodsBytes(int index) {
       return allowMethods_.getByteString(index);
     }
 
-    public static final int ALLOW_HEADERS_FIELD_NUMBER = 7;
+    public static final int ALLOW_HEADERS_FIELD_NUMBER = 8;
     private com.google.protobuf.LazyStringList allowHeaders_;
     /**
      * <pre>
      * The list of headers that are allowed to perform CORS requests
      * </pre>
      *
-     * <code>repeated string allow_headers = 7;</code>
+     * <code>repeated string allow_headers = 8;</code>
      */
     public com.google.protobuf.ProtocolStringList
         getAllowHeadersList() {
@@ -7268,7 +9980,7 @@ public final class Schema {
      * The list of headers that are allowed to perform CORS requests
      * </pre>
      *
-     * <code>repeated string allow_headers = 7;</code>
+     * <code>repeated string allow_headers = 8;</code>
      */
     public int getAllowHeadersCount() {
       return allowHeaders_.size();
@@ -7278,7 +9990,7 @@ public final class Schema {
      * The list of headers that are allowed to perform CORS requests
      * </pre>
      *
-     * <code>repeated string allow_headers = 7;</code>
+     * <code>repeated string allow_headers = 8;</code>
      */
     public java.lang.String getAllowHeaders(int index) {
       return allowHeaders_.get(index);
@@ -7288,21 +10000,21 @@ public final class Schema {
      * The list of headers that are allowed to perform CORS requests
      * </pre>
      *
-     * <code>repeated string allow_headers = 7;</code>
+     * <code>repeated string allow_headers = 8;</code>
      */
     public com.google.protobuf.ByteString
         getAllowHeadersBytes(int index) {
       return allowHeaders_.getByteString(index);
     }
 
-    public static final int EXPOSE_HEADERS_FIELD_NUMBER = 8;
+    public static final int EXPOSE_HEADERS_FIELD_NUMBER = 9;
     private com.google.protobuf.LazyStringList exposeHeaders_;
     /**
      * <pre>
      * The list of origins that are allowed to perform CORS requests
      * </pre>
      *
-     * <code>repeated string expose_headers = 8;</code>
+     * <code>repeated string expose_headers = 9;</code>
      */
     public com.google.protobuf.ProtocolStringList
         getExposeHeadersList() {
@@ -7313,7 +10025,7 @@ public final class Schema {
      * The list of origins that are allowed to perform CORS requests
      * </pre>
      *
-     * <code>repeated string expose_headers = 8;</code>
+     * <code>repeated string expose_headers = 9;</code>
      */
     public int getExposeHeadersCount() {
       return exposeHeaders_.size();
@@ -7323,7 +10035,7 @@ public final class Schema {
      * The list of origins that are allowed to perform CORS requests
      * </pre>
      *
-     * <code>repeated string expose_headers = 8;</code>
+     * <code>repeated string expose_headers = 9;</code>
      */
     public java.lang.String getExposeHeaders(int index) {
       return exposeHeaders_.get(index);
@@ -7333,21 +10045,21 @@ public final class Schema {
      * The list of origins that are allowed to perform CORS requests
      * </pre>
      *
-     * <code>repeated string expose_headers = 8;</code>
+     * <code>repeated string expose_headers = 9;</code>
      */
     public com.google.protobuf.ByteString
         getExposeHeadersBytes(int index) {
       return exposeHeaders_.getByteString(index);
     }
 
-    public static final int ALLOW_CREDENTIALS_FIELD_NUMBER = 9;
+    public static final int ALLOW_CREDENTIALS_FIELD_NUMBER = 10;
     private boolean allowCredentials_;
     /**
      * <pre>
      * adds `Access-Control-Allow-Credentials` header
      * </pre>
      *
-     * <code>bool allow_credentials = 9;</code>
+     * <code>bool allow_credentials = 10;</code>
      */
     public boolean getAllowCredentials() {
       return allowCredentials_;
@@ -7377,22 +10089,22 @@ public final class Schema {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, pathPrefix_);
       }
       if (!getRewriteUriBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, rewriteUri_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, rewriteUri_);
       }
       for (int i = 0; i < allowOrigins_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, allowOrigins_.getRaw(i));
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, allowOrigins_.getRaw(i));
       }
       for (int i = 0; i < allowMethods_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, allowMethods_.getRaw(i));
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, allowMethods_.getRaw(i));
       }
       for (int i = 0; i < allowHeaders_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, allowHeaders_.getRaw(i));
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, allowHeaders_.getRaw(i));
       }
       for (int i = 0; i < exposeHeaders_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, exposeHeaders_.getRaw(i));
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, exposeHeaders_.getRaw(i));
       }
       if (allowCredentials_ != false) {
-        output.writeBool(9, allowCredentials_);
+        output.writeBool(10, allowCredentials_);
       }
       unknownFields.writeTo(output);
     }
@@ -7414,7 +10126,7 @@ public final class Schema {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, pathPrefix_);
       }
       if (!getRewriteUriBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, rewriteUri_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, rewriteUri_);
       }
       {
         int dataSize = 0;
@@ -7450,7 +10162,7 @@ public final class Schema {
       }
       if (allowCredentials_ != false) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(9, allowCredentials_);
+          .computeBoolSize(10, allowCredentials_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -8035,7 +10747,7 @@ public final class Schema {
 
       private java.lang.Object rewriteUri_ = "";
       /**
-       * <code>string rewrite_uri = 4;</code>
+       * <code>string rewrite_uri = 5;</code>
        */
       public java.lang.String getRewriteUri() {
         java.lang.Object ref = rewriteUri_;
@@ -8050,7 +10762,7 @@ public final class Schema {
         }
       }
       /**
-       * <code>string rewrite_uri = 4;</code>
+       * <code>string rewrite_uri = 5;</code>
        */
       public com.google.protobuf.ByteString
           getRewriteUriBytes() {
@@ -8066,7 +10778,7 @@ public final class Schema {
         }
       }
       /**
-       * <code>string rewrite_uri = 4;</code>
+       * <code>string rewrite_uri = 5;</code>
        */
       public Builder setRewriteUri(
           java.lang.String value) {
@@ -8079,7 +10791,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>string rewrite_uri = 4;</code>
+       * <code>string rewrite_uri = 5;</code>
        */
       public Builder clearRewriteUri() {
         
@@ -8088,7 +10800,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>string rewrite_uri = 4;</code>
+       * <code>string rewrite_uri = 5;</code>
        */
       public Builder setRewriteUriBytes(
           com.google.protobuf.ByteString value) {
@@ -8114,7 +10826,7 @@ public final class Schema {
        * The list of origins that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string allow_origins = 5;</code>
+       * <code>repeated string allow_origins = 6;</code>
        */
       public com.google.protobuf.ProtocolStringList
           getAllowOriginsList() {
@@ -8125,7 +10837,7 @@ public final class Schema {
        * The list of origins that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string allow_origins = 5;</code>
+       * <code>repeated string allow_origins = 6;</code>
        */
       public int getAllowOriginsCount() {
         return allowOrigins_.size();
@@ -8135,7 +10847,7 @@ public final class Schema {
        * The list of origins that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string allow_origins = 5;</code>
+       * <code>repeated string allow_origins = 6;</code>
        */
       public java.lang.String getAllowOrigins(int index) {
         return allowOrigins_.get(index);
@@ -8145,7 +10857,7 @@ public final class Schema {
        * The list of origins that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string allow_origins = 5;</code>
+       * <code>repeated string allow_origins = 6;</code>
        */
       public com.google.protobuf.ByteString
           getAllowOriginsBytes(int index) {
@@ -8156,7 +10868,7 @@ public final class Schema {
        * The list of origins that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string allow_origins = 5;</code>
+       * <code>repeated string allow_origins = 6;</code>
        */
       public Builder setAllowOrigins(
           int index, java.lang.String value) {
@@ -8173,7 +10885,7 @@ public final class Schema {
        * The list of origins that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string allow_origins = 5;</code>
+       * <code>repeated string allow_origins = 6;</code>
        */
       public Builder addAllowOrigins(
           java.lang.String value) {
@@ -8190,7 +10902,7 @@ public final class Schema {
        * The list of origins that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string allow_origins = 5;</code>
+       * <code>repeated string allow_origins = 6;</code>
        */
       public Builder addAllAllowOrigins(
           java.lang.Iterable<java.lang.String> values) {
@@ -8205,7 +10917,7 @@ public final class Schema {
        * The list of origins that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string allow_origins = 5;</code>
+       * <code>repeated string allow_origins = 6;</code>
        */
       public Builder clearAllowOrigins() {
         allowOrigins_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -8218,7 +10930,7 @@ public final class Schema {
        * The list of origins that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string allow_origins = 5;</code>
+       * <code>repeated string allow_origins = 6;</code>
        */
       public Builder addAllowOriginsBytes(
           com.google.protobuf.ByteString value) {
@@ -8244,7 +10956,7 @@ public final class Schema {
        * The list of methods that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string allow_methods = 6;</code>
+       * <code>repeated string allow_methods = 7;</code>
        */
       public com.google.protobuf.ProtocolStringList
           getAllowMethodsList() {
@@ -8255,7 +10967,7 @@ public final class Schema {
        * The list of methods that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string allow_methods = 6;</code>
+       * <code>repeated string allow_methods = 7;</code>
        */
       public int getAllowMethodsCount() {
         return allowMethods_.size();
@@ -8265,7 +10977,7 @@ public final class Schema {
        * The list of methods that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string allow_methods = 6;</code>
+       * <code>repeated string allow_methods = 7;</code>
        */
       public java.lang.String getAllowMethods(int index) {
         return allowMethods_.get(index);
@@ -8275,7 +10987,7 @@ public final class Schema {
        * The list of methods that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string allow_methods = 6;</code>
+       * <code>repeated string allow_methods = 7;</code>
        */
       public com.google.protobuf.ByteString
           getAllowMethodsBytes(int index) {
@@ -8286,7 +10998,7 @@ public final class Schema {
        * The list of methods that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string allow_methods = 6;</code>
+       * <code>repeated string allow_methods = 7;</code>
        */
       public Builder setAllowMethods(
           int index, java.lang.String value) {
@@ -8303,7 +11015,7 @@ public final class Schema {
        * The list of methods that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string allow_methods = 6;</code>
+       * <code>repeated string allow_methods = 7;</code>
        */
       public Builder addAllowMethods(
           java.lang.String value) {
@@ -8320,7 +11032,7 @@ public final class Schema {
        * The list of methods that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string allow_methods = 6;</code>
+       * <code>repeated string allow_methods = 7;</code>
        */
       public Builder addAllAllowMethods(
           java.lang.Iterable<java.lang.String> values) {
@@ -8335,7 +11047,7 @@ public final class Schema {
        * The list of methods that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string allow_methods = 6;</code>
+       * <code>repeated string allow_methods = 7;</code>
        */
       public Builder clearAllowMethods() {
         allowMethods_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -8348,7 +11060,7 @@ public final class Schema {
        * The list of methods that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string allow_methods = 6;</code>
+       * <code>repeated string allow_methods = 7;</code>
        */
       public Builder addAllowMethodsBytes(
           com.google.protobuf.ByteString value) {
@@ -8374,7 +11086,7 @@ public final class Schema {
        * The list of headers that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string allow_headers = 7;</code>
+       * <code>repeated string allow_headers = 8;</code>
        */
       public com.google.protobuf.ProtocolStringList
           getAllowHeadersList() {
@@ -8385,7 +11097,7 @@ public final class Schema {
        * The list of headers that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string allow_headers = 7;</code>
+       * <code>repeated string allow_headers = 8;</code>
        */
       public int getAllowHeadersCount() {
         return allowHeaders_.size();
@@ -8395,7 +11107,7 @@ public final class Schema {
        * The list of headers that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string allow_headers = 7;</code>
+       * <code>repeated string allow_headers = 8;</code>
        */
       public java.lang.String getAllowHeaders(int index) {
         return allowHeaders_.get(index);
@@ -8405,7 +11117,7 @@ public final class Schema {
        * The list of headers that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string allow_headers = 7;</code>
+       * <code>repeated string allow_headers = 8;</code>
        */
       public com.google.protobuf.ByteString
           getAllowHeadersBytes(int index) {
@@ -8416,7 +11128,7 @@ public final class Schema {
        * The list of headers that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string allow_headers = 7;</code>
+       * <code>repeated string allow_headers = 8;</code>
        */
       public Builder setAllowHeaders(
           int index, java.lang.String value) {
@@ -8433,7 +11145,7 @@ public final class Schema {
        * The list of headers that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string allow_headers = 7;</code>
+       * <code>repeated string allow_headers = 8;</code>
        */
       public Builder addAllowHeaders(
           java.lang.String value) {
@@ -8450,7 +11162,7 @@ public final class Schema {
        * The list of headers that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string allow_headers = 7;</code>
+       * <code>repeated string allow_headers = 8;</code>
        */
       public Builder addAllAllowHeaders(
           java.lang.Iterable<java.lang.String> values) {
@@ -8465,7 +11177,7 @@ public final class Schema {
        * The list of headers that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string allow_headers = 7;</code>
+       * <code>repeated string allow_headers = 8;</code>
        */
       public Builder clearAllowHeaders() {
         allowHeaders_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -8478,7 +11190,7 @@ public final class Schema {
        * The list of headers that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string allow_headers = 7;</code>
+       * <code>repeated string allow_headers = 8;</code>
        */
       public Builder addAllowHeadersBytes(
           com.google.protobuf.ByteString value) {
@@ -8504,7 +11216,7 @@ public final class Schema {
        * The list of origins that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string expose_headers = 8;</code>
+       * <code>repeated string expose_headers = 9;</code>
        */
       public com.google.protobuf.ProtocolStringList
           getExposeHeadersList() {
@@ -8515,7 +11227,7 @@ public final class Schema {
        * The list of origins that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string expose_headers = 8;</code>
+       * <code>repeated string expose_headers = 9;</code>
        */
       public int getExposeHeadersCount() {
         return exposeHeaders_.size();
@@ -8525,7 +11237,7 @@ public final class Schema {
        * The list of origins that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string expose_headers = 8;</code>
+       * <code>repeated string expose_headers = 9;</code>
        */
       public java.lang.String getExposeHeaders(int index) {
         return exposeHeaders_.get(index);
@@ -8535,7 +11247,7 @@ public final class Schema {
        * The list of origins that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string expose_headers = 8;</code>
+       * <code>repeated string expose_headers = 9;</code>
        */
       public com.google.protobuf.ByteString
           getExposeHeadersBytes(int index) {
@@ -8546,7 +11258,7 @@ public final class Schema {
        * The list of origins that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string expose_headers = 8;</code>
+       * <code>repeated string expose_headers = 9;</code>
        */
       public Builder setExposeHeaders(
           int index, java.lang.String value) {
@@ -8563,7 +11275,7 @@ public final class Schema {
        * The list of origins that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string expose_headers = 8;</code>
+       * <code>repeated string expose_headers = 9;</code>
        */
       public Builder addExposeHeaders(
           java.lang.String value) {
@@ -8580,7 +11292,7 @@ public final class Schema {
        * The list of origins that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string expose_headers = 8;</code>
+       * <code>repeated string expose_headers = 9;</code>
        */
       public Builder addAllExposeHeaders(
           java.lang.Iterable<java.lang.String> values) {
@@ -8595,7 +11307,7 @@ public final class Schema {
        * The list of origins that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string expose_headers = 8;</code>
+       * <code>repeated string expose_headers = 9;</code>
        */
       public Builder clearExposeHeaders() {
         exposeHeaders_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -8608,7 +11320,7 @@ public final class Schema {
        * The list of origins that are allowed to perform CORS requests
        * </pre>
        *
-       * <code>repeated string expose_headers = 8;</code>
+       * <code>repeated string expose_headers = 9;</code>
        */
       public Builder addExposeHeadersBytes(
           com.google.protobuf.ByteString value) {
@@ -8628,7 +11340,7 @@ public final class Schema {
        * adds `Access-Control-Allow-Credentials` header
        * </pre>
        *
-       * <code>bool allow_credentials = 9;</code>
+       * <code>bool allow_credentials = 10;</code>
        */
       public boolean getAllowCredentials() {
         return allowCredentials_;
@@ -8638,7 +11350,7 @@ public final class Schema {
        * adds `Access-Control-Allow-Credentials` header
        * </pre>
        *
-       * <code>bool allow_credentials = 9;</code>
+       * <code>bool allow_credentials = 10;</code>
        */
       public Builder setAllowCredentials(boolean value) {
         
@@ -8651,7 +11363,7 @@ public final class Schema {
        * adds `Access-Control-Allow-Credentials` header
        * </pre>
        *
-       * <code>bool allow_credentials = 9;</code>
+       * <code>bool allow_credentials = 10;</code>
        */
       public Builder clearAllowCredentials() {
         
@@ -9939,6 +12651,1749 @@ public final class Schema {
 
   }
 
+  public interface ContainerOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:meshpaas.Container)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * name of the application
+     * </pre>
+     *
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     */
+    java.lang.String getName();
+    /**
+     * <pre>
+     * name of the application
+     * </pre>
+     *
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <pre>
+     * docker image of application
+     * </pre>
+     *
+     * <code>string image = 2 [(.validator.field) = { ... }</code>
+     */
+    java.lang.String getImage();
+    /**
+     * <pre>
+     * docker image of application
+     * </pre>
+     *
+     * <code>string image = 2 [(.validator.field) = { ... }</code>
+     */
+    com.google.protobuf.ByteString
+        getImageBytes();
+
+    /**
+     * <pre>
+     * args are arguments given to the docker image at startup
+     * </pre>
+     *
+     * <code>repeated string args = 3;</code>
+     */
+    java.util.List<java.lang.String>
+        getArgsList();
+    /**
+     * <pre>
+     * args are arguments given to the docker image at startup
+     * </pre>
+     *
+     * <code>repeated string args = 3;</code>
+     */
+    int getArgsCount();
+    /**
+     * <pre>
+     * args are arguments given to the docker image at startup
+     * </pre>
+     *
+     * <code>repeated string args = 3;</code>
+     */
+    java.lang.String getArgs(int index);
+    /**
+     * <pre>
+     * args are arguments given to the docker image at startup
+     * </pre>
+     *
+     * <code>repeated string args = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getArgsBytes(int index);
+
+    /**
+     * <pre>
+     * k/v map of environmental variables
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; env = 4;</code>
+     */
+    int getEnvCount();
+    /**
+     * <pre>
+     * k/v map of environmental variables
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; env = 4;</code>
+     */
+    boolean containsEnv(
+        java.lang.String key);
+    /**
+     * Use {@link #getEnvMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
+    getEnv();
+    /**
+     * <pre>
+     * k/v map of environmental variables
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; env = 4;</code>
+     */
+    java.util.Map<java.lang.String, java.lang.String>
+    getEnvMap();
+    /**
+     * <pre>
+     * k/v map of environmental variables
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; env = 4;</code>
+     */
+
+    java.lang.String getEnvOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue);
+    /**
+     * <pre>
+     * k/v map of environmental variables
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; env = 4;</code>
+     */
+
+    java.lang.String getEnvOrThrow(
+        java.lang.String key);
+
+    /**
+     * <pre>
+     * k/v map of ports to expose ex: http: 80 https: 443
+     * </pre>
+     *
+     * <code>map&lt;string, uint32&gt; ports = 5 [(.validator.field) = { ... }</code>
+     */
+    int getPortsCount();
+    /**
+     * <pre>
+     * k/v map of ports to expose ex: http: 80 https: 443
+     * </pre>
+     *
+     * <code>map&lt;string, uint32&gt; ports = 5 [(.validator.field) = { ... }</code>
+     */
+    boolean containsPorts(
+        java.lang.String key);
+    /**
+     * Use {@link #getPortsMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.Integer>
+    getPorts();
+    /**
+     * <pre>
+     * k/v map of ports to expose ex: http: 80 https: 443
+     * </pre>
+     *
+     * <code>map&lt;string, uint32&gt; ports = 5 [(.validator.field) = { ... }</code>
+     */
+    java.util.Map<java.lang.String, java.lang.Integer>
+    getPortsMap();
+    /**
+     * <pre>
+     * k/v map of ports to expose ex: http: 80 https: 443
+     * </pre>
+     *
+     * <code>map&lt;string, uint32&gt; ports = 5 [(.validator.field) = { ... }</code>
+     */
+
+    int getPortsOrDefault(
+        java.lang.String key,
+        int defaultValue);
+    /**
+     * <pre>
+     * k/v map of ports to expose ex: http: 80 https: 443
+     * </pre>
+     *
+     * <code>map&lt;string, uint32&gt; ports = 5 [(.validator.field) = { ... }</code>
+     */
+
+    int getPortsOrThrow(
+        java.lang.String key);
+  }
+  /**
+   * <pre>
+   * Container is a single docker container
+   * </pre>
+   *
+   * Protobuf type {@code meshpaas.Container}
+   */
+  public  static final class Container extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:meshpaas.Container)
+      ContainerOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Container.newBuilder() to construct.
+    private Container(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Container() {
+      name_ = "";
+      image_ = "";
+      args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Container(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              name_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              image_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                args_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              args_.add(s);
+              break;
+            }
+            case 34: {
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                env_ = com.google.protobuf.MapField.newMapField(
+                    EnvDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000008;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              env__ = input.readMessage(
+                  EnvDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              env_.getMutableMap().put(
+                  env__.getKey(), env__.getValue());
+              break;
+            }
+            case 42: {
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+                ports_ = com.google.protobuf.MapField.newMapField(
+                    PortsDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000010;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
+              ports__ = input.readMessage(
+                  PortsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              ports_.getMutableMap().put(
+                  ports__.getKey(), ports__.getValue());
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          args_ = args_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return meshpaas.Schema.internal_static_meshpaas_Container_descriptor;
+    }
+
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 4:
+          return internalGetEnv();
+        case 5:
+          return internalGetPorts();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return meshpaas.Schema.internal_static_meshpaas_Container_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              meshpaas.Schema.Container.class, meshpaas.Schema.Container.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object name_;
+    /**
+     * <pre>
+     * name of the application
+     * </pre>
+     *
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * name of the application
+     * </pre>
+     *
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int IMAGE_FIELD_NUMBER = 2;
+    private volatile java.lang.Object image_;
+    /**
+     * <pre>
+     * docker image of application
+     * </pre>
+     *
+     * <code>string image = 2 [(.validator.field) = { ... }</code>
+     */
+    public java.lang.String getImage() {
+      java.lang.Object ref = image_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        image_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * docker image of application
+     * </pre>
+     *
+     * <code>string image = 2 [(.validator.field) = { ... }</code>
+     */
+    public com.google.protobuf.ByteString
+        getImageBytes() {
+      java.lang.Object ref = image_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        image_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ARGS_FIELD_NUMBER = 3;
+    private com.google.protobuf.LazyStringList args_;
+    /**
+     * <pre>
+     * args are arguments given to the docker image at startup
+     * </pre>
+     *
+     * <code>repeated string args = 3;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getArgsList() {
+      return args_;
+    }
+    /**
+     * <pre>
+     * args are arguments given to the docker image at startup
+     * </pre>
+     *
+     * <code>repeated string args = 3;</code>
+     */
+    public int getArgsCount() {
+      return args_.size();
+    }
+    /**
+     * <pre>
+     * args are arguments given to the docker image at startup
+     * </pre>
+     *
+     * <code>repeated string args = 3;</code>
+     */
+    public java.lang.String getArgs(int index) {
+      return args_.get(index);
+    }
+    /**
+     * <pre>
+     * args are arguments given to the docker image at startup
+     * </pre>
+     *
+     * <code>repeated string args = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getArgsBytes(int index) {
+      return args_.getByteString(index);
+    }
+
+    public static final int ENV_FIELD_NUMBER = 4;
+    private static final class EnvDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  meshpaas.Schema.internal_static_meshpaas_Container_EnvEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> env_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetEnv() {
+      if (env_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            EnvDefaultEntryHolder.defaultEntry);
+      }
+      return env_;
+    }
+
+    public int getEnvCount() {
+      return internalGetEnv().getMap().size();
+    }
+    /**
+     * <pre>
+     * k/v map of environmental variables
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; env = 4;</code>
+     */
+
+    public boolean containsEnv(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetEnv().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getEnvMap()} instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getEnv() {
+      return getEnvMap();
+    }
+    /**
+     * <pre>
+     * k/v map of environmental variables
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; env = 4;</code>
+     */
+
+    public java.util.Map<java.lang.String, java.lang.String> getEnvMap() {
+      return internalGetEnv().getMap();
+    }
+    /**
+     * <pre>
+     * k/v map of environmental variables
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; env = 4;</code>
+     */
+
+    public java.lang.String getEnvOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetEnv().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     * k/v map of environmental variables
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; env = 4;</code>
+     */
+
+    public java.lang.String getEnvOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetEnv().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    public static final int PORTS_FIELD_NUMBER = 5;
+    private static final class PortsDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.Integer> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.Integer>newDefaultInstance(
+                  meshpaas.Schema.internal_static_meshpaas_Container_PortsEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.UINT32,
+                  0);
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.Integer> ports_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
+    internalGetPorts() {
+      if (ports_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            PortsDefaultEntryHolder.defaultEntry);
+      }
+      return ports_;
+    }
+
+    public int getPortsCount() {
+      return internalGetPorts().getMap().size();
+    }
+    /**
+     * <pre>
+     * k/v map of ports to expose ex: http: 80 https: 443
+     * </pre>
+     *
+     * <code>map&lt;string, uint32&gt; ports = 5 [(.validator.field) = { ... }</code>
+     */
+
+    public boolean containsPorts(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetPorts().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getPortsMap()} instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.Integer> getPorts() {
+      return getPortsMap();
+    }
+    /**
+     * <pre>
+     * k/v map of ports to expose ex: http: 80 https: 443
+     * </pre>
+     *
+     * <code>map&lt;string, uint32&gt; ports = 5 [(.validator.field) = { ... }</code>
+     */
+
+    public java.util.Map<java.lang.String, java.lang.Integer> getPortsMap() {
+      return internalGetPorts().getMap();
+    }
+    /**
+     * <pre>
+     * k/v map of ports to expose ex: http: 80 https: 443
+     * </pre>
+     *
+     * <code>map&lt;string, uint32&gt; ports = 5 [(.validator.field) = { ... }</code>
+     */
+
+    public int getPortsOrDefault(
+        java.lang.String key,
+        int defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.Integer> map =
+          internalGetPorts().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     * k/v map of ports to expose ex: http: 80 https: 443
+     * </pre>
+     *
+     * <code>map&lt;string, uint32&gt; ports = 5 [(.validator.field) = { ... }</code>
+     */
+
+    public int getPortsOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.Integer> map =
+          internalGetPorts().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      }
+      if (!getImageBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, image_);
+      }
+      for (int i = 0; i < args_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, args_.getRaw(i));
+      }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetEnv(),
+          EnvDefaultEntryHolder.defaultEntry,
+          4);
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetPorts(),
+          PortsDefaultEntryHolder.defaultEntry,
+          5);
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      if (!getImageBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, image_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < args_.size(); i++) {
+          dataSize += computeStringSizeNoTag(args_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getArgsList().size();
+      }
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+           : internalGetEnv().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+        env__ = EnvDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(4, env__);
+      }
+      for (java.util.Map.Entry<java.lang.String, java.lang.Integer> entry
+           : internalGetPorts().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
+        ports__ = PortsDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(5, ports__);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof meshpaas.Schema.Container)) {
+        return super.equals(obj);
+      }
+      meshpaas.Schema.Container other = (meshpaas.Schema.Container) obj;
+
+      boolean result = true;
+      result = result && getName()
+          .equals(other.getName());
+      result = result && getImage()
+          .equals(other.getImage());
+      result = result && getArgsList()
+          .equals(other.getArgsList());
+      result = result && internalGetEnv().equals(
+          other.internalGetEnv());
+      result = result && internalGetPorts().equals(
+          other.internalGetPorts());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
+      hash = (37 * hash) + IMAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getImage().hashCode();
+      if (getArgsCount() > 0) {
+        hash = (37 * hash) + ARGS_FIELD_NUMBER;
+        hash = (53 * hash) + getArgsList().hashCode();
+      }
+      if (!internalGetEnv().getMap().isEmpty()) {
+        hash = (37 * hash) + ENV_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetEnv().hashCode();
+      }
+      if (!internalGetPorts().getMap().isEmpty()) {
+        hash = (37 * hash) + PORTS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetPorts().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static meshpaas.Schema.Container parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.Container parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.Container parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.Container parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.Container parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.Container parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.Container parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.Container parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static meshpaas.Schema.Container parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.Container parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static meshpaas.Schema.Container parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.Container parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(meshpaas.Schema.Container prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Container is a single docker container
+     * </pre>
+     *
+     * Protobuf type {@code meshpaas.Container}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:meshpaas.Container)
+        meshpaas.Schema.ContainerOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return meshpaas.Schema.internal_static_meshpaas_Container_descriptor;
+      }
+
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 4:
+            return internalGetEnv();
+          case 5:
+            return internalGetPorts();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 4:
+            return internalGetMutableEnv();
+          case 5:
+            return internalGetMutablePorts();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return meshpaas.Schema.internal_static_meshpaas_Container_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                meshpaas.Schema.Container.class, meshpaas.Schema.Container.Builder.class);
+      }
+
+      // Construct using meshpaas.Schema.Container.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+
+        image_ = "";
+
+        args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        internalGetMutableEnv().clear();
+        internalGetMutablePorts().clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return meshpaas.Schema.internal_static_meshpaas_Container_descriptor;
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.Container getDefaultInstanceForType() {
+        return meshpaas.Schema.Container.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.Container build() {
+        meshpaas.Schema.Container result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.Container buildPartial() {
+        meshpaas.Schema.Container result = new meshpaas.Schema.Container(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.name_ = name_;
+        result.image_ = image_;
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          args_ = args_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.args_ = args_;
+        result.env_ = internalGetEnv();
+        result.env_.makeImmutable();
+        result.ports_ = internalGetPorts();
+        result.ports_.makeImmutable();
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof meshpaas.Schema.Container) {
+          return mergeFrom((meshpaas.Schema.Container)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(meshpaas.Schema.Container other) {
+        if (other == meshpaas.Schema.Container.getDefaultInstance()) return this;
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
+          onChanged();
+        }
+        if (!other.getImage().isEmpty()) {
+          image_ = other.image_;
+          onChanged();
+        }
+        if (!other.args_.isEmpty()) {
+          if (args_.isEmpty()) {
+            args_ = other.args_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureArgsIsMutable();
+            args_.addAll(other.args_);
+          }
+          onChanged();
+        }
+        internalGetMutableEnv().mergeFrom(
+            other.internalGetEnv());
+        internalGetMutablePorts().mergeFrom(
+            other.internalGetPorts());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        meshpaas.Schema.Container parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (meshpaas.Schema.Container) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object name_ = "";
+      /**
+       * <pre>
+       * name of the application
+       * </pre>
+       *
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * name of the application
+       * </pre>
+       *
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * name of the application
+       * </pre>
+       *
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * name of the application
+       * </pre>
+       *
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder clearName() {
+        
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * name of the application
+       * </pre>
+       *
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object image_ = "";
+      /**
+       * <pre>
+       * docker image of application
+       * </pre>
+       *
+       * <code>string image = 2 [(.validator.field) = { ... }</code>
+       */
+      public java.lang.String getImage() {
+        java.lang.Object ref = image_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          image_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * docker image of application
+       * </pre>
+       *
+       * <code>string image = 2 [(.validator.field) = { ... }</code>
+       */
+      public com.google.protobuf.ByteString
+          getImageBytes() {
+        java.lang.Object ref = image_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          image_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * docker image of application
+       * </pre>
+       *
+       * <code>string image = 2 [(.validator.field) = { ... }</code>
+       */
+      public Builder setImage(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        image_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * docker image of application
+       * </pre>
+       *
+       * <code>string image = 2 [(.validator.field) = { ... }</code>
+       */
+      public Builder clearImage() {
+        
+        image_ = getDefaultInstance().getImage();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * docker image of application
+       * </pre>
+       *
+       * <code>string image = 2 [(.validator.field) = { ... }</code>
+       */
+      public Builder setImageBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        image_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureArgsIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          args_ = new com.google.protobuf.LazyStringArrayList(args_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 3;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getArgsList() {
+        return args_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 3;</code>
+       */
+      public int getArgsCount() {
+        return args_.size();
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 3;</code>
+       */
+      public java.lang.String getArgs(int index) {
+        return args_.get(index);
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getArgsBytes(int index) {
+        return args_.getByteString(index);
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 3;</code>
+       */
+      public Builder setArgs(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureArgsIsMutable();
+        args_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 3;</code>
+       */
+      public Builder addArgs(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureArgsIsMutable();
+        args_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 3;</code>
+       */
+      public Builder addAllArgs(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureArgsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, args_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 3;</code>
+       */
+      public Builder clearArgs() {
+        args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * args are arguments given to the docker image at startup
+       * </pre>
+       *
+       * <code>repeated string args = 3;</code>
+       */
+      public Builder addArgsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureArgsIsMutable();
+        args_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.String> env_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetEnv() {
+        if (env_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              EnvDefaultEntryHolder.defaultEntry);
+        }
+        return env_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableEnv() {
+        onChanged();;
+        if (env_ == null) {
+          env_ = com.google.protobuf.MapField.newMapField(
+              EnvDefaultEntryHolder.defaultEntry);
+        }
+        if (!env_.isMutable()) {
+          env_ = env_.copy();
+        }
+        return env_;
+      }
+
+      public int getEnvCount() {
+        return internalGetEnv().getMap().size();
+      }
+      /**
+       * <pre>
+       * k/v map of environmental variables
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; env = 4;</code>
+       */
+
+      public boolean containsEnv(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        return internalGetEnv().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getEnvMap()} instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getEnv() {
+        return getEnvMap();
+      }
+      /**
+       * <pre>
+       * k/v map of environmental variables
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; env = 4;</code>
+       */
+
+      public java.util.Map<java.lang.String, java.lang.String> getEnvMap() {
+        return internalGetEnv().getMap();
+      }
+      /**
+       * <pre>
+       * k/v map of environmental variables
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; env = 4;</code>
+       */
+
+      public java.lang.String getEnvOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetEnv().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <pre>
+       * k/v map of environmental variables
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; env = 4;</code>
+       */
+
+      public java.lang.String getEnvOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetEnv().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearEnv() {
+        internalGetMutableEnv().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <pre>
+       * k/v map of environmental variables
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; env = 4;</code>
+       */
+
+      public Builder removeEnv(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableEnv().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
+      getMutableEnv() {
+        return internalGetMutableEnv().getMutableMap();
+      }
+      /**
+       * <pre>
+       * k/v map of environmental variables
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; env = 4;</code>
+       */
+      public Builder putEnv(
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableEnv().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <pre>
+       * k/v map of environmental variables
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; env = 4;</code>
+       */
+
+      public Builder putAllEnv(
+          java.util.Map<java.lang.String, java.lang.String> values) {
+        internalGetMutableEnv().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.Integer> ports_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
+      internalGetPorts() {
+        if (ports_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              PortsDefaultEntryHolder.defaultEntry);
+        }
+        return ports_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
+      internalGetMutablePorts() {
+        onChanged();;
+        if (ports_ == null) {
+          ports_ = com.google.protobuf.MapField.newMapField(
+              PortsDefaultEntryHolder.defaultEntry);
+        }
+        if (!ports_.isMutable()) {
+          ports_ = ports_.copy();
+        }
+        return ports_;
+      }
+
+      public int getPortsCount() {
+        return internalGetPorts().getMap().size();
+      }
+      /**
+       * <pre>
+       * k/v map of ports to expose ex: http: 80 https: 443
+       * </pre>
+       *
+       * <code>map&lt;string, uint32&gt; ports = 5 [(.validator.field) = { ... }</code>
+       */
+
+      public boolean containsPorts(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        return internalGetPorts().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getPortsMap()} instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.Integer> getPorts() {
+        return getPortsMap();
+      }
+      /**
+       * <pre>
+       * k/v map of ports to expose ex: http: 80 https: 443
+       * </pre>
+       *
+       * <code>map&lt;string, uint32&gt; ports = 5 [(.validator.field) = { ... }</code>
+       */
+
+      public java.util.Map<java.lang.String, java.lang.Integer> getPortsMap() {
+        return internalGetPorts().getMap();
+      }
+      /**
+       * <pre>
+       * k/v map of ports to expose ex: http: 80 https: 443
+       * </pre>
+       *
+       * <code>map&lt;string, uint32&gt; ports = 5 [(.validator.field) = { ... }</code>
+       */
+
+      public int getPortsOrDefault(
+          java.lang.String key,
+          int defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.Integer> map =
+            internalGetPorts().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <pre>
+       * k/v map of ports to expose ex: http: 80 https: 443
+       * </pre>
+       *
+       * <code>map&lt;string, uint32&gt; ports = 5 [(.validator.field) = { ... }</code>
+       */
+
+      public int getPortsOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.Integer> map =
+            internalGetPorts().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearPorts() {
+        internalGetMutablePorts().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <pre>
+       * k/v map of ports to expose ex: http: 80 https: 443
+       * </pre>
+       *
+       * <code>map&lt;string, uint32&gt; ports = 5 [(.validator.field) = { ... }</code>
+       */
+
+      public Builder removePorts(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutablePorts().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.Integer>
+      getMutablePorts() {
+        return internalGetMutablePorts().getMutableMap();
+      }
+      /**
+       * <pre>
+       * k/v map of ports to expose ex: http: 80 https: 443
+       * </pre>
+       *
+       * <code>map&lt;string, uint32&gt; ports = 5 [(.validator.field) = { ... }</code>
+       */
+      public Builder putPorts(
+          java.lang.String key,
+          int value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        
+        internalGetMutablePorts().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <pre>
+       * k/v map of ports to expose ex: http: 80 https: 443
+       * </pre>
+       *
+       * <code>map&lt;string, uint32&gt; ports = 5 [(.validator.field) = { ... }</code>
+       */
+
+      public Builder putAllPorts(
+          java.util.Map<java.lang.String, java.lang.Integer> values) {
+        internalGetMutablePorts().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:meshpaas.Container)
+    }
+
+    // @@protoc_insertion_point(class_scope:meshpaas.Container)
+    private static final meshpaas.Schema.Container DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new meshpaas.Schema.Container();
+    }
+
+    public static meshpaas.Schema.Container getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Container>
+        PARSER = new com.google.protobuf.AbstractParser<Container>() {
+      @java.lang.Override
+      public Container parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Container(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Container> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Container> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public meshpaas.Schema.Container getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface AppOrBuilder extends
       // @@protoc_insertion_point(interface_extends:meshpaas.App)
       com.google.protobuf.MessageOrBuilder {
@@ -9963,182 +14418,45 @@ public final class Schema {
 
     /**
      * <pre>
-     * application namespace
+     * application project
      * </pre>
      *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+     * <code>string project = 2 [(.validator.field) = { ... }</code>
      */
-    java.lang.String getNamespace();
+    java.lang.String getProject();
     /**
      * <pre>
-     * application namespace
+     * application project
      * </pre>
      *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+     * <code>string project = 2 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
-        getNamespaceBytes();
+        getProjectBytes();
 
     /**
-     * <pre>
-     * docker image of application
-     * </pre>
-     *
-     * <code>string image = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    java.lang.String getImage();
+    java.util.List<meshpaas.Schema.Container> 
+        getContainersList();
     /**
-     * <pre>
-     * docker image of application
-     * </pre>
-     *
-     * <code>string image = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    com.google.protobuf.ByteString
-        getImageBytes();
-
+    meshpaas.Schema.Container getContainers(int index);
     /**
-     * <pre>
-     * args are arguments given to the docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 5;</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    java.util.List<java.lang.String>
-        getArgsList();
+    int getContainersCount();
     /**
-     * <pre>
-     * args are arguments given to the docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 5;</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    int getArgsCount();
+    java.util.List<? extends meshpaas.Schema.ContainerOrBuilder> 
+        getContainersOrBuilderList();
     /**
-     * <pre>
-     * args are arguments given to the docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 5;</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    java.lang.String getArgs(int index);
-    /**
-     * <pre>
-     * args are arguments given to the docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 5;</code>
-     */
-    com.google.protobuf.ByteString
-        getArgsBytes(int index);
-
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-    int getEnvCount();
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-    boolean containsEnv(
-        java.lang.String key);
-    /**
-     * Use {@link #getEnvMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.String>
-    getEnv();
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-    java.util.Map<java.lang.String, java.lang.String>
-    getEnvMap();
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-
-    java.lang.String getEnvOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue);
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-
-    java.lang.String getEnvOrThrow(
-        java.lang.String key);
-
-    /**
-     * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
-     * </pre>
-     *
-     * <code>map&lt;string, uint32&gt; ports = 7 [(.validator.field) = { ... }</code>
-     */
-    int getPortsCount();
-    /**
-     * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
-     * </pre>
-     *
-     * <code>map&lt;string, uint32&gt; ports = 7 [(.validator.field) = { ... }</code>
-     */
-    boolean containsPorts(
-        java.lang.String key);
-    /**
-     * Use {@link #getPortsMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.Integer>
-    getPorts();
-    /**
-     * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
-     * </pre>
-     *
-     * <code>map&lt;string, uint32&gt; ports = 7 [(.validator.field) = { ... }</code>
-     */
-    java.util.Map<java.lang.String, java.lang.Integer>
-    getPortsMap();
-    /**
-     * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
-     * </pre>
-     *
-     * <code>map&lt;string, uint32&gt; ports = 7 [(.validator.field) = { ... }</code>
-     */
-
-    int getPortsOrDefault(
-        java.lang.String key,
-        int defaultValue);
-    /**
-     * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
-     * </pre>
-     *
-     * <code>map&lt;string, uint32&gt; ports = 7 [(.validator.field) = { ... }</code>
-     */
-
-    int getPortsOrThrow(
-        java.lang.String key);
+    meshpaas.Schema.ContainerOrBuilder getContainersOrBuilder(
+        int index);
 
     /**
      * <pre>
@@ -10285,9 +14603,8 @@ public final class Schema {
     }
     private App() {
       name_ = "";
-      namespace_ = "";
-      image_ = "";
-      args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      project_ = "";
+      containers_ = java.util.Collections.emptyList();
       replicas_ = 0;
     }
 
@@ -10324,48 +14641,16 @@ public final class Schema {
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              namespace_ = s;
+              project_ = s;
               break;
             }
             case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              image_ = s;
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                args_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000008;
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                containers_ = new java.util.ArrayList<meshpaas.Schema.Container>();
+                mutable_bitField0_ |= 0x00000004;
               }
-              args_.add(s);
-              break;
-            }
-            case 50: {
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-                env_ = com.google.protobuf.MapField.newMapField(
-                    EnvDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000010;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              env__ = input.readMessage(
-                  EnvDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              env_.getMutableMap().put(
-                  env__.getKey(), env__.getValue());
-              break;
-            }
-            case 58: {
-              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
-                ports_ = com.google.protobuf.MapField.newMapField(
-                    PortsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000020;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
-              ports__ = input.readMessage(
-                  PortsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              ports_.getMutableMap().put(
-                  ports__.getKey(), ports__.getValue());
+              containers_.add(
+                  input.readMessage(meshpaas.Schema.Container.parser(), extensionRegistry));
               break;
             }
             case 64: {
@@ -10374,10 +14659,10 @@ public final class Schema {
               break;
             }
             case 74: {
-              if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
                 labels_ = com.google.protobuf.MapField.newMapField(
                     LabelsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000080;
+                mutable_bitField0_ |= 0x00000010;
               }
               com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
               labels__ = input.readMessage(
@@ -10387,10 +14672,10 @@ public final class Schema {
               break;
             }
             case 82: {
-              if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
+              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
                 selector_ = com.google.protobuf.MapField.newMapField(
                     SelectorDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000100;
+                mutable_bitField0_ |= 0x00000020;
               }
               com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
               selector__ = input.readMessage(
@@ -10440,8 +14725,8 @@ public final class Schema {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-          args_ = args_.getUnmodifiableView();
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          containers_ = java.util.Collections.unmodifiableList(containers_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -10457,10 +14742,6 @@ public final class Schema {
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
-        case 6:
-          return internalGetEnv();
-        case 7:
-          return internalGetPorts();
         case 9:
           return internalGetLabels();
         case 10:
@@ -10521,317 +14802,81 @@ public final class Schema {
       }
     }
 
-    public static final int NAMESPACE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object namespace_;
+    public static final int PROJECT_FIELD_NUMBER = 2;
+    private volatile java.lang.Object project_;
     /**
      * <pre>
-     * application namespace
+     * application project
      * </pre>
      *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+     * <code>string project = 2 [(.validator.field) = { ... }</code>
      */
-    public java.lang.String getNamespace() {
-      java.lang.Object ref = namespace_;
+    public java.lang.String getProject() {
+      java.lang.Object ref = project_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        namespace_ = s;
+        project_ = s;
         return s;
       }
     }
     /**
      * <pre>
-     * application namespace
+     * application project
      * </pre>
      *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+     * <code>string project = 2 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
-        getNamespaceBytes() {
-      java.lang.Object ref = namespace_;
+        getProjectBytes() {
+      java.lang.Object ref = project_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        namespace_ = b;
+        project_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
 
-    public static final int IMAGE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object image_;
+    public static final int CONTAINERS_FIELD_NUMBER = 3;
+    private java.util.List<meshpaas.Schema.Container> containers_;
     /**
-     * <pre>
-     * docker image of application
-     * </pre>
-     *
-     * <code>string image = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    public java.lang.String getImage() {
-      java.lang.Object ref = image_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        image_ = s;
-        return s;
-      }
+    public java.util.List<meshpaas.Schema.Container> getContainersList() {
+      return containers_;
     }
     /**
-     * <pre>
-     * docker image of application
-     * </pre>
-     *
-     * <code>string image = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    public com.google.protobuf.ByteString
-        getImageBytes() {
-      java.lang.Object ref = image_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        image_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int ARGS_FIELD_NUMBER = 5;
-    private com.google.protobuf.LazyStringList args_;
-    /**
-     * <pre>
-     * args are arguments given to the docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 5;</code>
-     */
-    public com.google.protobuf.ProtocolStringList
-        getArgsList() {
-      return args_;
+    public java.util.List<? extends meshpaas.Schema.ContainerOrBuilder> 
+        getContainersOrBuilderList() {
+      return containers_;
     }
     /**
-     * <pre>
-     * args are arguments given to the docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 5;</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    public int getArgsCount() {
-      return args_.size();
+    public int getContainersCount() {
+      return containers_.size();
     }
     /**
-     * <pre>
-     * args are arguments given to the docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 5;</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    public java.lang.String getArgs(int index) {
-      return args_.get(index);
+    public meshpaas.Schema.Container getContainers(int index) {
+      return containers_.get(index);
     }
     /**
-     * <pre>
-     * args are arguments given to the docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 5;</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    public com.google.protobuf.ByteString
-        getArgsBytes(int index) {
-      return args_.getByteString(index);
-    }
-
-    public static final int ENV_FIELD_NUMBER = 6;
-    private static final class EnvDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.String> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.String>newDefaultInstance(
-                  meshpaas.Schema.internal_static_meshpaas_App_EnvEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "");
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> env_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetEnv() {
-      if (env_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            EnvDefaultEntryHolder.defaultEntry);
-      }
-      return env_;
-    }
-
-    public int getEnvCount() {
-      return internalGetEnv().getMap().size();
-    }
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-
-    public boolean containsEnv(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetEnv().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getEnvMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getEnv() {
-      return getEnvMap();
-    }
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-
-    public java.util.Map<java.lang.String, java.lang.String> getEnvMap() {
-      return internalGetEnv().getMap();
-    }
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-
-    public java.lang.String getEnvOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetEnv().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-
-    public java.lang.String getEnvOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetEnv().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
-    public static final int PORTS_FIELD_NUMBER = 7;
-    private static final class PortsDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.Integer> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.Integer>newDefaultInstance(
-                  meshpaas.Schema.internal_static_meshpaas_App_PortsEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.UINT32,
-                  0);
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.Integer> ports_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-    internalGetPorts() {
-      if (ports_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            PortsDefaultEntryHolder.defaultEntry);
-      }
-      return ports_;
-    }
-
-    public int getPortsCount() {
-      return internalGetPorts().getMap().size();
-    }
-    /**
-     * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
-     * </pre>
-     *
-     * <code>map&lt;string, uint32&gt; ports = 7 [(.validator.field) = { ... }</code>
-     */
-
-    public boolean containsPorts(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetPorts().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getPortsMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.Integer> getPorts() {
-      return getPortsMap();
-    }
-    /**
-     * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
-     * </pre>
-     *
-     * <code>map&lt;string, uint32&gt; ports = 7 [(.validator.field) = { ... }</code>
-     */
-
-    public java.util.Map<java.lang.String, java.lang.Integer> getPortsMap() {
-      return internalGetPorts().getMap();
-    }
-    /**
-     * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
-     * </pre>
-     *
-     * <code>map&lt;string, uint32&gt; ports = 7 [(.validator.field) = { ... }</code>
-     */
-
-    public int getPortsOrDefault(
-        java.lang.String key,
-        int defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.Integer> map =
-          internalGetPorts().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
-     * </pre>
-     *
-     * <code>map&lt;string, uint32&gt; ports = 7 [(.validator.field) = { ... }</code>
-     */
-
-    public int getPortsOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.Integer> map =
-          internalGetPorts().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
+    public meshpaas.Schema.ContainerOrBuilder getContainersOrBuilder(
+        int index) {
+      return containers_.get(index);
     }
 
     public static final int REPLICAS_FIELD_NUMBER = 8;
@@ -11082,27 +15127,12 @@ public final class Schema {
       if (!getNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
-      if (!getNamespaceBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, namespace_);
+      if (!getProjectBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, project_);
       }
-      if (!getImageBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, image_);
+      for (int i = 0; i < containers_.size(); i++) {
+        output.writeMessage(3, containers_.get(i));
       }
-      for (int i = 0; i < args_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, args_.getRaw(i));
-      }
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetEnv(),
-          EnvDefaultEntryHolder.defaultEntry,
-          6);
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetPorts(),
-          PortsDefaultEntryHolder.defaultEntry,
-          7);
       if (replicas_ != 0) {
         output.writeUInt32(8, replicas_);
       }
@@ -11136,39 +15166,12 @@ public final class Schema {
       if (!getNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
-      if (!getNamespaceBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, namespace_);
+      if (!getProjectBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, project_);
       }
-      if (!getImageBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, image_);
-      }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < args_.size(); i++) {
-          dataSize += computeStringSizeNoTag(args_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getArgsList().size();
-      }
-      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetEnv().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        env__ = EnvDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
+      for (int i = 0; i < containers_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(6, env__);
-      }
-      for (java.util.Map.Entry<java.lang.String, java.lang.Integer> entry
-           : internalGetPorts().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
-        ports__ = PortsDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(7, ports__);
+          .computeMessageSize(3, containers_.get(i));
       }
       if (replicas_ != 0) {
         size += com.google.protobuf.CodedOutputStream
@@ -11220,16 +15223,10 @@ public final class Schema {
       boolean result = true;
       result = result && getName()
           .equals(other.getName());
-      result = result && getNamespace()
-          .equals(other.getNamespace());
-      result = result && getImage()
-          .equals(other.getImage());
-      result = result && getArgsList()
-          .equals(other.getArgsList());
-      result = result && internalGetEnv().equals(
-          other.internalGetEnv());
-      result = result && internalGetPorts().equals(
-          other.internalGetPorts());
+      result = result && getProject()
+          .equals(other.getProject());
+      result = result && getContainersList()
+          .equals(other.getContainersList());
       result = result && (getReplicas()
           == other.getReplicas());
       result = result && internalGetLabels().equals(
@@ -11259,21 +15256,11 @@ public final class Schema {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + NAMESPACE_FIELD_NUMBER;
-      hash = (53 * hash) + getNamespace().hashCode();
-      hash = (37 * hash) + IMAGE_FIELD_NUMBER;
-      hash = (53 * hash) + getImage().hashCode();
-      if (getArgsCount() > 0) {
-        hash = (37 * hash) + ARGS_FIELD_NUMBER;
-        hash = (53 * hash) + getArgsList().hashCode();
-      }
-      if (!internalGetEnv().getMap().isEmpty()) {
-        hash = (37 * hash) + ENV_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetEnv().hashCode();
-      }
-      if (!internalGetPorts().getMap().isEmpty()) {
-        hash = (37 * hash) + PORTS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetPorts().hashCode();
+      hash = (37 * hash) + PROJECT_FIELD_NUMBER;
+      hash = (53 * hash) + getProject().hashCode();
+      if (getContainersCount() > 0) {
+        hash = (37 * hash) + CONTAINERS_FIELD_NUMBER;
+        hash = (53 * hash) + getContainersList().hashCode();
       }
       hash = (37 * hash) + REPLICAS_FIELD_NUMBER;
       hash = (53 * hash) + getReplicas();
@@ -11408,10 +15395,6 @@ public final class Schema {
       protected com.google.protobuf.MapField internalGetMapField(
           int number) {
         switch (number) {
-          case 6:
-            return internalGetEnv();
-          case 7:
-            return internalGetPorts();
           case 9:
             return internalGetLabels();
           case 10:
@@ -11425,10 +15408,6 @@ public final class Schema {
       protected com.google.protobuf.MapField internalGetMutableMapField(
           int number) {
         switch (number) {
-          case 6:
-            return internalGetMutableEnv();
-          case 7:
-            return internalGetMutablePorts();
           case 9:
             return internalGetMutableLabels();
           case 10:
@@ -11459,6 +15438,7 @@ public final class Schema {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getContainersFieldBuilder();
         }
       }
       @java.lang.Override
@@ -11466,14 +15446,14 @@ public final class Schema {
         super.clear();
         name_ = "";
 
-        namespace_ = "";
+        project_ = "";
 
-        image_ = "";
-
-        args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
-        internalGetMutableEnv().clear();
-        internalGetMutablePorts().clear();
+        if (containersBuilder_ == null) {
+          containers_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          containersBuilder_.clear();
+        }
         replicas_ = 0;
 
         internalGetMutableLabels().clear();
@@ -11519,17 +15499,16 @@ public final class Schema {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         result.name_ = name_;
-        result.namespace_ = namespace_;
-        result.image_ = image_;
-        if (((bitField0_ & 0x00000008) == 0x00000008)) {
-          args_ = args_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000008);
+        result.project_ = project_;
+        if (containersBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            containers_ = java.util.Collections.unmodifiableList(containers_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.containers_ = containers_;
+        } else {
+          result.containers_ = containersBuilder_.build();
         }
-        result.args_ = args_;
-        result.env_ = internalGetEnv();
-        result.env_.makeImmutable();
-        result.ports_ = internalGetPorts();
-        result.ports_.makeImmutable();
         result.replicas_ = replicas_;
         result.labels_ = internalGetLabels();
         result.labels_.makeImmutable();
@@ -11598,28 +15577,36 @@ public final class Schema {
           name_ = other.name_;
           onChanged();
         }
-        if (!other.getNamespace().isEmpty()) {
-          namespace_ = other.namespace_;
+        if (!other.getProject().isEmpty()) {
+          project_ = other.project_;
           onChanged();
         }
-        if (!other.getImage().isEmpty()) {
-          image_ = other.image_;
-          onChanged();
-        }
-        if (!other.args_.isEmpty()) {
-          if (args_.isEmpty()) {
-            args_ = other.args_;
-            bitField0_ = (bitField0_ & ~0x00000008);
-          } else {
-            ensureArgsIsMutable();
-            args_.addAll(other.args_);
+        if (containersBuilder_ == null) {
+          if (!other.containers_.isEmpty()) {
+            if (containers_.isEmpty()) {
+              containers_ = other.containers_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureContainersIsMutable();
+              containers_.addAll(other.containers_);
+            }
+            onChanged();
           }
-          onChanged();
+        } else {
+          if (!other.containers_.isEmpty()) {
+            if (containersBuilder_.isEmpty()) {
+              containersBuilder_.dispose();
+              containersBuilder_ = null;
+              containers_ = other.containers_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              containersBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getContainersFieldBuilder() : null;
+            } else {
+              containersBuilder_.addAllMessages(other.containers_);
+            }
+          }
         }
-        internalGetMutableEnv().mergeFrom(
-            other.internalGetEnv());
-        internalGetMutablePorts().mergeFrom(
-            other.internalGetPorts());
         if (other.getReplicas() != 0) {
           setReplicas(other.getReplicas());
         }
@@ -11752,21 +15739,21 @@ public final class Schema {
         return this;
       }
 
-      private java.lang.Object namespace_ = "";
+      private java.lang.Object project_ = "";
       /**
        * <pre>
-       * application namespace
+       * application project
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
        */
-      public java.lang.String getNamespace() {
-        java.lang.Object ref = namespace_;
+      public java.lang.String getProject() {
+        java.lang.Object ref = project_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          namespace_ = s;
+          project_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -11774,19 +15761,19 @@ public final class Schema {
       }
       /**
        * <pre>
-       * application namespace
+       * application project
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
-          getNamespaceBytes() {
-        java.lang.Object ref = namespace_;
+          getProjectBytes() {
+        java.lang.Object ref = project_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          namespace_ = b;
+          project_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -11794,572 +15781,291 @@ public final class Schema {
       }
       /**
        * <pre>
-       * application namespace
+       * application project
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
        */
-      public Builder setNamespace(
+      public Builder setProject(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        namespace_ = value;
+        project_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * application namespace
+       * application project
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
        */
-      public Builder clearNamespace() {
+      public Builder clearProject() {
         
-        namespace_ = getDefaultInstance().getNamespace();
+        project_ = getDefaultInstance().getProject();
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * application namespace
+       * application project
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
        */
-      public Builder setNamespaceBytes(
+      public Builder setProjectBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        namespace_ = value;
+        project_ = value;
         onChanged();
         return this;
       }
 
-      private java.lang.Object image_ = "";
-      /**
-       * <pre>
-       * docker image of application
-       * </pre>
-       *
-       * <code>string image = 3 [(.validator.field) = { ... }</code>
-       */
-      public java.lang.String getImage() {
-        java.lang.Object ref = image_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          image_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * docker image of application
-       * </pre>
-       *
-       * <code>string image = 3 [(.validator.field) = { ... }</code>
-       */
-      public com.google.protobuf.ByteString
-          getImageBytes() {
-        java.lang.Object ref = image_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          image_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * docker image of application
-       * </pre>
-       *
-       * <code>string image = 3 [(.validator.field) = { ... }</code>
-       */
-      public Builder setImage(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        image_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * docker image of application
-       * </pre>
-       *
-       * <code>string image = 3 [(.validator.field) = { ... }</code>
-       */
-      public Builder clearImage() {
-        
-        image_ = getDefaultInstance().getImage();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * docker image of application
-       * </pre>
-       *
-       * <code>string image = 3 [(.validator.field) = { ... }</code>
-       */
-      public Builder setImageBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        image_ = value;
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.LazyStringList args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureArgsIsMutable() {
-        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-          args_ = new com.google.protobuf.LazyStringArrayList(args_);
-          bitField0_ |= 0x00000008;
+      private java.util.List<meshpaas.Schema.Container> containers_ =
+        java.util.Collections.emptyList();
+      private void ensureContainersIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          containers_ = new java.util.ArrayList<meshpaas.Schema.Container>(containers_);
+          bitField0_ |= 0x00000004;
          }
       }
-      /**
-       * <pre>
-       * args are arguments given to the docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public com.google.protobuf.ProtocolStringList
-          getArgsList() {
-        return args_.getUnmodifiableView();
-      }
-      /**
-       * <pre>
-       * args are arguments given to the docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public int getArgsCount() {
-        return args_.size();
-      }
-      /**
-       * <pre>
-       * args are arguments given to the docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public java.lang.String getArgs(int index) {
-        return args_.get(index);
-      }
-      /**
-       * <pre>
-       * args are arguments given to the docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public com.google.protobuf.ByteString
-          getArgsBytes(int index) {
-        return args_.getByteString(index);
-      }
-      /**
-       * <pre>
-       * args are arguments given to the docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public Builder setArgs(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureArgsIsMutable();
-        args_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * args are arguments given to the docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public Builder addArgs(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureArgsIsMutable();
-        args_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * args are arguments given to the docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public Builder addAllArgs(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureArgsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, args_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * args are arguments given to the docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public Builder clearArgs() {
-        args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * args are arguments given to the docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public Builder addArgsBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        ensureArgsIsMutable();
-        args_.add(value);
-        onChanged();
-        return this;
-      }
 
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> env_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetEnv() {
-        if (env_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              EnvDefaultEntryHolder.defaultEntry);
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          meshpaas.Schema.Container, meshpaas.Schema.Container.Builder, meshpaas.Schema.ContainerOrBuilder> containersBuilder_;
+
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public java.util.List<meshpaas.Schema.Container> getContainersList() {
+        if (containersBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(containers_);
+        } else {
+          return containersBuilder_.getMessageList();
         }
-        return env_;
       }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableEnv() {
-        onChanged();;
-        if (env_ == null) {
-          env_ = com.google.protobuf.MapField.newMapField(
-              EnvDefaultEntryHolder.defaultEntry);
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public int getContainersCount() {
+        if (containersBuilder_ == null) {
+          return containers_.size();
+        } else {
+          return containersBuilder_.getCount();
         }
-        if (!env_.isMutable()) {
-          env_ = env_.copy();
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public meshpaas.Schema.Container getContainers(int index) {
+        if (containersBuilder_ == null) {
+          return containers_.get(index);
+        } else {
+          return containersBuilder_.getMessage(index);
         }
-        return env_;
-      }
-
-      public int getEnvCount() {
-        return internalGetEnv().getMap().size();
       }
       /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 6;</code>
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
        */
-
-      public boolean containsEnv(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetEnv().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getEnvMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getEnv() {
-        return getEnvMap();
-      }
-      /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 6;</code>
-       */
-
-      public java.util.Map<java.lang.String, java.lang.String> getEnvMap() {
-        return internalGetEnv().getMap();
-      }
-      /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 6;</code>
-       */
-
-      public java.lang.String getEnvOrDefault(
-          java.lang.String key,
-          java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetEnv().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 6;</code>
-       */
-
-      public java.lang.String getEnvOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetEnv().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
+      public Builder setContainers(
+          int index, meshpaas.Schema.Container value) {
+        if (containersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureContainersIsMutable();
+          containers_.set(index, value);
+          onChanged();
+        } else {
+          containersBuilder_.setMessage(index, value);
         }
-        return map.get(key);
-      }
-
-      public Builder clearEnv() {
-        internalGetMutableEnv().getMutableMap()
-            .clear();
         return this;
       }
       /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 6;</code>
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
        */
-
-      public Builder removeEnv(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableEnv().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String>
-      getMutableEnv() {
-        return internalGetMutableEnv().getMutableMap();
-      }
-      /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 6;</code>
-       */
-      public Builder putEnv(
-          java.lang.String key,
-          java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableEnv().getMutableMap()
-            .put(key, value);
-        return this;
-      }
-      /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 6;</code>
-       */
-
-      public Builder putAllEnv(
-          java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableEnv().getMutableMap()
-            .putAll(values);
-        return this;
-      }
-
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.Integer> ports_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-      internalGetPorts() {
-        if (ports_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              PortsDefaultEntryHolder.defaultEntry);
+      public Builder setContainers(
+          int index, meshpaas.Schema.Container.Builder builderForValue) {
+        if (containersBuilder_ == null) {
+          ensureContainersIsMutable();
+          containers_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          containersBuilder_.setMessage(index, builderForValue.build());
         }
-        return ports_;
+        return this;
       }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-      internalGetMutablePorts() {
-        onChanged();;
-        if (ports_ == null) {
-          ports_ = com.google.protobuf.MapField.newMapField(
-              PortsDefaultEntryHolder.defaultEntry);
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public Builder addContainers(meshpaas.Schema.Container value) {
+        if (containersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureContainersIsMutable();
+          containers_.add(value);
+          onChanged();
+        } else {
+          containersBuilder_.addMessage(value);
         }
-        if (!ports_.isMutable()) {
-          ports_ = ports_.copy();
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public Builder addContainers(
+          int index, meshpaas.Schema.Container value) {
+        if (containersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureContainersIsMutable();
+          containers_.add(index, value);
+          onChanged();
+        } else {
+          containersBuilder_.addMessage(index, value);
         }
-        return ports_;
-      }
-
-      public int getPortsCount() {
-        return internalGetPorts().getMap().size();
+        return this;
       }
       /**
-       * <pre>
-       * k/v map of ports to expose ex: http: 80 https: 443
-       * </pre>
-       *
-       * <code>map&lt;string, uint32&gt; ports = 7 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
        */
-
-      public boolean containsPorts(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetPorts().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getPortsMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.Integer> getPorts() {
-        return getPortsMap();
-      }
-      /**
-       * <pre>
-       * k/v map of ports to expose ex: http: 80 https: 443
-       * </pre>
-       *
-       * <code>map&lt;string, uint32&gt; ports = 7 [(.validator.field) = { ... }</code>
-       */
-
-      public java.util.Map<java.lang.String, java.lang.Integer> getPortsMap() {
-        return internalGetPorts().getMap();
-      }
-      /**
-       * <pre>
-       * k/v map of ports to expose ex: http: 80 https: 443
-       * </pre>
-       *
-       * <code>map&lt;string, uint32&gt; ports = 7 [(.validator.field) = { ... }</code>
-       */
-
-      public int getPortsOrDefault(
-          java.lang.String key,
-          int defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.Integer> map =
-            internalGetPorts().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <pre>
-       * k/v map of ports to expose ex: http: 80 https: 443
-       * </pre>
-       *
-       * <code>map&lt;string, uint32&gt; ports = 7 [(.validator.field) = { ... }</code>
-       */
-
-      public int getPortsOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.Integer> map =
-            internalGetPorts().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
+      public Builder addContainers(
+          meshpaas.Schema.Container.Builder builderForValue) {
+        if (containersBuilder_ == null) {
+          ensureContainersIsMutable();
+          containers_.add(builderForValue.build());
+          onChanged();
+        } else {
+          containersBuilder_.addMessage(builderForValue.build());
         }
-        return map.get(key);
-      }
-
-      public Builder clearPorts() {
-        internalGetMutablePorts().getMutableMap()
-            .clear();
         return this;
       }
       /**
-       * <pre>
-       * k/v map of ports to expose ex: http: 80 https: 443
-       * </pre>
-       *
-       * <code>map&lt;string, uint32&gt; ports = 7 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
        */
-
-      public Builder removePorts(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutablePorts().getMutableMap()
-            .remove(key);
+      public Builder addContainers(
+          int index, meshpaas.Schema.Container.Builder builderForValue) {
+        if (containersBuilder_ == null) {
+          ensureContainersIsMutable();
+          containers_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          containersBuilder_.addMessage(index, builderForValue.build());
+        }
         return this;
       }
       /**
-       * Use alternate mutation accessors instead.
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
        */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.Integer>
-      getMutablePorts() {
-        return internalGetMutablePorts().getMutableMap();
-      }
-      /**
-       * <pre>
-       * k/v map of ports to expose ex: http: 80 https: 443
-       * </pre>
-       *
-       * <code>map&lt;string, uint32&gt; ports = 7 [(.validator.field) = { ... }</code>
-       */
-      public Builder putPorts(
-          java.lang.String key,
-          int value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        
-        internalGetMutablePorts().getMutableMap()
-            .put(key, value);
+      public Builder addAllContainers(
+          java.lang.Iterable<? extends meshpaas.Schema.Container> values) {
+        if (containersBuilder_ == null) {
+          ensureContainersIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, containers_);
+          onChanged();
+        } else {
+          containersBuilder_.addAllMessages(values);
+        }
         return this;
       }
       /**
-       * <pre>
-       * k/v map of ports to expose ex: http: 80 https: 443
-       * </pre>
-       *
-       * <code>map&lt;string, uint32&gt; ports = 7 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
        */
-
-      public Builder putAllPorts(
-          java.util.Map<java.lang.String, java.lang.Integer> values) {
-        internalGetMutablePorts().getMutableMap()
-            .putAll(values);
+      public Builder clearContainers() {
+        if (containersBuilder_ == null) {
+          containers_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          containersBuilder_.clear();
+        }
         return this;
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public Builder removeContainers(int index) {
+        if (containersBuilder_ == null) {
+          ensureContainersIsMutable();
+          containers_.remove(index);
+          onChanged();
+        } else {
+          containersBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public meshpaas.Schema.Container.Builder getContainersBuilder(
+          int index) {
+        return getContainersFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public meshpaas.Schema.ContainerOrBuilder getContainersOrBuilder(
+          int index) {
+        if (containersBuilder_ == null) {
+          return containers_.get(index);  } else {
+          return containersBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public java.util.List<? extends meshpaas.Schema.ContainerOrBuilder> 
+           getContainersOrBuilderList() {
+        if (containersBuilder_ != null) {
+          return containersBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(containers_);
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public meshpaas.Schema.Container.Builder addContainersBuilder() {
+        return getContainersFieldBuilder().addBuilder(
+            meshpaas.Schema.Container.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public meshpaas.Schema.Container.Builder addContainersBuilder(
+          int index) {
+        return getContainersFieldBuilder().addBuilder(
+            index, meshpaas.Schema.Container.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public java.util.List<meshpaas.Schema.Container.Builder> 
+           getContainersBuilderList() {
+        return getContainersFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          meshpaas.Schema.Container, meshpaas.Schema.Container.Builder, meshpaas.Schema.ContainerOrBuilder> 
+          getContainersFieldBuilder() {
+        if (containersBuilder_ == null) {
+          containersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              meshpaas.Schema.Container, meshpaas.Schema.Container.Builder, meshpaas.Schema.ContainerOrBuilder>(
+                  containers_,
+                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  getParentForChildren(),
+                  isClean());
+          containers_ = null;
+        }
+        return containersBuilder_;
       }
 
       private int replicas_ ;
@@ -13028,128 +16734,45 @@ public final class Schema {
 
     /**
      * <pre>
-     * task namespace
+     * task project
      * </pre>
      *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+     * <code>string project = 2 [(.validator.field) = { ... }</code>
      */
-    java.lang.String getNamespace();
+    java.lang.String getProject();
     /**
      * <pre>
-     * task namespace
+     * task project
      * </pre>
      *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+     * <code>string project = 2 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
-        getNamespaceBytes();
+        getProjectBytes();
 
     /**
-     * <pre>
-     * docker image of task
-     * </pre>
-     *
-     * <code>string image = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    java.lang.String getImage();
+    java.util.List<meshpaas.Schema.Container> 
+        getContainersList();
     /**
-     * <pre>
-     * docker image of task
-     * </pre>
-     *
-     * <code>string image = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    com.google.protobuf.ByteString
-        getImageBytes();
-
+    meshpaas.Schema.Container getContainers(int index);
     /**
-     * <pre>
-     * args are arguments given to docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 5;</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    java.util.List<java.lang.String>
-        getArgsList();
+    int getContainersCount();
     /**
-     * <pre>
-     * args are arguments given to docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 5;</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    int getArgsCount();
+    java.util.List<? extends meshpaas.Schema.ContainerOrBuilder> 
+        getContainersOrBuilderList();
     /**
-     * <pre>
-     * args are arguments given to docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 5;</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    java.lang.String getArgs(int index);
-    /**
-     * <pre>
-     * args are arguments given to docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 5;</code>
-     */
-    com.google.protobuf.ByteString
-        getArgsBytes(int index);
-
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-    int getEnvCount();
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-    boolean containsEnv(
-        java.lang.String key);
-    /**
-     * Use {@link #getEnvMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.String>
-    getEnv();
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-    java.util.Map<java.lang.String, java.lang.String>
-    getEnvMap();
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-
-    java.lang.String getEnvOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue);
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-
-    java.lang.String getEnvOrThrow(
-        java.lang.String key);
+    meshpaas.Schema.ContainerOrBuilder getContainersOrBuilder(
+        int index);
 
     /**
      * <pre>
@@ -13264,9 +16887,8 @@ public final class Schema {
     }
     private Task() {
       name_ = "";
-      namespace_ = "";
-      image_ = "";
-      args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      project_ = "";
+      containers_ = java.util.Collections.emptyList();
       schedule_ = "";
       completions_ = 0;
     }
@@ -13304,35 +16926,16 @@ public final class Schema {
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              namespace_ = s;
+              project_ = s;
               break;
             }
             case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              image_ = s;
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                args_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000008;
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                containers_ = new java.util.ArrayList<meshpaas.Schema.Container>();
+                mutable_bitField0_ |= 0x00000004;
               }
-              args_.add(s);
-              break;
-            }
-            case 50: {
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-                env_ = com.google.protobuf.MapField.newMapField(
-                    EnvDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000010;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              env__ = input.readMessage(
-                  EnvDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              env_.getMutableMap().put(
-                  env__.getKey(), env__.getValue());
+              containers_.add(
+                  input.readMessage(meshpaas.Schema.Container.parser(), extensionRegistry));
               break;
             }
             case 58: {
@@ -13347,10 +16950,10 @@ public final class Schema {
               break;
             }
             case 74: {
-              if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
                 labels_ = com.google.protobuf.MapField.newMapField(
                     LabelsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000080;
+                mutable_bitField0_ |= 0x00000020;
               }
               com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
               labels__ = input.readMessage(
@@ -13360,10 +16963,10 @@ public final class Schema {
               break;
             }
             case 82: {
-              if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
+              if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
                 selector_ = com.google.protobuf.MapField.newMapField(
                     SelectorDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000100;
+                mutable_bitField0_ |= 0x00000040;
               }
               com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
               selector__ = input.readMessage(
@@ -13387,8 +16990,8 @@ public final class Schema {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-          args_ = args_.getUnmodifiableView();
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          containers_ = java.util.Collections.unmodifiableList(containers_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -13404,8 +17007,6 @@ public final class Schema {
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
-        case 6:
-          return internalGetEnv();
         case 9:
           return internalGetLabels();
         case 10:
@@ -13466,225 +17067,81 @@ public final class Schema {
       }
     }
 
-    public static final int NAMESPACE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object namespace_;
+    public static final int PROJECT_FIELD_NUMBER = 2;
+    private volatile java.lang.Object project_;
     /**
      * <pre>
-     * task namespace
+     * task project
      * </pre>
      *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+     * <code>string project = 2 [(.validator.field) = { ... }</code>
      */
-    public java.lang.String getNamespace() {
-      java.lang.Object ref = namespace_;
+    public java.lang.String getProject() {
+      java.lang.Object ref = project_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        namespace_ = s;
+        project_ = s;
         return s;
       }
     }
     /**
      * <pre>
-     * task namespace
+     * task project
      * </pre>
      *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+     * <code>string project = 2 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
-        getNamespaceBytes() {
-      java.lang.Object ref = namespace_;
+        getProjectBytes() {
+      java.lang.Object ref = project_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        namespace_ = b;
+        project_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
 
-    public static final int IMAGE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object image_;
+    public static final int CONTAINERS_FIELD_NUMBER = 3;
+    private java.util.List<meshpaas.Schema.Container> containers_;
     /**
-     * <pre>
-     * docker image of task
-     * </pre>
-     *
-     * <code>string image = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    public java.lang.String getImage() {
-      java.lang.Object ref = image_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        image_ = s;
-        return s;
-      }
+    public java.util.List<meshpaas.Schema.Container> getContainersList() {
+      return containers_;
     }
     /**
-     * <pre>
-     * docker image of task
-     * </pre>
-     *
-     * <code>string image = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    public com.google.protobuf.ByteString
-        getImageBytes() {
-      java.lang.Object ref = image_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        image_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int ARGS_FIELD_NUMBER = 5;
-    private com.google.protobuf.LazyStringList args_;
-    /**
-     * <pre>
-     * args are arguments given to docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 5;</code>
-     */
-    public com.google.protobuf.ProtocolStringList
-        getArgsList() {
-      return args_;
+    public java.util.List<? extends meshpaas.Schema.ContainerOrBuilder> 
+        getContainersOrBuilderList() {
+      return containers_;
     }
     /**
-     * <pre>
-     * args are arguments given to docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 5;</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    public int getArgsCount() {
-      return args_.size();
+    public int getContainersCount() {
+      return containers_.size();
     }
     /**
-     * <pre>
-     * args are arguments given to docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 5;</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    public java.lang.String getArgs(int index) {
-      return args_.get(index);
+    public meshpaas.Schema.Container getContainers(int index) {
+      return containers_.get(index);
     }
     /**
-     * <pre>
-     * args are arguments given to docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 5;</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    public com.google.protobuf.ByteString
-        getArgsBytes(int index) {
-      return args_.getByteString(index);
-    }
-
-    public static final int ENV_FIELD_NUMBER = 6;
-    private static final class EnvDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.String> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.String>newDefaultInstance(
-                  meshpaas.Schema.internal_static_meshpaas_Task_EnvEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "");
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> env_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetEnv() {
-      if (env_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            EnvDefaultEntryHolder.defaultEntry);
-      }
-      return env_;
-    }
-
-    public int getEnvCount() {
-      return internalGetEnv().getMap().size();
-    }
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-
-    public boolean containsEnv(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetEnv().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getEnvMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getEnv() {
-      return getEnvMap();
-    }
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-
-    public java.util.Map<java.lang.String, java.lang.String> getEnvMap() {
-      return internalGetEnv().getMap();
-    }
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-
-    public java.lang.String getEnvOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetEnv().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-
-    public java.lang.String getEnvOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetEnv().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
+    public meshpaas.Schema.ContainerOrBuilder getContainersOrBuilder(
+        int index) {
+      return containers_.get(index);
     }
 
     public static final int SCHEDULE_FIELD_NUMBER = 7;
@@ -13911,21 +17368,12 @@ public final class Schema {
       if (!getNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
-      if (!getNamespaceBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, namespace_);
+      if (!getProjectBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, project_);
       }
-      if (!getImageBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, image_);
+      for (int i = 0; i < containers_.size(); i++) {
+        output.writeMessage(3, containers_.get(i));
       }
-      for (int i = 0; i < args_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, args_.getRaw(i));
-      }
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetEnv(),
-          EnvDefaultEntryHolder.defaultEntry,
-          6);
       if (!getScheduleBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, schedule_);
       }
@@ -13956,29 +17404,12 @@ public final class Schema {
       if (!getNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
-      if (!getNamespaceBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, namespace_);
+      if (!getProjectBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, project_);
       }
-      if (!getImageBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, image_);
-      }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < args_.size(); i++) {
-          dataSize += computeStringSizeNoTag(args_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getArgsList().size();
-      }
-      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetEnv().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        env__ = EnvDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
+      for (int i = 0; i < containers_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(6, env__);
+          .computeMessageSize(3, containers_.get(i));
       }
       if (!getScheduleBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, schedule_);
@@ -14025,14 +17456,10 @@ public final class Schema {
       boolean result = true;
       result = result && getName()
           .equals(other.getName());
-      result = result && getNamespace()
-          .equals(other.getNamespace());
-      result = result && getImage()
-          .equals(other.getImage());
-      result = result && getArgsList()
-          .equals(other.getArgsList());
-      result = result && internalGetEnv().equals(
-          other.internalGetEnv());
+      result = result && getProject()
+          .equals(other.getProject());
+      result = result && getContainersList()
+          .equals(other.getContainersList());
       result = result && getSchedule()
           .equals(other.getSchedule());
       result = result && (getCompletions()
@@ -14054,17 +17481,11 @@ public final class Schema {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + NAMESPACE_FIELD_NUMBER;
-      hash = (53 * hash) + getNamespace().hashCode();
-      hash = (37 * hash) + IMAGE_FIELD_NUMBER;
-      hash = (53 * hash) + getImage().hashCode();
-      if (getArgsCount() > 0) {
-        hash = (37 * hash) + ARGS_FIELD_NUMBER;
-        hash = (53 * hash) + getArgsList().hashCode();
-      }
-      if (!internalGetEnv().getMap().isEmpty()) {
-        hash = (37 * hash) + ENV_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetEnv().hashCode();
+      hash = (37 * hash) + PROJECT_FIELD_NUMBER;
+      hash = (53 * hash) + getProject().hashCode();
+      if (getContainersCount() > 0) {
+        hash = (37 * hash) + CONTAINERS_FIELD_NUMBER;
+        hash = (53 * hash) + getContainersList().hashCode();
       }
       hash = (37 * hash) + SCHEDULE_FIELD_NUMBER;
       hash = (53 * hash) + getSchedule().hashCode();
@@ -14193,8 +17614,6 @@ public final class Schema {
       protected com.google.protobuf.MapField internalGetMapField(
           int number) {
         switch (number) {
-          case 6:
-            return internalGetEnv();
           case 9:
             return internalGetLabels();
           case 10:
@@ -14208,8 +17627,6 @@ public final class Schema {
       protected com.google.protobuf.MapField internalGetMutableMapField(
           int number) {
         switch (number) {
-          case 6:
-            return internalGetMutableEnv();
           case 9:
             return internalGetMutableLabels();
           case 10:
@@ -14240,6 +17657,7 @@ public final class Schema {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getContainersFieldBuilder();
         }
       }
       @java.lang.Override
@@ -14247,13 +17665,14 @@ public final class Schema {
         super.clear();
         name_ = "";
 
-        namespace_ = "";
+        project_ = "";
 
-        image_ = "";
-
-        args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
-        internalGetMutableEnv().clear();
+        if (containersBuilder_ == null) {
+          containers_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          containersBuilder_.clear();
+        }
         schedule_ = "";
 
         completions_ = 0;
@@ -14289,15 +17708,16 @@ public final class Schema {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         result.name_ = name_;
-        result.namespace_ = namespace_;
-        result.image_ = image_;
-        if (((bitField0_ & 0x00000008) == 0x00000008)) {
-          args_ = args_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000008);
+        result.project_ = project_;
+        if (containersBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            containers_ = java.util.Collections.unmodifiableList(containers_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.containers_ = containers_;
+        } else {
+          result.containers_ = containersBuilder_.build();
         }
-        result.args_ = args_;
-        result.env_ = internalGetEnv();
-        result.env_.makeImmutable();
         result.schedule_ = schedule_;
         result.completions_ = completions_;
         result.labels_ = internalGetLabels();
@@ -14357,26 +17777,36 @@ public final class Schema {
           name_ = other.name_;
           onChanged();
         }
-        if (!other.getNamespace().isEmpty()) {
-          namespace_ = other.namespace_;
+        if (!other.getProject().isEmpty()) {
+          project_ = other.project_;
           onChanged();
         }
-        if (!other.getImage().isEmpty()) {
-          image_ = other.image_;
-          onChanged();
-        }
-        if (!other.args_.isEmpty()) {
-          if (args_.isEmpty()) {
-            args_ = other.args_;
-            bitField0_ = (bitField0_ & ~0x00000008);
-          } else {
-            ensureArgsIsMutable();
-            args_.addAll(other.args_);
+        if (containersBuilder_ == null) {
+          if (!other.containers_.isEmpty()) {
+            if (containers_.isEmpty()) {
+              containers_ = other.containers_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureContainersIsMutable();
+              containers_.addAll(other.containers_);
+            }
+            onChanged();
           }
-          onChanged();
+        } else {
+          if (!other.containers_.isEmpty()) {
+            if (containersBuilder_.isEmpty()) {
+              containersBuilder_.dispose();
+              containersBuilder_ = null;
+              containers_ = other.containers_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              containersBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getContainersFieldBuilder() : null;
+            } else {
+              containersBuilder_.addAllMessages(other.containers_);
+            }
+          }
         }
-        internalGetMutableEnv().mergeFrom(
-            other.internalGetEnv());
         if (!other.getSchedule().isEmpty()) {
           schedule_ = other.schedule_;
           onChanged();
@@ -14507,21 +17937,21 @@ public final class Schema {
         return this;
       }
 
-      private java.lang.Object namespace_ = "";
+      private java.lang.Object project_ = "";
       /**
        * <pre>
-       * task namespace
+       * task project
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
        */
-      public java.lang.String getNamespace() {
-        java.lang.Object ref = namespace_;
+      public java.lang.String getProject() {
+        java.lang.Object ref = project_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          namespace_ = s;
+          project_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -14529,19 +17959,19 @@ public final class Schema {
       }
       /**
        * <pre>
-       * task namespace
+       * task project
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
-          getNamespaceBytes() {
-        java.lang.Object ref = namespace_;
+          getProjectBytes() {
+        java.lang.Object ref = project_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          namespace_ = b;
+          project_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -14549,421 +17979,291 @@ public final class Schema {
       }
       /**
        * <pre>
-       * task namespace
+       * task project
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
        */
-      public Builder setNamespace(
+      public Builder setProject(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        namespace_ = value;
+        project_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * task namespace
+       * task project
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
        */
-      public Builder clearNamespace() {
+      public Builder clearProject() {
         
-        namespace_ = getDefaultInstance().getNamespace();
+        project_ = getDefaultInstance().getProject();
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * task namespace
+       * task project
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
        */
-      public Builder setNamespaceBytes(
+      public Builder setProjectBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        namespace_ = value;
+        project_ = value;
         onChanged();
         return this;
       }
 
-      private java.lang.Object image_ = "";
-      /**
-       * <pre>
-       * docker image of task
-       * </pre>
-       *
-       * <code>string image = 3 [(.validator.field) = { ... }</code>
-       */
-      public java.lang.String getImage() {
-        java.lang.Object ref = image_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          image_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * docker image of task
-       * </pre>
-       *
-       * <code>string image = 3 [(.validator.field) = { ... }</code>
-       */
-      public com.google.protobuf.ByteString
-          getImageBytes() {
-        java.lang.Object ref = image_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          image_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * docker image of task
-       * </pre>
-       *
-       * <code>string image = 3 [(.validator.field) = { ... }</code>
-       */
-      public Builder setImage(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        image_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * docker image of task
-       * </pre>
-       *
-       * <code>string image = 3 [(.validator.field) = { ... }</code>
-       */
-      public Builder clearImage() {
-        
-        image_ = getDefaultInstance().getImage();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * docker image of task
-       * </pre>
-       *
-       * <code>string image = 3 [(.validator.field) = { ... }</code>
-       */
-      public Builder setImageBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        image_ = value;
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.LazyStringList args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureArgsIsMutable() {
-        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-          args_ = new com.google.protobuf.LazyStringArrayList(args_);
-          bitField0_ |= 0x00000008;
+      private java.util.List<meshpaas.Schema.Container> containers_ =
+        java.util.Collections.emptyList();
+      private void ensureContainersIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          containers_ = new java.util.ArrayList<meshpaas.Schema.Container>(containers_);
+          bitField0_ |= 0x00000004;
          }
       }
-      /**
-       * <pre>
-       * args are arguments given to docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public com.google.protobuf.ProtocolStringList
-          getArgsList() {
-        return args_.getUnmodifiableView();
-      }
-      /**
-       * <pre>
-       * args are arguments given to docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public int getArgsCount() {
-        return args_.size();
-      }
-      /**
-       * <pre>
-       * args are arguments given to docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public java.lang.String getArgs(int index) {
-        return args_.get(index);
-      }
-      /**
-       * <pre>
-       * args are arguments given to docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public com.google.protobuf.ByteString
-          getArgsBytes(int index) {
-        return args_.getByteString(index);
-      }
-      /**
-       * <pre>
-       * args are arguments given to docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public Builder setArgs(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureArgsIsMutable();
-        args_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * args are arguments given to docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public Builder addArgs(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureArgsIsMutable();
-        args_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * args are arguments given to docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public Builder addAllArgs(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureArgsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, args_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * args are arguments given to docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public Builder clearArgs() {
-        args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * args are arguments given to docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public Builder addArgsBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        ensureArgsIsMutable();
-        args_.add(value);
-        onChanged();
-        return this;
-      }
 
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> env_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetEnv() {
-        if (env_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              EnvDefaultEntryHolder.defaultEntry);
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          meshpaas.Schema.Container, meshpaas.Schema.Container.Builder, meshpaas.Schema.ContainerOrBuilder> containersBuilder_;
+
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public java.util.List<meshpaas.Schema.Container> getContainersList() {
+        if (containersBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(containers_);
+        } else {
+          return containersBuilder_.getMessageList();
         }
-        return env_;
       }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableEnv() {
-        onChanged();;
-        if (env_ == null) {
-          env_ = com.google.protobuf.MapField.newMapField(
-              EnvDefaultEntryHolder.defaultEntry);
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public int getContainersCount() {
+        if (containersBuilder_ == null) {
+          return containers_.size();
+        } else {
+          return containersBuilder_.getCount();
         }
-        if (!env_.isMutable()) {
-          env_ = env_.copy();
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public meshpaas.Schema.Container getContainers(int index) {
+        if (containersBuilder_ == null) {
+          return containers_.get(index);
+        } else {
+          return containersBuilder_.getMessage(index);
         }
-        return env_;
-      }
-
-      public int getEnvCount() {
-        return internalGetEnv().getMap().size();
       }
       /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 6;</code>
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
        */
-
-      public boolean containsEnv(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetEnv().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getEnvMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getEnv() {
-        return getEnvMap();
-      }
-      /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 6;</code>
-       */
-
-      public java.util.Map<java.lang.String, java.lang.String> getEnvMap() {
-        return internalGetEnv().getMap();
-      }
-      /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 6;</code>
-       */
-
-      public java.lang.String getEnvOrDefault(
-          java.lang.String key,
-          java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetEnv().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 6;</code>
-       */
-
-      public java.lang.String getEnvOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetEnv().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
+      public Builder setContainers(
+          int index, meshpaas.Schema.Container value) {
+        if (containersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureContainersIsMutable();
+          containers_.set(index, value);
+          onChanged();
+        } else {
+          containersBuilder_.setMessage(index, value);
         }
-        return map.get(key);
-      }
-
-      public Builder clearEnv() {
-        internalGetMutableEnv().getMutableMap()
-            .clear();
         return this;
       }
       /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 6;</code>
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
        */
-
-      public Builder removeEnv(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableEnv().getMutableMap()
-            .remove(key);
+      public Builder setContainers(
+          int index, meshpaas.Schema.Container.Builder builderForValue) {
+        if (containersBuilder_ == null) {
+          ensureContainersIsMutable();
+          containers_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          containersBuilder_.setMessage(index, builderForValue.build());
+        }
         return this;
       }
       /**
-       * Use alternate mutation accessors instead.
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
        */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String>
-      getMutableEnv() {
-        return internalGetMutableEnv().getMutableMap();
-      }
-      /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 6;</code>
-       */
-      public Builder putEnv(
-          java.lang.String key,
-          java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableEnv().getMutableMap()
-            .put(key, value);
+      public Builder addContainers(meshpaas.Schema.Container value) {
+        if (containersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureContainersIsMutable();
+          containers_.add(value);
+          onChanged();
+        } else {
+          containersBuilder_.addMessage(value);
+        }
         return this;
       }
       /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 6;</code>
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
        */
-
-      public Builder putAllEnv(
-          java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableEnv().getMutableMap()
-            .putAll(values);
+      public Builder addContainers(
+          int index, meshpaas.Schema.Container value) {
+        if (containersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureContainersIsMutable();
+          containers_.add(index, value);
+          onChanged();
+        } else {
+          containersBuilder_.addMessage(index, value);
+        }
         return this;
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public Builder addContainers(
+          meshpaas.Schema.Container.Builder builderForValue) {
+        if (containersBuilder_ == null) {
+          ensureContainersIsMutable();
+          containers_.add(builderForValue.build());
+          onChanged();
+        } else {
+          containersBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public Builder addContainers(
+          int index, meshpaas.Schema.Container.Builder builderForValue) {
+        if (containersBuilder_ == null) {
+          ensureContainersIsMutable();
+          containers_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          containersBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public Builder addAllContainers(
+          java.lang.Iterable<? extends meshpaas.Schema.Container> values) {
+        if (containersBuilder_ == null) {
+          ensureContainersIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, containers_);
+          onChanged();
+        } else {
+          containersBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public Builder clearContainers() {
+        if (containersBuilder_ == null) {
+          containers_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          containersBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public Builder removeContainers(int index) {
+        if (containersBuilder_ == null) {
+          ensureContainersIsMutable();
+          containers_.remove(index);
+          onChanged();
+        } else {
+          containersBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public meshpaas.Schema.Container.Builder getContainersBuilder(
+          int index) {
+        return getContainersFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public meshpaas.Schema.ContainerOrBuilder getContainersOrBuilder(
+          int index) {
+        if (containersBuilder_ == null) {
+          return containers_.get(index);  } else {
+          return containersBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public java.util.List<? extends meshpaas.Schema.ContainerOrBuilder> 
+           getContainersOrBuilderList() {
+        if (containersBuilder_ != null) {
+          return containersBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(containers_);
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public meshpaas.Schema.Container.Builder addContainersBuilder() {
+        return getContainersFieldBuilder().addBuilder(
+            meshpaas.Schema.Container.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public meshpaas.Schema.Container.Builder addContainersBuilder(
+          int index) {
+        return getContainersFieldBuilder().addBuilder(
+            index, meshpaas.Schema.Container.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public java.util.List<meshpaas.Schema.Container.Builder> 
+           getContainersBuilderList() {
+        return getContainersFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          meshpaas.Schema.Container, meshpaas.Schema.Container.Builder, meshpaas.Schema.ContainerOrBuilder> 
+          getContainersFieldBuilder() {
+        if (containersBuilder_ == null) {
+          containersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              meshpaas.Schema.Container, meshpaas.Schema.Container.Builder, meshpaas.Schema.ContainerOrBuilder>(
+                  containers_,
+                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  getParentForChildren(),
+                  isClean());
+          containers_ = null;
+        }
+        return containersBuilder_;
       }
 
       private java.lang.Object schedule_ = "";
@@ -15415,128 +18715,45 @@ public final class Schema {
 
     /**
      * <pre>
-     * task namespace
+     * task project
      * </pre>
      *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+     * <code>string project = 2 [(.validator.field) = { ... }</code>
      */
-    java.lang.String getNamespace();
+    java.lang.String getProject();
     /**
      * <pre>
-     * task namespace
+     * task project
      * </pre>
      *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+     * <code>string project = 2 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
-        getNamespaceBytes();
+        getProjectBytes();
 
     /**
-     * <pre>
-     * docker image of task
-     * </pre>
-     *
-     * <code>string image = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    java.lang.String getImage();
+    java.util.List<meshpaas.Schema.Container> 
+        getContainersList();
     /**
-     * <pre>
-     * docker image of task
-     * </pre>
-     *
-     * <code>string image = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    com.google.protobuf.ByteString
-        getImageBytes();
-
+    meshpaas.Schema.Container getContainers(int index);
     /**
-     * <pre>
-     * args are arguments given to docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 5;</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    java.util.List<java.lang.String>
-        getArgsList();
+    int getContainersCount();
     /**
-     * <pre>
-     * args are arguments given to docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 5;</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    int getArgsCount();
+    java.util.List<? extends meshpaas.Schema.ContainerOrBuilder> 
+        getContainersOrBuilderList();
     /**
-     * <pre>
-     * args are arguments given to docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 5;</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    java.lang.String getArgs(int index);
-    /**
-     * <pre>
-     * args are arguments given to docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 5;</code>
-     */
-    com.google.protobuf.ByteString
-        getArgsBytes(int index);
-
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-    int getEnvCount();
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-    boolean containsEnv(
-        java.lang.String key);
-    /**
-     * Use {@link #getEnvMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.String>
-    getEnv();
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-    java.util.Map<java.lang.String, java.lang.String>
-    getEnvMap();
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-
-    java.lang.String getEnvOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue);
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-
-    java.lang.String getEnvOrThrow(
-        java.lang.String key);
+    meshpaas.Schema.ContainerOrBuilder getContainersOrBuilder(
+        int index);
 
     /**
      * <pre>
@@ -15651,9 +18868,8 @@ public final class Schema {
     }
     private TaskInput() {
       name_ = "";
-      namespace_ = "";
-      image_ = "";
-      args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      project_ = "";
+      containers_ = java.util.Collections.emptyList();
       schedule_ = "";
       completions_ = 0;
     }
@@ -15691,35 +18907,16 @@ public final class Schema {
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              namespace_ = s;
+              project_ = s;
               break;
             }
             case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              image_ = s;
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                args_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000008;
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                containers_ = new java.util.ArrayList<meshpaas.Schema.Container>();
+                mutable_bitField0_ |= 0x00000004;
               }
-              args_.add(s);
-              break;
-            }
-            case 50: {
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-                env_ = com.google.protobuf.MapField.newMapField(
-                    EnvDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000010;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              env__ = input.readMessage(
-                  EnvDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              env_.getMutableMap().put(
-                  env__.getKey(), env__.getValue());
+              containers_.add(
+                  input.readMessage(meshpaas.Schema.Container.parser(), extensionRegistry));
               break;
             }
             case 58: {
@@ -15734,10 +18931,10 @@ public final class Schema {
               break;
             }
             case 74: {
-              if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
                 labels_ = com.google.protobuf.MapField.newMapField(
                     LabelsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000080;
+                mutable_bitField0_ |= 0x00000020;
               }
               com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
               labels__ = input.readMessage(
@@ -15747,10 +18944,10 @@ public final class Schema {
               break;
             }
             case 82: {
-              if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
+              if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
                 selector_ = com.google.protobuf.MapField.newMapField(
                     SelectorDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000100;
+                mutable_bitField0_ |= 0x00000040;
               }
               com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
               selector__ = input.readMessage(
@@ -15774,8 +18971,8 @@ public final class Schema {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-          args_ = args_.getUnmodifiableView();
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          containers_ = java.util.Collections.unmodifiableList(containers_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -15791,8 +18988,6 @@ public final class Schema {
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
-        case 6:
-          return internalGetEnv();
         case 9:
           return internalGetLabels();
         case 10:
@@ -15853,225 +19048,81 @@ public final class Schema {
       }
     }
 
-    public static final int NAMESPACE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object namespace_;
+    public static final int PROJECT_FIELD_NUMBER = 2;
+    private volatile java.lang.Object project_;
     /**
      * <pre>
-     * task namespace
+     * task project
      * </pre>
      *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+     * <code>string project = 2 [(.validator.field) = { ... }</code>
      */
-    public java.lang.String getNamespace() {
-      java.lang.Object ref = namespace_;
+    public java.lang.String getProject() {
+      java.lang.Object ref = project_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        namespace_ = s;
+        project_ = s;
         return s;
       }
     }
     /**
      * <pre>
-     * task namespace
+     * task project
      * </pre>
      *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+     * <code>string project = 2 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
-        getNamespaceBytes() {
-      java.lang.Object ref = namespace_;
+        getProjectBytes() {
+      java.lang.Object ref = project_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        namespace_ = b;
+        project_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
 
-    public static final int IMAGE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object image_;
+    public static final int CONTAINERS_FIELD_NUMBER = 3;
+    private java.util.List<meshpaas.Schema.Container> containers_;
     /**
-     * <pre>
-     * docker image of task
-     * </pre>
-     *
-     * <code>string image = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    public java.lang.String getImage() {
-      java.lang.Object ref = image_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        image_ = s;
-        return s;
-      }
+    public java.util.List<meshpaas.Schema.Container> getContainersList() {
+      return containers_;
     }
     /**
-     * <pre>
-     * docker image of task
-     * </pre>
-     *
-     * <code>string image = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    public com.google.protobuf.ByteString
-        getImageBytes() {
-      java.lang.Object ref = image_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        image_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int ARGS_FIELD_NUMBER = 5;
-    private com.google.protobuf.LazyStringList args_;
-    /**
-     * <pre>
-     * args are arguments given to docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 5;</code>
-     */
-    public com.google.protobuf.ProtocolStringList
-        getArgsList() {
-      return args_;
+    public java.util.List<? extends meshpaas.Schema.ContainerOrBuilder> 
+        getContainersOrBuilderList() {
+      return containers_;
     }
     /**
-     * <pre>
-     * args are arguments given to docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 5;</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    public int getArgsCount() {
-      return args_.size();
+    public int getContainersCount() {
+      return containers_.size();
     }
     /**
-     * <pre>
-     * args are arguments given to docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 5;</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    public java.lang.String getArgs(int index) {
-      return args_.get(index);
+    public meshpaas.Schema.Container getContainers(int index) {
+      return containers_.get(index);
     }
     /**
-     * <pre>
-     * args are arguments given to docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 5;</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    public com.google.protobuf.ByteString
-        getArgsBytes(int index) {
-      return args_.getByteString(index);
-    }
-
-    public static final int ENV_FIELD_NUMBER = 6;
-    private static final class EnvDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.String> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.String>newDefaultInstance(
-                  meshpaas.Schema.internal_static_meshpaas_TaskInput_EnvEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "");
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> env_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetEnv() {
-      if (env_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            EnvDefaultEntryHolder.defaultEntry);
-      }
-      return env_;
-    }
-
-    public int getEnvCount() {
-      return internalGetEnv().getMap().size();
-    }
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-
-    public boolean containsEnv(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetEnv().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getEnvMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getEnv() {
-      return getEnvMap();
-    }
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-
-    public java.util.Map<java.lang.String, java.lang.String> getEnvMap() {
-      return internalGetEnv().getMap();
-    }
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-
-    public java.lang.String getEnvOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetEnv().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-
-    public java.lang.String getEnvOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetEnv().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
+    public meshpaas.Schema.ContainerOrBuilder getContainersOrBuilder(
+        int index) {
+      return containers_.get(index);
     }
 
     public static final int SCHEDULE_FIELD_NUMBER = 7;
@@ -16298,21 +19349,12 @@ public final class Schema {
       if (!getNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
-      if (!getNamespaceBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, namespace_);
+      if (!getProjectBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, project_);
       }
-      if (!getImageBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, image_);
+      for (int i = 0; i < containers_.size(); i++) {
+        output.writeMessage(3, containers_.get(i));
       }
-      for (int i = 0; i < args_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, args_.getRaw(i));
-      }
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetEnv(),
-          EnvDefaultEntryHolder.defaultEntry,
-          6);
       if (!getScheduleBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, schedule_);
       }
@@ -16343,29 +19385,12 @@ public final class Schema {
       if (!getNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
-      if (!getNamespaceBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, namespace_);
+      if (!getProjectBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, project_);
       }
-      if (!getImageBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, image_);
-      }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < args_.size(); i++) {
-          dataSize += computeStringSizeNoTag(args_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getArgsList().size();
-      }
-      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetEnv().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        env__ = EnvDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
+      for (int i = 0; i < containers_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(6, env__);
+          .computeMessageSize(3, containers_.get(i));
       }
       if (!getScheduleBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, schedule_);
@@ -16412,14 +19437,10 @@ public final class Schema {
       boolean result = true;
       result = result && getName()
           .equals(other.getName());
-      result = result && getNamespace()
-          .equals(other.getNamespace());
-      result = result && getImage()
-          .equals(other.getImage());
-      result = result && getArgsList()
-          .equals(other.getArgsList());
-      result = result && internalGetEnv().equals(
-          other.internalGetEnv());
+      result = result && getProject()
+          .equals(other.getProject());
+      result = result && getContainersList()
+          .equals(other.getContainersList());
       result = result && getSchedule()
           .equals(other.getSchedule());
       result = result && (getCompletions()
@@ -16441,17 +19462,11 @@ public final class Schema {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + NAMESPACE_FIELD_NUMBER;
-      hash = (53 * hash) + getNamespace().hashCode();
-      hash = (37 * hash) + IMAGE_FIELD_NUMBER;
-      hash = (53 * hash) + getImage().hashCode();
-      if (getArgsCount() > 0) {
-        hash = (37 * hash) + ARGS_FIELD_NUMBER;
-        hash = (53 * hash) + getArgsList().hashCode();
-      }
-      if (!internalGetEnv().getMap().isEmpty()) {
-        hash = (37 * hash) + ENV_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetEnv().hashCode();
+      hash = (37 * hash) + PROJECT_FIELD_NUMBER;
+      hash = (53 * hash) + getProject().hashCode();
+      if (getContainersCount() > 0) {
+        hash = (37 * hash) + CONTAINERS_FIELD_NUMBER;
+        hash = (53 * hash) + getContainersList().hashCode();
       }
       hash = (37 * hash) + SCHEDULE_FIELD_NUMBER;
       hash = (53 * hash) + getSchedule().hashCode();
@@ -16580,8 +19595,6 @@ public final class Schema {
       protected com.google.protobuf.MapField internalGetMapField(
           int number) {
         switch (number) {
-          case 6:
-            return internalGetEnv();
           case 9:
             return internalGetLabels();
           case 10:
@@ -16595,8 +19608,6 @@ public final class Schema {
       protected com.google.protobuf.MapField internalGetMutableMapField(
           int number) {
         switch (number) {
-          case 6:
-            return internalGetMutableEnv();
           case 9:
             return internalGetMutableLabels();
           case 10:
@@ -16627,6 +19638,7 @@ public final class Schema {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getContainersFieldBuilder();
         }
       }
       @java.lang.Override
@@ -16634,13 +19646,14 @@ public final class Schema {
         super.clear();
         name_ = "";
 
-        namespace_ = "";
+        project_ = "";
 
-        image_ = "";
-
-        args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
-        internalGetMutableEnv().clear();
+        if (containersBuilder_ == null) {
+          containers_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          containersBuilder_.clear();
+        }
         schedule_ = "";
 
         completions_ = 0;
@@ -16676,15 +19689,16 @@ public final class Schema {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         result.name_ = name_;
-        result.namespace_ = namespace_;
-        result.image_ = image_;
-        if (((bitField0_ & 0x00000008) == 0x00000008)) {
-          args_ = args_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000008);
+        result.project_ = project_;
+        if (containersBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            containers_ = java.util.Collections.unmodifiableList(containers_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.containers_ = containers_;
+        } else {
+          result.containers_ = containersBuilder_.build();
         }
-        result.args_ = args_;
-        result.env_ = internalGetEnv();
-        result.env_.makeImmutable();
         result.schedule_ = schedule_;
         result.completions_ = completions_;
         result.labels_ = internalGetLabels();
@@ -16744,26 +19758,36 @@ public final class Schema {
           name_ = other.name_;
           onChanged();
         }
-        if (!other.getNamespace().isEmpty()) {
-          namespace_ = other.namespace_;
+        if (!other.getProject().isEmpty()) {
+          project_ = other.project_;
           onChanged();
         }
-        if (!other.getImage().isEmpty()) {
-          image_ = other.image_;
-          onChanged();
-        }
-        if (!other.args_.isEmpty()) {
-          if (args_.isEmpty()) {
-            args_ = other.args_;
-            bitField0_ = (bitField0_ & ~0x00000008);
-          } else {
-            ensureArgsIsMutable();
-            args_.addAll(other.args_);
+        if (containersBuilder_ == null) {
+          if (!other.containers_.isEmpty()) {
+            if (containers_.isEmpty()) {
+              containers_ = other.containers_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureContainersIsMutable();
+              containers_.addAll(other.containers_);
+            }
+            onChanged();
           }
-          onChanged();
+        } else {
+          if (!other.containers_.isEmpty()) {
+            if (containersBuilder_.isEmpty()) {
+              containersBuilder_.dispose();
+              containersBuilder_ = null;
+              containers_ = other.containers_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              containersBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getContainersFieldBuilder() : null;
+            } else {
+              containersBuilder_.addAllMessages(other.containers_);
+            }
+          }
         }
-        internalGetMutableEnv().mergeFrom(
-            other.internalGetEnv());
         if (!other.getSchedule().isEmpty()) {
           schedule_ = other.schedule_;
           onChanged();
@@ -16894,21 +19918,21 @@ public final class Schema {
         return this;
       }
 
-      private java.lang.Object namespace_ = "";
+      private java.lang.Object project_ = "";
       /**
        * <pre>
-       * task namespace
+       * task project
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
        */
-      public java.lang.String getNamespace() {
-        java.lang.Object ref = namespace_;
+      public java.lang.String getProject() {
+        java.lang.Object ref = project_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          namespace_ = s;
+          project_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -16916,19 +19940,19 @@ public final class Schema {
       }
       /**
        * <pre>
-       * task namespace
+       * task project
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
-          getNamespaceBytes() {
-        java.lang.Object ref = namespace_;
+          getProjectBytes() {
+        java.lang.Object ref = project_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          namespace_ = b;
+          project_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -16936,421 +19960,291 @@ public final class Schema {
       }
       /**
        * <pre>
-       * task namespace
+       * task project
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
        */
-      public Builder setNamespace(
+      public Builder setProject(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        namespace_ = value;
+        project_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * task namespace
+       * task project
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
        */
-      public Builder clearNamespace() {
+      public Builder clearProject() {
         
-        namespace_ = getDefaultInstance().getNamespace();
+        project_ = getDefaultInstance().getProject();
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * task namespace
+       * task project
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
        */
-      public Builder setNamespaceBytes(
+      public Builder setProjectBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        namespace_ = value;
+        project_ = value;
         onChanged();
         return this;
       }
 
-      private java.lang.Object image_ = "";
-      /**
-       * <pre>
-       * docker image of task
-       * </pre>
-       *
-       * <code>string image = 3 [(.validator.field) = { ... }</code>
-       */
-      public java.lang.String getImage() {
-        java.lang.Object ref = image_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          image_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * docker image of task
-       * </pre>
-       *
-       * <code>string image = 3 [(.validator.field) = { ... }</code>
-       */
-      public com.google.protobuf.ByteString
-          getImageBytes() {
-        java.lang.Object ref = image_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          image_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * docker image of task
-       * </pre>
-       *
-       * <code>string image = 3 [(.validator.field) = { ... }</code>
-       */
-      public Builder setImage(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        image_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * docker image of task
-       * </pre>
-       *
-       * <code>string image = 3 [(.validator.field) = { ... }</code>
-       */
-      public Builder clearImage() {
-        
-        image_ = getDefaultInstance().getImage();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * docker image of task
-       * </pre>
-       *
-       * <code>string image = 3 [(.validator.field) = { ... }</code>
-       */
-      public Builder setImageBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        image_ = value;
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.LazyStringList args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureArgsIsMutable() {
-        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-          args_ = new com.google.protobuf.LazyStringArrayList(args_);
-          bitField0_ |= 0x00000008;
+      private java.util.List<meshpaas.Schema.Container> containers_ =
+        java.util.Collections.emptyList();
+      private void ensureContainersIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          containers_ = new java.util.ArrayList<meshpaas.Schema.Container>(containers_);
+          bitField0_ |= 0x00000004;
          }
       }
-      /**
-       * <pre>
-       * args are arguments given to docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public com.google.protobuf.ProtocolStringList
-          getArgsList() {
-        return args_.getUnmodifiableView();
-      }
-      /**
-       * <pre>
-       * args are arguments given to docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public int getArgsCount() {
-        return args_.size();
-      }
-      /**
-       * <pre>
-       * args are arguments given to docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public java.lang.String getArgs(int index) {
-        return args_.get(index);
-      }
-      /**
-       * <pre>
-       * args are arguments given to docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public com.google.protobuf.ByteString
-          getArgsBytes(int index) {
-        return args_.getByteString(index);
-      }
-      /**
-       * <pre>
-       * args are arguments given to docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public Builder setArgs(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureArgsIsMutable();
-        args_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * args are arguments given to docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public Builder addArgs(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureArgsIsMutable();
-        args_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * args are arguments given to docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public Builder addAllArgs(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureArgsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, args_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * args are arguments given to docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public Builder clearArgs() {
-        args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * args are arguments given to docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public Builder addArgsBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        ensureArgsIsMutable();
-        args_.add(value);
-        onChanged();
-        return this;
-      }
 
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> env_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetEnv() {
-        if (env_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              EnvDefaultEntryHolder.defaultEntry);
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          meshpaas.Schema.Container, meshpaas.Schema.Container.Builder, meshpaas.Schema.ContainerOrBuilder> containersBuilder_;
+
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public java.util.List<meshpaas.Schema.Container> getContainersList() {
+        if (containersBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(containers_);
+        } else {
+          return containersBuilder_.getMessageList();
         }
-        return env_;
       }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableEnv() {
-        onChanged();;
-        if (env_ == null) {
-          env_ = com.google.protobuf.MapField.newMapField(
-              EnvDefaultEntryHolder.defaultEntry);
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public int getContainersCount() {
+        if (containersBuilder_ == null) {
+          return containers_.size();
+        } else {
+          return containersBuilder_.getCount();
         }
-        if (!env_.isMutable()) {
-          env_ = env_.copy();
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public meshpaas.Schema.Container getContainers(int index) {
+        if (containersBuilder_ == null) {
+          return containers_.get(index);
+        } else {
+          return containersBuilder_.getMessage(index);
         }
-        return env_;
-      }
-
-      public int getEnvCount() {
-        return internalGetEnv().getMap().size();
       }
       /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 6;</code>
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
        */
-
-      public boolean containsEnv(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetEnv().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getEnvMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getEnv() {
-        return getEnvMap();
-      }
-      /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 6;</code>
-       */
-
-      public java.util.Map<java.lang.String, java.lang.String> getEnvMap() {
-        return internalGetEnv().getMap();
-      }
-      /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 6;</code>
-       */
-
-      public java.lang.String getEnvOrDefault(
-          java.lang.String key,
-          java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetEnv().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 6;</code>
-       */
-
-      public java.lang.String getEnvOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetEnv().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
+      public Builder setContainers(
+          int index, meshpaas.Schema.Container value) {
+        if (containersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureContainersIsMutable();
+          containers_.set(index, value);
+          onChanged();
+        } else {
+          containersBuilder_.setMessage(index, value);
         }
-        return map.get(key);
-      }
-
-      public Builder clearEnv() {
-        internalGetMutableEnv().getMutableMap()
-            .clear();
         return this;
       }
       /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 6;</code>
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
        */
-
-      public Builder removeEnv(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableEnv().getMutableMap()
-            .remove(key);
+      public Builder setContainers(
+          int index, meshpaas.Schema.Container.Builder builderForValue) {
+        if (containersBuilder_ == null) {
+          ensureContainersIsMutable();
+          containers_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          containersBuilder_.setMessage(index, builderForValue.build());
+        }
         return this;
       }
       /**
-       * Use alternate mutation accessors instead.
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
        */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String>
-      getMutableEnv() {
-        return internalGetMutableEnv().getMutableMap();
-      }
-      /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 6;</code>
-       */
-      public Builder putEnv(
-          java.lang.String key,
-          java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableEnv().getMutableMap()
-            .put(key, value);
+      public Builder addContainers(meshpaas.Schema.Container value) {
+        if (containersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureContainersIsMutable();
+          containers_.add(value);
+          onChanged();
+        } else {
+          containersBuilder_.addMessage(value);
+        }
         return this;
       }
       /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 6;</code>
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
        */
-
-      public Builder putAllEnv(
-          java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableEnv().getMutableMap()
-            .putAll(values);
+      public Builder addContainers(
+          int index, meshpaas.Schema.Container value) {
+        if (containersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureContainersIsMutable();
+          containers_.add(index, value);
+          onChanged();
+        } else {
+          containersBuilder_.addMessage(index, value);
+        }
         return this;
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public Builder addContainers(
+          meshpaas.Schema.Container.Builder builderForValue) {
+        if (containersBuilder_ == null) {
+          ensureContainersIsMutable();
+          containers_.add(builderForValue.build());
+          onChanged();
+        } else {
+          containersBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public Builder addContainers(
+          int index, meshpaas.Schema.Container.Builder builderForValue) {
+        if (containersBuilder_ == null) {
+          ensureContainersIsMutable();
+          containers_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          containersBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public Builder addAllContainers(
+          java.lang.Iterable<? extends meshpaas.Schema.Container> values) {
+        if (containersBuilder_ == null) {
+          ensureContainersIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, containers_);
+          onChanged();
+        } else {
+          containersBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public Builder clearContainers() {
+        if (containersBuilder_ == null) {
+          containers_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          containersBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public Builder removeContainers(int index) {
+        if (containersBuilder_ == null) {
+          ensureContainersIsMutable();
+          containers_.remove(index);
+          onChanged();
+        } else {
+          containersBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public meshpaas.Schema.Container.Builder getContainersBuilder(
+          int index) {
+        return getContainersFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public meshpaas.Schema.ContainerOrBuilder getContainersOrBuilder(
+          int index) {
+        if (containersBuilder_ == null) {
+          return containers_.get(index);  } else {
+          return containersBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public java.util.List<? extends meshpaas.Schema.ContainerOrBuilder> 
+           getContainersOrBuilderList() {
+        if (containersBuilder_ != null) {
+          return containersBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(containers_);
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public meshpaas.Schema.Container.Builder addContainersBuilder() {
+        return getContainersFieldBuilder().addBuilder(
+            meshpaas.Schema.Container.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public meshpaas.Schema.Container.Builder addContainersBuilder(
+          int index) {
+        return getContainersFieldBuilder().addBuilder(
+            index, meshpaas.Schema.Container.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public java.util.List<meshpaas.Schema.Container.Builder> 
+           getContainersBuilderList() {
+        return getContainersFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          meshpaas.Schema.Container, meshpaas.Schema.Container.Builder, meshpaas.Schema.ContainerOrBuilder> 
+          getContainersFieldBuilder() {
+        if (containersBuilder_ == null) {
+          containersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              meshpaas.Schema.Container, meshpaas.Schema.Container.Builder, meshpaas.Schema.ContainerOrBuilder>(
+                  containers_,
+                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  getParentForChildren(),
+                  isClean());
+          containers_ = null;
+        }
+        return containersBuilder_;
       }
 
       private java.lang.Object schedule_ = "";
@@ -17802,182 +20696,45 @@ public final class Schema {
 
     /**
      * <pre>
-     * application namespace
+     * application project
      * </pre>
      *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+     * <code>string project = 2 [(.validator.field) = { ... }</code>
      */
-    java.lang.String getNamespace();
+    java.lang.String getProject();
     /**
      * <pre>
-     * application namespace
+     * application project
      * </pre>
      *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+     * <code>string project = 2 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
-        getNamespaceBytes();
+        getProjectBytes();
 
     /**
-     * <pre>
-     * docker image of application
-     * </pre>
-     *
-     * <code>string image = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    java.lang.String getImage();
+    java.util.List<meshpaas.Schema.Container> 
+        getContainersList();
     /**
-     * <pre>
-     * docker image of application
-     * </pre>
-     *
-     * <code>string image = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    com.google.protobuf.ByteString
-        getImageBytes();
-
+    meshpaas.Schema.Container getContainers(int index);
     /**
-     * <pre>
-     * args are arguments given to the docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 4;</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    java.util.List<java.lang.String>
-        getArgsList();
+    int getContainersCount();
     /**
-     * <pre>
-     * args are arguments given to the docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 4;</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    int getArgsCount();
+    java.util.List<? extends meshpaas.Schema.ContainerOrBuilder> 
+        getContainersOrBuilderList();
     /**
-     * <pre>
-     * args are arguments given to the docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 4;</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    java.lang.String getArgs(int index);
-    /**
-     * <pre>
-     * args are arguments given to the docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 4;</code>
-     */
-    com.google.protobuf.ByteString
-        getArgsBytes(int index);
-
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 5;</code>
-     */
-    int getEnvCount();
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 5;</code>
-     */
-    boolean containsEnv(
-        java.lang.String key);
-    /**
-     * Use {@link #getEnvMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.String>
-    getEnv();
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 5;</code>
-     */
-    java.util.Map<java.lang.String, java.lang.String>
-    getEnvMap();
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 5;</code>
-     */
-
-    java.lang.String getEnvOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue);
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 5;</code>
-     */
-
-    java.lang.String getEnvOrThrow(
-        java.lang.String key);
-
-    /**
-     * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
-     * </pre>
-     *
-     * <code>map&lt;string, uint32&gt; ports = 6 [(.validator.field) = { ... }</code>
-     */
-    int getPortsCount();
-    /**
-     * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
-     * </pre>
-     *
-     * <code>map&lt;string, uint32&gt; ports = 6 [(.validator.field) = { ... }</code>
-     */
-    boolean containsPorts(
-        java.lang.String key);
-    /**
-     * Use {@link #getPortsMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.Integer>
-    getPorts();
-    /**
-     * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
-     * </pre>
-     *
-     * <code>map&lt;string, uint32&gt; ports = 6 [(.validator.field) = { ... }</code>
-     */
-    java.util.Map<java.lang.String, java.lang.Integer>
-    getPortsMap();
-    /**
-     * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
-     * </pre>
-     *
-     * <code>map&lt;string, uint32&gt; ports = 6 [(.validator.field) = { ... }</code>
-     */
-
-    int getPortsOrDefault(
-        java.lang.String key,
-        int defaultValue);
-    /**
-     * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
-     * </pre>
-     *
-     * <code>map&lt;string, uint32&gt; ports = 6 [(.validator.field) = { ... }</code>
-     */
-
-    int getPortsOrThrow(
-        java.lang.String key);
+    meshpaas.Schema.ContainerOrBuilder getContainersOrBuilder(
+        int index);
 
     /**
      * <pre>
@@ -18087,9 +20844,8 @@ public final class Schema {
     }
     private AppInput() {
       name_ = "";
-      namespace_ = "";
-      image_ = "";
-      args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      project_ = "";
+      containers_ = java.util.Collections.emptyList();
       replicas_ = 0;
     }
 
@@ -18126,48 +20882,16 @@ public final class Schema {
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              namespace_ = s;
+              project_ = s;
               break;
             }
             case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              image_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                args_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000008;
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                containers_ = new java.util.ArrayList<meshpaas.Schema.Container>();
+                mutable_bitField0_ |= 0x00000004;
               }
-              args_.add(s);
-              break;
-            }
-            case 42: {
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-                env_ = com.google.protobuf.MapField.newMapField(
-                    EnvDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000010;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              env__ = input.readMessage(
-                  EnvDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              env_.getMutableMap().put(
-                  env__.getKey(), env__.getValue());
-              break;
-            }
-            case 50: {
-              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
-                ports_ = com.google.protobuf.MapField.newMapField(
-                    PortsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000020;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
-              ports__ = input.readMessage(
-                  PortsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              ports_.getMutableMap().put(
-                  ports__.getKey(), ports__.getValue());
+              containers_.add(
+                  input.readMessage(meshpaas.Schema.Container.parser(), extensionRegistry));
               break;
             }
             case 56: {
@@ -18189,10 +20913,10 @@ public final class Schema {
               break;
             }
             case 82: {
-              if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
+              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
                 labels_ = com.google.protobuf.MapField.newMapField(
                     LabelsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000100;
+                mutable_bitField0_ |= 0x00000020;
               }
               com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
               labels__ = input.readMessage(
@@ -18202,10 +20926,10 @@ public final class Schema {
               break;
             }
             case 90: {
-              if (!((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
+              if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
                 selector_ = com.google.protobuf.MapField.newMapField(
                     SelectorDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000200;
+                mutable_bitField0_ |= 0x00000040;
               }
               com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
               selector__ = input.readMessage(
@@ -18229,8 +20953,8 @@ public final class Schema {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-          args_ = args_.getUnmodifiableView();
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          containers_ = java.util.Collections.unmodifiableList(containers_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -18246,10 +20970,6 @@ public final class Schema {
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
-        case 5:
-          return internalGetEnv();
-        case 6:
-          return internalGetPorts();
         case 10:
           return internalGetLabels();
         case 11:
@@ -18310,317 +21030,81 @@ public final class Schema {
       }
     }
 
-    public static final int NAMESPACE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object namespace_;
+    public static final int PROJECT_FIELD_NUMBER = 2;
+    private volatile java.lang.Object project_;
     /**
      * <pre>
-     * application namespace
+     * application project
      * </pre>
      *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+     * <code>string project = 2 [(.validator.field) = { ... }</code>
      */
-    public java.lang.String getNamespace() {
-      java.lang.Object ref = namespace_;
+    public java.lang.String getProject() {
+      java.lang.Object ref = project_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        namespace_ = s;
+        project_ = s;
         return s;
       }
     }
     /**
      * <pre>
-     * application namespace
+     * application project
      * </pre>
      *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+     * <code>string project = 2 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
-        getNamespaceBytes() {
-      java.lang.Object ref = namespace_;
+        getProjectBytes() {
+      java.lang.Object ref = project_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        namespace_ = b;
+        project_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
 
-    public static final int IMAGE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object image_;
+    public static final int CONTAINERS_FIELD_NUMBER = 3;
+    private java.util.List<meshpaas.Schema.Container> containers_;
     /**
-     * <pre>
-     * docker image of application
-     * </pre>
-     *
-     * <code>string image = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    public java.lang.String getImage() {
-      java.lang.Object ref = image_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        image_ = s;
-        return s;
-      }
+    public java.util.List<meshpaas.Schema.Container> getContainersList() {
+      return containers_;
     }
     /**
-     * <pre>
-     * docker image of application
-     * </pre>
-     *
-     * <code>string image = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    public com.google.protobuf.ByteString
-        getImageBytes() {
-      java.lang.Object ref = image_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        image_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int ARGS_FIELD_NUMBER = 4;
-    private com.google.protobuf.LazyStringList args_;
-    /**
-     * <pre>
-     * args are arguments given to the docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 4;</code>
-     */
-    public com.google.protobuf.ProtocolStringList
-        getArgsList() {
-      return args_;
+    public java.util.List<? extends meshpaas.Schema.ContainerOrBuilder> 
+        getContainersOrBuilderList() {
+      return containers_;
     }
     /**
-     * <pre>
-     * args are arguments given to the docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 4;</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    public int getArgsCount() {
-      return args_.size();
+    public int getContainersCount() {
+      return containers_.size();
     }
     /**
-     * <pre>
-     * args are arguments given to the docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 4;</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    public java.lang.String getArgs(int index) {
-      return args_.get(index);
+    public meshpaas.Schema.Container getContainers(int index) {
+      return containers_.get(index);
     }
     /**
-     * <pre>
-     * args are arguments given to the docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 4;</code>
+     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
      */
-    public com.google.protobuf.ByteString
-        getArgsBytes(int index) {
-      return args_.getByteString(index);
-    }
-
-    public static final int ENV_FIELD_NUMBER = 5;
-    private static final class EnvDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.String> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.String>newDefaultInstance(
-                  meshpaas.Schema.internal_static_meshpaas_AppInput_EnvEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "");
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> env_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetEnv() {
-      if (env_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            EnvDefaultEntryHolder.defaultEntry);
-      }
-      return env_;
-    }
-
-    public int getEnvCount() {
-      return internalGetEnv().getMap().size();
-    }
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 5;</code>
-     */
-
-    public boolean containsEnv(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetEnv().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getEnvMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getEnv() {
-      return getEnvMap();
-    }
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 5;</code>
-     */
-
-    public java.util.Map<java.lang.String, java.lang.String> getEnvMap() {
-      return internalGetEnv().getMap();
-    }
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 5;</code>
-     */
-
-    public java.lang.String getEnvOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetEnv().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 5;</code>
-     */
-
-    public java.lang.String getEnvOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetEnv().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
-    public static final int PORTS_FIELD_NUMBER = 6;
-    private static final class PortsDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.Integer> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.Integer>newDefaultInstance(
-                  meshpaas.Schema.internal_static_meshpaas_AppInput_PortsEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.UINT32,
-                  0);
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.Integer> ports_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-    internalGetPorts() {
-      if (ports_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            PortsDefaultEntryHolder.defaultEntry);
-      }
-      return ports_;
-    }
-
-    public int getPortsCount() {
-      return internalGetPorts().getMap().size();
-    }
-    /**
-     * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
-     * </pre>
-     *
-     * <code>map&lt;string, uint32&gt; ports = 6 [(.validator.field) = { ... }</code>
-     */
-
-    public boolean containsPorts(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetPorts().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getPortsMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.Integer> getPorts() {
-      return getPortsMap();
-    }
-    /**
-     * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
-     * </pre>
-     *
-     * <code>map&lt;string, uint32&gt; ports = 6 [(.validator.field) = { ... }</code>
-     */
-
-    public java.util.Map<java.lang.String, java.lang.Integer> getPortsMap() {
-      return internalGetPorts().getMap();
-    }
-    /**
-     * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
-     * </pre>
-     *
-     * <code>map&lt;string, uint32&gt; ports = 6 [(.validator.field) = { ... }</code>
-     */
-
-    public int getPortsOrDefault(
-        java.lang.String key,
-        int defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.Integer> map =
-          internalGetPorts().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
-     * </pre>
-     *
-     * <code>map&lt;string, uint32&gt; ports = 6 [(.validator.field) = { ... }</code>
-     */
-
-    public int getPortsOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.Integer> map =
-          internalGetPorts().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
+    public meshpaas.Schema.ContainerOrBuilder getContainersOrBuilder(
+        int index) {
+      return containers_.get(index);
     }
 
     public static final int REPLICAS_FIELD_NUMBER = 7;
@@ -18826,27 +21310,12 @@ public final class Schema {
       if (!getNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
-      if (!getNamespaceBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, namespace_);
+      if (!getProjectBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, project_);
       }
-      if (!getImageBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, image_);
+      for (int i = 0; i < containers_.size(); i++) {
+        output.writeMessage(3, containers_.get(i));
       }
-      for (int i = 0; i < args_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, args_.getRaw(i));
-      }
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetEnv(),
-          EnvDefaultEntryHolder.defaultEntry,
-          5);
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetPorts(),
-          PortsDefaultEntryHolder.defaultEntry,
-          6);
       if (replicas_ != 0) {
         output.writeUInt32(7, replicas_);
       }
@@ -18877,39 +21346,12 @@ public final class Schema {
       if (!getNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
-      if (!getNamespaceBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, namespace_);
+      if (!getProjectBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, project_);
       }
-      if (!getImageBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, image_);
-      }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < args_.size(); i++) {
-          dataSize += computeStringSizeNoTag(args_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getArgsList().size();
-      }
-      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetEnv().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        env__ = EnvDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
+      for (int i = 0; i < containers_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(5, env__);
-      }
-      for (java.util.Map.Entry<java.lang.String, java.lang.Integer> entry
-           : internalGetPorts().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
-        ports__ = PortsDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(6, ports__);
+          .computeMessageSize(3, containers_.get(i));
       }
       if (replicas_ != 0) {
         size += com.google.protobuf.CodedOutputStream
@@ -18957,16 +21399,10 @@ public final class Schema {
       boolean result = true;
       result = result && getName()
           .equals(other.getName());
-      result = result && getNamespace()
-          .equals(other.getNamespace());
-      result = result && getImage()
-          .equals(other.getImage());
-      result = result && getArgsList()
-          .equals(other.getArgsList());
-      result = result && internalGetEnv().equals(
-          other.internalGetEnv());
-      result = result && internalGetPorts().equals(
-          other.internalGetPorts());
+      result = result && getProject()
+          .equals(other.getProject());
+      result = result && getContainersList()
+          .equals(other.getContainersList());
       result = result && (getReplicas()
           == other.getReplicas());
       result = result && (hasNetworking() == other.hasNetworking());
@@ -18991,21 +21427,11 @@ public final class Schema {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + NAMESPACE_FIELD_NUMBER;
-      hash = (53 * hash) + getNamespace().hashCode();
-      hash = (37 * hash) + IMAGE_FIELD_NUMBER;
-      hash = (53 * hash) + getImage().hashCode();
-      if (getArgsCount() > 0) {
-        hash = (37 * hash) + ARGS_FIELD_NUMBER;
-        hash = (53 * hash) + getArgsList().hashCode();
-      }
-      if (!internalGetEnv().getMap().isEmpty()) {
-        hash = (37 * hash) + ENV_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetEnv().hashCode();
-      }
-      if (!internalGetPorts().getMap().isEmpty()) {
-        hash = (37 * hash) + PORTS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetPorts().hashCode();
+      hash = (37 * hash) + PROJECT_FIELD_NUMBER;
+      hash = (53 * hash) + getProject().hashCode();
+      if (getContainersCount() > 0) {
+        hash = (37 * hash) + CONTAINERS_FIELD_NUMBER;
+        hash = (53 * hash) + getContainersList().hashCode();
       }
       hash = (37 * hash) + REPLICAS_FIELD_NUMBER;
       hash = (53 * hash) + getReplicas();
@@ -19136,10 +21562,6 @@ public final class Schema {
       protected com.google.protobuf.MapField internalGetMapField(
           int number) {
         switch (number) {
-          case 5:
-            return internalGetEnv();
-          case 6:
-            return internalGetPorts();
           case 10:
             return internalGetLabels();
           case 11:
@@ -19153,10 +21575,6 @@ public final class Schema {
       protected com.google.protobuf.MapField internalGetMutableMapField(
           int number) {
         switch (number) {
-          case 5:
-            return internalGetMutableEnv();
-          case 6:
-            return internalGetMutablePorts();
           case 10:
             return internalGetMutableLabels();
           case 11:
@@ -19187,6 +21605,7 @@ public final class Schema {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getContainersFieldBuilder();
         }
       }
       @java.lang.Override
@@ -19194,14 +21613,14 @@ public final class Schema {
         super.clear();
         name_ = "";
 
-        namespace_ = "";
+        project_ = "";
 
-        image_ = "";
-
-        args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
-        internalGetMutableEnv().clear();
-        internalGetMutablePorts().clear();
+        if (containersBuilder_ == null) {
+          containers_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          containersBuilder_.clear();
+        }
         replicas_ = 0;
 
         if (networkingBuilder_ == null) {
@@ -19241,17 +21660,16 @@ public final class Schema {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         result.name_ = name_;
-        result.namespace_ = namespace_;
-        result.image_ = image_;
-        if (((bitField0_ & 0x00000008) == 0x00000008)) {
-          args_ = args_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000008);
+        result.project_ = project_;
+        if (containersBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            containers_ = java.util.Collections.unmodifiableList(containers_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.containers_ = containers_;
+        } else {
+          result.containers_ = containersBuilder_.build();
         }
-        result.args_ = args_;
-        result.env_ = internalGetEnv();
-        result.env_.makeImmutable();
-        result.ports_ = internalGetPorts();
-        result.ports_.makeImmutable();
         result.replicas_ = replicas_;
         if (networkingBuilder_ == null) {
           result.networking_ = networking_;
@@ -19315,28 +21733,36 @@ public final class Schema {
           name_ = other.name_;
           onChanged();
         }
-        if (!other.getNamespace().isEmpty()) {
-          namespace_ = other.namespace_;
+        if (!other.getProject().isEmpty()) {
+          project_ = other.project_;
           onChanged();
         }
-        if (!other.getImage().isEmpty()) {
-          image_ = other.image_;
-          onChanged();
-        }
-        if (!other.args_.isEmpty()) {
-          if (args_.isEmpty()) {
-            args_ = other.args_;
-            bitField0_ = (bitField0_ & ~0x00000008);
-          } else {
-            ensureArgsIsMutable();
-            args_.addAll(other.args_);
+        if (containersBuilder_ == null) {
+          if (!other.containers_.isEmpty()) {
+            if (containers_.isEmpty()) {
+              containers_ = other.containers_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureContainersIsMutable();
+              containers_.addAll(other.containers_);
+            }
+            onChanged();
           }
-          onChanged();
+        } else {
+          if (!other.containers_.isEmpty()) {
+            if (containersBuilder_.isEmpty()) {
+              containersBuilder_.dispose();
+              containersBuilder_ = null;
+              containers_ = other.containers_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              containersBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getContainersFieldBuilder() : null;
+            } else {
+              containersBuilder_.addAllMessages(other.containers_);
+            }
+          }
         }
-        internalGetMutableEnv().mergeFrom(
-            other.internalGetEnv());
-        internalGetMutablePorts().mergeFrom(
-            other.internalGetPorts());
         if (other.getReplicas() != 0) {
           setReplicas(other.getReplicas());
         }
@@ -19466,21 +21892,21 @@ public final class Schema {
         return this;
       }
 
-      private java.lang.Object namespace_ = "";
+      private java.lang.Object project_ = "";
       /**
        * <pre>
-       * application namespace
+       * application project
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
        */
-      public java.lang.String getNamespace() {
-        java.lang.Object ref = namespace_;
+      public java.lang.String getProject() {
+        java.lang.Object ref = project_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          namespace_ = s;
+          project_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -19488,19 +21914,19 @@ public final class Schema {
       }
       /**
        * <pre>
-       * application namespace
+       * application project
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
-          getNamespaceBytes() {
-        java.lang.Object ref = namespace_;
+          getProjectBytes() {
+        java.lang.Object ref = project_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          namespace_ = b;
+          project_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -19508,572 +21934,291 @@ public final class Schema {
       }
       /**
        * <pre>
-       * application namespace
+       * application project
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
        */
-      public Builder setNamespace(
+      public Builder setProject(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        namespace_ = value;
+        project_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * application namespace
+       * application project
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
        */
-      public Builder clearNamespace() {
+      public Builder clearProject() {
         
-        namespace_ = getDefaultInstance().getNamespace();
+        project_ = getDefaultInstance().getProject();
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * application namespace
+       * application project
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
        */
-      public Builder setNamespaceBytes(
+      public Builder setProjectBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        namespace_ = value;
+        project_ = value;
         onChanged();
         return this;
       }
 
-      private java.lang.Object image_ = "";
-      /**
-       * <pre>
-       * docker image of application
-       * </pre>
-       *
-       * <code>string image = 3 [(.validator.field) = { ... }</code>
-       */
-      public java.lang.String getImage() {
-        java.lang.Object ref = image_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          image_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * docker image of application
-       * </pre>
-       *
-       * <code>string image = 3 [(.validator.field) = { ... }</code>
-       */
-      public com.google.protobuf.ByteString
-          getImageBytes() {
-        java.lang.Object ref = image_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          image_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * docker image of application
-       * </pre>
-       *
-       * <code>string image = 3 [(.validator.field) = { ... }</code>
-       */
-      public Builder setImage(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        image_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * docker image of application
-       * </pre>
-       *
-       * <code>string image = 3 [(.validator.field) = { ... }</code>
-       */
-      public Builder clearImage() {
-        
-        image_ = getDefaultInstance().getImage();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * docker image of application
-       * </pre>
-       *
-       * <code>string image = 3 [(.validator.field) = { ... }</code>
-       */
-      public Builder setImageBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        image_ = value;
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.LazyStringList args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureArgsIsMutable() {
-        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-          args_ = new com.google.protobuf.LazyStringArrayList(args_);
-          bitField0_ |= 0x00000008;
+      private java.util.List<meshpaas.Schema.Container> containers_ =
+        java.util.Collections.emptyList();
+      private void ensureContainersIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          containers_ = new java.util.ArrayList<meshpaas.Schema.Container>(containers_);
+          bitField0_ |= 0x00000004;
          }
       }
-      /**
-       * <pre>
-       * args are arguments given to the docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 4;</code>
-       */
-      public com.google.protobuf.ProtocolStringList
-          getArgsList() {
-        return args_.getUnmodifiableView();
-      }
-      /**
-       * <pre>
-       * args are arguments given to the docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 4;</code>
-       */
-      public int getArgsCount() {
-        return args_.size();
-      }
-      /**
-       * <pre>
-       * args are arguments given to the docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 4;</code>
-       */
-      public java.lang.String getArgs(int index) {
-        return args_.get(index);
-      }
-      /**
-       * <pre>
-       * args are arguments given to the docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 4;</code>
-       */
-      public com.google.protobuf.ByteString
-          getArgsBytes(int index) {
-        return args_.getByteString(index);
-      }
-      /**
-       * <pre>
-       * args are arguments given to the docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 4;</code>
-       */
-      public Builder setArgs(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureArgsIsMutable();
-        args_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * args are arguments given to the docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 4;</code>
-       */
-      public Builder addArgs(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureArgsIsMutable();
-        args_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * args are arguments given to the docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 4;</code>
-       */
-      public Builder addAllArgs(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureArgsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, args_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * args are arguments given to the docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 4;</code>
-       */
-      public Builder clearArgs() {
-        args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * args are arguments given to the docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 4;</code>
-       */
-      public Builder addArgsBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        ensureArgsIsMutable();
-        args_.add(value);
-        onChanged();
-        return this;
-      }
 
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> env_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetEnv() {
-        if (env_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              EnvDefaultEntryHolder.defaultEntry);
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          meshpaas.Schema.Container, meshpaas.Schema.Container.Builder, meshpaas.Schema.ContainerOrBuilder> containersBuilder_;
+
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public java.util.List<meshpaas.Schema.Container> getContainersList() {
+        if (containersBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(containers_);
+        } else {
+          return containersBuilder_.getMessageList();
         }
-        return env_;
       }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableEnv() {
-        onChanged();;
-        if (env_ == null) {
-          env_ = com.google.protobuf.MapField.newMapField(
-              EnvDefaultEntryHolder.defaultEntry);
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public int getContainersCount() {
+        if (containersBuilder_ == null) {
+          return containers_.size();
+        } else {
+          return containersBuilder_.getCount();
         }
-        if (!env_.isMutable()) {
-          env_ = env_.copy();
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public meshpaas.Schema.Container getContainers(int index) {
+        if (containersBuilder_ == null) {
+          return containers_.get(index);
+        } else {
+          return containersBuilder_.getMessage(index);
         }
-        return env_;
-      }
-
-      public int getEnvCount() {
-        return internalGetEnv().getMap().size();
       }
       /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 5;</code>
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
        */
-
-      public boolean containsEnv(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetEnv().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getEnvMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getEnv() {
-        return getEnvMap();
-      }
-      /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 5;</code>
-       */
-
-      public java.util.Map<java.lang.String, java.lang.String> getEnvMap() {
-        return internalGetEnv().getMap();
-      }
-      /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 5;</code>
-       */
-
-      public java.lang.String getEnvOrDefault(
-          java.lang.String key,
-          java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetEnv().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 5;</code>
-       */
-
-      public java.lang.String getEnvOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetEnv().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
+      public Builder setContainers(
+          int index, meshpaas.Schema.Container value) {
+        if (containersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureContainersIsMutable();
+          containers_.set(index, value);
+          onChanged();
+        } else {
+          containersBuilder_.setMessage(index, value);
         }
-        return map.get(key);
-      }
-
-      public Builder clearEnv() {
-        internalGetMutableEnv().getMutableMap()
-            .clear();
         return this;
       }
       /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 5;</code>
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
        */
-
-      public Builder removeEnv(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableEnv().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String>
-      getMutableEnv() {
-        return internalGetMutableEnv().getMutableMap();
-      }
-      /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 5;</code>
-       */
-      public Builder putEnv(
-          java.lang.String key,
-          java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableEnv().getMutableMap()
-            .put(key, value);
-        return this;
-      }
-      /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 5;</code>
-       */
-
-      public Builder putAllEnv(
-          java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableEnv().getMutableMap()
-            .putAll(values);
-        return this;
-      }
-
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.Integer> ports_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-      internalGetPorts() {
-        if (ports_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              PortsDefaultEntryHolder.defaultEntry);
+      public Builder setContainers(
+          int index, meshpaas.Schema.Container.Builder builderForValue) {
+        if (containersBuilder_ == null) {
+          ensureContainersIsMutable();
+          containers_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          containersBuilder_.setMessage(index, builderForValue.build());
         }
-        return ports_;
+        return this;
       }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-      internalGetMutablePorts() {
-        onChanged();;
-        if (ports_ == null) {
-          ports_ = com.google.protobuf.MapField.newMapField(
-              PortsDefaultEntryHolder.defaultEntry);
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public Builder addContainers(meshpaas.Schema.Container value) {
+        if (containersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureContainersIsMutable();
+          containers_.add(value);
+          onChanged();
+        } else {
+          containersBuilder_.addMessage(value);
         }
-        if (!ports_.isMutable()) {
-          ports_ = ports_.copy();
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public Builder addContainers(
+          int index, meshpaas.Schema.Container value) {
+        if (containersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureContainersIsMutable();
+          containers_.add(index, value);
+          onChanged();
+        } else {
+          containersBuilder_.addMessage(index, value);
         }
-        return ports_;
-      }
-
-      public int getPortsCount() {
-        return internalGetPorts().getMap().size();
+        return this;
       }
       /**
-       * <pre>
-       * k/v map of ports to expose ex: http: 80 https: 443
-       * </pre>
-       *
-       * <code>map&lt;string, uint32&gt; ports = 6 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
        */
-
-      public boolean containsPorts(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetPorts().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getPortsMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.Integer> getPorts() {
-        return getPortsMap();
-      }
-      /**
-       * <pre>
-       * k/v map of ports to expose ex: http: 80 https: 443
-       * </pre>
-       *
-       * <code>map&lt;string, uint32&gt; ports = 6 [(.validator.field) = { ... }</code>
-       */
-
-      public java.util.Map<java.lang.String, java.lang.Integer> getPortsMap() {
-        return internalGetPorts().getMap();
-      }
-      /**
-       * <pre>
-       * k/v map of ports to expose ex: http: 80 https: 443
-       * </pre>
-       *
-       * <code>map&lt;string, uint32&gt; ports = 6 [(.validator.field) = { ... }</code>
-       */
-
-      public int getPortsOrDefault(
-          java.lang.String key,
-          int defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.Integer> map =
-            internalGetPorts().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <pre>
-       * k/v map of ports to expose ex: http: 80 https: 443
-       * </pre>
-       *
-       * <code>map&lt;string, uint32&gt; ports = 6 [(.validator.field) = { ... }</code>
-       */
-
-      public int getPortsOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.Integer> map =
-            internalGetPorts().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
+      public Builder addContainers(
+          meshpaas.Schema.Container.Builder builderForValue) {
+        if (containersBuilder_ == null) {
+          ensureContainersIsMutable();
+          containers_.add(builderForValue.build());
+          onChanged();
+        } else {
+          containersBuilder_.addMessage(builderForValue.build());
         }
-        return map.get(key);
-      }
-
-      public Builder clearPorts() {
-        internalGetMutablePorts().getMutableMap()
-            .clear();
         return this;
       }
       /**
-       * <pre>
-       * k/v map of ports to expose ex: http: 80 https: 443
-       * </pre>
-       *
-       * <code>map&lt;string, uint32&gt; ports = 6 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
        */
-
-      public Builder removePorts(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutablePorts().getMutableMap()
-            .remove(key);
+      public Builder addContainers(
+          int index, meshpaas.Schema.Container.Builder builderForValue) {
+        if (containersBuilder_ == null) {
+          ensureContainersIsMutable();
+          containers_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          containersBuilder_.addMessage(index, builderForValue.build());
+        }
         return this;
       }
       /**
-       * Use alternate mutation accessors instead.
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
        */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.Integer>
-      getMutablePorts() {
-        return internalGetMutablePorts().getMutableMap();
-      }
-      /**
-       * <pre>
-       * k/v map of ports to expose ex: http: 80 https: 443
-       * </pre>
-       *
-       * <code>map&lt;string, uint32&gt; ports = 6 [(.validator.field) = { ... }</code>
-       */
-      public Builder putPorts(
-          java.lang.String key,
-          int value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        
-        internalGetMutablePorts().getMutableMap()
-            .put(key, value);
+      public Builder addAllContainers(
+          java.lang.Iterable<? extends meshpaas.Schema.Container> values) {
+        if (containersBuilder_ == null) {
+          ensureContainersIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, containers_);
+          onChanged();
+        } else {
+          containersBuilder_.addAllMessages(values);
+        }
         return this;
       }
       /**
-       * <pre>
-       * k/v map of ports to expose ex: http: 80 https: 443
-       * </pre>
-       *
-       * <code>map&lt;string, uint32&gt; ports = 6 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
        */
-
-      public Builder putAllPorts(
-          java.util.Map<java.lang.String, java.lang.Integer> values) {
-        internalGetMutablePorts().getMutableMap()
-            .putAll(values);
+      public Builder clearContainers() {
+        if (containersBuilder_ == null) {
+          containers_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          containersBuilder_.clear();
+        }
         return this;
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public Builder removeContainers(int index) {
+        if (containersBuilder_ == null) {
+          ensureContainersIsMutable();
+          containers_.remove(index);
+          onChanged();
+        } else {
+          containersBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public meshpaas.Schema.Container.Builder getContainersBuilder(
+          int index) {
+        return getContainersFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public meshpaas.Schema.ContainerOrBuilder getContainersOrBuilder(
+          int index) {
+        if (containersBuilder_ == null) {
+          return containers_.get(index);  } else {
+          return containersBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public java.util.List<? extends meshpaas.Schema.ContainerOrBuilder> 
+           getContainersOrBuilderList() {
+        if (containersBuilder_ != null) {
+          return containersBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(containers_);
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public meshpaas.Schema.Container.Builder addContainersBuilder() {
+        return getContainersFieldBuilder().addBuilder(
+            meshpaas.Schema.Container.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public meshpaas.Schema.Container.Builder addContainersBuilder(
+          int index) {
+        return getContainersFieldBuilder().addBuilder(
+            index, meshpaas.Schema.Container.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       */
+      public java.util.List<meshpaas.Schema.Container.Builder> 
+           getContainersBuilderList() {
+        return getContainersFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          meshpaas.Schema.Container, meshpaas.Schema.Container.Builder, meshpaas.Schema.ContainerOrBuilder> 
+          getContainersFieldBuilder() {
+        if (containersBuilder_ == null) {
+          containersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              meshpaas.Schema.Container, meshpaas.Schema.Container.Builder, meshpaas.Schema.ContainerOrBuilder>(
+                  containers_,
+                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  getParentForChildren(),
+                  isClean());
+          containers_ = null;
+        }
+        return containersBuilder_;
       }
 
       private int replicas_ ;
@@ -20553,21 +22698,21 @@ public final class Schema {
 
     /**
      * <pre>
-     * application namespace
+     * application project
      * </pre>
      *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+     * <code>string project = 2 [(.validator.field) = { ... }</code>
      */
-    java.lang.String getNamespace();
+    java.lang.String getProject();
     /**
      * <pre>
-     * application namespace
+     * application project
      * </pre>
      *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+     * <code>string project = 2 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
-        getNamespaceBytes();
+        getProjectBytes();
   }
   /**
    * Protobuf type {@code meshpaas.Ref}
@@ -20583,7 +22728,7 @@ public final class Schema {
     }
     private Ref() {
       name_ = "";
-      namespace_ = "";
+      project_ = "";
     }
 
     @java.lang.Override
@@ -20619,7 +22764,7 @@ public final class Schema {
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              namespace_ = s;
+              project_ = s;
               break;
             }
             default: {
@@ -20696,42 +22841,42 @@ public final class Schema {
       }
     }
 
-    public static final int NAMESPACE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object namespace_;
+    public static final int PROJECT_FIELD_NUMBER = 2;
+    private volatile java.lang.Object project_;
     /**
      * <pre>
-     * application namespace
+     * application project
      * </pre>
      *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+     * <code>string project = 2 [(.validator.field) = { ... }</code>
      */
-    public java.lang.String getNamespace() {
-      java.lang.Object ref = namespace_;
+    public java.lang.String getProject() {
+      java.lang.Object ref = project_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        namespace_ = s;
+        project_ = s;
         return s;
       }
     }
     /**
      * <pre>
-     * application namespace
+     * application project
      * </pre>
      *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+     * <code>string project = 2 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
-        getNamespaceBytes() {
-      java.lang.Object ref = namespace_;
+        getProjectBytes() {
+      java.lang.Object ref = project_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        namespace_ = b;
+        project_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -20755,8 +22900,8 @@ public final class Schema {
       if (!getNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
-      if (!getNamespaceBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, namespace_);
+      if (!getProjectBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, project_);
       }
       unknownFields.writeTo(output);
     }
@@ -20770,8 +22915,8 @@ public final class Schema {
       if (!getNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
-      if (!getNamespaceBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, namespace_);
+      if (!getProjectBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, project_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -20791,8 +22936,8 @@ public final class Schema {
       boolean result = true;
       result = result && getName()
           .equals(other.getName());
-      result = result && getNamespace()
-          .equals(other.getNamespace());
+      result = result && getProject()
+          .equals(other.getProject());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -20806,8 +22951,8 @@ public final class Schema {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + NAMESPACE_FIELD_NUMBER;
-      hash = (53 * hash) + getNamespace().hashCode();
+      hash = (37 * hash) + PROJECT_FIELD_NUMBER;
+      hash = (53 * hash) + getProject().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -20943,7 +23088,7 @@ public final class Schema {
         super.clear();
         name_ = "";
 
-        namespace_ = "";
+        project_ = "";
 
         return this;
       }
@@ -20972,7 +23117,7 @@ public final class Schema {
       public meshpaas.Schema.Ref buildPartial() {
         meshpaas.Schema.Ref result = new meshpaas.Schema.Ref(this);
         result.name_ = name_;
-        result.namespace_ = namespace_;
+        result.project_ = project_;
         onBuilt();
         return result;
       }
@@ -21025,8 +23170,8 @@ public final class Schema {
           name_ = other.name_;
           onChanged();
         }
-        if (!other.getNamespace().isEmpty()) {
-          namespace_ = other.namespace_;
+        if (!other.getProject().isEmpty()) {
+          project_ = other.project_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -21147,21 +23292,21 @@ public final class Schema {
         return this;
       }
 
-      private java.lang.Object namespace_ = "";
+      private java.lang.Object project_ = "";
       /**
        * <pre>
-       * application namespace
+       * application project
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
        */
-      public java.lang.String getNamespace() {
-        java.lang.Object ref = namespace_;
+      public java.lang.String getProject() {
+        java.lang.Object ref = project_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          namespace_ = s;
+          project_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -21169,19 +23314,19 @@ public final class Schema {
       }
       /**
        * <pre>
-       * application namespace
+       * application project
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
-          getNamespaceBytes() {
-        java.lang.Object ref = namespace_;
+          getProjectBytes() {
+        java.lang.Object ref = project_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          namespace_ = b;
+          project_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -21189,49 +23334,49 @@ public final class Schema {
       }
       /**
        * <pre>
-       * application namespace
+       * application project
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
        */
-      public Builder setNamespace(
+      public Builder setProject(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        namespace_ = value;
+        project_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * application namespace
+       * application project
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
        */
-      public Builder clearNamespace() {
+      public Builder clearProject() {
         
-        namespace_ = getDefaultInstance().getNamespace();
+        project_ = getDefaultInstance().getProject();
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * application namespace
+       * application project
        * </pre>
        *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       * <code>string project = 2 [(.validator.field) = { ... }</code>
        */
-      public Builder setNamespaceBytes(
+      public Builder setProjectBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        namespace_ = value;
+        project_ = value;
         onChanged();
         return this;
       }
@@ -25008,34 +27153,68 @@ public final class Schema {
 
   }
 
-  public interface NamespaceOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:meshpaas.Namespace)
+  public interface ProjectInputOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:meshpaas.ProjectInput)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string namespace = 1;</code>
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
      */
-    java.lang.String getNamespace();
+    java.lang.String getName();
     /**
-     * <code>string namespace = 1;</code>
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
-        getNamespaceBytes();
+        getNameBytes();
+
+    /**
+     * <code>map&lt;string, string&gt; labels = 2 [(.validator.field) = { ... }</code>
+     */
+    int getLabelsCount();
+    /**
+     * <code>map&lt;string, string&gt; labels = 2 [(.validator.field) = { ... }</code>
+     */
+    boolean containsLabels(
+        java.lang.String key);
+    /**
+     * Use {@link #getLabelsMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
+    getLabels();
+    /**
+     * <code>map&lt;string, string&gt; labels = 2 [(.validator.field) = { ... }</code>
+     */
+    java.util.Map<java.lang.String, java.lang.String>
+    getLabelsMap();
+    /**
+     * <code>map&lt;string, string&gt; labels = 2 [(.validator.field) = { ... }</code>
+     */
+
+    java.lang.String getLabelsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue);
+    /**
+     * <code>map&lt;string, string&gt; labels = 2 [(.validator.field) = { ... }</code>
+     */
+
+    java.lang.String getLabelsOrThrow(
+        java.lang.String key);
   }
   /**
-   * Protobuf type {@code meshpaas.Namespace}
+   * Protobuf type {@code meshpaas.ProjectInput}
    */
-  public  static final class Namespace extends
+  public  static final class ProjectInput extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:meshpaas.Namespace)
-      NamespaceOrBuilder {
+      // @@protoc_insertion_point(message_implements:meshpaas.ProjectInput)
+      ProjectInputOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use Namespace.newBuilder() to construct.
-    private Namespace(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use ProjectInput.newBuilder() to construct.
+    private ProjectInput(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private Namespace() {
-      namespace_ = "";
+    private ProjectInput() {
+      name_ = "";
     }
 
     @java.lang.Override
@@ -25043,7 +27222,7 @@ public final class Schema {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Namespace(
+    private ProjectInput(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -25065,7 +27244,20 @@ public final class Schema {
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              namespace_ = s;
+              name_ = s;
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                labels_ = com.google.protobuf.MapField.newMapField(
+                    LabelsDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000002;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              labels_.getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
               break;
             }
             default: {
@@ -25089,49 +27281,138 @@ public final class Schema {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return meshpaas.Schema.internal_static_meshpaas_Namespace_descriptor;
+      return meshpaas.Schema.internal_static_meshpaas_ProjectInput_descriptor;
     }
 
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 2:
+          return internalGetLabels();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return meshpaas.Schema.internal_static_meshpaas_Namespace_fieldAccessorTable
+      return meshpaas.Schema.internal_static_meshpaas_ProjectInput_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              meshpaas.Schema.Namespace.class, meshpaas.Schema.Namespace.Builder.class);
+              meshpaas.Schema.ProjectInput.class, meshpaas.Schema.ProjectInput.Builder.class);
     }
 
-    public static final int NAMESPACE_FIELD_NUMBER = 1;
-    private volatile java.lang.Object namespace_;
+    private int bitField0_;
+    public static final int NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object name_;
     /**
-     * <code>string namespace = 1;</code>
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
      */
-    public java.lang.String getNamespace() {
-      java.lang.Object ref = namespace_;
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        namespace_ = s;
+        name_ = s;
         return s;
       }
     }
     /**
-     * <code>string namespace = 1;</code>
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
-        getNamespaceBytes() {
-      java.lang.Object ref = namespace_;
+        getNameBytes() {
+      java.lang.Object ref = name_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        namespace_ = b;
+        name_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
+    }
+
+    public static final int LABELS_FIELD_NUMBER = 2;
+    private static final class LabelsDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  meshpaas.Schema.internal_static_meshpaas_ProjectInput_LabelsEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> labels_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetLabels() {
+      if (labels_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            LabelsDefaultEntryHolder.defaultEntry);
+      }
+      return labels_;
+    }
+
+    public int getLabelsCount() {
+      return internalGetLabels().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 2 [(.validator.field) = { ... }</code>
+     */
+
+    public boolean containsLabels(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetLabels().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getLabelsMap()} instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getLabels() {
+      return getLabelsMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 2 [(.validator.field) = { ... }</code>
+     */
+
+    public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
+      return internalGetLabels().getMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 2 [(.validator.field) = { ... }</code>
+     */
+
+    public java.lang.String getLabelsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetLabels().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 2 [(.validator.field) = { ... }</code>
+     */
+
+    public java.lang.String getLabelsOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetLabels().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -25148,9 +27429,15 @@ public final class Schema {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getNamespaceBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, namespace_);
+      if (!getNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetLabels(),
+          LabelsDefaultEntryHolder.defaultEntry,
+          2);
       unknownFields.writeTo(output);
     }
 
@@ -25160,8 +27447,18 @@ public final class Schema {
       if (size != -1) return size;
 
       size = 0;
-      if (!getNamespaceBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, namespace_);
+      if (!getNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+           : internalGetLabels().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+        labels__ = LabelsDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(2, labels__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -25173,14 +27470,16 @@ public final class Schema {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof meshpaas.Schema.Namespace)) {
+      if (!(obj instanceof meshpaas.Schema.ProjectInput)) {
         return super.equals(obj);
       }
-      meshpaas.Schema.Namespace other = (meshpaas.Schema.Namespace) obj;
+      meshpaas.Schema.ProjectInput other = (meshpaas.Schema.ProjectInput) obj;
 
       boolean result = true;
-      result = result && getNamespace()
-          .equals(other.getNamespace());
+      result = result && getName()
+          .equals(other.getName());
+      result = result && internalGetLabels().equals(
+          other.internalGetLabels());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -25192,76 +27491,80 @@ public final class Schema {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + NAMESPACE_FIELD_NUMBER;
-      hash = (53 * hash) + getNamespace().hashCode();
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
+      if (!internalGetLabels().getMap().isEmpty()) {
+        hash = (37 * hash) + LABELS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetLabels().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static meshpaas.Schema.Namespace parseFrom(
+    public static meshpaas.Schema.ProjectInput parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static meshpaas.Schema.Namespace parseFrom(
+    public static meshpaas.Schema.ProjectInput parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static meshpaas.Schema.Namespace parseFrom(
+    public static meshpaas.Schema.ProjectInput parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static meshpaas.Schema.Namespace parseFrom(
+    public static meshpaas.Schema.ProjectInput parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static meshpaas.Schema.Namespace parseFrom(byte[] data)
+    public static meshpaas.Schema.ProjectInput parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static meshpaas.Schema.Namespace parseFrom(
+    public static meshpaas.Schema.ProjectInput parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static meshpaas.Schema.Namespace parseFrom(java.io.InputStream input)
+    public static meshpaas.Schema.ProjectInput parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static meshpaas.Schema.Namespace parseFrom(
+    public static meshpaas.Schema.ProjectInput parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static meshpaas.Schema.Namespace parseDelimitedFrom(java.io.InputStream input)
+    public static meshpaas.Schema.ProjectInput parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static meshpaas.Schema.Namespace parseDelimitedFrom(
+    public static meshpaas.Schema.ProjectInput parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static meshpaas.Schema.Namespace parseFrom(
+    public static meshpaas.Schema.ProjectInput parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static meshpaas.Schema.Namespace parseFrom(
+    public static meshpaas.Schema.ProjectInput parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -25274,7 +27577,7 @@ public final class Schema {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(meshpaas.Schema.Namespace prototype) {
+    public static Builder newBuilder(meshpaas.Schema.ProjectInput prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -25290,26 +27593,48 @@ public final class Schema {
       return builder;
     }
     /**
-     * Protobuf type {@code meshpaas.Namespace}
+     * Protobuf type {@code meshpaas.ProjectInput}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:meshpaas.Namespace)
-        meshpaas.Schema.NamespaceOrBuilder {
+        // @@protoc_insertion_point(builder_implements:meshpaas.ProjectInput)
+        meshpaas.Schema.ProjectInputOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return meshpaas.Schema.internal_static_meshpaas_Namespace_descriptor;
+        return meshpaas.Schema.internal_static_meshpaas_ProjectInput_descriptor;
       }
 
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 2:
+            return internalGetLabels();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 2:
+            return internalGetMutableLabels();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return meshpaas.Schema.internal_static_meshpaas_Namespace_fieldAccessorTable
+        return meshpaas.Schema.internal_static_meshpaas_ProjectInput_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                meshpaas.Schema.Namespace.class, meshpaas.Schema.Namespace.Builder.class);
+                meshpaas.Schema.ProjectInput.class, meshpaas.Schema.ProjectInput.Builder.class);
       }
 
-      // Construct using meshpaas.Schema.Namespace.newBuilder()
+      // Construct using meshpaas.Schema.ProjectInput.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -25327,25 +27652,26 @@ public final class Schema {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        namespace_ = "";
+        name_ = "";
 
+        internalGetMutableLabels().clear();
         return this;
       }
 
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return meshpaas.Schema.internal_static_meshpaas_Namespace_descriptor;
+        return meshpaas.Schema.internal_static_meshpaas_ProjectInput_descriptor;
       }
 
       @java.lang.Override
-      public meshpaas.Schema.Namespace getDefaultInstanceForType() {
-        return meshpaas.Schema.Namespace.getDefaultInstance();
+      public meshpaas.Schema.ProjectInput getDefaultInstanceForType() {
+        return meshpaas.Schema.ProjectInput.getDefaultInstance();
       }
 
       @java.lang.Override
-      public meshpaas.Schema.Namespace build() {
-        meshpaas.Schema.Namespace result = buildPartial();
+      public meshpaas.Schema.ProjectInput build() {
+        meshpaas.Schema.ProjectInput result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -25353,9 +27679,14 @@ public final class Schema {
       }
 
       @java.lang.Override
-      public meshpaas.Schema.Namespace buildPartial() {
-        meshpaas.Schema.Namespace result = new meshpaas.Schema.Namespace(this);
-        result.namespace_ = namespace_;
+      public meshpaas.Schema.ProjectInput buildPartial() {
+        meshpaas.Schema.ProjectInput result = new meshpaas.Schema.ProjectInput(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.name_ = name_;
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -25394,18 +27725,1556 @@ public final class Schema {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof meshpaas.Schema.Namespace) {
-          return mergeFrom((meshpaas.Schema.Namespace)other);
+        if (other instanceof meshpaas.Schema.ProjectInput) {
+          return mergeFrom((meshpaas.Schema.ProjectInput)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(meshpaas.Schema.Namespace other) {
-        if (other == meshpaas.Schema.Namespace.getDefaultInstance()) return this;
-        if (!other.getNamespace().isEmpty()) {
-          namespace_ = other.namespace_;
+      public Builder mergeFrom(meshpaas.Schema.ProjectInput other) {
+        if (other == meshpaas.Schema.ProjectInput.getDefaultInstance()) return this;
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
+          onChanged();
+        }
+        internalGetMutableLabels().mergeFrom(
+            other.internalGetLabels());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        meshpaas.Schema.ProjectInput parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (meshpaas.Schema.ProjectInput) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object name_ = "";
+      /**
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder clearName() {
+        
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.String> labels_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetLabels() {
+        if (labels_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              LabelsDefaultEntryHolder.defaultEntry);
+        }
+        return labels_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableLabels() {
+        onChanged();;
+        if (labels_ == null) {
+          labels_ = com.google.protobuf.MapField.newMapField(
+              LabelsDefaultEntryHolder.defaultEntry);
+        }
+        if (!labels_.isMutable()) {
+          labels_ = labels_.copy();
+        }
+        return labels_;
+      }
+
+      public int getLabelsCount() {
+        return internalGetLabels().getMap().size();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 2 [(.validator.field) = { ... }</code>
+       */
+
+      public boolean containsLabels(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        return internalGetLabels().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getLabelsMap()} instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getLabels() {
+        return getLabelsMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 2 [(.validator.field) = { ... }</code>
+       */
+
+      public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
+        return internalGetLabels().getMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 2 [(.validator.field) = { ... }</code>
+       */
+
+      public java.lang.String getLabelsOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetLabels().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 2 [(.validator.field) = { ... }</code>
+       */
+
+      public java.lang.String getLabelsOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetLabels().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearLabels() {
+        internalGetMutableLabels().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 2 [(.validator.field) = { ... }</code>
+       */
+
+      public Builder removeLabels(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableLabels().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
+      getMutableLabels() {
+        return internalGetMutableLabels().getMutableMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 2 [(.validator.field) = { ... }</code>
+       */
+      public Builder putLabels(
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableLabels().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 2 [(.validator.field) = { ... }</code>
+       */
+
+      public Builder putAllLabels(
+          java.util.Map<java.lang.String, java.lang.String> values) {
+        internalGetMutableLabels().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:meshpaas.ProjectInput)
+    }
+
+    // @@protoc_insertion_point(class_scope:meshpaas.ProjectInput)
+    private static final meshpaas.Schema.ProjectInput DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new meshpaas.Schema.ProjectInput();
+    }
+
+    public static meshpaas.Schema.ProjectInput getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ProjectInput>
+        PARSER = new com.google.protobuf.AbstractParser<ProjectInput>() {
+      @java.lang.Override
+      public ProjectInput parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ProjectInput(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ProjectInput> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ProjectInput> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public meshpaas.Schema.ProjectInput getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ProjectOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:meshpaas.Project)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string name = 1;</code>
+     */
+    java.lang.String getName();
+    /**
+     * <code>string name = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <code>map&lt;string, string&gt; labels = 2;</code>
+     */
+    int getLabelsCount();
+    /**
+     * <code>map&lt;string, string&gt; labels = 2;</code>
+     */
+    boolean containsLabels(
+        java.lang.String key);
+    /**
+     * Use {@link #getLabelsMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
+    getLabels();
+    /**
+     * <code>map&lt;string, string&gt; labels = 2;</code>
+     */
+    java.util.Map<java.lang.String, java.lang.String>
+    getLabelsMap();
+    /**
+     * <code>map&lt;string, string&gt; labels = 2;</code>
+     */
+
+    java.lang.String getLabelsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue);
+    /**
+     * <code>map&lt;string, string&gt; labels = 2;</code>
+     */
+
+    java.lang.String getLabelsOrThrow(
+        java.lang.String key);
+  }
+  /**
+   * Protobuf type {@code meshpaas.Project}
+   */
+  public  static final class Project extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:meshpaas.Project)
+      ProjectOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Project.newBuilder() to construct.
+    private Project(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Project() {
+      name_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Project(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              name_ = s;
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                labels_ = com.google.protobuf.MapField.newMapField(
+                    LabelsDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000002;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              labels_.getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return meshpaas.Schema.internal_static_meshpaas_Project_descriptor;
+    }
+
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 2:
+          return internalGetLabels();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return meshpaas.Schema.internal_static_meshpaas_Project_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              meshpaas.Schema.Project.class, meshpaas.Schema.Project.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object name_;
+    /**
+     * <code>string name = 1;</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string name = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int LABELS_FIELD_NUMBER = 2;
+    private static final class LabelsDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  meshpaas.Schema.internal_static_meshpaas_Project_LabelsEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> labels_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetLabels() {
+      if (labels_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            LabelsDefaultEntryHolder.defaultEntry);
+      }
+      return labels_;
+    }
+
+    public int getLabelsCount() {
+      return internalGetLabels().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 2;</code>
+     */
+
+    public boolean containsLabels(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetLabels().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getLabelsMap()} instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getLabels() {
+      return getLabelsMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 2;</code>
+     */
+
+    public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
+      return internalGetLabels().getMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 2;</code>
+     */
+
+    public java.lang.String getLabelsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetLabels().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 2;</code>
+     */
+
+    public java.lang.String getLabelsOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetLabels().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetLabels(),
+          LabelsDefaultEntryHolder.defaultEntry,
+          2);
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+           : internalGetLabels().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+        labels__ = LabelsDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(2, labels__);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof meshpaas.Schema.Project)) {
+        return super.equals(obj);
+      }
+      meshpaas.Schema.Project other = (meshpaas.Schema.Project) obj;
+
+      boolean result = true;
+      result = result && getName()
+          .equals(other.getName());
+      result = result && internalGetLabels().equals(
+          other.internalGetLabels());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
+      if (!internalGetLabels().getMap().isEmpty()) {
+        hash = (37 * hash) + LABELS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetLabels().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static meshpaas.Schema.Project parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.Project parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.Project parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.Project parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.Project parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.Project parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.Project parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.Project parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static meshpaas.Schema.Project parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.Project parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static meshpaas.Schema.Project parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.Project parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(meshpaas.Schema.Project prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code meshpaas.Project}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:meshpaas.Project)
+        meshpaas.Schema.ProjectOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return meshpaas.Schema.internal_static_meshpaas_Project_descriptor;
+      }
+
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 2:
+            return internalGetLabels();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 2:
+            return internalGetMutableLabels();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return meshpaas.Schema.internal_static_meshpaas_Project_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                meshpaas.Schema.Project.class, meshpaas.Schema.Project.Builder.class);
+      }
+
+      // Construct using meshpaas.Schema.Project.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+
+        internalGetMutableLabels().clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return meshpaas.Schema.internal_static_meshpaas_Project_descriptor;
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.Project getDefaultInstanceForType() {
+        return meshpaas.Schema.Project.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.Project build() {
+        meshpaas.Schema.Project result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.Project buildPartial() {
+        meshpaas.Schema.Project result = new meshpaas.Schema.Project(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.name_ = name_;
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof meshpaas.Schema.Project) {
+          return mergeFrom((meshpaas.Schema.Project)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(meshpaas.Schema.Project other) {
+        if (other == meshpaas.Schema.Project.getDefaultInstance()) return this;
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
+          onChanged();
+        }
+        internalGetMutableLabels().mergeFrom(
+            other.internalGetLabels());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        meshpaas.Schema.Project parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (meshpaas.Schema.Project) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object name_ = "";
+      /**
+       * <code>string name = 1;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string name = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string name = 1;</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 1;</code>
+       */
+      public Builder clearName() {
+        
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 1;</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.String> labels_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetLabels() {
+        if (labels_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              LabelsDefaultEntryHolder.defaultEntry);
+        }
+        return labels_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableLabels() {
+        onChanged();;
+        if (labels_ == null) {
+          labels_ = com.google.protobuf.MapField.newMapField(
+              LabelsDefaultEntryHolder.defaultEntry);
+        }
+        if (!labels_.isMutable()) {
+          labels_ = labels_.copy();
+        }
+        return labels_;
+      }
+
+      public int getLabelsCount() {
+        return internalGetLabels().getMap().size();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 2;</code>
+       */
+
+      public boolean containsLabels(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        return internalGetLabels().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getLabelsMap()} instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getLabels() {
+        return getLabelsMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 2;</code>
+       */
+
+      public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
+        return internalGetLabels().getMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 2;</code>
+       */
+
+      public java.lang.String getLabelsOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetLabels().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 2;</code>
+       */
+
+      public java.lang.String getLabelsOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetLabels().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearLabels() {
+        internalGetMutableLabels().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 2;</code>
+       */
+
+      public Builder removeLabels(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableLabels().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
+      getMutableLabels() {
+        return internalGetMutableLabels().getMutableMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 2;</code>
+       */
+      public Builder putLabels(
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableLabels().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 2;</code>
+       */
+
+      public Builder putAllLabels(
+          java.util.Map<java.lang.String, java.lang.String> values) {
+        internalGetMutableLabels().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:meshpaas.Project)
+    }
+
+    // @@protoc_insertion_point(class_scope:meshpaas.Project)
+    private static final meshpaas.Schema.Project DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new meshpaas.Schema.Project();
+    }
+
+    public static meshpaas.Schema.Project getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Project>
+        PARSER = new com.google.protobuf.AbstractParser<Project>() {
+      @java.lang.Override
+      public Project parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Project(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Project> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Project> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public meshpaas.Schema.Project getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ProjectRefOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:meshpaas.ProjectRef)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     */
+    java.lang.String getName();
+    /**
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+  }
+  /**
+   * Protobuf type {@code meshpaas.ProjectRef}
+   */
+  public  static final class ProjectRef extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:meshpaas.ProjectRef)
+      ProjectRefOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ProjectRef.newBuilder() to construct.
+    private ProjectRef(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ProjectRef() {
+      name_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ProjectRef(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              name_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return meshpaas.Schema.internal_static_meshpaas_ProjectRef_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return meshpaas.Schema.internal_static_meshpaas_ProjectRef_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              meshpaas.Schema.ProjectRef.class, meshpaas.Schema.ProjectRef.Builder.class);
+    }
+
+    public static final int NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object name_;
+    /**
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof meshpaas.Schema.ProjectRef)) {
+        return super.equals(obj);
+      }
+      meshpaas.Schema.ProjectRef other = (meshpaas.Schema.ProjectRef) obj;
+
+      boolean result = true;
+      result = result && getName()
+          .equals(other.getName());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static meshpaas.Schema.ProjectRef parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.ProjectRef parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.ProjectRef parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.ProjectRef parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.ProjectRef parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.ProjectRef parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.ProjectRef parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.ProjectRef parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static meshpaas.Schema.ProjectRef parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.ProjectRef parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static meshpaas.Schema.ProjectRef parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.ProjectRef parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(meshpaas.Schema.ProjectRef prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code meshpaas.ProjectRef}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:meshpaas.ProjectRef)
+        meshpaas.Schema.ProjectRefOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return meshpaas.Schema.internal_static_meshpaas_ProjectRef_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return meshpaas.Schema.internal_static_meshpaas_ProjectRef_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                meshpaas.Schema.ProjectRef.class, meshpaas.Schema.ProjectRef.Builder.class);
+      }
+
+      // Construct using meshpaas.Schema.ProjectRef.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return meshpaas.Schema.internal_static_meshpaas_ProjectRef_descriptor;
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.ProjectRef getDefaultInstanceForType() {
+        return meshpaas.Schema.ProjectRef.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.ProjectRef build() {
+        meshpaas.Schema.ProjectRef result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.ProjectRef buildPartial() {
+        meshpaas.Schema.ProjectRef result = new meshpaas.Schema.ProjectRef(this);
+        result.name_ = name_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof meshpaas.Schema.ProjectRef) {
+          return mergeFrom((meshpaas.Schema.ProjectRef)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(meshpaas.Schema.ProjectRef other) {
+        if (other == meshpaas.Schema.ProjectRef.getDefaultInstance()) return this;
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -25423,11 +29292,11 @@ public final class Schema {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        meshpaas.Schema.Namespace parsedMessage = null;
+        meshpaas.Schema.ProjectRef parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (meshpaas.Schema.Namespace) e.getUnfinishedMessage();
+          parsedMessage = (meshpaas.Schema.ProjectRef) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -25437,71 +29306,71 @@ public final class Schema {
         return this;
       }
 
-      private java.lang.Object namespace_ = "";
+      private java.lang.Object name_ = "";
       /**
-       * <code>string namespace = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
-      public java.lang.String getNamespace() {
-        java.lang.Object ref = namespace_;
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          namespace_ = s;
+          name_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string namespace = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
-          getNamespaceBytes() {
-        java.lang.Object ref = namespace_;
+          getNameBytes() {
+        java.lang.Object ref = name_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          namespace_ = b;
+          name_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string namespace = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
-      public Builder setNamespace(
+      public Builder setName(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        namespace_ = value;
+        name_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string namespace = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
-      public Builder clearNamespace() {
+      public Builder clearName() {
         
-        namespace_ = getDefaultInstance().getNamespace();
+        name_ = getDefaultInstance().getName();
         onChanged();
         return this;
       }
       /**
-       * <code>string namespace = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
-      public Builder setNamespaceBytes(
+      public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        namespace_ = value;
+        name_ = value;
         onChanged();
         return this;
       }
@@ -25518,83 +29387,83 @@ public final class Schema {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:meshpaas.Namespace)
+      // @@protoc_insertion_point(builder_scope:meshpaas.ProjectRef)
     }
 
-    // @@protoc_insertion_point(class_scope:meshpaas.Namespace)
-    private static final meshpaas.Schema.Namespace DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:meshpaas.ProjectRef)
+    private static final meshpaas.Schema.ProjectRef DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new meshpaas.Schema.Namespace();
+      DEFAULT_INSTANCE = new meshpaas.Schema.ProjectRef();
     }
 
-    public static meshpaas.Schema.Namespace getDefaultInstance() {
+    public static meshpaas.Schema.ProjectRef getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<Namespace>
-        PARSER = new com.google.protobuf.AbstractParser<Namespace>() {
+    private static final com.google.protobuf.Parser<ProjectRef>
+        PARSER = new com.google.protobuf.AbstractParser<ProjectRef>() {
       @java.lang.Override
-      public Namespace parsePartialFrom(
+      public ProjectRef parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Namespace(input, extensionRegistry);
+        return new ProjectRef(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<Namespace> parser() {
+    public static com.google.protobuf.Parser<ProjectRef> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<Namespace> getParserForType() {
+    public com.google.protobuf.Parser<ProjectRef> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public meshpaas.Schema.Namespace getDefaultInstanceForType() {
+    public meshpaas.Schema.ProjectRef getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface NamespacesOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:meshpaas.Namespaces)
+  public interface ProjectsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:meshpaas.Projects)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated string namespaces = 1;</code>
+     * <code>repeated string projects = 1;</code>
      */
     java.util.List<java.lang.String>
-        getNamespacesList();
+        getProjectsList();
     /**
-     * <code>repeated string namespaces = 1;</code>
+     * <code>repeated string projects = 1;</code>
      */
-    int getNamespacesCount();
+    int getProjectsCount();
     /**
-     * <code>repeated string namespaces = 1;</code>
+     * <code>repeated string projects = 1;</code>
      */
-    java.lang.String getNamespaces(int index);
+    java.lang.String getProjects(int index);
     /**
-     * <code>repeated string namespaces = 1;</code>
+     * <code>repeated string projects = 1;</code>
      */
     com.google.protobuf.ByteString
-        getNamespacesBytes(int index);
+        getProjectsBytes(int index);
   }
   /**
-   * Protobuf type {@code meshpaas.Namespaces}
+   * Protobuf type {@code meshpaas.Projects}
    */
-  public  static final class Namespaces extends
+  public  static final class Projects extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:meshpaas.Namespaces)
-      NamespacesOrBuilder {
+      // @@protoc_insertion_point(message_implements:meshpaas.Projects)
+      ProjectsOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use Namespaces.newBuilder() to construct.
-    private Namespaces(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use Projects.newBuilder() to construct.
+    private Projects(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private Namespaces() {
-      namespaces_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private Projects() {
+      projects_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -25602,7 +29471,7 @@ public final class Schema {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Namespaces(
+    private Projects(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -25624,10 +29493,10 @@ public final class Schema {
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                namespaces_ = new com.google.protobuf.LazyStringArrayList();
+                projects_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000001;
               }
-              namespaces_.add(s);
+              projects_.add(s);
               break;
             }
             default: {
@@ -25646,7 +29515,7 @@ public final class Schema {
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          namespaces_ = namespaces_.getUnmodifiableView();
+          projects_ = projects_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -25654,44 +29523,44 @@ public final class Schema {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return meshpaas.Schema.internal_static_meshpaas_Namespaces_descriptor;
+      return meshpaas.Schema.internal_static_meshpaas_Projects_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return meshpaas.Schema.internal_static_meshpaas_Namespaces_fieldAccessorTable
+      return meshpaas.Schema.internal_static_meshpaas_Projects_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              meshpaas.Schema.Namespaces.class, meshpaas.Schema.Namespaces.Builder.class);
+              meshpaas.Schema.Projects.class, meshpaas.Schema.Projects.Builder.class);
     }
 
-    public static final int NAMESPACES_FIELD_NUMBER = 1;
-    private com.google.protobuf.LazyStringList namespaces_;
+    public static final int PROJECTS_FIELD_NUMBER = 1;
+    private com.google.protobuf.LazyStringList projects_;
     /**
-     * <code>repeated string namespaces = 1;</code>
+     * <code>repeated string projects = 1;</code>
      */
     public com.google.protobuf.ProtocolStringList
-        getNamespacesList() {
-      return namespaces_;
+        getProjectsList() {
+      return projects_;
     }
     /**
-     * <code>repeated string namespaces = 1;</code>
+     * <code>repeated string projects = 1;</code>
      */
-    public int getNamespacesCount() {
-      return namespaces_.size();
+    public int getProjectsCount() {
+      return projects_.size();
     }
     /**
-     * <code>repeated string namespaces = 1;</code>
+     * <code>repeated string projects = 1;</code>
      */
-    public java.lang.String getNamespaces(int index) {
-      return namespaces_.get(index);
+    public java.lang.String getProjects(int index) {
+      return projects_.get(index);
     }
     /**
-     * <code>repeated string namespaces = 1;</code>
+     * <code>repeated string projects = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getNamespacesBytes(int index) {
-      return namespaces_.getByteString(index);
+        getProjectsBytes(int index) {
+      return projects_.getByteString(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -25708,8 +29577,8 @@ public final class Schema {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      for (int i = 0; i < namespaces_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, namespaces_.getRaw(i));
+      for (int i = 0; i < projects_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, projects_.getRaw(i));
       }
       unknownFields.writeTo(output);
     }
@@ -25722,11 +29591,11 @@ public final class Schema {
       size = 0;
       {
         int dataSize = 0;
-        for (int i = 0; i < namespaces_.size(); i++) {
-          dataSize += computeStringSizeNoTag(namespaces_.getRaw(i));
+        for (int i = 0; i < projects_.size(); i++) {
+          dataSize += computeStringSizeNoTag(projects_.getRaw(i));
         }
         size += dataSize;
-        size += 1 * getNamespacesList().size();
+        size += 1 * getProjectsList().size();
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -25738,14 +29607,14 @@ public final class Schema {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof meshpaas.Schema.Namespaces)) {
+      if (!(obj instanceof meshpaas.Schema.Projects)) {
         return super.equals(obj);
       }
-      meshpaas.Schema.Namespaces other = (meshpaas.Schema.Namespaces) obj;
+      meshpaas.Schema.Projects other = (meshpaas.Schema.Projects) obj;
 
       boolean result = true;
-      result = result && getNamespacesList()
-          .equals(other.getNamespacesList());
+      result = result && getProjectsList()
+          .equals(other.getProjectsList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -25757,78 +29626,78 @@ public final class Schema {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (getNamespacesCount() > 0) {
-        hash = (37 * hash) + NAMESPACES_FIELD_NUMBER;
-        hash = (53 * hash) + getNamespacesList().hashCode();
+      if (getProjectsCount() > 0) {
+        hash = (37 * hash) + PROJECTS_FIELD_NUMBER;
+        hash = (53 * hash) + getProjectsList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static meshpaas.Schema.Namespaces parseFrom(
+    public static meshpaas.Schema.Projects parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static meshpaas.Schema.Namespaces parseFrom(
+    public static meshpaas.Schema.Projects parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static meshpaas.Schema.Namespaces parseFrom(
+    public static meshpaas.Schema.Projects parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static meshpaas.Schema.Namespaces parseFrom(
+    public static meshpaas.Schema.Projects parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static meshpaas.Schema.Namespaces parseFrom(byte[] data)
+    public static meshpaas.Schema.Projects parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static meshpaas.Schema.Namespaces parseFrom(
+    public static meshpaas.Schema.Projects parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static meshpaas.Schema.Namespaces parseFrom(java.io.InputStream input)
+    public static meshpaas.Schema.Projects parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static meshpaas.Schema.Namespaces parseFrom(
+    public static meshpaas.Schema.Projects parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static meshpaas.Schema.Namespaces parseDelimitedFrom(java.io.InputStream input)
+    public static meshpaas.Schema.Projects parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static meshpaas.Schema.Namespaces parseDelimitedFrom(
+    public static meshpaas.Schema.Projects parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static meshpaas.Schema.Namespaces parseFrom(
+    public static meshpaas.Schema.Projects parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static meshpaas.Schema.Namespaces parseFrom(
+    public static meshpaas.Schema.Projects parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -25841,7 +29710,7 @@ public final class Schema {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(meshpaas.Schema.Namespaces prototype) {
+    public static Builder newBuilder(meshpaas.Schema.Projects prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -25857,26 +29726,26 @@ public final class Schema {
       return builder;
     }
     /**
-     * Protobuf type {@code meshpaas.Namespaces}
+     * Protobuf type {@code meshpaas.Projects}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:meshpaas.Namespaces)
-        meshpaas.Schema.NamespacesOrBuilder {
+        // @@protoc_insertion_point(builder_implements:meshpaas.Projects)
+        meshpaas.Schema.ProjectsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return meshpaas.Schema.internal_static_meshpaas_Namespaces_descriptor;
+        return meshpaas.Schema.internal_static_meshpaas_Projects_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return meshpaas.Schema.internal_static_meshpaas_Namespaces_fieldAccessorTable
+        return meshpaas.Schema.internal_static_meshpaas_Projects_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                meshpaas.Schema.Namespaces.class, meshpaas.Schema.Namespaces.Builder.class);
+                meshpaas.Schema.Projects.class, meshpaas.Schema.Projects.Builder.class);
       }
 
-      // Construct using meshpaas.Schema.Namespaces.newBuilder()
+      // Construct using meshpaas.Schema.Projects.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -25894,7 +29763,7 @@ public final class Schema {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        namespaces_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        projects_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
@@ -25902,17 +29771,17 @@ public final class Schema {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return meshpaas.Schema.internal_static_meshpaas_Namespaces_descriptor;
+        return meshpaas.Schema.internal_static_meshpaas_Projects_descriptor;
       }
 
       @java.lang.Override
-      public meshpaas.Schema.Namespaces getDefaultInstanceForType() {
-        return meshpaas.Schema.Namespaces.getDefaultInstance();
+      public meshpaas.Schema.Projects getDefaultInstanceForType() {
+        return meshpaas.Schema.Projects.getDefaultInstance();
       }
 
       @java.lang.Override
-      public meshpaas.Schema.Namespaces build() {
-        meshpaas.Schema.Namespaces result = buildPartial();
+      public meshpaas.Schema.Projects build() {
+        meshpaas.Schema.Projects result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -25920,14 +29789,14 @@ public final class Schema {
       }
 
       @java.lang.Override
-      public meshpaas.Schema.Namespaces buildPartial() {
-        meshpaas.Schema.Namespaces result = new meshpaas.Schema.Namespaces(this);
+      public meshpaas.Schema.Projects buildPartial() {
+        meshpaas.Schema.Projects result = new meshpaas.Schema.Projects(this);
         int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          namespaces_ = namespaces_.getUnmodifiableView();
+          projects_ = projects_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
-        result.namespaces_ = namespaces_;
+        result.projects_ = projects_;
         onBuilt();
         return result;
       }
@@ -25966,23 +29835,23 @@ public final class Schema {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof meshpaas.Schema.Namespaces) {
-          return mergeFrom((meshpaas.Schema.Namespaces)other);
+        if (other instanceof meshpaas.Schema.Projects) {
+          return mergeFrom((meshpaas.Schema.Projects)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(meshpaas.Schema.Namespaces other) {
-        if (other == meshpaas.Schema.Namespaces.getDefaultInstance()) return this;
-        if (!other.namespaces_.isEmpty()) {
-          if (namespaces_.isEmpty()) {
-            namespaces_ = other.namespaces_;
+      public Builder mergeFrom(meshpaas.Schema.Projects other) {
+        if (other == meshpaas.Schema.Projects.getDefaultInstance()) return this;
+        if (!other.projects_.isEmpty()) {
+          if (projects_.isEmpty()) {
+            projects_ = other.projects_;
             bitField0_ = (bitField0_ & ~0x00000001);
           } else {
-            ensureNamespacesIsMutable();
-            namespaces_.addAll(other.namespaces_);
+            ensureProjectsIsMutable();
+            projects_.addAll(other.projects_);
           }
           onChanged();
         }
@@ -26001,11 +29870,11 @@ public final class Schema {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        meshpaas.Schema.Namespaces parsedMessage = null;
+        meshpaas.Schema.Projects parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (meshpaas.Schema.Namespaces) e.getUnfinishedMessage();
+          parsedMessage = (meshpaas.Schema.Projects) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -26016,96 +29885,96 @@ public final class Schema {
       }
       private int bitField0_;
 
-      private com.google.protobuf.LazyStringList namespaces_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureNamespacesIsMutable() {
+      private com.google.protobuf.LazyStringList projects_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureProjectsIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          namespaces_ = new com.google.protobuf.LazyStringArrayList(namespaces_);
+          projects_ = new com.google.protobuf.LazyStringArrayList(projects_);
           bitField0_ |= 0x00000001;
          }
       }
       /**
-       * <code>repeated string namespaces = 1;</code>
+       * <code>repeated string projects = 1;</code>
        */
       public com.google.protobuf.ProtocolStringList
-          getNamespacesList() {
-        return namespaces_.getUnmodifiableView();
+          getProjectsList() {
+        return projects_.getUnmodifiableView();
       }
       /**
-       * <code>repeated string namespaces = 1;</code>
+       * <code>repeated string projects = 1;</code>
        */
-      public int getNamespacesCount() {
-        return namespaces_.size();
+      public int getProjectsCount() {
+        return projects_.size();
       }
       /**
-       * <code>repeated string namespaces = 1;</code>
+       * <code>repeated string projects = 1;</code>
        */
-      public java.lang.String getNamespaces(int index) {
-        return namespaces_.get(index);
+      public java.lang.String getProjects(int index) {
+        return projects_.get(index);
       }
       /**
-       * <code>repeated string namespaces = 1;</code>
+       * <code>repeated string projects = 1;</code>
        */
       public com.google.protobuf.ByteString
-          getNamespacesBytes(int index) {
-        return namespaces_.getByteString(index);
+          getProjectsBytes(int index) {
+        return projects_.getByteString(index);
       }
       /**
-       * <code>repeated string namespaces = 1;</code>
+       * <code>repeated string projects = 1;</code>
        */
-      public Builder setNamespaces(
+      public Builder setProjects(
           int index, java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  ensureNamespacesIsMutable();
-        namespaces_.set(index, value);
+  ensureProjectsIsMutable();
+        projects_.set(index, value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string namespaces = 1;</code>
+       * <code>repeated string projects = 1;</code>
        */
-      public Builder addNamespaces(
+      public Builder addProjects(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  ensureNamespacesIsMutable();
-        namespaces_.add(value);
+  ensureProjectsIsMutable();
+        projects_.add(value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string namespaces = 1;</code>
+       * <code>repeated string projects = 1;</code>
        */
-      public Builder addAllNamespaces(
+      public Builder addAllProjects(
           java.lang.Iterable<java.lang.String> values) {
-        ensureNamespacesIsMutable();
+        ensureProjectsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, namespaces_);
+            values, projects_);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string namespaces = 1;</code>
+       * <code>repeated string projects = 1;</code>
        */
-      public Builder clearNamespaces() {
-        namespaces_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      public Builder clearProjects() {
+        projects_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string namespaces = 1;</code>
+       * <code>repeated string projects = 1;</code>
        */
-      public Builder addNamespacesBytes(
+      public Builder addProjectsBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-        ensureNamespacesIsMutable();
-        namespaces_.add(value);
+        ensureProjectsIsMutable();
+        projects_.add(value);
         onChanged();
         return this;
       }
@@ -26122,46 +29991,76 @@ public final class Schema {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:meshpaas.Namespaces)
+      // @@protoc_insertion_point(builder_scope:meshpaas.Projects)
     }
 
-    // @@protoc_insertion_point(class_scope:meshpaas.Namespaces)
-    private static final meshpaas.Schema.Namespaces DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:meshpaas.Projects)
+    private static final meshpaas.Schema.Projects DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new meshpaas.Schema.Namespaces();
+      DEFAULT_INSTANCE = new meshpaas.Schema.Projects();
     }
 
-    public static meshpaas.Schema.Namespaces getDefaultInstance() {
+    public static meshpaas.Schema.Projects getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<Namespaces>
-        PARSER = new com.google.protobuf.AbstractParser<Namespaces>() {
+    private static final com.google.protobuf.Parser<Projects>
+        PARSER = new com.google.protobuf.AbstractParser<Projects>() {
       @java.lang.Override
-      public Namespaces parsePartialFrom(
+      public Projects parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Namespaces(input, extensionRegistry);
+        return new Projects(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<Namespaces> parser() {
+    public static com.google.protobuf.Parser<Projects> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<Namespaces> getParserForType() {
+    public com.google.protobuf.Parser<Projects> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public meshpaas.Schema.Namespaces getDefaultInstanceForType() {
+    public meshpaas.Schema.Projects getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_meshpaas_SecretInput_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_meshpaas_SecretInput_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_meshpaas_SecretInput_DataEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_meshpaas_SecretInput_DataEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_meshpaas_SecretInput_LabelsEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_meshpaas_SecretInput_LabelsEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_meshpaas_Secret_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_meshpaas_Secret_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_meshpaas_Secret_DataEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_meshpaas_Secret_DataEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_meshpaas_Secret_LabelsEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_meshpaas_Secret_LabelsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_meshpaas_ServerTLSSettings_descriptor;
   private static final 
@@ -26213,20 +30112,25 @@ public final class Schema {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_meshpaas_Networking_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_meshpaas_Container_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_meshpaas_Container_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_meshpaas_Container_EnvEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_meshpaas_Container_EnvEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_meshpaas_Container_PortsEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_meshpaas_Container_PortsEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_meshpaas_App_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_meshpaas_App_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_App_EnvEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_App_EnvEntry_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_App_PortsEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_App_PortsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_meshpaas_App_LabelsEntry_descriptor;
   private static final 
@@ -26243,11 +30147,6 @@ public final class Schema {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_meshpaas_Task_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_Task_EnvEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_Task_EnvEntry_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_meshpaas_Task_LabelsEntry_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -26263,11 +30162,6 @@ public final class Schema {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_meshpaas_TaskInput_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_TaskInput_EnvEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_TaskInput_EnvEntry_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_meshpaas_TaskInput_LabelsEntry_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -26282,16 +30176,6 @@ public final class Schema {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_meshpaas_AppInput_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_AppInput_EnvEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_AppInput_EnvEntry_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_AppInput_PortsEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_AppInput_PortsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_meshpaas_AppInput_LabelsEntry_descriptor;
   private static final 
@@ -26333,15 +30217,35 @@ public final class Schema {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_meshpaas_Tasks_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_Namespace_descriptor;
+    internal_static_meshpaas_ProjectInput_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_Namespace_fieldAccessorTable;
+      internal_static_meshpaas_ProjectInput_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_Namespaces_descriptor;
+    internal_static_meshpaas_ProjectInput_LabelsEntry_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_Namespaces_fieldAccessorTable;
+      internal_static_meshpaas_ProjectInput_LabelsEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_meshpaas_Project_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_meshpaas_Project_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_meshpaas_Project_LabelsEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_meshpaas_Project_LabelsEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_meshpaas_ProjectRef_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_meshpaas_ProjectRef_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_meshpaas_Projects_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_meshpaas_Projects_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -26356,135 +30260,162 @@ public final class Schema {
       "p.proto\032\031google/protobuf/any.proto\032\033goog" +
       "le/protobuf/empty.proto\0326github.com/mwit" +
       "kow/go-proto-validators/validator.proto\"" +
-      "\243\002\n\021ServerTLSSettings\022\026\n\016https_redirect\030" +
-      "\001 \001(\010\022\037\n\004mode\030\002 \001(\0162\021.meshpaas.TLSmode\022\032" +
-      "\n\022server_certificate\030\003 \001(\t\022\023\n\013private_ke" +
-      "y\030\004 \001(\t\022\027\n\017ca_certificates\030\005 \001(\t\022\027\n\017cred" +
-      "ential_name\030\n \001(\t\022\031\n\021subject_alt_names\030\006" +
-      " \003(\t\022\037\n\027verify_certificate_spki\030\013 \003(\t\022\037\n" +
-      "\027verify_certificate_hash\030\014 \003(\t\022\025\n\rcipher" +
-      "_suites\030\t \003(\t\"\275\001\n\017GatewayListener\022\024\n\004por" +
-      "t\030\001 \001(\rB\006\342\337\037\002\020\000\022\036\n\004name\030\002 \001(\tB\020\342\337\037\014\n\n^.{" +
-      "1,225}$\022,\n\010protocol\030\003 \001(\0162\022.meshpaas.Pro" +
-      "tocolB\006\342\337\037\002\020\000\022\025\n\005hosts\030\004 \003(\tB\006\342\337\037\002`\000\022/\n\n" +
-      "tls_config\030\005 \001(\0132\033.meshpaas.ServerTLSSet" +
-      "tings\"\232\002\n\007Gateway\022\014\n\004name\030\001 \001(\t\022\021\n\tnames" +
-      "pace\030\002 \001(\t\022,\n\tlisteners\030\003 \003(\0132\031.meshpaas" +
-      ".GatewayListener\022-\n\006labels\030\004 \003(\0132\035.meshp" +
-      "aas.Gateway.LabelsEntry\0221\n\010selector\030\005 \003(" +
-      "\0132\037.meshpaas.Gateway.SelectorEntry\032-\n\013La" +
-      "belsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028" +
-      "\001\032/\n\rSelectorEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value" +
-      "\030\002 \001(\t:\0028\001\"\335\002\n\014GatewayInput\022\036\n\004name\030\001 \001(" +
-      "\tB\020\342\337\037\014\n\n^.{1,225}$\022#\n\tnamespace\030\002 \001(\tB\020" +
-      "\342\337\037\014\n\n^.{1,225}$\022,\n\tlisteners\030\003 \003(\0132\031.me" +
-      "shpaas.GatewayListener\022:\n\006labels\030\004 \003(\0132\"" +
-      ".meshpaas.GatewayInput.LabelsEntryB\006\342\337\037\002" +
-      " \001\022>\n\010selector\030\005 \003(\0132$.meshpaas.GatewayI" +
-      "nput.SelectorEntryB\006\342\337\037\002 \001\032-\n\013LabelsEntr" +
-      "y\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032/\n\rSel" +
-      "ectorEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\002" +
-      "8\001\"\343\001\n\tHTTPRoute\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^." +
-      "{1,225}$\022\024\n\004port\030\002 \001(\rB\006\342\337\037\002\020\000\022\023\n\013path_p" +
-      "refix\030\003 \001(\t\022\023\n\013rewrite_uri\030\004 \001(\t\022\025\n\rallo" +
-      "w_origins\030\005 \003(\t\022\025\n\rallow_methods\030\006 \003(\t\022\025" +
-      "\n\rallow_headers\030\007 \003(\t\022\026\n\016expose_headers\030" +
-      "\010 \003(\t\022\031\n\021allow_credentials\030\t \001(\010\"g\n\nNetw" +
-      "orking\022\020\n\010gateways\030\001 \003(\t\022\r\n\005hosts\030\002 \003(\t\022" +
-      "\016\n\006export\030\003 \001(\010\022(\n\013http_routes\030\004 \003(\0132\023.m" +
-      "eshpaas.HTTPRoute\"\344\004\n\003App\022\036\n\004name\030\001 \001(\tB" +
-      "\020\342\337\037\014\n\n^.{1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337" +
-      "\037\014\n\n^.{1,225}$\022\037\n\005image\030\003 \001(\tB\020\342\337\037\014\n\n^.{" +
-      "1,225}$\022\014\n\004args\030\005 \003(\t\022#\n\003env\030\006 \003(\0132\026.mes" +
-      "hpaas.App.EnvEntry\022/\n\005ports\030\007 \003(\0132\030.mesh" +
-      "paas.App.PortsEntryB\006\342\337\037\002 \001\022\020\n\010replicas\030" +
-      "\010 \001(\r\0221\n\006labels\030\t \003(\0132\031.meshpaas.App.Lab" +
-      "elsEntryB\006\342\337\037\002 \001\0225\n\010selector\030\n \003(\0132\033.mes" +
-      "hpaas.App.SelectorEntryB\006\342\337\037\002 \001\0220\n\nnetwo" +
-      "rking\030\013 \001(\0132\024.meshpaas.NetworkingB\006\342\337\037\002 " +
-      "\001\022+\n\006status\030\024 \001(\0132\023.meshpaas.AppStatusB\006" +
-      "\342\337\037\002 \001\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value" +
-      "\030\002 \001(\t:\0028\001\032,\n\nPortsEntry\022\013\n\003key\030\001 \001(\t\022\r\n" +
-      "\005value\030\002 \001(\r:\0028\001\032-\n\013LabelsEntry\022\013\n\003key\030\001" +
-      " \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032/\n\rSelectorEntry" +
-      "\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\321\003\n\004Tas" +
-      "k\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022#\n\tnam" +
-      "espace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\037\n\005image\030" +
-      "\003 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\014\n\004args\030\005 \003(\t\022$\n" +
-      "\003env\030\006 \003(\0132\027.meshpaas.Task.EnvEntry\022\"\n\010s" +
-      "chedule\030\007 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\023\n\013compl" +
-      "etions\030\010 \001(\r\0222\n\006labels\030\t \003(\0132\032.meshpaas." +
-      "Task.LabelsEntryB\006\342\337\037\002 \001\0226\n\010selector\030\n \003" +
-      "(\0132\034.meshpaas.Task.SelectorEntryB\006\342\337\037\002 \001" +
-      "\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t" +
-      ":\0028\001\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005valu" +
-      "e\030\002 \001(\t:\0028\001\032/\n\rSelectorEntry\022\013\n\003key\030\001 \001(" +
-      "\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\345\003\n\tTaskInput\022\036\n\004na" +
-      "me\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022#\n\tnamespace\030" +
-      "\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\037\n\005image\030\003 \001(\tB\020" +
-      "\342\337\037\014\n\n^.{1,225}$\022\014\n\004args\030\005 \003(\t\022)\n\003env\030\006 " +
-      "\003(\0132\034.meshpaas.TaskInput.EnvEntry\022\"\n\010sch" +
-      "edule\030\007 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\023\n\013complet" +
-      "ions\030\010 \001(\r\0227\n\006labels\030\t \003(\0132\037.meshpaas.Ta" +
-      "skInput.LabelsEntryB\006\342\337\037\002 \001\022;\n\010selector\030" +
-      "\n \003(\0132!.meshpaas.TaskInput.SelectorEntry" +
-      "B\006\342\337\037\002 \001\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005val" +
-      "ue\030\002 \001(\t:\0028\001\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t" +
-      "\022\r\n\005value\030\002 \001(\t:\0028\001\032/\n\rSelectorEntry\022\013\n\003" +
-      "key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\320\004\n\010AppInpu" +
-      "t\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022#\n\tnam" +
-      "espace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\037\n\005image\030" +
-      "\003 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\014\n\004args\030\004 \003(\t\022(\n" +
-      "\003env\030\005 \003(\0132\033.meshpaas.AppInput.EnvEntry\022" +
-      "4\n\005ports\030\006 \003(\0132\035.meshpaas.AppInput.Ports" +
-      "EntryB\006\342\337\037\002 \001\022\020\n\010replicas\030\007 \001(\r\0220\n\nnetwo" +
-      "rking\030\t \001(\0132\024.meshpaas.NetworkingB\006\342\337\037\002 " +
-      "\001\0226\n\006labels\030\n \003(\0132\036.meshpaas.AppInput.La" +
-      "belsEntryB\006\342\337\037\002 \001\022:\n\010selector\030\013 \003(\0132 .me" +
-      "shpaas.AppInput.SelectorEntryB\006\342\337\037\002 \001\032*\n" +
-      "\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028" +
-      "\001\032,\n\nPortsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 " +
-      "\001(\r:\0028\001\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005v" +
-      "alue\030\002 \001(\t:\0028\001\032/\n\rSelectorEntry\022\013\n\003key\030\001" +
-      " \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"J\n\003Ref\022\036\n\004name\030\001" +
-      " \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022#\n\tnamespace\030\002 \001(" +
-      "\tB\020\342\337\037\014\n\n^.{1,225}$\";\n\007Replica\022\r\n\005phase\030" +
-      "\001 \001(\t\022\021\n\tcondition\030\002 \001(\t\022\016\n\006reason\030\003 \001(\t" +
-      "\"0\n\tAppStatus\022#\n\010replicas\030\001 \003(\0132\021.meshpa" +
-      "as.Replica\"\026\n\003Log\022\017\n\007message\030\001 \001(\t\"+\n\004Ap" +
-      "ps\022#\n\014applications\030\001 \003(\0132\r.meshpaas.App\"" +
-      "&\n\005Tasks\022\035\n\005tasks\030\001 \003(\0132\016.meshpaas.Task\"" +
-      "\036\n\tNamespace\022\021\n\tnamespace\030\001 \001(\t\" \n\nNames" +
-      "paces\022\022\n\nnamespaces\030\001 \003(\t*g\n\010Protocol\022\024\n" +
-      "\020INVALID_PROTOCOL\020\000\022\010\n\004HTTP\020\001\022\t\n\005HTTPS\020\002" +
-      "\022\010\n\004GRPC\020\003\022\t\n\005HTTP2\020\004\022\t\n\005MONGO\020\005\022\007\n\003TCP\020" +
-      "\006\022\007\n\003TLS\020\007*Z\n\007TLSmode\022\017\n\013PASSTHROUGH\020\000\022\n" +
-      "\n\006SIMPLE\020\001\022\n\n\006MUTUAL\020\002\022\024\n\020AUTO_PASSTHROU" +
-      "GH\020\003\022\020\n\014ISTIO_MUTUAL\020\0042\237\007\n\016KdeployServic" +
-      "e\0220\n\tCreateApp\022\022.meshpaas.AppInput\032\r.mes" +
+      "\325\002\n\013SecretInput\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{" +
+      "1,225}$\022!\n\007project\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225" +
+      "}$\022\"\n\004type\030\003 \001(\0162\024.meshpaas.SecretType\022\021" +
+      "\n\timmutable\030\004 \001(\010\0225\n\004data\030\005 \003(\0132\037.meshpa" +
+      "as.SecretInput.DataEntryB\006\342\337\037\002 \001\0229\n\006labe" +
+      "ls\030\006 \003(\0132!.meshpaas.SecretInput.LabelsEn" +
+      "tryB\006\342\337\037\002 \001\032+\n\tDataEntry\022\013\n\003key\030\001 \001(\t\022\r\n" +
+      "\005value\030\002 \001(\t:\0028\001\032-\n\013LabelsEntry\022\013\n\003key\030\001" +
+      " \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\306\002\n\006Secret\022\036\n\004na" +
+      "me\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022!\n\007project\030\002 " +
+      "\001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\"\n\004type\030\003 \001(\0162\024.me" +
+      "shpaas.SecretType\022\021\n\timmutable\030\004 \001(\010\0220\n\004" +
+      "data\030\005 \003(\0132\032.meshpaas.Secret.DataEntryB\006" +
+      "\342\337\037\002 \001\0224\n\006labels\030\006 \003(\0132\034.meshpaas.Secret" +
+      ".LabelsEntryB\006\342\337\037\002 \001\032+\n\tDataEntry\022\013\n\003key" +
+      "\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032-\n\013LabelsEntry" +
+      "\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\331\001\n\021Ser" +
+      "verTLSSettings\022\026\n\016https_redirect\030\001 \001(\010\022\037" +
+      "\n\004mode\030\002 \001(\0162\021.meshpaas.TLSmode\022\027\n\017crede" +
+      "ntial_name\030\003 \001(\t\022\031\n\021subject_alt_names\030\004 " +
+      "\003(\t\022\037\n\027verify_certificate_spki\030\005 \003(\t\022\037\n\027" +
+      "verify_certificate_hash\030\006 \003(\t\022\025\n\rcipher_" +
+      "suites\030\007 \003(\t\"\275\001\n\017GatewayListener\022\024\n\004port" +
+      "\030\001 \001(\rB\006\342\337\037\002\020\000\022\036\n\004name\030\002 \001(\tB\020\342\337\037\014\n\n^.{1" +
+      ",225}$\022,\n\010protocol\030\003 \001(\0162\022.meshpaas.Prot" +
+      "ocolB\006\342\337\037\002\020\000\022\025\n\005hosts\030\004 \003(\tB\006\342\337\037\002`\000\022/\n\nt" +
+      "ls_config\030\005 \001(\0132\033.meshpaas.ServerTLSSett" +
+      "ings\"\230\002\n\007Gateway\022\014\n\004name\030\001 \001(\t\022\017\n\007projec" +
+      "t\030\002 \001(\t\022,\n\tlisteners\030\003 \003(\0132\031.meshpaas.Ga" +
+      "tewayListener\022-\n\006labels\030\004 \003(\0132\035.meshpaas" +
+      ".Gateway.LabelsEntry\0221\n\010selector\030\005 \003(\0132\037" +
+      ".meshpaas.Gateway.SelectorEntry\032-\n\013Label" +
+      "sEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032/" +
+      "\n\rSelectorEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 " +
+      "\001(\t:\0028\001\"\333\002\n\014GatewayInput\022\036\n\004name\030\001 \001(\tB\020" +
+      "\342\337\037\014\n\n^.{1,225}$\022!\n\007project\030\002 \001(\tB\020\342\337\037\014\n" +
+      "\n^.{1,225}$\022,\n\tlisteners\030\003 \003(\0132\031.meshpaa" +
+      "s.GatewayListener\022:\n\006labels\030\004 \003(\0132\".mesh" +
+      "paas.GatewayInput.LabelsEntryB\006\342\337\037\002 \001\022>\n" +
+      "\010selector\030\005 \003(\0132$.meshpaas.GatewayInput." +
+      "SelectorEntryB\006\342\337\037\002 \001\032-\n\013LabelsEntry\022\013\n\003" +
+      "key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032/\n\rSelector" +
+      "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\343\001" +
+      "\n\tHTTPRoute\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,22" +
+      "5}$\022\024\n\004port\030\002 \001(\rB\006\342\337\037\002\020\000\022\023\n\013path_prefix" +
+      "\030\003 \001(\t\022\023\n\013rewrite_uri\030\005 \001(\t\022\025\n\rallow_ori" +
+      "gins\030\006 \003(\t\022\025\n\rallow_methods\030\007 \003(\t\022\025\n\rall" +
+      "ow_headers\030\010 \003(\t\022\026\n\016expose_headers\030\t \003(\t" +
+      "\022\031\n\021allow_credentials\030\n \001(\010\"g\n\nNetworkin" +
+      "g\022\020\n\010gateways\030\001 \003(\t\022\r\n\005hosts\030\002 \003(\t\022\016\n\006ex" +
+      "port\030\003 \001(\010\022(\n\013http_routes\030\004 \003(\0132\023.meshpa" +
+      "as.HTTPRoute\"\226\002\n\tContainer\022\036\n\004name\030\001 \001(\t" +
+      "B\020\342\337\037\014\n\n^.{1,225}$\022\037\n\005image\030\002 \001(\tB\020\342\337\037\014\n" +
+      "\n^.{1,225}$\022\014\n\004args\030\003 \003(\t\022)\n\003env\030\004 \003(\0132\034" +
+      ".meshpaas.Container.EnvEntry\0225\n\005ports\030\005 " +
+      "\003(\0132\036.meshpaas.Container.PortsEntryB\006\342\337\037" +
+      "\002 \001\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 " +
+      "\001(\t:\0028\001\032,\n\nPortsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
+      "lue\030\002 \001(\r:\0028\001\"\264\003\n\003App\022\036\n\004name\030\001 \001(\tB\020\342\337\037" +
+      "\014\n\n^.{1,225}$\022!\n\007project\030\002 \001(\tB\020\342\337\037\014\n\n^." +
+      "{1,225}$\022/\n\ncontainers\030\003 \003(\0132\023.meshpaas." +
+      "ContainerB\006\342\337\037\002 \001\022\020\n\010replicas\030\010 \001(\r\0221\n\006l" +
+      "abels\030\t \003(\0132\031.meshpaas.App.LabelsEntryB\006" +
+      "\342\337\037\002 \001\0225\n\010selector\030\n \003(\0132\033.meshpaas.App." +
+      "SelectorEntryB\006\342\337\037\002 \001\0220\n\nnetworking\030\013 \001(" +
+      "\0132\024.meshpaas.NetworkingB\006\342\337\037\002 \001\022+\n\006statu" +
+      "s\030\024 \001(\0132\023.meshpaas.AppStatusB\006\342\337\037\002 \001\032-\n\013" +
+      "LabelsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:" +
+      "\0028\001\032/\n\rSelectorEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005val" +
+      "ue\030\002 \001(\t:\0028\001\"\377\002\n\004Task\022\036\n\004name\030\001 \001(\tB\020\342\337\037" +
+      "\014\n\n^.{1,225}$\022!\n\007project\030\002 \001(\tB\020\342\337\037\014\n\n^." +
+      "{1,225}$\022/\n\ncontainers\030\003 \003(\0132\023.meshpaas." +
+      "ContainerB\006\342\337\037\002 \001\022\"\n\010schedule\030\007 \001(\tB\020\342\337\037" +
+      "\014\n\n^.{1,225}$\022\023\n\013completions\030\010 \001(\r\0222\n\006la" +
+      "bels\030\t \003(\0132\032.meshpaas.Task.LabelsEntryB\006" +
+      "\342\337\037\002 \001\0226\n\010selector\030\n \003(\0132\034.meshpaas.Task" +
+      ".SelectorEntryB\006\342\337\037\002 \001\032-\n\013LabelsEntry\022\013\n" +
+      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032/\n\rSelecto" +
+      "rEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\216" +
+      "\003\n\tTaskInput\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,2" +
+      "25}$\022!\n\007project\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022" +
+      "/\n\ncontainers\030\003 \003(\0132\023.meshpaas.Container" +
+      "B\006\342\337\037\002 \001\022\"\n\010schedule\030\007 \001(\tB\020\342\337\037\014\n\n^.{1,2" +
+      "25}$\022\023\n\013completions\030\010 \001(\r\0227\n\006labels\030\t \003(" +
+      "\0132\037.meshpaas.TaskInput.LabelsEntryB\006\342\337\037\002" +
+      " \001\022;\n\010selector\030\n \003(\0132!.meshpaas.TaskInpu" +
+      "t.SelectorEntryB\006\342\337\037\002 \001\032-\n\013LabelsEntry\022\013" +
+      "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032/\n\rSelect" +
+      "orEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"" +
+      "\226\003\n\010AppInput\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,2" +
+      "25}$\022!\n\007project\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022" +
+      "/\n\ncontainers\030\003 \003(\0132\023.meshpaas.Container" +
+      "B\006\342\337\037\002 \001\022\020\n\010replicas\030\007 \001(\r\0220\n\nnetworking" +
+      "\030\t \001(\0132\024.meshpaas.NetworkingB\006\342\337\037\002 \001\0226\n\006" +
+      "labels\030\n \003(\0132\036.meshpaas.AppInput.LabelsE" +
+      "ntryB\006\342\337\037\002 \001\022:\n\010selector\030\013 \003(\0132 .meshpaa" +
+      "s.AppInput.SelectorEntryB\006\342\337\037\002 \001\032-\n\013Labe" +
+      "lsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032" +
+      "/\n\rSelectorEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002" +
+      " \001(\t:\0028\001\"H\n\003Ref\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{" +
+      "1,225}$\022!\n\007project\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225" +
+      "}$\";\n\007Replica\022\r\n\005phase\030\001 \001(\t\022\021\n\tconditio" +
+      "n\030\002 \001(\t\022\016\n\006reason\030\003 \001(\t\"0\n\tAppStatus\022#\n\010" +
+      "replicas\030\001 \003(\0132\021.meshpaas.Replica\"\026\n\003Log" +
+      "\022\017\n\007message\030\001 \001(\t\"+\n\004Apps\022#\n\014application" +
+      "s\030\001 \003(\0132\r.meshpaas.App\"&\n\005Tasks\022\035\n\005tasks" +
+      "\030\001 \003(\0132\016.meshpaas.Task\"\231\001\n\014ProjectInput\022" +
+      "\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022:\n\006label" +
+      "s\030\002 \003(\0132\".meshpaas.ProjectInput.LabelsEn" +
+      "tryB\006\342\337\037\002 \001\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t\022" +
+      "\r\n\005value\030\002 \001(\t:\0028\001\"u\n\007Project\022\014\n\004name\030\001 " +
+      "\001(\t\022-\n\006labels\030\002 \003(\0132\035.meshpaas.Project.L" +
+      "abelsEntry\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t\022\r" +
+      "\n\005value\030\002 \001(\t:\0028\001\",\n\nProjectRef\022\036\n\004name\030" +
+      "\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\"\034\n\010Projects\022\020\n\010p" +
+      "rojects\030\001 \003(\t*=\n\nSecretType\022\n\n\006OPAQUE\020\000\022" +
+      "\020\n\014TLS_CERT_KEY\020\001\022\021\n\rDOCKER_CONFIG\020\002*g\n\010" +
+      "Protocol\022\024\n\020INVALID_PROTOCOL\020\000\022\010\n\004HTTP\020\001" +
+      "\022\t\n\005HTTPS\020\002\022\010\n\004GRPC\020\003\022\t\n\005HTTP2\020\004\022\t\n\005MONG" +
+      "O\020\005\022\007\n\003TCP\020\006\022\007\n\003TLS\020\007*Z\n\007TLSmode\022\017\n\013PASS" +
+      "THROUGH\020\000\022\n\n\006SIMPLE\020\001\022\n\n\006MUTUAL\020\002\022\024\n\020AUT" +
+      "O_PASSTHROUGH\020\003\022\020\n\014ISTIO_MUTUAL\020\0042\267\n\n\017Me" +
+      "shPaasService\022<\n\rCreateProject\022\026.meshpaa" +
+      "s.ProjectInput\032\021.meshpaas.Project\"\000\022<\n\014L" +
+      "istProjects\022\026.google.protobuf.Empty\032\022.me" +
+      "shpaas.Projects\"\000\022?\n\rDeleteProject\022\024.mes" +
+      "hpaas.ProjectRef\032\026.google.protobuf.Empty" +
+      "\"\000\0227\n\nGetProject\022\024.meshpaas.ProjectRef\032\021" +
+      ".meshpaas.Project\"\000\022<\n\rUpdateProject\022\026.m" +
+      "eshpaas.ProjectInput\032\021.meshpaas.Project\"" +
+      "\000\0220\n\tCreateApp\022\022.meshpaas.AppInput\032\r.mes" +
       "hpaas.App\"\000\0220\n\tUpdateApp\022\022.meshpaas.AppI" +
       "nput\032\r.meshpaas.App\"\000\0224\n\tDeleteApp\022\r.mes" +
       "hpaas.Ref\032\026.google.protobuf.Empty\"\000\022(\n\006G" +
-      "etApp\022\r.meshpaas.Ref\032\r.meshpaas.App\"\000\0221\n" +
-      "\010ListApps\022\023.meshpaas.Namespace\032\016.meshpaa" +
-      "s.Apps\"\000\022@\n\016ListNamespaces\022\026.google.prot" +
-      "obuf.Empty\032\024.meshpaas.Namespaces\"\000\022:\n\tDe" +
-      "leteAll\022\023.meshpaas.Namespace\032\026.google.pr" +
-      "otobuf.Empty\"\000\0223\n\nCreateTask\022\023.meshpaas." +
-      "TaskInput\032\016.meshpaas.Task\"\000\0223\n\nUpdateTas" +
-      "k\022\023.meshpaas.TaskInput\032\016.meshpaas.Task\"\000" +
-      "\0225\n\nDeleteTask\022\r.meshpaas.Ref\032\026.google.p" +
-      "rotobuf.Empty\"\000\022*\n\007GetTask\022\r.meshpaas.Re" +
-      "f\032\016.meshpaas.Task\"\000\0223\n\tListTasks\022\023.meshp" +
-      "aas.Namespace\032\017.meshpaas.Tasks\"\000\022.\n\nStre" +
-      "amLogs\022\r.meshpaas.Ref\032\r.meshpaas.Log\"\0000\001" +
-      "\022<\n\rCreateGateway\022\026.meshpaas.GatewayInpu" +
-      "t\032\021.meshpaas.Gateway\"\000\022<\n\rUpdateGateway\022" +
-      "\026.meshpaas.GatewayInput\032\021.meshpaas.Gatew" +
-      "ay\"\000\0228\n\rDeleteGateway\022\r.meshpaas.Ref\032\026.g" +
-      "oogle.protobuf.Empty\"\000\0220\n\nGetGateway\022\r.m" +
-      "eshpaas.Ref\032\021.meshpaas.Gateway\"\000B\014Z\nmesh" +
-      "paaspbb\006proto3"
+      "etApp\022\r.meshpaas.Ref\032\r.meshpaas.App\"\000\0222\n" +
+      "\010ListApps\022\024.meshpaas.ProjectRef\032\016.meshpa" +
+      "as.Apps\"\000\0223\n\nCreateTask\022\023.meshpaas.TaskI" +
+      "nput\032\016.meshpaas.Task\"\000\0223\n\nUpdateTask\022\023.m" +
+      "eshpaas.TaskInput\032\016.meshpaas.Task\"\000\0225\n\nD" +
+      "eleteTask\022\r.meshpaas.Ref\032\026.google.protob" +
+      "uf.Empty\"\000\022*\n\007GetTask\022\r.meshpaas.Ref\032\016.m" +
+      "eshpaas.Task\"\000\0224\n\tListTasks\022\024.meshpaas.P" +
+      "rojectRef\032\017.meshpaas.Tasks\"\000\022<\n\rCreateGa" +
+      "teway\022\026.meshpaas.GatewayInput\032\021.meshpaas" +
+      ".Gateway\"\000\022<\n\rUpdateGateway\022\026.meshpaas.G" +
+      "atewayInput\032\021.meshpaas.Gateway\"\000\0228\n\rDele" +
+      "teGateway\022\r.meshpaas.Ref\032\026.google.protob" +
+      "uf.Empty\"\000\0220\n\nGetGateway\022\r.meshpaas.Ref\032" +
+      "\021.meshpaas.Gateway\"\000\0229\n\014CreateSecret\022\025.m" +
+      "eshpaas.SecretInput\032\020.meshpaas.Secret\"\000\022" +
+      "9\n\014UpdateSecret\022\025.meshpaas.SecretInput\032\020" +
+      ".meshpaas.Secret\"\000\0227\n\014DeleteSecret\022\r.mes" +
+      "hpaas.Ref\032\026.google.protobuf.Empty\"\000\022.\n\tG" +
+      "etSecret\022\r.meshpaas.Ref\032\020.meshpaas.Secre" +
+      "t\"\000\022.\n\nStreamLogs\022\r.meshpaas.Ref\032\r.meshp" +
+      "aas.Log\"\0000\001B\014Z\nmeshpaaspbb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -26503,24 +30434,60 @@ public final class Schema {
           com.google.protobuf.EmptyProto.getDescriptor(),
           validator.Validator.getDescriptor(),
         }, assigner);
-    internal_static_meshpaas_ServerTLSSettings_descriptor =
+    internal_static_meshpaas_SecretInput_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_meshpaas_SecretInput_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_meshpaas_SecretInput_descriptor,
+        new java.lang.String[] { "Name", "Project", "Type", "Immutable", "Data", "Labels", });
+    internal_static_meshpaas_SecretInput_DataEntry_descriptor =
+      internal_static_meshpaas_SecretInput_descriptor.getNestedTypes().get(0);
+    internal_static_meshpaas_SecretInput_DataEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_meshpaas_SecretInput_DataEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_meshpaas_SecretInput_LabelsEntry_descriptor =
+      internal_static_meshpaas_SecretInput_descriptor.getNestedTypes().get(1);
+    internal_static_meshpaas_SecretInput_LabelsEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_meshpaas_SecretInput_LabelsEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_meshpaas_Secret_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_meshpaas_Secret_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_meshpaas_Secret_descriptor,
+        new java.lang.String[] { "Name", "Project", "Type", "Immutable", "Data", "Labels", });
+    internal_static_meshpaas_Secret_DataEntry_descriptor =
+      internal_static_meshpaas_Secret_descriptor.getNestedTypes().get(0);
+    internal_static_meshpaas_Secret_DataEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_meshpaas_Secret_DataEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_meshpaas_Secret_LabelsEntry_descriptor =
+      internal_static_meshpaas_Secret_descriptor.getNestedTypes().get(1);
+    internal_static_meshpaas_Secret_LabelsEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_meshpaas_Secret_LabelsEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_meshpaas_ServerTLSSettings_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_meshpaas_ServerTLSSettings_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_ServerTLSSettings_descriptor,
-        new java.lang.String[] { "HttpsRedirect", "Mode", "ServerCertificate", "PrivateKey", "CaCertificates", "CredentialName", "SubjectAltNames", "VerifyCertificateSpki", "VerifyCertificateHash", "CipherSuites", });
+        new java.lang.String[] { "HttpsRedirect", "Mode", "CredentialName", "SubjectAltNames", "VerifyCertificateSpki", "VerifyCertificateHash", "CipherSuites", });
     internal_static_meshpaas_GatewayListener_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_meshpaas_GatewayListener_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_GatewayListener_descriptor,
         new java.lang.String[] { "Port", "Name", "Protocol", "Hosts", "TlsConfig", });
     internal_static_meshpaas_Gateway_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_meshpaas_Gateway_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Gateway_descriptor,
-        new java.lang.String[] { "Name", "Namespace", "Listeners", "Labels", "Selector", });
+        new java.lang.String[] { "Name", "Project", "Listeners", "Labels", "Selector", });
     internal_static_meshpaas_Gateway_LabelsEntry_descriptor =
       internal_static_meshpaas_Gateway_descriptor.getNestedTypes().get(0);
     internal_static_meshpaas_Gateway_LabelsEntry_fieldAccessorTable = new
@@ -26534,11 +30501,11 @@ public final class Schema {
         internal_static_meshpaas_Gateway_SelectorEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_meshpaas_GatewayInput_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_meshpaas_GatewayInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_GatewayInput_descriptor,
-        new java.lang.String[] { "Name", "Namespace", "Listeners", "Labels", "Selector", });
+        new java.lang.String[] { "Name", "Project", "Listeners", "Labels", "Selector", });
     internal_static_meshpaas_GatewayInput_LabelsEntry_descriptor =
       internal_static_meshpaas_GatewayInput_descriptor.getNestedTypes().get(0);
     internal_static_meshpaas_GatewayInput_LabelsEntry_fieldAccessorTable = new
@@ -26552,173 +30519,179 @@ public final class Schema {
         internal_static_meshpaas_GatewayInput_SelectorEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_meshpaas_HTTPRoute_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_meshpaas_HTTPRoute_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_HTTPRoute_descriptor,
         new java.lang.String[] { "Name", "Port", "PathPrefix", "RewriteUri", "AllowOrigins", "AllowMethods", "AllowHeaders", "ExposeHeaders", "AllowCredentials", });
     internal_static_meshpaas_Networking_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_meshpaas_Networking_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Networking_descriptor,
         new java.lang.String[] { "Gateways", "Hosts", "Export", "HttpRoutes", });
+    internal_static_meshpaas_Container_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_meshpaas_Container_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_meshpaas_Container_descriptor,
+        new java.lang.String[] { "Name", "Image", "Args", "Env", "Ports", });
+    internal_static_meshpaas_Container_EnvEntry_descriptor =
+      internal_static_meshpaas_Container_descriptor.getNestedTypes().get(0);
+    internal_static_meshpaas_Container_EnvEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_meshpaas_Container_EnvEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_meshpaas_Container_PortsEntry_descriptor =
+      internal_static_meshpaas_Container_descriptor.getNestedTypes().get(1);
+    internal_static_meshpaas_Container_PortsEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_meshpaas_Container_PortsEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     internal_static_meshpaas_App_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_meshpaas_App_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_App_descriptor,
-        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", "Labels", "Selector", "Networking", "Status", });
-    internal_static_meshpaas_App_EnvEntry_descriptor =
-      internal_static_meshpaas_App_descriptor.getNestedTypes().get(0);
-    internal_static_meshpaas_App_EnvEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_App_EnvEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
-    internal_static_meshpaas_App_PortsEntry_descriptor =
-      internal_static_meshpaas_App_descriptor.getNestedTypes().get(1);
-    internal_static_meshpaas_App_PortsEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_App_PortsEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
+        new java.lang.String[] { "Name", "Project", "Containers", "Replicas", "Labels", "Selector", "Networking", "Status", });
     internal_static_meshpaas_App_LabelsEntry_descriptor =
-      internal_static_meshpaas_App_descriptor.getNestedTypes().get(2);
+      internal_static_meshpaas_App_descriptor.getNestedTypes().get(0);
     internal_static_meshpaas_App_LabelsEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_App_LabelsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_meshpaas_App_SelectorEntry_descriptor =
-      internal_static_meshpaas_App_descriptor.getNestedTypes().get(3);
+      internal_static_meshpaas_App_descriptor.getNestedTypes().get(1);
     internal_static_meshpaas_App_SelectorEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_App_SelectorEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_meshpaas_Task_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_meshpaas_Task_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Task_descriptor,
-        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Schedule", "Completions", "Labels", "Selector", });
-    internal_static_meshpaas_Task_EnvEntry_descriptor =
-      internal_static_meshpaas_Task_descriptor.getNestedTypes().get(0);
-    internal_static_meshpaas_Task_EnvEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_Task_EnvEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
+        new java.lang.String[] { "Name", "Project", "Containers", "Schedule", "Completions", "Labels", "Selector", });
     internal_static_meshpaas_Task_LabelsEntry_descriptor =
-      internal_static_meshpaas_Task_descriptor.getNestedTypes().get(1);
+      internal_static_meshpaas_Task_descriptor.getNestedTypes().get(0);
     internal_static_meshpaas_Task_LabelsEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Task_LabelsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_meshpaas_Task_SelectorEntry_descriptor =
-      internal_static_meshpaas_Task_descriptor.getNestedTypes().get(2);
+      internal_static_meshpaas_Task_descriptor.getNestedTypes().get(1);
     internal_static_meshpaas_Task_SelectorEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Task_SelectorEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_meshpaas_TaskInput_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_meshpaas_TaskInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_TaskInput_descriptor,
-        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Schedule", "Completions", "Labels", "Selector", });
-    internal_static_meshpaas_TaskInput_EnvEntry_descriptor =
-      internal_static_meshpaas_TaskInput_descriptor.getNestedTypes().get(0);
-    internal_static_meshpaas_TaskInput_EnvEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_TaskInput_EnvEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
+        new java.lang.String[] { "Name", "Project", "Containers", "Schedule", "Completions", "Labels", "Selector", });
     internal_static_meshpaas_TaskInput_LabelsEntry_descriptor =
-      internal_static_meshpaas_TaskInput_descriptor.getNestedTypes().get(1);
+      internal_static_meshpaas_TaskInput_descriptor.getNestedTypes().get(0);
     internal_static_meshpaas_TaskInput_LabelsEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_TaskInput_LabelsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_meshpaas_TaskInput_SelectorEntry_descriptor =
-      internal_static_meshpaas_TaskInput_descriptor.getNestedTypes().get(2);
+      internal_static_meshpaas_TaskInput_descriptor.getNestedTypes().get(1);
     internal_static_meshpaas_TaskInput_SelectorEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_TaskInput_SelectorEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_meshpaas_AppInput_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_meshpaas_AppInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_AppInput_descriptor,
-        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", "Networking", "Labels", "Selector", });
-    internal_static_meshpaas_AppInput_EnvEntry_descriptor =
-      internal_static_meshpaas_AppInput_descriptor.getNestedTypes().get(0);
-    internal_static_meshpaas_AppInput_EnvEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_AppInput_EnvEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
-    internal_static_meshpaas_AppInput_PortsEntry_descriptor =
-      internal_static_meshpaas_AppInput_descriptor.getNestedTypes().get(1);
-    internal_static_meshpaas_AppInput_PortsEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_AppInput_PortsEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
+        new java.lang.String[] { "Name", "Project", "Containers", "Replicas", "Networking", "Labels", "Selector", });
     internal_static_meshpaas_AppInput_LabelsEntry_descriptor =
-      internal_static_meshpaas_AppInput_descriptor.getNestedTypes().get(2);
+      internal_static_meshpaas_AppInput_descriptor.getNestedTypes().get(0);
     internal_static_meshpaas_AppInput_LabelsEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_AppInput_LabelsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_meshpaas_AppInput_SelectorEntry_descriptor =
-      internal_static_meshpaas_AppInput_descriptor.getNestedTypes().get(3);
+      internal_static_meshpaas_AppInput_descriptor.getNestedTypes().get(1);
     internal_static_meshpaas_AppInput_SelectorEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_AppInput_SelectorEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_meshpaas_Ref_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_meshpaas_Ref_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Ref_descriptor,
-        new java.lang.String[] { "Name", "Namespace", });
+        new java.lang.String[] { "Name", "Project", });
     internal_static_meshpaas_Replica_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_meshpaas_Replica_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Replica_descriptor,
         new java.lang.String[] { "Phase", "Condition", "Reason", });
     internal_static_meshpaas_AppStatus_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_meshpaas_AppStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_AppStatus_descriptor,
         new java.lang.String[] { "Replicas", });
     internal_static_meshpaas_Log_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_meshpaas_Log_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Log_descriptor,
         new java.lang.String[] { "Message", });
     internal_static_meshpaas_Apps_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_meshpaas_Apps_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Apps_descriptor,
         new java.lang.String[] { "Applications", });
     internal_static_meshpaas_Tasks_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_meshpaas_Tasks_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Tasks_descriptor,
         new java.lang.String[] { "Tasks", });
-    internal_static_meshpaas_Namespace_descriptor =
-      getDescriptor().getMessageTypes().get(16);
-    internal_static_meshpaas_Namespace_fieldAccessorTable = new
+    internal_static_meshpaas_ProjectInput_descriptor =
+      getDescriptor().getMessageTypes().get(19);
+    internal_static_meshpaas_ProjectInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_Namespace_descriptor,
-        new java.lang.String[] { "Namespace", });
-    internal_static_meshpaas_Namespaces_descriptor =
-      getDescriptor().getMessageTypes().get(17);
-    internal_static_meshpaas_Namespaces_fieldAccessorTable = new
+        internal_static_meshpaas_ProjectInput_descriptor,
+        new java.lang.String[] { "Name", "Labels", });
+    internal_static_meshpaas_ProjectInput_LabelsEntry_descriptor =
+      internal_static_meshpaas_ProjectInput_descriptor.getNestedTypes().get(0);
+    internal_static_meshpaas_ProjectInput_LabelsEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_Namespaces_descriptor,
-        new java.lang.String[] { "Namespaces", });
+        internal_static_meshpaas_ProjectInput_LabelsEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_meshpaas_Project_descriptor =
+      getDescriptor().getMessageTypes().get(20);
+    internal_static_meshpaas_Project_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_meshpaas_Project_descriptor,
+        new java.lang.String[] { "Name", "Labels", });
+    internal_static_meshpaas_Project_LabelsEntry_descriptor =
+      internal_static_meshpaas_Project_descriptor.getNestedTypes().get(0);
+    internal_static_meshpaas_Project_LabelsEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_meshpaas_Project_LabelsEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_meshpaas_ProjectRef_descriptor =
+      getDescriptor().getMessageTypes().get(21);
+    internal_static_meshpaas_ProjectRef_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_meshpaas_ProjectRef_descriptor,
+        new java.lang.String[] { "Name", });
+    internal_static_meshpaas_Projects_descriptor =
+      getDescriptor().getMessageTypes().get(22);
+    internal_static_meshpaas_Projects_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_meshpaas_Projects_descriptor,
+        new java.lang.String[] { "Projects", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(validator.Validator.field);

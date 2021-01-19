@@ -116,6 +116,9 @@ func BoolPointer(this bool) *bool {
 }
 
 func ConvertMap(labels map[string]string) map[string]interface{} {
+	if labels == nil {
+		return nil
+	}
 	values := map[string]interface{}{}
 	for k, v := range labels {
 		values[k] = v
@@ -124,6 +127,9 @@ func ConvertMap(labels map[string]string) map[string]interface{} {
 }
 
 func ConvertMapS(labels map[string]interface{}) map[string]string {
+	if labels == nil {
+		return nil
+	}
 	values := map[string]string{}
 	for k, v := range labels {
 		values[k] = cast.ToString(v)

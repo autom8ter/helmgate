@@ -7,94 +7,77 @@ import (
 	"github.com/spf13/cast"
 )
 
-func toAppC(input model.AppInput) *meshpaaspb.AppInput {
-	var env map[string]string
-	var ports map[string]uint32
-	if input.Env != nil {
-		env = cast.ToStringMapString(input.Env)
-	}
-	if input.Ports != nil {
-		ports = map[string]uint32{}
-		for k, v := range input.Ports {
+func toApp(input model.AppInput) *meshpaaspb.AppInput {
+	var networking = &meshpaaspb.Networking{}
+	var containers []*meshpaaspb.Container
+	for _, c := range input.Containers {
+		ports := map[string]uint32{}
+		for k, v := range c.Ports {
 			ports[k] = cast.ToUint32(v)
 		}
+		containers = append(containers, &meshpaaspb.Container{
+			Name:  c.Name,
+			Image: c.Image,
+			Args:  c.Args,
+			Env:   helpers.ConvertMapS(c.Env),
+			Ports: ports,
+		})
+	}
+	for _, r := range input.Networking.HTTPRoutes {
+		var (
+			pathPrefix       string
+			rewriteUri       string
+			allowCredentials bool
+		)
+
+		networking.HttpRoutes = append(networking.HttpRoutes, &meshpaaspb.HTTPRoute{
+			Name:             r.Name,
+			Port:             uint32(r.Port),
+			PathPrefix:       pathPrefix,
+			RewriteUri:       rewriteUri,
+			AllowOrigins:     r.AllowOrigins,
+			AllowMethods:     r.AllowMethods,
+			AllowHeaders:     r.AllowHeaders,
+			ExposeHeaders:    r.ExposeHeaders,
+			AllowCredentials: allowCredentials,
+		})
 	}
 	return &meshpaaspb.AppInput{
-		Name:      input.Name,
-		Namespace: input.Namespace,
-		Image:     input.Image,
-		Env:       env,
-		Ports:     ports,
-		Replicas:  uint32(input.Replicas),
-		Args:      input.Args,
+		Name:       input.Name,
+		Project:    input.Project,
+		Containers: containers,
+		Replicas:   uint32(input.Replicas),
+		Networking: networking,
+		Labels:     helpers.ConvertMapS(input.Labels),
+		Selector:   helpers.ConvertMapS(input.Selector),
 	}
 }
 
-func toTaskC(input model.TaskInput) *meshpaaspb.TaskInput {
-	var env map[string]string
+func toTask(input model.TaskInput) *meshpaaspb.TaskInput {
 	var completions uint32
-	if input.Env != nil {
-		env = cast.ToStringMapString(input.Env)
+	var containers []*meshpaaspb.Container
+	for _, c := range input.Containers {
+		ports := map[string]uint32{}
+		for k, v := range c.Ports {
+			ports[k] = cast.ToUint32(v)
+		}
+		containers = append(containers, &meshpaaspb.Container{
+			Name:  c.Name,
+			Image: c.Image,
+			Args:  c.Args,
+			Env:   helpers.ConvertMapS(c.Env),
+			Ports: ports,
+		})
 	}
 	if input.Completions != nil {
 		completions = uint32(*input.Completions)
 	}
 	return &meshpaaspb.TaskInput{
 		Name:        input.Name,
-		Namespace:   input.Namespace,
-		Image:       input.Image,
-		Args:        input.Args,
-		Env:         env,
+		Project:     input.Project,
+		Containers:  containers,
 		Schedule:    input.Schedule,
 		Completions: completions,
-	}
-}
-
-func toAppU(input model.AppInput) *meshpaaspb.AppInput {
-	var (
-		env   map[string]string
-		ports map[string]uint32
-	)
-	if input.Env != nil {
-		env = cast.ToStringMapString(input.Env)
-	}
-	if input.Ports != nil {
-		ports = map[string]uint32{}
-		for k, v := range input.Ports {
-			ports[k] = cast.ToUint32(v)
-		}
-	}
-	return &meshpaaspb.AppInput{
-		Name:       input.Name,
-		Namespace:  input.Namespace,
-		Image:      input.Image,
-		Env:        env,
-		Ports:      ports,
-		Replicas:   uint32(input.Replicas),
-		Args:       input.Args,
-		Networking: toNetworking(input.Networking),
-	}
-}
-
-func toTaskU(input model.TaskInput) *meshpaaspb.TaskInput {
-	var (
-		env         map[string]string
-		completions int
-	)
-	if input.Env != nil {
-		env = cast.ToStringMapString(input.Env)
-	}
-	if input.Completions != nil {
-		completions = int(*input.Completions)
-	}
-	return &meshpaaspb.TaskInput{
-		Name:        input.Name,
-		Namespace:   input.Namespace,
-		Image:       input.Image,
-		Args:        input.Args,
-		Env:         env,
-		Schedule:    input.Schedule,
-		Completions: uint32(completions),
 		Labels:      helpers.ConvertMapS(input.Labels),
 		Selector:    helpers.ConvertMapS(input.Selector),
 	}
@@ -102,22 +85,35 @@ func toTaskU(input model.TaskInput) *meshpaaspb.TaskInput {
 
 func fromApp(app *meshpaaspb.App) *model.App {
 	var (
-		env    map[string]interface{}
-		ports  map[string]interface{}
-		status = &model.AppStatus{}
+		status     = &model.AppStatus{}
+		containers []*model.Container
 	)
-	if app.Env != nil {
-		env = map[string]interface{}{}
-		for k, v := range app.Env {
-			env[k] = v
+	for _, c := range app.Containers {
+		var (
+			env   map[string]interface{}
+			ports map[string]interface{}
+		)
+		if c.Env != nil {
+			env = map[string]interface{}{}
+			for k, v := range c.Env {
+				env[k] = v
+			}
 		}
-	}
-	if app.Ports != nil {
-		ports = map[string]interface{}{}
-		for k, v := range app.Ports {
-			ports[k] = v
+		if c.Ports != nil {
+			ports = map[string]interface{}{}
+			for k, v := range c.Ports {
+				ports[k] = v
+			}
 		}
+		containers = append(containers, &model.Container{
+			Name:  c.Name,
+			Image: c.Image,
+			Args:  c.Args,
+			Env:   env,
+			Ports: ports,
+		})
 	}
+
 	for _, r := range app.Status.Replicas {
 		status.Replicas = append(status.Replicas, &model.Replica{
 			Phase:     r.Phase,
@@ -127,58 +123,14 @@ func fromApp(app *meshpaaspb.App) *model.App {
 	}
 	return &model.App{
 		Name:       app.Name,
-		Namespace:  app.Namespace,
-		Image:      app.Image,
-		Args:       app.Args,
-		Env:        env,
-		Ports:      ports,
+		Project:    app.Project,
+		Containers: containers,
 		Replicas:   int(app.Replicas),
 		Networking: fromNetworking(app.GetNetworking()),
 		Status:     status,
 		Labels:     helpers.ConvertMap(app.Labels),
 		Selector:   helpers.ConvertMap(app.Selector),
 	}
-}
-
-func toNetworking(input *model.NetworkingInput) *meshpaaspb.Networking {
-	if input == nil {
-		return nil
-	}
-	var routes []*meshpaaspb.HTTPRoute
-	for _, r := range input.HTTPRoutes {
-		route := &meshpaaspb.HTTPRoute{
-			AllowOrigins:  r.AllowOrigins,
-			AllowMethods:  r.AllowMethods,
-			AllowHeaders:  r.AllowHeaders,
-			ExposeHeaders: r.ExposeHeaders,
-		}
-		if r.Name != nil {
-			route.Name = *r.Name
-		}
-		if r.Port != nil {
-			p := uint32(*r.Port)
-			route.Port = p
-		}
-		if r.RewriteURI != nil {
-			route.RewriteUri = *r.RewriteURI
-		}
-		if r.PathPrefix != nil {
-			route.PathPrefix = *r.PathPrefix
-		}
-		if r.AllowCredentials != nil {
-			route.AllowCredentials = *r.AllowCredentials
-		}
-		routes = append(routes, route)
-	}
-	n := &meshpaaspb.Networking{
-		Gateways:   input.Gateways,
-		Hosts:      input.Hosts,
-		HttpRoutes: routes,
-	}
-	if input.Export != nil {
-		n.Export = *input.Export
-	}
-	return n
 }
 
 func fromNetworking(networking *meshpaaspb.Networking) *model.Networking {
@@ -212,25 +164,41 @@ func fromNetworking(networking *meshpaaspb.Networking) *model.Networking {
 }
 
 func fromTask(app *meshpaaspb.Task) *model.Task {
-	var (
-		env         map[string]interface{}
-		completions int
-	)
-	if app.Env != nil {
-		env = map[string]interface{}{}
-		for k, v := range app.Env {
-			env[k] = v
-		}
-	}
+	var containers []*model.Container
+	var completions int
 	if app.Completions > 0 {
 		completions = int(app.Completions)
 	}
+	for _, c := range app.Containers {
+		var (
+			env   map[string]interface{}
+			ports map[string]interface{}
+		)
+		if c.Env != nil {
+			env = map[string]interface{}{}
+			for k, v := range c.Env {
+				env[k] = v
+			}
+		}
+		if c.Ports != nil {
+			ports = map[string]interface{}{}
+			for k, v := range c.Ports {
+				ports[k] = v
+			}
+		}
+		containers = append(containers, &model.Container{
+			Name:  c.Name,
+			Image: c.Image,
+			Args:  c.Args,
+			Env:   helpers.ConvertMap(c.Env),
+			Ports: ports,
+		})
+	}
+
 	return &model.Task{
 		Name:        app.Name,
-		Namespace:   app.Namespace,
-		Image:       app.Image,
-		Args:        app.Args,
-		Env:         env,
+		Project:     app.Project,
+		Containers:  containers,
 		Schedule:    app.Schedule,
 		Completions: &completions,
 		Labels:      helpers.ConvertMap(app.Labels),

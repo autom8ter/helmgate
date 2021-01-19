@@ -20,11 +20,11 @@ class Gateway extends \Google\Protobuf\Internal\Message
      */
     private $name = '';
     /**
-     * application namespace
+     * application project
      *
-     * Generated from protobuf field <code>string namespace = 2;</code>
+     * Generated from protobuf field <code>string project = 2;</code>
      */
-    private $namespace = '';
+    private $project = '';
     /**
      * Generated from protobuf field <code>repeated .meshpaas.GatewayListener listeners = 3;</code>
      */
@@ -46,8 +46,8 @@ class Gateway extends \Google\Protobuf\Internal\Message
      *
      *     @type string $name
      *           name of the application
-     *     @type string $namespace
-     *           application namespace
+     *     @type string $project
+     *           application project
      *     @type \Meshpaas\GatewayListener[]|\Google\Protobuf\Internal\RepeatedField $listeners
      *     @type array|\Google\Protobuf\Internal\MapField $labels
      *     @type array|\Google\Protobuf\Internal\MapField $selector
@@ -85,27 +85,27 @@ class Gateway extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * application namespace
+     * application project
      *
-     * Generated from protobuf field <code>string namespace = 2;</code>
+     * Generated from protobuf field <code>string project = 2;</code>
      * @return string
      */
-    public function getNamespace()
+    public function getProject()
     {
-        return $this->namespace;
+        return $this->project;
     }
 
     /**
-     * application namespace
+     * application project
      *
-     * Generated from protobuf field <code>string namespace = 2;</code>
+     * Generated from protobuf field <code>string project = 2;</code>
      * @param string $var
      * @return $this
      */
-    public function setNamespace($var)
+    public function setProject($var)
     {
         GPBUtil::checkString($var, True);
-        $this->namespace = $var;
+        $this->project = $var;
 
         return $this;
     }

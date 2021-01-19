@@ -30,7 +30,7 @@ import (
 // It serves as dependency injection for your app, add any dependencies you require here.
 
 type Resolver struct {
-	client      meshpaaspb.KdeployServiceClient
+	client      meshpaaspb.MeshPaasServiceClient
 	cors        *cors.Cors
 	store       generic.Cache
 	config      *oauth2.Config
@@ -40,7 +40,7 @@ type Resolver struct {
 	userInfo    string
 }
 
-func NewResolver(client meshpaaspb.KdeployServiceClient, cors *cors.Cors, config *oauth2.Config, logger *logger.Logger, userInfoEndpoint string) *Resolver {
+func NewResolver(client meshpaaspb.MeshPaasServiceClient, cors *cors.Cors, config *oauth2.Config, logger *logger.Logger, userInfoEndpoint string) *Resolver {
 	return &Resolver{
 		client:      client,
 		cors:        cors,

@@ -42,7 +42,6 @@ proto: ## regenerate gRPC code
 .PHONY: gql
 gql: ## regenerate graphql code
 	@gqlgen generate
-	@graphdoc -s ./schema.graphql -o ./docs --force
 
 .PHONY: up
 up: ## start local containers

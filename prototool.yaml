@@ -44,7 +44,7 @@ generate:
       output: gen/grpc/go
     - name: doc
       flags: html,index.html
-      output: gen/grpc/docs
+      output: docs
     - flags: binary,import_style=commonjs
       name: js
       output: gen/grpc/js

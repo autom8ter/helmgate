@@ -1,260 +1,3352 @@
 <!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="./styles/graphdoc.css" />
-    <title>Graphql schema documentation</title>
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
-</head>
-<body class="slds-scrollable--y">
-    <nav class="slds-grid slds-grid--vertical slds-col--rule-right">
-        <header class="slds-p-around--medium slds-col slds-shrik slds-grow-none">
-            <button class="slds-button slds-button--icon slds-float--right js-toggle-navigation less-than-medium">
-                <i class="material-icons">close</i>
-            </button>
-                <h3 class="slds-text-heading--medium"><a href="./">GraphQL Schema</a></h3>
-            <div class="slds-p-top--small">
-                <input id="type-search" type="text" placeholder="Search a type" autofocus="" class="slds-input" />
-            </div>
-        </header>
-        <div id="navication-scroll" class="slds-scrollable--y slds-col slds-grow">
-<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
-    <h4 class="slds-text-title--caps slds-p-around--medium">Schema</h4>
-    <ul>
-        <li  title="Query">
-            <a href="query.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                Query
-            </a>
-        </li>
-        <li  title="Mutation">
-            <a href="mutation.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                Mutation
-            </a>
-        </li>
-        <li  title="Subscription">
-            <a href="subscription.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                Subscription
-            </a>
-        </li>
-    </ul>
-</div>
-<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
-    <h4 class="slds-text-title--caps slds-p-around--medium">Scalars</h4>
-    <ul>
-        <li  title="Boolean">
-            <a href="boolean.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                Boolean
-            </a>
-        </li>
-        <li  title="Int">
-            <a href="int.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                Int
-            </a>
-        </li>
-        <li  title="Map">
-            <a href="map.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                Map
-            </a>
-        </li>
-        <li  title="String">
-            <a href="string.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                String
-            </a>
-        </li>
-        <li  title="Time">
-            <a href="time.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                Time
-            </a>
-        </li>
-    </ul>
-</div>
-<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
-    <h4 class="slds-text-title--caps slds-p-around--medium">Enums</h4>
-    <ul>
-        <li  title="__DirectiveLocation">
-            <a href="directivelocation.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                __DirectiveLocation
-            </a>
-        </li>
-        <li  title="__TypeKind">
-            <a href="typekind.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                __TypeKind
-            </a>
-        </li>
-    </ul>
-</div>
-<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
-    <h4 class="slds-text-title--caps slds-p-around--medium">Objects</h4>
-    <ul>
-        <li  title="App">
-            <a href="app.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                App
-            </a>
-        </li>
-        <li  title="AppStatus">
-            <a href="appstatus.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                AppStatus
-            </a>
-        </li>
-        <li  title="HTTPRoute">
-            <a href="httproute.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                HTTPRoute
-            </a>
-        </li>
-        <li  title="Log">
-            <a href="log.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                Log
-            </a>
-        </li>
-        <li  title="Namespaces">
-            <a href="namespaces.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                Namespaces
-            </a>
-        </li>
-        <li  title="Networking">
-            <a href="networking.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                Networking
-            </a>
-        </li>
-        <li  title="Replica">
-            <a href="replica.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                Replica
-            </a>
-        </li>
-        <li  title="Task">
-            <a href="task.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                Task
-            </a>
-        </li>
-        <li  title="__Directive">
-            <a href="directive.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                __Directive
-            </a>
-        </li>
-        <li  title="__EnumValue">
-            <a href="enumvalue.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                __EnumValue
-            </a>
-        </li>
-        <li  title="__Field">
-            <a href="field.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                __Field
-            </a>
-        </li>
-        <li  title="__InputValue">
-            <a href="inputvalue.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                __InputValue
-            </a>
-        </li>
-        <li  title="__Schema">
-            <a href="schema.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                __Schema
-            </a>
-        </li>
-        <li  title="__Type">
-            <a href="type.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                __Type
-            </a>
-        </li>
-    </ul>
-</div>
-<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
-    <h4 class="slds-text-title--caps slds-p-around--medium">Input Objects</h4>
-    <ul>
-        <li  title="AppInput">
-            <a href="appinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                AppInput
-            </a>
-        </li>
-        <li  title="HTTPRouteInput">
-            <a href="httprouteinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                HTTPRouteInput
-            </a>
-        </li>
-        <li  title="Namespace">
-            <a href="namespace.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                Namespace
-            </a>
-        </li>
-        <li  title="NetworkingInput">
-            <a href="networkinginput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                NetworkingInput
-            </a>
-        </li>
-        <li  title="Ref">
-            <a href="ref.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                Ref
-            </a>
-        </li>
-        <li  title="TaskInput">
-            <a href="taskinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                TaskInput
-            </a>
-        </li>
-    </ul>
-</div>
-<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
-    <h4 class="slds-text-title--caps slds-p-around--medium">Directives</h4>
-    <ul>
-        <li  title="deprecated">
-            <a href="deprecated.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                deprecated
-            </a>
-        </li>
-        <li  title="include">
-            <a href="include.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                include
-            </a>
-        </li>
-        <li  title="skip">
-            <a href="skip.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                skip
-            </a>
-        </li>
-    </ul>
-</div>
-        </div>
-    </nav>
-    <main><section class="title slds-theme--inverse">
-    <div class="container slds-grid">
-        <div>
-        <button class="slds-button js-toggle-navigation less-than-medium">
-            <i class="material-icons slds-button__icon slds-button__icon--left">menu</i>
-            <span class="slds-text-title--caps">Types<span>
-        </button>
-        </div>
-        </div>
-    </div>
-    <div class="container">
+<html>
+  <head>
+    <title>Protocol Documentation</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu:400,700,400italic"/>
+    <style>
+      body {
+        width: 60em;
+        margin: 1em auto;
+        color: #222;
+        font-family: "Ubuntu", sans-serif;
+        padding-bottom: 4em;
+      }
+
+      h1 {
+        font-weight: normal;
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+      }
+
+      h2 {
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+        margin: 1.5em 0;
+      }
+
+      h3 {
+        font-weight: normal;
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+      }
+
+      a {
+        text-decoration: none;
+        color: #567e25;
+      }
+
+      table {
+        width: 100%;
+        font-size: 80%;
+        border-collapse: collapse;
+      }
+
+      thead {
+        font-weight: 700;
+        background-color: #dcdcdc;
+      }
+
+      tbody tr:nth-child(even) {
+        background-color: #fbfbfb;
+      }
+
+      td {
+        border: 1px solid #ccc;
+        padding: 0.5ex 2ex;
+      }
+
+      td p {
+        text-indent: 1em;
+        margin: 0;
+      }
+
+      td p:nth-child(1) {
+        text-indent: 0;  
+      }
+
+       
+      .field-table td:nth-child(1) {  
+        width: 10em;
+      }
+      .field-table td:nth-child(2) {  
+        width: 10em;
+      }
+      .field-table td:nth-child(3) {  
+        width: 6em;
+      }
+      .field-table td:nth-child(4) {  
+        width: auto;
+      }
+
+       
+      .extension-table td:nth-child(1) {  
+        width: 10em;
+      }
+      .extension-table td:nth-child(2) {  
+        width: 10em;
+      }
+      .extension-table td:nth-child(3) {  
+        width: 10em;
+      }
+      .extension-table td:nth-child(4) {  
+        width: 5em;
+      }
+      .extension-table td:nth-child(5) {  
+        width: auto;
+      }
+
+       
+      .enum-table td:nth-child(1) {  
+        width: 10em;
+      }
+      .enum-table td:nth-child(2) {  
+        width: 10em;
+      }
+      .enum-table td:nth-child(3) {  
+        width: auto;
+      }
+
+       
+      .scalar-value-types-table tr {
+        height: 3em;
+      }
+
+       
+      #toc-container ul {
+        list-style-type: none;
+        padding-left: 1em;
+        line-height: 180%;
+        margin: 0;
+      }
+      #toc > li > a {
+        font-weight: bold;
+      }
+
+       
+      .file-heading {
+        width: 100%;
+        display: table;
+        border-bottom: 1px solid #aaa;
+        margin: 4em 0 1.5em 0;
+      }
+      .file-heading h2 {
+        border: none;
+        display: table-cell;
+      }
+      .file-heading a {
+        text-align: right;
+        display: table-cell;
+      }
+
+       
+      .badge {
+        width: 1.6em;
+        height: 1.6em;
+        display: inline-block;
+
+        line-height: 1.6em;
+        text-align: center;
+        font-weight: bold;
+        font-size: 60%;
+
+        color: #89ba48;
+        background-color: #dff0c8;
+
+        margin: 0.5ex 1em 0.5ex -1em;
+        border: 1px solid #fbfbfb;
+        border-radius: 1ex;
+      }
+    </style>
+
+    
+    <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+  </head>
+
+  <body>
+
+    <h1 id="title">Protocol Documentation</h1>
+
+    <h2>Table of Contents</h2>
+
+    <div id="toc-container">
+      <ul id="toc">
         
-        <h1 class="slds-text-heading--large">Graphql schema documentation</h1>
-        <div class="slds-text-body--regular"></div>
+          
+          <li>
+            <a href="#schema.proto">schema.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#meshpaas.App"><span class="badge">M</span>App</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.App.LabelsEntry"><span class="badge">M</span>App.LabelsEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.App.SelectorEntry"><span class="badge">M</span>App.SelectorEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.AppInput"><span class="badge">M</span>AppInput</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.AppInput.LabelsEntry"><span class="badge">M</span>AppInput.LabelsEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.AppInput.SelectorEntry"><span class="badge">M</span>AppInput.SelectorEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.AppStatus"><span class="badge">M</span>AppStatus</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.Apps"><span class="badge">M</span>Apps</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.Container"><span class="badge">M</span>Container</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.Container.EnvEntry"><span class="badge">M</span>Container.EnvEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.Container.PortsEntry"><span class="badge">M</span>Container.PortsEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.Gateway"><span class="badge">M</span>Gateway</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.Gateway.LabelsEntry"><span class="badge">M</span>Gateway.LabelsEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.Gateway.SelectorEntry"><span class="badge">M</span>Gateway.SelectorEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.GatewayInput"><span class="badge">M</span>GatewayInput</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.GatewayInput.LabelsEntry"><span class="badge">M</span>GatewayInput.LabelsEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.GatewayInput.SelectorEntry"><span class="badge">M</span>GatewayInput.SelectorEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.GatewayListener"><span class="badge">M</span>GatewayListener</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.HTTPRoute"><span class="badge">M</span>HTTPRoute</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.Log"><span class="badge">M</span>Log</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.Networking"><span class="badge">M</span>Networking</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.Project"><span class="badge">M</span>Project</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.Project.LabelsEntry"><span class="badge">M</span>Project.LabelsEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.ProjectInput"><span class="badge">M</span>ProjectInput</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.ProjectInput.LabelsEntry"><span class="badge">M</span>ProjectInput.LabelsEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.ProjectRef"><span class="badge">M</span>ProjectRef</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.Projects"><span class="badge">M</span>Projects</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.Ref"><span class="badge">M</span>Ref</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.Replica"><span class="badge">M</span>Replica</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.Secret"><span class="badge">M</span>Secret</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.Secret.DataEntry"><span class="badge">M</span>Secret.DataEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.Secret.LabelsEntry"><span class="badge">M</span>Secret.LabelsEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.SecretInput"><span class="badge">M</span>SecretInput</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.SecretInput.DataEntry"><span class="badge">M</span>SecretInput.DataEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.SecretInput.LabelsEntry"><span class="badge">M</span>SecretInput.LabelsEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.ServerTLSSettings"><span class="badge">M</span>ServerTLSSettings</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.Task"><span class="badge">M</span>Task</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.Task.LabelsEntry"><span class="badge">M</span>Task.LabelsEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.Task.SelectorEntry"><span class="badge">M</span>Task.SelectorEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.TaskInput"><span class="badge">M</span>TaskInput</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.TaskInput.LabelsEntry"><span class="badge">M</span>TaskInput.LabelsEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.TaskInput.SelectorEntry"><span class="badge">M</span>TaskInput.SelectorEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.Tasks"><span class="badge">M</span>Tasks</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#meshpaas.Protocol"><span class="badge">E</span>Protocol</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.SecretType"><span class="badge">E</span>SecretType</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.TLSmode"><span class="badge">E</span>TLSmode</a>
+                </li>
+              
+              
+              
+                <li>
+                  <a href="#meshpaas.MeshPaasService"><span class="badge">S</span>MeshPaasService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+        <li><a href="#scalar-value-types">Scalar Value Types</a></li>
+      </ul>
     </div>
-</section>
-<section>
-    <div class="container">
-        <h2 id="graphql-schema-definition" class="graphdoc-section__title slds-text-heading--medium slds-m-top--small">
-            <a href="#graphql-schema-definition">
-                <i class="material-icons">link</i>
-            </a>
-            GraphQL Schema definition
-        </h2>
-        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">schema</span> {</li><li></li><li><span class="tab"><span class="meta">query</span>: <a class="support type" href="query.doc.html">Query</a></span></li><li></li><li><span class="tab"><span class="meta">mutation</span>: <a class="support type" href="mutation.doc.html">Mutation</a></span></li><li></li><li><span class="tab"><span class="meta">subscription</span>: <a class="support type" href="subscription.doc.html">Subscription</a></span></li><li>}</li></ul></code>
-    </div>
-</section>
-<footer>
-<div class="container slds-p-around--large">
-    <p class="slds-text-align--right slds-text-title--caps">
-        Generated with <a href="https://github.com/2fd/graphdoc#readme" target="_blank">graphdoc 2.4.0</a>
-    </p>
-</div>
-</footer>
-</main>
-    <script src="./scripts/focus-active.js"></script>
-    <script src="./scripts/filter-types.js"></script>
-    <script src="./scripts/toggle-navigation.js"></script>
-</body>
+
+    
+      
+      <div class="file-heading">
+        <h2 id="schema.proto">schema.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="meshpaas.App">App</h3>
+        <p>App is a stateless application</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>name of the application </p></td>
+                </tr>
+              
+                <tr>
+                  <td>project</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>application project </p></td>
+                </tr>
+              
+                <tr>
+                  <td>containers</td>
+                  <td><a href="#meshpaas.Container">Container</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>replicas</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>number of deployment replicas </p></td>
+                </tr>
+              
+                <tr>
+                  <td>labels</td>
+                  <td><a href="#meshpaas.App.LabelsEntry">App.LabelsEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>selector</td>
+                  <td><a href="#meshpaas.App.SelectorEntry">App.SelectorEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>networking</td>
+                  <td><a href="#meshpaas.Networking">Networking</a></td>
+                  <td></td>
+                  <td><p>gateway/service-mesh networking </p></td>
+                </tr>
+              
+                <tr>
+                  <td>status</td>
+                  <td><a href="#meshpaas.AppStatus">AppStatus</a></td>
+                  <td></td>
+                  <td><p>status tracks the state of the application during it&#39;s lifecycle </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>project</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>containers</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>labels</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>selector</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>networking</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>status</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
+          
+
+        
+      
+        <h3 id="meshpaas.App.LabelsEntry">App.LabelsEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.App.SelectorEntry">App.SelectorEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.AppInput">AppInput</h3>
+        <p>AppInput creates/replaces an app</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>name of the application </p></td>
+                </tr>
+              
+                <tr>
+                  <td>project</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>application project </p></td>
+                </tr>
+              
+                <tr>
+                  <td>containers</td>
+                  <td><a href="#meshpaas.Container">Container</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>replicas</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>number of deployment replicas </p></td>
+                </tr>
+              
+                <tr>
+                  <td>networking</td>
+                  <td><a href="#meshpaas.Networking">Networking</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>labels</td>
+                  <td><a href="#meshpaas.AppInput.LabelsEntry">AppInput.LabelsEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>selector</td>
+                  <td><a href="#meshpaas.AppInput.SelectorEntry">AppInput.SelectorEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>project</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>containers</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>networking</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>labels</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>selector</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
+          
+
+        
+      
+        <h3 id="meshpaas.AppInput.LabelsEntry">AppInput.LabelsEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.AppInput.SelectorEntry">AppInput.SelectorEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.AppStatus">AppStatus</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>replicas</td>
+                  <td><a href="#meshpaas.Replica">Replica</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.Apps">Apps</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>applications</td>
+                  <td><a href="#meshpaas.App">App</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.Container">Container</h3>
+        <p>Container is a single docker container</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>name of the application </p></td>
+                </tr>
+              
+                <tr>
+                  <td>image</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>docker image of application </p></td>
+                </tr>
+              
+                <tr>
+                  <td>args</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>args are arguments given to the docker image at startup </p></td>
+                </tr>
+              
+                <tr>
+                  <td>env</td>
+                  <td><a href="#meshpaas.Container.EnvEntry">Container.EnvEntry</a></td>
+                  <td>repeated</td>
+                  <td><p>k/v map of environmental variables </p></td>
+                </tr>
+              
+                <tr>
+                  <td>ports</td>
+                  <td><a href="#meshpaas.Container.PortsEntry">Container.PortsEntry</a></td>
+                  <td>repeated</td>
+                  <td><p>k/v map of ports to expose ex: http: 80 https: 443 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>image</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>ports</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
+          
+
+        
+      
+        <h3 id="meshpaas.Container.EnvEntry">Container.EnvEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.Container.PortsEntry">Container.PortsEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.Gateway">Gateway</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>name of the application </p></td>
+                </tr>
+              
+                <tr>
+                  <td>project</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>application project </p></td>
+                </tr>
+              
+                <tr>
+                  <td>listeners</td>
+                  <td><a href="#meshpaas.GatewayListener">GatewayListener</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>labels</td>
+                  <td><a href="#meshpaas.Gateway.LabelsEntry">Gateway.LabelsEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>selector</td>
+                  <td><a href="#meshpaas.Gateway.SelectorEntry">Gateway.SelectorEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.Gateway.LabelsEntry">Gateway.LabelsEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.Gateway.SelectorEntry">Gateway.SelectorEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.GatewayInput">GatewayInput</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>name of the application </p></td>
+                </tr>
+              
+                <tr>
+                  <td>project</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>application project </p></td>
+                </tr>
+              
+                <tr>
+                  <td>listeners</td>
+                  <td><a href="#meshpaas.GatewayListener">GatewayListener</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>labels</td>
+                  <td><a href="#meshpaas.GatewayInput.LabelsEntry">GatewayInput.LabelsEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>selector</td>
+                  <td><a href="#meshpaas.GatewayInput.SelectorEntry">GatewayInput.SelectorEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>project</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>labels</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>selector</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
+          
+
+        
+      
+        <h3 id="meshpaas.GatewayInput.LabelsEntry">GatewayInput.LabelsEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.GatewayInput.SelectorEntry">GatewayInput.SelectorEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.GatewayListener">GatewayListener</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>port</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>protocol</td>
+                  <td><a href="#meshpaas.Protocol">Protocol</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>hosts</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tls_config</td>
+                  <td><a href="#meshpaas.ServerTLSSettings">ServerTLSSettings</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>port</td>
+                  <td>
+                    <ul>
+                    
+                      <li>int_gt: 0</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>protocol</td>
+                  <td>
+                    <ul>
+                    
+                      <li>int_gt: 0</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>hosts</td>
+                  <td>
+                    <ul>
+                    
+                      <li>repeated_count_min: 0</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
+          
+
+        
+      
+        <h3 id="meshpaas.HTTPRoute">HTTPRoute</h3>
+        <p>HTTPRoute is a single http route(istio HttpRoute)</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>port</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>path_prefix</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>rewrite_uri</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>allow_origins</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>The list of origins that are allowed to perform CORS requests </p></td>
+                </tr>
+              
+                <tr>
+                  <td>allow_methods</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>The list of methods that are allowed to perform CORS requests </p></td>
+                </tr>
+              
+                <tr>
+                  <td>allow_headers</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>The list of headers that are allowed to perform CORS requests </p></td>
+                </tr>
+              
+                <tr>
+                  <td>expose_headers</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>The list of origins that are allowed to perform CORS requests </p></td>
+                </tr>
+              
+                <tr>
+                  <td>allow_credentials</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>adds `Access-Control-Allow-Credentials` header </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>port</td>
+                  <td>
+                    <ul>
+                    
+                      <li>int_gt: 0</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
+          
+
+        
+      
+        <h3 id="meshpaas.Log">Log</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>message</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.Networking">Networking</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>gateways</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>hosts</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>export</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>http_routes</td>
+                  <td><a href="#meshpaas.HTTPRoute">HTTPRoute</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.Project">Project</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>labels</td>
+                  <td><a href="#meshpaas.Project.LabelsEntry">Project.LabelsEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.Project.LabelsEntry">Project.LabelsEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.ProjectInput">ProjectInput</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>labels</td>
+                  <td><a href="#meshpaas.ProjectInput.LabelsEntry">ProjectInput.LabelsEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>labels</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
+          
+
+        
+      
+        <h3 id="meshpaas.ProjectInput.LabelsEntry">ProjectInput.LabelsEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.ProjectRef">ProjectRef</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
+          
+
+        
+      
+        <h3 id="meshpaas.Projects">Projects</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>projects</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.Ref">Ref</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>name of the application </p></td>
+                </tr>
+              
+                <tr>
+                  <td>project</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>application project </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>project</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
+          
+
+        
+      
+        <h3 id="meshpaas.Replica">Replica</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>phase</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>condition</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>reason</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.Secret">Secret</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>name of the secret </p></td>
+                </tr>
+              
+                <tr>
+                  <td>project</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>secret project </p></td>
+                </tr>
+              
+                <tr>
+                  <td>type</td>
+                  <td><a href="#meshpaas.SecretType">SecretType</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>immutable</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#meshpaas.Secret.DataEntry">Secret.DataEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>labels</td>
+                  <td><a href="#meshpaas.Secret.LabelsEntry">Secret.LabelsEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>project</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>data</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>labels</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
+          
+
+        
+      
+        <h3 id="meshpaas.Secret.DataEntry">Secret.DataEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.Secret.LabelsEntry">Secret.LabelsEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.SecretInput">SecretInput</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>name of the secret </p></td>
+                </tr>
+              
+                <tr>
+                  <td>project</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>secret project </p></td>
+                </tr>
+              
+                <tr>
+                  <td>type</td>
+                  <td><a href="#meshpaas.SecretType">SecretType</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>immutable</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#meshpaas.SecretInput.DataEntry">SecretInput.DataEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>labels</td>
+                  <td><a href="#meshpaas.SecretInput.LabelsEntry">SecretInput.LabelsEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>project</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>data</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>labels</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
+          
+
+        
+      
+        <h3 id="meshpaas.SecretInput.DataEntry">SecretInput.DataEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.SecretInput.LabelsEntry">SecretInput.LabelsEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.ServerTLSSettings">ServerTLSSettings</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>https_redirect</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>mode</td>
+                  <td><a href="#meshpaas.TLSmode">TLSmode</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>credential_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>subject_alt_names</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>verify_certificate_spki</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>verify_certificate_hash</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>cipher_suites</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.Task">Task</h3>
+        <p>Task is scheduled cron job</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>name of the task </p></td>
+                </tr>
+              
+                <tr>
+                  <td>project</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>task project </p></td>
+                </tr>
+              
+                <tr>
+                  <td>containers</td>
+                  <td><a href="#meshpaas.Container">Container</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>schedule</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/ </p></td>
+                </tr>
+              
+                <tr>
+                  <td>completions</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>completions is the number of times to execute the task. If completions = 0, the task will run forever </p></td>
+                </tr>
+              
+                <tr>
+                  <td>labels</td>
+                  <td><a href="#meshpaas.Task.LabelsEntry">Task.LabelsEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>selector</td>
+                  <td><a href="#meshpaas.Task.SelectorEntry">Task.SelectorEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>project</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>containers</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>schedule</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>labels</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>selector</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
+          
+
+        
+      
+        <h3 id="meshpaas.Task.LabelsEntry">Task.LabelsEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.Task.SelectorEntry">Task.SelectorEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.TaskInput">TaskInput</h3>
+        <p>TaskInput creates/updates a task(cron job)</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>name of the task </p></td>
+                </tr>
+              
+                <tr>
+                  <td>project</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>task project </p></td>
+                </tr>
+              
+                <tr>
+                  <td>containers</td>
+                  <td><a href="#meshpaas.Container">Container</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>schedule</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/ </p></td>
+                </tr>
+              
+                <tr>
+                  <td>completions</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>completions is the number of times to execute the task. If completions = 0, the task will run forever </p></td>
+                </tr>
+              
+                <tr>
+                  <td>labels</td>
+                  <td><a href="#meshpaas.TaskInput.LabelsEntry">TaskInput.LabelsEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>selector</td>
+                  <td><a href="#meshpaas.TaskInput.SelectorEntry">TaskInput.SelectorEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>project</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>containers</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>schedule</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>labels</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>selector</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
+          
+
+        
+      
+        <h3 id="meshpaas.TaskInput.LabelsEntry">TaskInput.LabelsEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.TaskInput.SelectorEntry">TaskInput.SelectorEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.Tasks">Tasks</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>tasks</td>
+                  <td><a href="#meshpaas.Task">Task</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+        <h3 id="meshpaas.Protocol">Protocol</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>INVALID_PROTOCOL</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>HTTP</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>HTTPS</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>GRPC</td>
+                <td>3</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>HTTP2</td>
+                <td>4</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>MONGO</td>
+                <td>5</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>TCP</td>
+                <td>6</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>TLS</td>
+                <td>7</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="meshpaas.SecretType">SecretType</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>OPAQUE</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>TLS_CERT_KEY</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>DOCKER_CONFIG</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="meshpaas.TLSmode">TLSmode</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>PASSTHROUGH</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>SIMPLE</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>MUTUAL</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>AUTO_PASSTHROUGH</td>
+                <td>3</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ISTIO_MUTUAL</td>
+                <td>4</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+        <h3 id="meshpaas.MeshPaasService">MeshPaasService</h3>
+        <p>MeshPaasService is a platform as a service backed by Istio service mesh</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>CreateProject</td>
+                <td><a href="#meshpaas.ProjectInput">ProjectInput</a></td>
+                <td><a href="#meshpaas.Project">Project</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ListProjects</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#meshpaas.Projects">Projects</a></td>
+                <td><p>ListProjects lists all projects created by meshpaas</p></td>
+              </tr>
+            
+              <tr>
+                <td>DeleteProject</td>
+                <td><a href="#meshpaas.ProjectRef">ProjectRef</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>DeleteProject deletes a project &amp; all its resources</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetProject</td>
+                <td><a href="#meshpaas.ProjectRef">ProjectRef</a></td>
+                <td><a href="#meshpaas.Project">Project</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdateProject</td>
+                <td><a href="#meshpaas.ProjectInput">ProjectInput</a></td>
+                <td><a href="#meshpaas.Project">Project</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>CreateApp</td>
+                <td><a href="#meshpaas.AppInput">AppInput</a></td>
+                <td><a href="#meshpaas.App">App</a></td>
+                <td><p>CreateApp creates a new stateless application(k8s deployment &amp; service) within a single project(k8s namespace)
+the project will automatically be created if one does not already exist</p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdateApp</td>
+                <td><a href="#meshpaas.AppInput">AppInput</a></td>
+                <td><a href="#meshpaas.App">App</a></td>
+                <td><p>UpdateApp replaces an existing stateless application(k8s deployment &amp; service) within an existing project(k8s namespace)</p></td>
+              </tr>
+            
+              <tr>
+                <td>DeleteApp</td>
+                <td><a href="#meshpaas.Ref">Ref</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>DeleteApp deletes a single stateless application(k8s deployment &amp; service) within an existing project</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetApp</td>
+                <td><a href="#meshpaas.Ref">Ref</a></td>
+                <td><a href="#meshpaas.App">App</a></td>
+                <td><p>GetApp gets an app by name within an existing project</p></td>
+              </tr>
+            
+              <tr>
+                <td>ListApps</td>
+                <td><a href="#meshpaas.ProjectRef">ProjectRef</a></td>
+                <td><a href="#meshpaas.Apps">Apps</a></td>
+                <td><p>ListApps lists all apps within an existing project</p></td>
+              </tr>
+            
+              <tr>
+                <td>CreateTask</td>
+                <td><a href="#meshpaas.TaskInput">TaskInput</a></td>
+                <td><a href="#meshpaas.Task">Task</a></td>
+                <td><p>CreateTask creates a new task(k8s cron job) within a single project(k8s namespace)
+the project will automatically be created if one does not already exist</p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdateTask</td>
+                <td><a href="#meshpaas.TaskInput">TaskInput</a></td>
+                <td><a href="#meshpaas.Task">Task</a></td>
+                <td><p>UpdateTask replaces an existing task(k8s cron job) within an existing project(k8s namespace)</p></td>
+              </tr>
+            
+              <tr>
+                <td>DeleteTask</td>
+                <td><a href="#meshpaas.Ref">Ref</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>DeleteTask deletes a single task(k8s cron job) within an existing project</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetTask</td>
+                <td><a href="#meshpaas.Ref">Ref</a></td>
+                <td><a href="#meshpaas.Task">Task</a></td>
+                <td><p>GetTask gets a task(k8s cron job) by name within an existing project</p></td>
+              </tr>
+            
+              <tr>
+                <td>ListTasks</td>
+                <td><a href="#meshpaas.ProjectRef">ProjectRef</a></td>
+                <td><a href="#meshpaas.Tasks">Tasks</a></td>
+                <td><p>ListTasks lists all tasks(k8s cron jobs) within an existing project</p></td>
+              </tr>
+            
+              <tr>
+                <td>CreateGateway</td>
+                <td><a href="#meshpaas.GatewayInput">GatewayInput</a></td>
+                <td><a href="#meshpaas.Gateway">Gateway</a></td>
+                <td><p>CreateGateway creates a new gateway(istio gateway) within a single project(k8s namespace)
+the project will automatically be created if one does not already exist</p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdateGateway</td>
+                <td><a href="#meshpaas.GatewayInput">GatewayInput</a></td>
+                <td><a href="#meshpaas.Gateway">Gateway</a></td>
+                <td><p>UpdateGateway replaces an existing gateway(istio gateway) within an existing project(k8s namespace)</p></td>
+              </tr>
+            
+              <tr>
+                <td>DeleteGateway</td>
+                <td><a href="#meshpaas.Ref">Ref</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>DeleteGateway deletes a single gateway(istio gateway) within an existing project</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetGateway</td>
+                <td><a href="#meshpaas.Ref">Ref</a></td>
+                <td><a href="#meshpaas.Gateway">Gateway</a></td>
+                <td><p>GetGateway gets a gateway(istio gateway) by name within an existing project</p></td>
+              </tr>
+            
+              <tr>
+                <td>CreateSecret</td>
+                <td><a href="#meshpaas.SecretInput">SecretInput</a></td>
+                <td><a href="#meshpaas.Secret">Secret</a></td>
+                <td><p>CreateSecret creates a new secret(k8s secret) within a single project(k8s namespace)
+the project will automatically be created if one does not already exist</p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdateSecret</td>
+                <td><a href="#meshpaas.SecretInput">SecretInput</a></td>
+                <td><a href="#meshpaas.Secret">Secret</a></td>
+                <td><p>UpdateSecret replaces an existing secret(k8s secret) within an existing project(k8s namespace)</p></td>
+              </tr>
+            
+              <tr>
+                <td>DeleteSecret</td>
+                <td><a href="#meshpaas.Ref">Ref</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>DeleteSecret deletes a single secret(k8s secret) within an existing project</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetSecret</td>
+                <td><a href="#meshpaas.Ref">Ref</a></td>
+                <td><a href="#meshpaas.Secret">Secret</a></td>
+                <td><p>GetSecret gets a secret(k8s secret) by name within an existing project</p></td>
+              </tr>
+            
+              <tr>
+                <td>StreamLogs</td>
+                <td><a href="#meshpaas.Ref">Ref</a></td>
+                <td><a href="#meshpaas.Log">Log</a> stream</td>
+                <td><p>StreamLogs streams logs from an app/task within an existing project.
+Streams are opened to all replicas &amp; converted into a single stream</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+
+    <h2 id="scalar-value-types">Scalar Value Types</h2>
+    <table class="scalar-value-types-table">
+      <thead>
+        <tr><td>.proto Type</td><td>Notes</td><td>C++</td><td>Java</td><td>Python</td><td>Go</td><td>C#</td><td>PHP</td><td>Ruby</td></tr>
+      </thead>
+      <tbody>
+        
+          <tr id="double">
+            <td>double</td>
+            <td></td>
+            <td>double</td>
+            <td>double</td>
+            <td>float</td>
+            <td>float64</td>
+            <td>double</td>
+            <td>float</td>
+            <td>Float</td>
+          </tr>
+        
+          <tr id="float">
+            <td>float</td>
+            <td></td>
+            <td>float</td>
+            <td>float</td>
+            <td>float</td>
+            <td>float32</td>
+            <td>float</td>
+            <td>float</td>
+            <td>Float</td>
+          </tr>
+        
+          <tr id="int32">
+            <td>int32</td>
+            <td>Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint32 instead.</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>int</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="int64">
+            <td>int64</td>
+            <td>Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint64 instead.</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>integer/string</td>
+            <td>Bignum</td>
+          </tr>
+        
+          <tr id="uint32">
+            <td>uint32</td>
+            <td>Uses variable-length encoding.</td>
+            <td>uint32</td>
+            <td>int</td>
+            <td>int/long</td>
+            <td>uint32</td>
+            <td>uint</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="uint64">
+            <td>uint64</td>
+            <td>Uses variable-length encoding.</td>
+            <td>uint64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>uint64</td>
+            <td>ulong</td>
+            <td>integer/string</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="sint32">
+            <td>sint32</td>
+            <td>Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s.</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>int</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="sint64">
+            <td>sint64</td>
+            <td>Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s.</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>integer/string</td>
+            <td>Bignum</td>
+          </tr>
+        
+          <tr id="fixed32">
+            <td>fixed32</td>
+            <td>Always four bytes. More efficient than uint32 if values are often greater than 2^28.</td>
+            <td>uint32</td>
+            <td>int</td>
+            <td>int</td>
+            <td>uint32</td>
+            <td>uint</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="fixed64">
+            <td>fixed64</td>
+            <td>Always eight bytes. More efficient than uint64 if values are often greater than 2^56.</td>
+            <td>uint64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>uint64</td>
+            <td>ulong</td>
+            <td>integer/string</td>
+            <td>Bignum</td>
+          </tr>
+        
+          <tr id="sfixed32">
+            <td>sfixed32</td>
+            <td>Always four bytes.</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>int</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="sfixed64">
+            <td>sfixed64</td>
+            <td>Always eight bytes.</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>integer/string</td>
+            <td>Bignum</td>
+          </tr>
+        
+          <tr id="bool">
+            <td>bool</td>
+            <td></td>
+            <td>bool</td>
+            <td>boolean</td>
+            <td>boolean</td>
+            <td>bool</td>
+            <td>bool</td>
+            <td>boolean</td>
+            <td>TrueClass/FalseClass</td>
+          </tr>
+        
+          <tr id="string">
+            <td>string</td>
+            <td>A string must always contain UTF-8 encoded or 7-bit ASCII text.</td>
+            <td>string</td>
+            <td>String</td>
+            <td>str/unicode</td>
+            <td>string</td>
+            <td>string</td>
+            <td>string</td>
+            <td>String (UTF-8)</td>
+          </tr>
+        
+          <tr id="bytes">
+            <td>bytes</td>
+            <td>May contain any arbitrary sequence of bytes.</td>
+            <td>string</td>
+            <td>ByteString</td>
+            <td>str</td>
+            <td>[]byte</td>
+            <td>ByteString</td>
+            <td>string</td>
+            <td>String (ASCII-8BIT)</td>
+          </tr>
+        
+      </tbody>
+    </table>
+  </body>
+</html>
+

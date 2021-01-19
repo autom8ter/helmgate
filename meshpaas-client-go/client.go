@@ -129,13 +129,13 @@ func NewClient(ctx context.Context, target string, opts ...Opt) (*Client, error)
 		return nil, err
 	}
 	return &Client{
-		client: meshpaaspb.NewKdeployServiceClient(conn),
+		client: meshpaaspb.NewMeshPaasServiceClient(conn),
 	}, nil
 }
 
 // Client is a meshpaas gRPC client
 type Client struct {
-	client meshpaaspb.KdeployServiceClient
+	client meshpaaspb.MeshPaasServiceClient
 }
 
 func toContext(ctx context.Context, tokenSource oauth2.TokenSource) (context.Context, error) {
@@ -170,9 +170,9 @@ func (c *Client) GetApp(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb.A
 	return c.client.GetApp(ctx, ref)
 }
 
-// DeleteApp deletes all tasks/applications in the namespace
-func (c *Client) DeleteAll(ctx context.Context, namespace *meshpaaspb.Namespace) error {
-	_, err := c.client.DeleteAll(ctx, namespace)
+// DeleteProject deletes all resources in the project
+func (c *Client) DeleteProject(ctx context.Context, namespace *meshpaaspb.ProjectRef) error {
+	_, err := c.client.DeleteProject(ctx, namespace)
 	return err
 }
 
@@ -218,7 +218,6 @@ func (c *Client) StreamLogs(ctx context.Context, ref *meshpaaspb.Ref, fn func(l 
 		}
 	}
 }
-
 
 // CreateGateway creates a new gateway
 func (c *Client) CreateGateway(ctx context.Context, app *meshpaaspb.GatewayInput) (*meshpaaspb.Gateway, error) {
