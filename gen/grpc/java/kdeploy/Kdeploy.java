@@ -14,22 +14,22 @@ public final class Kdeploy {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  public interface RouteOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:kdeploy.Route)
+  public interface HTTPRouteOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:kdeploy.HTTPRoute)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     * <code>string name = 1;</code>
      */
     java.lang.String getName();
     /**
-     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     * <code>string name = 1;</code>
      */
     com.google.protobuf.ByteString
         getNameBytes();
 
     /**
-     * <code>uint32 port = 2 [(.validator.field) = { ... }</code>
+     * <code>uint32 port = 2;</code>
      */
     int getPort();
 
@@ -54,103 +54,171 @@ public final class Kdeploy {
         getRewriteUriBytes();
 
     /**
+     * <pre>
+     * The list of origins that are allowed to perform CORS requests
+     * </pre>
+     *
      * <code>repeated string allow_origins = 5;</code>
      */
     java.util.List<java.lang.String>
         getAllowOriginsList();
     /**
+     * <pre>
+     * The list of origins that are allowed to perform CORS requests
+     * </pre>
+     *
      * <code>repeated string allow_origins = 5;</code>
      */
     int getAllowOriginsCount();
     /**
+     * <pre>
+     * The list of origins that are allowed to perform CORS requests
+     * </pre>
+     *
      * <code>repeated string allow_origins = 5;</code>
      */
     java.lang.String getAllowOrigins(int index);
     /**
+     * <pre>
+     * The list of origins that are allowed to perform CORS requests
+     * </pre>
+     *
      * <code>repeated string allow_origins = 5;</code>
      */
     com.google.protobuf.ByteString
         getAllowOriginsBytes(int index);
 
     /**
+     * <pre>
+     * The list of methods that are allowed to perform CORS requests
+     * </pre>
+     *
      * <code>repeated string allow_methods = 6;</code>
      */
     java.util.List<java.lang.String>
         getAllowMethodsList();
     /**
+     * <pre>
+     * The list of methods that are allowed to perform CORS requests
+     * </pre>
+     *
      * <code>repeated string allow_methods = 6;</code>
      */
     int getAllowMethodsCount();
     /**
+     * <pre>
+     * The list of methods that are allowed to perform CORS requests
+     * </pre>
+     *
      * <code>repeated string allow_methods = 6;</code>
      */
     java.lang.String getAllowMethods(int index);
     /**
+     * <pre>
+     * The list of methods that are allowed to perform CORS requests
+     * </pre>
+     *
      * <code>repeated string allow_methods = 6;</code>
      */
     com.google.protobuf.ByteString
         getAllowMethodsBytes(int index);
 
     /**
+     * <pre>
+     * The list of headers that are allowed to perform CORS requests
+     * </pre>
+     *
      * <code>repeated string allow_headers = 7;</code>
      */
     java.util.List<java.lang.String>
         getAllowHeadersList();
     /**
+     * <pre>
+     * The list of headers that are allowed to perform CORS requests
+     * </pre>
+     *
      * <code>repeated string allow_headers = 7;</code>
      */
     int getAllowHeadersCount();
     /**
+     * <pre>
+     * The list of headers that are allowed to perform CORS requests
+     * </pre>
+     *
      * <code>repeated string allow_headers = 7;</code>
      */
     java.lang.String getAllowHeaders(int index);
     /**
+     * <pre>
+     * The list of headers that are allowed to perform CORS requests
+     * </pre>
+     *
      * <code>repeated string allow_headers = 7;</code>
      */
     com.google.protobuf.ByteString
         getAllowHeadersBytes(int index);
 
     /**
+     * <pre>
+     * The list of origins that are allowed to perform CORS requests
+     * </pre>
+     *
      * <code>repeated string expose_headers = 8;</code>
      */
     java.util.List<java.lang.String>
         getExposeHeadersList();
     /**
+     * <pre>
+     * The list of origins that are allowed to perform CORS requests
+     * </pre>
+     *
      * <code>repeated string expose_headers = 8;</code>
      */
     int getExposeHeadersCount();
     /**
+     * <pre>
+     * The list of origins that are allowed to perform CORS requests
+     * </pre>
+     *
      * <code>repeated string expose_headers = 8;</code>
      */
     java.lang.String getExposeHeaders(int index);
     /**
+     * <pre>
+     * The list of origins that are allowed to perform CORS requests
+     * </pre>
+     *
      * <code>repeated string expose_headers = 8;</code>
      */
     com.google.protobuf.ByteString
         getExposeHeadersBytes(int index);
 
     /**
+     * <pre>
+     * adds `Access-Control-Allow-Credentials` header
+     * </pre>
+     *
      * <code>bool allow_credentials = 9;</code>
      */
     boolean getAllowCredentials();
   }
   /**
    * <pre>
-   * Route is a single http route(istio HttpRoute)
+   * HTTPRoute is a single http route(istio HttpRoute)
    * </pre>
    *
-   * Protobuf type {@code kdeploy.Route}
+   * Protobuf type {@code kdeploy.HTTPRoute}
    */
-  public  static final class Route extends
+  public  static final class HTTPRoute extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:kdeploy.Route)
-      RouteOrBuilder {
+      // @@protoc_insertion_point(message_implements:kdeploy.HTTPRoute)
+      HTTPRouteOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use Route.newBuilder() to construct.
-    private Route(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use HTTPRoute.newBuilder() to construct.
+    private HTTPRoute(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private Route() {
+    private HTTPRoute() {
       name_ = "";
       port_ = 0;
       pathPrefix_ = "";
@@ -167,7 +235,7 @@ public final class Kdeploy {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Route(
+    private HTTPRoute(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -283,22 +351,22 @@ public final class Kdeploy {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return kdeploy.Kdeploy.internal_static_kdeploy_Route_descriptor;
+      return kdeploy.Kdeploy.internal_static_kdeploy_HTTPRoute_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return kdeploy.Kdeploy.internal_static_kdeploy_Route_fieldAccessorTable
+      return kdeploy.Kdeploy.internal_static_kdeploy_HTTPRoute_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              kdeploy.Kdeploy.Route.class, kdeploy.Kdeploy.Route.Builder.class);
+              kdeploy.Kdeploy.HTTPRoute.class, kdeploy.Kdeploy.HTTPRoute.Builder.class);
     }
 
     private int bitField0_;
     public static final int NAME_FIELD_NUMBER = 1;
     private volatile java.lang.Object name_;
     /**
-     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     * <code>string name = 1;</code>
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -313,7 +381,7 @@ public final class Kdeploy {
       }
     }
     /**
-     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     * <code>string name = 1;</code>
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -332,7 +400,7 @@ public final class Kdeploy {
     public static final int PORT_FIELD_NUMBER = 2;
     private int port_;
     /**
-     * <code>uint32 port = 2 [(.validator.field) = { ... }</code>
+     * <code>uint32 port = 2;</code>
      */
     public int getPort() {
       return port_;
@@ -409,6 +477,10 @@ public final class Kdeploy {
     public static final int ALLOW_ORIGINS_FIELD_NUMBER = 5;
     private com.google.protobuf.LazyStringList allowOrigins_;
     /**
+     * <pre>
+     * The list of origins that are allowed to perform CORS requests
+     * </pre>
+     *
      * <code>repeated string allow_origins = 5;</code>
      */
     public com.google.protobuf.ProtocolStringList
@@ -416,18 +488,30 @@ public final class Kdeploy {
       return allowOrigins_;
     }
     /**
+     * <pre>
+     * The list of origins that are allowed to perform CORS requests
+     * </pre>
+     *
      * <code>repeated string allow_origins = 5;</code>
      */
     public int getAllowOriginsCount() {
       return allowOrigins_.size();
     }
     /**
+     * <pre>
+     * The list of origins that are allowed to perform CORS requests
+     * </pre>
+     *
      * <code>repeated string allow_origins = 5;</code>
      */
     public java.lang.String getAllowOrigins(int index) {
       return allowOrigins_.get(index);
     }
     /**
+     * <pre>
+     * The list of origins that are allowed to perform CORS requests
+     * </pre>
+     *
      * <code>repeated string allow_origins = 5;</code>
      */
     public com.google.protobuf.ByteString
@@ -438,6 +522,10 @@ public final class Kdeploy {
     public static final int ALLOW_METHODS_FIELD_NUMBER = 6;
     private com.google.protobuf.LazyStringList allowMethods_;
     /**
+     * <pre>
+     * The list of methods that are allowed to perform CORS requests
+     * </pre>
+     *
      * <code>repeated string allow_methods = 6;</code>
      */
     public com.google.protobuf.ProtocolStringList
@@ -445,18 +533,30 @@ public final class Kdeploy {
       return allowMethods_;
     }
     /**
+     * <pre>
+     * The list of methods that are allowed to perform CORS requests
+     * </pre>
+     *
      * <code>repeated string allow_methods = 6;</code>
      */
     public int getAllowMethodsCount() {
       return allowMethods_.size();
     }
     /**
+     * <pre>
+     * The list of methods that are allowed to perform CORS requests
+     * </pre>
+     *
      * <code>repeated string allow_methods = 6;</code>
      */
     public java.lang.String getAllowMethods(int index) {
       return allowMethods_.get(index);
     }
     /**
+     * <pre>
+     * The list of methods that are allowed to perform CORS requests
+     * </pre>
+     *
      * <code>repeated string allow_methods = 6;</code>
      */
     public com.google.protobuf.ByteString
@@ -467,6 +567,10 @@ public final class Kdeploy {
     public static final int ALLOW_HEADERS_FIELD_NUMBER = 7;
     private com.google.protobuf.LazyStringList allowHeaders_;
     /**
+     * <pre>
+     * The list of headers that are allowed to perform CORS requests
+     * </pre>
+     *
      * <code>repeated string allow_headers = 7;</code>
      */
     public com.google.protobuf.ProtocolStringList
@@ -474,18 +578,30 @@ public final class Kdeploy {
       return allowHeaders_;
     }
     /**
+     * <pre>
+     * The list of headers that are allowed to perform CORS requests
+     * </pre>
+     *
      * <code>repeated string allow_headers = 7;</code>
      */
     public int getAllowHeadersCount() {
       return allowHeaders_.size();
     }
     /**
+     * <pre>
+     * The list of headers that are allowed to perform CORS requests
+     * </pre>
+     *
      * <code>repeated string allow_headers = 7;</code>
      */
     public java.lang.String getAllowHeaders(int index) {
       return allowHeaders_.get(index);
     }
     /**
+     * <pre>
+     * The list of headers that are allowed to perform CORS requests
+     * </pre>
+     *
      * <code>repeated string allow_headers = 7;</code>
      */
     public com.google.protobuf.ByteString
@@ -496,6 +612,10 @@ public final class Kdeploy {
     public static final int EXPOSE_HEADERS_FIELD_NUMBER = 8;
     private com.google.protobuf.LazyStringList exposeHeaders_;
     /**
+     * <pre>
+     * The list of origins that are allowed to perform CORS requests
+     * </pre>
+     *
      * <code>repeated string expose_headers = 8;</code>
      */
     public com.google.protobuf.ProtocolStringList
@@ -503,18 +623,30 @@ public final class Kdeploy {
       return exposeHeaders_;
     }
     /**
+     * <pre>
+     * The list of origins that are allowed to perform CORS requests
+     * </pre>
+     *
      * <code>repeated string expose_headers = 8;</code>
      */
     public int getExposeHeadersCount() {
       return exposeHeaders_.size();
     }
     /**
+     * <pre>
+     * The list of origins that are allowed to perform CORS requests
+     * </pre>
+     *
      * <code>repeated string expose_headers = 8;</code>
      */
     public java.lang.String getExposeHeaders(int index) {
       return exposeHeaders_.get(index);
     }
     /**
+     * <pre>
+     * The list of origins that are allowed to perform CORS requests
+     * </pre>
+     *
      * <code>repeated string expose_headers = 8;</code>
      */
     public com.google.protobuf.ByteString
@@ -525,6 +657,10 @@ public final class Kdeploy {
     public static final int ALLOW_CREDENTIALS_FIELD_NUMBER = 9;
     private boolean allowCredentials_;
     /**
+     * <pre>
+     * adds `Access-Control-Allow-Credentials` header
+     * </pre>
+     *
      * <code>bool allow_credentials = 9;</code>
      */
     public boolean getAllowCredentials() {
@@ -640,10 +776,10 @@ public final class Kdeploy {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof kdeploy.Kdeploy.Route)) {
+      if (!(obj instanceof kdeploy.Kdeploy.HTTPRoute)) {
         return super.equals(obj);
       }
-      kdeploy.Kdeploy.Route other = (kdeploy.Kdeploy.Route) obj;
+      kdeploy.Kdeploy.HTTPRoute other = (kdeploy.Kdeploy.HTTPRoute) obj;
 
       boolean result = true;
       result = result && getName()
@@ -707,69 +843,69 @@ public final class Kdeploy {
       return hash;
     }
 
-    public static kdeploy.Kdeploy.Route parseFrom(
+    public static kdeploy.Kdeploy.HTTPRoute parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static kdeploy.Kdeploy.Route parseFrom(
+    public static kdeploy.Kdeploy.HTTPRoute parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static kdeploy.Kdeploy.Route parseFrom(
+    public static kdeploy.Kdeploy.HTTPRoute parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static kdeploy.Kdeploy.Route parseFrom(
+    public static kdeploy.Kdeploy.HTTPRoute parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static kdeploy.Kdeploy.Route parseFrom(byte[] data)
+    public static kdeploy.Kdeploy.HTTPRoute parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static kdeploy.Kdeploy.Route parseFrom(
+    public static kdeploy.Kdeploy.HTTPRoute parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static kdeploy.Kdeploy.Route parseFrom(java.io.InputStream input)
+    public static kdeploy.Kdeploy.HTTPRoute parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static kdeploy.Kdeploy.Route parseFrom(
+    public static kdeploy.Kdeploy.HTTPRoute parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static kdeploy.Kdeploy.Route parseDelimitedFrom(java.io.InputStream input)
+    public static kdeploy.Kdeploy.HTTPRoute parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static kdeploy.Kdeploy.Route parseDelimitedFrom(
+    public static kdeploy.Kdeploy.HTTPRoute parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static kdeploy.Kdeploy.Route parseFrom(
+    public static kdeploy.Kdeploy.HTTPRoute parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static kdeploy.Kdeploy.Route parseFrom(
+    public static kdeploy.Kdeploy.HTTPRoute parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -782,7 +918,7 @@ public final class Kdeploy {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(kdeploy.Kdeploy.Route prototype) {
+    public static Builder newBuilder(kdeploy.Kdeploy.HTTPRoute prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -799,29 +935,29 @@ public final class Kdeploy {
     }
     /**
      * <pre>
-     * Route is a single http route(istio HttpRoute)
+     * HTTPRoute is a single http route(istio HttpRoute)
      * </pre>
      *
-     * Protobuf type {@code kdeploy.Route}
+     * Protobuf type {@code kdeploy.HTTPRoute}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:kdeploy.Route)
-        kdeploy.Kdeploy.RouteOrBuilder {
+        // @@protoc_insertion_point(builder_implements:kdeploy.HTTPRoute)
+        kdeploy.Kdeploy.HTTPRouteOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return kdeploy.Kdeploy.internal_static_kdeploy_Route_descriptor;
+        return kdeploy.Kdeploy.internal_static_kdeploy_HTTPRoute_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return kdeploy.Kdeploy.internal_static_kdeploy_Route_fieldAccessorTable
+        return kdeploy.Kdeploy.internal_static_kdeploy_HTTPRoute_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                kdeploy.Kdeploy.Route.class, kdeploy.Kdeploy.Route.Builder.class);
+                kdeploy.Kdeploy.HTTPRoute.class, kdeploy.Kdeploy.HTTPRoute.Builder.class);
       }
 
-      // Construct using kdeploy.Kdeploy.Route.newBuilder()
+      // Construct using kdeploy.Kdeploy.HTTPRoute.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -863,17 +999,17 @@ public final class Kdeploy {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return kdeploy.Kdeploy.internal_static_kdeploy_Route_descriptor;
+        return kdeploy.Kdeploy.internal_static_kdeploy_HTTPRoute_descriptor;
       }
 
       @java.lang.Override
-      public kdeploy.Kdeploy.Route getDefaultInstanceForType() {
-        return kdeploy.Kdeploy.Route.getDefaultInstance();
+      public kdeploy.Kdeploy.HTTPRoute getDefaultInstanceForType() {
+        return kdeploy.Kdeploy.HTTPRoute.getDefaultInstance();
       }
 
       @java.lang.Override
-      public kdeploy.Kdeploy.Route build() {
-        kdeploy.Kdeploy.Route result = buildPartial();
+      public kdeploy.Kdeploy.HTTPRoute build() {
+        kdeploy.Kdeploy.HTTPRoute result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -881,8 +1017,8 @@ public final class Kdeploy {
       }
 
       @java.lang.Override
-      public kdeploy.Kdeploy.Route buildPartial() {
-        kdeploy.Kdeploy.Route result = new kdeploy.Kdeploy.Route(this);
+      public kdeploy.Kdeploy.HTTPRoute buildPartial() {
+        kdeploy.Kdeploy.HTTPRoute result = new kdeploy.Kdeploy.HTTPRoute(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         result.name_ = name_;
@@ -949,16 +1085,16 @@ public final class Kdeploy {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof kdeploy.Kdeploy.Route) {
-          return mergeFrom((kdeploy.Kdeploy.Route)other);
+        if (other instanceof kdeploy.Kdeploy.HTTPRoute) {
+          return mergeFrom((kdeploy.Kdeploy.HTTPRoute)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(kdeploy.Kdeploy.Route other) {
-        if (other == kdeploy.Kdeploy.Route.getDefaultInstance()) return this;
+      public Builder mergeFrom(kdeploy.Kdeploy.HTTPRoute other) {
+        if (other == kdeploy.Kdeploy.HTTPRoute.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
           onChanged();
@@ -1032,11 +1168,11 @@ public final class Kdeploy {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        kdeploy.Kdeploy.Route parsedMessage = null;
+        kdeploy.Kdeploy.HTTPRoute parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (kdeploy.Kdeploy.Route) e.getUnfinishedMessage();
+          parsedMessage = (kdeploy.Kdeploy.HTTPRoute) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1049,7 +1185,7 @@ public final class Kdeploy {
 
       private java.lang.Object name_ = "";
       /**
-       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       * <code>string name = 1;</code>
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -1064,7 +1200,7 @@ public final class Kdeploy {
         }
       }
       /**
-       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       * <code>string name = 1;</code>
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -1080,7 +1216,7 @@ public final class Kdeploy {
         }
       }
       /**
-       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       * <code>string name = 1;</code>
        */
       public Builder setName(
           java.lang.String value) {
@@ -1093,7 +1229,7 @@ public final class Kdeploy {
         return this;
       }
       /**
-       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       * <code>string name = 1;</code>
        */
       public Builder clearName() {
         
@@ -1102,7 +1238,7 @@ public final class Kdeploy {
         return this;
       }
       /**
-       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       * <code>string name = 1;</code>
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -1118,13 +1254,13 @@ public final class Kdeploy {
 
       private int port_ ;
       /**
-       * <code>uint32 port = 2 [(.validator.field) = { ... }</code>
+       * <code>uint32 port = 2;</code>
        */
       public int getPort() {
         return port_;
       }
       /**
-       * <code>uint32 port = 2 [(.validator.field) = { ... }</code>
+       * <code>uint32 port = 2;</code>
        */
       public Builder setPort(int value) {
         
@@ -1133,7 +1269,7 @@ public final class Kdeploy {
         return this;
       }
       /**
-       * <code>uint32 port = 2 [(.validator.field) = { ... }</code>
+       * <code>uint32 port = 2;</code>
        */
       public Builder clearPort() {
         
@@ -1288,6 +1424,10 @@ public final class Kdeploy {
          }
       }
       /**
+       * <pre>
+       * The list of origins that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string allow_origins = 5;</code>
        */
       public com.google.protobuf.ProtocolStringList
@@ -1295,18 +1435,30 @@ public final class Kdeploy {
         return allowOrigins_.getUnmodifiableView();
       }
       /**
+       * <pre>
+       * The list of origins that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string allow_origins = 5;</code>
        */
       public int getAllowOriginsCount() {
         return allowOrigins_.size();
       }
       /**
+       * <pre>
+       * The list of origins that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string allow_origins = 5;</code>
        */
       public java.lang.String getAllowOrigins(int index) {
         return allowOrigins_.get(index);
       }
       /**
+       * <pre>
+       * The list of origins that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string allow_origins = 5;</code>
        */
       public com.google.protobuf.ByteString
@@ -1314,6 +1466,10 @@ public final class Kdeploy {
         return allowOrigins_.getByteString(index);
       }
       /**
+       * <pre>
+       * The list of origins that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string allow_origins = 5;</code>
        */
       public Builder setAllowOrigins(
@@ -1327,6 +1483,10 @@ public final class Kdeploy {
         return this;
       }
       /**
+       * <pre>
+       * The list of origins that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string allow_origins = 5;</code>
        */
       public Builder addAllowOrigins(
@@ -1340,6 +1500,10 @@ public final class Kdeploy {
         return this;
       }
       /**
+       * <pre>
+       * The list of origins that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string allow_origins = 5;</code>
        */
       public Builder addAllAllowOrigins(
@@ -1351,6 +1515,10 @@ public final class Kdeploy {
         return this;
       }
       /**
+       * <pre>
+       * The list of origins that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string allow_origins = 5;</code>
        */
       public Builder clearAllowOrigins() {
@@ -1360,6 +1528,10 @@ public final class Kdeploy {
         return this;
       }
       /**
+       * <pre>
+       * The list of origins that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string allow_origins = 5;</code>
        */
       public Builder addAllowOriginsBytes(
@@ -1382,6 +1554,10 @@ public final class Kdeploy {
          }
       }
       /**
+       * <pre>
+       * The list of methods that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string allow_methods = 6;</code>
        */
       public com.google.protobuf.ProtocolStringList
@@ -1389,18 +1565,30 @@ public final class Kdeploy {
         return allowMethods_.getUnmodifiableView();
       }
       /**
+       * <pre>
+       * The list of methods that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string allow_methods = 6;</code>
        */
       public int getAllowMethodsCount() {
         return allowMethods_.size();
       }
       /**
+       * <pre>
+       * The list of methods that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string allow_methods = 6;</code>
        */
       public java.lang.String getAllowMethods(int index) {
         return allowMethods_.get(index);
       }
       /**
+       * <pre>
+       * The list of methods that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string allow_methods = 6;</code>
        */
       public com.google.protobuf.ByteString
@@ -1408,6 +1596,10 @@ public final class Kdeploy {
         return allowMethods_.getByteString(index);
       }
       /**
+       * <pre>
+       * The list of methods that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string allow_methods = 6;</code>
        */
       public Builder setAllowMethods(
@@ -1421,6 +1613,10 @@ public final class Kdeploy {
         return this;
       }
       /**
+       * <pre>
+       * The list of methods that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string allow_methods = 6;</code>
        */
       public Builder addAllowMethods(
@@ -1434,6 +1630,10 @@ public final class Kdeploy {
         return this;
       }
       /**
+       * <pre>
+       * The list of methods that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string allow_methods = 6;</code>
        */
       public Builder addAllAllowMethods(
@@ -1445,6 +1645,10 @@ public final class Kdeploy {
         return this;
       }
       /**
+       * <pre>
+       * The list of methods that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string allow_methods = 6;</code>
        */
       public Builder clearAllowMethods() {
@@ -1454,6 +1658,10 @@ public final class Kdeploy {
         return this;
       }
       /**
+       * <pre>
+       * The list of methods that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string allow_methods = 6;</code>
        */
       public Builder addAllowMethodsBytes(
@@ -1476,6 +1684,10 @@ public final class Kdeploy {
          }
       }
       /**
+       * <pre>
+       * The list of headers that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string allow_headers = 7;</code>
        */
       public com.google.protobuf.ProtocolStringList
@@ -1483,18 +1695,30 @@ public final class Kdeploy {
         return allowHeaders_.getUnmodifiableView();
       }
       /**
+       * <pre>
+       * The list of headers that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string allow_headers = 7;</code>
        */
       public int getAllowHeadersCount() {
         return allowHeaders_.size();
       }
       /**
+       * <pre>
+       * The list of headers that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string allow_headers = 7;</code>
        */
       public java.lang.String getAllowHeaders(int index) {
         return allowHeaders_.get(index);
       }
       /**
+       * <pre>
+       * The list of headers that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string allow_headers = 7;</code>
        */
       public com.google.protobuf.ByteString
@@ -1502,6 +1726,10 @@ public final class Kdeploy {
         return allowHeaders_.getByteString(index);
       }
       /**
+       * <pre>
+       * The list of headers that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string allow_headers = 7;</code>
        */
       public Builder setAllowHeaders(
@@ -1515,6 +1743,10 @@ public final class Kdeploy {
         return this;
       }
       /**
+       * <pre>
+       * The list of headers that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string allow_headers = 7;</code>
        */
       public Builder addAllowHeaders(
@@ -1528,6 +1760,10 @@ public final class Kdeploy {
         return this;
       }
       /**
+       * <pre>
+       * The list of headers that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string allow_headers = 7;</code>
        */
       public Builder addAllAllowHeaders(
@@ -1539,6 +1775,10 @@ public final class Kdeploy {
         return this;
       }
       /**
+       * <pre>
+       * The list of headers that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string allow_headers = 7;</code>
        */
       public Builder clearAllowHeaders() {
@@ -1548,6 +1788,10 @@ public final class Kdeploy {
         return this;
       }
       /**
+       * <pre>
+       * The list of headers that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string allow_headers = 7;</code>
        */
       public Builder addAllowHeadersBytes(
@@ -1570,6 +1814,10 @@ public final class Kdeploy {
          }
       }
       /**
+       * <pre>
+       * The list of origins that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string expose_headers = 8;</code>
        */
       public com.google.protobuf.ProtocolStringList
@@ -1577,18 +1825,30 @@ public final class Kdeploy {
         return exposeHeaders_.getUnmodifiableView();
       }
       /**
+       * <pre>
+       * The list of origins that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string expose_headers = 8;</code>
        */
       public int getExposeHeadersCount() {
         return exposeHeaders_.size();
       }
       /**
+       * <pre>
+       * The list of origins that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string expose_headers = 8;</code>
        */
       public java.lang.String getExposeHeaders(int index) {
         return exposeHeaders_.get(index);
       }
       /**
+       * <pre>
+       * The list of origins that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string expose_headers = 8;</code>
        */
       public com.google.protobuf.ByteString
@@ -1596,6 +1856,10 @@ public final class Kdeploy {
         return exposeHeaders_.getByteString(index);
       }
       /**
+       * <pre>
+       * The list of origins that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string expose_headers = 8;</code>
        */
       public Builder setExposeHeaders(
@@ -1609,6 +1873,10 @@ public final class Kdeploy {
         return this;
       }
       /**
+       * <pre>
+       * The list of origins that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string expose_headers = 8;</code>
        */
       public Builder addExposeHeaders(
@@ -1622,6 +1890,10 @@ public final class Kdeploy {
         return this;
       }
       /**
+       * <pre>
+       * The list of origins that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string expose_headers = 8;</code>
        */
       public Builder addAllExposeHeaders(
@@ -1633,6 +1905,10 @@ public final class Kdeploy {
         return this;
       }
       /**
+       * <pre>
+       * The list of origins that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string expose_headers = 8;</code>
        */
       public Builder clearExposeHeaders() {
@@ -1642,6 +1918,10 @@ public final class Kdeploy {
         return this;
       }
       /**
+       * <pre>
+       * The list of origins that are allowed to perform CORS requests
+       * </pre>
+       *
        * <code>repeated string expose_headers = 8;</code>
        */
       public Builder addExposeHeadersBytes(
@@ -1658,12 +1938,20 @@ public final class Kdeploy {
 
       private boolean allowCredentials_ ;
       /**
+       * <pre>
+       * adds `Access-Control-Allow-Credentials` header
+       * </pre>
+       *
        * <code>bool allow_credentials = 9;</code>
        */
       public boolean getAllowCredentials() {
         return allowCredentials_;
       }
       /**
+       * <pre>
+       * adds `Access-Control-Allow-Credentials` header
+       * </pre>
+       *
        * <code>bool allow_credentials = 9;</code>
        */
       public Builder setAllowCredentials(boolean value) {
@@ -1673,6 +1961,10 @@ public final class Kdeploy {
         return this;
       }
       /**
+       * <pre>
+       * adds `Access-Control-Allow-Credentials` header
+       * </pre>
+       *
        * <code>bool allow_credentials = 9;</code>
        */
       public Builder clearAllowCredentials() {
@@ -1694,41 +1986,41 @@ public final class Kdeploy {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:kdeploy.Route)
+      // @@protoc_insertion_point(builder_scope:kdeploy.HTTPRoute)
     }
 
-    // @@protoc_insertion_point(class_scope:kdeploy.Route)
-    private static final kdeploy.Kdeploy.Route DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:kdeploy.HTTPRoute)
+    private static final kdeploy.Kdeploy.HTTPRoute DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new kdeploy.Kdeploy.Route();
+      DEFAULT_INSTANCE = new kdeploy.Kdeploy.HTTPRoute();
     }
 
-    public static kdeploy.Kdeploy.Route getDefaultInstance() {
+    public static kdeploy.Kdeploy.HTTPRoute getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<Route>
-        PARSER = new com.google.protobuf.AbstractParser<Route>() {
+    private static final com.google.protobuf.Parser<HTTPRoute>
+        PARSER = new com.google.protobuf.AbstractParser<HTTPRoute>() {
       @java.lang.Override
-      public Route parsePartialFrom(
+      public HTTPRoute parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Route(input, extensionRegistry);
+        return new HTTPRoute(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<Route> parser() {
+    public static com.google.protobuf.Parser<HTTPRoute> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<Route> getParserForType() {
+    public com.google.protobuf.Parser<HTTPRoute> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public kdeploy.Kdeploy.Route getDefaultInstanceForType() {
+    public kdeploy.Kdeploy.HTTPRoute getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1782,27 +2074,27 @@ public final class Kdeploy {
     boolean getExport();
 
     /**
-     * <code>repeated .kdeploy.Route routes = 4;</code>
+     * <code>repeated .kdeploy.HTTPRoute http_routes = 4;</code>
      */
-    java.util.List<kdeploy.Kdeploy.Route> 
-        getRoutesList();
+    java.util.List<kdeploy.Kdeploy.HTTPRoute> 
+        getHttpRoutesList();
     /**
-     * <code>repeated .kdeploy.Route routes = 4;</code>
+     * <code>repeated .kdeploy.HTTPRoute http_routes = 4;</code>
      */
-    kdeploy.Kdeploy.Route getRoutes(int index);
+    kdeploy.Kdeploy.HTTPRoute getHttpRoutes(int index);
     /**
-     * <code>repeated .kdeploy.Route routes = 4;</code>
+     * <code>repeated .kdeploy.HTTPRoute http_routes = 4;</code>
      */
-    int getRoutesCount();
+    int getHttpRoutesCount();
     /**
-     * <code>repeated .kdeploy.Route routes = 4;</code>
+     * <code>repeated .kdeploy.HTTPRoute http_routes = 4;</code>
      */
-    java.util.List<? extends kdeploy.Kdeploy.RouteOrBuilder> 
-        getRoutesOrBuilderList();
+    java.util.List<? extends kdeploy.Kdeploy.HTTPRouteOrBuilder> 
+        getHttpRoutesOrBuilderList();
     /**
-     * <code>repeated .kdeploy.Route routes = 4;</code>
+     * <code>repeated .kdeploy.HTTPRoute http_routes = 4;</code>
      */
-    kdeploy.Kdeploy.RouteOrBuilder getRoutesOrBuilder(
+    kdeploy.Kdeploy.HTTPRouteOrBuilder getHttpRoutesOrBuilder(
         int index);
   }
   /**
@@ -1821,7 +2113,7 @@ public final class Kdeploy {
       gateways_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       hosts_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       export_ = false;
-      routes_ = java.util.Collections.emptyList();
+      httpRoutes_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -1873,11 +2165,11 @@ public final class Kdeploy {
             }
             case 34: {
               if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                routes_ = new java.util.ArrayList<kdeploy.Kdeploy.Route>();
+                httpRoutes_ = new java.util.ArrayList<kdeploy.Kdeploy.HTTPRoute>();
                 mutable_bitField0_ |= 0x00000008;
               }
-              routes_.add(
-                  input.readMessage(kdeploy.Kdeploy.Route.parser(), extensionRegistry));
+              httpRoutes_.add(
+                  input.readMessage(kdeploy.Kdeploy.HTTPRoute.parser(), extensionRegistry));
               break;
             }
             default: {
@@ -1902,7 +2194,7 @@ public final class Kdeploy {
           hosts_ = hosts_.getUnmodifiableView();
         }
         if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-          routes_ = java.util.Collections.unmodifiableList(routes_);
+          httpRoutes_ = java.util.Collections.unmodifiableList(httpRoutes_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -1989,39 +2281,39 @@ public final class Kdeploy {
       return export_;
     }
 
-    public static final int ROUTES_FIELD_NUMBER = 4;
-    private java.util.List<kdeploy.Kdeploy.Route> routes_;
+    public static final int HTTP_ROUTES_FIELD_NUMBER = 4;
+    private java.util.List<kdeploy.Kdeploy.HTTPRoute> httpRoutes_;
     /**
-     * <code>repeated .kdeploy.Route routes = 4;</code>
+     * <code>repeated .kdeploy.HTTPRoute http_routes = 4;</code>
      */
-    public java.util.List<kdeploy.Kdeploy.Route> getRoutesList() {
-      return routes_;
+    public java.util.List<kdeploy.Kdeploy.HTTPRoute> getHttpRoutesList() {
+      return httpRoutes_;
     }
     /**
-     * <code>repeated .kdeploy.Route routes = 4;</code>
+     * <code>repeated .kdeploy.HTTPRoute http_routes = 4;</code>
      */
-    public java.util.List<? extends kdeploy.Kdeploy.RouteOrBuilder> 
-        getRoutesOrBuilderList() {
-      return routes_;
+    public java.util.List<? extends kdeploy.Kdeploy.HTTPRouteOrBuilder> 
+        getHttpRoutesOrBuilderList() {
+      return httpRoutes_;
     }
     /**
-     * <code>repeated .kdeploy.Route routes = 4;</code>
+     * <code>repeated .kdeploy.HTTPRoute http_routes = 4;</code>
      */
-    public int getRoutesCount() {
-      return routes_.size();
+    public int getHttpRoutesCount() {
+      return httpRoutes_.size();
     }
     /**
-     * <code>repeated .kdeploy.Route routes = 4;</code>
+     * <code>repeated .kdeploy.HTTPRoute http_routes = 4;</code>
      */
-    public kdeploy.Kdeploy.Route getRoutes(int index) {
-      return routes_.get(index);
+    public kdeploy.Kdeploy.HTTPRoute getHttpRoutes(int index) {
+      return httpRoutes_.get(index);
     }
     /**
-     * <code>repeated .kdeploy.Route routes = 4;</code>
+     * <code>repeated .kdeploy.HTTPRoute http_routes = 4;</code>
      */
-    public kdeploy.Kdeploy.RouteOrBuilder getRoutesOrBuilder(
+    public kdeploy.Kdeploy.HTTPRouteOrBuilder getHttpRoutesOrBuilder(
         int index) {
-      return routes_.get(index);
+      return httpRoutes_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2047,8 +2339,8 @@ public final class Kdeploy {
       if (export_ != false) {
         output.writeBool(3, export_);
       }
-      for (int i = 0; i < routes_.size(); i++) {
-        output.writeMessage(4, routes_.get(i));
+      for (int i = 0; i < httpRoutes_.size(); i++) {
+        output.writeMessage(4, httpRoutes_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -2079,9 +2371,9 @@ public final class Kdeploy {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(3, export_);
       }
-      for (int i = 0; i < routes_.size(); i++) {
+      for (int i = 0; i < httpRoutes_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, routes_.get(i));
+          .computeMessageSize(4, httpRoutes_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2105,8 +2397,8 @@ public final class Kdeploy {
           .equals(other.getHostsList());
       result = result && (getExport()
           == other.getExport());
-      result = result && getRoutesList()
-          .equals(other.getRoutesList());
+      result = result && getHttpRoutesList()
+          .equals(other.getHttpRoutesList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -2129,9 +2421,9 @@ public final class Kdeploy {
       hash = (37 * hash) + EXPORT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getExport());
-      if (getRoutesCount() > 0) {
-        hash = (37 * hash) + ROUTES_FIELD_NUMBER;
-        hash = (53 * hash) + getRoutesList().hashCode();
+      if (getHttpRoutesCount() > 0) {
+        hash = (37 * hash) + HTTP_ROUTES_FIELD_NUMBER;
+        hash = (53 * hash) + getHttpRoutesList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -2261,7 +2553,7 @@ public final class Kdeploy {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getRoutesFieldBuilder();
+          getHttpRoutesFieldBuilder();
         }
       }
       @java.lang.Override
@@ -2273,11 +2565,11 @@ public final class Kdeploy {
         bitField0_ = (bitField0_ & ~0x00000002);
         export_ = false;
 
-        if (routesBuilder_ == null) {
-          routes_ = java.util.Collections.emptyList();
+        if (httpRoutesBuilder_ == null) {
+          httpRoutes_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000008);
         } else {
-          routesBuilder_.clear();
+          httpRoutesBuilder_.clear();
         }
         return this;
       }
@@ -2318,14 +2610,14 @@ public final class Kdeploy {
         }
         result.hosts_ = hosts_;
         result.export_ = export_;
-        if (routesBuilder_ == null) {
+        if (httpRoutesBuilder_ == null) {
           if (((bitField0_ & 0x00000008) == 0x00000008)) {
-            routes_ = java.util.Collections.unmodifiableList(routes_);
+            httpRoutes_ = java.util.Collections.unmodifiableList(httpRoutes_);
             bitField0_ = (bitField0_ & ~0x00000008);
           }
-          result.routes_ = routes_;
+          result.httpRoutes_ = httpRoutes_;
         } else {
-          result.routes_ = routesBuilder_.build();
+          result.httpRoutes_ = httpRoutesBuilder_.build();
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -2399,29 +2691,29 @@ public final class Kdeploy {
         if (other.getExport() != false) {
           setExport(other.getExport());
         }
-        if (routesBuilder_ == null) {
-          if (!other.routes_.isEmpty()) {
-            if (routes_.isEmpty()) {
-              routes_ = other.routes_;
+        if (httpRoutesBuilder_ == null) {
+          if (!other.httpRoutes_.isEmpty()) {
+            if (httpRoutes_.isEmpty()) {
+              httpRoutes_ = other.httpRoutes_;
               bitField0_ = (bitField0_ & ~0x00000008);
             } else {
-              ensureRoutesIsMutable();
-              routes_.addAll(other.routes_);
+              ensureHttpRoutesIsMutable();
+              httpRoutes_.addAll(other.httpRoutes_);
             }
             onChanged();
           }
         } else {
-          if (!other.routes_.isEmpty()) {
-            if (routesBuilder_.isEmpty()) {
-              routesBuilder_.dispose();
-              routesBuilder_ = null;
-              routes_ = other.routes_;
+          if (!other.httpRoutes_.isEmpty()) {
+            if (httpRoutesBuilder_.isEmpty()) {
+              httpRoutesBuilder_.dispose();
+              httpRoutesBuilder_ = null;
+              httpRoutes_ = other.httpRoutes_;
               bitField0_ = (bitField0_ & ~0x00000008);
-              routesBuilder_ = 
+              httpRoutesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getRoutesFieldBuilder() : null;
+                   getHttpRoutesFieldBuilder() : null;
             } else {
-              routesBuilder_.addAllMessages(other.routes_);
+              httpRoutesBuilder_.addAllMessages(other.httpRoutes_);
             }
           }
         }
@@ -2669,244 +2961,244 @@ public final class Kdeploy {
         return this;
       }
 
-      private java.util.List<kdeploy.Kdeploy.Route> routes_ =
+      private java.util.List<kdeploy.Kdeploy.HTTPRoute> httpRoutes_ =
         java.util.Collections.emptyList();
-      private void ensureRoutesIsMutable() {
+      private void ensureHttpRoutesIsMutable() {
         if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-          routes_ = new java.util.ArrayList<kdeploy.Kdeploy.Route>(routes_);
+          httpRoutes_ = new java.util.ArrayList<kdeploy.Kdeploy.HTTPRoute>(httpRoutes_);
           bitField0_ |= 0x00000008;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          kdeploy.Kdeploy.Route, kdeploy.Kdeploy.Route.Builder, kdeploy.Kdeploy.RouteOrBuilder> routesBuilder_;
+          kdeploy.Kdeploy.HTTPRoute, kdeploy.Kdeploy.HTTPRoute.Builder, kdeploy.Kdeploy.HTTPRouteOrBuilder> httpRoutesBuilder_;
 
       /**
-       * <code>repeated .kdeploy.Route routes = 4;</code>
+       * <code>repeated .kdeploy.HTTPRoute http_routes = 4;</code>
        */
-      public java.util.List<kdeploy.Kdeploy.Route> getRoutesList() {
-        if (routesBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(routes_);
+      public java.util.List<kdeploy.Kdeploy.HTTPRoute> getHttpRoutesList() {
+        if (httpRoutesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(httpRoutes_);
         } else {
-          return routesBuilder_.getMessageList();
+          return httpRoutesBuilder_.getMessageList();
         }
       }
       /**
-       * <code>repeated .kdeploy.Route routes = 4;</code>
+       * <code>repeated .kdeploy.HTTPRoute http_routes = 4;</code>
        */
-      public int getRoutesCount() {
-        if (routesBuilder_ == null) {
-          return routes_.size();
+      public int getHttpRoutesCount() {
+        if (httpRoutesBuilder_ == null) {
+          return httpRoutes_.size();
         } else {
-          return routesBuilder_.getCount();
+          return httpRoutesBuilder_.getCount();
         }
       }
       /**
-       * <code>repeated .kdeploy.Route routes = 4;</code>
+       * <code>repeated .kdeploy.HTTPRoute http_routes = 4;</code>
        */
-      public kdeploy.Kdeploy.Route getRoutes(int index) {
-        if (routesBuilder_ == null) {
-          return routes_.get(index);
+      public kdeploy.Kdeploy.HTTPRoute getHttpRoutes(int index) {
+        if (httpRoutesBuilder_ == null) {
+          return httpRoutes_.get(index);
         } else {
-          return routesBuilder_.getMessage(index);
+          return httpRoutesBuilder_.getMessage(index);
         }
       }
       /**
-       * <code>repeated .kdeploy.Route routes = 4;</code>
+       * <code>repeated .kdeploy.HTTPRoute http_routes = 4;</code>
        */
-      public Builder setRoutes(
-          int index, kdeploy.Kdeploy.Route value) {
-        if (routesBuilder_ == null) {
+      public Builder setHttpRoutes(
+          int index, kdeploy.Kdeploy.HTTPRoute value) {
+        if (httpRoutesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureRoutesIsMutable();
-          routes_.set(index, value);
+          ensureHttpRoutesIsMutable();
+          httpRoutes_.set(index, value);
           onChanged();
         } else {
-          routesBuilder_.setMessage(index, value);
+          httpRoutesBuilder_.setMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .kdeploy.Route routes = 4;</code>
+       * <code>repeated .kdeploy.HTTPRoute http_routes = 4;</code>
        */
-      public Builder setRoutes(
-          int index, kdeploy.Kdeploy.Route.Builder builderForValue) {
-        if (routesBuilder_ == null) {
-          ensureRoutesIsMutable();
-          routes_.set(index, builderForValue.build());
+      public Builder setHttpRoutes(
+          int index, kdeploy.Kdeploy.HTTPRoute.Builder builderForValue) {
+        if (httpRoutesBuilder_ == null) {
+          ensureHttpRoutesIsMutable();
+          httpRoutes_.set(index, builderForValue.build());
           onChanged();
         } else {
-          routesBuilder_.setMessage(index, builderForValue.build());
+          httpRoutesBuilder_.setMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .kdeploy.Route routes = 4;</code>
+       * <code>repeated .kdeploy.HTTPRoute http_routes = 4;</code>
        */
-      public Builder addRoutes(kdeploy.Kdeploy.Route value) {
-        if (routesBuilder_ == null) {
+      public Builder addHttpRoutes(kdeploy.Kdeploy.HTTPRoute value) {
+        if (httpRoutesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureRoutesIsMutable();
-          routes_.add(value);
+          ensureHttpRoutesIsMutable();
+          httpRoutes_.add(value);
           onChanged();
         } else {
-          routesBuilder_.addMessage(value);
+          httpRoutesBuilder_.addMessage(value);
         }
         return this;
       }
       /**
-       * <code>repeated .kdeploy.Route routes = 4;</code>
+       * <code>repeated .kdeploy.HTTPRoute http_routes = 4;</code>
        */
-      public Builder addRoutes(
-          int index, kdeploy.Kdeploy.Route value) {
-        if (routesBuilder_ == null) {
+      public Builder addHttpRoutes(
+          int index, kdeploy.Kdeploy.HTTPRoute value) {
+        if (httpRoutesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureRoutesIsMutable();
-          routes_.add(index, value);
+          ensureHttpRoutesIsMutable();
+          httpRoutes_.add(index, value);
           onChanged();
         } else {
-          routesBuilder_.addMessage(index, value);
+          httpRoutesBuilder_.addMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .kdeploy.Route routes = 4;</code>
+       * <code>repeated .kdeploy.HTTPRoute http_routes = 4;</code>
        */
-      public Builder addRoutes(
-          kdeploy.Kdeploy.Route.Builder builderForValue) {
-        if (routesBuilder_ == null) {
-          ensureRoutesIsMutable();
-          routes_.add(builderForValue.build());
+      public Builder addHttpRoutes(
+          kdeploy.Kdeploy.HTTPRoute.Builder builderForValue) {
+        if (httpRoutesBuilder_ == null) {
+          ensureHttpRoutesIsMutable();
+          httpRoutes_.add(builderForValue.build());
           onChanged();
         } else {
-          routesBuilder_.addMessage(builderForValue.build());
+          httpRoutesBuilder_.addMessage(builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .kdeploy.Route routes = 4;</code>
+       * <code>repeated .kdeploy.HTTPRoute http_routes = 4;</code>
        */
-      public Builder addRoutes(
-          int index, kdeploy.Kdeploy.Route.Builder builderForValue) {
-        if (routesBuilder_ == null) {
-          ensureRoutesIsMutable();
-          routes_.add(index, builderForValue.build());
+      public Builder addHttpRoutes(
+          int index, kdeploy.Kdeploy.HTTPRoute.Builder builderForValue) {
+        if (httpRoutesBuilder_ == null) {
+          ensureHttpRoutesIsMutable();
+          httpRoutes_.add(index, builderForValue.build());
           onChanged();
         } else {
-          routesBuilder_.addMessage(index, builderForValue.build());
+          httpRoutesBuilder_.addMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .kdeploy.Route routes = 4;</code>
+       * <code>repeated .kdeploy.HTTPRoute http_routes = 4;</code>
        */
-      public Builder addAllRoutes(
-          java.lang.Iterable<? extends kdeploy.Kdeploy.Route> values) {
-        if (routesBuilder_ == null) {
-          ensureRoutesIsMutable();
+      public Builder addAllHttpRoutes(
+          java.lang.Iterable<? extends kdeploy.Kdeploy.HTTPRoute> values) {
+        if (httpRoutesBuilder_ == null) {
+          ensureHttpRoutesIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, routes_);
+              values, httpRoutes_);
           onChanged();
         } else {
-          routesBuilder_.addAllMessages(values);
+          httpRoutesBuilder_.addAllMessages(values);
         }
         return this;
       }
       /**
-       * <code>repeated .kdeploy.Route routes = 4;</code>
+       * <code>repeated .kdeploy.HTTPRoute http_routes = 4;</code>
        */
-      public Builder clearRoutes() {
-        if (routesBuilder_ == null) {
-          routes_ = java.util.Collections.emptyList();
+      public Builder clearHttpRoutes() {
+        if (httpRoutesBuilder_ == null) {
+          httpRoutes_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000008);
           onChanged();
         } else {
-          routesBuilder_.clear();
+          httpRoutesBuilder_.clear();
         }
         return this;
       }
       /**
-       * <code>repeated .kdeploy.Route routes = 4;</code>
+       * <code>repeated .kdeploy.HTTPRoute http_routes = 4;</code>
        */
-      public Builder removeRoutes(int index) {
-        if (routesBuilder_ == null) {
-          ensureRoutesIsMutable();
-          routes_.remove(index);
+      public Builder removeHttpRoutes(int index) {
+        if (httpRoutesBuilder_ == null) {
+          ensureHttpRoutesIsMutable();
+          httpRoutes_.remove(index);
           onChanged();
         } else {
-          routesBuilder_.remove(index);
+          httpRoutesBuilder_.remove(index);
         }
         return this;
       }
       /**
-       * <code>repeated .kdeploy.Route routes = 4;</code>
+       * <code>repeated .kdeploy.HTTPRoute http_routes = 4;</code>
        */
-      public kdeploy.Kdeploy.Route.Builder getRoutesBuilder(
+      public kdeploy.Kdeploy.HTTPRoute.Builder getHttpRoutesBuilder(
           int index) {
-        return getRoutesFieldBuilder().getBuilder(index);
+        return getHttpRoutesFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .kdeploy.Route routes = 4;</code>
+       * <code>repeated .kdeploy.HTTPRoute http_routes = 4;</code>
        */
-      public kdeploy.Kdeploy.RouteOrBuilder getRoutesOrBuilder(
+      public kdeploy.Kdeploy.HTTPRouteOrBuilder getHttpRoutesOrBuilder(
           int index) {
-        if (routesBuilder_ == null) {
-          return routes_.get(index);  } else {
-          return routesBuilder_.getMessageOrBuilder(index);
+        if (httpRoutesBuilder_ == null) {
+          return httpRoutes_.get(index);  } else {
+          return httpRoutesBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
-       * <code>repeated .kdeploy.Route routes = 4;</code>
+       * <code>repeated .kdeploy.HTTPRoute http_routes = 4;</code>
        */
-      public java.util.List<? extends kdeploy.Kdeploy.RouteOrBuilder> 
-           getRoutesOrBuilderList() {
-        if (routesBuilder_ != null) {
-          return routesBuilder_.getMessageOrBuilderList();
+      public java.util.List<? extends kdeploy.Kdeploy.HTTPRouteOrBuilder> 
+           getHttpRoutesOrBuilderList() {
+        if (httpRoutesBuilder_ != null) {
+          return httpRoutesBuilder_.getMessageOrBuilderList();
         } else {
-          return java.util.Collections.unmodifiableList(routes_);
+          return java.util.Collections.unmodifiableList(httpRoutes_);
         }
       }
       /**
-       * <code>repeated .kdeploy.Route routes = 4;</code>
+       * <code>repeated .kdeploy.HTTPRoute http_routes = 4;</code>
        */
-      public kdeploy.Kdeploy.Route.Builder addRoutesBuilder() {
-        return getRoutesFieldBuilder().addBuilder(
-            kdeploy.Kdeploy.Route.getDefaultInstance());
+      public kdeploy.Kdeploy.HTTPRoute.Builder addHttpRoutesBuilder() {
+        return getHttpRoutesFieldBuilder().addBuilder(
+            kdeploy.Kdeploy.HTTPRoute.getDefaultInstance());
       }
       /**
-       * <code>repeated .kdeploy.Route routes = 4;</code>
+       * <code>repeated .kdeploy.HTTPRoute http_routes = 4;</code>
        */
-      public kdeploy.Kdeploy.Route.Builder addRoutesBuilder(
+      public kdeploy.Kdeploy.HTTPRoute.Builder addHttpRoutesBuilder(
           int index) {
-        return getRoutesFieldBuilder().addBuilder(
-            index, kdeploy.Kdeploy.Route.getDefaultInstance());
+        return getHttpRoutesFieldBuilder().addBuilder(
+            index, kdeploy.Kdeploy.HTTPRoute.getDefaultInstance());
       }
       /**
-       * <code>repeated .kdeploy.Route routes = 4;</code>
+       * <code>repeated .kdeploy.HTTPRoute http_routes = 4;</code>
        */
-      public java.util.List<kdeploy.Kdeploy.Route.Builder> 
-           getRoutesBuilderList() {
-        return getRoutesFieldBuilder().getBuilderList();
+      public java.util.List<kdeploy.Kdeploy.HTTPRoute.Builder> 
+           getHttpRoutesBuilderList() {
+        return getHttpRoutesFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          kdeploy.Kdeploy.Route, kdeploy.Kdeploy.Route.Builder, kdeploy.Kdeploy.RouteOrBuilder> 
-          getRoutesFieldBuilder() {
-        if (routesBuilder_ == null) {
-          routesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              kdeploy.Kdeploy.Route, kdeploy.Kdeploy.Route.Builder, kdeploy.Kdeploy.RouteOrBuilder>(
-                  routes_,
+          kdeploy.Kdeploy.HTTPRoute, kdeploy.Kdeploy.HTTPRoute.Builder, kdeploy.Kdeploy.HTTPRouteOrBuilder> 
+          getHttpRoutesFieldBuilder() {
+        if (httpRoutesBuilder_ == null) {
+          httpRoutesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              kdeploy.Kdeploy.HTTPRoute, kdeploy.Kdeploy.HTTPRoute.Builder, kdeploy.Kdeploy.HTTPRouteOrBuilder>(
+                  httpRoutes_,
                   ((bitField0_ & 0x00000008) == 0x00000008),
                   getParentForChildren(),
                   isClean());
-          routes_ = null;
+          httpRoutes_ = null;
         }
-        return routesBuilder_;
+        return httpRoutesBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -3172,14 +3464,26 @@ public final class Kdeploy {
     int getReplicas();
 
     /**
+     * <pre>
+     * gateway/service-mesh networking
+     * </pre>
+     *
      * <code>.kdeploy.Networking networking = 9;</code>
      */
     boolean hasNetworking();
     /**
+     * <pre>
+     * gateway/service-mesh networking
+     * </pre>
+     *
      * <code>.kdeploy.Networking networking = 9;</code>
      */
     kdeploy.Kdeploy.Networking getNetworking();
     /**
+     * <pre>
+     * gateway/service-mesh networking
+     * </pre>
+     *
      * <code>.kdeploy.Networking networking = 9;</code>
      */
     kdeploy.Kdeploy.NetworkingOrBuilder getNetworkingOrBuilder();
@@ -3762,18 +4066,30 @@ public final class Kdeploy {
     public static final int NETWORKING_FIELD_NUMBER = 9;
     private kdeploy.Kdeploy.Networking networking_;
     /**
+     * <pre>
+     * gateway/service-mesh networking
+     * </pre>
+     *
      * <code>.kdeploy.Networking networking = 9;</code>
      */
     public boolean hasNetworking() {
       return networking_ != null;
     }
     /**
+     * <pre>
+     * gateway/service-mesh networking
+     * </pre>
+     *
      * <code>.kdeploy.Networking networking = 9;</code>
      */
     public kdeploy.Kdeploy.Networking getNetworking() {
       return networking_ == null ? kdeploy.Kdeploy.Networking.getDefaultInstance() : networking_;
     }
     /**
+     * <pre>
+     * gateway/service-mesh networking
+     * </pre>
+     *
      * <code>.kdeploy.Networking networking = 9;</code>
      */
     public kdeploy.Kdeploy.NetworkingOrBuilder getNetworkingOrBuilder() {
@@ -5090,12 +5406,20 @@ public final class Kdeploy {
       private com.google.protobuf.SingleFieldBuilderV3<
           kdeploy.Kdeploy.Networking, kdeploy.Kdeploy.Networking.Builder, kdeploy.Kdeploy.NetworkingOrBuilder> networkingBuilder_;
       /**
+       * <pre>
+       * gateway/service-mesh networking
+       * </pre>
+       *
        * <code>.kdeploy.Networking networking = 9;</code>
        */
       public boolean hasNetworking() {
         return networkingBuilder_ != null || networking_ != null;
       }
       /**
+       * <pre>
+       * gateway/service-mesh networking
+       * </pre>
+       *
        * <code>.kdeploy.Networking networking = 9;</code>
        */
       public kdeploy.Kdeploy.Networking getNetworking() {
@@ -5106,6 +5430,10 @@ public final class Kdeploy {
         }
       }
       /**
+       * <pre>
+       * gateway/service-mesh networking
+       * </pre>
+       *
        * <code>.kdeploy.Networking networking = 9;</code>
        */
       public Builder setNetworking(kdeploy.Kdeploy.Networking value) {
@@ -5122,6 +5450,10 @@ public final class Kdeploy {
         return this;
       }
       /**
+       * <pre>
+       * gateway/service-mesh networking
+       * </pre>
+       *
        * <code>.kdeploy.Networking networking = 9;</code>
        */
       public Builder setNetworking(
@@ -5136,6 +5468,10 @@ public final class Kdeploy {
         return this;
       }
       /**
+       * <pre>
+       * gateway/service-mesh networking
+       * </pre>
+       *
        * <code>.kdeploy.Networking networking = 9;</code>
        */
       public Builder mergeNetworking(kdeploy.Kdeploy.Networking value) {
@@ -5154,6 +5490,10 @@ public final class Kdeploy {
         return this;
       }
       /**
+       * <pre>
+       * gateway/service-mesh networking
+       * </pre>
+       *
        * <code>.kdeploy.Networking networking = 9;</code>
        */
       public Builder clearNetworking() {
@@ -5168,6 +5508,10 @@ public final class Kdeploy {
         return this;
       }
       /**
+       * <pre>
+       * gateway/service-mesh networking
+       * </pre>
+       *
        * <code>.kdeploy.Networking networking = 9;</code>
        */
       public kdeploy.Kdeploy.Networking.Builder getNetworkingBuilder() {
@@ -5176,6 +5520,10 @@ public final class Kdeploy {
         return getNetworkingFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * gateway/service-mesh networking
+       * </pre>
+       *
        * <code>.kdeploy.Networking networking = 9;</code>
        */
       public kdeploy.Kdeploy.NetworkingOrBuilder getNetworkingOrBuilder() {
@@ -5187,6 +5535,10 @@ public final class Kdeploy {
         }
       }
       /**
+       * <pre>
+       * gateway/service-mesh networking
+       * </pre>
+       *
        * <code>.kdeploy.Networking networking = 9;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -20915,10 +21267,10 @@ public final class Kdeploy {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_kdeploy_Route_descriptor;
+    internal_static_kdeploy_HTTPRoute_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_kdeploy_Route_fieldAccessorTable;
+      internal_static_kdeploy_HTTPRoute_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_kdeploy_Networking_descriptor;
   private static final 
@@ -21053,86 +21405,86 @@ public final class Kdeploy {
       "p.proto\032\031google/protobuf/any.proto\032\033goog" +
       "le/protobuf/empty.proto\0326github.com/mwit" +
       "kow/go-proto-validators/validator.proto\"" +
-      "\337\001\n\005Route\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}" +
-      "$\022\024\n\004port\030\002 \001(\rB\006\342\337\037\002\020\000\022\023\n\013path_prefix\030\003" +
-      " \001(\t\022\023\n\013rewrite_uri\030\004 \001(\t\022\025\n\rallow_origi" +
-      "ns\030\005 \003(\t\022\025\n\rallow_methods\030\006 \003(\t\022\025\n\rallow" +
-      "_headers\030\007 \003(\t\022\026\n\016expose_headers\030\010 \003(\t\022\031" +
-      "\n\021allow_credentials\030\t \001(\010\"]\n\nNetworking\022" +
-      "\020\n\010gateways\030\001 \003(\t\022\r\n\005hosts\030\002 \003(\t\022\016\n\006expo" +
-      "rt\030\003 \001(\010\022\036\n\006routes\030\004 \003(\0132\016.kdeploy.Route" +
-      "\"\310\002\n\003App\022\014\n\004name\030\001 \001(\t\022\021\n\tnamespace\030\002 \001(" +
-      "\t\022\r\n\005image\030\003 \001(\t\022\014\n\004args\030\005 \003(\t\022\"\n\003env\030\006 " +
-      "\003(\0132\025.kdeploy.App.EnvEntry\022&\n\005ports\030\007 \003(" +
-      "\0132\027.kdeploy.App.PortsEntry\022\020\n\010replicas\030\010" +
-      " \001(\r\022\'\n\nnetworking\030\t \001(\0132\023.kdeploy.Netwo" +
-      "rking\022\"\n\006status\030\024 \001(\0132\022.kdeploy.AppStatu" +
-      "s\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(" +
-      "\t:\0028\001\032,\n\nPortsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005valu" +
-      "e\030\002 \001(\r:\0028\001\"\274\001\n\004Task\022\014\n\004name\030\001 \001(\t\022\021\n\tna" +
-      "mespace\030\002 \001(\t\022\r\n\005image\030\003 \001(\t\022\014\n\004args\030\005 \003" +
-      "(\t\022#\n\003env\030\006 \003(\0132\026.kdeploy.Task.EnvEntry\022" +
-      "\020\n\010schedule\030\007 \001(\t\022\023\n\013completions\030\010 \001(\r\032*" +
-      "\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\002" +
-      "8\001\"\232\002\n\017TaskConstructor\022\036\n\004name\030\001 \001(\tB\020\342\337" +
-      "\037\014\n\n^.{1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n" +
-      "\n^.{1,225}$\022\037\n\005image\030\003 \001(\tB\020\342\337\037\014\n\n^.{1,2" +
-      "25}$\022\014\n\004args\030\005 \003(\t\022.\n\003env\030\006 \003(\0132!.kdeplo" +
-      "y.TaskConstructor.EnvEntry\022\"\n\010schedule\030\007" +
-      " \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\023\n\013completions\030\010 " +
-      "\001(\r\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 " +
-      "\001(\t:\0028\001\"\354\001\n\nTaskUpdate\022\036\n\004name\030\001 \001(\tB\020\342\337" +
-      "\037\014\n\n^.{1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n" +
-      "\n^.{1,225}$\022\r\n\005image\030\003 \001(\t\022\014\n\004args\030\005 \003(\t" +
-      "\022)\n\003env\030\006 \003(\0132\034.kdeploy.TaskUpdate.EnvEn" +
-      "try\022\020\n\010schedule\030\007 \001(\t\022\023\n\013completions\030\010 \001" +
-      "(\r\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001" +
-      "(\t:\0028\001\"\203\003\n\016AppConstructor\022\036\n\004name\030\001 \001(\tB" +
-      "\020\342\337\037\014\n\n^.{1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337" +
-      "\037\014\n\n^.{1,225}$\022\037\n\005image\030\003 \001(\tB\020\342\337\037\014\n\n^.{" +
-      "1,225}$\022\014\n\004args\030\004 \003(\t\022-\n\003env\030\005 \003(\0132 .kde" +
-      "ploy.AppConstructor.EnvEntry\0221\n\005ports\030\006 " +
-      "\003(\0132\".kdeploy.AppConstructor.PortsEntry\022" +
-      "\020\n\010replicas\030\007 \001(\r\022/\n\nnetworking\030\t \001(\0132\023." +
-      "kdeploy.NetworkingB\006\342\337\037\002 \001\032*\n\010EnvEntry\022\013" +
-      "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032,\n\nPortsE" +
-      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\"\332\002\n" +
-      "\tAppUpdate\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225" +
-      "}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022" +
-      "\r\n\005image\030\003 \001(\t\022\014\n\004args\030\004 \003(\t\022(\n\003env\030\005 \003(" +
-      "\0132\033.kdeploy.AppUpdate.EnvEntry\022,\n\005ports\030" +
-      "\006 \003(\0132\035.kdeploy.AppUpdate.PortsEntry\022\020\n\010" +
-      "replicas\030\007 \001(\r\022\'\n\nnetworking\030\t \001(\0132\023.kde" +
-      "ploy.Networking\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t" +
-      "\022\r\n\005value\030\002 \001(\t:\0028\001\032,\n\nPortsEntry\022\013\n\003key" +
-      "\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\"J\n\003Ref\022\036\n\004name" +
-      "\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022#\n\tnamespace\030\002 " +
-      "\001(\tB\020\342\337\037\014\n\n^.{1,225}$\";\n\007Replica\022\r\n\005phas" +
-      "e\030\001 \001(\t\022\021\n\tcondition\030\002 \001(\t\022\016\n\006reason\030\003 \001" +
-      "(\t\"/\n\tAppStatus\022\"\n\010replicas\030\001 \003(\0132\020.kdep" +
-      "loy.Replica\"\026\n\003Log\022\017\n\007message\030\001 \001(\t\"*\n\004A" +
-      "pps\022\"\n\014applications\030\001 \003(\0132\014.kdeploy.App\"" +
-      "%\n\005Tasks\022\034\n\005tasks\030\001 \003(\0132\r.kdeploy.Task\"\036" +
-      "\n\tNamespace\022\021\n\tnamespace\030\001 \001(\t\" \n\nNamesp" +
-      "aces\022\022\n\nnamespaces\030\001 \003(\t2\257\005\n\016KdeployServ" +
-      "ice\0224\n\tCreateApp\022\027.kdeploy.AppConstructo" +
-      "r\032\014.kdeploy.App\"\000\022/\n\tUpdateApp\022\022.kdeploy" +
-      ".AppUpdate\032\014.kdeploy.App\"\000\0223\n\tDeleteApp\022" +
-      "\014.kdeploy.Ref\032\026.google.protobuf.Empty\"\000\022" +
-      "&\n\006GetApp\022\014.kdeploy.Ref\032\014.kdeploy.App\"\000\022" +
-      "/\n\010ListApps\022\022.kdeploy.Namespace\032\r.kdeplo" +
-      "y.Apps\"\000\022?\n\016ListNamespaces\022\026.google.prot" +
-      "obuf.Empty\032\023.kdeploy.Namespaces\"\000\0229\n\tDel" +
-      "eteAll\022\022.kdeploy.Namespace\032\026.google.prot" +
-      "obuf.Empty\"\000\0227\n\nCreateTask\022\030.kdeploy.Tas" +
-      "kConstructor\032\r.kdeploy.Task\"\000\0222\n\nUpdateT" +
-      "ask\022\023.kdeploy.TaskUpdate\032\r.kdeploy.Task\"" +
-      "\000\0224\n\nDeleteTask\022\014.kdeploy.Ref\032\026.google.p" +
-      "rotobuf.Empty\"\000\022(\n\007GetTask\022\014.kdeploy.Ref" +
-      "\032\r.kdeploy.Task\"\000\0221\n\tListTasks\022\022.kdeploy" +
-      ".Namespace\032\016.kdeploy.Tasks\"\000\022,\n\nStreamLo" +
-      "gs\022\014.kdeploy.Ref\032\014.kdeploy.Log\"\0000\001B\013Z\tkd" +
-      "eploypbb\006proto3"
+      "\311\001\n\tHTTPRoute\022\014\n\004name\030\001 \001(\t\022\014\n\004port\030\002 \001(" +
+      "\r\022\023\n\013path_prefix\030\003 \001(\t\022\023\n\013rewrite_uri\030\004 " +
+      "\001(\t\022\025\n\rallow_origins\030\005 \003(\t\022\025\n\rallow_meth" +
+      "ods\030\006 \003(\t\022\025\n\rallow_headers\030\007 \003(\t\022\026\n\016expo" +
+      "se_headers\030\010 \003(\t\022\031\n\021allow_credentials\030\t " +
+      "\001(\010\"f\n\nNetworking\022\020\n\010gateways\030\001 \003(\t\022\r\n\005h" +
+      "osts\030\002 \003(\t\022\016\n\006export\030\003 \001(\010\022\'\n\013http_route" +
+      "s\030\004 \003(\0132\022.kdeploy.HTTPRoute\"\310\002\n\003App\022\014\n\004n" +
+      "ame\030\001 \001(\t\022\021\n\tnamespace\030\002 \001(\t\022\r\n\005image\030\003 " +
+      "\001(\t\022\014\n\004args\030\005 \003(\t\022\"\n\003env\030\006 \003(\0132\025.kdeploy" +
+      ".App.EnvEntry\022&\n\005ports\030\007 \003(\0132\027.kdeploy.A" +
+      "pp.PortsEntry\022\020\n\010replicas\030\010 \001(\r\022\'\n\nnetwo" +
+      "rking\030\t \001(\0132\023.kdeploy.Networking\022\"\n\006stat" +
+      "us\030\024 \001(\0132\022.kdeploy.AppStatus\032*\n\010EnvEntry" +
+      "\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032,\n\nPort" +
+      "sEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\"\274" +
+      "\001\n\004Task\022\014\n\004name\030\001 \001(\t\022\021\n\tnamespace\030\002 \001(\t" +
+      "\022\r\n\005image\030\003 \001(\t\022\014\n\004args\030\005 \003(\t\022#\n\003env\030\006 \003" +
+      "(\0132\026.kdeploy.Task.EnvEntry\022\020\n\010schedule\030\007" +
+      " \001(\t\022\023\n\013completions\030\010 \001(\r\032*\n\010EnvEntry\022\013\n" +
+      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\232\002\n\017TaskCo" +
+      "nstructor\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}" +
+      "$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\037" +
+      "\n\005image\030\003 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\014\n\004args\030" +
+      "\005 \003(\t\022.\n\003env\030\006 \003(\0132!.kdeploy.TaskConstru" +
+      "ctor.EnvEntry\022\"\n\010schedule\030\007 \001(\tB\020\342\337\037\014\n\n^" +
+      ".{1,225}$\022\023\n\013completions\030\010 \001(\r\032*\n\010EnvEnt" +
+      "ry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\354\001\n\nT" +
+      "askUpdate\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}" +
+      "$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\r" +
+      "\n\005image\030\003 \001(\t\022\014\n\004args\030\005 \003(\t\022)\n\003env\030\006 \003(\013" +
+      "2\034.kdeploy.TaskUpdate.EnvEntry\022\020\n\010schedu" +
+      "le\030\007 \001(\t\022\023\n\013completions\030\010 \001(\r\032*\n\010EnvEntr" +
+      "y\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\203\003\n\016Ap" +
+      "pConstructor\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,2" +
+      "25}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}" +
+      "$\022\037\n\005image\030\003 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\014\n\004ar" +
+      "gs\030\004 \003(\t\022-\n\003env\030\005 \003(\0132 .kdeploy.AppConst" +
+      "ructor.EnvEntry\0221\n\005ports\030\006 \003(\0132\".kdeploy" +
+      ".AppConstructor.PortsEntry\022\020\n\010replicas\030\007" +
+      " \001(\r\022/\n\nnetworking\030\t \001(\0132\023.kdeploy.Netwo" +
+      "rkingB\006\342\337\037\002 \001\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r" +
+      "\n\005value\030\002 \001(\t:\0028\001\032,\n\nPortsEntry\022\013\n\003key\030\001" +
+      " \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\"\332\002\n\tAppUpdate\022\036\n" +
+      "\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022#\n\tnamespa" +
+      "ce\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\r\n\005image\030\003 \001(" +
+      "\t\022\014\n\004args\030\004 \003(\t\022(\n\003env\030\005 \003(\0132\033.kdeploy.A" +
+      "ppUpdate.EnvEntry\022,\n\005ports\030\006 \003(\0132\035.kdepl" +
+      "oy.AppUpdate.PortsEntry\022\020\n\010replicas\030\007 \001(" +
+      "\r\022\'\n\nnetworking\030\t \001(\0132\023.kdeploy.Networki" +
+      "ng\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001" +
+      "(\t:\0028\001\032,\n\nPortsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005val" +
+      "ue\030\002 \001(\r:\0028\001\"J\n\003Ref\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n" +
+      "\n^.{1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^." +
+      "{1,225}$\";\n\007Replica\022\r\n\005phase\030\001 \001(\t\022\021\n\tco" +
+      "ndition\030\002 \001(\t\022\016\n\006reason\030\003 \001(\t\"/\n\tAppStat" +
+      "us\022\"\n\010replicas\030\001 \003(\0132\020.kdeploy.Replica\"\026" +
+      "\n\003Log\022\017\n\007message\030\001 \001(\t\"*\n\004Apps\022\"\n\014applic" +
+      "ations\030\001 \003(\0132\014.kdeploy.App\"%\n\005Tasks\022\034\n\005t" +
+      "asks\030\001 \003(\0132\r.kdeploy.Task\"\036\n\tNamespace\022\021" +
+      "\n\tnamespace\030\001 \001(\t\" \n\nNamespaces\022\022\n\nnames" +
+      "paces\030\001 \003(\t2\257\005\n\016KdeployService\0224\n\tCreate" +
+      "App\022\027.kdeploy.AppConstructor\032\014.kdeploy.A" +
+      "pp\"\000\022/\n\tUpdateApp\022\022.kdeploy.AppUpdate\032\014." +
+      "kdeploy.App\"\000\0223\n\tDeleteApp\022\014.kdeploy.Ref" +
+      "\032\026.google.protobuf.Empty\"\000\022&\n\006GetApp\022\014.k" +
+      "deploy.Ref\032\014.kdeploy.App\"\000\022/\n\010ListApps\022\022" +
+      ".kdeploy.Namespace\032\r.kdeploy.Apps\"\000\022?\n\016L" +
+      "istNamespaces\022\026.google.protobuf.Empty\032\023." +
+      "kdeploy.Namespaces\"\000\0229\n\tDeleteAll\022\022.kdep" +
+      "loy.Namespace\032\026.google.protobuf.Empty\"\000\022" +
+      "7\n\nCreateTask\022\030.kdeploy.TaskConstructor\032" +
+      "\r.kdeploy.Task\"\000\0222\n\nUpdateTask\022\023.kdeploy" +
+      ".TaskUpdate\032\r.kdeploy.Task\"\000\0224\n\nDeleteTa" +
+      "sk\022\014.kdeploy.Ref\032\026.google.protobuf.Empty" +
+      "\"\000\022(\n\007GetTask\022\014.kdeploy.Ref\032\r.kdeploy.Ta" +
+      "sk\"\000\0221\n\tListTasks\022\022.kdeploy.Namespace\032\016." +
+      "kdeploy.Tasks\"\000\022,\n\nStreamLogs\022\014.kdeploy." +
+      "Ref\032\014.kdeploy.Log\"\0000\001B\013Z\tkdeploypbb\006prot" +
+      "o3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -21151,18 +21503,18 @@ public final class Kdeploy {
           com.google.protobuf.EmptyProto.getDescriptor(),
           validator.Validator.getDescriptor(),
         }, assigner);
-    internal_static_kdeploy_Route_descriptor =
+    internal_static_kdeploy_HTTPRoute_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_kdeploy_Route_fieldAccessorTable = new
+    internal_static_kdeploy_HTTPRoute_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_kdeploy_Route_descriptor,
+        internal_static_kdeploy_HTTPRoute_descriptor,
         new java.lang.String[] { "Name", "Port", "PathPrefix", "RewriteUri", "AllowOrigins", "AllowMethods", "AllowHeaders", "ExposeHeaders", "AllowCredentials", });
     internal_static_kdeploy_Networking_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_kdeploy_Networking_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Networking_descriptor,
-        new java.lang.String[] { "Gateways", "Hosts", "Export", "Routes", });
+        new java.lang.String[] { "Gateways", "Hosts", "Export", "HttpRoutes", });
     internal_static_kdeploy_App_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_kdeploy_App_fieldAccessorTable = new

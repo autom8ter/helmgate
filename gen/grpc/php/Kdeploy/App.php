@@ -58,6 +58,8 @@ class App extends \Google\Protobuf\Internal\Message
      */
     private $replicas = 0;
     /**
+     * gateway/service-mesh networking
+     *
      * Generated from protobuf field <code>.kdeploy.Networking networking = 9;</code>
      */
     private $networking = null;
@@ -89,6 +91,7 @@ class App extends \Google\Protobuf\Internal\Message
      *     @type int $replicas
      *           number of deployment replicas
      *     @type \Kdeploy\Networking $networking
+     *           gateway/service-mesh networking
      *     @type \Kdeploy\AppStatus $status
      *           status tracks the state of the application during it's lifecycle
      * }
@@ -281,6 +284,8 @@ class App extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * gateway/service-mesh networking
+     *
      * Generated from protobuf field <code>.kdeploy.Networking networking = 9;</code>
      * @return \Kdeploy\Networking
      */
@@ -290,6 +295,8 @@ class App extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * gateway/service-mesh networking
+     *
      * Generated from protobuf field <code>.kdeploy.Networking networking = 9;</code>
      * @param \Kdeploy\Networking $var
      * @return $this

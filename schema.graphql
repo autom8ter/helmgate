@@ -3,42 +3,94 @@ scalar Time
 # Map is a k/v map where the key is a string and the value is any value
 scalar Map
 
-type Route {
-    name: String!
-    port: Int!
+type HTTPRoute {
+    # The name assigned to the route for debugging purposes
+    name: String
+    # forward to specific port on application
+    port: Int
+    # prefix-based path match
     path_prefix: String
+    # rewrite HTTP URIs before they reach the application
     rewrite_uri: String
+    # The list of origins that are allowed to perform CORS requests
     allow_origins: [String!]
+    # The list of methods that are allowed to perform CORS requests
     allow_methods: [String!]
+    # The list of headers that are allowed to perform CORS requests
     allow_headers: [String!]
+    #
     expose_headers: [String!]
+    # adds `Access-Control-Allow-Credentials` header
     allow_credentials: Boolean
 }
 
 type Networking {
+    #  The names of gateways and sidecars that should apply these routes.
+    # Gateways in other namespaces may be referred to by
+    # `<gateway namespace>/<gateway name>`; specifying a gateway with no
+    # namespace qualifier is the same as specifying the VirtualService's
+    # namespace. A single VirtualService is used for sidecars inside the mesh as
+    # well as for one or more gateways. The selection condition imposed by this
+    # field can be overridden using the source field in the match conditions
+    # of protocol-specific routes. The reserved word `mesh` is used to imply
+    # all the sidecars in the mesh. When this field is omitted, the default
+    # gateway (`mesh`) will be used, which would apply the rule to all
+    # sidecars in the mesh. If a list of gateway names is provided, the
+    # rules will apply only to the gateways. To apply the rules to both
+    # gateways and sidecars, specify `mesh` as one of the gateway names.
     gateways: [String!]
+    # The destination hosts to which traffic is being sent. Could
+    # be a DNS name with wildcard prefix or an IP address.
     hosts: [String!]
+    # export to all other namespaces in service mesh
     export: Boolean
-    routes: [Route!]
+    # An ordered list of route rules for HTTP traffic
+    http_routes: [HTTPRoute!]
 }
 
-input RouteInput {
-    name: String!
-    port: Int!
+input HTTPRouteInput {
+    # The name assigned to the route for debugging purposes
+    name: String
+    # forward to specific port on application
+    port: Int
+    # prefix-based path match
     path_prefix: String
+    # rewrite HTTP URIs before they reach the application
     rewrite_uri: String
+    # The list of origins that are allowed to perform CORS requests
     allow_origins: [String!]
+    # The list of methods that are allowed to perform CORS requests
     allow_methods: [String!]
+    # The list of headers that are allowed to perform CORS requests
     allow_headers: [String!]
+    #
     expose_headers: [String!]
+    # adds `Access-Control-Allow-Credentials` header
     allow_credentials: Boolean
 }
 
 input NetworkingInput {
+    #  The names of gateways and sidecars that should apply these routes.
+    # Gateways in other namespaces may be referred to by
+    # `<gateway namespace>/<gateway name>`; specifying a gateway with no
+    # namespace qualifier is the same as specifying the VirtualService's
+    # namespace. A single VirtualService is used for sidecars inside the mesh as
+    # well as for one or more gateways. The selection condition imposed by this
+    # field can be overridden using the source field in the match conditions
+    # of protocol-specific routes. The reserved word `mesh` is used to imply
+    # all the sidecars in the mesh. When this field is omitted, the default
+    # gateway (`mesh`) will be used, which would apply the rule to all
+    # sidecars in the mesh. If a list of gateway names is provided, the
+    # rules will apply only to the gateways. To apply the rules to both
+    # gateways and sidecars, specify `mesh` as one of the gateway names.
     gateways: [String!]
+    # The destination hosts to which traffic is being sent. Could
+    # be a DNS name with wildcard prefix or an IP address.
     hosts: [String!]
+    #
     export: Boolean
-    routes: [RouteInput!]
+    #
+    http_routes: [HTTPRouteInput!]
 }
 
 # App is a stateless application
@@ -57,6 +109,7 @@ type App {
     ports: Map!
     # number of deployment replicas min:1
     replicas: Int!
+    # gateway/service mesh networking
     networking: Networking!
     # status tracks the state of the application during it's lifecycle
     status: AppStatus!
@@ -159,7 +212,7 @@ input AppUpdate {
     ports: Map
     # number of deployment replicas min:1
     replicas: Int
-    #
+    # gateway/service-mesh networking
     networking: NetworkingInput
 }
 

@@ -8,7 +8,7 @@ require 'google/protobuf/timestamp_pb'
 require 'google/protobuf/any_pb'
 require 'google/protobuf/empty_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "kdeploy.Route" do
+  add_message "kdeploy.HTTPRoute" do
     optional :name, :string, 1
     optional :port, :uint32, 2
     optional :path_prefix, :string, 3
@@ -23,7 +23,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     repeated :gateways, :string, 1
     repeated :hosts, :string, 2
     optional :export, :bool, 3
-    repeated :routes, :message, 4, "kdeploy.Route"
+    repeated :http_routes, :message, 4, "kdeploy.HTTPRoute"
   end
   add_message "kdeploy.App" do
     optional :name, :string, 1
@@ -113,7 +113,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
 end
 
 module Kdeploy
-  Route = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Route").msgclass
+  HTTPRoute = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.HTTPRoute").msgclass
   Networking = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Networking").msgclass
   App = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.App").msgclass
   Task = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Task").msgclass

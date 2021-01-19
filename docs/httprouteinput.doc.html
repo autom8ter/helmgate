@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="./styles/graphdoc.css" />
-    <title>Route</title>
+    <title>HTTPRouteInput</title>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
 </head>
 <body class="slds-scrollable--y">
@@ -100,6 +100,11 @@
                 AppStatus
             </a>
         </li>
+        <li  title="HTTPRoute">
+            <a href="httproute.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                HTTPRoute
+            </a>
+        </li>
         <li  title="Log">
             <a href="log.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Log
@@ -118,11 +123,6 @@
         <li  title="Replica">
             <a href="replica.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Replica
-            </a>
-        </li>
-        <li class="slds-is-active" title="Route">
-            <a href="route.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                Route
             </a>
         </li>
         <li  title="Task">
@@ -175,6 +175,11 @@
                 AppUpdate
             </a>
         </li>
+        <li class="slds-is-active" title="HTTPRouteInput">
+            <a href="httprouteinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                HTTPRouteInput
+            </a>
+        </li>
         <li  title="Namespace">
             <a href="namespace.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Namespace
@@ -188,11 +193,6 @@
         <li  title="Ref">
             <a href="ref.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Ref
-            </a>
-        </li>
-        <li  title="RouteInput">
-            <a href="routeinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                RouteInput
             </a>
         </li>
         <li  title="TaskConstructor">
@@ -240,8 +240,8 @@
         </div>
     </div>
     <div class="container">
-        <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
-        <h1 class="slds-text-heading--large">Route</h1>
+        <p class="slds-text-title--caps slds-text-color--weak">INPUT_OBJECT</p>
+        <h1 class="slds-text-heading--large">HTTPRouteInput</h1>
         <div class="slds-text-body--regular"></div>
     </div>
 </section>
@@ -253,7 +253,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Route</span> {</li><li></li><li><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">port</span>: <a class="support type" href="int.doc.html">Int</a>! </span></li><li></li><li><span class="tab"><span class="meta">path_prefix</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">rewrite_uri</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">allow_origins</span>: [<a class="support type" href="string.doc.html">String</a>!] </span></li><li></li><li><span class="tab"><span class="meta">allow_methods</span>: [<a class="support type" href="string.doc.html">String</a>!] </span></li><li></li><li><span class="tab"><span class="meta">allow_headers</span>: [<a class="support type" href="string.doc.html">String</a>!] </span></li><li></li><li><span class="tab"><span class="meta">expose_headers</span>: [<a class="support type" href="string.doc.html">String</a>!] </span></li><li></li><li><span class="tab"><span class="meta">allow_credentials</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">input</span> <span class="identifier">HTTPRouteInput</span> {</li><li><span class="tab"><li><span class="tab"><span class="comment line">#   The name assigned to the route for debugging purposes</span></span></li><li><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   forward to specific port on application</span></span></li><li><span class="tab"><span class="meta">port</span>: <a class="support type" href="int.doc.html">Int</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   prefix-based path match</span></span></li><li><span class="tab"><span class="meta">path_prefix</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   rewrite HTTP URIs before they reach the application</span></span></li><li><span class="tab"><span class="meta">rewrite_uri</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   The list of origins that are allowed to perform CORS requests</span></span></li><li><span class="tab"><span class="meta">allow_origins</span>: [<a class="support type" href="string.doc.html">String</a>!]</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   The list of methods that are allowed to perform CORS requests</span></span></li><li><span class="tab"><span class="meta">allow_methods</span>: [<a class="support type" href="string.doc.html">String</a>!]</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   The list of headers that are allowed to perform CORS requests</span></span></li><li><span class="tab"><span class="meta">allow_headers</span>: [<a class="support type" href="string.doc.html">String</a>!]</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">expose_headers</span>: [<a class="support type" href="string.doc.html">String</a>!]</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   adds `Access-Control-Allow-Credentials` header</span></span></li><li><span class="tab"><span class="meta">allow_credentials</span>: <a class="support type" href="boolean.doc.html">Boolean</a></span></li></span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -264,7 +264,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="networking.doc.html" title="Networking - ">Networking<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="networkinginput.doc.html" title="NetworkingInput - ">NetworkingInput<em></em></a><li></ul>
     </div>
 </section>
 <footer>

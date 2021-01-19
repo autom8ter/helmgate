@@ -151,14 +151,14 @@ func overwriteService(svc *networking.VirtualService, app *kdeploypb.AppUpdate) 
 	} else {
 		svc.Spec.ExportTo = []string{"."}
 	}
-	if app.GetNetworking().GetRoutes() != nil {
+	if app.GetNetworking().GetHttpRoutes() != nil {
 		var (
 			routes       []*v1alpha3.HTTPRoute
 			origins      []*v1alpha3.StringMatch
 			destinations []*v1alpha3.Destination
 		)
 
-		for _, h := range app.GetNetworking().GetRoutes() {
+		for _, h := range app.GetNetworking().GetHttpRoutes() {
 			for _, o := range h.AllowOrigins {
 				origins = append(origins, &v1alpha3.StringMatch{
 					MatchType: &v1alpha3.StringMatch_Exact{Exact: o},
@@ -171,7 +171,7 @@ func overwriteService(svc *networking.VirtualService, app *kdeploypb.AppUpdate) 
 				},
 			})
 		}
-		for _, h := range app.GetNetworking().GetRoutes() {
+		for _, h := range app.GetNetworking().GetHttpRoutes() {
 			routes = append(routes, &v1alpha3.HTTPRoute{
 				Name:  h.Name,
 				Match: nil,
@@ -206,6 +206,7 @@ func overwriteService(svc *networking.VirtualService, app *kdeploypb.AppUpdate) 
 			})
 		}
 	}
+
 	return svc
 }
 

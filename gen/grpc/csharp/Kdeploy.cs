@@ -28,82 +28,82 @@ namespace Kdeploy {
             "dWN0LnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvGhln",
             "b29nbGUvcHJvdG9idWYvYW55LnByb3RvGhtnb29nbGUvcHJvdG9idWYvZW1w",
             "dHkucHJvdG8aNmdpdGh1Yi5jb20vbXdpdGtvdy9nby1wcm90by12YWxpZGF0",
-            "b3JzL3ZhbGlkYXRvci5wcm90byLfAQoFUm91dGUSHgoEbmFtZRgBIAEoCUIQ",
-            "4t8fDAoKXi57MSwyMjV9JBIUCgRwb3J0GAIgASgNQgbi3x8CEAASEwoLcGF0",
-            "aF9wcmVmaXgYAyABKAkSEwoLcmV3cml0ZV91cmkYBCABKAkSFQoNYWxsb3df",
-            "b3JpZ2lucxgFIAMoCRIVCg1hbGxvd19tZXRob2RzGAYgAygJEhUKDWFsbG93",
-            "X2hlYWRlcnMYByADKAkSFgoOZXhwb3NlX2hlYWRlcnMYCCADKAkSGQoRYWxs",
-            "b3dfY3JlZGVudGlhbHMYCSABKAgiXQoKTmV0d29ya2luZxIQCghnYXRld2F5",
-            "cxgBIAMoCRINCgVob3N0cxgCIAMoCRIOCgZleHBvcnQYAyABKAgSHgoGcm91",
-            "dGVzGAQgAygLMg4ua2RlcGxveS5Sb3V0ZSLIAgoDQXBwEgwKBG5hbWUYASAB",
-            "KAkSEQoJbmFtZXNwYWNlGAIgASgJEg0KBWltYWdlGAMgASgJEgwKBGFyZ3MY",
-            "BSADKAkSIgoDZW52GAYgAygLMhUua2RlcGxveS5BcHAuRW52RW50cnkSJgoF",
-            "cG9ydHMYByADKAsyFy5rZGVwbG95LkFwcC5Qb3J0c0VudHJ5EhAKCHJlcGxp",
-            "Y2FzGAggASgNEicKCm5ldHdvcmtpbmcYCSABKAsyEy5rZGVwbG95Lk5ldHdv",
-            "cmtpbmcSIgoGc3RhdHVzGBQgASgLMhIua2RlcGxveS5BcHBTdGF0dXMaKgoI",
-            "RW52RW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ARosCgpQ",
-            "b3J0c0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoDToCOAEivAEK",
-            "BFRhc2sSDAoEbmFtZRgBIAEoCRIRCgluYW1lc3BhY2UYAiABKAkSDQoFaW1h",
-            "Z2UYAyABKAkSDAoEYXJncxgFIAMoCRIjCgNlbnYYBiADKAsyFi5rZGVwbG95",
-            "LlRhc2suRW52RW50cnkSEAoIc2NoZWR1bGUYByABKAkSEwoLY29tcGxldGlv",
-            "bnMYCCABKA0aKgoIRW52RW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIg",
-            "ASgJOgI4ASKaAgoPVGFza0NvbnN0cnVjdG9yEh4KBG5hbWUYASABKAlCEOLf",
-            "HwwKCl4uezEsMjI1fSQSIwoJbmFtZXNwYWNlGAIgASgJQhDi3x8MCgpeLnsx",
-            "LDIyNX0kEh8KBWltYWdlGAMgASgJQhDi3x8MCgpeLnsxLDIyNX0kEgwKBGFy",
-            "Z3MYBSADKAkSLgoDZW52GAYgAygLMiEua2RlcGxveS5UYXNrQ29uc3RydWN0",
-            "b3IuRW52RW50cnkSIgoIc2NoZWR1bGUYByABKAlCEOLfHwwKCl4uezEsMjI1",
-            "fSQSEwoLY29tcGxldGlvbnMYCCABKA0aKgoIRW52RW50cnkSCwoDa2V5GAEg",
-            "ASgJEg0KBXZhbHVlGAIgASgJOgI4ASLsAQoKVGFza1VwZGF0ZRIeCgRuYW1l",
-            "GAEgASgJQhDi3x8MCgpeLnsxLDIyNX0kEiMKCW5hbWVzcGFjZRgCIAEoCUIQ",
-            "4t8fDAoKXi57MSwyMjV9JBINCgVpbWFnZRgDIAEoCRIMCgRhcmdzGAUgAygJ",
-            "EikKA2VudhgGIAMoCzIcLmtkZXBsb3kuVGFza1VwZGF0ZS5FbnZFbnRyeRIQ",
-            "CghzY2hlZHVsZRgHIAEoCRITCgtjb21wbGV0aW9ucxgIIAEoDRoqCghFbnZF",
-            "bnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBIoMDCg5BcHBD",
-            "b25zdHJ1Y3RvchIeCgRuYW1lGAEgASgJQhDi3x8MCgpeLnsxLDIyNX0kEiMK",
-            "CW5hbWVzcGFjZRgCIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIfCgVpbWFnZRgD",
-            "IAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIMCgRhcmdzGAQgAygJEi0KA2VudhgF",
-            "IAMoCzIgLmtkZXBsb3kuQXBwQ29uc3RydWN0b3IuRW52RW50cnkSMQoFcG9y",
-            "dHMYBiADKAsyIi5rZGVwbG95LkFwcENvbnN0cnVjdG9yLlBvcnRzRW50cnkS",
-            "EAoIcmVwbGljYXMYByABKA0SLwoKbmV0d29ya2luZxgJIAEoCzITLmtkZXBs",
-            "b3kuTmV0d29ya2luZ0IG4t8fAiABGioKCEVudkVudHJ5EgsKA2tleRgBIAEo",
-            "CRINCgV2YWx1ZRgCIAEoCToCOAEaLAoKUG9ydHNFbnRyeRILCgNrZXkYASAB",
-            "KAkSDQoFdmFsdWUYAiABKA06AjgBItoCCglBcHBVcGRhdGUSHgoEbmFtZRgB",
-            "IAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIjCgluYW1lc3BhY2UYAiABKAlCEOLf",
-            "HwwKCl4uezEsMjI1fSQSDQoFaW1hZ2UYAyABKAkSDAoEYXJncxgEIAMoCRIo",
-            "CgNlbnYYBSADKAsyGy5rZGVwbG95LkFwcFVwZGF0ZS5FbnZFbnRyeRIsCgVw",
-            "b3J0cxgGIAMoCzIdLmtkZXBsb3kuQXBwVXBkYXRlLlBvcnRzRW50cnkSEAoI",
-            "cmVwbGljYXMYByABKA0SJwoKbmV0d29ya2luZxgJIAEoCzITLmtkZXBsb3ku",
-            "TmV0d29ya2luZxoqCghFbnZFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUY",
-            "AiABKAk6AjgBGiwKClBvcnRzRW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVl",
-            "GAIgASgNOgI4ASJKCgNSZWYSHgoEbmFtZRgBIAEoCUIQ4t8fDAoKXi57MSwy",
-            "MjV9JBIjCgluYW1lc3BhY2UYAiABKAlCEOLfHwwKCl4uezEsMjI1fSQiOwoH",
-            "UmVwbGljYRINCgVwaGFzZRgBIAEoCRIRCgljb25kaXRpb24YAiABKAkSDgoG",
-            "cmVhc29uGAMgASgJIi8KCUFwcFN0YXR1cxIiCghyZXBsaWNhcxgBIAMoCzIQ",
-            "LmtkZXBsb3kuUmVwbGljYSIWCgNMb2cSDwoHbWVzc2FnZRgBIAEoCSIqCgRB",
-            "cHBzEiIKDGFwcGxpY2F0aW9ucxgBIAMoCzIMLmtkZXBsb3kuQXBwIiUKBVRh",
-            "c2tzEhwKBXRhc2tzGAEgAygLMg0ua2RlcGxveS5UYXNrIh4KCU5hbWVzcGFj",
-            "ZRIRCgluYW1lc3BhY2UYASABKAkiIAoKTmFtZXNwYWNlcxISCgpuYW1lc3Bh",
-            "Y2VzGAEgAygJMq8FCg5LZGVwbG95U2VydmljZRI0CglDcmVhdGVBcHASFy5r",
-            "ZGVwbG95LkFwcENvbnN0cnVjdG9yGgwua2RlcGxveS5BcHAiABIvCglVcGRh",
-            "dGVBcHASEi5rZGVwbG95LkFwcFVwZGF0ZRoMLmtkZXBsb3kuQXBwIgASMwoJ",
-            "RGVsZXRlQXBwEgwua2RlcGxveS5SZWYaFi5nb29nbGUucHJvdG9idWYuRW1w",
-            "dHkiABImCgZHZXRBcHASDC5rZGVwbG95LlJlZhoMLmtkZXBsb3kuQXBwIgAS",
-            "LwoITGlzdEFwcHMSEi5rZGVwbG95Lk5hbWVzcGFjZRoNLmtkZXBsb3kuQXBw",
-            "cyIAEj8KDkxpc3ROYW1lc3BhY2VzEhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5",
-            "GhMua2RlcGxveS5OYW1lc3BhY2VzIgASOQoJRGVsZXRlQWxsEhIua2RlcGxv",
-            "eS5OYW1lc3BhY2UaFi5nb29nbGUucHJvdG9idWYuRW1wdHkiABI3CgpDcmVh",
-            "dGVUYXNrEhgua2RlcGxveS5UYXNrQ29uc3RydWN0b3IaDS5rZGVwbG95LlRh",
-            "c2siABIyCgpVcGRhdGVUYXNrEhMua2RlcGxveS5UYXNrVXBkYXRlGg0ua2Rl",
-            "cGxveS5UYXNrIgASNAoKRGVsZXRlVGFzaxIMLmtkZXBsb3kuUmVmGhYuZ29v",
-            "Z2xlLnByb3RvYnVmLkVtcHR5IgASKAoHR2V0VGFzaxIMLmtkZXBsb3kuUmVm",
-            "Gg0ua2RlcGxveS5UYXNrIgASMQoJTGlzdFRhc2tzEhIua2RlcGxveS5OYW1l",
-            "c3BhY2UaDi5rZGVwbG95LlRhc2tzIgASLAoKU3RyZWFtTG9ncxIMLmtkZXBs",
-            "b3kuUmVmGgwua2RlcGxveS5Mb2ciADABQgtaCWtkZXBsb3lwYmIGcHJvdG8z"));
+            "b3JzL3ZhbGlkYXRvci5wcm90byLJAQoJSFRUUFJvdXRlEgwKBG5hbWUYASAB",
+            "KAkSDAoEcG9ydBgCIAEoDRITCgtwYXRoX3ByZWZpeBgDIAEoCRITCgtyZXdy",
+            "aXRlX3VyaRgEIAEoCRIVCg1hbGxvd19vcmlnaW5zGAUgAygJEhUKDWFsbG93",
+            "X21ldGhvZHMYBiADKAkSFQoNYWxsb3dfaGVhZGVycxgHIAMoCRIWCg5leHBv",
+            "c2VfaGVhZGVycxgIIAMoCRIZChFhbGxvd19jcmVkZW50aWFscxgJIAEoCCJm",
+            "CgpOZXR3b3JraW5nEhAKCGdhdGV3YXlzGAEgAygJEg0KBWhvc3RzGAIgAygJ",
+            "Eg4KBmV4cG9ydBgDIAEoCBInCgtodHRwX3JvdXRlcxgEIAMoCzISLmtkZXBs",
+            "b3kuSFRUUFJvdXRlIsgCCgNBcHASDAoEbmFtZRgBIAEoCRIRCgluYW1lc3Bh",
+            "Y2UYAiABKAkSDQoFaW1hZ2UYAyABKAkSDAoEYXJncxgFIAMoCRIiCgNlbnYY",
+            "BiADKAsyFS5rZGVwbG95LkFwcC5FbnZFbnRyeRImCgVwb3J0cxgHIAMoCzIX",
+            "LmtkZXBsb3kuQXBwLlBvcnRzRW50cnkSEAoIcmVwbGljYXMYCCABKA0SJwoK",
+            "bmV0d29ya2luZxgJIAEoCzITLmtkZXBsb3kuTmV0d29ya2luZxIiCgZzdGF0",
+            "dXMYFCABKAsyEi5rZGVwbG95LkFwcFN0YXR1cxoqCghFbnZFbnRyeRILCgNr",
+            "ZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBGiwKClBvcnRzRW50cnkSCwoD",
+            "a2V5GAEgASgJEg0KBXZhbHVlGAIgASgNOgI4ASK8AQoEVGFzaxIMCgRuYW1l",
+            "GAEgASgJEhEKCW5hbWVzcGFjZRgCIAEoCRINCgVpbWFnZRgDIAEoCRIMCgRh",
+            "cmdzGAUgAygJEiMKA2VudhgGIAMoCzIWLmtkZXBsb3kuVGFzay5FbnZFbnRy",
+            "eRIQCghzY2hlZHVsZRgHIAEoCRITCgtjb21wbGV0aW9ucxgIIAEoDRoqCghF",
+            "bnZFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBIpoCCg9U",
+            "YXNrQ29uc3RydWN0b3ISHgoEbmFtZRgBIAEoCUIQ4t8fDAoKXi57MSwyMjV9",
+            "JBIjCgluYW1lc3BhY2UYAiABKAlCEOLfHwwKCl4uezEsMjI1fSQSHwoFaW1h",
+            "Z2UYAyABKAlCEOLfHwwKCl4uezEsMjI1fSQSDAoEYXJncxgFIAMoCRIuCgNl",
+            "bnYYBiADKAsyIS5rZGVwbG95LlRhc2tDb25zdHJ1Y3Rvci5FbnZFbnRyeRIi",
+            "CghzY2hlZHVsZRgHIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBITCgtjb21wbGV0",
+            "aW9ucxgIIAEoDRoqCghFbnZFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUY",
+            "AiABKAk6AjgBIuwBCgpUYXNrVXBkYXRlEh4KBG5hbWUYASABKAlCEOLfHwwK",
+            "Cl4uezEsMjI1fSQSIwoJbmFtZXNwYWNlGAIgASgJQhDi3x8MCgpeLnsxLDIy",
+            "NX0kEg0KBWltYWdlGAMgASgJEgwKBGFyZ3MYBSADKAkSKQoDZW52GAYgAygL",
+            "Mhwua2RlcGxveS5UYXNrVXBkYXRlLkVudkVudHJ5EhAKCHNjaGVkdWxlGAcg",
+            "ASgJEhMKC2NvbXBsZXRpb25zGAggASgNGioKCEVudkVudHJ5EgsKA2tleRgB",
+            "IAEoCRINCgV2YWx1ZRgCIAEoCToCOAEigwMKDkFwcENvbnN0cnVjdG9yEh4K",
+            "BG5hbWUYASABKAlCEOLfHwwKCl4uezEsMjI1fSQSIwoJbmFtZXNwYWNlGAIg",
+            "ASgJQhDi3x8MCgpeLnsxLDIyNX0kEh8KBWltYWdlGAMgASgJQhDi3x8MCgpe",
+            "LnsxLDIyNX0kEgwKBGFyZ3MYBCADKAkSLQoDZW52GAUgAygLMiAua2RlcGxv",
+            "eS5BcHBDb25zdHJ1Y3Rvci5FbnZFbnRyeRIxCgVwb3J0cxgGIAMoCzIiLmtk",
+            "ZXBsb3kuQXBwQ29uc3RydWN0b3IuUG9ydHNFbnRyeRIQCghyZXBsaWNhcxgH",
+            "IAEoDRIvCgpuZXR3b3JraW5nGAkgASgLMhMua2RlcGxveS5OZXR3b3JraW5n",
+            "Qgbi3x8CIAEaKgoIRW52RW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIg",
+            "ASgJOgI4ARosCgpQb3J0c0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgC",
+            "IAEoDToCOAEi2gIKCUFwcFVwZGF0ZRIeCgRuYW1lGAEgASgJQhDi3x8MCgpe",
+            "LnsxLDIyNX0kEiMKCW5hbWVzcGFjZRgCIAEoCUIQ4t8fDAoKXi57MSwyMjV9",
+            "JBINCgVpbWFnZRgDIAEoCRIMCgRhcmdzGAQgAygJEigKA2VudhgFIAMoCzIb",
+            "LmtkZXBsb3kuQXBwVXBkYXRlLkVudkVudHJ5EiwKBXBvcnRzGAYgAygLMh0u",
+            "a2RlcGxveS5BcHBVcGRhdGUuUG9ydHNFbnRyeRIQCghyZXBsaWNhcxgHIAEo",
+            "DRInCgpuZXR3b3JraW5nGAkgASgLMhMua2RlcGxveS5OZXR3b3JraW5nGioK",
+            "CEVudkVudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEaLAoK",
+            "UG9ydHNFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKA06AjgBIkoK",
+            "A1JlZhIeCgRuYW1lGAEgASgJQhDi3x8MCgpeLnsxLDIyNX0kEiMKCW5hbWVz",
+            "cGFjZRgCIAEoCUIQ4t8fDAoKXi57MSwyMjV9JCI7CgdSZXBsaWNhEg0KBXBo",
+            "YXNlGAEgASgJEhEKCWNvbmRpdGlvbhgCIAEoCRIOCgZyZWFzb24YAyABKAki",
+            "LwoJQXBwU3RhdHVzEiIKCHJlcGxpY2FzGAEgAygLMhAua2RlcGxveS5SZXBs",
+            "aWNhIhYKA0xvZxIPCgdtZXNzYWdlGAEgASgJIioKBEFwcHMSIgoMYXBwbGlj",
+            "YXRpb25zGAEgAygLMgwua2RlcGxveS5BcHAiJQoFVGFza3MSHAoFdGFza3MY",
+            "ASADKAsyDS5rZGVwbG95LlRhc2siHgoJTmFtZXNwYWNlEhEKCW5hbWVzcGFj",
+            "ZRgBIAEoCSIgCgpOYW1lc3BhY2VzEhIKCm5hbWVzcGFjZXMYASADKAkyrwUK",
+            "DktkZXBsb3lTZXJ2aWNlEjQKCUNyZWF0ZUFwcBIXLmtkZXBsb3kuQXBwQ29u",
+            "c3RydWN0b3IaDC5rZGVwbG95LkFwcCIAEi8KCVVwZGF0ZUFwcBISLmtkZXBs",
+            "b3kuQXBwVXBkYXRlGgwua2RlcGxveS5BcHAiABIzCglEZWxldGVBcHASDC5r",
+            "ZGVwbG95LlJlZhoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAEiYKBkdldEFw",
+            "cBIMLmtkZXBsb3kuUmVmGgwua2RlcGxveS5BcHAiABIvCghMaXN0QXBwcxIS",
+            "LmtkZXBsb3kuTmFtZXNwYWNlGg0ua2RlcGxveS5BcHBzIgASPwoOTGlzdE5h",
+            "bWVzcGFjZXMSFi5nb29nbGUucHJvdG9idWYuRW1wdHkaEy5rZGVwbG95Lk5h",
+            "bWVzcGFjZXMiABI5CglEZWxldGVBbGwSEi5rZGVwbG95Lk5hbWVzcGFjZRoW",
+            "Lmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAEjcKCkNyZWF0ZVRhc2sSGC5rZGVw",
+            "bG95LlRhc2tDb25zdHJ1Y3RvchoNLmtkZXBsb3kuVGFzayIAEjIKClVwZGF0",
+            "ZVRhc2sSEy5rZGVwbG95LlRhc2tVcGRhdGUaDS5rZGVwbG95LlRhc2siABI0",
+            "CgpEZWxldGVUYXNrEgwua2RlcGxveS5SZWYaFi5nb29nbGUucHJvdG9idWYu",
+            "RW1wdHkiABIoCgdHZXRUYXNrEgwua2RlcGxveS5SZWYaDS5rZGVwbG95LlRh",
+            "c2siABIxCglMaXN0VGFza3MSEi5rZGVwbG95Lk5hbWVzcGFjZRoOLmtkZXBs",
+            "b3kuVGFza3MiABIsCgpTdHJlYW1Mb2dzEgwua2RlcGxveS5SZWYaDC5rZGVw",
+            "bG95LkxvZyIAMAFCC1oJa2RlcGxveXBiYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Validator.ValidatorReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.Route), global::Kdeploy.Route.Parser, new[]{ "Name", "Port", "PathPrefix", "RewriteUri", "AllowOrigins", "AllowMethods", "AllowHeaders", "ExposeHeaders", "AllowCredentials" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.Networking), global::Kdeploy.Networking.Parser, new[]{ "Gateways", "Hosts", "Export", "Routes" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.HTTPRoute), global::Kdeploy.HTTPRoute.Parser, new[]{ "Name", "Port", "PathPrefix", "RewriteUri", "AllowOrigins", "AllowMethods", "AllowHeaders", "ExposeHeaders", "AllowCredentials" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.Networking), global::Kdeploy.Networking.Parser, new[]{ "Gateways", "Hosts", "Export", "HttpRoutes" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.App), global::Kdeploy.App.Parser, new[]{ "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", "Networking", "Status" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.Task), global::Kdeploy.Task.Parser, new[]{ "Name", "Namespace", "Image", "Args", "Env", "Schedule", "Completions" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.TaskConstructor), global::Kdeploy.TaskConstructor.Parser, new[]{ "Name", "Namespace", "Image", "Args", "Env", "Schedule", "Completions" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
@@ -125,13 +125,13 @@ namespace Kdeploy {
   }
   #region Messages
   /// <summary>
-  /// Route is a single http route(istio HttpRoute)
+  /// HTTPRoute is a single http route(istio HttpRoute)
   /// </summary>
-  public sealed partial class Route : pb::IMessage<Route> {
-    private static readonly pb::MessageParser<Route> _parser = new pb::MessageParser<Route>(() => new Route());
+  public sealed partial class HTTPRoute : pb::IMessage<HTTPRoute> {
+    private static readonly pb::MessageParser<HTTPRoute> _parser = new pb::MessageParser<HTTPRoute>(() => new HTTPRoute());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<Route> Parser { get { return _parser; } }
+    public static pb::MessageParser<HTTPRoute> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -144,14 +144,14 @@ namespace Kdeploy {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Route() {
+    public HTTPRoute() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Route(Route other) : this() {
+    public HTTPRoute(HTTPRoute other) : this() {
       name_ = other.name_;
       port_ = other.port_;
       pathPrefix_ = other.pathPrefix_;
@@ -165,8 +165,8 @@ namespace Kdeploy {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Route Clone() {
-      return new Route(this);
+    public HTTPRoute Clone() {
+      return new HTTPRoute(this);
     }
 
     /// <summary>Field number for the "name" field.</summary>
@@ -218,6 +218,9 @@ namespace Kdeploy {
     private static readonly pb::FieldCodec<string> _repeated_allowOrigins_codec
         = pb::FieldCodec.ForString(42);
     private readonly pbc::RepeatedField<string> allowOrigins_ = new pbc::RepeatedField<string>();
+    /// <summary>
+    /// The list of origins that are allowed to perform CORS requests
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<string> AllowOrigins {
       get { return allowOrigins_; }
@@ -228,6 +231,9 @@ namespace Kdeploy {
     private static readonly pb::FieldCodec<string> _repeated_allowMethods_codec
         = pb::FieldCodec.ForString(50);
     private readonly pbc::RepeatedField<string> allowMethods_ = new pbc::RepeatedField<string>();
+    /// <summary>
+    /// The list of methods that are allowed to perform CORS requests
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<string> AllowMethods {
       get { return allowMethods_; }
@@ -238,6 +244,9 @@ namespace Kdeploy {
     private static readonly pb::FieldCodec<string> _repeated_allowHeaders_codec
         = pb::FieldCodec.ForString(58);
     private readonly pbc::RepeatedField<string> allowHeaders_ = new pbc::RepeatedField<string>();
+    /// <summary>
+    /// The list of headers that are allowed to perform CORS requests
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<string> AllowHeaders {
       get { return allowHeaders_; }
@@ -248,6 +257,9 @@ namespace Kdeploy {
     private static readonly pb::FieldCodec<string> _repeated_exposeHeaders_codec
         = pb::FieldCodec.ForString(66);
     private readonly pbc::RepeatedField<string> exposeHeaders_ = new pbc::RepeatedField<string>();
+    /// <summary>
+    /// The list of origins that are allowed to perform CORS requests
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<string> ExposeHeaders {
       get { return exposeHeaders_; }
@@ -256,6 +268,9 @@ namespace Kdeploy {
     /// <summary>Field number for the "allow_credentials" field.</summary>
     public const int AllowCredentialsFieldNumber = 9;
     private bool allowCredentials_;
+    /// <summary>
+    /// adds `Access-Control-Allow-Credentials` header
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool AllowCredentials {
       get { return allowCredentials_; }
@@ -266,11 +281,11 @@ namespace Kdeploy {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as Route);
+      return Equals(other as HTTPRoute);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(Route other) {
+    public bool Equals(HTTPRoute other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -372,7 +387,7 @@ namespace Kdeploy {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(Route other) {
+    public void MergeFrom(HTTPRoute other) {
       if (other == null) {
         return;
       }
@@ -476,7 +491,7 @@ namespace Kdeploy {
       gateways_ = other.gateways_.Clone();
       hosts_ = other.hosts_.Clone();
       export_ = other.export_;
-      routes_ = other.routes_.Clone();
+      httpRoutes_ = other.httpRoutes_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -516,14 +531,14 @@ namespace Kdeploy {
       }
     }
 
-    /// <summary>Field number for the "routes" field.</summary>
-    public const int RoutesFieldNumber = 4;
-    private static readonly pb::FieldCodec<global::Kdeploy.Route> _repeated_routes_codec
-        = pb::FieldCodec.ForMessage(34, global::Kdeploy.Route.Parser);
-    private readonly pbc::RepeatedField<global::Kdeploy.Route> routes_ = new pbc::RepeatedField<global::Kdeploy.Route>();
+    /// <summary>Field number for the "http_routes" field.</summary>
+    public const int HttpRoutesFieldNumber = 4;
+    private static readonly pb::FieldCodec<global::Kdeploy.HTTPRoute> _repeated_httpRoutes_codec
+        = pb::FieldCodec.ForMessage(34, global::Kdeploy.HTTPRoute.Parser);
+    private readonly pbc::RepeatedField<global::Kdeploy.HTTPRoute> httpRoutes_ = new pbc::RepeatedField<global::Kdeploy.HTTPRoute>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Kdeploy.Route> Routes {
-      get { return routes_; }
+    public pbc::RepeatedField<global::Kdeploy.HTTPRoute> HttpRoutes {
+      get { return httpRoutes_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -542,7 +557,7 @@ namespace Kdeploy {
       if(!gateways_.Equals(other.gateways_)) return false;
       if(!hosts_.Equals(other.hosts_)) return false;
       if (Export != other.Export) return false;
-      if(!routes_.Equals(other.routes_)) return false;
+      if(!httpRoutes_.Equals(other.httpRoutes_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -552,7 +567,7 @@ namespace Kdeploy {
       hash ^= gateways_.GetHashCode();
       hash ^= hosts_.GetHashCode();
       if (Export != false) hash ^= Export.GetHashCode();
-      hash ^= routes_.GetHashCode();
+      hash ^= httpRoutes_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -572,7 +587,7 @@ namespace Kdeploy {
         output.WriteRawTag(24);
         output.WriteBool(Export);
       }
-      routes_.WriteTo(output, _repeated_routes_codec);
+      httpRoutes_.WriteTo(output, _repeated_httpRoutes_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -586,7 +601,7 @@ namespace Kdeploy {
       if (Export != false) {
         size += 1 + 1;
       }
-      size += routes_.CalculateSize(_repeated_routes_codec);
+      size += httpRoutes_.CalculateSize(_repeated_httpRoutes_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -603,7 +618,7 @@ namespace Kdeploy {
       if (other.Export != false) {
         Export = other.Export;
       }
-      routes_.Add(other.routes_);
+      httpRoutes_.Add(other.httpRoutes_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -628,7 +643,7 @@ namespace Kdeploy {
             break;
           }
           case 34: {
-            routes_.AddEntriesFrom(input, _repeated_routes_codec);
+            httpRoutes_.AddEntriesFrom(input, _repeated_httpRoutes_codec);
             break;
           }
         }
@@ -780,6 +795,9 @@ namespace Kdeploy {
     /// <summary>Field number for the "networking" field.</summary>
     public const int NetworkingFieldNumber = 9;
     private global::Kdeploy.Networking networking_;
+    /// <summary>
+    /// gateway/service-mesh networking
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Kdeploy.Networking Networking {
       get { return networking_; }

@@ -40,6 +40,30 @@ type AppUpdate struct {
 	Networking *NetworkingInput       `json:"networking"`
 }
 
+type HTTPRoute struct {
+	Name             *string  `json:"name"`
+	Port             *int     `json:"port"`
+	PathPrefix       *string  `json:"path_prefix"`
+	RewriteURI       *string  `json:"rewrite_uri"`
+	AllowOrigins     []string `json:"allow_origins"`
+	AllowMethods     []string `json:"allow_methods"`
+	AllowHeaders     []string `json:"allow_headers"`
+	ExposeHeaders    []string `json:"expose_headers"`
+	AllowCredentials *bool    `json:"allow_credentials"`
+}
+
+type HTTPRouteInput struct {
+	Name             *string  `json:"name"`
+	Port             *int     `json:"port"`
+	PathPrefix       *string  `json:"path_prefix"`
+	RewriteURI       *string  `json:"rewrite_uri"`
+	AllowOrigins     []string `json:"allow_origins"`
+	AllowMethods     []string `json:"allow_methods"`
+	AllowHeaders     []string `json:"allow_headers"`
+	ExposeHeaders    []string `json:"expose_headers"`
+	AllowCredentials *bool    `json:"allow_credentials"`
+}
+
 type Log struct {
 	Message string `json:"message"`
 }
@@ -53,17 +77,17 @@ type Namespaces struct {
 }
 
 type Networking struct {
-	Gateways []string `json:"gateways"`
-	Hosts    []string `json:"hosts"`
-	Export   *bool    `json:"export"`
-	Routes   []*Route `json:"routes"`
+	Gateways   []string     `json:"gateways"`
+	Hosts      []string     `json:"hosts"`
+	Export     *bool        `json:"export"`
+	HTTPRoutes []*HTTPRoute `json:"http_routes"`
 }
 
 type NetworkingInput struct {
-	Gateways []string      `json:"gateways"`
-	Hosts    []string      `json:"hosts"`
-	Export   *bool         `json:"export"`
-	Routes   []*RouteInput `json:"routes"`
+	Gateways   []string          `json:"gateways"`
+	Hosts      []string          `json:"hosts"`
+	Export     *bool             `json:"export"`
+	HTTPRoutes []*HTTPRouteInput `json:"http_routes"`
 }
 
 type Ref struct {
@@ -75,30 +99,6 @@ type Replica struct {
 	Phase     string `json:"phase"`
 	Condition string `json:"condition"`
 	Reason    string `json:"reason"`
-}
-
-type Route struct {
-	Name             string   `json:"name"`
-	Port             int      `json:"port"`
-	PathPrefix       *string  `json:"path_prefix"`
-	RewriteURI       *string  `json:"rewrite_uri"`
-	AllowOrigins     []string `json:"allow_origins"`
-	AllowMethods     []string `json:"allow_methods"`
-	AllowHeaders     []string `json:"allow_headers"`
-	ExposeHeaders    []string `json:"expose_headers"`
-	AllowCredentials *bool    `json:"allow_credentials"`
-}
-
-type RouteInput struct {
-	Name             string   `json:"name"`
-	Port             int      `json:"port"`
-	PathPrefix       *string  `json:"path_prefix"`
-	RewriteURI       *string  `json:"rewrite_uri"`
-	AllowOrigins     []string `json:"allow_origins"`
-	AllowMethods     []string `json:"allow_methods"`
-	AllowHeaders     []string `json:"allow_headers"`
-	ExposeHeaders    []string `json:"expose_headers"`
-	AllowCredentials *bool    `json:"allow_credentials"`
 }
 
 type Task struct {

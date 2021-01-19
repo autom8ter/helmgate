@@ -156,15 +156,20 @@ func toNetworking(input *model.NetworkingInput) *kdeploypb.Networking {
 	if input == nil {
 		return nil
 	}
-	var routes []*kdeploypb.Route
-	for _, r := range input.Routes {
-		route := &kdeploypb.Route{
-			Name:          r.Name,
-			Port:          uint32(r.Port),
+	var routes []*kdeploypb.HTTPRoute
+	for _, r := range input.HTTPRoutes {
+		route := &kdeploypb.HTTPRoute{
 			AllowOrigins:  r.AllowOrigins,
 			AllowMethods:  r.AllowMethods,
 			AllowHeaders:  r.AllowHeaders,
 			ExposeHeaders: r.ExposeHeaders,
+		}
+		if r.Name != nil {
+			route.Name = *r.Name
+		}
+		if r.Port != nil {
+			p := uint32(*r.Port)
+			route.Port = p
 		}
 		if r.RewriteURI != nil {
 			route.RewriteUri = *r.RewriteURI
@@ -178,9 +183,9 @@ func toNetworking(input *model.NetworkingInput) *kdeploypb.Networking {
 		routes = append(routes, route)
 	}
 	n := &kdeploypb.Networking{
-		Gateways: input.Gateways,
-		Hosts:    input.Hosts,
-		Routes:   routes,
+		Gateways:   input.Gateways,
+		Hosts:      input.Hosts,
+		HttpRoutes: routes,
 	}
 	if input.Export != nil {
 		n.Export = *input.Export
@@ -189,11 +194,9 @@ func toNetworking(input *model.NetworkingInput) *kdeploypb.Networking {
 }
 
 func fromNetworking(networking *kdeploypb.Networking) *model.Networking {
-	var routes []*model.Route
-	for _, r := range networking.GetRoutes() {
-		routes = append(routes, &model.Route{
-			Name:             r.Name,
-			Port:             int(r.Port),
+	var routes []*model.HTTPRoute
+	for _, r := range networking.GetHttpRoutes() {
+		route := &model.HTTPRoute{
 			PathPrefix:       helpers.StringPointer(r.PathPrefix),
 			RewriteURI:       helpers.StringPointer(r.RewriteUri),
 			AllowOrigins:     r.AllowOrigins,
@@ -201,13 +204,21 @@ func fromNetworking(networking *kdeploypb.Networking) *model.Networking {
 			AllowHeaders:     r.AllowHeaders,
 			ExposeHeaders:    r.ExposeHeaders,
 			AllowCredentials: helpers.BoolPointer(r.AllowCredentials),
-		})
+		}
+		if r.Name != "" {
+			route.Name = &r.Name
+		}
+		if r.Port != 0 {
+			p := int(r.Port)
+			route.Port = &p
+		}
+		routes = append(routes, route)
 	}
 	return &model.Networking{
-		Gateways: networking.GetGateways(),
-		Hosts:    networking.GetHosts(),
-		Export:   &networking.Export,
-		Routes:   routes,
+		Gateways:   networking.GetGateways(),
+		Hosts:      networking.GetHosts(),
+		Export:     &networking.Export,
+		HTTPRoutes: routes,
 	}
 }
 

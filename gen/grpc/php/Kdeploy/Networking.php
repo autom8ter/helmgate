@@ -26,9 +26,9 @@ class Networking extends \Google\Protobuf\Internal\Message
      */
     private $export = false;
     /**
-     * Generated from protobuf field <code>repeated .kdeploy.Route routes = 4;</code>
+     * Generated from protobuf field <code>repeated .kdeploy.HTTPRoute http_routes = 4;</code>
      */
-    private $routes;
+    private $http_routes;
 
     /**
      * Constructor.
@@ -39,7 +39,7 @@ class Networking extends \Google\Protobuf\Internal\Message
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $gateways
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $hosts
      *     @type bool $export
-     *     @type \Kdeploy\Route[]|\Google\Protobuf\Internal\RepeatedField $routes
+     *     @type \Kdeploy\HTTPRoute[]|\Google\Protobuf\Internal\RepeatedField $http_routes
      * }
      */
     public function __construct($data = NULL) {
@@ -114,23 +114,23 @@ class Networking extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .kdeploy.Route routes = 4;</code>
+     * Generated from protobuf field <code>repeated .kdeploy.HTTPRoute http_routes = 4;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
-    public function getRoutes()
+    public function getHttpRoutes()
     {
-        return $this->routes;
+        return $this->http_routes;
     }
 
     /**
-     * Generated from protobuf field <code>repeated .kdeploy.Route routes = 4;</code>
-     * @param \Kdeploy\Route[]|\Google\Protobuf\Internal\RepeatedField $var
+     * Generated from protobuf field <code>repeated .kdeploy.HTTPRoute http_routes = 4;</code>
+     * @param \Kdeploy\HTTPRoute[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
-    public function setRoutes($var)
+    public function setHttpRoutes($var)
     {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Kdeploy\Route::class);
-        $this->routes = $arr;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Kdeploy\HTTPRoute::class);
+        $this->http_routes = $arr;
 
         return $this;
     }

@@ -223,6 +223,10 @@
                 </li>
               
                 <li>
+                  <a href="#kdeploy.HTTPRoute"><span class="badge">M</span>HTTPRoute</a>
+                </li>
+              
+                <li>
                   <a href="#kdeploy.Log"><span class="badge">M</span>Log</a>
                 </li>
               
@@ -244,10 +248,6 @@
               
                 <li>
                   <a href="#kdeploy.Replica"><span class="badge">M</span>Replica</a>
-                </li>
-              
-                <li>
-                  <a href="#kdeploy.Route"><span class="badge">M</span>Route</a>
                 </li>
               
                 <li>
@@ -363,7 +363,7 @@
                   <td>networking</td>
                   <td><a href="#kdeploy.Networking">Networking</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>gateway/service-mesh networking </p></td>
                 </tr>
               
                 <tr>
@@ -858,6 +858,86 @@
 
         
       
+        <h3 id="kdeploy.HTTPRoute">HTTPRoute</h3>
+        <p>HTTPRoute is a single http route(istio HttpRoute)</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>port</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>path_prefix</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>rewrite_uri</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>allow_origins</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>The list of origins that are allowed to perform CORS requests </p></td>
+                </tr>
+              
+                <tr>
+                  <td>allow_methods</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>The list of methods that are allowed to perform CORS requests </p></td>
+                </tr>
+              
+                <tr>
+                  <td>allow_headers</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>The list of headers that are allowed to perform CORS requests </p></td>
+                </tr>
+              
+                <tr>
+                  <td>expose_headers</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>The list of origins that are allowed to perform CORS requests </p></td>
+                </tr>
+              
+                <tr>
+                  <td>allow_credentials</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>adds `Access-Control-Allow-Credentials` header </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="kdeploy.Log">Log</h3>
         <p></p>
 
@@ -962,8 +1042,8 @@
                 </tr>
               
                 <tr>
-                  <td>routes</td>
-                  <td><a href="#kdeploy.Route">Route</a></td>
+                  <td>http_routes</td>
+                  <td><a href="#kdeploy.HTTPRoute">HTTPRoute</a></td>
                   <td>repeated</td>
                   <td><p> </p></td>
                 </tr>
@@ -1078,124 +1158,6 @@
             </tbody>
           </table>
 
-          
-
-        
-      
-        <h3 id="kdeploy.Route">Route</h3>
-        <p>Route is a single http route(istio HttpRoute)</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>port</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>path_prefix</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>rewrite_uri</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>allow_origins</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>allow_methods</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>allow_headers</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>expose_headers</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>allow_credentials</td>
-                  <td><a href="#bool">bool</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-            
-            
-            <h4>Validated Fields</h4>
-            <table>
-              <thead>
-                <tr>
-                  <td>Field</td>
-                  <td>Validations</td>
-                </tr>
-              </thead>
-              <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
-                  <td>port</td>
-                  <td>
-                    <ul>
-                    
-                      <li>int_gt: 0</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-              </tbody>
-            </table>
-            
           
 
         

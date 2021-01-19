@@ -10,16 +10,21 @@ import "google/protobuf/any.proto";
 import "google/protobuf/empty.proto";
 import "github.com/mwitkow/go-proto-validators/validator.proto";
 
-// Route is a single http route(istio HttpRoute)
-message Route {
-  string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  uint32 port =2 [(validator.field) = {int_gt: 0}];
+// HTTPRoute is a single http route(istio HttpRoute)
+message HTTPRoute {
+  string name =1;
+  uint32 port =2;
   string path_prefix =3;
   string rewrite_uri = 4;
+  // The list of origins that are allowed to perform CORS requests
   repeated string allow_origins =5;
+  // The list of methods that are allowed to perform CORS requests
   repeated string allow_methods =6;
+  // The list of headers that are allowed to perform CORS requests
   repeated string allow_headers =7;
+  // The list of origins that are allowed to perform CORS requests
   repeated string expose_headers =8;
+  // adds `Access-Control-Allow-Credentials` header
   bool allow_credentials =9;
 }
 
@@ -27,7 +32,7 @@ message Networking {
   repeated string gateways =1;
   repeated string hosts =2;
   bool export =3;
-  repeated Route routes =4;
+  repeated HTTPRoute http_routes =4;
 }
 
 // App is a stateless application
@@ -46,6 +51,7 @@ message App {
   map<string, uint32> ports =7;
   // number of deployment replicas
   uint32 replicas =8;
+  // gateway/service-mesh networking
   Networking networking =9;
   // status tracks the state of the application during it's lifecycle
   AppStatus status =20;

@@ -21,13 +21,13 @@ goog.exportSymbol('proto.kdeploy.AppConstructor', null, global);
 goog.exportSymbol('proto.kdeploy.AppStatus', null, global);
 goog.exportSymbol('proto.kdeploy.AppUpdate', null, global);
 goog.exportSymbol('proto.kdeploy.Apps', null, global);
+goog.exportSymbol('proto.kdeploy.HTTPRoute', null, global);
 goog.exportSymbol('proto.kdeploy.Log', null, global);
 goog.exportSymbol('proto.kdeploy.Namespace', null, global);
 goog.exportSymbol('proto.kdeploy.Namespaces', null, global);
 goog.exportSymbol('proto.kdeploy.Networking', null, global);
 goog.exportSymbol('proto.kdeploy.Ref', null, global);
 goog.exportSymbol('proto.kdeploy.Replica', null, global);
-goog.exportSymbol('proto.kdeploy.Route', null, global);
 goog.exportSymbol('proto.kdeploy.Task', null, global);
 goog.exportSymbol('proto.kdeploy.TaskConstructor', null, global);
 goog.exportSymbol('proto.kdeploy.TaskUpdate', null, global);
@@ -43,19 +43,19 @@ goog.exportSymbol('proto.kdeploy.Tasks', null, global);
  * @extends {jspb.Message}
  * @constructor
  */
-proto.kdeploy.Route = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.kdeploy.Route.repeatedFields_, null);
+proto.kdeploy.HTTPRoute = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.kdeploy.HTTPRoute.repeatedFields_, null);
 };
-goog.inherits(proto.kdeploy.Route, jspb.Message);
+goog.inherits(proto.kdeploy.HTTPRoute, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.kdeploy.Route.displayName = 'proto.kdeploy.Route';
+  proto.kdeploy.HTTPRoute.displayName = 'proto.kdeploy.HTTPRoute';
 }
 /**
  * List of repeated fields within this message type.
  * @private {!Array<number>}
  * @const
  */
-proto.kdeploy.Route.repeatedFields_ = [5,6,7,8];
+proto.kdeploy.HTTPRoute.repeatedFields_ = [5,6,7,8];
 
 
 
@@ -70,8 +70,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.kdeploy.Route.prototype.toObject = function(opt_includeInstance) {
-  return proto.kdeploy.Route.toObject(opt_includeInstance, this);
+proto.kdeploy.HTTPRoute.prototype.toObject = function(opt_includeInstance) {
+  return proto.kdeploy.HTTPRoute.toObject(opt_includeInstance, this);
 };
 
 
@@ -80,11 +80,11 @@ proto.kdeploy.Route.prototype.toObject = function(opt_includeInstance) {
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.kdeploy.Route} msg The msg instance to transform.
+ * @param {!proto.kdeploy.HTTPRoute} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.kdeploy.Route.toObject = function(includeInstance, msg) {
+proto.kdeploy.HTTPRoute.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
     port: jspb.Message.getFieldWithDefault(msg, 2, 0),
@@ -108,23 +108,23 @@ proto.kdeploy.Route.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.kdeploy.Route}
+ * @return {!proto.kdeploy.HTTPRoute}
  */
-proto.kdeploy.Route.deserializeBinary = function(bytes) {
+proto.kdeploy.HTTPRoute.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.kdeploy.Route;
-  return proto.kdeploy.Route.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.kdeploy.HTTPRoute;
+  return proto.kdeploy.HTTPRoute.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.kdeploy.Route} msg The message object to deserialize into.
+ * @param {!proto.kdeploy.HTTPRoute} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.kdeploy.Route}
+ * @return {!proto.kdeploy.HTTPRoute}
  */
-proto.kdeploy.Route.deserializeBinaryFromReader = function(msg, reader) {
+proto.kdeploy.HTTPRoute.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -180,9 +180,9 @@ proto.kdeploy.Route.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.kdeploy.Route.prototype.serializeBinary = function() {
+proto.kdeploy.HTTPRoute.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.kdeploy.Route.serializeBinaryToWriter(this, writer);
+  proto.kdeploy.HTTPRoute.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -190,11 +190,11 @@ proto.kdeploy.Route.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.kdeploy.Route} message
+ * @param {!proto.kdeploy.HTTPRoute} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.kdeploy.Route.serializeBinaryToWriter = function(message, writer) {
+proto.kdeploy.HTTPRoute.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getName();
   if (f.length > 0) {
@@ -266,13 +266,13 @@ proto.kdeploy.Route.serializeBinaryToWriter = function(message, writer) {
  * optional string name = 1;
  * @return {string}
  */
-proto.kdeploy.Route.prototype.getName = function() {
+proto.kdeploy.HTTPRoute.prototype.getName = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
 /** @param {string} value */
-proto.kdeploy.Route.prototype.setName = function(value) {
+proto.kdeploy.HTTPRoute.prototype.setName = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
 };
 
@@ -281,13 +281,13 @@ proto.kdeploy.Route.prototype.setName = function(value) {
  * optional uint32 port = 2;
  * @return {number}
  */
-proto.kdeploy.Route.prototype.getPort = function() {
+proto.kdeploy.HTTPRoute.prototype.getPort = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
 /** @param {number} value */
-proto.kdeploy.Route.prototype.setPort = function(value) {
+proto.kdeploy.HTTPRoute.prototype.setPort = function(value) {
   jspb.Message.setProto3IntField(this, 2, value);
 };
 
@@ -296,13 +296,13 @@ proto.kdeploy.Route.prototype.setPort = function(value) {
  * optional string path_prefix = 3;
  * @return {string}
  */
-proto.kdeploy.Route.prototype.getPathPrefix = function() {
+proto.kdeploy.HTTPRoute.prototype.getPathPrefix = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
 /** @param {string} value */
-proto.kdeploy.Route.prototype.setPathPrefix = function(value) {
+proto.kdeploy.HTTPRoute.prototype.setPathPrefix = function(value) {
   jspb.Message.setProto3StringField(this, 3, value);
 };
 
@@ -311,13 +311,13 @@ proto.kdeploy.Route.prototype.setPathPrefix = function(value) {
  * optional string rewrite_uri = 4;
  * @return {string}
  */
-proto.kdeploy.Route.prototype.getRewriteUri = function() {
+proto.kdeploy.HTTPRoute.prototype.getRewriteUri = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
 /** @param {string} value */
-proto.kdeploy.Route.prototype.setRewriteUri = function(value) {
+proto.kdeploy.HTTPRoute.prototype.setRewriteUri = function(value) {
   jspb.Message.setProto3StringField(this, 4, value);
 };
 
@@ -326,13 +326,13 @@ proto.kdeploy.Route.prototype.setRewriteUri = function(value) {
  * repeated string allow_origins = 5;
  * @return {!Array<string>}
  */
-proto.kdeploy.Route.prototype.getAllowOriginsList = function() {
+proto.kdeploy.HTTPRoute.prototype.getAllowOriginsList = function() {
   return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 5));
 };
 
 
 /** @param {!Array<string>} value */
-proto.kdeploy.Route.prototype.setAllowOriginsList = function(value) {
+proto.kdeploy.HTTPRoute.prototype.setAllowOriginsList = function(value) {
   jspb.Message.setField(this, 5, value || []);
 };
 
@@ -341,12 +341,12 @@ proto.kdeploy.Route.prototype.setAllowOriginsList = function(value) {
  * @param {!string} value
  * @param {number=} opt_index
  */
-proto.kdeploy.Route.prototype.addAllowOrigins = function(value, opt_index) {
+proto.kdeploy.HTTPRoute.prototype.addAllowOrigins = function(value, opt_index) {
   jspb.Message.addToRepeatedField(this, 5, value, opt_index);
 };
 
 
-proto.kdeploy.Route.prototype.clearAllowOriginsList = function() {
+proto.kdeploy.HTTPRoute.prototype.clearAllowOriginsList = function() {
   this.setAllowOriginsList([]);
 };
 
@@ -355,13 +355,13 @@ proto.kdeploy.Route.prototype.clearAllowOriginsList = function() {
  * repeated string allow_methods = 6;
  * @return {!Array<string>}
  */
-proto.kdeploy.Route.prototype.getAllowMethodsList = function() {
+proto.kdeploy.HTTPRoute.prototype.getAllowMethodsList = function() {
   return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 6));
 };
 
 
 /** @param {!Array<string>} value */
-proto.kdeploy.Route.prototype.setAllowMethodsList = function(value) {
+proto.kdeploy.HTTPRoute.prototype.setAllowMethodsList = function(value) {
   jspb.Message.setField(this, 6, value || []);
 };
 
@@ -370,12 +370,12 @@ proto.kdeploy.Route.prototype.setAllowMethodsList = function(value) {
  * @param {!string} value
  * @param {number=} opt_index
  */
-proto.kdeploy.Route.prototype.addAllowMethods = function(value, opt_index) {
+proto.kdeploy.HTTPRoute.prototype.addAllowMethods = function(value, opt_index) {
   jspb.Message.addToRepeatedField(this, 6, value, opt_index);
 };
 
 
-proto.kdeploy.Route.prototype.clearAllowMethodsList = function() {
+proto.kdeploy.HTTPRoute.prototype.clearAllowMethodsList = function() {
   this.setAllowMethodsList([]);
 };
 
@@ -384,13 +384,13 @@ proto.kdeploy.Route.prototype.clearAllowMethodsList = function() {
  * repeated string allow_headers = 7;
  * @return {!Array<string>}
  */
-proto.kdeploy.Route.prototype.getAllowHeadersList = function() {
+proto.kdeploy.HTTPRoute.prototype.getAllowHeadersList = function() {
   return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 7));
 };
 
 
 /** @param {!Array<string>} value */
-proto.kdeploy.Route.prototype.setAllowHeadersList = function(value) {
+proto.kdeploy.HTTPRoute.prototype.setAllowHeadersList = function(value) {
   jspb.Message.setField(this, 7, value || []);
 };
 
@@ -399,12 +399,12 @@ proto.kdeploy.Route.prototype.setAllowHeadersList = function(value) {
  * @param {!string} value
  * @param {number=} opt_index
  */
-proto.kdeploy.Route.prototype.addAllowHeaders = function(value, opt_index) {
+proto.kdeploy.HTTPRoute.prototype.addAllowHeaders = function(value, opt_index) {
   jspb.Message.addToRepeatedField(this, 7, value, opt_index);
 };
 
 
-proto.kdeploy.Route.prototype.clearAllowHeadersList = function() {
+proto.kdeploy.HTTPRoute.prototype.clearAllowHeadersList = function() {
   this.setAllowHeadersList([]);
 };
 
@@ -413,13 +413,13 @@ proto.kdeploy.Route.prototype.clearAllowHeadersList = function() {
  * repeated string expose_headers = 8;
  * @return {!Array<string>}
  */
-proto.kdeploy.Route.prototype.getExposeHeadersList = function() {
+proto.kdeploy.HTTPRoute.prototype.getExposeHeadersList = function() {
   return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 8));
 };
 
 
 /** @param {!Array<string>} value */
-proto.kdeploy.Route.prototype.setExposeHeadersList = function(value) {
+proto.kdeploy.HTTPRoute.prototype.setExposeHeadersList = function(value) {
   jspb.Message.setField(this, 8, value || []);
 };
 
@@ -428,12 +428,12 @@ proto.kdeploy.Route.prototype.setExposeHeadersList = function(value) {
  * @param {!string} value
  * @param {number=} opt_index
  */
-proto.kdeploy.Route.prototype.addExposeHeaders = function(value, opt_index) {
+proto.kdeploy.HTTPRoute.prototype.addExposeHeaders = function(value, opt_index) {
   jspb.Message.addToRepeatedField(this, 8, value, opt_index);
 };
 
 
-proto.kdeploy.Route.prototype.clearExposeHeadersList = function() {
+proto.kdeploy.HTTPRoute.prototype.clearExposeHeadersList = function() {
   this.setExposeHeadersList([]);
 };
 
@@ -444,13 +444,13 @@ proto.kdeploy.Route.prototype.clearExposeHeadersList = function() {
  * You should avoid comparisons like {@code val === true/false} in those cases.
  * @return {boolean}
  */
-proto.kdeploy.Route.prototype.getAllowCredentials = function() {
+proto.kdeploy.HTTPRoute.prototype.getAllowCredentials = function() {
   return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 9, false));
 };
 
 
 /** @param {boolean} value */
-proto.kdeploy.Route.prototype.setAllowCredentials = function(value) {
+proto.kdeploy.HTTPRoute.prototype.setAllowCredentials = function(value) {
   jspb.Message.setProto3BooleanField(this, 9, value);
 };
 
@@ -512,8 +512,8 @@ proto.kdeploy.Networking.toObject = function(includeInstance, msg) {
     gatewaysList: jspb.Message.getRepeatedField(msg, 1),
     hostsList: jspb.Message.getRepeatedField(msg, 2),
     pb_export: jspb.Message.getFieldWithDefault(msg, 3, false),
-    routesList: jspb.Message.toObjectList(msg.getRoutesList(),
-    proto.kdeploy.Route.toObject, includeInstance)
+    httpRoutesList: jspb.Message.toObjectList(msg.getHttpRoutesList(),
+    proto.kdeploy.HTTPRoute.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -563,9 +563,9 @@ proto.kdeploy.Networking.deserializeBinaryFromReader = function(msg, reader) {
       msg.setExport(value);
       break;
     case 4:
-      var value = new proto.kdeploy.Route;
-      reader.readMessage(value,proto.kdeploy.Route.deserializeBinaryFromReader);
-      msg.addRoutes(value);
+      var value = new proto.kdeploy.HTTPRoute;
+      reader.readMessage(value,proto.kdeploy.HTTPRoute.deserializeBinaryFromReader);
+      msg.addHttpRoutes(value);
       break;
     default:
       reader.skipField();
@@ -617,12 +617,12 @@ proto.kdeploy.Networking.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getRoutesList();
+  f = message.getHttpRoutesList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       4,
       f,
-      proto.kdeploy.Route.serializeBinaryToWriter
+      proto.kdeploy.HTTPRoute.serializeBinaryToWriter
     );
   }
 };
@@ -704,33 +704,33 @@ proto.kdeploy.Networking.prototype.setExport = function(value) {
 
 
 /**
- * repeated Route routes = 4;
- * @return {!Array<!proto.kdeploy.Route>}
+ * repeated HTTPRoute http_routes = 4;
+ * @return {!Array<!proto.kdeploy.HTTPRoute>}
  */
-proto.kdeploy.Networking.prototype.getRoutesList = function() {
-  return /** @type{!Array<!proto.kdeploy.Route>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.kdeploy.Route, 4));
+proto.kdeploy.Networking.prototype.getHttpRoutesList = function() {
+  return /** @type{!Array<!proto.kdeploy.HTTPRoute>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.kdeploy.HTTPRoute, 4));
 };
 
 
-/** @param {!Array<!proto.kdeploy.Route>} value */
-proto.kdeploy.Networking.prototype.setRoutesList = function(value) {
+/** @param {!Array<!proto.kdeploy.HTTPRoute>} value */
+proto.kdeploy.Networking.prototype.setHttpRoutesList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 4, value);
 };
 
 
 /**
- * @param {!proto.kdeploy.Route=} opt_value
+ * @param {!proto.kdeploy.HTTPRoute=} opt_value
  * @param {number=} opt_index
- * @return {!proto.kdeploy.Route}
+ * @return {!proto.kdeploy.HTTPRoute}
  */
-proto.kdeploy.Networking.prototype.addRoutes = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 4, opt_value, proto.kdeploy.Route, opt_index);
+proto.kdeploy.Networking.prototype.addHttpRoutes = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 4, opt_value, proto.kdeploy.HTTPRoute, opt_index);
 };
 
 
-proto.kdeploy.Networking.prototype.clearRoutesList = function() {
-  this.setRoutesList([]);
+proto.kdeploy.Networking.prototype.clearHttpRoutesList = function() {
+  this.setHttpRoutesList([]);
 };
 
 
