@@ -3,7 +3,7 @@
 ![create-redis](assets/create-redis.png)
 ![get-redis](assets/get-redis.png)
 
-an opinionated, OAuth-protected graphQL/gRPC API for easily deploying kubernetes applications & jobs
+an opinionated, OAuth-protected graphQL/gRPC API for easily deploying applications & jobs on Istio service mesh
 
 [graphQL Documentation](https://autom8ter.github.io/meshpaas/)
 
