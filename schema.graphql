@@ -113,6 +113,8 @@ type App {
     networking: Networking!
     # status tracks the state of the application during it's lifecycle
     status: AppStatus!
+    labels: Map!
+    selectors: Map!
 }
 
 # Task is scheduled cron job
@@ -131,6 +133,8 @@ type Task {
     schedule: String!
     # completions is the number of times to execute the task. If completions = 0, the task will run forever
     completions: Int
+    labels: Map!
+    selectors: Map!
 }
 
 # Replica tracks the state of a single instance
@@ -178,6 +182,8 @@ input AppInput {
     replicas: Int!
     # gateway/servicemesh configuration
     networking: NetworkingInput!
+    labels: Map!
+    selectors: Map!
 }
 
 # TaskInput creates a new task(cron job)
@@ -196,6 +202,8 @@ input TaskInput {
     schedule: String!
     # completions is the number of times to execute the task. If completions = 0, the task will run forever
     completions: Int
+    labels: Map!
+    selectors: Map!
 }
 
 input Ref {

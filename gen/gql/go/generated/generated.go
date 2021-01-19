@@ -49,11 +49,13 @@ type ComplexityRoot struct {
 		Args       func(childComplexity int) int
 		Env        func(childComplexity int) int
 		Image      func(childComplexity int) int
+		Labels     func(childComplexity int) int
 		Name       func(childComplexity int) int
 		Namespace  func(childComplexity int) int
 		Networking func(childComplexity int) int
 		Ports      func(childComplexity int) int
 		Replicas   func(childComplexity int) int
+		Selectors  func(childComplexity int) int
 		Status     func(childComplexity int) int
 	}
 
@@ -121,9 +123,11 @@ type ComplexityRoot struct {
 		Completions func(childComplexity int) int
 		Env         func(childComplexity int) int
 		Image       func(childComplexity int) int
+		Labels      func(childComplexity int) int
 		Name        func(childComplexity int) int
 		Namespace   func(childComplexity int) int
 		Schedule    func(childComplexity int) int
+		Selectors   func(childComplexity int) int
 	}
 }
 
@@ -183,6 +187,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.App.Image(childComplexity), true
 
+	case "App.labels":
+		if e.complexity.App.Labels == nil {
+			break
+		}
+
+		return e.complexity.App.Labels(childComplexity), true
+
 	case "App.name":
 		if e.complexity.App.Name == nil {
 			break
@@ -217,6 +228,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.App.Replicas(childComplexity), true
+
+	case "App.selectors":
+		if e.complexity.App.Selectors == nil {
+			break
+		}
+
+		return e.complexity.App.Selectors(childComplexity), true
 
 	case "App.status":
 		if e.complexity.App.Status == nil {
@@ -542,6 +560,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Task.Image(childComplexity), true
 
+	case "Task.labels":
+		if e.complexity.Task.Labels == nil {
+			break
+		}
+
+		return e.complexity.Task.Labels(childComplexity), true
+
 	case "Task.name":
 		if e.complexity.Task.Name == nil {
 			break
@@ -562,6 +587,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Task.Schedule(childComplexity), true
+
+	case "Task.selectors":
+		if e.complexity.Task.Selectors == nil {
+			break
+		}
+
+		return e.complexity.Task.Selectors(childComplexity), true
 
 	}
 	return 0, false
@@ -759,6 +791,8 @@ type App {
     networking: Networking!
     # status tracks the state of the application during it's lifecycle
     status: AppStatus!
+    labels: Map!
+    selectors: Map!
 }
 
 # Task is scheduled cron job
@@ -777,6 +811,8 @@ type Task {
     schedule: String!
     # completions is the number of times to execute the task. If completions = 0, the task will run forever
     completions: Int
+    labels: Map!
+    selectors: Map!
 }
 
 # Replica tracks the state of a single instance
@@ -824,6 +860,8 @@ input AppInput {
     replicas: Int!
     # gateway/servicemesh configuration
     networking: NetworkingInput!
+    labels: Map!
+    selectors: Map!
 }
 
 # TaskInput creates a new task(cron job)
@@ -842,6 +880,8 @@ input TaskInput {
     schedule: String!
     # completions is the number of times to execute the task. If completions = 0, the task will run forever
     completions: Int
+    labels: Map!
+    selectors: Map!
 }
 
 input Ref {
@@ -1451,6 +1491,76 @@ func (ec *executionContext) _App_status(ctx context.Context, field graphql.Colle
 	res := resTmp.(*model.AppStatus)
 	fc.Result = res
 	return ec.marshalNAppStatus2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐAppStatus(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _App_labels(ctx context.Context, field graphql.CollectedField, obj *model.App) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "App",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Labels, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(map[string]interface{})
+	fc.Result = res
+	return ec.marshalNMap2map(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _App_selectors(ctx context.Context, field graphql.CollectedField, obj *model.App) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "App",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Selectors, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(map[string]interface{})
+	fc.Result = res
+	return ec.marshalNMap2map(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _AppStatus_replicas(ctx context.Context, field graphql.CollectedField, obj *model.AppStatus) (ret graphql.Marshaler) {
@@ -2918,6 +3028,76 @@ func (ec *executionContext) _Task_completions(ctx context.Context, field graphql
 	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Task_labels(ctx context.Context, field graphql.CollectedField, obj *model.Task) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Task",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Labels, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(map[string]interface{})
+	fc.Result = res
+	return ec.marshalNMap2map(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Task_selectors(ctx context.Context, field graphql.CollectedField, obj *model.Task) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Task",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Selectors, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(map[string]interface{})
+	fc.Result = res
+	return ec.marshalNMap2map(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) ___Directive_name(ctx context.Context, field graphql.CollectedField, obj *introspection.Directive) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -4075,6 +4255,22 @@ func (ec *executionContext) unmarshalInputAppInput(ctx context.Context, obj inte
 			if err != nil {
 				return it, err
 			}
+		case "labels":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("labels"))
+			it.Labels, err = ec.unmarshalNMap2map(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "selectors":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("selectors"))
+			it.Selectors, err = ec.unmarshalNMap2map(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		}
 	}
 
@@ -4319,6 +4515,22 @@ func (ec *executionContext) unmarshalInputTaskInput(ctx context.Context, obj int
 			if err != nil {
 				return it, err
 			}
+		case "labels":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("labels"))
+			it.Labels, err = ec.unmarshalNMap2map(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "selectors":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("selectors"))
+			it.Selectors, err = ec.unmarshalNMap2map(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		}
 	}
 
@@ -4380,6 +4592,16 @@ func (ec *executionContext) _App(ctx context.Context, sel ast.SelectionSet, obj 
 			}
 		case "status":
 			out.Values[i] = ec._App_status(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "labels":
+			out.Values[i] = ec._App_labels(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "selectors":
+			out.Values[i] = ec._App_selectors(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
@@ -4776,6 +4998,16 @@ func (ec *executionContext) _Task(ctx context.Context, sel ast.SelectionSet, obj
 			}
 		case "completions":
 			out.Values[i] = ec._Task_completions(ctx, field, obj)
+		case "labels":
+			out.Values[i] = ec._Task_labels(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "selectors":
+			out.Values[i] = ec._Task_selectors(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}

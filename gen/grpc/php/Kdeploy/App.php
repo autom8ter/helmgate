@@ -58,13 +58,17 @@ class App extends \Google\Protobuf\Internal\Message
      */
     private $replicas = 0;
     /**
-     * Generated from protobuf field <code>map<string, string> labels = 9;</code>
+     * Generated from protobuf field <code>map<string, string> labels = 9 [(.validator.field) = {</code>
      */
     private $labels;
     /**
+     * Generated from protobuf field <code>map<string, string> selectors = 10 [(.validator.field) = {</code>
+     */
+    private $selectors;
+    /**
      * gateway/service-mesh networking
      *
-     * Generated from protobuf field <code>.kdeploy.Networking networking = 10 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>.kdeploy.Networking networking = 11 [(.validator.field) = {</code>
      */
     private $networking = null;
     /**
@@ -95,6 +99,7 @@ class App extends \Google\Protobuf\Internal\Message
      *     @type int $replicas
      *           number of deployment replicas
      *     @type array|\Google\Protobuf\Internal\MapField $labels
+     *     @type array|\Google\Protobuf\Internal\MapField $selectors
      *     @type \Kdeploy\Networking $networking
      *           gateway/service-mesh networking
      *     @type \Kdeploy\AppStatus $status
@@ -289,7 +294,7 @@ class App extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>map<string, string> labels = 9;</code>
+     * Generated from protobuf field <code>map<string, string> labels = 9 [(.validator.field) = {</code>
      * @return \Google\Protobuf\Internal\MapField
      */
     public function getLabels()
@@ -298,7 +303,7 @@ class App extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>map<string, string> labels = 9;</code>
+     * Generated from protobuf field <code>map<string, string> labels = 9 [(.validator.field) = {</code>
      * @param array|\Google\Protobuf\Internal\MapField $var
      * @return $this
      */
@@ -311,9 +316,31 @@ class App extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Generated from protobuf field <code>map<string, string> selectors = 10 [(.validator.field) = {</code>
+     * @return \Google\Protobuf\Internal\MapField
+     */
+    public function getSelectors()
+    {
+        return $this->selectors;
+    }
+
+    /**
+     * Generated from protobuf field <code>map<string, string> selectors = 10 [(.validator.field) = {</code>
+     * @param array|\Google\Protobuf\Internal\MapField $var
+     * @return $this
+     */
+    public function setSelectors($var)
+    {
+        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::STRING);
+        $this->selectors = $arr;
+
+        return $this;
+    }
+
+    /**
      * gateway/service-mesh networking
      *
-     * Generated from protobuf field <code>.kdeploy.Networking networking = 10 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>.kdeploy.Networking networking = 11 [(.validator.field) = {</code>
      * @return \Kdeploy\Networking
      */
     public function getNetworking()
@@ -324,7 +351,7 @@ class App extends \Google\Protobuf\Internal\Message
     /**
      * gateway/service-mesh networking
      *
-     * Generated from protobuf field <code>.kdeploy.Networking networking = 10 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>.kdeploy.Networking networking = 11 [(.validator.field) = {</code>
      * @param \Kdeploy\Networking $var
      * @return $this
      */

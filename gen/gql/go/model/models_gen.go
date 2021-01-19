@@ -12,6 +12,8 @@ type App struct {
 	Replicas   int                    `json:"replicas"`
 	Networking *Networking            `json:"networking"`
 	Status     *AppStatus             `json:"status"`
+	Labels     map[string]interface{} `json:"labels"`
+	Selectors  map[string]interface{} `json:"selectors"`
 }
 
 type AppInput struct {
@@ -23,6 +25,8 @@ type AppInput struct {
 	Ports      map[string]interface{} `json:"ports"`
 	Replicas   int                    `json:"replicas"`
 	Networking *NetworkingInput       `json:"networking"`
+	Labels     map[string]interface{} `json:"labels"`
+	Selectors  map[string]interface{} `json:"selectors"`
 }
 
 type AppStatus struct {
@@ -98,6 +102,8 @@ type Task struct {
 	Env         map[string]interface{} `json:"env"`
 	Schedule    string                 `json:"schedule"`
 	Completions *int                   `json:"completions"`
+	Labels      map[string]interface{} `json:"labels"`
+	Selectors   map[string]interface{} `json:"selectors"`
 }
 
 type TaskInput struct {
@@ -108,4 +114,6 @@ type TaskInput struct {
 	Env         map[string]interface{} `json:"env"`
 	Schedule    string                 `json:"schedule"`
 	Completions *int                   `json:"completions"`
+	Labels      map[string]interface{} `json:"labels"`
+	Selectors   map[string]interface{} `json:"selectors"`
 }

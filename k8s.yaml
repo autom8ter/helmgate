@@ -87,7 +87,7 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.podIP
-          image: colemanword/kdeploy:v0.0.8
+          image: colemanword/kdeploy:v0.0.9
           imagePullPolicy: Always
           ports:
           - containerPort: 8821

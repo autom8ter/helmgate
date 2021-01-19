@@ -56,7 +56,19 @@ message Gateway {
   // application namespace
   string namespace =2[(validator.field) = {regex : "^.{1,225}$"}];
   repeated GatewayListener listeners = 3;
-  map<string, string> labels =4;
+  map<string, string> labels =4[(validator.field) = {msg_exists : true}];
+  map<string, string> selectors =5[(validator.field) = {msg_exists : true}];
+}
+
+
+message GatewayInput {
+  // name of the application
+  string name =1[(validator.field) = {regex : "^.{1,225}$"}];
+  // application namespace
+  string namespace =2[(validator.field) = {regex : "^.{1,225}$"}];
+  repeated GatewayListener listeners = 3 [(validator.field) = {repeated_count_min : 0}];
+  map<string, string> labels =4[(validator.field) = {msg_exists : true}];
+  map<string, string> selectors =5[(validator.field) = {msg_exists : true}];
 }
 
 // HTTPRoute is a single http route(istio HttpRoute)
@@ -100,9 +112,10 @@ message App {
   map<string, uint32> ports =7[(validator.field) = {msg_exists : true}];
   // number of deployment replicas
   uint32 replicas =8;
-  map<string, string> labels =9;
+  map<string, string> labels =9[(validator.field) = {msg_exists : true}];
+  map<string, string> selectors =10[(validator.field) = {msg_exists : true}];
   // gateway/service-mesh networking
-  Networking networking =10[(validator.field) = {msg_exists : true}];
+  Networking networking =11[(validator.field) = {msg_exists : true}];
   // status tracks the state of the application during it's lifecycle
   AppStatus status =20[(validator.field) = {msg_exists : true}];
 }
@@ -124,7 +137,7 @@ message Task {
   string schedule = 7[(validator.field) = {regex : "^.{1,225}$"}];
   // completions is the number of times to execute the task. If completions = 0, the task will run forever
   uint32 completions = 8;
-  map<string, string> labels =9;
+  map<string, string> selector =9;
 }
 
 // TaskInput creates/updates a task(cron job)
@@ -143,7 +156,7 @@ message TaskInput {
   string schedule = 7[(validator.field) = {regex : "^.{1,225}$"}];
   // completions is the number of times to execute the task. If completions = 0, the task will run forever
   uint32 completions = 8;
-  map<string, string> labels =9;
+  map<string, string> selector =9;
 }
 
 // AppInput creates/replaces an app
@@ -163,7 +176,8 @@ message AppInput {
   // number of deployment replicas
   uint32 replicas =7;
   Networking networking =9[(validator.field) = {msg_exists : true}];
-  map<string, string> labels =10;
+  map<string, string> labels =10[(validator.field) = {msg_exists : true}];
+  map<string, string> selectors =11[(validator.field) = {msg_exists : true}];
 }
 
 message Ref {
@@ -236,4 +250,9 @@ service KdeployService {
   // StreamLogs streams logs from an app/task within an existing namespace.
   // Streams are opened to all replicas & converted into a single stream
   rpc StreamLogs(Ref) returns (stream Log){}
+
+  rpc CreateGateway(Gateway) returns(Gateway){}
+  rpc UpdateGateway(Gateway) returns(Gateway){}
+  rpc DeleteGateway(Ref) returns(google.protobuf.Empty){}
+  rpc GetGateway(Ref) returns(Gateway){}
 }

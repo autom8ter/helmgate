@@ -9,9 +9,9 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>kdeploy.Gateway</code>
+ * Generated from protobuf message <code>kdeploy.GatewayInput</code>
  */
-class Gateway extends \Google\Protobuf\Internal\Message
+class GatewayInput extends \Google\Protobuf\Internal\Message
 {
     /**
      * name of the application
@@ -26,7 +26,7 @@ class Gateway extends \Google\Protobuf\Internal\Message
      */
     private $namespace = '';
     /**
-     * Generated from protobuf field <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
+     * Generated from protobuf field <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = {</code>
      */
     private $listeners;
     /**
@@ -111,7 +111,7 @@ class Gateway extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
+     * Generated from protobuf field <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = {</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getListeners()
@@ -120,7 +120,7 @@ class Gateway extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
+     * Generated from protobuf field <code>repeated .kdeploy.GatewayListener listeners = 3 [(.validator.field) = {</code>
      * @param \Kdeploy\GatewayListener[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */

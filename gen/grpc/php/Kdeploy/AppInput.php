@@ -62,9 +62,13 @@ class AppInput extends \Google\Protobuf\Internal\Message
      */
     private $networking = null;
     /**
-     * Generated from protobuf field <code>map<string, string> labels = 10;</code>
+     * Generated from protobuf field <code>map<string, string> labels = 10 [(.validator.field) = {</code>
      */
     private $labels;
+    /**
+     * Generated from protobuf field <code>map<string, string> selectors = 11 [(.validator.field) = {</code>
+     */
+    private $selectors;
 
     /**
      * Constructor.
@@ -88,6 +92,7 @@ class AppInput extends \Google\Protobuf\Internal\Message
      *           number of deployment replicas
      *     @type \Kdeploy\Networking $networking
      *     @type array|\Google\Protobuf\Internal\MapField $labels
+     *     @type array|\Google\Protobuf\Internal\MapField $selectors
      * }
      */
     public function __construct($data = NULL) {
@@ -300,7 +305,7 @@ class AppInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>map<string, string> labels = 10;</code>
+     * Generated from protobuf field <code>map<string, string> labels = 10 [(.validator.field) = {</code>
      * @return \Google\Protobuf\Internal\MapField
      */
     public function getLabels()
@@ -309,7 +314,7 @@ class AppInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>map<string, string> labels = 10;</code>
+     * Generated from protobuf field <code>map<string, string> labels = 10 [(.validator.field) = {</code>
      * @param array|\Google\Protobuf\Internal\MapField $var
      * @return $this
      */
@@ -317,6 +322,28 @@ class AppInput extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::STRING);
         $this->labels = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>map<string, string> selectors = 11 [(.validator.field) = {</code>
+     * @return \Google\Protobuf\Internal\MapField
+     */
+    public function getSelectors()
+    {
+        return $this->selectors;
+    }
+
+    /**
+     * Generated from protobuf field <code>map<string, string> selectors = 11 [(.validator.field) = {</code>
+     * @param array|\Google\Protobuf\Internal\MapField $var
+     * @return $this
+     */
+    public function setSelectors($var)
+    {
+        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::STRING);
+        $this->selectors = $arr;
 
         return $this;
     }

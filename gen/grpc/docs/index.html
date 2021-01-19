@@ -195,6 +195,10 @@
                 </li>
               
                 <li>
+                  <a href="#kdeploy.App.SelectorsEntry"><span class="badge">M</span>App.SelectorsEntry</a>
+                </li>
+              
+                <li>
                   <a href="#kdeploy.AppInput"><span class="badge">M</span>AppInput</a>
                 </li>
               
@@ -211,6 +215,10 @@
                 </li>
               
                 <li>
+                  <a href="#kdeploy.AppInput.SelectorsEntry"><span class="badge">M</span>AppInput.SelectorsEntry</a>
+                </li>
+              
+                <li>
                   <a href="#kdeploy.AppStatus"><span class="badge">M</span>AppStatus</a>
                 </li>
               
@@ -224,6 +232,22 @@
               
                 <li>
                   <a href="#kdeploy.Gateway.LabelsEntry"><span class="badge">M</span>Gateway.LabelsEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#kdeploy.Gateway.SelectorsEntry"><span class="badge">M</span>Gateway.SelectorsEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#kdeploy.GatewayInput"><span class="badge">M</span>GatewayInput</a>
+                </li>
+              
+                <li>
+                  <a href="#kdeploy.GatewayInput.LabelsEntry"><span class="badge">M</span>GatewayInput.LabelsEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#kdeploy.GatewayInput.SelectorsEntry"><span class="badge">M</span>GatewayInput.SelectorsEntry</a>
                 </li>
               
                 <li>
@@ -271,7 +295,7 @@
                 </li>
               
                 <li>
-                  <a href="#kdeploy.Task.LabelsEntry"><span class="badge">M</span>Task.LabelsEntry</a>
+                  <a href="#kdeploy.Task.SelectorEntry"><span class="badge">M</span>Task.SelectorEntry</a>
                 </li>
               
                 <li>
@@ -283,7 +307,7 @@
                 </li>
               
                 <li>
-                  <a href="#kdeploy.TaskInput.LabelsEntry"><span class="badge">M</span>TaskInput.LabelsEntry</a>
+                  <a href="#kdeploy.TaskInput.SelectorEntry"><span class="badge">M</span>TaskInput.SelectorEntry</a>
                 </li>
               
                 <li>
@@ -387,6 +411,13 @@
                 </tr>
               
                 <tr>
+                  <td>selectors</td>
+                  <td><a href="#kdeploy.App.SelectorsEntry">App.SelectorsEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
                   <td>networking</td>
                   <td><a href="#kdeploy.Networking">Networking</a></td>
                   <td></td>
@@ -451,6 +482,28 @@
               
                 <tr>
                   <td>ports</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>labels</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>selectors</td>
                   <td>
                     <ul>
                     
@@ -582,6 +635,37 @@
 
         
       
+        <h3 id="kdeploy.App.SelectorsEntry">App.SelectorsEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="kdeploy.AppInput">AppInput</h3>
         <p>AppInput creates/replaces an app</p>
 
@@ -655,6 +739,13 @@
                   <td><p> </p></td>
                 </tr>
               
+                <tr>
+                  <td>selectors</td>
+                  <td><a href="#kdeploy.AppInput.SelectorsEntry">AppInput.SelectorsEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
             </tbody>
           </table>
 
@@ -717,6 +808,28 @@
               
                 <tr>
                   <td>networking</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>labels</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>selectors</td>
                   <td>
                     <ul>
                     
@@ -826,6 +939,37 @@
 
         
       
+        <h3 id="kdeploy.AppInput.SelectorsEntry">AppInput.SelectorsEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="kdeploy.AppStatus">AppStatus</h3>
         <p></p>
 
@@ -912,6 +1056,13 @@
                   <td><p> </p></td>
                 </tr>
               
+                <tr>
+                  <td>selectors</td>
+                  <td><a href="#kdeploy.Gateway.SelectorsEntry">Gateway.SelectorsEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
             </tbody>
           </table>
 
@@ -950,6 +1101,28 @@
                   </td>
                 </tr>
               
+                <tr>
+                  <td>labels</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>selectors</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
               </tbody>
             </table>
             
@@ -958,6 +1131,222 @@
         
       
         <h3 id="kdeploy.Gateway.LabelsEntry">Gateway.LabelsEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="kdeploy.Gateway.SelectorsEntry">Gateway.SelectorsEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="kdeploy.GatewayInput">GatewayInput</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>name of the application </p></td>
+                </tr>
+              
+                <tr>
+                  <td>namespace</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>application namespace </p></td>
+                </tr>
+              
+                <tr>
+                  <td>listeners</td>
+                  <td><a href="#kdeploy.GatewayListener">GatewayListener</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>labels</td>
+                  <td><a href="#kdeploy.GatewayInput.LabelsEntry">GatewayInput.LabelsEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>selectors</td>
+                  <td><a href="#kdeploy.GatewayInput.SelectorsEntry">GatewayInput.SelectorsEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>namespace</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>listeners</td>
+                  <td>
+                    <ul>
+                    
+                      <li>repeated_count_min: 0</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>labels</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>selectors</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
+          
+
+        
+      
+        <h3 id="kdeploy.GatewayInput.LabelsEntry">GatewayInput.LabelsEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="kdeploy.GatewayInput.SelectorsEntry">GatewayInput.SelectorsEntry</h3>
         <p></p>
 
         
@@ -1589,8 +1978,8 @@
                 </tr>
               
                 <tr>
-                  <td>labels</td>
-                  <td><a href="#kdeploy.Task.LabelsEntry">Task.LabelsEntry</a></td>
+                  <td>selector</td>
+                  <td><a href="#kdeploy.Task.SelectorEntry">Task.SelectorEntry</a></td>
                   <td>repeated</td>
                   <td><p> </p></td>
                 </tr>
@@ -1693,7 +2082,7 @@
 
         
       
-        <h3 id="kdeploy.Task.LabelsEntry">Task.LabelsEntry</h3>
+        <h3 id="kdeploy.Task.SelectorEntry">Task.SelectorEntry</h3>
         <p></p>
 
         
@@ -1784,8 +2173,8 @@
                 </tr>
               
                 <tr>
-                  <td>labels</td>
-                  <td><a href="#kdeploy.TaskInput.LabelsEntry">TaskInput.LabelsEntry</a></td>
+                  <td>selector</td>
+                  <td><a href="#kdeploy.TaskInput.SelectorEntry">TaskInput.SelectorEntry</a></td>
                   <td>repeated</td>
                   <td><p> </p></td>
                 </tr>
@@ -1888,7 +2277,7 @@
 
         
       
-        <h3 id="kdeploy.TaskInput.LabelsEntry">TaskInput.LabelsEntry</h3>
+        <h3 id="kdeploy.TaskInput.SelectorEntry">TaskInput.SelectorEntry</h3>
         <p></p>
 
         
@@ -2149,6 +2538,34 @@ the namespace will automatically be created if one does not already exist</p></t
                 <td><a href="#kdeploy.Log">Log</a> stream</td>
                 <td><p>StreamLogs streams logs from an app/task within an existing namespace.
 Streams are opened to all replicas &amp; converted into a single stream</p></td>
+              </tr>
+            
+              <tr>
+                <td>CreateGateway</td>
+                <td><a href="#kdeploy.Gateway">Gateway</a></td>
+                <td><a href="#kdeploy.Gateway">Gateway</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdateGateway</td>
+                <td><a href="#kdeploy.Gateway">Gateway</a></td>
+                <td><a href="#kdeploy.Gateway">Gateway</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>DeleteGateway</td>
+                <td><a href="#kdeploy.Ref">Ref</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>GetGateway</td>
+                <td><a href="#kdeploy.Ref">Ref</a></td>
+                <td><a href="#kdeploy.Gateway">Gateway</a></td>
+                <td><p></p></td>
               </tr>
             
           </tbody>

@@ -92,3 +92,20 @@ func (k KdeployService) GetTask(ctx context.Context, ref *kdeploypb.Ref) (*kdepl
 func (k KdeployService) ListTasks(ctx context.Context, ns *kdeploypb.Namespace) (*kdeploypb.Tasks, error) {
 	return k.client.ListTasks(ctx, ns)
 }
+
+func (k KdeployService) CreateGateway(ctx context.Context, gateway *kdeploypb.Gateway) (*kdeploypb.Gateway, error) {
+	return k.client.CreateGateway(ctx, gateway)
+}
+
+func (k KdeployService) UpdateGateway(ctx context.Context, gateway *kdeploypb.Gateway) (*kdeploypb.Gateway, error) {
+	return k.client.UpdateGateway(ctx, gateway)
+}
+
+func (k KdeployService) DeleteGateway(ctx context.Context, ref *kdeploypb.Ref) (*empty.Empty, error) {
+	return &empty.Empty{}, k.client.DeleteGateway(ctx, ref)
+}
+
+func (k KdeployService) GetGateway(ctx context.Context, ref *kdeploypb.Ref) (*kdeploypb.Gateway, error) {
+	return k.client.GetGateway(ctx, ref)
+
+}

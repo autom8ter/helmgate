@@ -8,9 +8,9 @@ import (
 	"github.com/spf13/cast"
 	"istio.io/api/meta/v1alpha1"
 	"istio.io/api/networking/v1alpha3"
+	nv1alpha3 "istio.io/api/networking/v1alpha3"
 	networking "istio.io/client-go/pkg/apis/networking/v1alpha3"
 	pkgnv1alpha3 "istio.io/client-go/pkg/apis/networking/v1alpha3"
-	nv1alpha3 "istio.io/api/networking/v1alpha3"
 	apps "k8s.io/api/apps/v1"
 	batchv1 "k8s.io/api/batch/v1"
 	"k8s.io/api/batch/v1beta1"
@@ -117,6 +117,19 @@ func toNamespace(app *kdeploypb.AppInput) *v12.Namespace {
 			Name:      app.Namespace,
 			Namespace: app.Namespace,
 			Labels:    namespaceLabels(),
+		},
+		Spec:   v12.NamespaceSpec{},
+		Status: v12.NamespaceStatus{},
+	}
+}
+
+func toGwNamespace(gw *kdeploypb.Gateway) *v12.Namespace {
+	return &v12.Namespace{
+		TypeMeta: metav1.TypeMeta{},
+		ObjectMeta: metav1.ObjectMeta{
+			Name:      gw.Namespace,
+			Namespace: gw.Namespace,
+			Labels:    gwLabels(gw),
 		},
 		Spec:   v12.NamespaceSpec{},
 		Status: v12.NamespaceStatus{},
@@ -398,7 +411,7 @@ func overwriteDeployment(deployment *apps.Deployment, app *kdeploypb.AppInput) (
 	return deployment, nil
 }
 
-func overwriteGateway(gateway *v1alpha3.Gateway, gw *kdeploypb.Gateway) *v1alpha3.Gateway {
+func overwriteGateway(gateway *pkgnv1alpha3.Gateway, gw *kdeploypb.Gateway) *pkgnv1alpha3.Gateway {
 
 	return gateway
 }
@@ -409,8 +422,8 @@ func toGateway(gateway *kdeploypb.Gateway) *pkgnv1alpha3.Gateway {
 		var tls *nv1alpha3.ServerTLSSettings
 		if l.TlsConfig != nil {
 			tls = &nv1alpha3.ServerTLSSettings{
-				HttpsRedirect:         l.TlsConfig.HttpsRedirect,
-				Mode:                  func() nv1alpha3.ServerTLSSettings_TLSmode {
+				HttpsRedirect: l.TlsConfig.HttpsRedirect,
+				Mode: func() nv1alpha3.ServerTLSSettings_TLSmode {
 					switch l.TlsConfig.Mode {
 					case kdeploypb.TLSmode_SIMPLE:
 						return nv1alpha3.ServerTLSSettings_SIMPLE
@@ -444,14 +457,23 @@ func toGateway(gateway *kdeploypb.Gateway) *pkgnv1alpha3.Gateway {
 				Protocol: l.Protocol.String(),
 				Name:     strings.ToLower(l.Protocol.String()),
 			},
-			Hosts:                l.GetHosts(),
-			Tls:                  tls,
-			Name:                 l.GetName(),
+			Hosts: l.GetHosts(),
+			Tls:   tls,
+			Name:  l.GetName(),
 		})
 	}
-	return &nv1alpha3.Gateway{
-		Servers:              servers,
-		Selector:             gwLabels(gateway),
+	return &pkgnv1alpha3.Gateway{
+		TypeMeta: metav1.TypeMeta{},
+		ObjectMeta: metav1.ObjectMeta{
+			Name:      gateway.GetName(),
+			Namespace: gateway.GetNamespace(),
+			Labels:    gwLabels(gateway),
+		},
+		Spec: nv1alpha3.Gateway{
+			Servers:  servers,
+			Selector: gateway.Labels,
+		},
+		Status: v1alpha1.IstioStatus{},
 	}
 }
 
@@ -563,4 +585,71 @@ func (k *k8sTask) toTask() *kdeploypb.Task {
 		ports[p.Name] = cast.ToUint32(p.ContainerPort)
 	}
 	return a
+}
+
+type k8sGateway struct {
+	namespace *v12.Namespace
+	gateway   *pkgnv1alpha3.Gateway
+}
+
+func (k *k8sGateway) toGateway() *kdeploypb.Gateway {
+	var listeners []*kdeploypb.GatewayListener
+	for _, l := range k.gateway.Spec.GetServers() {
+		listeners = append(listeners, &kdeploypb.GatewayListener{
+			Port: l.GetPort().GetNumber(),
+			Name: l.GetName(),
+			Protocol: func() kdeploypb.Protocol {
+				switch l.GetPort().GetProtocol() {
+				case "GRPC":
+					return kdeploypb.Protocol_GRPC
+				case "HTTP":
+					return kdeploypb.Protocol_HTTP
+				case "HTTP2":
+					return kdeploypb.Protocol_HTTP2
+				case "HTTPS":
+					return kdeploypb.Protocol_HTTPS
+				case "MONGO":
+					return kdeploypb.Protocol_MONGO
+				case "TLS":
+					return kdeploypb.Protocol_TLS
+				default:
+					return kdeploypb.Protocol_TCP
+				}
+			}(),
+			Hosts: l.GetHosts(),
+			TlsConfig: &kdeploypb.ServerTLSSettings{
+				HttpsRedirect: l.GetTls().GetHttpsRedirect(),
+				Mode: func() kdeploypb.TLSmode {
+					switch l.GetTls().GetMode() {
+					case nv1alpha3.ServerTLSSettings_SIMPLE:
+						return kdeploypb.TLSmode_SIMPLE
+					case nv1alpha3.ServerTLSSettings_MUTUAL:
+						return kdeploypb.TLSmode_MUTUAL
+					case nv1alpha3.ServerTLSSettings_ISTIO_MUTUAL:
+						return kdeploypb.TLSmode_ISTIO_MUTUAL
+					case nv1alpha3.ServerTLSSettings_AUTO_PASSTHROUGH:
+						return kdeploypb.TLSmode_AUTO_PASSTHROUGH
+					case nv1alpha3.ServerTLSSettings_PASSTHROUGH:
+						return kdeploypb.TLSmode_PASSTHROUGH
+					default:
+						return kdeploypb.TLSmode_SIMPLE
+					}
+				}(),
+				ServerCertificate:     l.GetTls().GetServerCertificate(),
+				PrivateKey:            l.GetTls().GetPrivateKey(),
+				CaCertificates:        l.GetTls().GetCaCertificates(),
+				CredentialName:        l.GetTls().GetCredentialName(),
+				SubjectAltNames:       l.GetTls().GetSubjectAltNames(),
+				VerifyCertificateSpki: l.GetTls().GetVerifyCertificateSpki(),
+				VerifyCertificateHash: l.GetTls().GetVerifyCertificateHash(),
+				CipherSuites:          l.GetTls().GetCipherSuites(),
+			},
+		})
+	}
+	return &kdeploypb.Gateway{
+		Name:      k.gateway.ObjectMeta.Name,
+		Namespace: k.gateway.ObjectMeta.Namespace,
+		Listeners: listeners,
+		Labels:    k.gateway.Spec.GetSelector(),
+	}
 }

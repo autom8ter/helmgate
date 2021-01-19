@@ -32,6 +32,14 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     optional :namespace, :string, 2
     repeated :listeners, :message, 3, "kdeploy.GatewayListener"
     map :labels, :string, :string, 4
+    map :selectors, :string, :string, 5
+  end
+  add_message "kdeploy.GatewayInput" do
+    optional :name, :string, 1
+    optional :namespace, :string, 2
+    repeated :listeners, :message, 3, "kdeploy.GatewayListener"
+    map :labels, :string, :string, 4
+    map :selectors, :string, :string, 5
   end
   add_message "kdeploy.HTTPRoute" do
     optional :name, :string, 1
@@ -59,7 +67,8 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     map :ports, :string, :uint32, 7
     optional :replicas, :uint32, 8
     map :labels, :string, :string, 9
-    optional :networking, :message, 10, "kdeploy.Networking"
+    map :selectors, :string, :string, 10
+    optional :networking, :message, 11, "kdeploy.Networking"
     optional :status, :message, 20, "kdeploy.AppStatus"
   end
   add_message "kdeploy.Task" do
@@ -70,7 +79,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     map :env, :string, :string, 6
     optional :schedule, :string, 7
     optional :completions, :uint32, 8
-    map :labels, :string, :string, 9
+    map :selector, :string, :string, 9
   end
   add_message "kdeploy.TaskInput" do
     optional :name, :string, 1
@@ -80,7 +89,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     map :env, :string, :string, 6
     optional :schedule, :string, 7
     optional :completions, :uint32, 8
-    map :labels, :string, :string, 9
+    map :selector, :string, :string, 9
   end
   add_message "kdeploy.AppInput" do
     optional :name, :string, 1
@@ -92,6 +101,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     optional :replicas, :uint32, 7
     optional :networking, :message, 9, "kdeploy.Networking"
     map :labels, :string, :string, 10
+    map :selectors, :string, :string, 11
   end
   add_message "kdeploy.Ref" do
     optional :name, :string, 1
@@ -143,6 +153,7 @@ module Kdeploy
   ServerTLSSettings = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.ServerTLSSettings").msgclass
   GatewayListener = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.GatewayListener").msgclass
   Gateway = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Gateway").msgclass
+  GatewayInput = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.GatewayInput").msgclass
   HTTPRoute = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.HTTPRoute").msgclass
   Networking = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Networking").msgclass
   App = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.App").msgclass

@@ -5,15 +5,15 @@ package kdeploypb
 
 import (
 	fmt "fmt"
-	math "math"
 	proto "github.com/golang/protobuf/proto"
-	_ "github.com/golang/protobuf/ptypes/struct"
-	_ "github.com/golang/protobuf/ptypes/timestamp"
 	_ "github.com/golang/protobuf/ptypes/any"
 	_ "github.com/golang/protobuf/ptypes/empty"
+	_ "github.com/golang/protobuf/ptypes/struct"
+	_ "github.com/golang/protobuf/ptypes/timestamp"
 	_ "github.com/mwitkow/go-proto-validators"
-	regexp "regexp"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
+	math "math"
+	regexp "regexp"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -63,6 +63,32 @@ func (this *Gateway) Validate() error {
 		}
 	}
 	// Validation of proto3 map<> fields is unsupported.
+	// Validation of proto3 map<> fields is unsupported.
+	return nil
+}
+
+var _regex_GatewayInput_Name = regexp.MustCompile(`^.{1,225}$`)
+var _regex_GatewayInput_Namespace = regexp.MustCompile(`^.{1,225}$`)
+
+func (this *GatewayInput) Validate() error {
+	if !_regex_GatewayInput_Name.MatchString(this.Name) {
+		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
+	}
+	if !_regex_GatewayInput_Namespace.MatchString(this.Namespace) {
+		return github_com_mwitkow_go_proto_validators.FieldError("Namespace", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Namespace))
+	}
+	if len(this.Listeners) < 0 {
+		return github_com_mwitkow_go_proto_validators.FieldError("Listeners", fmt.Errorf(`value '%v' must contain at least 0 elements`, this.Listeners))
+	}
+	for _, item := range this.Listeners {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Listeners", err)
+			}
+		}
+	}
+	// Validation of proto3 map<> fields is unsupported.
+	// Validation of proto3 map<> fields is unsupported.
 	return nil
 }
 
@@ -102,6 +128,7 @@ func (this *App) Validate() error {
 	if !_regex_App_Image.MatchString(this.Image) {
 		return github_com_mwitkow_go_proto_validators.FieldError("Image", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Image))
 	}
+	// Validation of proto3 map<> fields is unsupported.
 	// Validation of proto3 map<> fields is unsupported.
 	// Validation of proto3 map<> fields is unsupported.
 	// Validation of proto3 map<> fields is unsupported.
@@ -194,6 +221,7 @@ func (this *AppInput) Validate() error {
 			return github_com_mwitkow_go_proto_validators.FieldError("Networking", err)
 		}
 	}
+	// Validation of proto3 map<> fields is unsupported.
 	// Validation of proto3 map<> fields is unsupported.
 	return nil
 }

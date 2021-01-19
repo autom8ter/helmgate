@@ -58,9 +58,9 @@ class TaskInput extends \Google\Protobuf\Internal\Message
      */
     private $completions = 0;
     /**
-     * Generated from protobuf field <code>map<string, string> labels = 9;</code>
+     * Generated from protobuf field <code>map<string, string> selector = 9;</code>
      */
-    private $labels;
+    private $selector;
 
     /**
      * Constructor.
@@ -82,7 +82,7 @@ class TaskInput extends \Google\Protobuf\Internal\Message
      *           schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
      *     @type int $completions
      *           completions is the number of times to execute the task. If completions = 0, the task will run forever
-     *     @type array|\Google\Protobuf\Internal\MapField $labels
+     *     @type array|\Google\Protobuf\Internal\MapField $selector
      * }
      */
     public function __construct($data = NULL) {
@@ -273,23 +273,23 @@ class TaskInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>map<string, string> labels = 9;</code>
+     * Generated from protobuf field <code>map<string, string> selector = 9;</code>
      * @return \Google\Protobuf\Internal\MapField
      */
-    public function getLabels()
+    public function getSelector()
     {
-        return $this->labels;
+        return $this->selector;
     }
 
     /**
-     * Generated from protobuf field <code>map<string, string> labels = 9;</code>
+     * Generated from protobuf field <code>map<string, string> selector = 9;</code>
      * @param array|\Google\Protobuf\Internal\MapField $var
      * @return $this
      */
-    public function setLabels($var)
+    public function setSelector($var)
     {
         $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->labels = $arr;
+        $this->selector = $arr;
 
         return $this;
     }
