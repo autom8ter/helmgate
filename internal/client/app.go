@@ -13,7 +13,7 @@ import (
 	"sync"
 )
 
-func (m *Manager) CreateApp(ctx context.Context, app *kdeploypb.AppConstructor) (*kdeploypb.App, error) {
+func (m *Manager) CreateApp(ctx context.Context, app *kdeploypb.AppInput) (*kdeploypb.App, error) {
 	kapp := &k8sApp{}
 	namespace, err := m.kclient.Namespaces().Get(ctx, app.Namespace, v1.GetOptions{})
 	if err != nil {
@@ -46,7 +46,7 @@ func (m *Manager) CreateApp(ctx context.Context, app *kdeploypb.AppConstructor) 
 	return a, nil
 }
 
-func (m *Manager) UpdateApp(ctx context.Context, app *kdeploypb.AppUpdate) (*kdeploypb.App, error) {
+func (m *Manager) UpdateApp(ctx context.Context, app *kdeploypb.AppInput) (*kdeploypb.App, error) {
 	kapp := &k8sApp{}
 	namespace, err := m.kclient.Namespaces().Get(ctx, app.Namespace, v1.GetOptions{})
 	if err != nil {

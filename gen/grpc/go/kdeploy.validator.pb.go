@@ -5,15 +5,15 @@ package kdeploypb
 
 import (
 	fmt "fmt"
-	math "math"
 	proto "github.com/golang/protobuf/proto"
-	_ "github.com/golang/protobuf/ptypes/struct"
-	_ "github.com/golang/protobuf/ptypes/timestamp"
 	_ "github.com/golang/protobuf/ptypes/any"
 	_ "github.com/golang/protobuf/ptypes/empty"
+	_ "github.com/golang/protobuf/ptypes/struct"
+	_ "github.com/golang/protobuf/ptypes/timestamp"
 	_ "github.com/mwitkow/go-proto-validators"
-	regexp "regexp"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
+	math "math"
+	regexp "regexp"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -54,54 +54,40 @@ func (this *Task) Validate() error {
 	return nil
 }
 
-var _regex_TaskConstructor_Name = regexp.MustCompile(`^.{1,225}$`)
-var _regex_TaskConstructor_Namespace = regexp.MustCompile(`^.{1,225}$`)
-var _regex_TaskConstructor_Image = regexp.MustCompile(`^.{1,225}$`)
-var _regex_TaskConstructor_Schedule = regexp.MustCompile(`^.{1,225}$`)
+var _regex_TaskInput_Name = regexp.MustCompile(`^.{1,225}$`)
+var _regex_TaskInput_Namespace = regexp.MustCompile(`^.{1,225}$`)
+var _regex_TaskInput_Image = regexp.MustCompile(`^.{1,225}$`)
+var _regex_TaskInput_Schedule = regexp.MustCompile(`^.{1,225}$`)
 
-func (this *TaskConstructor) Validate() error {
-	if !_regex_TaskConstructor_Name.MatchString(this.Name) {
+func (this *TaskInput) Validate() error {
+	if !_regex_TaskInput_Name.MatchString(this.Name) {
 		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
 	}
-	if !_regex_TaskConstructor_Namespace.MatchString(this.Namespace) {
+	if !_regex_TaskInput_Namespace.MatchString(this.Namespace) {
 		return github_com_mwitkow_go_proto_validators.FieldError("Namespace", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Namespace))
 	}
-	if !_regex_TaskConstructor_Image.MatchString(this.Image) {
+	if !_regex_TaskInput_Image.MatchString(this.Image) {
 		return github_com_mwitkow_go_proto_validators.FieldError("Image", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Image))
 	}
 	// Validation of proto3 map<> fields is unsupported.
-	if !_regex_TaskConstructor_Schedule.MatchString(this.Schedule) {
+	if !_regex_TaskInput_Schedule.MatchString(this.Schedule) {
 		return github_com_mwitkow_go_proto_validators.FieldError("Schedule", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Schedule))
 	}
 	return nil
 }
 
-var _regex_TaskUpdate_Name = regexp.MustCompile(`^.{1,225}$`)
-var _regex_TaskUpdate_Namespace = regexp.MustCompile(`^.{1,225}$`)
+var _regex_AppInput_Name = regexp.MustCompile(`^.{1,225}$`)
+var _regex_AppInput_Namespace = regexp.MustCompile(`^.{1,225}$`)
+var _regex_AppInput_Image = regexp.MustCompile(`^.{1,225}$`)
 
-func (this *TaskUpdate) Validate() error {
-	if !_regex_TaskUpdate_Name.MatchString(this.Name) {
+func (this *AppInput) Validate() error {
+	if !_regex_AppInput_Name.MatchString(this.Name) {
 		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
 	}
-	if !_regex_TaskUpdate_Namespace.MatchString(this.Namespace) {
+	if !_regex_AppInput_Namespace.MatchString(this.Namespace) {
 		return github_com_mwitkow_go_proto_validators.FieldError("Namespace", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Namespace))
 	}
-	// Validation of proto3 map<> fields is unsupported.
-	return nil
-}
-
-var _regex_AppConstructor_Name = regexp.MustCompile(`^.{1,225}$`)
-var _regex_AppConstructor_Namespace = regexp.MustCompile(`^.{1,225}$`)
-var _regex_AppConstructor_Image = regexp.MustCompile(`^.{1,225}$`)
-
-func (this *AppConstructor) Validate() error {
-	if !_regex_AppConstructor_Name.MatchString(this.Name) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
-	}
-	if !_regex_AppConstructor_Namespace.MatchString(this.Namespace) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Namespace", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Namespace))
-	}
-	if !_regex_AppConstructor_Image.MatchString(this.Image) {
+	if !_regex_AppInput_Image.MatchString(this.Image) {
 		return github_com_mwitkow_go_proto_validators.FieldError("Image", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Image))
 	}
 	// Validation of proto3 map<> fields is unsupported.
@@ -109,26 +95,6 @@ func (this *AppConstructor) Validate() error {
 	if nil == this.Networking {
 		return github_com_mwitkow_go_proto_validators.FieldError("Networking", fmt.Errorf("message must exist"))
 	}
-	if this.Networking != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Networking); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("Networking", err)
-		}
-	}
-	return nil
-}
-
-var _regex_AppUpdate_Name = regexp.MustCompile(`^.{1,225}$`)
-var _regex_AppUpdate_Namespace = regexp.MustCompile(`^.{1,225}$`)
-
-func (this *AppUpdate) Validate() error {
-	if !_regex_AppUpdate_Name.MatchString(this.Name) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
-	}
-	if !_regex_AppUpdate_Namespace.MatchString(this.Namespace) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Namespace", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Namespace))
-	}
-	// Validation of proto3 map<> fields is unsupported.
-	// Validation of proto3 map<> fields is unsupported.
 	if this.Networking != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Networking); err != nil {
 			return github_com_mwitkow_go_proto_validators.FieldError("Networking", err)

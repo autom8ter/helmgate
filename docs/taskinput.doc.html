@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="./styles/graphdoc.css" />
-    <title>TaskConstructor</title>
+    <title>TaskInput</title>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
 </head>
 <body class="slds-scrollable--y">
@@ -165,14 +165,9 @@
 <div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
     <h4 class="slds-text-title--caps slds-p-around--medium">Input Objects</h4>
     <ul>
-        <li  title="AppConstructor">
-            <a href="appconstructor.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                AppConstructor
-            </a>
-        </li>
-        <li  title="AppUpdate">
-            <a href="appupdate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                AppUpdate
+        <li  title="AppInput">
+            <a href="appinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                AppInput
             </a>
         </li>
         <li  title="HTTPRouteInput">
@@ -195,14 +190,9 @@
                 Ref
             </a>
         </li>
-        <li class="slds-is-active" title="TaskConstructor">
-            <a href="taskconstructor.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                TaskConstructor
-            </a>
-        </li>
-        <li  title="TaskUpdate">
-            <a href="taskupdate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                TaskUpdate
+        <li class="slds-is-active" title="TaskInput">
+            <a href="taskinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                TaskInput
             </a>
         </li>
     </ul>
@@ -241,8 +231,8 @@
     </div>
     <div class="container">
         <p class="slds-text-title--caps slds-text-color--weak">INPUT_OBJECT</p>
-        <h1 class="slds-text-heading--large">TaskConstructor</h1>
-        <div class="slds-text-body--regular"><p>TaskConstructor creates a new task(cron job)</p>
+        <h1 class="slds-text-heading--large">TaskInput</h1>
+        <div class="slds-text-body--regular"><p>TaskInput creates a new task(cron job)</p>
 </div>
     </div>
 </section>
@@ -254,7 +244,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">input</span> <span class="identifier">TaskConstructor</span> {</li><li><span class="tab"><li><span class="tab"><span class="comment line">#   name of the application</span></span></li><li><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a>!</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   application namespace</span></span></li><li><span class="tab"><span class="meta">namespace</span>: <a class="support type" href="string.doc.html">String</a>!</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   docker image of application</span></span></li><li><span class="tab"><span class="meta">image</span>: <a class="support type" href="string.doc.html">String</a>!</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   args are arguments given to the container/image at startup</span></span></li><li><span class="tab"><span class="meta">args</span>: [<a class="support type" href="string.doc.html">String</a>!]</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   k/v map of environmental variables</span></span></li><li><span class="tab"><span class="meta">env</span>: <a class="support type" href="map.doc.html">Map</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   schedule is the cron schedule: </span></span></li><li><span class="tab"><span class="comment line">#   https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/</span></span></li><li><span class="tab"><span class="meta">schedule</span>: <a class="support type" href="string.doc.html">String</a>!</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   completions is the number of times to execute the task. If completions = 0, the </span></span></li><li><span class="tab"><span class="comment line">#   task will run forever</span></span></li><li><span class="tab"><span class="meta">completions</span>: <a class="support type" href="int.doc.html">Int</a></span></li></span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">input</span> <span class="identifier">TaskInput</span> {</li><li><span class="tab"><li><span class="tab"><span class="comment line">#   name of the application</span></span></li><li><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a>!</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   application namespace</span></span></li><li><span class="tab"><span class="meta">namespace</span>: <a class="support type" href="string.doc.html">String</a>!</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   docker image of application</span></span></li><li><span class="tab"><span class="meta">image</span>: <a class="support type" href="string.doc.html">String</a>!</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   args are arguments given to the container/image at startup</span></span></li><li><span class="tab"><span class="meta">args</span>: [<a class="support type" href="string.doc.html">String</a>!]</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   k/v map of environmental variables</span></span></li><li><span class="tab"><span class="meta">env</span>: <a class="support type" href="map.doc.html">Map</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   schedule is the cron schedule: </span></span></li><li><span class="tab"><span class="comment line">#   https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/</span></span></li><li><span class="tab"><span class="meta">schedule</span>: <a class="support type" href="string.doc.html">String</a>!</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   completions is the number of times to execute the task. If completions = 0, the </span></span></li><li><span class="tab"><span class="comment line">#   task will run forever</span></span></li><li><span class="tab"><span class="meta">completions</span>: <a class="support type" href="int.doc.html">Int</a></span></li></span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>

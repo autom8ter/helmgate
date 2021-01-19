@@ -34,7 +34,7 @@ func TestTasks(t *testing.T) {
 	for _, n := range namespaces.GetNamespaces() {
 		t.Log(n)
 	}
-	tsk, err := cli.CreateTask(context.Background(), &kdeploypb.TaskConstructor{
+	tsk, err := cli.CreateTask(context.Background(), &kdeploypb.TaskInput{
 		Name:        "echo-date",
 		Namespace:   "colemanw",
 		Image:       "busybox",

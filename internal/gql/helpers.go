@@ -7,7 +7,7 @@ import (
 	"github.com/spf13/cast"
 )
 
-func toAppC(input model.AppConstructor) *kdeploypb.AppConstructor {
+func toAppC(input model.AppInput) *kdeploypb.AppInput {
 	var env map[string]string
 	var ports map[string]uint32
 	if input.Env != nil {
@@ -19,7 +19,7 @@ func toAppC(input model.AppConstructor) *kdeploypb.AppConstructor {
 			ports[k] = cast.ToUint32(v)
 		}
 	}
-	return &kdeploypb.AppConstructor{
+	return &kdeploypb.AppInput{
 		Name:      input.Name,
 		Namespace: input.Namespace,
 		Image:     input.Image,
@@ -30,7 +30,7 @@ func toAppC(input model.AppConstructor) *kdeploypb.AppConstructor {
 	}
 }
 
-func toTaskC(input model.TaskConstructor) *kdeploypb.TaskConstructor {
+func toTaskC(input model.TaskInput) *kdeploypb.TaskInput {
 	var env map[string]string
 	var completions uint32
 	if input.Env != nil {
@@ -39,7 +39,7 @@ func toTaskC(input model.TaskConstructor) *kdeploypb.TaskConstructor {
 	if input.Completions != nil {
 		completions = uint32(*input.Completions)
 	}
-	return &kdeploypb.TaskConstructor{
+	return &kdeploypb.TaskInput{
 		Name:        input.Name,
 		Namespace:   input.Namespace,
 		Image:       input.Image,
@@ -50,12 +50,10 @@ func toTaskC(input model.TaskConstructor) *kdeploypb.TaskConstructor {
 	}
 }
 
-func toAppU(input model.AppUpdate) *kdeploypb.AppUpdate {
+func toAppU(input model.AppInput) *kdeploypb.AppInput {
 	var (
-		env      map[string]string
-		ports    map[string]uint32
-		image    string
-		replicas uint32
+		env   map[string]string
+		ports map[string]uint32
 	)
 	if input.Env != nil {
 		env = cast.ToStringMapString(input.Env)
@@ -66,50 +64,36 @@ func toAppU(input model.AppUpdate) *kdeploypb.AppUpdate {
 			ports[k] = cast.ToUint32(v)
 		}
 	}
-	if input.Image != nil {
-		image = *input.Image
-	}
-	if input.Replicas != nil {
-		replicas = uint32(*input.Replicas)
-	}
-	return &kdeploypb.AppUpdate{
+	return &kdeploypb.AppInput{
 		Name:       input.Name,
 		Namespace:  input.Namespace,
-		Image:      image,
+		Image:      input.Image,
 		Env:        env,
 		Ports:      ports,
-		Replicas:   replicas,
+		Replicas:   uint32(input.Replicas),
 		Args:       input.Args,
 		Networking: toNetworking(input.Networking),
 	}
 }
 
-func toTaskU(input model.TaskUpdate) *kdeploypb.TaskUpdate {
+func toTaskU(input model.TaskInput) *kdeploypb.TaskInput {
 	var (
 		env         map[string]string
-		schedule    string
-		image       string
 		completions int
 	)
 	if input.Env != nil {
 		env = cast.ToStringMapString(input.Env)
 	}
-	if input.Image != nil {
-		image = *input.Image
-	}
-	if input.Schedule != nil {
-		schedule = *input.Schedule
-	}
 	if input.Completions != nil {
 		completions = int(*input.Completions)
 	}
-	return &kdeploypb.TaskUpdate{
+	return &kdeploypb.TaskInput{
 		Name:        input.Name,
 		Namespace:   input.Namespace,
-		Image:       image,
+		Image:       input.Image,
 		Args:        input.Args,
 		Env:         env,
-		Schedule:    schedule,
+		Schedule:    input.Schedule,
 		Completions: uint32(completions),
 	}
 }

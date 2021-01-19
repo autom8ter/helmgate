@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='kdeploy',
   syntax='proto3',
   serialized_options=_b('Z\tkdeploypb'),
-  serialized_pb=_b('\n\rkdeploy.proto\x12\x07kdeploy\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x19google/protobuf/any.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x36github.com/mwitkow/go-proto-validators/validator.proto\"\xc9\x01\n\tHTTPRoute\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04port\x18\x02 \x01(\r\x12\x13\n\x0bpath_prefix\x18\x03 \x01(\t\x12\x13\n\x0brewrite_uri\x18\x04 \x01(\t\x12\x15\n\rallow_origins\x18\x05 \x03(\t\x12\x15\n\rallow_methods\x18\x06 \x03(\t\x12\x15\n\rallow_headers\x18\x07 \x03(\t\x12\x16\n\x0e\x65xpose_headers\x18\x08 \x03(\t\x12\x19\n\x11\x61llow_credentials\x18\t \x01(\x08\"f\n\nNetworking\x12\x10\n\x08gateways\x18\x01 \x03(\t\x12\r\n\x05hosts\x18\x02 \x03(\t\x12\x0e\n\x06\x65xport\x18\x03 \x01(\x08\x12\'\n\x0bhttp_routes\x18\x04 \x03(\x0b\x32\x12.kdeploy.HTTPRoute\"\xc8\x02\n\x03\x41pp\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tnamespace\x18\x02 \x01(\t\x12\r\n\x05image\x18\x03 \x01(\t\x12\x0c\n\x04\x61rgs\x18\x05 \x03(\t\x12\"\n\x03\x65nv\x18\x06 \x03(\x0b\x32\x15.kdeploy.App.EnvEntry\x12&\n\x05ports\x18\x07 \x03(\x0b\x32\x17.kdeploy.App.PortsEntry\x12\x10\n\x08replicas\x18\x08 \x01(\r\x12\'\n\nnetworking\x18\t \x01(\x0b\x32\x13.kdeploy.Networking\x12\"\n\x06status\x18\x14 \x01(\x0b\x32\x12.kdeploy.AppStatus\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a,\n\nPortsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\r:\x02\x38\x01\"\xbc\x01\n\x04Task\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tnamespace\x18\x02 \x01(\t\x12\r\n\x05image\x18\x03 \x01(\t\x12\x0c\n\x04\x61rgs\x18\x05 \x03(\t\x12#\n\x03\x65nv\x18\x06 \x03(\x0b\x32\x16.kdeploy.Task.EnvEntry\x12\x10\n\x08schedule\x18\x07 \x01(\t\x12\x13\n\x0b\x63ompletions\x18\x08 \x01(\r\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x9a\x02\n\x0fTaskConstructor\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05image\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x0c\n\x04\x61rgs\x18\x05 \x03(\t\x12.\n\x03\x65nv\x18\x06 \x03(\x0b\x32!.kdeploy.TaskConstructor.EnvEntry\x12\"\n\x08schedule\x18\x07 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x13\n\x0b\x63ompletions\x18\x08 \x01(\r\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xec\x01\n\nTaskUpdate\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\r\n\x05image\x18\x03 \x01(\t\x12\x0c\n\x04\x61rgs\x18\x05 \x03(\t\x12)\n\x03\x65nv\x18\x06 \x03(\x0b\x32\x1c.kdeploy.TaskUpdate.EnvEntry\x12\x10\n\x08schedule\x18\x07 \x01(\t\x12\x13\n\x0b\x63ompletions\x18\x08 \x01(\r\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x83\x03\n\x0e\x41ppConstructor\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05image\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x0c\n\x04\x61rgs\x18\x04 \x03(\t\x12-\n\x03\x65nv\x18\x05 \x03(\x0b\x32 .kdeploy.AppConstructor.EnvEntry\x12\x31\n\x05ports\x18\x06 \x03(\x0b\x32\".kdeploy.AppConstructor.PortsEntry\x12\x10\n\x08replicas\x18\x07 \x01(\r\x12/\n\nnetworking\x18\t \x01(\x0b\x32\x13.kdeploy.NetworkingB\x06\xe2\xdf\x1f\x02 \x01\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a,\n\nPortsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\r:\x02\x38\x01\"\xda\x02\n\tAppUpdate\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\r\n\x05image\x18\x03 \x01(\t\x12\x0c\n\x04\x61rgs\x18\x04 \x03(\t\x12(\n\x03\x65nv\x18\x05 \x03(\x0b\x32\x1b.kdeploy.AppUpdate.EnvEntry\x12,\n\x05ports\x18\x06 \x03(\x0b\x32\x1d.kdeploy.AppUpdate.PortsEntry\x12\x10\n\x08replicas\x18\x07 \x01(\r\x12\'\n\nnetworking\x18\t \x01(\x0b\x32\x13.kdeploy.Networking\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a,\n\nPortsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\r:\x02\x38\x01\"J\n\x03Ref\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\";\n\x07Replica\x12\r\n\x05phase\x18\x01 \x01(\t\x12\x11\n\tcondition\x18\x02 \x01(\t\x12\x0e\n\x06reason\x18\x03 \x01(\t\"/\n\tAppStatus\x12\"\n\x08replicas\x18\x01 \x03(\x0b\x32\x10.kdeploy.Replica\"\x16\n\x03Log\x12\x0f\n\x07message\x18\x01 \x01(\t\"*\n\x04\x41pps\x12\"\n\x0c\x61pplications\x18\x01 \x03(\x0b\x32\x0c.kdeploy.App\"%\n\x05Tasks\x12\x1c\n\x05tasks\x18\x01 \x03(\x0b\x32\r.kdeploy.Task\"\x1e\n\tNamespace\x12\x11\n\tnamespace\x18\x01 \x01(\t\" \n\nNamespaces\x12\x12\n\nnamespaces\x18\x01 \x03(\t2\xaf\x05\n\x0eKdeployService\x12\x34\n\tCreateApp\x12\x17.kdeploy.AppConstructor\x1a\x0c.kdeploy.App\"\x00\x12/\n\tUpdateApp\x12\x12.kdeploy.AppUpdate\x1a\x0c.kdeploy.App\"\x00\x12\x33\n\tDeleteApp\x12\x0c.kdeploy.Ref\x1a\x16.google.protobuf.Empty\"\x00\x12&\n\x06GetApp\x12\x0c.kdeploy.Ref\x1a\x0c.kdeploy.App\"\x00\x12/\n\x08ListApps\x12\x12.kdeploy.Namespace\x1a\r.kdeploy.Apps\"\x00\x12?\n\x0eListNamespaces\x12\x16.google.protobuf.Empty\x1a\x13.kdeploy.Namespaces\"\x00\x12\x39\n\tDeleteAll\x12\x12.kdeploy.Namespace\x1a\x16.google.protobuf.Empty\"\x00\x12\x37\n\nCreateTask\x12\x18.kdeploy.TaskConstructor\x1a\r.kdeploy.Task\"\x00\x12\x32\n\nUpdateTask\x12\x13.kdeploy.TaskUpdate\x1a\r.kdeploy.Task\"\x00\x12\x34\n\nDeleteTask\x12\x0c.kdeploy.Ref\x1a\x16.google.protobuf.Empty\"\x00\x12(\n\x07GetTask\x12\x0c.kdeploy.Ref\x1a\r.kdeploy.Task\"\x00\x12\x31\n\tListTasks\x12\x12.kdeploy.Namespace\x1a\x0e.kdeploy.Tasks\"\x00\x12,\n\nStreamLogs\x12\x0c.kdeploy.Ref\x1a\x0c.kdeploy.Log\"\x00\x30\x01\x42\x0bZ\tkdeploypbb\x06proto3')
+  serialized_pb=_b('\n\rkdeploy.proto\x12\x07kdeploy\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x19google/protobuf/any.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x36github.com/mwitkow/go-proto-validators/validator.proto\"\xc9\x01\n\tHTTPRoute\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04port\x18\x02 \x01(\r\x12\x13\n\x0bpath_prefix\x18\x03 \x01(\t\x12\x13\n\x0brewrite_uri\x18\x04 \x01(\t\x12\x15\n\rallow_origins\x18\x05 \x03(\t\x12\x15\n\rallow_methods\x18\x06 \x03(\t\x12\x15\n\rallow_headers\x18\x07 \x03(\t\x12\x16\n\x0e\x65xpose_headers\x18\x08 \x03(\t\x12\x19\n\x11\x61llow_credentials\x18\t \x01(\x08\"f\n\nNetworking\x12\x10\n\x08gateways\x18\x01 \x03(\t\x12\r\n\x05hosts\x18\x02 \x03(\t\x12\x0e\n\x06\x65xport\x18\x03 \x01(\x08\x12\'\n\x0bhttp_routes\x18\x04 \x03(\x0b\x32\x12.kdeploy.HTTPRoute\"\xc8\x02\n\x03\x41pp\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tnamespace\x18\x02 \x01(\t\x12\r\n\x05image\x18\x03 \x01(\t\x12\x0c\n\x04\x61rgs\x18\x05 \x03(\t\x12\"\n\x03\x65nv\x18\x06 \x03(\x0b\x32\x15.kdeploy.App.EnvEntry\x12&\n\x05ports\x18\x07 \x03(\x0b\x32\x17.kdeploy.App.PortsEntry\x12\x10\n\x08replicas\x18\x08 \x01(\r\x12\'\n\nnetworking\x18\t \x01(\x0b\x32\x13.kdeploy.Networking\x12\"\n\x06status\x18\x14 \x01(\x0b\x32\x12.kdeploy.AppStatus\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a,\n\nPortsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\r:\x02\x38\x01\"\xbc\x01\n\x04Task\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tnamespace\x18\x02 \x01(\t\x12\r\n\x05image\x18\x03 \x01(\t\x12\x0c\n\x04\x61rgs\x18\x05 \x03(\t\x12#\n\x03\x65nv\x18\x06 \x03(\x0b\x32\x16.kdeploy.Task.EnvEntry\x12\x10\n\x08schedule\x18\x07 \x01(\t\x12\x13\n\x0b\x63ompletions\x18\x08 \x01(\r\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x8e\x02\n\tTaskInput\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05image\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x0c\n\x04\x61rgs\x18\x05 \x03(\t\x12(\n\x03\x65nv\x18\x06 \x03(\x0b\x32\x1b.kdeploy.TaskInput.EnvEntry\x12\"\n\x08schedule\x18\x07 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x13\n\x0b\x63ompletions\x18\x08 \x01(\r\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xf9\x02\n\x08\x41ppInput\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05image\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x0c\n\x04\x61rgs\x18\x04 \x03(\t\x12\'\n\x03\x65nv\x18\x05 \x03(\x0b\x32\x1a.kdeploy.AppInput.EnvEntry\x12\x33\n\x05ports\x18\x06 \x03(\x0b\x32\x1c.kdeploy.AppInput.PortsEntryB\x06\xe2\xdf\x1f\x02 \x01\x12\x10\n\x08replicas\x18\x07 \x01(\r\x12/\n\nnetworking\x18\t \x01(\x0b\x32\x13.kdeploy.NetworkingB\x06\xe2\xdf\x1f\x02 \x01\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a,\n\nPortsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\r:\x02\x38\x01\"J\n\x03Ref\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\";\n\x07Replica\x12\r\n\x05phase\x18\x01 \x01(\t\x12\x11\n\tcondition\x18\x02 \x01(\t\x12\x0e\n\x06reason\x18\x03 \x01(\t\"/\n\tAppStatus\x12\"\n\x08replicas\x18\x01 \x03(\x0b\x32\x10.kdeploy.Replica\"\x16\n\x03Log\x12\x0f\n\x07message\x18\x01 \x01(\t\"*\n\x04\x41pps\x12\"\n\x0c\x61pplications\x18\x01 \x03(\x0b\x32\x0c.kdeploy.App\"%\n\x05Tasks\x12\x1c\n\x05tasks\x18\x01 \x03(\x0b\x32\r.kdeploy.Task\"\x1e\n\tNamespace\x12\x11\n\tnamespace\x18\x01 \x01(\t\" \n\nNamespaces\x12\x12\n\nnamespaces\x18\x01 \x03(\t2\xa1\x05\n\x0eKdeployService\x12.\n\tCreateApp\x12\x11.kdeploy.AppInput\x1a\x0c.kdeploy.App\"\x00\x12.\n\tUpdateApp\x12\x11.kdeploy.AppInput\x1a\x0c.kdeploy.App\"\x00\x12\x33\n\tDeleteApp\x12\x0c.kdeploy.Ref\x1a\x16.google.protobuf.Empty\"\x00\x12&\n\x06GetApp\x12\x0c.kdeploy.Ref\x1a\x0c.kdeploy.App\"\x00\x12/\n\x08ListApps\x12\x12.kdeploy.Namespace\x1a\r.kdeploy.Apps\"\x00\x12?\n\x0eListNamespaces\x12\x16.google.protobuf.Empty\x1a\x13.kdeploy.Namespaces\"\x00\x12\x39\n\tDeleteAll\x12\x12.kdeploy.Namespace\x1a\x16.google.protobuf.Empty\"\x00\x12\x31\n\nCreateTask\x12\x12.kdeploy.TaskInput\x1a\r.kdeploy.Task\"\x00\x12\x31\n\nUpdateTask\x12\x12.kdeploy.TaskInput\x1a\r.kdeploy.Task\"\x00\x12\x34\n\nDeleteTask\x12\x0c.kdeploy.Ref\x1a\x16.google.protobuf.Empty\"\x00\x12(\n\x07GetTask\x12\x0c.kdeploy.Ref\x1a\r.kdeploy.Task\"\x00\x12\x31\n\tListTasks\x12\x12.kdeploy.Namespace\x1a\x0e.kdeploy.Tasks\"\x00\x12,\n\nStreamLogs\x12\x0c.kdeploy.Ref\x1a\x0c.kdeploy.Log\"\x00\x30\x01\x42\x0bZ\tkdeploypbb\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_any__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,github_dot_com_dot_mwitkow_dot_go__proto__validators_dot_validator__pb2.DESCRIPTOR,])
 
@@ -441,22 +441,22 @@ _TASK = _descriptor.Descriptor(
 )
 
 
-_TASKCONSTRUCTOR_ENVENTRY = _descriptor.Descriptor(
+_TASKINPUT_ENVENTRY = _descriptor.Descriptor(
   name='EnvEntry',
-  full_name='kdeploy.TaskConstructor.EnvEntry',
+  full_name='kdeploy.TaskInput.EnvEntry',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='key', full_name='kdeploy.TaskConstructor.EnvEntry.key', index=0,
+      name='key', full_name='kdeploy.TaskInput.EnvEntry.key', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='value', full_name='kdeploy.TaskConstructor.EnvEntry.value', index=1,
+      name='value', full_name='kdeploy.TaskInput.EnvEntry.value', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -478,57 +478,57 @@ _TASKCONSTRUCTOR_ENVENTRY = _descriptor.Descriptor(
   serialized_end=792,
 )
 
-_TASKCONSTRUCTOR = _descriptor.Descriptor(
-  name='TaskConstructor',
-  full_name='kdeploy.TaskConstructor',
+_TASKINPUT = _descriptor.Descriptor(
+  name='TaskInput',
+  full_name='kdeploy.TaskInput',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='kdeploy.TaskConstructor.name', index=0,
+      name='name', full_name='kdeploy.TaskInput.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=_b('\342\337\037\014\n\n^.{1,225}$'), file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='namespace', full_name='kdeploy.TaskConstructor.namespace', index=1,
+      name='namespace', full_name='kdeploy.TaskInput.namespace', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=_b('\342\337\037\014\n\n^.{1,225}$'), file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='image', full_name='kdeploy.TaskConstructor.image', index=2,
+      name='image', full_name='kdeploy.TaskInput.image', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=_b('\342\337\037\014\n\n^.{1,225}$'), file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='args', full_name='kdeploy.TaskConstructor.args', index=3,
+      name='args', full_name='kdeploy.TaskInput.args', index=3,
       number=5, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='env', full_name='kdeploy.TaskConstructor.env', index=4,
+      name='env', full_name='kdeploy.TaskInput.env', index=4,
       number=6, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='schedule', full_name='kdeploy.TaskConstructor.schedule', index=5,
+      name='schedule', full_name='kdeploy.TaskInput.schedule', index=5,
       number=7, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=_b('\342\337\037\014\n\n^.{1,225}$'), file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='completions', full_name='kdeploy.TaskConstructor.completions', index=6,
+      name='completions', full_name='kdeploy.TaskInput.completions', index=6,
       number=8, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -537,7 +537,7 @@ _TASKCONSTRUCTOR = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_TASKCONSTRUCTOR_ENVENTRY, ],
+  nested_types=[_TASKINPUT_ENVENTRY, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -547,26 +547,26 @@ _TASKCONSTRUCTOR = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=1032,
-  serialized_end=1314,
+  serialized_end=1302,
 )
 
 
-_TASKUPDATE_ENVENTRY = _descriptor.Descriptor(
+_APPINPUT_ENVENTRY = _descriptor.Descriptor(
   name='EnvEntry',
-  full_name='kdeploy.TaskUpdate.EnvEntry',
+  full_name='kdeploy.AppInput.EnvEntry',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='key', full_name='kdeploy.TaskUpdate.EnvEntry.key', index=0,
+      name='key', full_name='kdeploy.AppInput.EnvEntry.key', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='value', full_name='kdeploy.TaskUpdate.EnvEntry.value', index=1,
+      name='value', full_name='kdeploy.AppInput.EnvEntry.value', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -588,132 +588,22 @@ _TASKUPDATE_ENVENTRY = _descriptor.Descriptor(
   serialized_end=792,
 )
 
-_TASKUPDATE = _descriptor.Descriptor(
-  name='TaskUpdate',
-  full_name='kdeploy.TaskUpdate',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='kdeploy.TaskUpdate.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=_b('\342\337\037\014\n\n^.{1,225}$'), file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='namespace', full_name='kdeploy.TaskUpdate.namespace', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=_b('\342\337\037\014\n\n^.{1,225}$'), file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='image', full_name='kdeploy.TaskUpdate.image', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='args', full_name='kdeploy.TaskUpdate.args', index=3,
-      number=5, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='env', full_name='kdeploy.TaskUpdate.env', index=4,
-      number=6, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='schedule', full_name='kdeploy.TaskUpdate.schedule', index=5,
-      number=7, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='completions', full_name='kdeploy.TaskUpdate.completions', index=6,
-      number=8, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[_TASKUPDATE_ENVENTRY, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1317,
-  serialized_end=1553,
-)
-
-
-_APPCONSTRUCTOR_ENVENTRY = _descriptor.Descriptor(
-  name='EnvEntry',
-  full_name='kdeploy.AppConstructor.EnvEntry',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='key', full_name='kdeploy.AppConstructor.EnvEntry.key', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='value', full_name='kdeploy.AppConstructor.EnvEntry.value', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=_b('8\001'),
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=750,
-  serialized_end=792,
-)
-
-_APPCONSTRUCTOR_PORTSENTRY = _descriptor.Descriptor(
+_APPINPUT_PORTSENTRY = _descriptor.Descriptor(
   name='PortsEntry',
-  full_name='kdeploy.AppConstructor.PortsEntry',
+  full_name='kdeploy.AppInput.PortsEntry',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='key', full_name='kdeploy.AppConstructor.PortsEntry.key', index=0,
+      name='key', full_name='kdeploy.AppInput.PortsEntry.key', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='value', full_name='kdeploy.AppConstructor.PortsEntry.value', index=1,
+      name='value', full_name='kdeploy.AppInput.PortsEntry.value', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -735,64 +625,64 @@ _APPCONSTRUCTOR_PORTSENTRY = _descriptor.Descriptor(
   serialized_end=838,
 )
 
-_APPCONSTRUCTOR = _descriptor.Descriptor(
-  name='AppConstructor',
-  full_name='kdeploy.AppConstructor',
+_APPINPUT = _descriptor.Descriptor(
+  name='AppInput',
+  full_name='kdeploy.AppInput',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='kdeploy.AppConstructor.name', index=0,
+      name='name', full_name='kdeploy.AppInput.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=_b('\342\337\037\014\n\n^.{1,225}$'), file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='namespace', full_name='kdeploy.AppConstructor.namespace', index=1,
+      name='namespace', full_name='kdeploy.AppInput.namespace', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=_b('\342\337\037\014\n\n^.{1,225}$'), file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='image', full_name='kdeploy.AppConstructor.image', index=2,
+      name='image', full_name='kdeploy.AppInput.image', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=_b('\342\337\037\014\n\n^.{1,225}$'), file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='args', full_name='kdeploy.AppConstructor.args', index=3,
+      name='args', full_name='kdeploy.AppInput.args', index=3,
       number=4, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='env', full_name='kdeploy.AppConstructor.env', index=4,
+      name='env', full_name='kdeploy.AppInput.env', index=4,
       number=5, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='ports', full_name='kdeploy.AppConstructor.ports', index=5,
+      name='ports', full_name='kdeploy.AppInput.ports', index=5,
       number=6, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=_b('\342\337\037\002 \001'), file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='replicas', full_name='kdeploy.AppConstructor.replicas', index=6,
+      name='replicas', full_name='kdeploy.AppInput.replicas', index=6,
       number=7, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='networking', full_name='kdeploy.AppConstructor.networking', index=7,
+      name='networking', full_name='kdeploy.AppInput.networking', index=7,
       number=9, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -801,7 +691,7 @@ _APPCONSTRUCTOR = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_APPCONSTRUCTOR_ENVENTRY, _APPCONSTRUCTOR_PORTSENTRY, ],
+  nested_types=[_APPINPUT_ENVENTRY, _APPINPUT_PORTSENTRY, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -810,162 +700,8 @@ _APPCONSTRUCTOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1556,
-  serialized_end=1943,
-)
-
-
-_APPUPDATE_ENVENTRY = _descriptor.Descriptor(
-  name='EnvEntry',
-  full_name='kdeploy.AppUpdate.EnvEntry',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='key', full_name='kdeploy.AppUpdate.EnvEntry.key', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='value', full_name='kdeploy.AppUpdate.EnvEntry.value', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=_b('8\001'),
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=750,
-  serialized_end=792,
-)
-
-_APPUPDATE_PORTSENTRY = _descriptor.Descriptor(
-  name='PortsEntry',
-  full_name='kdeploy.AppUpdate.PortsEntry',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='key', full_name='kdeploy.AppUpdate.PortsEntry.key', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='value', full_name='kdeploy.AppUpdate.PortsEntry.value', index=1,
-      number=2, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=_b('8\001'),
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=794,
-  serialized_end=838,
-)
-
-_APPUPDATE = _descriptor.Descriptor(
-  name='AppUpdate',
-  full_name='kdeploy.AppUpdate',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='kdeploy.AppUpdate.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=_b('\342\337\037\014\n\n^.{1,225}$'), file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='namespace', full_name='kdeploy.AppUpdate.namespace', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=_b('\342\337\037\014\n\n^.{1,225}$'), file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='image', full_name='kdeploy.AppUpdate.image', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='args', full_name='kdeploy.AppUpdate.args', index=3,
-      number=4, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='env', full_name='kdeploy.AppUpdate.env', index=4,
-      number=5, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='ports', full_name='kdeploy.AppUpdate.ports', index=5,
-      number=6, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='replicas', full_name='kdeploy.AppUpdate.replicas', index=6,
-      number=7, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='networking', full_name='kdeploy.AppUpdate.networking', index=7,
-      number=9, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[_APPUPDATE_ENVENTRY, _APPUPDATE_PORTSENTRY, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1946,
-  serialized_end=2292,
+  serialized_start=1305,
+  serialized_end=1682,
 )
 
 
@@ -1002,8 +738,8 @@ _REF = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2294,
-  serialized_end=2368,
+  serialized_start=1684,
+  serialized_end=1758,
 )
 
 
@@ -1047,8 +783,8 @@ _REPLICA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2370,
-  serialized_end=2429,
+  serialized_start=1760,
+  serialized_end=1819,
 )
 
 
@@ -1078,8 +814,8 @@ _APPSTATUS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2431,
-  serialized_end=2478,
+  serialized_start=1821,
+  serialized_end=1868,
 )
 
 
@@ -1109,8 +845,8 @@ _LOG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2480,
-  serialized_end=2502,
+  serialized_start=1870,
+  serialized_end=1892,
 )
 
 
@@ -1140,8 +876,8 @@ _APPS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2504,
-  serialized_end=2546,
+  serialized_start=1894,
+  serialized_end=1936,
 )
 
 
@@ -1171,8 +907,8 @@ _TASKS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2548,
-  serialized_end=2585,
+  serialized_start=1938,
+  serialized_end=1975,
 )
 
 
@@ -1202,8 +938,8 @@ _NAMESPACE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2587,
-  serialized_end=2617,
+  serialized_start=1977,
+  serialized_end=2007,
 )
 
 
@@ -1233,8 +969,8 @@ _NAMESPACES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2619,
-  serialized_end=2651,
+  serialized_start=2009,
+  serialized_end=2041,
 )
 
 _NETWORKING.fields_by_name['http_routes'].message_type = _HTTPROUTE
@@ -1246,20 +982,13 @@ _APP.fields_by_name['networking'].message_type = _NETWORKING
 _APP.fields_by_name['status'].message_type = _APPSTATUS
 _TASK_ENVENTRY.containing_type = _TASK
 _TASK.fields_by_name['env'].message_type = _TASK_ENVENTRY
-_TASKCONSTRUCTOR_ENVENTRY.containing_type = _TASKCONSTRUCTOR
-_TASKCONSTRUCTOR.fields_by_name['env'].message_type = _TASKCONSTRUCTOR_ENVENTRY
-_TASKUPDATE_ENVENTRY.containing_type = _TASKUPDATE
-_TASKUPDATE.fields_by_name['env'].message_type = _TASKUPDATE_ENVENTRY
-_APPCONSTRUCTOR_ENVENTRY.containing_type = _APPCONSTRUCTOR
-_APPCONSTRUCTOR_PORTSENTRY.containing_type = _APPCONSTRUCTOR
-_APPCONSTRUCTOR.fields_by_name['env'].message_type = _APPCONSTRUCTOR_ENVENTRY
-_APPCONSTRUCTOR.fields_by_name['ports'].message_type = _APPCONSTRUCTOR_PORTSENTRY
-_APPCONSTRUCTOR.fields_by_name['networking'].message_type = _NETWORKING
-_APPUPDATE_ENVENTRY.containing_type = _APPUPDATE
-_APPUPDATE_PORTSENTRY.containing_type = _APPUPDATE
-_APPUPDATE.fields_by_name['env'].message_type = _APPUPDATE_ENVENTRY
-_APPUPDATE.fields_by_name['ports'].message_type = _APPUPDATE_PORTSENTRY
-_APPUPDATE.fields_by_name['networking'].message_type = _NETWORKING
+_TASKINPUT_ENVENTRY.containing_type = _TASKINPUT
+_TASKINPUT.fields_by_name['env'].message_type = _TASKINPUT_ENVENTRY
+_APPINPUT_ENVENTRY.containing_type = _APPINPUT
+_APPINPUT_PORTSENTRY.containing_type = _APPINPUT
+_APPINPUT.fields_by_name['env'].message_type = _APPINPUT_ENVENTRY
+_APPINPUT.fields_by_name['ports'].message_type = _APPINPUT_PORTSENTRY
+_APPINPUT.fields_by_name['networking'].message_type = _NETWORKING
 _APPSTATUS.fields_by_name['replicas'].message_type = _REPLICA
 _APPS.fields_by_name['applications'].message_type = _APP
 _TASKS.fields_by_name['tasks'].message_type = _TASK
@@ -1267,10 +996,8 @@ DESCRIPTOR.message_types_by_name['HTTPRoute'] = _HTTPROUTE
 DESCRIPTOR.message_types_by_name['Networking'] = _NETWORKING
 DESCRIPTOR.message_types_by_name['App'] = _APP
 DESCRIPTOR.message_types_by_name['Task'] = _TASK
-DESCRIPTOR.message_types_by_name['TaskConstructor'] = _TASKCONSTRUCTOR
-DESCRIPTOR.message_types_by_name['TaskUpdate'] = _TASKUPDATE
-DESCRIPTOR.message_types_by_name['AppConstructor'] = _APPCONSTRUCTOR
-DESCRIPTOR.message_types_by_name['AppUpdate'] = _APPUPDATE
+DESCRIPTOR.message_types_by_name['TaskInput'] = _TASKINPUT
+DESCRIPTOR.message_types_by_name['AppInput'] = _APPINPUT
 DESCRIPTOR.message_types_by_name['Ref'] = _REF
 DESCRIPTOR.message_types_by_name['Replica'] = _REPLICA
 DESCRIPTOR.message_types_by_name['AppStatus'] = _APPSTATUS
@@ -1333,81 +1060,43 @@ Task = _reflection.GeneratedProtocolMessageType('Task', (_message.Message,), dic
 _sym_db.RegisterMessage(Task)
 _sym_db.RegisterMessage(Task.EnvEntry)
 
-TaskConstructor = _reflection.GeneratedProtocolMessageType('TaskConstructor', (_message.Message,), dict(
+TaskInput = _reflection.GeneratedProtocolMessageType('TaskInput', (_message.Message,), dict(
 
   EnvEntry = _reflection.GeneratedProtocolMessageType('EnvEntry', (_message.Message,), dict(
-    DESCRIPTOR = _TASKCONSTRUCTOR_ENVENTRY,
+    DESCRIPTOR = _TASKINPUT_ENVENTRY,
     __module__ = 'kdeploy_pb2'
-    # @@protoc_insertion_point(class_scope:kdeploy.TaskConstructor.EnvEntry)
+    # @@protoc_insertion_point(class_scope:kdeploy.TaskInput.EnvEntry)
     ))
   ,
-  DESCRIPTOR = _TASKCONSTRUCTOR,
+  DESCRIPTOR = _TASKINPUT,
   __module__ = 'kdeploy_pb2'
-  # @@protoc_insertion_point(class_scope:kdeploy.TaskConstructor)
+  # @@protoc_insertion_point(class_scope:kdeploy.TaskInput)
   ))
-_sym_db.RegisterMessage(TaskConstructor)
-_sym_db.RegisterMessage(TaskConstructor.EnvEntry)
+_sym_db.RegisterMessage(TaskInput)
+_sym_db.RegisterMessage(TaskInput.EnvEntry)
 
-TaskUpdate = _reflection.GeneratedProtocolMessageType('TaskUpdate', (_message.Message,), dict(
+AppInput = _reflection.GeneratedProtocolMessageType('AppInput', (_message.Message,), dict(
 
   EnvEntry = _reflection.GeneratedProtocolMessageType('EnvEntry', (_message.Message,), dict(
-    DESCRIPTOR = _TASKUPDATE_ENVENTRY,
+    DESCRIPTOR = _APPINPUT_ENVENTRY,
     __module__ = 'kdeploy_pb2'
-    # @@protoc_insertion_point(class_scope:kdeploy.TaskUpdate.EnvEntry)
-    ))
-  ,
-  DESCRIPTOR = _TASKUPDATE,
-  __module__ = 'kdeploy_pb2'
-  # @@protoc_insertion_point(class_scope:kdeploy.TaskUpdate)
-  ))
-_sym_db.RegisterMessage(TaskUpdate)
-_sym_db.RegisterMessage(TaskUpdate.EnvEntry)
-
-AppConstructor = _reflection.GeneratedProtocolMessageType('AppConstructor', (_message.Message,), dict(
-
-  EnvEntry = _reflection.GeneratedProtocolMessageType('EnvEntry', (_message.Message,), dict(
-    DESCRIPTOR = _APPCONSTRUCTOR_ENVENTRY,
-    __module__ = 'kdeploy_pb2'
-    # @@protoc_insertion_point(class_scope:kdeploy.AppConstructor.EnvEntry)
+    # @@protoc_insertion_point(class_scope:kdeploy.AppInput.EnvEntry)
     ))
   ,
 
   PortsEntry = _reflection.GeneratedProtocolMessageType('PortsEntry', (_message.Message,), dict(
-    DESCRIPTOR = _APPCONSTRUCTOR_PORTSENTRY,
+    DESCRIPTOR = _APPINPUT_PORTSENTRY,
     __module__ = 'kdeploy_pb2'
-    # @@protoc_insertion_point(class_scope:kdeploy.AppConstructor.PortsEntry)
+    # @@protoc_insertion_point(class_scope:kdeploy.AppInput.PortsEntry)
     ))
   ,
-  DESCRIPTOR = _APPCONSTRUCTOR,
+  DESCRIPTOR = _APPINPUT,
   __module__ = 'kdeploy_pb2'
-  # @@protoc_insertion_point(class_scope:kdeploy.AppConstructor)
+  # @@protoc_insertion_point(class_scope:kdeploy.AppInput)
   ))
-_sym_db.RegisterMessage(AppConstructor)
-_sym_db.RegisterMessage(AppConstructor.EnvEntry)
-_sym_db.RegisterMessage(AppConstructor.PortsEntry)
-
-AppUpdate = _reflection.GeneratedProtocolMessageType('AppUpdate', (_message.Message,), dict(
-
-  EnvEntry = _reflection.GeneratedProtocolMessageType('EnvEntry', (_message.Message,), dict(
-    DESCRIPTOR = _APPUPDATE_ENVENTRY,
-    __module__ = 'kdeploy_pb2'
-    # @@protoc_insertion_point(class_scope:kdeploy.AppUpdate.EnvEntry)
-    ))
-  ,
-
-  PortsEntry = _reflection.GeneratedProtocolMessageType('PortsEntry', (_message.Message,), dict(
-    DESCRIPTOR = _APPUPDATE_PORTSENTRY,
-    __module__ = 'kdeploy_pb2'
-    # @@protoc_insertion_point(class_scope:kdeploy.AppUpdate.PortsEntry)
-    ))
-  ,
-  DESCRIPTOR = _APPUPDATE,
-  __module__ = 'kdeploy_pb2'
-  # @@protoc_insertion_point(class_scope:kdeploy.AppUpdate)
-  ))
-_sym_db.RegisterMessage(AppUpdate)
-_sym_db.RegisterMessage(AppUpdate.EnvEntry)
-_sym_db.RegisterMessage(AppUpdate.PortsEntry)
+_sym_db.RegisterMessage(AppInput)
+_sym_db.RegisterMessage(AppInput.EnvEntry)
+_sym_db.RegisterMessage(AppInput.PortsEntry)
 
 Ref = _reflection.GeneratedProtocolMessageType('Ref', (_message.Message,), dict(
   DESCRIPTOR = _REF,
@@ -1470,24 +1159,18 @@ DESCRIPTOR._options = None
 _APP_ENVENTRY._options = None
 _APP_PORTSENTRY._options = None
 _TASK_ENVENTRY._options = None
-_TASKCONSTRUCTOR_ENVENTRY._options = None
-_TASKCONSTRUCTOR.fields_by_name['name']._options = None
-_TASKCONSTRUCTOR.fields_by_name['namespace']._options = None
-_TASKCONSTRUCTOR.fields_by_name['image']._options = None
-_TASKCONSTRUCTOR.fields_by_name['schedule']._options = None
-_TASKUPDATE_ENVENTRY._options = None
-_TASKUPDATE.fields_by_name['name']._options = None
-_TASKUPDATE.fields_by_name['namespace']._options = None
-_APPCONSTRUCTOR_ENVENTRY._options = None
-_APPCONSTRUCTOR_PORTSENTRY._options = None
-_APPCONSTRUCTOR.fields_by_name['name']._options = None
-_APPCONSTRUCTOR.fields_by_name['namespace']._options = None
-_APPCONSTRUCTOR.fields_by_name['image']._options = None
-_APPCONSTRUCTOR.fields_by_name['networking']._options = None
-_APPUPDATE_ENVENTRY._options = None
-_APPUPDATE_PORTSENTRY._options = None
-_APPUPDATE.fields_by_name['name']._options = None
-_APPUPDATE.fields_by_name['namespace']._options = None
+_TASKINPUT_ENVENTRY._options = None
+_TASKINPUT.fields_by_name['name']._options = None
+_TASKINPUT.fields_by_name['namespace']._options = None
+_TASKINPUT.fields_by_name['image']._options = None
+_TASKINPUT.fields_by_name['schedule']._options = None
+_APPINPUT_ENVENTRY._options = None
+_APPINPUT_PORTSENTRY._options = None
+_APPINPUT.fields_by_name['name']._options = None
+_APPINPUT.fields_by_name['namespace']._options = None
+_APPINPUT.fields_by_name['image']._options = None
+_APPINPUT.fields_by_name['ports']._options = None
+_APPINPUT.fields_by_name['networking']._options = None
 _REF.fields_by_name['name']._options = None
 _REF.fields_by_name['namespace']._options = None
 
@@ -1497,15 +1180,15 @@ _KDEPLOYSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=2654,
-  serialized_end=3341,
+  serialized_start=2044,
+  serialized_end=2717,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateApp',
     full_name='kdeploy.KdeployService.CreateApp',
     index=0,
     containing_service=None,
-    input_type=_APPCONSTRUCTOR,
+    input_type=_APPINPUT,
     output_type=_APP,
     serialized_options=None,
   ),
@@ -1514,7 +1197,7 @@ _KDEPLOYSERVICE = _descriptor.ServiceDescriptor(
     full_name='kdeploy.KdeployService.UpdateApp',
     index=1,
     containing_service=None,
-    input_type=_APPUPDATE,
+    input_type=_APPINPUT,
     output_type=_APP,
     serialized_options=None,
   ),
@@ -1568,7 +1251,7 @@ _KDEPLOYSERVICE = _descriptor.ServiceDescriptor(
     full_name='kdeploy.KdeployService.CreateTask',
     index=7,
     containing_service=None,
-    input_type=_TASKCONSTRUCTOR,
+    input_type=_TASKINPUT,
     output_type=_TASK,
     serialized_options=None,
   ),
@@ -1577,7 +1260,7 @@ _KDEPLOYSERVICE = _descriptor.ServiceDescriptor(
     full_name='kdeploy.KdeployService.UpdateTask',
     index=8,
     containing_service=None,
-    input_type=_TASKUPDATE,
+    input_type=_TASKINPUT,
     output_type=_TASK,
     serialized_options=None,
   ),

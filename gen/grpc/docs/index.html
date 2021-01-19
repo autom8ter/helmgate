@@ -191,31 +191,19 @@
                 </li>
               
                 <li>
-                  <a href="#kdeploy.AppConstructor"><span class="badge">M</span>AppConstructor</a>
+                  <a href="#kdeploy.AppInput"><span class="badge">M</span>AppInput</a>
                 </li>
               
                 <li>
-                  <a href="#kdeploy.AppConstructor.EnvEntry"><span class="badge">M</span>AppConstructor.EnvEntry</a>
+                  <a href="#kdeploy.AppInput.EnvEntry"><span class="badge">M</span>AppInput.EnvEntry</a>
                 </li>
               
                 <li>
-                  <a href="#kdeploy.AppConstructor.PortsEntry"><span class="badge">M</span>AppConstructor.PortsEntry</a>
+                  <a href="#kdeploy.AppInput.PortsEntry"><span class="badge">M</span>AppInput.PortsEntry</a>
                 </li>
               
                 <li>
                   <a href="#kdeploy.AppStatus"><span class="badge">M</span>AppStatus</a>
-                </li>
-              
-                <li>
-                  <a href="#kdeploy.AppUpdate"><span class="badge">M</span>AppUpdate</a>
-                </li>
-              
-                <li>
-                  <a href="#kdeploy.AppUpdate.EnvEntry"><span class="badge">M</span>AppUpdate.EnvEntry</a>
-                </li>
-              
-                <li>
-                  <a href="#kdeploy.AppUpdate.PortsEntry"><span class="badge">M</span>AppUpdate.PortsEntry</a>
                 </li>
               
                 <li>
@@ -259,19 +247,11 @@
                 </li>
               
                 <li>
-                  <a href="#kdeploy.TaskConstructor"><span class="badge">M</span>TaskConstructor</a>
+                  <a href="#kdeploy.TaskInput"><span class="badge">M</span>TaskInput</a>
                 </li>
               
                 <li>
-                  <a href="#kdeploy.TaskConstructor.EnvEntry"><span class="badge">M</span>TaskConstructor.EnvEntry</a>
-                </li>
-              
-                <li>
-                  <a href="#kdeploy.TaskUpdate"><span class="badge">M</span>TaskUpdate</a>
-                </li>
-              
-                <li>
-                  <a href="#kdeploy.TaskUpdate.EnvEntry"><span class="badge">M</span>TaskUpdate.EnvEntry</a>
+                  <a href="#kdeploy.TaskInput.EnvEntry"><span class="badge">M</span>TaskInput.EnvEntry</a>
                 </li>
               
                 <li>
@@ -442,8 +422,8 @@
 
         
       
-        <h3 id="kdeploy.AppConstructor">AppConstructor</h3>
-        <p>AppConstructor creates a new app</p>
+        <h3 id="kdeploy.AppInput">AppInput</h3>
+        <p>AppInput creates/replaces an app</p>
 
         
           <table class="field-table">
@@ -482,14 +462,14 @@
               
                 <tr>
                   <td>env</td>
-                  <td><a href="#kdeploy.AppConstructor.EnvEntry">AppConstructor.EnvEntry</a></td>
+                  <td><a href="#kdeploy.AppInput.EnvEntry">AppInput.EnvEntry</a></td>
                   <td>repeated</td>
                   <td><p>k/v map of environmental variables </p></td>
                 </tr>
               
                 <tr>
                   <td>ports</td>
-                  <td><a href="#kdeploy.AppConstructor.PortsEntry">AppConstructor.PortsEntry</a></td>
+                  <td><a href="#kdeploy.AppInput.PortsEntry">AppInput.PortsEntry</a></td>
                   <td>repeated</td>
                   <td><p>k/v map of ports to expose ex: http: 80 https: 443 </p></td>
                 </tr>
@@ -558,6 +538,17 @@
                 </tr>
               
                 <tr>
+                  <td>ports</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
                   <td>networking</td>
                   <td>
                     <ul>
@@ -575,7 +566,7 @@
 
         
       
-        <h3 id="kdeploy.AppConstructor.EnvEntry">AppConstructor.EnvEntry</h3>
+        <h3 id="kdeploy.AppInput.EnvEntry">AppInput.EnvEntry</h3>
         <p></p>
 
         
@@ -606,7 +597,7 @@
 
         
       
-        <h3 id="kdeploy.AppConstructor.PortsEntry">AppConstructor.PortsEntry</h3>
+        <h3 id="kdeploy.AppInput.PortsEntry">AppInput.PortsEntry</h3>
         <p></p>
 
         
@@ -651,179 +642,6 @@
                   <td>replicas</td>
                   <td><a href="#kdeploy.Replica">Replica</a></td>
                   <td>repeated</td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="kdeploy.AppUpdate">AppUpdate</h3>
-        <p>AppUpdate updates an App</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>name of the application </p></td>
-                </tr>
-              
-                <tr>
-                  <td>namespace</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>application namespace </p></td>
-                </tr>
-              
-                <tr>
-                  <td>image</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>docker image of application </p></td>
-                </tr>
-              
-                <tr>
-                  <td>args</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p>args are arguments given to the docker image at startup </p></td>
-                </tr>
-              
-                <tr>
-                  <td>env</td>
-                  <td><a href="#kdeploy.AppUpdate.EnvEntry">AppUpdate.EnvEntry</a></td>
-                  <td>repeated</td>
-                  <td><p>k/v map of environmental variables </p></td>
-                </tr>
-              
-                <tr>
-                  <td>ports</td>
-                  <td><a href="#kdeploy.AppUpdate.PortsEntry">AppUpdate.PortsEntry</a></td>
-                  <td>repeated</td>
-                  <td><p>k/v map of ports to expose ex: http: 80 https: 443 </p></td>
-                </tr>
-              
-                <tr>
-                  <td>replicas</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p>number of deployment replicas </p></td>
-                </tr>
-              
-                <tr>
-                  <td>networking</td>
-                  <td><a href="#kdeploy.Networking">Networking</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-            
-            
-            <h4>Validated Fields</h4>
-            <table>
-              <thead>
-                <tr>
-                  <td>Field</td>
-                  <td>Validations</td>
-                </tr>
-              </thead>
-              <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
-                  <td>namespace</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-              </tbody>
-            </table>
-            
-          
-
-        
-      
-        <h3 id="kdeploy.AppUpdate.EnvEntry">AppUpdate.EnvEntry</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>key</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>value</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="kdeploy.AppUpdate.PortsEntry">AppUpdate.PortsEntry</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>key</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>value</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
                   <td><p> </p></td>
                 </tr>
               
@@ -1259,8 +1077,8 @@
 
         
       
-        <h3 id="kdeploy.TaskConstructor">TaskConstructor</h3>
-        <p>TaskConstructor creates a task(cron job)</p>
+        <h3 id="kdeploy.TaskInput">TaskInput</h3>
+        <p>TaskInput creates/updates a task(cron job)</p>
 
         
           <table class="field-table">
@@ -1299,7 +1117,7 @@
               
                 <tr>
                   <td>env</td>
-                  <td><a href="#kdeploy.TaskConstructor.EnvEntry">TaskConstructor.EnvEntry</a></td>
+                  <td><a href="#kdeploy.TaskInput.EnvEntry">TaskInput.EnvEntry</a></td>
                   <td>repeated</td>
                   <td><p>k/v map of environmental variables </p></td>
                 </tr>
@@ -1385,142 +1203,7 @@
 
         
       
-        <h3 id="kdeploy.TaskConstructor.EnvEntry">TaskConstructor.EnvEntry</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>key</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>value</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="kdeploy.TaskUpdate">TaskUpdate</h3>
-        <p>TaskUpdate updates a task(cron job)</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>name of the application </p></td>
-                </tr>
-              
-                <tr>
-                  <td>namespace</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>application namespace </p></td>
-                </tr>
-              
-                <tr>
-                  <td>image</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>docker image of application </p></td>
-                </tr>
-              
-                <tr>
-                  <td>args</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p>args are arguments given to docker image at startup </p></td>
-                </tr>
-              
-                <tr>
-                  <td>env</td>
-                  <td><a href="#kdeploy.TaskUpdate.EnvEntry">TaskUpdate.EnvEntry</a></td>
-                  <td>repeated</td>
-                  <td><p>k/v map of environmental variables </p></td>
-                </tr>
-              
-                <tr>
-                  <td>schedule</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/ </p></td>
-                </tr>
-              
-                <tr>
-                  <td>completions</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p>completions is the number of times to execute the task. If completions = 0, the task will run forever </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-            
-            
-            <h4>Validated Fields</h4>
-            <table>
-              <thead>
-                <tr>
-                  <td>Field</td>
-                  <td>Validations</td>
-                </tr>
-              </thead>
-              <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
-                  <td>namespace</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-              </tbody>
-            </table>
-            
-          
-
-        
-      
-        <h3 id="kdeploy.TaskUpdate.EnvEntry">TaskUpdate.EnvEntry</h3>
+        <h3 id="kdeploy.TaskInput.EnvEntry">TaskInput.EnvEntry</h3>
         <p></p>
 
         
@@ -1591,7 +1274,7 @@
             
               <tr>
                 <td>CreateApp</td>
-                <td><a href="#kdeploy.AppConstructor">AppConstructor</a></td>
+                <td><a href="#kdeploy.AppInput">AppInput</a></td>
                 <td><a href="#kdeploy.App">App</a></td>
                 <td><p>CreateApp creates a new stateless application(k8s deployment &amp; service) within a single namespace(k8s namespace)
 the namespace will automatically be created if one does not already exist</p></td>
@@ -1599,7 +1282,7 @@ the namespace will automatically be created if one does not already exist</p></t
             
               <tr>
                 <td>UpdateApp</td>
-                <td><a href="#kdeploy.AppUpdate">AppUpdate</a></td>
+                <td><a href="#kdeploy.AppInput">AppInput</a></td>
                 <td><a href="#kdeploy.App">App</a></td>
                 <td><p>UpdateApp edits/patches an existing stateless application(k8s deployment &amp; service) within an existing namespace(k8s namespace)</p></td>
               </tr>
@@ -1641,7 +1324,7 @@ the namespace will automatically be created if one does not already exist</p></t
             
               <tr>
                 <td>CreateTask</td>
-                <td><a href="#kdeploy.TaskConstructor">TaskConstructor</a></td>
+                <td><a href="#kdeploy.TaskInput">TaskInput</a></td>
                 <td><a href="#kdeploy.Task">Task</a></td>
                 <td><p>CreateTask creates a new task(k8s cron job) within a single namespace(k8s namespace)
 the namespace will automatically be created if one does not already exist</p></td>
@@ -1649,7 +1332,7 @@ the namespace will automatically be created if one does not already exist</p></t
             
               <tr>
                 <td>UpdateTask</td>
-                <td><a href="#kdeploy.TaskUpdate">TaskUpdate</a></td>
+                <td><a href="#kdeploy.TaskInput">TaskInput</a></td>
                 <td><a href="#kdeploy.Task">Task</a></td>
                 <td><p>UpdateTask edits/patches an existing task(k8s cron job) within an existing namespace(k8s namespace)</p></td>
               </tr>

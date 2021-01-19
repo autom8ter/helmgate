@@ -21,14 +21,14 @@ const Always = "Always"
 const OnFailure = "OnFailure"
 const RWO = "ReadWriteOnce"
 
-func appLabels(app *kdeploypb.AppConstructor) map[string]string {
+func appLabels(app *kdeploypb.AppInput) map[string]string {
 	return map[string]string{
 		"kdeploy.app": app.Name,
 		"kdeploy":     "true",
 	}
 }
 
-func taskLabels(app *kdeploypb.TaskConstructor) map[string]string {
+func taskLabels(app *kdeploypb.TaskInput) map[string]string {
 	return map[string]string{
 		"kdeploy.task": app.Name,
 		"kdeploy":      "true",
@@ -48,7 +48,7 @@ func deploymentLabels(dep *apps.Deployment) map[string]string {
 	}
 }
 
-func appContainers(app *kdeploypb.AppConstructor) ([]v12.Container, error) {
+func appContainers(app *kdeploypb.AppInput) ([]v12.Container, error) {
 	ports := []v12.ContainerPort{}
 	for name, p := range app.Ports {
 		ports = append(ports, v12.ContainerPort{
@@ -76,7 +76,7 @@ func appContainers(app *kdeploypb.AppConstructor) ([]v12.Container, error) {
 	}, nil
 }
 
-func taskContainers(app *kdeploypb.TaskConstructor) ([]v12.Container, error) {
+func taskContainers(app *kdeploypb.TaskInput) ([]v12.Container, error) {
 	env := []v12.EnvVar{}
 	for name, val := range app.Env {
 		env = append(env, v12.EnvVar{
@@ -96,7 +96,7 @@ func taskContainers(app *kdeploypb.TaskConstructor) ([]v12.Container, error) {
 	}, nil
 }
 
-func toNamespace(app *kdeploypb.AppConstructor) *v12.Namespace {
+func toNamespace(app *kdeploypb.AppInput) *v12.Namespace {
 	return &v12.Namespace{
 		TypeMeta: metav1.TypeMeta{},
 		ObjectMeta: metav1.ObjectMeta{
@@ -109,7 +109,7 @@ func toNamespace(app *kdeploypb.AppConstructor) *v12.Namespace {
 	}
 }
 
-func toTaskNamespace(app *kdeploypb.TaskConstructor) *v12.Namespace {
+func toTaskNamespace(app *kdeploypb.TaskInput) *v12.Namespace {
 	return &v12.Namespace{
 		TypeMeta: metav1.TypeMeta{},
 		ObjectMeta: metav1.ObjectMeta{
@@ -122,7 +122,7 @@ func toTaskNamespace(app *kdeploypb.TaskConstructor) *v12.Namespace {
 	}
 }
 
-func toServicePorts(app *kdeploypb.AppConstructor) []v12.ServicePort {
+func toServicePorts(app *kdeploypb.AppInput) []v12.ServicePort {
 	var ports []v12.ServicePort
 	for name, p := range app.Ports {
 		ports = append(ports, v12.ServicePort{
@@ -133,7 +133,7 @@ func toServicePorts(app *kdeploypb.AppConstructor) []v12.ServicePort {
 	return ports
 }
 
-func overwriteService(svc *networking.VirtualService, app *kdeploypb.AppUpdate) *networking.VirtualService {
+func overwriteService(svc *networking.VirtualService, app *kdeploypb.AppInput) *networking.VirtualService {
 	if svc.Namespace != "" {
 		svc.Namespace = app.Namespace
 	}
@@ -226,7 +226,7 @@ func overwriteService(svc *networking.VirtualService, app *kdeploypb.AppUpdate) 
 	Status: v1.ServiceStatus{},
 */
 
-func toService(app *kdeploypb.AppConstructor) *networking.VirtualService {
+func toService(app *kdeploypb.AppInput) *networking.VirtualService {
 	svc := &networking.VirtualService{
 		TypeMeta: metav1.TypeMeta{},
 		ObjectMeta: metav1.ObjectMeta{
@@ -237,7 +237,7 @@ func toService(app *kdeploypb.AppConstructor) *networking.VirtualService {
 		Spec:   v1alpha3.VirtualService{},
 		Status: v1alpha1.IstioStatus{},
 	}
-	return overwriteService(svc, &kdeploypb.AppUpdate{
+	return overwriteService(svc, &kdeploypb.AppInput{
 		Name:       app.Name,
 		Namespace:  app.Namespace,
 		Image:      app.Image,
@@ -249,7 +249,7 @@ func toService(app *kdeploypb.AppConstructor) *networking.VirtualService {
 	})
 }
 
-func toDeployment(app *kdeploypb.AppConstructor) (*apps.Deployment, error) {
+func toDeployment(app *kdeploypb.AppInput) (*apps.Deployment, error) {
 	var (
 		replicas        = int32(app.Replicas)
 		containers, err = appContainers(app)
@@ -293,7 +293,7 @@ func toDeployment(app *kdeploypb.AppConstructor) (*apps.Deployment, error) {
 	}, nil
 }
 
-func toTask(app *kdeploypb.TaskConstructor) (*v1beta1.CronJob, error) {
+func toTask(app *kdeploypb.TaskInput) (*v1beta1.CronJob, error) {
 	var (
 		containers, err = taskContainers(app)
 	)
@@ -334,7 +334,7 @@ func toTask(app *kdeploypb.TaskConstructor) (*v1beta1.CronJob, error) {
 	}, nil
 }
 
-func overwriteDeployment(deployment *apps.Deployment, app *kdeploypb.AppUpdate) (*apps.Deployment, error) {
+func overwriteDeployment(deployment *apps.Deployment, app *kdeploypb.AppInput) (*apps.Deployment, error) {
 	var container *v1.Container
 	for _, c := range deployment.Spec.Template.Spec.Containers {
 		if c.Name == app.Name {
@@ -384,7 +384,7 @@ func overwriteDeployment(deployment *apps.Deployment, app *kdeploypb.AppUpdate) 
 	return deployment, nil
 }
 
-func overwriteTask(cronJob *v1beta1.CronJob, task *kdeploypb.TaskUpdate) (*v1beta1.CronJob, error) {
+func overwriteTask(cronJob *v1beta1.CronJob, task *kdeploypb.TaskInput) (*v1beta1.CronJob, error) {
 	var container *v12.Container
 	for _, c := range cronJob.Spec.JobTemplate.Spec.Template.Spec.Containers {
 		if c.Name == cronJob.Name {

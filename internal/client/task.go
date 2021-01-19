@@ -6,7 +6,7 @@ import (
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
-func (m *Manager) CreateTask(ctx context.Context, task *kdeploypb.TaskConstructor) (*kdeploypb.Task, error) {
+func (m *Manager) CreateTask(ctx context.Context, task *kdeploypb.TaskInput) (*kdeploypb.Task, error) {
 	kapp := &k8sTask{}
 	namespace, err := m.kclient.Namespaces().Get(ctx, task.Namespace, v1.GetOptions{})
 	if err != nil {
@@ -28,7 +28,7 @@ func (m *Manager) CreateTask(ctx context.Context, task *kdeploypb.TaskConstructo
 	return kapp.toTask(), nil
 }
 
-func (m *Manager) UpdateTask(ctx context.Context, task *kdeploypb.TaskUpdate) (*kdeploypb.Task, error) {
+func (m *Manager) UpdateTask(ctx context.Context, task *kdeploypb.TaskInput) (*kdeploypb.Task, error) {
 	kapp := &k8sTask{}
 	namespace, err := m.kclient.Namespaces().Get(ctx, task.Namespace, v1.GetOptions{})
 	if err != nil {

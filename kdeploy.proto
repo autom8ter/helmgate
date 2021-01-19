@@ -76,8 +76,8 @@ message Task {
   uint32 completions = 8;
 }
 
-// TaskConstructor creates a task(cron job)
-message TaskConstructor {
+// TaskInput creates/updates a task(cron job)
+message TaskInput {
   // name of the task
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
   // task namespace
@@ -94,26 +94,8 @@ message TaskConstructor {
   uint32 completions = 8;
 }
 
-// TaskUpdate updates a task(cron job)
-message TaskUpdate {
-  // name of the application
-  string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // application namespace
-  string namespace =2[(validator.field) = {regex : "^.{1,225}$"}];
-  // docker image of application
-  string image =3;
-  // args are arguments given to docker image at startup
-  repeated string args =5;
-  // k/v map of environmental variables
-  map<string, string> env =6;
-  // schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
-  string schedule = 7;
-  // completions is the number of times to execute the task. If completions = 0, the task will run forever
-  uint32 completions = 8;
-}
-
-// AppConstructor creates a new app
-message AppConstructor {
+// AppInput creates/replaces an app
+message AppInput {
   // name of the application
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
   // application namespace
@@ -125,29 +107,10 @@ message AppConstructor {
   // k/v map of environmental variables
   map<string, string> env =5;
   // k/v map of ports to expose ex: http: 80 https: 443
-  map<string, uint32> ports =6;
+  map<string, uint32> ports =6[(validator.field) = {msg_exists : true}];
   // number of deployment replicas
   uint32 replicas =7;
   Networking networking =9[(validator.field) = {msg_exists : true}];
-}
-
-// AppUpdate updates an App
-message AppUpdate {
-  // name of the application
-  string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // application namespace
-  string namespace =2[(validator.field) = {regex : "^.{1,225}$"}];
-  // docker image of application
-  string image =3;
-  // args are arguments given to the docker image at startup
-  repeated string args =4;
-  // k/v map of environmental variables
-  map<string, string> env =5;
-  // k/v map of ports to expose ex: http: 80 https: 443
-  map<string, uint32> ports =6;
-  // number of deployment replicas
-  uint32 replicas =7;
-  Networking networking =9;
 }
 
 message Ref {
@@ -193,9 +156,9 @@ message Namespaces {
 service KdeployService {
   // CreateApp creates a new stateless application(k8s deployment & service) within a single namespace(k8s namespace)
   // the namespace will automatically be created if one does not already exist
-  rpc CreateApp(AppConstructor) returns(App){}
+  rpc CreateApp(AppInput) returns(App){}
   // UpdateApp edits/patches an existing stateless application(k8s deployment & service) within an existing namespace(k8s namespace)
-  rpc UpdateApp(AppUpdate) returns(App){}
+  rpc UpdateApp(AppInput) returns(App){}
   // DeleteApp deletes a single stateless application(k8s deployment & service) within an existing namespace
   rpc DeleteApp(Ref) returns(google.protobuf.Empty){}
   // GetApp gets an app by name within an existing namespace
@@ -208,9 +171,9 @@ service KdeployService {
   rpc DeleteAll(Namespace) returns(google.protobuf.Empty){}
   // CreateTask creates a new task(k8s cron job) within a single namespace(k8s namespace)
   // the namespace will automatically be created if one does not already exist
-  rpc CreateTask(TaskConstructor) returns(Task){}
+  rpc CreateTask(TaskInput) returns(Task){}
   // UpdateTask edits/patches an existing task(k8s cron job) within an existing namespace(k8s namespace)
-  rpc UpdateTask(TaskUpdate) returns(Task){}
+  rpc UpdateTask(TaskInput) returns(Task){}
   // DeleteTask deletes a single task(k8s cron job) within an existing namespace
   rpc DeleteTask(Ref) returns(google.protobuf.Empty){}
   // GetTask gets a task(k8s cron job) by name within an existing namespace

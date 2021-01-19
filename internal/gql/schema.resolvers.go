@@ -14,7 +14,7 @@ import (
 	"github.com/vektah/gqlparser/v2/gqlerror"
 )
 
-func (r *mutationResolver) CreateApp(ctx context.Context, input model.AppConstructor) (*model.App, error) {
+func (r *mutationResolver) CreateApp(ctx context.Context, input model.AppInput) (*model.App, error) {
 	app, err := r.client.CreateApp(ctx, toAppC(input))
 	if err != nil {
 		return nil, &gqlerror.Error{
@@ -25,7 +25,7 @@ func (r *mutationResolver) CreateApp(ctx context.Context, input model.AppConstru
 	return fromApp(app), nil
 }
 
-func (r *mutationResolver) UpdateApp(ctx context.Context, input model.AppUpdate) (*model.App, error) {
+func (r *mutationResolver) UpdateApp(ctx context.Context, input model.AppInput) (*model.App, error) {
 	app, err := r.client.UpdateApp(ctx, toAppU(input))
 	if err != nil {
 		return nil, &gqlerror.Error{
@@ -50,7 +50,7 @@ func (r *mutationResolver) DelApp(ctx context.Context, input model.Ref) (*string
 	return nil, nil
 }
 
-func (r *mutationResolver) CreateTask(ctx context.Context, input model.TaskConstructor) (*model.Task, error) {
+func (r *mutationResolver) CreateTask(ctx context.Context, input model.TaskInput) (*model.Task, error) {
 	task, err := r.client.CreateTask(ctx, toTaskC(input))
 	if err != nil {
 		return nil, &gqlerror.Error{
@@ -61,7 +61,7 @@ func (r *mutationResolver) CreateTask(ctx context.Context, input model.TaskConst
 	return fromTask(task), nil
 }
 
-func (r *mutationResolver) UpdateTask(ctx context.Context, input model.TaskUpdate) (*model.Task, error) {
+func (r *mutationResolver) UpdateTask(ctx context.Context, input model.TaskInput) (*model.Task, error) {
 	task, err := r.client.UpdateTask(ctx, toTaskU(input))
 	if err != nil {
 		return nil, &gqlerror.Error{

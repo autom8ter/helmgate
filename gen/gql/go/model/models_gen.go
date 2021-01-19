@@ -14,7 +14,7 @@ type App struct {
 	Status     *AppStatus             `json:"status"`
 }
 
-type AppConstructor struct {
+type AppInput struct {
 	Name       string                 `json:"name"`
 	Namespace  string                 `json:"namespace"`
 	Image      string                 `json:"image"`
@@ -27,17 +27,6 @@ type AppConstructor struct {
 
 type AppStatus struct {
 	Replicas []*Replica `json:"replicas"`
-}
-
-type AppUpdate struct {
-	Name       string                 `json:"name"`
-	Namespace  string                 `json:"namespace"`
-	Image      *string                `json:"image"`
-	Args       []string               `json:"args"`
-	Env        map[string]interface{} `json:"env"`
-	Ports      map[string]interface{} `json:"ports"`
-	Replicas   *int                   `json:"replicas"`
-	Networking *NetworkingInput       `json:"networking"`
 }
 
 type HTTPRoute struct {
@@ -111,22 +100,12 @@ type Task struct {
 	Completions *int                   `json:"completions"`
 }
 
-type TaskConstructor struct {
+type TaskInput struct {
 	Name        string                 `json:"name"`
 	Namespace   string                 `json:"namespace"`
 	Image       string                 `json:"image"`
 	Args        []string               `json:"args"`
 	Env         map[string]interface{} `json:"env"`
 	Schedule    string                 `json:"schedule"`
-	Completions *int                   `json:"completions"`
-}
-
-type TaskUpdate struct {
-	Name        string                 `json:"name"`
-	Namespace   string                 `json:"namespace"`
-	Image       *string                `json:"image"`
-	Args        []string               `json:"args"`
-	Env         map[string]interface{} `json:"env"`
-	Schedule    *string                `json:"schedule"`
 	Completions *int                   `json:"completions"`
 }

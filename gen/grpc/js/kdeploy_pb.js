@@ -17,9 +17,8 @@ var google_protobuf_any_pb = require('google-protobuf/google/protobuf/any_pb.js'
 var google_protobuf_empty_pb = require('google-protobuf/google/protobuf/empty_pb.js');
 var github_com_mwitkow_go$proto$validators_validator_pb = require('./github.com/mwitkow/go-proto-validators/validator_pb.js');
 goog.exportSymbol('proto.kdeploy.App', null, global);
-goog.exportSymbol('proto.kdeploy.AppConstructor', null, global);
+goog.exportSymbol('proto.kdeploy.AppInput', null, global);
 goog.exportSymbol('proto.kdeploy.AppStatus', null, global);
-goog.exportSymbol('proto.kdeploy.AppUpdate', null, global);
 goog.exportSymbol('proto.kdeploy.Apps', null, global);
 goog.exportSymbol('proto.kdeploy.HTTPRoute', null, global);
 goog.exportSymbol('proto.kdeploy.Log', null, global);
@@ -29,8 +28,7 @@ goog.exportSymbol('proto.kdeploy.Networking', null, global);
 goog.exportSymbol('proto.kdeploy.Ref', null, global);
 goog.exportSymbol('proto.kdeploy.Replica', null, global);
 goog.exportSymbol('proto.kdeploy.Task', null, global);
-goog.exportSymbol('proto.kdeploy.TaskConstructor', null, global);
-goog.exportSymbol('proto.kdeploy.TaskUpdate', null, global);
+goog.exportSymbol('proto.kdeploy.TaskInput', null, global);
 goog.exportSymbol('proto.kdeploy.Tasks', null, global);
 
 /**
@@ -1489,19 +1487,19 @@ proto.kdeploy.Task.prototype.setCompletions = function(value) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.kdeploy.TaskConstructor = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.kdeploy.TaskConstructor.repeatedFields_, null);
+proto.kdeploy.TaskInput = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.kdeploy.TaskInput.repeatedFields_, null);
 };
-goog.inherits(proto.kdeploy.TaskConstructor, jspb.Message);
+goog.inherits(proto.kdeploy.TaskInput, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.kdeploy.TaskConstructor.displayName = 'proto.kdeploy.TaskConstructor';
+  proto.kdeploy.TaskInput.displayName = 'proto.kdeploy.TaskInput';
 }
 /**
  * List of repeated fields within this message type.
  * @private {!Array<number>}
  * @const
  */
-proto.kdeploy.TaskConstructor.repeatedFields_ = [5];
+proto.kdeploy.TaskInput.repeatedFields_ = [5];
 
 
 
@@ -1516,8 +1514,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.kdeploy.TaskConstructor.prototype.toObject = function(opt_includeInstance) {
-  return proto.kdeploy.TaskConstructor.toObject(opt_includeInstance, this);
+proto.kdeploy.TaskInput.prototype.toObject = function(opt_includeInstance) {
+  return proto.kdeploy.TaskInput.toObject(opt_includeInstance, this);
 };
 
 
@@ -1526,11 +1524,11 @@ proto.kdeploy.TaskConstructor.prototype.toObject = function(opt_includeInstance)
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.kdeploy.TaskConstructor} msg The msg instance to transform.
+ * @param {!proto.kdeploy.TaskInput} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.kdeploy.TaskConstructor.toObject = function(includeInstance, msg) {
+proto.kdeploy.TaskInput.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
     namespace: jspb.Message.getFieldWithDefault(msg, 2, ""),
@@ -1552,23 +1550,23 @@ proto.kdeploy.TaskConstructor.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.kdeploy.TaskConstructor}
+ * @return {!proto.kdeploy.TaskInput}
  */
-proto.kdeploy.TaskConstructor.deserializeBinary = function(bytes) {
+proto.kdeploy.TaskInput.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.kdeploy.TaskConstructor;
-  return proto.kdeploy.TaskConstructor.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.kdeploy.TaskInput;
+  return proto.kdeploy.TaskInput.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.kdeploy.TaskConstructor} msg The message object to deserialize into.
+ * @param {!proto.kdeploy.TaskInput} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.kdeploy.TaskConstructor}
+ * @return {!proto.kdeploy.TaskInput}
  */
-proto.kdeploy.TaskConstructor.deserializeBinaryFromReader = function(msg, reader) {
+proto.kdeploy.TaskInput.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -1618,9 +1616,9 @@ proto.kdeploy.TaskConstructor.deserializeBinaryFromReader = function(msg, reader
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.kdeploy.TaskConstructor.prototype.serializeBinary = function() {
+proto.kdeploy.TaskInput.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.kdeploy.TaskConstructor.serializeBinaryToWriter(this, writer);
+  proto.kdeploy.TaskInput.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -1628,11 +1626,11 @@ proto.kdeploy.TaskConstructor.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.kdeploy.TaskConstructor} message
+ * @param {!proto.kdeploy.TaskInput} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.kdeploy.TaskConstructor.serializeBinaryToWriter = function(message, writer) {
+proto.kdeploy.TaskInput.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getName();
   if (f.length > 0) {
@@ -1687,13 +1685,13 @@ proto.kdeploy.TaskConstructor.serializeBinaryToWriter = function(message, writer
  * optional string name = 1;
  * @return {string}
  */
-proto.kdeploy.TaskConstructor.prototype.getName = function() {
+proto.kdeploy.TaskInput.prototype.getName = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
 /** @param {string} value */
-proto.kdeploy.TaskConstructor.prototype.setName = function(value) {
+proto.kdeploy.TaskInput.prototype.setName = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
 };
 
@@ -1702,13 +1700,13 @@ proto.kdeploy.TaskConstructor.prototype.setName = function(value) {
  * optional string namespace = 2;
  * @return {string}
  */
-proto.kdeploy.TaskConstructor.prototype.getNamespace = function() {
+proto.kdeploy.TaskInput.prototype.getNamespace = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
 /** @param {string} value */
-proto.kdeploy.TaskConstructor.prototype.setNamespace = function(value) {
+proto.kdeploy.TaskInput.prototype.setNamespace = function(value) {
   jspb.Message.setProto3StringField(this, 2, value);
 };
 
@@ -1717,13 +1715,13 @@ proto.kdeploy.TaskConstructor.prototype.setNamespace = function(value) {
  * optional string image = 3;
  * @return {string}
  */
-proto.kdeploy.TaskConstructor.prototype.getImage = function() {
+proto.kdeploy.TaskInput.prototype.getImage = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
 /** @param {string} value */
-proto.kdeploy.TaskConstructor.prototype.setImage = function(value) {
+proto.kdeploy.TaskInput.prototype.setImage = function(value) {
   jspb.Message.setProto3StringField(this, 3, value);
 };
 
@@ -1732,13 +1730,13 @@ proto.kdeploy.TaskConstructor.prototype.setImage = function(value) {
  * repeated string args = 5;
  * @return {!Array<string>}
  */
-proto.kdeploy.TaskConstructor.prototype.getArgsList = function() {
+proto.kdeploy.TaskInput.prototype.getArgsList = function() {
   return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 5));
 };
 
 
 /** @param {!Array<string>} value */
-proto.kdeploy.TaskConstructor.prototype.setArgsList = function(value) {
+proto.kdeploy.TaskInput.prototype.setArgsList = function(value) {
   jspb.Message.setField(this, 5, value || []);
 };
 
@@ -1747,12 +1745,12 @@ proto.kdeploy.TaskConstructor.prototype.setArgsList = function(value) {
  * @param {!string} value
  * @param {number=} opt_index
  */
-proto.kdeploy.TaskConstructor.prototype.addArgs = function(value, opt_index) {
+proto.kdeploy.TaskInput.prototype.addArgs = function(value, opt_index) {
   jspb.Message.addToRepeatedField(this, 5, value, opt_index);
 };
 
 
-proto.kdeploy.TaskConstructor.prototype.clearArgsList = function() {
+proto.kdeploy.TaskInput.prototype.clearArgsList = function() {
   this.setArgsList([]);
 };
 
@@ -1763,14 +1761,14 @@ proto.kdeploy.TaskConstructor.prototype.clearArgsList = function() {
  * empty, instead returning `undefined`
  * @return {!jspb.Map<string,string>}
  */
-proto.kdeploy.TaskConstructor.prototype.getEnvMap = function(opt_noLazyCreate) {
+proto.kdeploy.TaskInput.prototype.getEnvMap = function(opt_noLazyCreate) {
   return /** @type {!jspb.Map<string,string>} */ (
       jspb.Message.getMapField(this, 6, opt_noLazyCreate,
       null));
 };
 
 
-proto.kdeploy.TaskConstructor.prototype.clearEnvMap = function() {
+proto.kdeploy.TaskInput.prototype.clearEnvMap = function() {
   this.getEnvMap().clear();
 };
 
@@ -1779,13 +1777,13 @@ proto.kdeploy.TaskConstructor.prototype.clearEnvMap = function() {
  * optional string schedule = 7;
  * @return {string}
  */
-proto.kdeploy.TaskConstructor.prototype.getSchedule = function() {
+proto.kdeploy.TaskInput.prototype.getSchedule = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
 };
 
 
 /** @param {string} value */
-proto.kdeploy.TaskConstructor.prototype.setSchedule = function(value) {
+proto.kdeploy.TaskInput.prototype.setSchedule = function(value) {
   jspb.Message.setProto3StringField(this, 7, value);
 };
 
@@ -1794,13 +1792,13 @@ proto.kdeploy.TaskConstructor.prototype.setSchedule = function(value) {
  * optional uint32 completions = 8;
  * @return {number}
  */
-proto.kdeploy.TaskConstructor.prototype.getCompletions = function() {
+proto.kdeploy.TaskInput.prototype.getCompletions = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
 };
 
 
 /** @param {number} value */
-proto.kdeploy.TaskConstructor.prototype.setCompletions = function(value) {
+proto.kdeploy.TaskInput.prototype.setCompletions = function(value) {
   jspb.Message.setProto3IntField(this, 8, value);
 };
 
@@ -1816,19 +1814,19 @@ proto.kdeploy.TaskConstructor.prototype.setCompletions = function(value) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.kdeploy.TaskUpdate = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.kdeploy.TaskUpdate.repeatedFields_, null);
+proto.kdeploy.AppInput = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.kdeploy.AppInput.repeatedFields_, null);
 };
-goog.inherits(proto.kdeploy.TaskUpdate, jspb.Message);
+goog.inherits(proto.kdeploy.AppInput, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.kdeploy.TaskUpdate.displayName = 'proto.kdeploy.TaskUpdate';
+  proto.kdeploy.AppInput.displayName = 'proto.kdeploy.AppInput';
 }
 /**
  * List of repeated fields within this message type.
  * @private {!Array<number>}
  * @const
  */
-proto.kdeploy.TaskUpdate.repeatedFields_ = [5];
+proto.kdeploy.AppInput.repeatedFields_ = [4];
 
 
 
@@ -1843,8 +1841,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.kdeploy.TaskUpdate.prototype.toObject = function(opt_includeInstance) {
-  return proto.kdeploy.TaskUpdate.toObject(opt_includeInstance, this);
+proto.kdeploy.AppInput.prototype.toObject = function(opt_includeInstance) {
+  return proto.kdeploy.AppInput.toObject(opt_includeInstance, this);
 };
 
 
@@ -1853,338 +1851,11 @@ proto.kdeploy.TaskUpdate.prototype.toObject = function(opt_includeInstance) {
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.kdeploy.TaskUpdate} msg The msg instance to transform.
+ * @param {!proto.kdeploy.AppInput} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.kdeploy.TaskUpdate.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    namespace: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    image: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    argsList: jspb.Message.getRepeatedField(msg, 5),
-    envMap: (f = msg.getEnvMap()) ? f.toObject(includeInstance, undefined) : [],
-    schedule: jspb.Message.getFieldWithDefault(msg, 7, ""),
-    completions: jspb.Message.getFieldWithDefault(msg, 8, 0)
-  };
-
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
-
-
-/**
- * Deserializes binary data (in protobuf wire format).
- * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.kdeploy.TaskUpdate}
- */
-proto.kdeploy.TaskUpdate.deserializeBinary = function(bytes) {
-  var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.kdeploy.TaskUpdate;
-  return proto.kdeploy.TaskUpdate.deserializeBinaryFromReader(msg, reader);
-};
-
-
-/**
- * Deserializes binary data (in protobuf wire format) from the
- * given reader into the given message object.
- * @param {!proto.kdeploy.TaskUpdate} msg The message object to deserialize into.
- * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.kdeploy.TaskUpdate}
- */
-proto.kdeploy.TaskUpdate.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
-    }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setName(value);
-      break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setNamespace(value);
-      break;
-    case 3:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setImage(value);
-      break;
-    case 5:
-      var value = /** @type {string} */ (reader.readString());
-      msg.addArgs(value);
-      break;
-    case 6:
-      var value = msg.getEnvMap();
-      reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "");
-         });
-      break;
-    case 7:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setSchedule(value);
-      break;
-    case 8:
-      var value = /** @type {number} */ (reader.readUint32());
-      msg.setCompletions(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
-
-/**
- * Serializes the message to binary data (in protobuf wire format).
- * @return {!Uint8Array}
- */
-proto.kdeploy.TaskUpdate.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.kdeploy.TaskUpdate.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
-
-/**
- * Serializes the given message to binary data (in protobuf wire
- * format), writing to the given BinaryWriter.
- * @param {!proto.kdeploy.TaskUpdate} message
- * @param {!jspb.BinaryWriter} writer
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.kdeploy.TaskUpdate.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getName();
-  if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
-  }
-  f = message.getNamespace();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
-  }
-  f = message.getImage();
-  if (f.length > 0) {
-    writer.writeString(
-      3,
-      f
-    );
-  }
-  f = message.getArgsList();
-  if (f.length > 0) {
-    writer.writeRepeatedString(
-      5,
-      f
-    );
-  }
-  f = message.getEnvMap(true);
-  if (f && f.getLength() > 0) {
-    f.serializeBinary(6, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
-  }
-  f = message.getSchedule();
-  if (f.length > 0) {
-    writer.writeString(
-      7,
-      f
-    );
-  }
-  f = message.getCompletions();
-  if (f !== 0) {
-    writer.writeUint32(
-      8,
-      f
-    );
-  }
-};
-
-
-/**
- * optional string name = 1;
- * @return {string}
- */
-proto.kdeploy.TaskUpdate.prototype.getName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
-};
-
-
-/** @param {string} value */
-proto.kdeploy.TaskUpdate.prototype.setName = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
-};
-
-
-/**
- * optional string namespace = 2;
- * @return {string}
- */
-proto.kdeploy.TaskUpdate.prototype.getNamespace = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/** @param {string} value */
-proto.kdeploy.TaskUpdate.prototype.setNamespace = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
-};
-
-
-/**
- * optional string image = 3;
- * @return {string}
- */
-proto.kdeploy.TaskUpdate.prototype.getImage = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
-};
-
-
-/** @param {string} value */
-proto.kdeploy.TaskUpdate.prototype.setImage = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
-};
-
-
-/**
- * repeated string args = 5;
- * @return {!Array<string>}
- */
-proto.kdeploy.TaskUpdate.prototype.getArgsList = function() {
-  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 5));
-};
-
-
-/** @param {!Array<string>} value */
-proto.kdeploy.TaskUpdate.prototype.setArgsList = function(value) {
-  jspb.Message.setField(this, 5, value || []);
-};
-
-
-/**
- * @param {!string} value
- * @param {number=} opt_index
- */
-proto.kdeploy.TaskUpdate.prototype.addArgs = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 5, value, opt_index);
-};
-
-
-proto.kdeploy.TaskUpdate.prototype.clearArgsList = function() {
-  this.setArgsList([]);
-};
-
-
-/**
- * map<string, string> env = 6;
- * @param {boolean=} opt_noLazyCreate Do not create the map if
- * empty, instead returning `undefined`
- * @return {!jspb.Map<string,string>}
- */
-proto.kdeploy.TaskUpdate.prototype.getEnvMap = function(opt_noLazyCreate) {
-  return /** @type {!jspb.Map<string,string>} */ (
-      jspb.Message.getMapField(this, 6, opt_noLazyCreate,
-      null));
-};
-
-
-proto.kdeploy.TaskUpdate.prototype.clearEnvMap = function() {
-  this.getEnvMap().clear();
-};
-
-
-/**
- * optional string schedule = 7;
- * @return {string}
- */
-proto.kdeploy.TaskUpdate.prototype.getSchedule = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
-};
-
-
-/** @param {string} value */
-proto.kdeploy.TaskUpdate.prototype.setSchedule = function(value) {
-  jspb.Message.setProto3StringField(this, 7, value);
-};
-
-
-/**
- * optional uint32 completions = 8;
- * @return {number}
- */
-proto.kdeploy.TaskUpdate.prototype.getCompletions = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
-};
-
-
-/** @param {number} value */
-proto.kdeploy.TaskUpdate.prototype.setCompletions = function(value) {
-  jspb.Message.setProto3IntField(this, 8, value);
-};
-
-
-
-/**
- * Generated by JsPbCodeGenerator.
- * @param {Array=} opt_data Optional initial data array, typically from a
- * server response, or constructed directly in Javascript. The array is used
- * in place and becomes part of the constructed object. It is not cloned.
- * If no data is provided, the constructed object will be empty, but still
- * valid.
- * @extends {jspb.Message}
- * @constructor
- */
-proto.kdeploy.AppConstructor = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.kdeploy.AppConstructor.repeatedFields_, null);
-};
-goog.inherits(proto.kdeploy.AppConstructor, jspb.Message);
-if (goog.DEBUG && !COMPILED) {
-  proto.kdeploy.AppConstructor.displayName = 'proto.kdeploy.AppConstructor';
-}
-/**
- * List of repeated fields within this message type.
- * @private {!Array<number>}
- * @const
- */
-proto.kdeploy.AppConstructor.repeatedFields_ = [4];
-
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto suitable for use in Soy templates.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
- * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
- *     for transitional soy proto support: http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.kdeploy.AppConstructor.prototype.toObject = function(opt_includeInstance) {
-  return proto.kdeploy.AppConstructor.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Whether to include the JSPB
- *     instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.kdeploy.AppConstructor} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.kdeploy.AppConstructor.toObject = function(includeInstance, msg) {
+proto.kdeploy.AppInput.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
     namespace: jspb.Message.getFieldWithDefault(msg, 2, ""),
@@ -2207,23 +1878,23 @@ proto.kdeploy.AppConstructor.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.kdeploy.AppConstructor}
+ * @return {!proto.kdeploy.AppInput}
  */
-proto.kdeploy.AppConstructor.deserializeBinary = function(bytes) {
+proto.kdeploy.AppInput.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.kdeploy.AppConstructor;
-  return proto.kdeploy.AppConstructor.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.kdeploy.AppInput;
+  return proto.kdeploy.AppInput.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.kdeploy.AppConstructor} msg The message object to deserialize into.
+ * @param {!proto.kdeploy.AppInput} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.kdeploy.AppConstructor}
+ * @return {!proto.kdeploy.AppInput}
  */
-proto.kdeploy.AppConstructor.deserializeBinaryFromReader = function(msg, reader) {
+proto.kdeploy.AppInput.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -2280,9 +1951,9 @@ proto.kdeploy.AppConstructor.deserializeBinaryFromReader = function(msg, reader)
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.kdeploy.AppConstructor.prototype.serializeBinary = function() {
+proto.kdeploy.AppInput.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.kdeploy.AppConstructor.serializeBinaryToWriter(this, writer);
+  proto.kdeploy.AppInput.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -2290,11 +1961,11 @@ proto.kdeploy.AppConstructor.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.kdeploy.AppConstructor} message
+ * @param {!proto.kdeploy.AppInput} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.kdeploy.AppConstructor.serializeBinaryToWriter = function(message, writer) {
+proto.kdeploy.AppInput.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getName();
   if (f.length > 0) {
@@ -2354,13 +2025,13 @@ proto.kdeploy.AppConstructor.serializeBinaryToWriter = function(message, writer)
  * optional string name = 1;
  * @return {string}
  */
-proto.kdeploy.AppConstructor.prototype.getName = function() {
+proto.kdeploy.AppInput.prototype.getName = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
 /** @param {string} value */
-proto.kdeploy.AppConstructor.prototype.setName = function(value) {
+proto.kdeploy.AppInput.prototype.setName = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
 };
 
@@ -2369,13 +2040,13 @@ proto.kdeploy.AppConstructor.prototype.setName = function(value) {
  * optional string namespace = 2;
  * @return {string}
  */
-proto.kdeploy.AppConstructor.prototype.getNamespace = function() {
+proto.kdeploy.AppInput.prototype.getNamespace = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
 /** @param {string} value */
-proto.kdeploy.AppConstructor.prototype.setNamespace = function(value) {
+proto.kdeploy.AppInput.prototype.setNamespace = function(value) {
   jspb.Message.setProto3StringField(this, 2, value);
 };
 
@@ -2384,13 +2055,13 @@ proto.kdeploy.AppConstructor.prototype.setNamespace = function(value) {
  * optional string image = 3;
  * @return {string}
  */
-proto.kdeploy.AppConstructor.prototype.getImage = function() {
+proto.kdeploy.AppInput.prototype.getImage = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
 /** @param {string} value */
-proto.kdeploy.AppConstructor.prototype.setImage = function(value) {
+proto.kdeploy.AppInput.prototype.setImage = function(value) {
   jspb.Message.setProto3StringField(this, 3, value);
 };
 
@@ -2399,13 +2070,13 @@ proto.kdeploy.AppConstructor.prototype.setImage = function(value) {
  * repeated string args = 4;
  * @return {!Array<string>}
  */
-proto.kdeploy.AppConstructor.prototype.getArgsList = function() {
+proto.kdeploy.AppInput.prototype.getArgsList = function() {
   return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 4));
 };
 
 
 /** @param {!Array<string>} value */
-proto.kdeploy.AppConstructor.prototype.setArgsList = function(value) {
+proto.kdeploy.AppInput.prototype.setArgsList = function(value) {
   jspb.Message.setField(this, 4, value || []);
 };
 
@@ -2414,12 +2085,12 @@ proto.kdeploy.AppConstructor.prototype.setArgsList = function(value) {
  * @param {!string} value
  * @param {number=} opt_index
  */
-proto.kdeploy.AppConstructor.prototype.addArgs = function(value, opt_index) {
+proto.kdeploy.AppInput.prototype.addArgs = function(value, opt_index) {
   jspb.Message.addToRepeatedField(this, 4, value, opt_index);
 };
 
 
-proto.kdeploy.AppConstructor.prototype.clearArgsList = function() {
+proto.kdeploy.AppInput.prototype.clearArgsList = function() {
   this.setArgsList([]);
 };
 
@@ -2430,14 +2101,14 @@ proto.kdeploy.AppConstructor.prototype.clearArgsList = function() {
  * empty, instead returning `undefined`
  * @return {!jspb.Map<string,string>}
  */
-proto.kdeploy.AppConstructor.prototype.getEnvMap = function(opt_noLazyCreate) {
+proto.kdeploy.AppInput.prototype.getEnvMap = function(opt_noLazyCreate) {
   return /** @type {!jspb.Map<string,string>} */ (
       jspb.Message.getMapField(this, 5, opt_noLazyCreate,
       null));
 };
 
 
-proto.kdeploy.AppConstructor.prototype.clearEnvMap = function() {
+proto.kdeploy.AppInput.prototype.clearEnvMap = function() {
   this.getEnvMap().clear();
 };
 
@@ -2448,14 +2119,14 @@ proto.kdeploy.AppConstructor.prototype.clearEnvMap = function() {
  * empty, instead returning `undefined`
  * @return {!jspb.Map<string,number>}
  */
-proto.kdeploy.AppConstructor.prototype.getPortsMap = function(opt_noLazyCreate) {
+proto.kdeploy.AppInput.prototype.getPortsMap = function(opt_noLazyCreate) {
   return /** @type {!jspb.Map<string,number>} */ (
       jspb.Message.getMapField(this, 6, opt_noLazyCreate,
       null));
 };
 
 
-proto.kdeploy.AppConstructor.prototype.clearPortsMap = function() {
+proto.kdeploy.AppInput.prototype.clearPortsMap = function() {
   this.getPortsMap().clear();
 };
 
@@ -2464,13 +2135,13 @@ proto.kdeploy.AppConstructor.prototype.clearPortsMap = function() {
  * optional uint32 replicas = 7;
  * @return {number}
  */
-proto.kdeploy.AppConstructor.prototype.getReplicas = function() {
+proto.kdeploy.AppInput.prototype.getReplicas = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
 };
 
 
 /** @param {number} value */
-proto.kdeploy.AppConstructor.prototype.setReplicas = function(value) {
+proto.kdeploy.AppInput.prototype.setReplicas = function(value) {
   jspb.Message.setProto3IntField(this, 7, value);
 };
 
@@ -2479,19 +2150,19 @@ proto.kdeploy.AppConstructor.prototype.setReplicas = function(value) {
  * optional Networking networking = 9;
  * @return {?proto.kdeploy.Networking}
  */
-proto.kdeploy.AppConstructor.prototype.getNetworking = function() {
+proto.kdeploy.AppInput.prototype.getNetworking = function() {
   return /** @type{?proto.kdeploy.Networking} */ (
     jspb.Message.getWrapperField(this, proto.kdeploy.Networking, 9));
 };
 
 
 /** @param {?proto.kdeploy.Networking|undefined} value */
-proto.kdeploy.AppConstructor.prototype.setNetworking = function(value) {
+proto.kdeploy.AppInput.prototype.setNetworking = function(value) {
   jspb.Message.setWrapperField(this, 9, value);
 };
 
 
-proto.kdeploy.AppConstructor.prototype.clearNetworking = function() {
+proto.kdeploy.AppInput.prototype.clearNetworking = function() {
   this.setNetworking(undefined);
 };
 
@@ -2500,380 +2171,7 @@ proto.kdeploy.AppConstructor.prototype.clearNetworking = function() {
  * Returns whether this field is set.
  * @return {!boolean}
  */
-proto.kdeploy.AppConstructor.prototype.hasNetworking = function() {
-  return jspb.Message.getField(this, 9) != null;
-};
-
-
-
-/**
- * Generated by JsPbCodeGenerator.
- * @param {Array=} opt_data Optional initial data array, typically from a
- * server response, or constructed directly in Javascript. The array is used
- * in place and becomes part of the constructed object. It is not cloned.
- * If no data is provided, the constructed object will be empty, but still
- * valid.
- * @extends {jspb.Message}
- * @constructor
- */
-proto.kdeploy.AppUpdate = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.kdeploy.AppUpdate.repeatedFields_, null);
-};
-goog.inherits(proto.kdeploy.AppUpdate, jspb.Message);
-if (goog.DEBUG && !COMPILED) {
-  proto.kdeploy.AppUpdate.displayName = 'proto.kdeploy.AppUpdate';
-}
-/**
- * List of repeated fields within this message type.
- * @private {!Array<number>}
- * @const
- */
-proto.kdeploy.AppUpdate.repeatedFields_ = [4];
-
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto suitable for use in Soy templates.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
- * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
- *     for transitional soy proto support: http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.kdeploy.AppUpdate.prototype.toObject = function(opt_includeInstance) {
-  return proto.kdeploy.AppUpdate.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Whether to include the JSPB
- *     instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.kdeploy.AppUpdate} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.kdeploy.AppUpdate.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    namespace: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    image: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    argsList: jspb.Message.getRepeatedField(msg, 4),
-    envMap: (f = msg.getEnvMap()) ? f.toObject(includeInstance, undefined) : [],
-    portsMap: (f = msg.getPortsMap()) ? f.toObject(includeInstance, undefined) : [],
-    replicas: jspb.Message.getFieldWithDefault(msg, 7, 0),
-    networking: (f = msg.getNetworking()) && proto.kdeploy.Networking.toObject(includeInstance, f)
-  };
-
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
-
-
-/**
- * Deserializes binary data (in protobuf wire format).
- * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.kdeploy.AppUpdate}
- */
-proto.kdeploy.AppUpdate.deserializeBinary = function(bytes) {
-  var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.kdeploy.AppUpdate;
-  return proto.kdeploy.AppUpdate.deserializeBinaryFromReader(msg, reader);
-};
-
-
-/**
- * Deserializes binary data (in protobuf wire format) from the
- * given reader into the given message object.
- * @param {!proto.kdeploy.AppUpdate} msg The message object to deserialize into.
- * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.kdeploy.AppUpdate}
- */
-proto.kdeploy.AppUpdate.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
-    }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setName(value);
-      break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setNamespace(value);
-      break;
-    case 3:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setImage(value);
-      break;
-    case 4:
-      var value = /** @type {string} */ (reader.readString());
-      msg.addArgs(value);
-      break;
-    case 5:
-      var value = msg.getEnvMap();
-      reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "");
-         });
-      break;
-    case 6:
-      var value = msg.getPortsMap();
-      reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readUint32, null, "");
-         });
-      break;
-    case 7:
-      var value = /** @type {number} */ (reader.readUint32());
-      msg.setReplicas(value);
-      break;
-    case 9:
-      var value = new proto.kdeploy.Networking;
-      reader.readMessage(value,proto.kdeploy.Networking.deserializeBinaryFromReader);
-      msg.setNetworking(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
-
-/**
- * Serializes the message to binary data (in protobuf wire format).
- * @return {!Uint8Array}
- */
-proto.kdeploy.AppUpdate.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.kdeploy.AppUpdate.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
-
-/**
- * Serializes the given message to binary data (in protobuf wire
- * format), writing to the given BinaryWriter.
- * @param {!proto.kdeploy.AppUpdate} message
- * @param {!jspb.BinaryWriter} writer
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.kdeploy.AppUpdate.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getName();
-  if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
-  }
-  f = message.getNamespace();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
-  }
-  f = message.getImage();
-  if (f.length > 0) {
-    writer.writeString(
-      3,
-      f
-    );
-  }
-  f = message.getArgsList();
-  if (f.length > 0) {
-    writer.writeRepeatedString(
-      4,
-      f
-    );
-  }
-  f = message.getEnvMap(true);
-  if (f && f.getLength() > 0) {
-    f.serializeBinary(5, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
-  }
-  f = message.getPortsMap(true);
-  if (f && f.getLength() > 0) {
-    f.serializeBinary(6, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeUint32);
-  }
-  f = message.getReplicas();
-  if (f !== 0) {
-    writer.writeUint32(
-      7,
-      f
-    );
-  }
-  f = message.getNetworking();
-  if (f != null) {
-    writer.writeMessage(
-      9,
-      f,
-      proto.kdeploy.Networking.serializeBinaryToWriter
-    );
-  }
-};
-
-
-/**
- * optional string name = 1;
- * @return {string}
- */
-proto.kdeploy.AppUpdate.prototype.getName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
-};
-
-
-/** @param {string} value */
-proto.kdeploy.AppUpdate.prototype.setName = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
-};
-
-
-/**
- * optional string namespace = 2;
- * @return {string}
- */
-proto.kdeploy.AppUpdate.prototype.getNamespace = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/** @param {string} value */
-proto.kdeploy.AppUpdate.prototype.setNamespace = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
-};
-
-
-/**
- * optional string image = 3;
- * @return {string}
- */
-proto.kdeploy.AppUpdate.prototype.getImage = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
-};
-
-
-/** @param {string} value */
-proto.kdeploy.AppUpdate.prototype.setImage = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
-};
-
-
-/**
- * repeated string args = 4;
- * @return {!Array<string>}
- */
-proto.kdeploy.AppUpdate.prototype.getArgsList = function() {
-  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 4));
-};
-
-
-/** @param {!Array<string>} value */
-proto.kdeploy.AppUpdate.prototype.setArgsList = function(value) {
-  jspb.Message.setField(this, 4, value || []);
-};
-
-
-/**
- * @param {!string} value
- * @param {number=} opt_index
- */
-proto.kdeploy.AppUpdate.prototype.addArgs = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 4, value, opt_index);
-};
-
-
-proto.kdeploy.AppUpdate.prototype.clearArgsList = function() {
-  this.setArgsList([]);
-};
-
-
-/**
- * map<string, string> env = 5;
- * @param {boolean=} opt_noLazyCreate Do not create the map if
- * empty, instead returning `undefined`
- * @return {!jspb.Map<string,string>}
- */
-proto.kdeploy.AppUpdate.prototype.getEnvMap = function(opt_noLazyCreate) {
-  return /** @type {!jspb.Map<string,string>} */ (
-      jspb.Message.getMapField(this, 5, opt_noLazyCreate,
-      null));
-};
-
-
-proto.kdeploy.AppUpdate.prototype.clearEnvMap = function() {
-  this.getEnvMap().clear();
-};
-
-
-/**
- * map<string, uint32> ports = 6;
- * @param {boolean=} opt_noLazyCreate Do not create the map if
- * empty, instead returning `undefined`
- * @return {!jspb.Map<string,number>}
- */
-proto.kdeploy.AppUpdate.prototype.getPortsMap = function(opt_noLazyCreate) {
-  return /** @type {!jspb.Map<string,number>} */ (
-      jspb.Message.getMapField(this, 6, opt_noLazyCreate,
-      null));
-};
-
-
-proto.kdeploy.AppUpdate.prototype.clearPortsMap = function() {
-  this.getPortsMap().clear();
-};
-
-
-/**
- * optional uint32 replicas = 7;
- * @return {number}
- */
-proto.kdeploy.AppUpdate.prototype.getReplicas = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
-};
-
-
-/** @param {number} value */
-proto.kdeploy.AppUpdate.prototype.setReplicas = function(value) {
-  jspb.Message.setProto3IntField(this, 7, value);
-};
-
-
-/**
- * optional Networking networking = 9;
- * @return {?proto.kdeploy.Networking}
- */
-proto.kdeploy.AppUpdate.prototype.getNetworking = function() {
-  return /** @type{?proto.kdeploy.Networking} */ (
-    jspb.Message.getWrapperField(this, proto.kdeploy.Networking, 9));
-};
-
-
-/** @param {?proto.kdeploy.Networking|undefined} value */
-proto.kdeploy.AppUpdate.prototype.setNetworking = function(value) {
-  jspb.Message.setWrapperField(this, 9, value);
-};
-
-
-proto.kdeploy.AppUpdate.prototype.clearNetworking = function() {
-  this.setNetworking(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {!boolean}
- */
-proto.kdeploy.AppUpdate.prototype.hasNetworking = function() {
+proto.kdeploy.AppInput.prototype.hasNetworking = function() {
   return jspb.Message.getField(this, 9) != null;
 };
 

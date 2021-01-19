@@ -150,12 +150,12 @@ func toContext(ctx context.Context, tokenSource oauth2.TokenSource) (context.Con
 }
 
 // CreateApp creates a new application
-func (c *Client) CreateApp(ctx context.Context, app *kdeploypb.AppConstructor) (*kdeploypb.App, error) {
+func (c *Client) CreateApp(ctx context.Context, app *kdeploypb.AppInput) (*kdeploypb.App, error) {
 	return c.client.CreateApp(ctx, app)
 }
 
 // UpdateApp updates an application - it performs a patch, not a full replace
-func (c *Client) UpdateApp(ctx context.Context, app *kdeploypb.AppUpdate) (*kdeploypb.App, error) {
+func (c *Client) UpdateApp(ctx context.Context, app *kdeploypb.AppInput) (*kdeploypb.App, error) {
 	return c.client.UpdateApp(ctx, app)
 }
 
@@ -177,12 +177,12 @@ func (c *Client) DeleteAll(ctx context.Context, namespace *kdeploypb.Namespace) 
 }
 
 // CreateTask creates a new task
-func (c *Client) CreateTask(ctx context.Context, app *kdeploypb.TaskConstructor) (*kdeploypb.Task, error) {
+func (c *Client) CreateTask(ctx context.Context, app *kdeploypb.TaskInput) (*kdeploypb.Task, error) {
 	return c.client.CreateTask(ctx, app)
 }
 
 // UpdateTask updates a task - it performs a patch, not a full replace
-func (c *Client) UpdateTask(ctx context.Context, app *kdeploypb.TaskUpdate) (*kdeploypb.Task, error) {
+func (c *Client) UpdateTask(ctx context.Context, app *kdeploypb.TaskInput) (*kdeploypb.Task, error) {
 	return c.client.UpdateTask(ctx, app)
 }
 

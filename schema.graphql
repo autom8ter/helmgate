@@ -160,8 +160,8 @@ input Namespace {
     namespace: String!
 }
 
-# AppConstructor creates a new stateless Application
-input AppConstructor {
+# AppInput creates a new stateless Application
+input AppInput {
     # name of the application
     name: String!
     # application namespace
@@ -172,15 +172,16 @@ input AppConstructor {
     args: [String!]
     # k/v map of environmental variables
     env: Map
-    # k/v map of ports to expose ex: http: 80 https: 443
+    # k/v map of ports to expose ex: http-1: 80 https-1: 443
     ports: Map!
     # number of deployment replicas min:1
     replicas: Int!
+    # gateway/servicemesh configuration
     networking: NetworkingInput!
 }
 
-# TaskConstructor creates a new task(cron job)
-input TaskConstructor {
+# TaskInput creates a new task(cron job)
+input TaskInput {
     # name of the application
     name: String!
     # application namespace
@@ -197,42 +198,6 @@ input TaskConstructor {
     completions: Int
 }
 
-input AppUpdate {
-    # name of the application
-    name: String!
-    # application namespace
-    namespace: String!
-    # docker image of application
-    image: String
-    # args are arguments given to the container/image at startup
-    args: [String!]
-    # k/v map of environmental variables
-    env: Map
-    # k/v map of ports to expose on each instance/replica ex: http: 80 https: 443
-    ports: Map
-    # number of deployment replicas min:1
-    replicas: Int
-    # gateway/service-mesh networking
-    networking: NetworkingInput
-}
-
-input TaskUpdate {
-    # name of the application
-    name: String!
-    # application namespace
-    namespace: String!
-    # docker image of application
-    image: String
-    # args are arguments given to the container/image at startup
-    args: [String!]
-    # k/v map of environmental variables
-    env: Map
-    # schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
-    schedule: String
-    # completions is the number of times to execute the task. If completions = 0, the task will run forever
-    completions: Int
-}
-
 input Ref {
     # name of the application
     name: String!
@@ -244,16 +209,16 @@ input Ref {
 type Mutation {
     # createApp creates a new stateless application(k8s deployment), exposed with a single load balancer(k8s service) within a single namespace(k8s namespace)
     # the namespace will automatically be created if one does not already exist
-    createApp(input: AppConstructor!): App
+    createApp(input: AppInput!): App!
     # updateApp edits/patches an existing stateless application(k8s deployment & service) within an existing namespace(k8s namespace)
-    updateApp(input: AppUpdate!): App
+    updateApp(input: AppInput!): App!
     # delApp deletes a single stateless application(k8s deployment & service) within an existing namespace
     delApp(input: Ref!): String
     # createTask creates a new task(k8s cron job) within a single namespace(k8s namespace)
     # the namespace will automatically be created if one does not already exist
-    createTask(input: TaskConstructor!): Task
+    createTask(input: TaskInput!): Task!
     #  UpdateTask edits/patches an existing task(k8s cron job) within an existing namespace(k8s namespace)
-    updateTask(input: TaskUpdate!): Task
+    updateTask(input: TaskInput!): Task!
     # DeleteTask deletes a single task(k8s cron job) within an existing namespace
     delTask(input: Ref!): String
     # delAll deletes all apps/tasks within an existing namespace

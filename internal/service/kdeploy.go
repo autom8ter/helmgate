@@ -18,11 +18,11 @@ func NewKdeployService(client *client.Manager) *KdeployService {
 	return &KdeployService{client: client}
 }
 
-func (k KdeployService) CreateApp(ctx context.Context, constructor *kdeploypb.AppConstructor) (*kdeploypb.App, error) {
+func (k KdeployService) CreateApp(ctx context.Context, constructor *kdeploypb.AppInput) (*kdeploypb.App, error) {
 	return k.client.CreateApp(ctx, constructor)
 }
 
-func (k KdeployService) UpdateApp(ctx context.Context, update *kdeploypb.AppUpdate) (*kdeploypb.App, error) {
+func (k KdeployService) UpdateApp(ctx context.Context, update *kdeploypb.AppInput) (*kdeploypb.App, error) {
 	return k.client.UpdateApp(ctx, update)
 }
 
@@ -73,11 +73,11 @@ func (k KdeployService) StreamLogs(ref *kdeploypb.Ref, server kdeploypb.KdeployS
 	}
 }
 
-func (k KdeployService) CreateTask(ctx context.Context, constructor *kdeploypb.TaskConstructor) (*kdeploypb.Task, error) {
+func (k KdeployService) CreateTask(ctx context.Context, constructor *kdeploypb.TaskInput) (*kdeploypb.Task, error) {
 	return k.client.CreateTask(ctx, constructor)
 }
 
-func (k KdeployService) UpdateTask(ctx context.Context, update *kdeploypb.TaskUpdate) (*kdeploypb.Task, error) {
+func (k KdeployService) UpdateTask(ctx context.Context, update *kdeploypb.TaskInput) (*kdeploypb.Task, error) {
 	return k.client.UpdateTask(ctx, update)
 }
 

@@ -46,59 +46,45 @@ namespace Kdeploy {
             "GAEgASgJEhEKCW5hbWVzcGFjZRgCIAEoCRINCgVpbWFnZRgDIAEoCRIMCgRh",
             "cmdzGAUgAygJEiMKA2VudhgGIAMoCzIWLmtkZXBsb3kuVGFzay5FbnZFbnRy",
             "eRIQCghzY2hlZHVsZRgHIAEoCRITCgtjb21wbGV0aW9ucxgIIAEoDRoqCghF",
-            "bnZFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBIpoCCg9U",
-            "YXNrQ29uc3RydWN0b3ISHgoEbmFtZRgBIAEoCUIQ4t8fDAoKXi57MSwyMjV9",
-            "JBIjCgluYW1lc3BhY2UYAiABKAlCEOLfHwwKCl4uezEsMjI1fSQSHwoFaW1h",
-            "Z2UYAyABKAlCEOLfHwwKCl4uezEsMjI1fSQSDAoEYXJncxgFIAMoCRIuCgNl",
-            "bnYYBiADKAsyIS5rZGVwbG95LlRhc2tDb25zdHJ1Y3Rvci5FbnZFbnRyeRIi",
-            "CghzY2hlZHVsZRgHIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBITCgtjb21wbGV0",
-            "aW9ucxgIIAEoDRoqCghFbnZFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUY",
-            "AiABKAk6AjgBIuwBCgpUYXNrVXBkYXRlEh4KBG5hbWUYASABKAlCEOLfHwwK",
+            "bnZFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBIo4CCglU",
+            "YXNrSW5wdXQSHgoEbmFtZRgBIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIjCglu",
+            "YW1lc3BhY2UYAiABKAlCEOLfHwwKCl4uezEsMjI1fSQSHwoFaW1hZ2UYAyAB",
+            "KAlCEOLfHwwKCl4uezEsMjI1fSQSDAoEYXJncxgFIAMoCRIoCgNlbnYYBiAD",
+            "KAsyGy5rZGVwbG95LlRhc2tJbnB1dC5FbnZFbnRyeRIiCghzY2hlZHVsZRgH",
+            "IAEoCUIQ4t8fDAoKXi57MSwyMjV9JBITCgtjb21wbGV0aW9ucxgIIAEoDRoq",
+            "CghFbnZFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBIvkC",
+            "CghBcHBJbnB1dBIeCgRuYW1lGAEgASgJQhDi3x8MCgpeLnsxLDIyNX0kEiMK",
+            "CW5hbWVzcGFjZRgCIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIfCgVpbWFnZRgD",
+            "IAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIMCgRhcmdzGAQgAygJEicKA2VudhgF",
+            "IAMoCzIaLmtkZXBsb3kuQXBwSW5wdXQuRW52RW50cnkSMwoFcG9ydHMYBiAD",
+            "KAsyHC5rZGVwbG95LkFwcElucHV0LlBvcnRzRW50cnlCBuLfHwIgARIQCghy",
+            "ZXBsaWNhcxgHIAEoDRIvCgpuZXR3b3JraW5nGAkgASgLMhMua2RlcGxveS5O",
+            "ZXR3b3JraW5nQgbi3x8CIAEaKgoIRW52RW50cnkSCwoDa2V5GAEgASgJEg0K",
+            "BXZhbHVlGAIgASgJOgI4ARosCgpQb3J0c0VudHJ5EgsKA2tleRgBIAEoCRIN",
+            "CgV2YWx1ZRgCIAEoDToCOAEiSgoDUmVmEh4KBG5hbWUYASABKAlCEOLfHwwK",
             "Cl4uezEsMjI1fSQSIwoJbmFtZXNwYWNlGAIgASgJQhDi3x8MCgpeLnsxLDIy",
-            "NX0kEg0KBWltYWdlGAMgASgJEgwKBGFyZ3MYBSADKAkSKQoDZW52GAYgAygL",
-            "Mhwua2RlcGxveS5UYXNrVXBkYXRlLkVudkVudHJ5EhAKCHNjaGVkdWxlGAcg",
-            "ASgJEhMKC2NvbXBsZXRpb25zGAggASgNGioKCEVudkVudHJ5EgsKA2tleRgB",
-            "IAEoCRINCgV2YWx1ZRgCIAEoCToCOAEigwMKDkFwcENvbnN0cnVjdG9yEh4K",
-            "BG5hbWUYASABKAlCEOLfHwwKCl4uezEsMjI1fSQSIwoJbmFtZXNwYWNlGAIg",
-            "ASgJQhDi3x8MCgpeLnsxLDIyNX0kEh8KBWltYWdlGAMgASgJQhDi3x8MCgpe",
-            "LnsxLDIyNX0kEgwKBGFyZ3MYBCADKAkSLQoDZW52GAUgAygLMiAua2RlcGxv",
-            "eS5BcHBDb25zdHJ1Y3Rvci5FbnZFbnRyeRIxCgVwb3J0cxgGIAMoCzIiLmtk",
-            "ZXBsb3kuQXBwQ29uc3RydWN0b3IuUG9ydHNFbnRyeRIQCghyZXBsaWNhcxgH",
-            "IAEoDRIvCgpuZXR3b3JraW5nGAkgASgLMhMua2RlcGxveS5OZXR3b3JraW5n",
-            "Qgbi3x8CIAEaKgoIRW52RW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIg",
-            "ASgJOgI4ARosCgpQb3J0c0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgC",
-            "IAEoDToCOAEi2gIKCUFwcFVwZGF0ZRIeCgRuYW1lGAEgASgJQhDi3x8MCgpe",
-            "LnsxLDIyNX0kEiMKCW5hbWVzcGFjZRgCIAEoCUIQ4t8fDAoKXi57MSwyMjV9",
-            "JBINCgVpbWFnZRgDIAEoCRIMCgRhcmdzGAQgAygJEigKA2VudhgFIAMoCzIb",
-            "LmtkZXBsb3kuQXBwVXBkYXRlLkVudkVudHJ5EiwKBXBvcnRzGAYgAygLMh0u",
-            "a2RlcGxveS5BcHBVcGRhdGUuUG9ydHNFbnRyeRIQCghyZXBsaWNhcxgHIAEo",
-            "DRInCgpuZXR3b3JraW5nGAkgASgLMhMua2RlcGxveS5OZXR3b3JraW5nGioK",
-            "CEVudkVudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEaLAoK",
-            "UG9ydHNFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKA06AjgBIkoK",
-            "A1JlZhIeCgRuYW1lGAEgASgJQhDi3x8MCgpeLnsxLDIyNX0kEiMKCW5hbWVz",
-            "cGFjZRgCIAEoCUIQ4t8fDAoKXi57MSwyMjV9JCI7CgdSZXBsaWNhEg0KBXBo",
-            "YXNlGAEgASgJEhEKCWNvbmRpdGlvbhgCIAEoCRIOCgZyZWFzb24YAyABKAki",
-            "LwoJQXBwU3RhdHVzEiIKCHJlcGxpY2FzGAEgAygLMhAua2RlcGxveS5SZXBs",
-            "aWNhIhYKA0xvZxIPCgdtZXNzYWdlGAEgASgJIioKBEFwcHMSIgoMYXBwbGlj",
-            "YXRpb25zGAEgAygLMgwua2RlcGxveS5BcHAiJQoFVGFza3MSHAoFdGFza3MY",
-            "ASADKAsyDS5rZGVwbG95LlRhc2siHgoJTmFtZXNwYWNlEhEKCW5hbWVzcGFj",
-            "ZRgBIAEoCSIgCgpOYW1lc3BhY2VzEhIKCm5hbWVzcGFjZXMYASADKAkyrwUK",
-            "DktkZXBsb3lTZXJ2aWNlEjQKCUNyZWF0ZUFwcBIXLmtkZXBsb3kuQXBwQ29u",
-            "c3RydWN0b3IaDC5rZGVwbG95LkFwcCIAEi8KCVVwZGF0ZUFwcBISLmtkZXBs",
-            "b3kuQXBwVXBkYXRlGgwua2RlcGxveS5BcHAiABIzCglEZWxldGVBcHASDC5r",
-            "ZGVwbG95LlJlZhoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAEiYKBkdldEFw",
-            "cBIMLmtkZXBsb3kuUmVmGgwua2RlcGxveS5BcHAiABIvCghMaXN0QXBwcxIS",
-            "LmtkZXBsb3kuTmFtZXNwYWNlGg0ua2RlcGxveS5BcHBzIgASPwoOTGlzdE5h",
-            "bWVzcGFjZXMSFi5nb29nbGUucHJvdG9idWYuRW1wdHkaEy5rZGVwbG95Lk5h",
-            "bWVzcGFjZXMiABI5CglEZWxldGVBbGwSEi5rZGVwbG95Lk5hbWVzcGFjZRoW",
-            "Lmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAEjcKCkNyZWF0ZVRhc2sSGC5rZGVw",
-            "bG95LlRhc2tDb25zdHJ1Y3RvchoNLmtkZXBsb3kuVGFzayIAEjIKClVwZGF0",
-            "ZVRhc2sSEy5rZGVwbG95LlRhc2tVcGRhdGUaDS5rZGVwbG95LlRhc2siABI0",
-            "CgpEZWxldGVUYXNrEgwua2RlcGxveS5SZWYaFi5nb29nbGUucHJvdG9idWYu",
-            "RW1wdHkiABIoCgdHZXRUYXNrEgwua2RlcGxveS5SZWYaDS5rZGVwbG95LlRh",
-            "c2siABIxCglMaXN0VGFza3MSEi5rZGVwbG95Lk5hbWVzcGFjZRoOLmtkZXBs",
-            "b3kuVGFza3MiABIsCgpTdHJlYW1Mb2dzEgwua2RlcGxveS5SZWYaDC5rZGVw",
-            "bG95LkxvZyIAMAFCC1oJa2RlcGxveXBiYgZwcm90bzM="));
+            "NX0kIjsKB1JlcGxpY2ESDQoFcGhhc2UYASABKAkSEQoJY29uZGl0aW9uGAIg",
+            "ASgJEg4KBnJlYXNvbhgDIAEoCSIvCglBcHBTdGF0dXMSIgoIcmVwbGljYXMY",
+            "ASADKAsyEC5rZGVwbG95LlJlcGxpY2EiFgoDTG9nEg8KB21lc3NhZ2UYASAB",
+            "KAkiKgoEQXBwcxIiCgxhcHBsaWNhdGlvbnMYASADKAsyDC5rZGVwbG95LkFw",
+            "cCIlCgVUYXNrcxIcCgV0YXNrcxgBIAMoCzINLmtkZXBsb3kuVGFzayIeCglO",
+            "YW1lc3BhY2USEQoJbmFtZXNwYWNlGAEgASgJIiAKCk5hbWVzcGFjZXMSEgoK",
+            "bmFtZXNwYWNlcxgBIAMoCTKhBQoOS2RlcGxveVNlcnZpY2USLgoJQ3JlYXRl",
+            "QXBwEhEua2RlcGxveS5BcHBJbnB1dBoMLmtkZXBsb3kuQXBwIgASLgoJVXBk",
+            "YXRlQXBwEhEua2RlcGxveS5BcHBJbnB1dBoMLmtkZXBsb3kuQXBwIgASMwoJ",
+            "RGVsZXRlQXBwEgwua2RlcGxveS5SZWYaFi5nb29nbGUucHJvdG9idWYuRW1w",
+            "dHkiABImCgZHZXRBcHASDC5rZGVwbG95LlJlZhoMLmtkZXBsb3kuQXBwIgAS",
+            "LwoITGlzdEFwcHMSEi5rZGVwbG95Lk5hbWVzcGFjZRoNLmtkZXBsb3kuQXBw",
+            "cyIAEj8KDkxpc3ROYW1lc3BhY2VzEhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5",
+            "GhMua2RlcGxveS5OYW1lc3BhY2VzIgASOQoJRGVsZXRlQWxsEhIua2RlcGxv",
+            "eS5OYW1lc3BhY2UaFi5nb29nbGUucHJvdG9idWYuRW1wdHkiABIxCgpDcmVh",
+            "dGVUYXNrEhIua2RlcGxveS5UYXNrSW5wdXQaDS5rZGVwbG95LlRhc2siABIx",
+            "CgpVcGRhdGVUYXNrEhIua2RlcGxveS5UYXNrSW5wdXQaDS5rZGVwbG95LlRh",
+            "c2siABI0CgpEZWxldGVUYXNrEgwua2RlcGxveS5SZWYaFi5nb29nbGUucHJv",
+            "dG9idWYuRW1wdHkiABIoCgdHZXRUYXNrEgwua2RlcGxveS5SZWYaDS5rZGVw",
+            "bG95LlRhc2siABIxCglMaXN0VGFza3MSEi5rZGVwbG95Lk5hbWVzcGFjZRoO",
+            "LmtkZXBsb3kuVGFza3MiABIsCgpTdHJlYW1Mb2dzEgwua2RlcGxveS5SZWYa",
+            "DC5rZGVwbG95LkxvZyIAMAFCC1oJa2RlcGxveXBiYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Validator.ValidatorReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -106,10 +92,8 @@ namespace Kdeploy {
             new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.Networking), global::Kdeploy.Networking.Parser, new[]{ "Gateways", "Hosts", "Export", "HttpRoutes" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.App), global::Kdeploy.App.Parser, new[]{ "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", "Networking", "Status" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.Task), global::Kdeploy.Task.Parser, new[]{ "Name", "Namespace", "Image", "Args", "Env", "Schedule", "Completions" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.TaskConstructor), global::Kdeploy.TaskConstructor.Parser, new[]{ "Name", "Namespace", "Image", "Args", "Env", "Schedule", "Completions" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.TaskUpdate), global::Kdeploy.TaskUpdate.Parser, new[]{ "Name", "Namespace", "Image", "Args", "Env", "Schedule", "Completions" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.AppConstructor), global::Kdeploy.AppConstructor.Parser, new[]{ "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", "Networking" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.AppUpdate), global::Kdeploy.AppUpdate.Parser, new[]{ "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", "Networking" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.TaskInput), global::Kdeploy.TaskInput.Parser, new[]{ "Name", "Namespace", "Image", "Args", "Env", "Schedule", "Completions" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.AppInput), global::Kdeploy.AppInput.Parser, new[]{ "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", "Networking" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.Ref), global::Kdeploy.Ref.Parser, new[]{ "Name", "Namespace" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.Replica), global::Kdeploy.Replica.Parser, new[]{ "Phase", "Condition", "Reason" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.AppStatus), global::Kdeploy.AppStatus.Parser, new[]{ "Replicas" }, null, null, null),
@@ -1329,13 +1313,13 @@ namespace Kdeploy {
   }
 
   /// <summary>
-  /// TaskConstructor creates a task(cron job)
+  /// TaskInput creates/updates a task(cron job)
   /// </summary>
-  public sealed partial class TaskConstructor : pb::IMessage<TaskConstructor> {
-    private static readonly pb::MessageParser<TaskConstructor> _parser = new pb::MessageParser<TaskConstructor>(() => new TaskConstructor());
+  public sealed partial class TaskInput : pb::IMessage<TaskInput> {
+    private static readonly pb::MessageParser<TaskInput> _parser = new pb::MessageParser<TaskInput>(() => new TaskInput());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<TaskConstructor> Parser { get { return _parser; } }
+    public static pb::MessageParser<TaskInput> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -1348,14 +1332,14 @@ namespace Kdeploy {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public TaskConstructor() {
+    public TaskInput() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public TaskConstructor(TaskConstructor other) : this() {
+    public TaskInput(TaskInput other) : this() {
       name_ = other.name_;
       namespace_ = other.namespace_;
       image_ = other.image_;
@@ -1367,8 +1351,8 @@ namespace Kdeploy {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public TaskConstructor Clone() {
-      return new TaskConstructor(this);
+    public TaskInput Clone() {
+      return new TaskInput(this);
     }
 
     /// <summary>Field number for the "name" field.</summary>
@@ -1469,11 +1453,11 @@ namespace Kdeploy {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as TaskConstructor);
+      return Equals(other as TaskInput);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(TaskConstructor other) {
+    public bool Equals(TaskInput other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -1567,7 +1551,7 @@ namespace Kdeploy {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(TaskConstructor other) {
+    public void MergeFrom(TaskInput other) {
       if (other == null) {
         return;
       }
@@ -1634,13 +1618,13 @@ namespace Kdeploy {
   }
 
   /// <summary>
-  /// TaskUpdate updates a task(cron job)
+  /// AppInput creates/replaces an app
   /// </summary>
-  public sealed partial class TaskUpdate : pb::IMessage<TaskUpdate> {
-    private static readonly pb::MessageParser<TaskUpdate> _parser = new pb::MessageParser<TaskUpdate>(() => new TaskUpdate());
+  public sealed partial class AppInput : pb::IMessage<AppInput> {
+    private static readonly pb::MessageParser<AppInput> _parser = new pb::MessageParser<AppInput>(() => new AppInput());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<TaskUpdate> Parser { get { return _parser; } }
+    public static pb::MessageParser<AppInput> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -1653,319 +1637,14 @@ namespace Kdeploy {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public TaskUpdate() {
+    public AppInput() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public TaskUpdate(TaskUpdate other) : this() {
-      name_ = other.name_;
-      namespace_ = other.namespace_;
-      image_ = other.image_;
-      args_ = other.args_.Clone();
-      env_ = other.env_.Clone();
-      schedule_ = other.schedule_;
-      completions_ = other.completions_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public TaskUpdate Clone() {
-      return new TaskUpdate(this);
-    }
-
-    /// <summary>Field number for the "name" field.</summary>
-    public const int NameFieldNumber = 1;
-    private string name_ = "";
-    /// <summary>
-    /// name of the application
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Name {
-      get { return name_; }
-      set {
-        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "namespace" field.</summary>
-    public const int NamespaceFieldNumber = 2;
-    private string namespace_ = "";
-    /// <summary>
-    /// application namespace
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Namespace {
-      get { return namespace_; }
-      set {
-        namespace_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "image" field.</summary>
-    public const int ImageFieldNumber = 3;
-    private string image_ = "";
-    /// <summary>
-    /// docker image of application
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Image {
-      get { return image_; }
-      set {
-        image_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "args" field.</summary>
-    public const int ArgsFieldNumber = 5;
-    private static readonly pb::FieldCodec<string> _repeated_args_codec
-        = pb::FieldCodec.ForString(42);
-    private readonly pbc::RepeatedField<string> args_ = new pbc::RepeatedField<string>();
-    /// <summary>
-    /// args are arguments given to docker image at startup
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<string> Args {
-      get { return args_; }
-    }
-
-    /// <summary>Field number for the "env" field.</summary>
-    public const int EnvFieldNumber = 6;
-    private static readonly pbc::MapField<string, string>.Codec _map_env_codec
-        = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForString(18), 50);
-    private readonly pbc::MapField<string, string> env_ = new pbc::MapField<string, string>();
-    /// <summary>
-    /// k/v map of environmental variables
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::MapField<string, string> Env {
-      get { return env_; }
-    }
-
-    /// <summary>Field number for the "schedule" field.</summary>
-    public const int ScheduleFieldNumber = 7;
-    private string schedule_ = "";
-    /// <summary>
-    /// schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Schedule {
-      get { return schedule_; }
-      set {
-        schedule_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "completions" field.</summary>
-    public const int CompletionsFieldNumber = 8;
-    private uint completions_;
-    /// <summary>
-    /// completions is the number of times to execute the task. If completions = 0, the task will run forever
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public uint Completions {
-      get { return completions_; }
-      set {
-        completions_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as TaskUpdate);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(TaskUpdate other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Name != other.Name) return false;
-      if (Namespace != other.Namespace) return false;
-      if (Image != other.Image) return false;
-      if(!args_.Equals(other.args_)) return false;
-      if (!Env.Equals(other.Env)) return false;
-      if (Schedule != other.Schedule) return false;
-      if (Completions != other.Completions) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (Namespace.Length != 0) hash ^= Namespace.GetHashCode();
-      if (Image.Length != 0) hash ^= Image.GetHashCode();
-      hash ^= args_.GetHashCode();
-      hash ^= Env.GetHashCode();
-      if (Schedule.Length != 0) hash ^= Schedule.GetHashCode();
-      if (Completions != 0) hash ^= Completions.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (Name.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Name);
-      }
-      if (Namespace.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(Namespace);
-      }
-      if (Image.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(Image);
-      }
-      args_.WriteTo(output, _repeated_args_codec);
-      env_.WriteTo(output, _map_env_codec);
-      if (Schedule.Length != 0) {
-        output.WriteRawTag(58);
-        output.WriteString(Schedule);
-      }
-      if (Completions != 0) {
-        output.WriteRawTag(64);
-        output.WriteUInt32(Completions);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Name.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
-      }
-      if (Namespace.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Namespace);
-      }
-      if (Image.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Image);
-      }
-      size += args_.CalculateSize(_repeated_args_codec);
-      size += env_.CalculateSize(_map_env_codec);
-      if (Schedule.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Schedule);
-      }
-      if (Completions != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Completions);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(TaskUpdate other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Name.Length != 0) {
-        Name = other.Name;
-      }
-      if (other.Namespace.Length != 0) {
-        Namespace = other.Namespace;
-      }
-      if (other.Image.Length != 0) {
-        Image = other.Image;
-      }
-      args_.Add(other.args_);
-      env_.Add(other.env_);
-      if (other.Schedule.Length != 0) {
-        Schedule = other.Schedule;
-      }
-      if (other.Completions != 0) {
-        Completions = other.Completions;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            Name = input.ReadString();
-            break;
-          }
-          case 18: {
-            Namespace = input.ReadString();
-            break;
-          }
-          case 26: {
-            Image = input.ReadString();
-            break;
-          }
-          case 42: {
-            args_.AddEntriesFrom(input, _repeated_args_codec);
-            break;
-          }
-          case 50: {
-            env_.AddEntriesFrom(input, _map_env_codec);
-            break;
-          }
-          case 58: {
-            Schedule = input.ReadString();
-            break;
-          }
-          case 64: {
-            Completions = input.ReadUInt32();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  /// <summary>
-  /// AppConstructor creates a new app
-  /// </summary>
-  public sealed partial class AppConstructor : pb::IMessage<AppConstructor> {
-    private static readonly pb::MessageParser<AppConstructor> _parser = new pb::MessageParser<AppConstructor>(() => new AppConstructor());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<AppConstructor> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[6]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public AppConstructor() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public AppConstructor(AppConstructor other) : this() {
+    public AppInput(AppInput other) : this() {
       name_ = other.name_;
       namespace_ = other.namespace_;
       image_ = other.image_;
@@ -1978,8 +1657,8 @@ namespace Kdeploy {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public AppConstructor Clone() {
-      return new AppConstructor(this);
+    public AppInput Clone() {
+      return new AppInput(this);
     }
 
     /// <summary>Field number for the "name" field.</summary>
@@ -2090,11 +1769,11 @@ namespace Kdeploy {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as AppConstructor);
+      return Equals(other as AppInput);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(AppConstructor other) {
+    public bool Equals(AppInput other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -2192,338 +1871,7 @@ namespace Kdeploy {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(AppConstructor other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Name.Length != 0) {
-        Name = other.Name;
-      }
-      if (other.Namespace.Length != 0) {
-        Namespace = other.Namespace;
-      }
-      if (other.Image.Length != 0) {
-        Image = other.Image;
-      }
-      args_.Add(other.args_);
-      env_.Add(other.env_);
-      ports_.Add(other.ports_);
-      if (other.Replicas != 0) {
-        Replicas = other.Replicas;
-      }
-      if (other.networking_ != null) {
-        if (networking_ == null) {
-          networking_ = new global::Kdeploy.Networking();
-        }
-        Networking.MergeFrom(other.Networking);
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            Name = input.ReadString();
-            break;
-          }
-          case 18: {
-            Namespace = input.ReadString();
-            break;
-          }
-          case 26: {
-            Image = input.ReadString();
-            break;
-          }
-          case 34: {
-            args_.AddEntriesFrom(input, _repeated_args_codec);
-            break;
-          }
-          case 42: {
-            env_.AddEntriesFrom(input, _map_env_codec);
-            break;
-          }
-          case 50: {
-            ports_.AddEntriesFrom(input, _map_ports_codec);
-            break;
-          }
-          case 56: {
-            Replicas = input.ReadUInt32();
-            break;
-          }
-          case 74: {
-            if (networking_ == null) {
-              networking_ = new global::Kdeploy.Networking();
-            }
-            input.ReadMessage(networking_);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  /// <summary>
-  /// AppUpdate updates an App
-  /// </summary>
-  public sealed partial class AppUpdate : pb::IMessage<AppUpdate> {
-    private static readonly pb::MessageParser<AppUpdate> _parser = new pb::MessageParser<AppUpdate>(() => new AppUpdate());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<AppUpdate> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[7]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public AppUpdate() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public AppUpdate(AppUpdate other) : this() {
-      name_ = other.name_;
-      namespace_ = other.namespace_;
-      image_ = other.image_;
-      args_ = other.args_.Clone();
-      env_ = other.env_.Clone();
-      ports_ = other.ports_.Clone();
-      replicas_ = other.replicas_;
-      networking_ = other.networking_ != null ? other.networking_.Clone() : null;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public AppUpdate Clone() {
-      return new AppUpdate(this);
-    }
-
-    /// <summary>Field number for the "name" field.</summary>
-    public const int NameFieldNumber = 1;
-    private string name_ = "";
-    /// <summary>
-    /// name of the application
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Name {
-      get { return name_; }
-      set {
-        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "namespace" field.</summary>
-    public const int NamespaceFieldNumber = 2;
-    private string namespace_ = "";
-    /// <summary>
-    /// application namespace
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Namespace {
-      get { return namespace_; }
-      set {
-        namespace_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "image" field.</summary>
-    public const int ImageFieldNumber = 3;
-    private string image_ = "";
-    /// <summary>
-    /// docker image of application
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Image {
-      get { return image_; }
-      set {
-        image_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "args" field.</summary>
-    public const int ArgsFieldNumber = 4;
-    private static readonly pb::FieldCodec<string> _repeated_args_codec
-        = pb::FieldCodec.ForString(34);
-    private readonly pbc::RepeatedField<string> args_ = new pbc::RepeatedField<string>();
-    /// <summary>
-    /// args are arguments given to the docker image at startup
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<string> Args {
-      get { return args_; }
-    }
-
-    /// <summary>Field number for the "env" field.</summary>
-    public const int EnvFieldNumber = 5;
-    private static readonly pbc::MapField<string, string>.Codec _map_env_codec
-        = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForString(18), 42);
-    private readonly pbc::MapField<string, string> env_ = new pbc::MapField<string, string>();
-    /// <summary>
-    /// k/v map of environmental variables
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::MapField<string, string> Env {
-      get { return env_; }
-    }
-
-    /// <summary>Field number for the "ports" field.</summary>
-    public const int PortsFieldNumber = 6;
-    private static readonly pbc::MapField<string, uint>.Codec _map_ports_codec
-        = new pbc::MapField<string, uint>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForUInt32(16), 50);
-    private readonly pbc::MapField<string, uint> ports_ = new pbc::MapField<string, uint>();
-    /// <summary>
-    /// k/v map of ports to expose ex: http: 80 https: 443
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::MapField<string, uint> Ports {
-      get { return ports_; }
-    }
-
-    /// <summary>Field number for the "replicas" field.</summary>
-    public const int ReplicasFieldNumber = 7;
-    private uint replicas_;
-    /// <summary>
-    /// number of deployment replicas
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public uint Replicas {
-      get { return replicas_; }
-      set {
-        replicas_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "networking" field.</summary>
-    public const int NetworkingFieldNumber = 9;
-    private global::Kdeploy.Networking networking_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Kdeploy.Networking Networking {
-      get { return networking_; }
-      set {
-        networking_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as AppUpdate);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(AppUpdate other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Name != other.Name) return false;
-      if (Namespace != other.Namespace) return false;
-      if (Image != other.Image) return false;
-      if(!args_.Equals(other.args_)) return false;
-      if (!Env.Equals(other.Env)) return false;
-      if (!Ports.Equals(other.Ports)) return false;
-      if (Replicas != other.Replicas) return false;
-      if (!object.Equals(Networking, other.Networking)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (Namespace.Length != 0) hash ^= Namespace.GetHashCode();
-      if (Image.Length != 0) hash ^= Image.GetHashCode();
-      hash ^= args_.GetHashCode();
-      hash ^= Env.GetHashCode();
-      hash ^= Ports.GetHashCode();
-      if (Replicas != 0) hash ^= Replicas.GetHashCode();
-      if (networking_ != null) hash ^= Networking.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (Name.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Name);
-      }
-      if (Namespace.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(Namespace);
-      }
-      if (Image.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(Image);
-      }
-      args_.WriteTo(output, _repeated_args_codec);
-      env_.WriteTo(output, _map_env_codec);
-      ports_.WriteTo(output, _map_ports_codec);
-      if (Replicas != 0) {
-        output.WriteRawTag(56);
-        output.WriteUInt32(Replicas);
-      }
-      if (networking_ != null) {
-        output.WriteRawTag(74);
-        output.WriteMessage(Networking);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Name.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
-      }
-      if (Namespace.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Namespace);
-      }
-      if (Image.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Image);
-      }
-      size += args_.CalculateSize(_repeated_args_codec);
-      size += env_.CalculateSize(_map_env_codec);
-      size += ports_.CalculateSize(_map_ports_codec);
-      if (Replicas != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Replicas);
-      }
-      if (networking_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Networking);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(AppUpdate other) {
+    public void MergeFrom(AppInput other) {
       if (other == null) {
         return;
       }
@@ -2608,7 +1956,7 @@ namespace Kdeploy {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[8]; }
+      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2771,7 +2119,7 @@ namespace Kdeploy {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[9]; }
+      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2956,7 +2304,7 @@ namespace Kdeploy {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[10]; }
+      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3077,7 +2425,7 @@ namespace Kdeploy {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[11]; }
+      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3206,7 +2554,7 @@ namespace Kdeploy {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[12]; }
+      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3327,7 +2675,7 @@ namespace Kdeploy {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[13]; }
+      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3448,7 +2796,7 @@ namespace Kdeploy {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[14]; }
+      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3577,7 +2925,7 @@ namespace Kdeploy {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[15]; }
+      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

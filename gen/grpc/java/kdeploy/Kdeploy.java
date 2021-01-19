@@ -7589,8 +7589,8 @@ public final class Kdeploy {
 
   }
 
-  public interface TaskConstructorOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:kdeploy.TaskConstructor)
+  public interface TaskInputOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:kdeploy.TaskInput)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -7765,21 +7765,21 @@ public final class Kdeploy {
   }
   /**
    * <pre>
-   * TaskConstructor creates a task(cron job)
+   * TaskInput creates/updates a task(cron job)
    * </pre>
    *
-   * Protobuf type {@code kdeploy.TaskConstructor}
+   * Protobuf type {@code kdeploy.TaskInput}
    */
-  public  static final class TaskConstructor extends
+  public  static final class TaskInput extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:kdeploy.TaskConstructor)
-      TaskConstructorOrBuilder {
+      // @@protoc_insertion_point(message_implements:kdeploy.TaskInput)
+      TaskInputOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use TaskConstructor.newBuilder() to construct.
-    private TaskConstructor(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use TaskInput.newBuilder() to construct.
+    private TaskInput(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private TaskConstructor() {
+    private TaskInput() {
       name_ = "";
       namespace_ = "";
       image_ = "";
@@ -7793,7 +7793,7 @@ public final class Kdeploy {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private TaskConstructor(
+    private TaskInput(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -7887,7 +7887,7 @@ public final class Kdeploy {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return kdeploy.Kdeploy.internal_static_kdeploy_TaskConstructor_descriptor;
+      return kdeploy.Kdeploy.internal_static_kdeploy_TaskInput_descriptor;
     }
 
     @SuppressWarnings({"rawtypes"})
@@ -7905,9 +7905,9 @@ public final class Kdeploy {
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return kdeploy.Kdeploy.internal_static_kdeploy_TaskConstructor_fieldAccessorTable
+      return kdeploy.Kdeploy.internal_static_kdeploy_TaskInput_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              kdeploy.Kdeploy.TaskConstructor.class, kdeploy.Kdeploy.TaskConstructor.Builder.class);
+              kdeploy.Kdeploy.TaskInput.class, kdeploy.Kdeploy.TaskInput.Builder.class);
     }
 
     private int bitField0_;
@@ -8088,7 +8088,7 @@ public final class Kdeploy {
           java.lang.String, java.lang.String> defaultEntry =
               com.google.protobuf.MapEntry
               .<java.lang.String, java.lang.String>newDefaultInstance(
-                  kdeploy.Kdeploy.internal_static_kdeploy_TaskConstructor_EnvEntry_descriptor, 
+                  kdeploy.Kdeploy.internal_static_kdeploy_TaskInput_EnvEntry_descriptor, 
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "",
                   com.google.protobuf.WireFormat.FieldType.STRING,
@@ -8320,10 +8320,10 @@ public final class Kdeploy {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof kdeploy.Kdeploy.TaskConstructor)) {
+      if (!(obj instanceof kdeploy.Kdeploy.TaskInput)) {
         return super.equals(obj);
       }
-      kdeploy.Kdeploy.TaskConstructor other = (kdeploy.Kdeploy.TaskConstructor) obj;
+      kdeploy.Kdeploy.TaskInput other = (kdeploy.Kdeploy.TaskInput) obj;
 
       boolean result = true;
       result = result && getName()
@@ -8374,69 +8374,69 @@ public final class Kdeploy {
       return hash;
     }
 
-    public static kdeploy.Kdeploy.TaskConstructor parseFrom(
+    public static kdeploy.Kdeploy.TaskInput parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static kdeploy.Kdeploy.TaskConstructor parseFrom(
+    public static kdeploy.Kdeploy.TaskInput parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static kdeploy.Kdeploy.TaskConstructor parseFrom(
+    public static kdeploy.Kdeploy.TaskInput parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static kdeploy.Kdeploy.TaskConstructor parseFrom(
+    public static kdeploy.Kdeploy.TaskInput parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static kdeploy.Kdeploy.TaskConstructor parseFrom(byte[] data)
+    public static kdeploy.Kdeploy.TaskInput parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static kdeploy.Kdeploy.TaskConstructor parseFrom(
+    public static kdeploy.Kdeploy.TaskInput parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static kdeploy.Kdeploy.TaskConstructor parseFrom(java.io.InputStream input)
+    public static kdeploy.Kdeploy.TaskInput parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static kdeploy.Kdeploy.TaskConstructor parseFrom(
+    public static kdeploy.Kdeploy.TaskInput parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static kdeploy.Kdeploy.TaskConstructor parseDelimitedFrom(java.io.InputStream input)
+    public static kdeploy.Kdeploy.TaskInput parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static kdeploy.Kdeploy.TaskConstructor parseDelimitedFrom(
+    public static kdeploy.Kdeploy.TaskInput parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static kdeploy.Kdeploy.TaskConstructor parseFrom(
+    public static kdeploy.Kdeploy.TaskInput parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static kdeploy.Kdeploy.TaskConstructor parseFrom(
+    public static kdeploy.Kdeploy.TaskInput parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -8449,7 +8449,7 @@ public final class Kdeploy {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(kdeploy.Kdeploy.TaskConstructor prototype) {
+    public static Builder newBuilder(kdeploy.Kdeploy.TaskInput prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -8466,18 +8466,18 @@ public final class Kdeploy {
     }
     /**
      * <pre>
-     * TaskConstructor creates a task(cron job)
+     * TaskInput creates/updates a task(cron job)
      * </pre>
      *
-     * Protobuf type {@code kdeploy.TaskConstructor}
+     * Protobuf type {@code kdeploy.TaskInput}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:kdeploy.TaskConstructor)
-        kdeploy.Kdeploy.TaskConstructorOrBuilder {
+        // @@protoc_insertion_point(builder_implements:kdeploy.TaskInput)
+        kdeploy.Kdeploy.TaskInputOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return kdeploy.Kdeploy.internal_static_kdeploy_TaskConstructor_descriptor;
+        return kdeploy.Kdeploy.internal_static_kdeploy_TaskInput_descriptor;
       }
 
       @SuppressWarnings({"rawtypes"})
@@ -8505,12 +8505,12 @@ public final class Kdeploy {
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return kdeploy.Kdeploy.internal_static_kdeploy_TaskConstructor_fieldAccessorTable
+        return kdeploy.Kdeploy.internal_static_kdeploy_TaskInput_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                kdeploy.Kdeploy.TaskConstructor.class, kdeploy.Kdeploy.TaskConstructor.Builder.class);
+                kdeploy.Kdeploy.TaskInput.class, kdeploy.Kdeploy.TaskInput.Builder.class);
       }
 
-      // Construct using kdeploy.Kdeploy.TaskConstructor.newBuilder()
+      // Construct using kdeploy.Kdeploy.TaskInput.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -8547,17 +8547,17 @@ public final class Kdeploy {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return kdeploy.Kdeploy.internal_static_kdeploy_TaskConstructor_descriptor;
+        return kdeploy.Kdeploy.internal_static_kdeploy_TaskInput_descriptor;
       }
 
       @java.lang.Override
-      public kdeploy.Kdeploy.TaskConstructor getDefaultInstanceForType() {
-        return kdeploy.Kdeploy.TaskConstructor.getDefaultInstance();
+      public kdeploy.Kdeploy.TaskInput getDefaultInstanceForType() {
+        return kdeploy.Kdeploy.TaskInput.getDefaultInstance();
       }
 
       @java.lang.Override
-      public kdeploy.Kdeploy.TaskConstructor build() {
-        kdeploy.Kdeploy.TaskConstructor result = buildPartial();
+      public kdeploy.Kdeploy.TaskInput build() {
+        kdeploy.Kdeploy.TaskInput result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -8565,8 +8565,8 @@ public final class Kdeploy {
       }
 
       @java.lang.Override
-      public kdeploy.Kdeploy.TaskConstructor buildPartial() {
-        kdeploy.Kdeploy.TaskConstructor result = new kdeploy.Kdeploy.TaskConstructor(this);
+      public kdeploy.Kdeploy.TaskInput buildPartial() {
+        kdeploy.Kdeploy.TaskInput result = new kdeploy.Kdeploy.TaskInput(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         result.name_ = name_;
@@ -8620,16 +8620,16 @@ public final class Kdeploy {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof kdeploy.Kdeploy.TaskConstructor) {
-          return mergeFrom((kdeploy.Kdeploy.TaskConstructor)other);
+        if (other instanceof kdeploy.Kdeploy.TaskInput) {
+          return mergeFrom((kdeploy.Kdeploy.TaskInput)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(kdeploy.Kdeploy.TaskConstructor other) {
-        if (other == kdeploy.Kdeploy.TaskConstructor.getDefaultInstance()) return this;
+      public Builder mergeFrom(kdeploy.Kdeploy.TaskInput other) {
+        if (other == kdeploy.Kdeploy.TaskInput.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
           onChanged();
@@ -8676,11 +8676,11 @@ public final class Kdeploy {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        kdeploy.Kdeploy.TaskConstructor parsedMessage = null;
+        kdeploy.Kdeploy.TaskInput parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (kdeploy.Kdeploy.TaskConstructor) e.getUnfinishedMessage();
+          parsedMessage = (kdeploy.Kdeploy.TaskInput) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -9378,1877 +9378,48 @@ public final class Kdeploy {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:kdeploy.TaskConstructor)
+      // @@protoc_insertion_point(builder_scope:kdeploy.TaskInput)
     }
 
-    // @@protoc_insertion_point(class_scope:kdeploy.TaskConstructor)
-    private static final kdeploy.Kdeploy.TaskConstructor DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:kdeploy.TaskInput)
+    private static final kdeploy.Kdeploy.TaskInput DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new kdeploy.Kdeploy.TaskConstructor();
+      DEFAULT_INSTANCE = new kdeploy.Kdeploy.TaskInput();
     }
 
-    public static kdeploy.Kdeploy.TaskConstructor getDefaultInstance() {
+    public static kdeploy.Kdeploy.TaskInput getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<TaskConstructor>
-        PARSER = new com.google.protobuf.AbstractParser<TaskConstructor>() {
+    private static final com.google.protobuf.Parser<TaskInput>
+        PARSER = new com.google.protobuf.AbstractParser<TaskInput>() {
       @java.lang.Override
-      public TaskConstructor parsePartialFrom(
+      public TaskInput parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TaskConstructor(input, extensionRegistry);
+        return new TaskInput(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<TaskConstructor> parser() {
+    public static com.google.protobuf.Parser<TaskInput> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<TaskConstructor> getParserForType() {
+    public com.google.protobuf.Parser<TaskInput> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public kdeploy.Kdeploy.TaskConstructor getDefaultInstanceForType() {
+    public kdeploy.Kdeploy.TaskInput getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface TaskUpdateOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:kdeploy.TaskUpdate)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     * name of the application
-     * </pre>
-     *
-     * <code>string name = 1 [(.validator.field) = { ... }</code>
-     */
-    java.lang.String getName();
-    /**
-     * <pre>
-     * name of the application
-     * </pre>
-     *
-     * <code>string name = 1 [(.validator.field) = { ... }</code>
-     */
-    com.google.protobuf.ByteString
-        getNameBytes();
-
-    /**
-     * <pre>
-     * application namespace
-     * </pre>
-     *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
-     */
-    java.lang.String getNamespace();
-    /**
-     * <pre>
-     * application namespace
-     * </pre>
-     *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
-     */
-    com.google.protobuf.ByteString
-        getNamespaceBytes();
-
-    /**
-     * <pre>
-     * docker image of application
-     * </pre>
-     *
-     * <code>string image = 3;</code>
-     */
-    java.lang.String getImage();
-    /**
-     * <pre>
-     * docker image of application
-     * </pre>
-     *
-     * <code>string image = 3;</code>
-     */
-    com.google.protobuf.ByteString
-        getImageBytes();
-
-    /**
-     * <pre>
-     * args are arguments given to docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 5;</code>
-     */
-    java.util.List<java.lang.String>
-        getArgsList();
-    /**
-     * <pre>
-     * args are arguments given to docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 5;</code>
-     */
-    int getArgsCount();
-    /**
-     * <pre>
-     * args are arguments given to docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 5;</code>
-     */
-    java.lang.String getArgs(int index);
-    /**
-     * <pre>
-     * args are arguments given to docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 5;</code>
-     */
-    com.google.protobuf.ByteString
-        getArgsBytes(int index);
-
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-    int getEnvCount();
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-    boolean containsEnv(
-        java.lang.String key);
-    /**
-     * Use {@link #getEnvMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.String>
-    getEnv();
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-    java.util.Map<java.lang.String, java.lang.String>
-    getEnvMap();
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-
-    java.lang.String getEnvOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue);
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-
-    java.lang.String getEnvOrThrow(
-        java.lang.String key);
-
-    /**
-     * <pre>
-     * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
-     * </pre>
-     *
-     * <code>string schedule = 7;</code>
-     */
-    java.lang.String getSchedule();
-    /**
-     * <pre>
-     * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
-     * </pre>
-     *
-     * <code>string schedule = 7;</code>
-     */
-    com.google.protobuf.ByteString
-        getScheduleBytes();
-
-    /**
-     * <pre>
-     * completions is the number of times to execute the task. If completions = 0, the task will run forever
-     * </pre>
-     *
-     * <code>uint32 completions = 8;</code>
-     */
-    int getCompletions();
-  }
-  /**
-   * <pre>
-   * TaskUpdate updates a task(cron job)
-   * </pre>
-   *
-   * Protobuf type {@code kdeploy.TaskUpdate}
-   */
-  public  static final class TaskUpdate extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:kdeploy.TaskUpdate)
-      TaskUpdateOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use TaskUpdate.newBuilder() to construct.
-    private TaskUpdate(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private TaskUpdate() {
-      name_ = "";
-      namespace_ = "";
-      image_ = "";
-      args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      schedule_ = "";
-      completions_ = 0;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private TaskUpdate(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              namespace_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              image_ = s;
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                args_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              args_.add(s);
-              break;
-            }
-            case 50: {
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-                env_ = com.google.protobuf.MapField.newMapField(
-                    EnvDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000010;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              env__ = input.readMessage(
-                  EnvDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              env_.getMutableMap().put(
-                  env__.getKey(), env__.getValue());
-              break;
-            }
-            case 58: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              schedule_ = s;
-              break;
-            }
-            case 64: {
-
-              completions_ = input.readUInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-          args_ = args_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return kdeploy.Kdeploy.internal_static_kdeploy_TaskUpdate_descriptor;
-    }
-
-    @SuppressWarnings({"rawtypes"})
-    @java.lang.Override
-    protected com.google.protobuf.MapField internalGetMapField(
-        int number) {
-      switch (number) {
-        case 6:
-          return internalGetEnv();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return kdeploy.Kdeploy.internal_static_kdeploy_TaskUpdate_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              kdeploy.Kdeploy.TaskUpdate.class, kdeploy.Kdeploy.TaskUpdate.Builder.class);
-    }
-
-    private int bitField0_;
-    public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
-    /**
-     * <pre>
-     * name of the application
-     * </pre>
-     *
-     * <code>string name = 1 [(.validator.field) = { ... }</code>
-     */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        name_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * name of the application
-     * </pre>
-     *
-     * <code>string name = 1 [(.validator.field) = { ... }</code>
-     */
-    public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        name_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int NAMESPACE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object namespace_;
-    /**
-     * <pre>
-     * application namespace
-     * </pre>
-     *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
-     */
-    public java.lang.String getNamespace() {
-      java.lang.Object ref = namespace_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        namespace_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * application namespace
-     * </pre>
-     *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
-     */
-    public com.google.protobuf.ByteString
-        getNamespaceBytes() {
-      java.lang.Object ref = namespace_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        namespace_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int IMAGE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object image_;
-    /**
-     * <pre>
-     * docker image of application
-     * </pre>
-     *
-     * <code>string image = 3;</code>
-     */
-    public java.lang.String getImage() {
-      java.lang.Object ref = image_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        image_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * docker image of application
-     * </pre>
-     *
-     * <code>string image = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getImageBytes() {
-      java.lang.Object ref = image_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        image_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int ARGS_FIELD_NUMBER = 5;
-    private com.google.protobuf.LazyStringList args_;
-    /**
-     * <pre>
-     * args are arguments given to docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 5;</code>
-     */
-    public com.google.protobuf.ProtocolStringList
-        getArgsList() {
-      return args_;
-    }
-    /**
-     * <pre>
-     * args are arguments given to docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 5;</code>
-     */
-    public int getArgsCount() {
-      return args_.size();
-    }
-    /**
-     * <pre>
-     * args are arguments given to docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 5;</code>
-     */
-    public java.lang.String getArgs(int index) {
-      return args_.get(index);
-    }
-    /**
-     * <pre>
-     * args are arguments given to docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 5;</code>
-     */
-    public com.google.protobuf.ByteString
-        getArgsBytes(int index) {
-      return args_.getByteString(index);
-    }
-
-    public static final int ENV_FIELD_NUMBER = 6;
-    private static final class EnvDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.String> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.String>newDefaultInstance(
-                  kdeploy.Kdeploy.internal_static_kdeploy_TaskUpdate_EnvEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "");
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> env_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetEnv() {
-      if (env_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            EnvDefaultEntryHolder.defaultEntry);
-      }
-      return env_;
-    }
-
-    public int getEnvCount() {
-      return internalGetEnv().getMap().size();
-    }
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-
-    public boolean containsEnv(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetEnv().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getEnvMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getEnv() {
-      return getEnvMap();
-    }
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-
-    public java.util.Map<java.lang.String, java.lang.String> getEnvMap() {
-      return internalGetEnv().getMap();
-    }
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-
-    public java.lang.String getEnvOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetEnv().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 6;</code>
-     */
-
-    public java.lang.String getEnvOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetEnv().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
-    public static final int SCHEDULE_FIELD_NUMBER = 7;
-    private volatile java.lang.Object schedule_;
-    /**
-     * <pre>
-     * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
-     * </pre>
-     *
-     * <code>string schedule = 7;</code>
-     */
-    public java.lang.String getSchedule() {
-      java.lang.Object ref = schedule_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        schedule_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
-     * </pre>
-     *
-     * <code>string schedule = 7;</code>
-     */
-    public com.google.protobuf.ByteString
-        getScheduleBytes() {
-      java.lang.Object ref = schedule_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        schedule_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int COMPLETIONS_FIELD_NUMBER = 8;
-    private int completions_;
-    /**
-     * <pre>
-     * completions is the number of times to execute the task. If completions = 0, the task will run forever
-     * </pre>
-     *
-     * <code>uint32 completions = 8;</code>
-     */
-    public int getCompletions() {
-      return completions_;
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!getNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
-      }
-      if (!getNamespaceBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, namespace_);
-      }
-      if (!getImageBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, image_);
-      }
-      for (int i = 0; i < args_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, args_.getRaw(i));
-      }
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetEnv(),
-          EnvDefaultEntryHolder.defaultEntry,
-          6);
-      if (!getScheduleBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, schedule_);
-      }
-      if (completions_ != 0) {
-        output.writeUInt32(8, completions_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!getNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
-      }
-      if (!getNamespaceBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, namespace_);
-      }
-      if (!getImageBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, image_);
-      }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < args_.size(); i++) {
-          dataSize += computeStringSizeNoTag(args_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getArgsList().size();
-      }
-      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetEnv().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        env__ = EnvDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(6, env__);
-      }
-      if (!getScheduleBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, schedule_);
-      }
-      if (completions_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(8, completions_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof kdeploy.Kdeploy.TaskUpdate)) {
-        return super.equals(obj);
-      }
-      kdeploy.Kdeploy.TaskUpdate other = (kdeploy.Kdeploy.TaskUpdate) obj;
-
-      boolean result = true;
-      result = result && getName()
-          .equals(other.getName());
-      result = result && getNamespace()
-          .equals(other.getNamespace());
-      result = result && getImage()
-          .equals(other.getImage());
-      result = result && getArgsList()
-          .equals(other.getArgsList());
-      result = result && internalGetEnv().equals(
-          other.internalGetEnv());
-      result = result && getSchedule()
-          .equals(other.getSchedule());
-      result = result && (getCompletions()
-          == other.getCompletions());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + NAMESPACE_FIELD_NUMBER;
-      hash = (53 * hash) + getNamespace().hashCode();
-      hash = (37 * hash) + IMAGE_FIELD_NUMBER;
-      hash = (53 * hash) + getImage().hashCode();
-      if (getArgsCount() > 0) {
-        hash = (37 * hash) + ARGS_FIELD_NUMBER;
-        hash = (53 * hash) + getArgsList().hashCode();
-      }
-      if (!internalGetEnv().getMap().isEmpty()) {
-        hash = (37 * hash) + ENV_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetEnv().hashCode();
-      }
-      hash = (37 * hash) + SCHEDULE_FIELD_NUMBER;
-      hash = (53 * hash) + getSchedule().hashCode();
-      hash = (37 * hash) + COMPLETIONS_FIELD_NUMBER;
-      hash = (53 * hash) + getCompletions();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static kdeploy.Kdeploy.TaskUpdate parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static kdeploy.Kdeploy.TaskUpdate parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static kdeploy.Kdeploy.TaskUpdate parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static kdeploy.Kdeploy.TaskUpdate parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static kdeploy.Kdeploy.TaskUpdate parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static kdeploy.Kdeploy.TaskUpdate parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static kdeploy.Kdeploy.TaskUpdate parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static kdeploy.Kdeploy.TaskUpdate parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static kdeploy.Kdeploy.TaskUpdate parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static kdeploy.Kdeploy.TaskUpdate parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static kdeploy.Kdeploy.TaskUpdate parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static kdeploy.Kdeploy.TaskUpdate parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(kdeploy.Kdeploy.TaskUpdate prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     * TaskUpdate updates a task(cron job)
-     * </pre>
-     *
-     * Protobuf type {@code kdeploy.TaskUpdate}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:kdeploy.TaskUpdate)
-        kdeploy.Kdeploy.TaskUpdateOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return kdeploy.Kdeploy.internal_static_kdeploy_TaskUpdate_descriptor;
-      }
-
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMapField(
-          int number) {
-        switch (number) {
-          case 6:
-            return internalGetEnv();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMutableMapField(
-          int number) {
-        switch (number) {
-          case 6:
-            return internalGetMutableEnv();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return kdeploy.Kdeploy.internal_static_kdeploy_TaskUpdate_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                kdeploy.Kdeploy.TaskUpdate.class, kdeploy.Kdeploy.TaskUpdate.Builder.class);
-      }
-
-      // Construct using kdeploy.Kdeploy.TaskUpdate.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        name_ = "";
-
-        namespace_ = "";
-
-        image_ = "";
-
-        args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
-        internalGetMutableEnv().clear();
-        schedule_ = "";
-
-        completions_ = 0;
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return kdeploy.Kdeploy.internal_static_kdeploy_TaskUpdate_descriptor;
-      }
-
-      @java.lang.Override
-      public kdeploy.Kdeploy.TaskUpdate getDefaultInstanceForType() {
-        return kdeploy.Kdeploy.TaskUpdate.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public kdeploy.Kdeploy.TaskUpdate build() {
-        kdeploy.Kdeploy.TaskUpdate result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public kdeploy.Kdeploy.TaskUpdate buildPartial() {
-        kdeploy.Kdeploy.TaskUpdate result = new kdeploy.Kdeploy.TaskUpdate(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        result.name_ = name_;
-        result.namespace_ = namespace_;
-        result.image_ = image_;
-        if (((bitField0_ & 0x00000008) == 0x00000008)) {
-          args_ = args_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000008);
-        }
-        result.args_ = args_;
-        result.env_ = internalGetEnv();
-        result.env_.makeImmutable();
-        result.schedule_ = schedule_;
-        result.completions_ = completions_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof kdeploy.Kdeploy.TaskUpdate) {
-          return mergeFrom((kdeploy.Kdeploy.TaskUpdate)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(kdeploy.Kdeploy.TaskUpdate other) {
-        if (other == kdeploy.Kdeploy.TaskUpdate.getDefaultInstance()) return this;
-        if (!other.getName().isEmpty()) {
-          name_ = other.name_;
-          onChanged();
-        }
-        if (!other.getNamespace().isEmpty()) {
-          namespace_ = other.namespace_;
-          onChanged();
-        }
-        if (!other.getImage().isEmpty()) {
-          image_ = other.image_;
-          onChanged();
-        }
-        if (!other.args_.isEmpty()) {
-          if (args_.isEmpty()) {
-            args_ = other.args_;
-            bitField0_ = (bitField0_ & ~0x00000008);
-          } else {
-            ensureArgsIsMutable();
-            args_.addAll(other.args_);
-          }
-          onChanged();
-        }
-        internalGetMutableEnv().mergeFrom(
-            other.internalGetEnv());
-        if (!other.getSchedule().isEmpty()) {
-          schedule_ = other.schedule_;
-          onChanged();
-        }
-        if (other.getCompletions() != 0) {
-          setCompletions(other.getCompletions());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        kdeploy.Kdeploy.TaskUpdate parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (kdeploy.Kdeploy.TaskUpdate) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private java.lang.Object name_ = "";
-      /**
-       * <pre>
-       * name of the application
-       * </pre>
-       *
-       * <code>string name = 1 [(.validator.field) = { ... }</code>
-       */
-      public java.lang.String getName() {
-        java.lang.Object ref = name_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          name_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * name of the application
-       * </pre>
-       *
-       * <code>string name = 1 [(.validator.field) = { ... }</code>
-       */
-      public com.google.protobuf.ByteString
-          getNameBytes() {
-        java.lang.Object ref = name_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          name_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * name of the application
-       * </pre>
-       *
-       * <code>string name = 1 [(.validator.field) = { ... }</code>
-       */
-      public Builder setName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        name_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * name of the application
-       * </pre>
-       *
-       * <code>string name = 1 [(.validator.field) = { ... }</code>
-       */
-      public Builder clearName() {
-        
-        name_ = getDefaultInstance().getName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * name of the application
-       * </pre>
-       *
-       * <code>string name = 1 [(.validator.field) = { ... }</code>
-       */
-      public Builder setNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        name_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object namespace_ = "";
-      /**
-       * <pre>
-       * application namespace
-       * </pre>
-       *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
-       */
-      public java.lang.String getNamespace() {
-        java.lang.Object ref = namespace_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          namespace_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * application namespace
-       * </pre>
-       *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
-       */
-      public com.google.protobuf.ByteString
-          getNamespaceBytes() {
-        java.lang.Object ref = namespace_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          namespace_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * application namespace
-       * </pre>
-       *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
-       */
-      public Builder setNamespace(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        namespace_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * application namespace
-       * </pre>
-       *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
-       */
-      public Builder clearNamespace() {
-        
-        namespace_ = getDefaultInstance().getNamespace();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * application namespace
-       * </pre>
-       *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
-       */
-      public Builder setNamespaceBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        namespace_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object image_ = "";
-      /**
-       * <pre>
-       * docker image of application
-       * </pre>
-       *
-       * <code>string image = 3;</code>
-       */
-      public java.lang.String getImage() {
-        java.lang.Object ref = image_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          image_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * docker image of application
-       * </pre>
-       *
-       * <code>string image = 3;</code>
-       */
-      public com.google.protobuf.ByteString
-          getImageBytes() {
-        java.lang.Object ref = image_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          image_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * docker image of application
-       * </pre>
-       *
-       * <code>string image = 3;</code>
-       */
-      public Builder setImage(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        image_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * docker image of application
-       * </pre>
-       *
-       * <code>string image = 3;</code>
-       */
-      public Builder clearImage() {
-        
-        image_ = getDefaultInstance().getImage();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * docker image of application
-       * </pre>
-       *
-       * <code>string image = 3;</code>
-       */
-      public Builder setImageBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        image_ = value;
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.LazyStringList args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureArgsIsMutable() {
-        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-          args_ = new com.google.protobuf.LazyStringArrayList(args_);
-          bitField0_ |= 0x00000008;
-         }
-      }
-      /**
-       * <pre>
-       * args are arguments given to docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public com.google.protobuf.ProtocolStringList
-          getArgsList() {
-        return args_.getUnmodifiableView();
-      }
-      /**
-       * <pre>
-       * args are arguments given to docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public int getArgsCount() {
-        return args_.size();
-      }
-      /**
-       * <pre>
-       * args are arguments given to docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public java.lang.String getArgs(int index) {
-        return args_.get(index);
-      }
-      /**
-       * <pre>
-       * args are arguments given to docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public com.google.protobuf.ByteString
-          getArgsBytes(int index) {
-        return args_.getByteString(index);
-      }
-      /**
-       * <pre>
-       * args are arguments given to docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public Builder setArgs(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureArgsIsMutable();
-        args_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * args are arguments given to docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public Builder addArgs(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureArgsIsMutable();
-        args_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * args are arguments given to docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public Builder addAllArgs(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureArgsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, args_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * args are arguments given to docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public Builder clearArgs() {
-        args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * args are arguments given to docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 5;</code>
-       */
-      public Builder addArgsBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        ensureArgsIsMutable();
-        args_.add(value);
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> env_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetEnv() {
-        if (env_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              EnvDefaultEntryHolder.defaultEntry);
-        }
-        return env_;
-      }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableEnv() {
-        onChanged();;
-        if (env_ == null) {
-          env_ = com.google.protobuf.MapField.newMapField(
-              EnvDefaultEntryHolder.defaultEntry);
-        }
-        if (!env_.isMutable()) {
-          env_ = env_.copy();
-        }
-        return env_;
-      }
-
-      public int getEnvCount() {
-        return internalGetEnv().getMap().size();
-      }
-      /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 6;</code>
-       */
-
-      public boolean containsEnv(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetEnv().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getEnvMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getEnv() {
-        return getEnvMap();
-      }
-      /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 6;</code>
-       */
-
-      public java.util.Map<java.lang.String, java.lang.String> getEnvMap() {
-        return internalGetEnv().getMap();
-      }
-      /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 6;</code>
-       */
-
-      public java.lang.String getEnvOrDefault(
-          java.lang.String key,
-          java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetEnv().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 6;</code>
-       */
-
-      public java.lang.String getEnvOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetEnv().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-
-      public Builder clearEnv() {
-        internalGetMutableEnv().getMutableMap()
-            .clear();
-        return this;
-      }
-      /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 6;</code>
-       */
-
-      public Builder removeEnv(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableEnv().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String>
-      getMutableEnv() {
-        return internalGetMutableEnv().getMutableMap();
-      }
-      /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 6;</code>
-       */
-      public Builder putEnv(
-          java.lang.String key,
-          java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableEnv().getMutableMap()
-            .put(key, value);
-        return this;
-      }
-      /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 6;</code>
-       */
-
-      public Builder putAllEnv(
-          java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableEnv().getMutableMap()
-            .putAll(values);
-        return this;
-      }
-
-      private java.lang.Object schedule_ = "";
-      /**
-       * <pre>
-       * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
-       * </pre>
-       *
-       * <code>string schedule = 7;</code>
-       */
-      public java.lang.String getSchedule() {
-        java.lang.Object ref = schedule_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          schedule_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
-       * </pre>
-       *
-       * <code>string schedule = 7;</code>
-       */
-      public com.google.protobuf.ByteString
-          getScheduleBytes() {
-        java.lang.Object ref = schedule_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          schedule_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
-       * </pre>
-       *
-       * <code>string schedule = 7;</code>
-       */
-      public Builder setSchedule(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        schedule_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
-       * </pre>
-       *
-       * <code>string schedule = 7;</code>
-       */
-      public Builder clearSchedule() {
-        
-        schedule_ = getDefaultInstance().getSchedule();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
-       * </pre>
-       *
-       * <code>string schedule = 7;</code>
-       */
-      public Builder setScheduleBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        schedule_ = value;
-        onChanged();
-        return this;
-      }
-
-      private int completions_ ;
-      /**
-       * <pre>
-       * completions is the number of times to execute the task. If completions = 0, the task will run forever
-       * </pre>
-       *
-       * <code>uint32 completions = 8;</code>
-       */
-      public int getCompletions() {
-        return completions_;
-      }
-      /**
-       * <pre>
-       * completions is the number of times to execute the task. If completions = 0, the task will run forever
-       * </pre>
-       *
-       * <code>uint32 completions = 8;</code>
-       */
-      public Builder setCompletions(int value) {
-        
-        completions_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * completions is the number of times to execute the task. If completions = 0, the task will run forever
-       * </pre>
-       *
-       * <code>uint32 completions = 8;</code>
-       */
-      public Builder clearCompletions() {
-        
-        completions_ = 0;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:kdeploy.TaskUpdate)
-    }
-
-    // @@protoc_insertion_point(class_scope:kdeploy.TaskUpdate)
-    private static final kdeploy.Kdeploy.TaskUpdate DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new kdeploy.Kdeploy.TaskUpdate();
-    }
-
-    public static kdeploy.Kdeploy.TaskUpdate getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<TaskUpdate>
-        PARSER = new com.google.protobuf.AbstractParser<TaskUpdate>() {
-      @java.lang.Override
-      public TaskUpdate parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TaskUpdate(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<TaskUpdate> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<TaskUpdate> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public kdeploy.Kdeploy.TaskUpdate getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface AppConstructorOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:kdeploy.AppConstructor)
+  public interface AppInputOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:kdeploy.AppInput)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -11399,7 +9570,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 6;</code>
+     * <code>map&lt;string, uint32&gt; ports = 6 [(.validator.field) = { ... }</code>
      */
     int getPortsCount();
     /**
@@ -11407,7 +9578,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 6;</code>
+     * <code>map&lt;string, uint32&gt; ports = 6 [(.validator.field) = { ... }</code>
      */
     boolean containsPorts(
         java.lang.String key);
@@ -11422,7 +9593,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 6;</code>
+     * <code>map&lt;string, uint32&gt; ports = 6 [(.validator.field) = { ... }</code>
      */
     java.util.Map<java.lang.String, java.lang.Integer>
     getPortsMap();
@@ -11431,7 +9602,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 6;</code>
+     * <code>map&lt;string, uint32&gt; ports = 6 [(.validator.field) = { ... }</code>
      */
 
     int getPortsOrDefault(
@@ -11442,7 +9613,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 6;</code>
+     * <code>map&lt;string, uint32&gt; ports = 6 [(.validator.field) = { ... }</code>
      */
 
     int getPortsOrThrow(
@@ -11472,21 +9643,21 @@ public final class Kdeploy {
   }
   /**
    * <pre>
-   * AppConstructor creates a new app
+   * AppInput creates/replaces an app
    * </pre>
    *
-   * Protobuf type {@code kdeploy.AppConstructor}
+   * Protobuf type {@code kdeploy.AppInput}
    */
-  public  static final class AppConstructor extends
+  public  static final class AppInput extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:kdeploy.AppConstructor)
-      AppConstructorOrBuilder {
+      // @@protoc_insertion_point(message_implements:kdeploy.AppInput)
+      AppInputOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use AppConstructor.newBuilder() to construct.
-    private AppConstructor(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use AppInput.newBuilder() to construct.
+    private AppInput(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private AppConstructor() {
+    private AppInput() {
       name_ = "";
       namespace_ = "";
       image_ = "";
@@ -11499,7 +9670,7 @@ public final class Kdeploy {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private AppConstructor(
+    private AppInput(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -11613,7 +9784,7 @@ public final class Kdeploy {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return kdeploy.Kdeploy.internal_static_kdeploy_AppConstructor_descriptor;
+      return kdeploy.Kdeploy.internal_static_kdeploy_AppInput_descriptor;
     }
 
     @SuppressWarnings({"rawtypes"})
@@ -11633,9 +9804,9 @@ public final class Kdeploy {
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return kdeploy.Kdeploy.internal_static_kdeploy_AppConstructor_fieldAccessorTable
+      return kdeploy.Kdeploy.internal_static_kdeploy_AppInput_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              kdeploy.Kdeploy.AppConstructor.class, kdeploy.Kdeploy.AppConstructor.Builder.class);
+              kdeploy.Kdeploy.AppInput.class, kdeploy.Kdeploy.AppInput.Builder.class);
     }
 
     private int bitField0_;
@@ -11816,7 +9987,7 @@ public final class Kdeploy {
           java.lang.String, java.lang.String> defaultEntry =
               com.google.protobuf.MapEntry
               .<java.lang.String, java.lang.String>newDefaultInstance(
-                  kdeploy.Kdeploy.internal_static_kdeploy_AppConstructor_EnvEntry_descriptor, 
+                  kdeploy.Kdeploy.internal_static_kdeploy_AppInput_EnvEntry_descriptor, 
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "",
                   com.google.protobuf.WireFormat.FieldType.STRING,
@@ -11908,7 +10079,7 @@ public final class Kdeploy {
           java.lang.String, java.lang.Integer> defaultEntry =
               com.google.protobuf.MapEntry
               .<java.lang.String, java.lang.Integer>newDefaultInstance(
-                  kdeploy.Kdeploy.internal_static_kdeploy_AppConstructor_PortsEntry_descriptor, 
+                  kdeploy.Kdeploy.internal_static_kdeploy_AppInput_PortsEntry_descriptor, 
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "",
                   com.google.protobuf.WireFormat.FieldType.UINT32,
@@ -11933,7 +10104,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 6;</code>
+     * <code>map&lt;string, uint32&gt; ports = 6 [(.validator.field) = { ... }</code>
      */
 
     public boolean containsPorts(
@@ -11953,7 +10124,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 6;</code>
+     * <code>map&lt;string, uint32&gt; ports = 6 [(.validator.field) = { ... }</code>
      */
 
     public java.util.Map<java.lang.String, java.lang.Integer> getPortsMap() {
@@ -11964,7 +10135,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 6;</code>
+     * <code>map&lt;string, uint32&gt; ports = 6 [(.validator.field) = { ... }</code>
      */
 
     public int getPortsOrDefault(
@@ -11980,7 +10151,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 6;</code>
+     * <code>map&lt;string, uint32&gt; ports = 6 [(.validator.field) = { ... }</code>
      */
 
     public int getPortsOrThrow(
@@ -12136,10 +10307,10 @@ public final class Kdeploy {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof kdeploy.Kdeploy.AppConstructor)) {
+      if (!(obj instanceof kdeploy.Kdeploy.AppInput)) {
         return super.equals(obj);
       }
-      kdeploy.Kdeploy.AppConstructor other = (kdeploy.Kdeploy.AppConstructor) obj;
+      kdeploy.Kdeploy.AppInput other = (kdeploy.Kdeploy.AppInput) obj;
 
       boolean result = true;
       result = result && getName()
@@ -12201,69 +10372,69 @@ public final class Kdeploy {
       return hash;
     }
 
-    public static kdeploy.Kdeploy.AppConstructor parseFrom(
+    public static kdeploy.Kdeploy.AppInput parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static kdeploy.Kdeploy.AppConstructor parseFrom(
+    public static kdeploy.Kdeploy.AppInput parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static kdeploy.Kdeploy.AppConstructor parseFrom(
+    public static kdeploy.Kdeploy.AppInput parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static kdeploy.Kdeploy.AppConstructor parseFrom(
+    public static kdeploy.Kdeploy.AppInput parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static kdeploy.Kdeploy.AppConstructor parseFrom(byte[] data)
+    public static kdeploy.Kdeploy.AppInput parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static kdeploy.Kdeploy.AppConstructor parseFrom(
+    public static kdeploy.Kdeploy.AppInput parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static kdeploy.Kdeploy.AppConstructor parseFrom(java.io.InputStream input)
+    public static kdeploy.Kdeploy.AppInput parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static kdeploy.Kdeploy.AppConstructor parseFrom(
+    public static kdeploy.Kdeploy.AppInput parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static kdeploy.Kdeploy.AppConstructor parseDelimitedFrom(java.io.InputStream input)
+    public static kdeploy.Kdeploy.AppInput parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static kdeploy.Kdeploy.AppConstructor parseDelimitedFrom(
+    public static kdeploy.Kdeploy.AppInput parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static kdeploy.Kdeploy.AppConstructor parseFrom(
+    public static kdeploy.Kdeploy.AppInput parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static kdeploy.Kdeploy.AppConstructor parseFrom(
+    public static kdeploy.Kdeploy.AppInput parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -12276,7 +10447,7 @@ public final class Kdeploy {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(kdeploy.Kdeploy.AppConstructor prototype) {
+    public static Builder newBuilder(kdeploy.Kdeploy.AppInput prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -12293,18 +10464,18 @@ public final class Kdeploy {
     }
     /**
      * <pre>
-     * AppConstructor creates a new app
+     * AppInput creates/replaces an app
      * </pre>
      *
-     * Protobuf type {@code kdeploy.AppConstructor}
+     * Protobuf type {@code kdeploy.AppInput}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:kdeploy.AppConstructor)
-        kdeploy.Kdeploy.AppConstructorOrBuilder {
+        // @@protoc_insertion_point(builder_implements:kdeploy.AppInput)
+        kdeploy.Kdeploy.AppInputOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return kdeploy.Kdeploy.internal_static_kdeploy_AppConstructor_descriptor;
+        return kdeploy.Kdeploy.internal_static_kdeploy_AppInput_descriptor;
       }
 
       @SuppressWarnings({"rawtypes"})
@@ -12336,12 +10507,12 @@ public final class Kdeploy {
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return kdeploy.Kdeploy.internal_static_kdeploy_AppConstructor_fieldAccessorTable
+        return kdeploy.Kdeploy.internal_static_kdeploy_AppInput_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                kdeploy.Kdeploy.AppConstructor.class, kdeploy.Kdeploy.AppConstructor.Builder.class);
+                kdeploy.Kdeploy.AppInput.class, kdeploy.Kdeploy.AppInput.Builder.class);
       }
 
-      // Construct using kdeploy.Kdeploy.AppConstructor.newBuilder()
+      // Construct using kdeploy.Kdeploy.AppInput.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -12383,17 +10554,17 @@ public final class Kdeploy {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return kdeploy.Kdeploy.internal_static_kdeploy_AppConstructor_descriptor;
+        return kdeploy.Kdeploy.internal_static_kdeploy_AppInput_descriptor;
       }
 
       @java.lang.Override
-      public kdeploy.Kdeploy.AppConstructor getDefaultInstanceForType() {
-        return kdeploy.Kdeploy.AppConstructor.getDefaultInstance();
+      public kdeploy.Kdeploy.AppInput getDefaultInstanceForType() {
+        return kdeploy.Kdeploy.AppInput.getDefaultInstance();
       }
 
       @java.lang.Override
-      public kdeploy.Kdeploy.AppConstructor build() {
-        kdeploy.Kdeploy.AppConstructor result = buildPartial();
+      public kdeploy.Kdeploy.AppInput build() {
+        kdeploy.Kdeploy.AppInput result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -12401,8 +10572,8 @@ public final class Kdeploy {
       }
 
       @java.lang.Override
-      public kdeploy.Kdeploy.AppConstructor buildPartial() {
-        kdeploy.Kdeploy.AppConstructor result = new kdeploy.Kdeploy.AppConstructor(this);
+      public kdeploy.Kdeploy.AppInput buildPartial() {
+        kdeploy.Kdeploy.AppInput result = new kdeploy.Kdeploy.AppInput(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         result.name_ = name_;
@@ -12462,16 +10633,16 @@ public final class Kdeploy {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof kdeploy.Kdeploy.AppConstructor) {
-          return mergeFrom((kdeploy.Kdeploy.AppConstructor)other);
+        if (other instanceof kdeploy.Kdeploy.AppInput) {
+          return mergeFrom((kdeploy.Kdeploy.AppInput)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(kdeploy.Kdeploy.AppConstructor other) {
-        if (other == kdeploy.Kdeploy.AppConstructor.getDefaultInstance()) return this;
+      public Builder mergeFrom(kdeploy.Kdeploy.AppInput other) {
+        if (other == kdeploy.Kdeploy.AppInput.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
           onChanged();
@@ -12519,11 +10690,11 @@ public final class Kdeploy {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        kdeploy.Kdeploy.AppConstructor parsedMessage = null;
+        kdeploy.Kdeploy.AppInput parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (kdeploy.Kdeploy.AppConstructor) e.getUnfinishedMessage();
+          parsedMessage = (kdeploy.Kdeploy.AppInput) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -13113,7 +11284,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 6;</code>
+       * <code>map&lt;string, uint32&gt; ports = 6 [(.validator.field) = { ... }</code>
        */
 
       public boolean containsPorts(
@@ -13133,7 +11304,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 6;</code>
+       * <code>map&lt;string, uint32&gt; ports = 6 [(.validator.field) = { ... }</code>
        */
 
       public java.util.Map<java.lang.String, java.lang.Integer> getPortsMap() {
@@ -13144,7 +11315,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 6;</code>
+       * <code>map&lt;string, uint32&gt; ports = 6 [(.validator.field) = { ... }</code>
        */
 
       public int getPortsOrDefault(
@@ -13160,7 +11331,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 6;</code>
+       * <code>map&lt;string, uint32&gt; ports = 6 [(.validator.field) = { ... }</code>
        */
 
       public int getPortsOrThrow(
@@ -13184,7 +11355,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 6;</code>
+       * <code>map&lt;string, uint32&gt; ports = 6 [(.validator.field) = { ... }</code>
        */
 
       public Builder removePorts(
@@ -13207,7 +11378,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 6;</code>
+       * <code>map&lt;string, uint32&gt; ports = 6 [(.validator.field) = { ... }</code>
        */
       public Builder putPorts(
           java.lang.String key,
@@ -13223,7 +11394,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 6;</code>
+       * <code>map&lt;string, uint32&gt; ports = 6 [(.validator.field) = { ... }</code>
        */
 
       public Builder putAllPorts(
@@ -13400,2234 +11571,41 @@ public final class Kdeploy {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:kdeploy.AppConstructor)
+      // @@protoc_insertion_point(builder_scope:kdeploy.AppInput)
     }
 
-    // @@protoc_insertion_point(class_scope:kdeploy.AppConstructor)
-    private static final kdeploy.Kdeploy.AppConstructor DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:kdeploy.AppInput)
+    private static final kdeploy.Kdeploy.AppInput DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new kdeploy.Kdeploy.AppConstructor();
+      DEFAULT_INSTANCE = new kdeploy.Kdeploy.AppInput();
     }
 
-    public static kdeploy.Kdeploy.AppConstructor getDefaultInstance() {
+    public static kdeploy.Kdeploy.AppInput getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<AppConstructor>
-        PARSER = new com.google.protobuf.AbstractParser<AppConstructor>() {
+    private static final com.google.protobuf.Parser<AppInput>
+        PARSER = new com.google.protobuf.AbstractParser<AppInput>() {
       @java.lang.Override
-      public AppConstructor parsePartialFrom(
+      public AppInput parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AppConstructor(input, extensionRegistry);
+        return new AppInput(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<AppConstructor> parser() {
+    public static com.google.protobuf.Parser<AppInput> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<AppConstructor> getParserForType() {
+    public com.google.protobuf.Parser<AppInput> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public kdeploy.Kdeploy.AppConstructor getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface AppUpdateOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:kdeploy.AppUpdate)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     * name of the application
-     * </pre>
-     *
-     * <code>string name = 1 [(.validator.field) = { ... }</code>
-     */
-    java.lang.String getName();
-    /**
-     * <pre>
-     * name of the application
-     * </pre>
-     *
-     * <code>string name = 1 [(.validator.field) = { ... }</code>
-     */
-    com.google.protobuf.ByteString
-        getNameBytes();
-
-    /**
-     * <pre>
-     * application namespace
-     * </pre>
-     *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
-     */
-    java.lang.String getNamespace();
-    /**
-     * <pre>
-     * application namespace
-     * </pre>
-     *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
-     */
-    com.google.protobuf.ByteString
-        getNamespaceBytes();
-
-    /**
-     * <pre>
-     * docker image of application
-     * </pre>
-     *
-     * <code>string image = 3;</code>
-     */
-    java.lang.String getImage();
-    /**
-     * <pre>
-     * docker image of application
-     * </pre>
-     *
-     * <code>string image = 3;</code>
-     */
-    com.google.protobuf.ByteString
-        getImageBytes();
-
-    /**
-     * <pre>
-     * args are arguments given to the docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 4;</code>
-     */
-    java.util.List<java.lang.String>
-        getArgsList();
-    /**
-     * <pre>
-     * args are arguments given to the docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 4;</code>
-     */
-    int getArgsCount();
-    /**
-     * <pre>
-     * args are arguments given to the docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 4;</code>
-     */
-    java.lang.String getArgs(int index);
-    /**
-     * <pre>
-     * args are arguments given to the docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 4;</code>
-     */
-    com.google.protobuf.ByteString
-        getArgsBytes(int index);
-
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 5;</code>
-     */
-    int getEnvCount();
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 5;</code>
-     */
-    boolean containsEnv(
-        java.lang.String key);
-    /**
-     * Use {@link #getEnvMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.String>
-    getEnv();
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 5;</code>
-     */
-    java.util.Map<java.lang.String, java.lang.String>
-    getEnvMap();
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 5;</code>
-     */
-
-    java.lang.String getEnvOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue);
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 5;</code>
-     */
-
-    java.lang.String getEnvOrThrow(
-        java.lang.String key);
-
-    /**
-     * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
-     * </pre>
-     *
-     * <code>map&lt;string, uint32&gt; ports = 6;</code>
-     */
-    int getPortsCount();
-    /**
-     * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
-     * </pre>
-     *
-     * <code>map&lt;string, uint32&gt; ports = 6;</code>
-     */
-    boolean containsPorts(
-        java.lang.String key);
-    /**
-     * Use {@link #getPortsMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.Integer>
-    getPorts();
-    /**
-     * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
-     * </pre>
-     *
-     * <code>map&lt;string, uint32&gt; ports = 6;</code>
-     */
-    java.util.Map<java.lang.String, java.lang.Integer>
-    getPortsMap();
-    /**
-     * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
-     * </pre>
-     *
-     * <code>map&lt;string, uint32&gt; ports = 6;</code>
-     */
-
-    int getPortsOrDefault(
-        java.lang.String key,
-        int defaultValue);
-    /**
-     * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
-     * </pre>
-     *
-     * <code>map&lt;string, uint32&gt; ports = 6;</code>
-     */
-
-    int getPortsOrThrow(
-        java.lang.String key);
-
-    /**
-     * <pre>
-     * number of deployment replicas
-     * </pre>
-     *
-     * <code>uint32 replicas = 7;</code>
-     */
-    int getReplicas();
-
-    /**
-     * <code>.kdeploy.Networking networking = 9;</code>
-     */
-    boolean hasNetworking();
-    /**
-     * <code>.kdeploy.Networking networking = 9;</code>
-     */
-    kdeploy.Kdeploy.Networking getNetworking();
-    /**
-     * <code>.kdeploy.Networking networking = 9;</code>
-     */
-    kdeploy.Kdeploy.NetworkingOrBuilder getNetworkingOrBuilder();
-  }
-  /**
-   * <pre>
-   * AppUpdate updates an App
-   * </pre>
-   *
-   * Protobuf type {@code kdeploy.AppUpdate}
-   */
-  public  static final class AppUpdate extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:kdeploy.AppUpdate)
-      AppUpdateOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use AppUpdate.newBuilder() to construct.
-    private AppUpdate(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private AppUpdate() {
-      name_ = "";
-      namespace_ = "";
-      image_ = "";
-      args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      replicas_ = 0;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private AppUpdate(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              namespace_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              image_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                args_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              args_.add(s);
-              break;
-            }
-            case 42: {
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-                env_ = com.google.protobuf.MapField.newMapField(
-                    EnvDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000010;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              env__ = input.readMessage(
-                  EnvDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              env_.getMutableMap().put(
-                  env__.getKey(), env__.getValue());
-              break;
-            }
-            case 50: {
-              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
-                ports_ = com.google.protobuf.MapField.newMapField(
-                    PortsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000020;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
-              ports__ = input.readMessage(
-                  PortsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              ports_.getMutableMap().put(
-                  ports__.getKey(), ports__.getValue());
-              break;
-            }
-            case 56: {
-
-              replicas_ = input.readUInt32();
-              break;
-            }
-            case 74: {
-              kdeploy.Kdeploy.Networking.Builder subBuilder = null;
-              if (networking_ != null) {
-                subBuilder = networking_.toBuilder();
-              }
-              networking_ = input.readMessage(kdeploy.Kdeploy.Networking.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(networking_);
-                networking_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-          args_ = args_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return kdeploy.Kdeploy.internal_static_kdeploy_AppUpdate_descriptor;
-    }
-
-    @SuppressWarnings({"rawtypes"})
-    @java.lang.Override
-    protected com.google.protobuf.MapField internalGetMapField(
-        int number) {
-      switch (number) {
-        case 5:
-          return internalGetEnv();
-        case 6:
-          return internalGetPorts();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return kdeploy.Kdeploy.internal_static_kdeploy_AppUpdate_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              kdeploy.Kdeploy.AppUpdate.class, kdeploy.Kdeploy.AppUpdate.Builder.class);
-    }
-
-    private int bitField0_;
-    public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
-    /**
-     * <pre>
-     * name of the application
-     * </pre>
-     *
-     * <code>string name = 1 [(.validator.field) = { ... }</code>
-     */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        name_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * name of the application
-     * </pre>
-     *
-     * <code>string name = 1 [(.validator.field) = { ... }</code>
-     */
-    public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        name_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int NAMESPACE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object namespace_;
-    /**
-     * <pre>
-     * application namespace
-     * </pre>
-     *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
-     */
-    public java.lang.String getNamespace() {
-      java.lang.Object ref = namespace_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        namespace_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * application namespace
-     * </pre>
-     *
-     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
-     */
-    public com.google.protobuf.ByteString
-        getNamespaceBytes() {
-      java.lang.Object ref = namespace_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        namespace_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int IMAGE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object image_;
-    /**
-     * <pre>
-     * docker image of application
-     * </pre>
-     *
-     * <code>string image = 3;</code>
-     */
-    public java.lang.String getImage() {
-      java.lang.Object ref = image_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        image_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * docker image of application
-     * </pre>
-     *
-     * <code>string image = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getImageBytes() {
-      java.lang.Object ref = image_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        image_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int ARGS_FIELD_NUMBER = 4;
-    private com.google.protobuf.LazyStringList args_;
-    /**
-     * <pre>
-     * args are arguments given to the docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 4;</code>
-     */
-    public com.google.protobuf.ProtocolStringList
-        getArgsList() {
-      return args_;
-    }
-    /**
-     * <pre>
-     * args are arguments given to the docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 4;</code>
-     */
-    public int getArgsCount() {
-      return args_.size();
-    }
-    /**
-     * <pre>
-     * args are arguments given to the docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 4;</code>
-     */
-    public java.lang.String getArgs(int index) {
-      return args_.get(index);
-    }
-    /**
-     * <pre>
-     * args are arguments given to the docker image at startup
-     * </pre>
-     *
-     * <code>repeated string args = 4;</code>
-     */
-    public com.google.protobuf.ByteString
-        getArgsBytes(int index) {
-      return args_.getByteString(index);
-    }
-
-    public static final int ENV_FIELD_NUMBER = 5;
-    private static final class EnvDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.String> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.String>newDefaultInstance(
-                  kdeploy.Kdeploy.internal_static_kdeploy_AppUpdate_EnvEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "");
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> env_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetEnv() {
-      if (env_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            EnvDefaultEntryHolder.defaultEntry);
-      }
-      return env_;
-    }
-
-    public int getEnvCount() {
-      return internalGetEnv().getMap().size();
-    }
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 5;</code>
-     */
-
-    public boolean containsEnv(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetEnv().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getEnvMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getEnv() {
-      return getEnvMap();
-    }
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 5;</code>
-     */
-
-    public java.util.Map<java.lang.String, java.lang.String> getEnvMap() {
-      return internalGetEnv().getMap();
-    }
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 5;</code>
-     */
-
-    public java.lang.String getEnvOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetEnv().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <pre>
-     * k/v map of environmental variables
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; env = 5;</code>
-     */
-
-    public java.lang.String getEnvOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetEnv().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
-    public static final int PORTS_FIELD_NUMBER = 6;
-    private static final class PortsDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.Integer> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.Integer>newDefaultInstance(
-                  kdeploy.Kdeploy.internal_static_kdeploy_AppUpdate_PortsEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.UINT32,
-                  0);
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.Integer> ports_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-    internalGetPorts() {
-      if (ports_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            PortsDefaultEntryHolder.defaultEntry);
-      }
-      return ports_;
-    }
-
-    public int getPortsCount() {
-      return internalGetPorts().getMap().size();
-    }
-    /**
-     * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
-     * </pre>
-     *
-     * <code>map&lt;string, uint32&gt; ports = 6;</code>
-     */
-
-    public boolean containsPorts(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetPorts().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getPortsMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.Integer> getPorts() {
-      return getPortsMap();
-    }
-    /**
-     * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
-     * </pre>
-     *
-     * <code>map&lt;string, uint32&gt; ports = 6;</code>
-     */
-
-    public java.util.Map<java.lang.String, java.lang.Integer> getPortsMap() {
-      return internalGetPorts().getMap();
-    }
-    /**
-     * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
-     * </pre>
-     *
-     * <code>map&lt;string, uint32&gt; ports = 6;</code>
-     */
-
-    public int getPortsOrDefault(
-        java.lang.String key,
-        int defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.Integer> map =
-          internalGetPorts().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
-     * </pre>
-     *
-     * <code>map&lt;string, uint32&gt; ports = 6;</code>
-     */
-
-    public int getPortsOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.Integer> map =
-          internalGetPorts().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
-    public static final int REPLICAS_FIELD_NUMBER = 7;
-    private int replicas_;
-    /**
-     * <pre>
-     * number of deployment replicas
-     * </pre>
-     *
-     * <code>uint32 replicas = 7;</code>
-     */
-    public int getReplicas() {
-      return replicas_;
-    }
-
-    public static final int NETWORKING_FIELD_NUMBER = 9;
-    private kdeploy.Kdeploy.Networking networking_;
-    /**
-     * <code>.kdeploy.Networking networking = 9;</code>
-     */
-    public boolean hasNetworking() {
-      return networking_ != null;
-    }
-    /**
-     * <code>.kdeploy.Networking networking = 9;</code>
-     */
-    public kdeploy.Kdeploy.Networking getNetworking() {
-      return networking_ == null ? kdeploy.Kdeploy.Networking.getDefaultInstance() : networking_;
-    }
-    /**
-     * <code>.kdeploy.Networking networking = 9;</code>
-     */
-    public kdeploy.Kdeploy.NetworkingOrBuilder getNetworkingOrBuilder() {
-      return getNetworking();
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!getNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
-      }
-      if (!getNamespaceBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, namespace_);
-      }
-      if (!getImageBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, image_);
-      }
-      for (int i = 0; i < args_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, args_.getRaw(i));
-      }
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetEnv(),
-          EnvDefaultEntryHolder.defaultEntry,
-          5);
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetPorts(),
-          PortsDefaultEntryHolder.defaultEntry,
-          6);
-      if (replicas_ != 0) {
-        output.writeUInt32(7, replicas_);
-      }
-      if (networking_ != null) {
-        output.writeMessage(9, getNetworking());
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!getNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
-      }
-      if (!getNamespaceBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, namespace_);
-      }
-      if (!getImageBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, image_);
-      }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < args_.size(); i++) {
-          dataSize += computeStringSizeNoTag(args_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getArgsList().size();
-      }
-      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetEnv().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        env__ = EnvDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(5, env__);
-      }
-      for (java.util.Map.Entry<java.lang.String, java.lang.Integer> entry
-           : internalGetPorts().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
-        ports__ = PortsDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(6, ports__);
-      }
-      if (replicas_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(7, replicas_);
-      }
-      if (networking_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(9, getNetworking());
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof kdeploy.Kdeploy.AppUpdate)) {
-        return super.equals(obj);
-      }
-      kdeploy.Kdeploy.AppUpdate other = (kdeploy.Kdeploy.AppUpdate) obj;
-
-      boolean result = true;
-      result = result && getName()
-          .equals(other.getName());
-      result = result && getNamespace()
-          .equals(other.getNamespace());
-      result = result && getImage()
-          .equals(other.getImage());
-      result = result && getArgsList()
-          .equals(other.getArgsList());
-      result = result && internalGetEnv().equals(
-          other.internalGetEnv());
-      result = result && internalGetPorts().equals(
-          other.internalGetPorts());
-      result = result && (getReplicas()
-          == other.getReplicas());
-      result = result && (hasNetworking() == other.hasNetworking());
-      if (hasNetworking()) {
-        result = result && getNetworking()
-            .equals(other.getNetworking());
-      }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + NAMESPACE_FIELD_NUMBER;
-      hash = (53 * hash) + getNamespace().hashCode();
-      hash = (37 * hash) + IMAGE_FIELD_NUMBER;
-      hash = (53 * hash) + getImage().hashCode();
-      if (getArgsCount() > 0) {
-        hash = (37 * hash) + ARGS_FIELD_NUMBER;
-        hash = (53 * hash) + getArgsList().hashCode();
-      }
-      if (!internalGetEnv().getMap().isEmpty()) {
-        hash = (37 * hash) + ENV_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetEnv().hashCode();
-      }
-      if (!internalGetPorts().getMap().isEmpty()) {
-        hash = (37 * hash) + PORTS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetPorts().hashCode();
-      }
-      hash = (37 * hash) + REPLICAS_FIELD_NUMBER;
-      hash = (53 * hash) + getReplicas();
-      if (hasNetworking()) {
-        hash = (37 * hash) + NETWORKING_FIELD_NUMBER;
-        hash = (53 * hash) + getNetworking().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static kdeploy.Kdeploy.AppUpdate parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static kdeploy.Kdeploy.AppUpdate parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static kdeploy.Kdeploy.AppUpdate parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static kdeploy.Kdeploy.AppUpdate parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static kdeploy.Kdeploy.AppUpdate parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static kdeploy.Kdeploy.AppUpdate parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static kdeploy.Kdeploy.AppUpdate parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static kdeploy.Kdeploy.AppUpdate parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static kdeploy.Kdeploy.AppUpdate parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static kdeploy.Kdeploy.AppUpdate parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static kdeploy.Kdeploy.AppUpdate parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static kdeploy.Kdeploy.AppUpdate parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(kdeploy.Kdeploy.AppUpdate prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     * AppUpdate updates an App
-     * </pre>
-     *
-     * Protobuf type {@code kdeploy.AppUpdate}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:kdeploy.AppUpdate)
-        kdeploy.Kdeploy.AppUpdateOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return kdeploy.Kdeploy.internal_static_kdeploy_AppUpdate_descriptor;
-      }
-
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMapField(
-          int number) {
-        switch (number) {
-          case 5:
-            return internalGetEnv();
-          case 6:
-            return internalGetPorts();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMutableMapField(
-          int number) {
-        switch (number) {
-          case 5:
-            return internalGetMutableEnv();
-          case 6:
-            return internalGetMutablePorts();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return kdeploy.Kdeploy.internal_static_kdeploy_AppUpdate_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                kdeploy.Kdeploy.AppUpdate.class, kdeploy.Kdeploy.AppUpdate.Builder.class);
-      }
-
-      // Construct using kdeploy.Kdeploy.AppUpdate.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        name_ = "";
-
-        namespace_ = "";
-
-        image_ = "";
-
-        args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
-        internalGetMutableEnv().clear();
-        internalGetMutablePorts().clear();
-        replicas_ = 0;
-
-        if (networkingBuilder_ == null) {
-          networking_ = null;
-        } else {
-          networking_ = null;
-          networkingBuilder_ = null;
-        }
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return kdeploy.Kdeploy.internal_static_kdeploy_AppUpdate_descriptor;
-      }
-
-      @java.lang.Override
-      public kdeploy.Kdeploy.AppUpdate getDefaultInstanceForType() {
-        return kdeploy.Kdeploy.AppUpdate.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public kdeploy.Kdeploy.AppUpdate build() {
-        kdeploy.Kdeploy.AppUpdate result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public kdeploy.Kdeploy.AppUpdate buildPartial() {
-        kdeploy.Kdeploy.AppUpdate result = new kdeploy.Kdeploy.AppUpdate(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        result.name_ = name_;
-        result.namespace_ = namespace_;
-        result.image_ = image_;
-        if (((bitField0_ & 0x00000008) == 0x00000008)) {
-          args_ = args_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000008);
-        }
-        result.args_ = args_;
-        result.env_ = internalGetEnv();
-        result.env_.makeImmutable();
-        result.ports_ = internalGetPorts();
-        result.ports_.makeImmutable();
-        result.replicas_ = replicas_;
-        if (networkingBuilder_ == null) {
-          result.networking_ = networking_;
-        } else {
-          result.networking_ = networkingBuilder_.build();
-        }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof kdeploy.Kdeploy.AppUpdate) {
-          return mergeFrom((kdeploy.Kdeploy.AppUpdate)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(kdeploy.Kdeploy.AppUpdate other) {
-        if (other == kdeploy.Kdeploy.AppUpdate.getDefaultInstance()) return this;
-        if (!other.getName().isEmpty()) {
-          name_ = other.name_;
-          onChanged();
-        }
-        if (!other.getNamespace().isEmpty()) {
-          namespace_ = other.namespace_;
-          onChanged();
-        }
-        if (!other.getImage().isEmpty()) {
-          image_ = other.image_;
-          onChanged();
-        }
-        if (!other.args_.isEmpty()) {
-          if (args_.isEmpty()) {
-            args_ = other.args_;
-            bitField0_ = (bitField0_ & ~0x00000008);
-          } else {
-            ensureArgsIsMutable();
-            args_.addAll(other.args_);
-          }
-          onChanged();
-        }
-        internalGetMutableEnv().mergeFrom(
-            other.internalGetEnv());
-        internalGetMutablePorts().mergeFrom(
-            other.internalGetPorts());
-        if (other.getReplicas() != 0) {
-          setReplicas(other.getReplicas());
-        }
-        if (other.hasNetworking()) {
-          mergeNetworking(other.getNetworking());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        kdeploy.Kdeploy.AppUpdate parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (kdeploy.Kdeploy.AppUpdate) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private java.lang.Object name_ = "";
-      /**
-       * <pre>
-       * name of the application
-       * </pre>
-       *
-       * <code>string name = 1 [(.validator.field) = { ... }</code>
-       */
-      public java.lang.String getName() {
-        java.lang.Object ref = name_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          name_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * name of the application
-       * </pre>
-       *
-       * <code>string name = 1 [(.validator.field) = { ... }</code>
-       */
-      public com.google.protobuf.ByteString
-          getNameBytes() {
-        java.lang.Object ref = name_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          name_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * name of the application
-       * </pre>
-       *
-       * <code>string name = 1 [(.validator.field) = { ... }</code>
-       */
-      public Builder setName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        name_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * name of the application
-       * </pre>
-       *
-       * <code>string name = 1 [(.validator.field) = { ... }</code>
-       */
-      public Builder clearName() {
-        
-        name_ = getDefaultInstance().getName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * name of the application
-       * </pre>
-       *
-       * <code>string name = 1 [(.validator.field) = { ... }</code>
-       */
-      public Builder setNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        name_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object namespace_ = "";
-      /**
-       * <pre>
-       * application namespace
-       * </pre>
-       *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
-       */
-      public java.lang.String getNamespace() {
-        java.lang.Object ref = namespace_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          namespace_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * application namespace
-       * </pre>
-       *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
-       */
-      public com.google.protobuf.ByteString
-          getNamespaceBytes() {
-        java.lang.Object ref = namespace_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          namespace_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * application namespace
-       * </pre>
-       *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
-       */
-      public Builder setNamespace(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        namespace_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * application namespace
-       * </pre>
-       *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
-       */
-      public Builder clearNamespace() {
-        
-        namespace_ = getDefaultInstance().getNamespace();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * application namespace
-       * </pre>
-       *
-       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
-       */
-      public Builder setNamespaceBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        namespace_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object image_ = "";
-      /**
-       * <pre>
-       * docker image of application
-       * </pre>
-       *
-       * <code>string image = 3;</code>
-       */
-      public java.lang.String getImage() {
-        java.lang.Object ref = image_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          image_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * docker image of application
-       * </pre>
-       *
-       * <code>string image = 3;</code>
-       */
-      public com.google.protobuf.ByteString
-          getImageBytes() {
-        java.lang.Object ref = image_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          image_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * docker image of application
-       * </pre>
-       *
-       * <code>string image = 3;</code>
-       */
-      public Builder setImage(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        image_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * docker image of application
-       * </pre>
-       *
-       * <code>string image = 3;</code>
-       */
-      public Builder clearImage() {
-        
-        image_ = getDefaultInstance().getImage();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * docker image of application
-       * </pre>
-       *
-       * <code>string image = 3;</code>
-       */
-      public Builder setImageBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        image_ = value;
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.LazyStringList args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureArgsIsMutable() {
-        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-          args_ = new com.google.protobuf.LazyStringArrayList(args_);
-          bitField0_ |= 0x00000008;
-         }
-      }
-      /**
-       * <pre>
-       * args are arguments given to the docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 4;</code>
-       */
-      public com.google.protobuf.ProtocolStringList
-          getArgsList() {
-        return args_.getUnmodifiableView();
-      }
-      /**
-       * <pre>
-       * args are arguments given to the docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 4;</code>
-       */
-      public int getArgsCount() {
-        return args_.size();
-      }
-      /**
-       * <pre>
-       * args are arguments given to the docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 4;</code>
-       */
-      public java.lang.String getArgs(int index) {
-        return args_.get(index);
-      }
-      /**
-       * <pre>
-       * args are arguments given to the docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 4;</code>
-       */
-      public com.google.protobuf.ByteString
-          getArgsBytes(int index) {
-        return args_.getByteString(index);
-      }
-      /**
-       * <pre>
-       * args are arguments given to the docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 4;</code>
-       */
-      public Builder setArgs(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureArgsIsMutable();
-        args_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * args are arguments given to the docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 4;</code>
-       */
-      public Builder addArgs(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureArgsIsMutable();
-        args_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * args are arguments given to the docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 4;</code>
-       */
-      public Builder addAllArgs(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureArgsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, args_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * args are arguments given to the docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 4;</code>
-       */
-      public Builder clearArgs() {
-        args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * args are arguments given to the docker image at startup
-       * </pre>
-       *
-       * <code>repeated string args = 4;</code>
-       */
-      public Builder addArgsBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        ensureArgsIsMutable();
-        args_.add(value);
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> env_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetEnv() {
-        if (env_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              EnvDefaultEntryHolder.defaultEntry);
-        }
-        return env_;
-      }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableEnv() {
-        onChanged();;
-        if (env_ == null) {
-          env_ = com.google.protobuf.MapField.newMapField(
-              EnvDefaultEntryHolder.defaultEntry);
-        }
-        if (!env_.isMutable()) {
-          env_ = env_.copy();
-        }
-        return env_;
-      }
-
-      public int getEnvCount() {
-        return internalGetEnv().getMap().size();
-      }
-      /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 5;</code>
-       */
-
-      public boolean containsEnv(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetEnv().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getEnvMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getEnv() {
-        return getEnvMap();
-      }
-      /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 5;</code>
-       */
-
-      public java.util.Map<java.lang.String, java.lang.String> getEnvMap() {
-        return internalGetEnv().getMap();
-      }
-      /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 5;</code>
-       */
-
-      public java.lang.String getEnvOrDefault(
-          java.lang.String key,
-          java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetEnv().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 5;</code>
-       */
-
-      public java.lang.String getEnvOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetEnv().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-
-      public Builder clearEnv() {
-        internalGetMutableEnv().getMutableMap()
-            .clear();
-        return this;
-      }
-      /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 5;</code>
-       */
-
-      public Builder removeEnv(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableEnv().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String>
-      getMutableEnv() {
-        return internalGetMutableEnv().getMutableMap();
-      }
-      /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 5;</code>
-       */
-      public Builder putEnv(
-          java.lang.String key,
-          java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableEnv().getMutableMap()
-            .put(key, value);
-        return this;
-      }
-      /**
-       * <pre>
-       * k/v map of environmental variables
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; env = 5;</code>
-       */
-
-      public Builder putAllEnv(
-          java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableEnv().getMutableMap()
-            .putAll(values);
-        return this;
-      }
-
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.Integer> ports_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-      internalGetPorts() {
-        if (ports_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              PortsDefaultEntryHolder.defaultEntry);
-        }
-        return ports_;
-      }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-      internalGetMutablePorts() {
-        onChanged();;
-        if (ports_ == null) {
-          ports_ = com.google.protobuf.MapField.newMapField(
-              PortsDefaultEntryHolder.defaultEntry);
-        }
-        if (!ports_.isMutable()) {
-          ports_ = ports_.copy();
-        }
-        return ports_;
-      }
-
-      public int getPortsCount() {
-        return internalGetPorts().getMap().size();
-      }
-      /**
-       * <pre>
-       * k/v map of ports to expose ex: http: 80 https: 443
-       * </pre>
-       *
-       * <code>map&lt;string, uint32&gt; ports = 6;</code>
-       */
-
-      public boolean containsPorts(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetPorts().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getPortsMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.Integer> getPorts() {
-        return getPortsMap();
-      }
-      /**
-       * <pre>
-       * k/v map of ports to expose ex: http: 80 https: 443
-       * </pre>
-       *
-       * <code>map&lt;string, uint32&gt; ports = 6;</code>
-       */
-
-      public java.util.Map<java.lang.String, java.lang.Integer> getPortsMap() {
-        return internalGetPorts().getMap();
-      }
-      /**
-       * <pre>
-       * k/v map of ports to expose ex: http: 80 https: 443
-       * </pre>
-       *
-       * <code>map&lt;string, uint32&gt; ports = 6;</code>
-       */
-
-      public int getPortsOrDefault(
-          java.lang.String key,
-          int defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.Integer> map =
-            internalGetPorts().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <pre>
-       * k/v map of ports to expose ex: http: 80 https: 443
-       * </pre>
-       *
-       * <code>map&lt;string, uint32&gt; ports = 6;</code>
-       */
-
-      public int getPortsOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.Integer> map =
-            internalGetPorts().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-
-      public Builder clearPorts() {
-        internalGetMutablePorts().getMutableMap()
-            .clear();
-        return this;
-      }
-      /**
-       * <pre>
-       * k/v map of ports to expose ex: http: 80 https: 443
-       * </pre>
-       *
-       * <code>map&lt;string, uint32&gt; ports = 6;</code>
-       */
-
-      public Builder removePorts(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutablePorts().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.Integer>
-      getMutablePorts() {
-        return internalGetMutablePorts().getMutableMap();
-      }
-      /**
-       * <pre>
-       * k/v map of ports to expose ex: http: 80 https: 443
-       * </pre>
-       *
-       * <code>map&lt;string, uint32&gt; ports = 6;</code>
-       */
-      public Builder putPorts(
-          java.lang.String key,
-          int value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        
-        internalGetMutablePorts().getMutableMap()
-            .put(key, value);
-        return this;
-      }
-      /**
-       * <pre>
-       * k/v map of ports to expose ex: http: 80 https: 443
-       * </pre>
-       *
-       * <code>map&lt;string, uint32&gt; ports = 6;</code>
-       */
-
-      public Builder putAllPorts(
-          java.util.Map<java.lang.String, java.lang.Integer> values) {
-        internalGetMutablePorts().getMutableMap()
-            .putAll(values);
-        return this;
-      }
-
-      private int replicas_ ;
-      /**
-       * <pre>
-       * number of deployment replicas
-       * </pre>
-       *
-       * <code>uint32 replicas = 7;</code>
-       */
-      public int getReplicas() {
-        return replicas_;
-      }
-      /**
-       * <pre>
-       * number of deployment replicas
-       * </pre>
-       *
-       * <code>uint32 replicas = 7;</code>
-       */
-      public Builder setReplicas(int value) {
-        
-        replicas_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * number of deployment replicas
-       * </pre>
-       *
-       * <code>uint32 replicas = 7;</code>
-       */
-      public Builder clearReplicas() {
-        
-        replicas_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private kdeploy.Kdeploy.Networking networking_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          kdeploy.Kdeploy.Networking, kdeploy.Kdeploy.Networking.Builder, kdeploy.Kdeploy.NetworkingOrBuilder> networkingBuilder_;
-      /**
-       * <code>.kdeploy.Networking networking = 9;</code>
-       */
-      public boolean hasNetworking() {
-        return networkingBuilder_ != null || networking_ != null;
-      }
-      /**
-       * <code>.kdeploy.Networking networking = 9;</code>
-       */
-      public kdeploy.Kdeploy.Networking getNetworking() {
-        if (networkingBuilder_ == null) {
-          return networking_ == null ? kdeploy.Kdeploy.Networking.getDefaultInstance() : networking_;
-        } else {
-          return networkingBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.kdeploy.Networking networking = 9;</code>
-       */
-      public Builder setNetworking(kdeploy.Kdeploy.Networking value) {
-        if (networkingBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          networking_ = value;
-          onChanged();
-        } else {
-          networkingBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.kdeploy.Networking networking = 9;</code>
-       */
-      public Builder setNetworking(
-          kdeploy.Kdeploy.Networking.Builder builderForValue) {
-        if (networkingBuilder_ == null) {
-          networking_ = builderForValue.build();
-          onChanged();
-        } else {
-          networkingBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.kdeploy.Networking networking = 9;</code>
-       */
-      public Builder mergeNetworking(kdeploy.Kdeploy.Networking value) {
-        if (networkingBuilder_ == null) {
-          if (networking_ != null) {
-            networking_ =
-              kdeploy.Kdeploy.Networking.newBuilder(networking_).mergeFrom(value).buildPartial();
-          } else {
-            networking_ = value;
-          }
-          onChanged();
-        } else {
-          networkingBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.kdeploy.Networking networking = 9;</code>
-       */
-      public Builder clearNetworking() {
-        if (networkingBuilder_ == null) {
-          networking_ = null;
-          onChanged();
-        } else {
-          networking_ = null;
-          networkingBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.kdeploy.Networking networking = 9;</code>
-       */
-      public kdeploy.Kdeploy.Networking.Builder getNetworkingBuilder() {
-        
-        onChanged();
-        return getNetworkingFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.kdeploy.Networking networking = 9;</code>
-       */
-      public kdeploy.Kdeploy.NetworkingOrBuilder getNetworkingOrBuilder() {
-        if (networkingBuilder_ != null) {
-          return networkingBuilder_.getMessageOrBuilder();
-        } else {
-          return networking_ == null ?
-              kdeploy.Kdeploy.Networking.getDefaultInstance() : networking_;
-        }
-      }
-      /**
-       * <code>.kdeploy.Networking networking = 9;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          kdeploy.Kdeploy.Networking, kdeploy.Kdeploy.Networking.Builder, kdeploy.Kdeploy.NetworkingOrBuilder> 
-          getNetworkingFieldBuilder() {
-        if (networkingBuilder_ == null) {
-          networkingBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              kdeploy.Kdeploy.Networking, kdeploy.Kdeploy.Networking.Builder, kdeploy.Kdeploy.NetworkingOrBuilder>(
-                  getNetworking(),
-                  getParentForChildren(),
-                  isClean());
-          networking_ = null;
-        }
-        return networkingBuilder_;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:kdeploy.AppUpdate)
-    }
-
-    // @@protoc_insertion_point(class_scope:kdeploy.AppUpdate)
-    private static final kdeploy.Kdeploy.AppUpdate DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new kdeploy.Kdeploy.AppUpdate();
-    }
-
-    public static kdeploy.Kdeploy.AppUpdate getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<AppUpdate>
-        PARSER = new com.google.protobuf.AbstractParser<AppUpdate>() {
-      @java.lang.Override
-      public AppUpdate parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AppUpdate(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<AppUpdate> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<AppUpdate> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public kdeploy.Kdeploy.AppUpdate getDefaultInstanceForType() {
+    public kdeploy.Kdeploy.AppInput getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -21302,55 +17280,30 @@ public final class Kdeploy {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_kdeploy_Task_EnvEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_kdeploy_TaskConstructor_descriptor;
+    internal_static_kdeploy_TaskInput_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_kdeploy_TaskConstructor_fieldAccessorTable;
+      internal_static_kdeploy_TaskInput_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_kdeploy_TaskConstructor_EnvEntry_descriptor;
+    internal_static_kdeploy_TaskInput_EnvEntry_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_kdeploy_TaskConstructor_EnvEntry_fieldAccessorTable;
+      internal_static_kdeploy_TaskInput_EnvEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_kdeploy_TaskUpdate_descriptor;
+    internal_static_kdeploy_AppInput_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_kdeploy_TaskUpdate_fieldAccessorTable;
+      internal_static_kdeploy_AppInput_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_kdeploy_TaskUpdate_EnvEntry_descriptor;
+    internal_static_kdeploy_AppInput_EnvEntry_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_kdeploy_TaskUpdate_EnvEntry_fieldAccessorTable;
+      internal_static_kdeploy_AppInput_EnvEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_kdeploy_AppConstructor_descriptor;
+    internal_static_kdeploy_AppInput_PortsEntry_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_kdeploy_AppConstructor_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_kdeploy_AppConstructor_EnvEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_kdeploy_AppConstructor_EnvEntry_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_kdeploy_AppConstructor_PortsEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_kdeploy_AppConstructor_PortsEntry_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_kdeploy_AppUpdate_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_kdeploy_AppUpdate_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_kdeploy_AppUpdate_EnvEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_kdeploy_AppUpdate_EnvEntry_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_kdeploy_AppUpdate_PortsEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_kdeploy_AppUpdate_PortsEntry_fieldAccessorTable;
+      internal_static_kdeploy_AppInput_PortsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_kdeploy_Ref_descriptor;
   private static final 
@@ -21425,66 +17378,50 @@ public final class Kdeploy {
       "\022\r\n\005image\030\003 \001(\t\022\014\n\004args\030\005 \003(\t\022#\n\003env\030\006 \003" +
       "(\0132\026.kdeploy.Task.EnvEntry\022\020\n\010schedule\030\007" +
       " \001(\t\022\023\n\013completions\030\010 \001(\r\032*\n\010EnvEntry\022\013\n" +
-      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\232\002\n\017TaskCo" +
-      "nstructor\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}" +
-      "$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\037" +
-      "\n\005image\030\003 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\014\n\004args\030" +
-      "\005 \003(\t\022.\n\003env\030\006 \003(\0132!.kdeploy.TaskConstru" +
-      "ctor.EnvEntry\022\"\n\010schedule\030\007 \001(\tB\020\342\337\037\014\n\n^" +
-      ".{1,225}$\022\023\n\013completions\030\010 \001(\r\032*\n\010EnvEnt" +
-      "ry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\354\001\n\nT" +
-      "askUpdate\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}" +
-      "$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\r" +
-      "\n\005image\030\003 \001(\t\022\014\n\004args\030\005 \003(\t\022)\n\003env\030\006 \003(\013" +
-      "2\034.kdeploy.TaskUpdate.EnvEntry\022\020\n\010schedu" +
-      "le\030\007 \001(\t\022\023\n\013completions\030\010 \001(\r\032*\n\010EnvEntr" +
-      "y\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\203\003\n\016Ap" +
-      "pConstructor\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,2" +
-      "25}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}" +
-      "$\022\037\n\005image\030\003 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\014\n\004ar" +
-      "gs\030\004 \003(\t\022-\n\003env\030\005 \003(\0132 .kdeploy.AppConst" +
-      "ructor.EnvEntry\0221\n\005ports\030\006 \003(\0132\".kdeploy" +
-      ".AppConstructor.PortsEntry\022\020\n\010replicas\030\007" +
-      " \001(\r\022/\n\nnetworking\030\t \001(\0132\023.kdeploy.Netwo" +
-      "rkingB\006\342\337\037\002 \001\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r" +
-      "\n\005value\030\002 \001(\t:\0028\001\032,\n\nPortsEntry\022\013\n\003key\030\001" +
-      " \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\"\332\002\n\tAppUpdate\022\036\n" +
-      "\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022#\n\tnamespa" +
-      "ce\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\r\n\005image\030\003 \001(" +
-      "\t\022\014\n\004args\030\004 \003(\t\022(\n\003env\030\005 \003(\0132\033.kdeploy.A" +
-      "ppUpdate.EnvEntry\022,\n\005ports\030\006 \003(\0132\035.kdepl" +
-      "oy.AppUpdate.PortsEntry\022\020\n\010replicas\030\007 \001(" +
-      "\r\022\'\n\nnetworking\030\t \001(\0132\023.kdeploy.Networki" +
-      "ng\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001" +
-      "(\t:\0028\001\032,\n\nPortsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005val" +
-      "ue\030\002 \001(\r:\0028\001\"J\n\003Ref\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n" +
-      "\n^.{1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^." +
-      "{1,225}$\";\n\007Replica\022\r\n\005phase\030\001 \001(\t\022\021\n\tco" +
-      "ndition\030\002 \001(\t\022\016\n\006reason\030\003 \001(\t\"/\n\tAppStat" +
-      "us\022\"\n\010replicas\030\001 \003(\0132\020.kdeploy.Replica\"\026" +
-      "\n\003Log\022\017\n\007message\030\001 \001(\t\"*\n\004Apps\022\"\n\014applic" +
-      "ations\030\001 \003(\0132\014.kdeploy.App\"%\n\005Tasks\022\034\n\005t" +
-      "asks\030\001 \003(\0132\r.kdeploy.Task\"\036\n\tNamespace\022\021" +
-      "\n\tnamespace\030\001 \001(\t\" \n\nNamespaces\022\022\n\nnames" +
-      "paces\030\001 \003(\t2\257\005\n\016KdeployService\0224\n\tCreate" +
-      "App\022\027.kdeploy.AppConstructor\032\014.kdeploy.A" +
-      "pp\"\000\022/\n\tUpdateApp\022\022.kdeploy.AppUpdate\032\014." +
-      "kdeploy.App\"\000\0223\n\tDeleteApp\022\014.kdeploy.Ref" +
-      "\032\026.google.protobuf.Empty\"\000\022&\n\006GetApp\022\014.k" +
-      "deploy.Ref\032\014.kdeploy.App\"\000\022/\n\010ListApps\022\022" +
-      ".kdeploy.Namespace\032\r.kdeploy.Apps\"\000\022?\n\016L" +
-      "istNamespaces\022\026.google.protobuf.Empty\032\023." +
-      "kdeploy.Namespaces\"\000\0229\n\tDeleteAll\022\022.kdep" +
-      "loy.Namespace\032\026.google.protobuf.Empty\"\000\022" +
-      "7\n\nCreateTask\022\030.kdeploy.TaskConstructor\032" +
-      "\r.kdeploy.Task\"\000\0222\n\nUpdateTask\022\023.kdeploy" +
-      ".TaskUpdate\032\r.kdeploy.Task\"\000\0224\n\nDeleteTa" +
-      "sk\022\014.kdeploy.Ref\032\026.google.protobuf.Empty" +
-      "\"\000\022(\n\007GetTask\022\014.kdeploy.Ref\032\r.kdeploy.Ta" +
-      "sk\"\000\0221\n\tListTasks\022\022.kdeploy.Namespace\032\016." +
-      "kdeploy.Tasks\"\000\022,\n\nStreamLogs\022\014.kdeploy." +
-      "Ref\032\014.kdeploy.Log\"\0000\001B\013Z\tkdeploypbb\006prot" +
-      "o3"
+      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\216\002\n\tTaskIn" +
+      "put\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022#\n\tn" +
+      "amespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\037\n\005imag" +
+      "e\030\003 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\014\n\004args\030\005 \003(\t\022" +
+      "(\n\003env\030\006 \003(\0132\033.kdeploy.TaskInput.EnvEntr" +
+      "y\022\"\n\010schedule\030\007 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\023\n" +
+      "\013completions\030\010 \001(\r\032*\n\010EnvEntry\022\013\n\003key\030\001 " +
+      "\001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\371\002\n\010AppInput\022\036\n\004n" +
+      "ame\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022#\n\tnamespace" +
+      "\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\037\n\005image\030\003 \001(\tB" +
+      "\020\342\337\037\014\n\n^.{1,225}$\022\014\n\004args\030\004 \003(\t\022\'\n\003env\030\005" +
+      " \003(\0132\032.kdeploy.AppInput.EnvEntry\0223\n\005port" +
+      "s\030\006 \003(\0132\034.kdeploy.AppInput.PortsEntryB\006\342" +
+      "\337\037\002 \001\022\020\n\010replicas\030\007 \001(\r\022/\n\nnetworking\030\t " +
+      "\001(\0132\023.kdeploy.NetworkingB\006\342\337\037\002 \001\032*\n\010EnvE" +
+      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032,\n\n" +
+      "PortsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\002" +
+      "8\001\"J\n\003Ref\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}" +
+      "$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\";" +
+      "\n\007Replica\022\r\n\005phase\030\001 \001(\t\022\021\n\tcondition\030\002 " +
+      "\001(\t\022\016\n\006reason\030\003 \001(\t\"/\n\tAppStatus\022\"\n\010repl" +
+      "icas\030\001 \003(\0132\020.kdeploy.Replica\"\026\n\003Log\022\017\n\007m" +
+      "essage\030\001 \001(\t\"*\n\004Apps\022\"\n\014applications\030\001 \003" +
+      "(\0132\014.kdeploy.App\"%\n\005Tasks\022\034\n\005tasks\030\001 \003(\013" +
+      "2\r.kdeploy.Task\"\036\n\tNamespace\022\021\n\tnamespac" +
+      "e\030\001 \001(\t\" \n\nNamespaces\022\022\n\nnamespaces\030\001 \003(" +
+      "\t2\241\005\n\016KdeployService\022.\n\tCreateApp\022\021.kdep" +
+      "loy.AppInput\032\014.kdeploy.App\"\000\022.\n\tUpdateAp" +
+      "p\022\021.kdeploy.AppInput\032\014.kdeploy.App\"\000\0223\n\t" +
+      "DeleteApp\022\014.kdeploy.Ref\032\026.google.protobu" +
+      "f.Empty\"\000\022&\n\006GetApp\022\014.kdeploy.Ref\032\014.kdep" +
+      "loy.App\"\000\022/\n\010ListApps\022\022.kdeploy.Namespac" +
+      "e\032\r.kdeploy.Apps\"\000\022?\n\016ListNamespaces\022\026.g" +
+      "oogle.protobuf.Empty\032\023.kdeploy.Namespace" +
+      "s\"\000\0229\n\tDeleteAll\022\022.kdeploy.Namespace\032\026.g" +
+      "oogle.protobuf.Empty\"\000\0221\n\nCreateTask\022\022.k" +
+      "deploy.TaskInput\032\r.kdeploy.Task\"\000\0221\n\nUpd" +
+      "ateTask\022\022.kdeploy.TaskInput\032\r.kdeploy.Ta" +
+      "sk\"\000\0224\n\nDeleteTask\022\014.kdeploy.Ref\032\026.googl" +
+      "e.protobuf.Empty\"\000\022(\n\007GetTask\022\014.kdeploy." +
+      "Ref\032\r.kdeploy.Task\"\000\0221\n\tListTasks\022\022.kdep" +
+      "loy.Namespace\032\016.kdeploy.Tasks\"\000\022,\n\nStrea" +
+      "mLogs\022\014.kdeploy.Ref\032\014.kdeploy.Log\"\0000\001B\013Z" +
+      "\tkdeploypbb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -21545,110 +17482,80 @@ public final class Kdeploy {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Task_EnvEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_kdeploy_TaskConstructor_descriptor =
+    internal_static_kdeploy_TaskInput_descriptor =
       getDescriptor().getMessageTypes().get(4);
-    internal_static_kdeploy_TaskConstructor_fieldAccessorTable = new
+    internal_static_kdeploy_TaskInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_kdeploy_TaskConstructor_descriptor,
+        internal_static_kdeploy_TaskInput_descriptor,
         new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Schedule", "Completions", });
-    internal_static_kdeploy_TaskConstructor_EnvEntry_descriptor =
-      internal_static_kdeploy_TaskConstructor_descriptor.getNestedTypes().get(0);
-    internal_static_kdeploy_TaskConstructor_EnvEntry_fieldAccessorTable = new
+    internal_static_kdeploy_TaskInput_EnvEntry_descriptor =
+      internal_static_kdeploy_TaskInput_descriptor.getNestedTypes().get(0);
+    internal_static_kdeploy_TaskInput_EnvEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_kdeploy_TaskConstructor_EnvEntry_descriptor,
+        internal_static_kdeploy_TaskInput_EnvEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_kdeploy_TaskUpdate_descriptor =
+    internal_static_kdeploy_AppInput_descriptor =
       getDescriptor().getMessageTypes().get(5);
-    internal_static_kdeploy_TaskUpdate_fieldAccessorTable = new
+    internal_static_kdeploy_AppInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_kdeploy_TaskUpdate_descriptor,
-        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Schedule", "Completions", });
-    internal_static_kdeploy_TaskUpdate_EnvEntry_descriptor =
-      internal_static_kdeploy_TaskUpdate_descriptor.getNestedTypes().get(0);
-    internal_static_kdeploy_TaskUpdate_EnvEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_kdeploy_TaskUpdate_EnvEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
-    internal_static_kdeploy_AppConstructor_descriptor =
-      getDescriptor().getMessageTypes().get(6);
-    internal_static_kdeploy_AppConstructor_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_kdeploy_AppConstructor_descriptor,
+        internal_static_kdeploy_AppInput_descriptor,
         new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", "Networking", });
-    internal_static_kdeploy_AppConstructor_EnvEntry_descriptor =
-      internal_static_kdeploy_AppConstructor_descriptor.getNestedTypes().get(0);
-    internal_static_kdeploy_AppConstructor_EnvEntry_fieldAccessorTable = new
+    internal_static_kdeploy_AppInput_EnvEntry_descriptor =
+      internal_static_kdeploy_AppInput_descriptor.getNestedTypes().get(0);
+    internal_static_kdeploy_AppInput_EnvEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_kdeploy_AppConstructor_EnvEntry_descriptor,
+        internal_static_kdeploy_AppInput_EnvEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_kdeploy_AppConstructor_PortsEntry_descriptor =
-      internal_static_kdeploy_AppConstructor_descriptor.getNestedTypes().get(1);
-    internal_static_kdeploy_AppConstructor_PortsEntry_fieldAccessorTable = new
+    internal_static_kdeploy_AppInput_PortsEntry_descriptor =
+      internal_static_kdeploy_AppInput_descriptor.getNestedTypes().get(1);
+    internal_static_kdeploy_AppInput_PortsEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_kdeploy_AppConstructor_PortsEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
-    internal_static_kdeploy_AppUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(7);
-    internal_static_kdeploy_AppUpdate_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_kdeploy_AppUpdate_descriptor,
-        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", "Networking", });
-    internal_static_kdeploy_AppUpdate_EnvEntry_descriptor =
-      internal_static_kdeploy_AppUpdate_descriptor.getNestedTypes().get(0);
-    internal_static_kdeploy_AppUpdate_EnvEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_kdeploy_AppUpdate_EnvEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
-    internal_static_kdeploy_AppUpdate_PortsEntry_descriptor =
-      internal_static_kdeploy_AppUpdate_descriptor.getNestedTypes().get(1);
-    internal_static_kdeploy_AppUpdate_PortsEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_kdeploy_AppUpdate_PortsEntry_descriptor,
+        internal_static_kdeploy_AppInput_PortsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_kdeploy_Ref_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_kdeploy_Ref_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Ref_descriptor,
         new java.lang.String[] { "Name", "Namespace", });
     internal_static_kdeploy_Replica_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_kdeploy_Replica_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Replica_descriptor,
         new java.lang.String[] { "Phase", "Condition", "Reason", });
     internal_static_kdeploy_AppStatus_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_kdeploy_AppStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_AppStatus_descriptor,
         new java.lang.String[] { "Replicas", });
     internal_static_kdeploy_Log_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_kdeploy_Log_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Log_descriptor,
         new java.lang.String[] { "Message", });
     internal_static_kdeploy_Apps_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_kdeploy_Apps_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Apps_descriptor,
         new java.lang.String[] { "Applications", });
     internal_static_kdeploy_Tasks_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_kdeploy_Tasks_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Tasks_descriptor,
         new java.lang.String[] { "Tasks", });
     internal_static_kdeploy_Namespace_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_kdeploy_Namespace_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Namespace_descriptor,
         new java.lang.String[] { "Namespace", });
     internal_static_kdeploy_Namespaces_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_kdeploy_Namespaces_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Namespaces_descriptor,
