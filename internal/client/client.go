@@ -3,9 +3,9 @@ package client
 import (
 	"context"
 	"fmt"
-	kdeploypb "github.com/autom8ter/kdeploy/gen/grpc/go"
-	"github.com/autom8ter/kdeploy/internal/logger"
 	"github.com/autom8ter/kubego"
+	meshpaaspb "github.com/autom8ter/meshpaas/gen/grpc/go"
+	"github.com/autom8ter/meshpaas/internal/logger"
 	"github.com/graphikDB/generic"
 	"github.com/graphikDB/trigger"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -44,23 +44,23 @@ func (m *Manager) L() *logger.Logger {
 	return m.logger
 }
 
-func (m *Manager) getStatus(ctx context.Context, namespace, name string) (*kdeploypb.AppStatus, error) {
-	var replicas []*kdeploypb.Replica
+func (m *Manager) getStatus(ctx context.Context, namespace, name string) (*meshpaaspb.AppStatus, error) {
+	var replicas []*meshpaaspb.Replica
 	pods, err := m.kclient.Pods(namespace).List(ctx, v1.ListOptions{
 		TypeMeta:      v1.TypeMeta{},
-		LabelSelector: fmt.Sprintf("kdeploy.app = %s", name),
+		LabelSelector: fmt.Sprintf("meshpaas.app = %s", name),
 	})
 	if err != nil {
 		return nil, err
 	}
 	for _, pod := range pods.Items {
-		replicas = append(replicas, &kdeploypb.Replica{
+		replicas = append(replicas, &meshpaaspb.Replica{
 			Phase:     string(pod.Status.Phase),
 			Condition: string(pod.Status.Conditions[0].Status),
 			Reason:    pod.Status.Reason,
 		})
 	}
-	return &kdeploypb.AppStatus{Replicas: replicas}, nil
+	return &meshpaaspb.AppStatus{Replicas: replicas}, nil
 }
 
 func (r *Manager) GetUserInfo(ctx context.Context) map[string]interface{} {

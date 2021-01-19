@@ -7,9 +7,9 @@ import (
 	"context"
 
 	"github.com/99designs/gqlgen/graphql"
-	"github.com/autom8ter/kdeploy/gen/gql/go/generated"
-	"github.com/autom8ter/kdeploy/gen/gql/go/model"
-	kdeploypb "github.com/autom8ter/kdeploy/gen/grpc/go"
+	"github.com/autom8ter/meshpaas/gen/gql/go/generated"
+	"github.com/autom8ter/meshpaas/gen/gql/go/model"
+	meshpaaspb "github.com/autom8ter/meshpaas/gen/grpc/go"
 	"github.com/golang/protobuf/ptypes/empty"
 	"github.com/vektah/gqlparser/v2/gqlerror"
 )
@@ -37,7 +37,7 @@ func (r *mutationResolver) UpdateApp(ctx context.Context, input model.AppInput) 
 }
 
 func (r *mutationResolver) DelApp(ctx context.Context, input model.Ref) (*string, error) {
-	_, err := r.client.DeleteApp(ctx, &kdeploypb.Ref{
+	_, err := r.client.DeleteApp(ctx, &meshpaaspb.Ref{
 		Name:      input.Name,
 		Namespace: input.Namespace,
 	})
@@ -73,7 +73,7 @@ func (r *mutationResolver) UpdateTask(ctx context.Context, input model.TaskInput
 }
 
 func (r *mutationResolver) DelTask(ctx context.Context, input model.Ref) (*string, error) {
-	_, err := r.client.DeleteApp(ctx, &kdeploypb.Ref{
+	_, err := r.client.DeleteApp(ctx, &meshpaaspb.Ref{
 		Name:      input.Name,
 		Namespace: input.Namespace,
 	})
@@ -87,7 +87,7 @@ func (r *mutationResolver) DelTask(ctx context.Context, input model.Ref) (*strin
 }
 
 func (r *mutationResolver) DelAll(ctx context.Context, input model.Namespace) (*string, error) {
-	_, err := r.client.DeleteAll(ctx, &kdeploypb.Namespace{Namespace: input.Namespace})
+	_, err := r.client.DeleteAll(ctx, &meshpaaspb.Namespace{Namespace: input.Namespace})
 	if err != nil {
 		return nil, &gqlerror.Error{
 			Message: err.Error(),
@@ -98,7 +98,7 @@ func (r *mutationResolver) DelAll(ctx context.Context, input model.Namespace) (*
 }
 
 func (r *queryResolver) GetApp(ctx context.Context, input model.Ref) (*model.App, error) {
-	app, err := r.client.GetApp(ctx, &kdeploypb.Ref{
+	app, err := r.client.GetApp(ctx, &meshpaaspb.Ref{
 		Name:      input.Name,
 		Namespace: input.Namespace,
 	})
@@ -112,7 +112,7 @@ func (r *queryResolver) GetApp(ctx context.Context, input model.Ref) (*model.App
 }
 
 func (r *queryResolver) ListApps(ctx context.Context, input model.Namespace) ([]*model.App, error) {
-	apps, err := r.client.ListApps(ctx, &kdeploypb.Namespace{Namespace: input.Namespace})
+	apps, err := r.client.ListApps(ctx, &meshpaaspb.Namespace{Namespace: input.Namespace})
 	if err != nil {
 		return nil, &gqlerror.Error{
 			Message: err.Error(),
@@ -127,7 +127,7 @@ func (r *queryResolver) ListApps(ctx context.Context, input model.Namespace) ([]
 }
 
 func (r *queryResolver) GetTask(ctx context.Context, input model.Ref) (*model.Task, error) {
-	app, err := r.client.GetTask(ctx, &kdeploypb.Ref{
+	app, err := r.client.GetTask(ctx, &meshpaaspb.Ref{
 		Name:      input.Name,
 		Namespace: input.Namespace,
 	})
@@ -141,7 +141,7 @@ func (r *queryResolver) GetTask(ctx context.Context, input model.Ref) (*model.Ta
 }
 
 func (r *queryResolver) ListTasks(ctx context.Context, input model.Namespace) ([]*model.Task, error) {
-	apps, err := r.client.ListTasks(ctx, &kdeploypb.Namespace{Namespace: input.Namespace})
+	apps, err := r.client.ListTasks(ctx, &meshpaaspb.Namespace{Namespace: input.Namespace})
 	if err != nil {
 		return nil, &gqlerror.Error{
 			Message: err.Error(),
@@ -171,7 +171,7 @@ func (r *queryResolver) ListNamespaces(ctx context.Context, input *string) (*mod
 }
 
 func (r *subscriptionResolver) StreamLogs(ctx context.Context, input model.Ref) (<-chan string, error) {
-	stream, err := r.client.StreamLogs(ctx, &kdeploypb.Ref{
+	stream, err := r.client.StreamLogs(ctx, &meshpaaspb.Ref{
 		Name:      input.Name,
 		Namespace: input.Namespace,
 	})

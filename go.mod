@@ -1,4 +1,4 @@
-module github.com/autom8ter/kdeploy
+module github.com/autom8ter/meshpaas
 
 go 1.15
 

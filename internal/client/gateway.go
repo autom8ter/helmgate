@@ -2,11 +2,11 @@ package client
 
 import (
 	"context"
-	kdeploypb "github.com/autom8ter/kdeploy/gen/grpc/go"
+	meshpaaspb "github.com/autom8ter/meshpaas/gen/grpc/go"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
-func (m *Manager) CreateGateway(ctx context.Context, gateway *kdeploypb.GatewayInput) (*kdeploypb.Gateway, error) {
+func (m *Manager) CreateGateway(ctx context.Context, gateway *meshpaaspb.GatewayInput) (*meshpaaspb.Gateway, error) {
 	kapp := &k8sGateway{}
 	namespace, err := m.kclient.Namespaces().Get(ctx, gateway.Namespace, v1.GetOptions{})
 	if err != nil {
@@ -25,7 +25,7 @@ func (m *Manager) CreateGateway(ctx context.Context, gateway *kdeploypb.GatewayI
 	return kapp.toGateway(), nil
 }
 
-func (m *Manager) UpdateGateway(ctx context.Context, gateway *kdeploypb.GatewayInput) (*kdeploypb.Gateway, error) {
+func (m *Manager) UpdateGateway(ctx context.Context, gateway *meshpaaspb.GatewayInput) (*meshpaaspb.Gateway, error) {
 	kapp := &k8sGateway{}
 	namespace, err := m.kclient.Namespaces().Get(ctx, gateway.Namespace, v1.GetOptions{})
 	if err != nil {
@@ -48,7 +48,7 @@ func (m *Manager) UpdateGateway(ctx context.Context, gateway *kdeploypb.GatewayI
 	return kapp.toGateway(), nil
 }
 
-func (m *Manager) DeleteGateway(ctx context.Context, ref *kdeploypb.Ref) error {
+func (m *Manager) DeleteGateway(ctx context.Context, ref *meshpaaspb.Ref) error {
 	err := m.iclient.Gateways(ref.GetNamespace()).Delete(ctx, ref.Name, v1.DeleteOptions{})
 	if err != nil {
 		return err
@@ -56,7 +56,7 @@ func (m *Manager) DeleteGateway(ctx context.Context, ref *kdeploypb.Ref) error {
 	return nil
 }
 
-func (m *Manager) GetGateway(ctx context.Context, ref *kdeploypb.Ref) (*kdeploypb.Gateway, error) {
+func (m *Manager) GetGateway(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb.Gateway, error) {
 	kapp := &k8sGateway{}
 	namespace, err := m.kclient.Namespaces().Get(ctx, ref.Namespace, v1.GetOptions{})
 	if err != nil {

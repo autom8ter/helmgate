@@ -1,4 +1,4 @@
-version := "0.0.11"
+version := "0.0.12"
 
 .DEFAULT_GOAL := help
 
@@ -10,7 +10,7 @@ help:
 	@echo "----------------------------------------------------------------"
 
 run:
-	@go run cmd/kdeploy/main.go --open-id https://accounts.google.com/.well-known/openid-configuration --out-of-cluster
+	@go run cmd/meshpaas/main.go --open-id https://accounts.google.com/.well-known/openid-configuration --out-of-cluster
 
 gen: gql proto
 
@@ -27,10 +27,10 @@ push:
 	git push origin v$(version)
 
 docker-build:
-	@docker build -t colemanword/kdeploy:v$(version) .
+	@docker build -t colemanword/meshpaas:v$(version) .
 
 docker-push:
-	@docker push colemanword/kdeploy:v$(version)
+	@docker push colemanword/meshpaas:v$(version)
 
 
 .PHONY: proto
@@ -55,6 +55,6 @@ down: ## shuts down local docker containers
 
 build: ## build the server to ./bin
 	@mkdir -p bin
-	@cd cmd/kdeploy; gox -osarch="linux/amd64" -output="../../bin/linux/{{.Dir}}_linux_amd64"
-	@cd cmd/kdeploy; gox -osarch="darwin/amd64" -output="../../bin/darwin/{{.Dir}}_darwin_amd64"
-	@cd cmd/kdeploy; gox -osarch="windows/amd64" -output="../../bin/windows/{{.Dir}}_windows_amd64"
+	@cd cmd/meshpaas; gox -osarch="linux/amd64" -output="../../bin/linux/{{.Dir}}_linux_amd64"
+	@cd cmd/meshpaas; gox -osarch="darwin/amd64" -output="../../bin/darwin/{{.Dir}}_darwin_amd64"
+	@cd cmd/meshpaas; gox -osarch="windows/amd64" -output="../../bin/windows/{{.Dir}}_windows_amd64"

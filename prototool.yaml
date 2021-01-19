@@ -28,7 +28,7 @@ lint:
 
 generate:
   go_options:
-    import_path: github.com/autom8ter/kdeploy
+    import_path: github.com/autom8ter/meshpaas
 
   plugins:
     - name: go

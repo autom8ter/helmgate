@@ -2,11 +2,11 @@ package client
 
 import (
 	"context"
-	kdeploypb "github.com/autom8ter/kdeploy/gen/grpc/go"
+	meshpaaspb "github.com/autom8ter/meshpaas/gen/grpc/go"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
-func (m *Manager) CreateTask(ctx context.Context, task *kdeploypb.TaskInput) (*kdeploypb.Task, error) {
+func (m *Manager) CreateTask(ctx context.Context, task *meshpaaspb.TaskInput) (*meshpaaspb.Task, error) {
 	kapp := &k8sTask{}
 	namespace, err := m.kclient.Namespaces().Get(ctx, task.Namespace, v1.GetOptions{})
 	if err != nil {
@@ -28,7 +28,7 @@ func (m *Manager) CreateTask(ctx context.Context, task *kdeploypb.TaskInput) (*k
 	return kapp.toTask(), nil
 }
 
-func (m *Manager) UpdateTask(ctx context.Context, task *kdeploypb.TaskInput) (*kdeploypb.Task, error) {
+func (m *Manager) UpdateTask(ctx context.Context, task *meshpaaspb.TaskInput) (*meshpaaspb.Task, error) {
 	kapp := &k8sTask{}
 	namespace, err := m.kclient.Namespaces().Get(ctx, task.Namespace, v1.GetOptions{})
 	if err != nil {
@@ -51,7 +51,7 @@ func (m *Manager) UpdateTask(ctx context.Context, task *kdeploypb.TaskInput) (*k
 	return kapp.toTask(), nil
 }
 
-func (m *Manager) GetTask(ctx context.Context, ref *kdeploypb.Ref) (*kdeploypb.Task, error) {
+func (m *Manager) GetTask(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb.Task, error) {
 	kapp := &k8sTask{}
 
 	ns, err := m.kclient.Namespaces().Get(ctx, ref.Namespace, v1.GetOptions{})
@@ -67,15 +67,15 @@ func (m *Manager) GetTask(ctx context.Context, ref *kdeploypb.Ref) (*kdeploypb.T
 	return kapp.toTask(), nil
 }
 
-func (m *Manager) DeleteTask(ctx context.Context, ref *kdeploypb.Ref) error {
+func (m *Manager) DeleteTask(ctx context.Context, ref *meshpaaspb.Ref) error {
 	if err := m.kclient.CronJobs(ref.Namespace).Delete(ctx, ref.Name, v1.DeleteOptions{}); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (m *Manager) ListTasks(ctx context.Context, namespace *kdeploypb.Namespace) (*kdeploypb.Tasks, error) {
-	var kapps = &kdeploypb.Tasks{}
+func (m *Manager) ListTasks(ctx context.Context, namespace *meshpaaspb.Namespace) (*meshpaaspb.Tasks, error) {
+	var kapps = &meshpaaspb.Tasks{}
 	ns, err := m.kclient.Namespaces().Get(ctx, namespace.GetNamespace(), v1.GetOptions{})
 	if err != nil {
 		return nil, err

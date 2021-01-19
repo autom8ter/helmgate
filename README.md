@@ -1,16 +1,16 @@
-# kdeploy
+# meshpaas
 
 ![create-redis](assets/create-redis.png)
 ![get-redis](assets/get-redis.png)
 
 an opinionated, OAuth-protected graphQL/gRPC API for easily deploying kubernetes applications & jobs
 
-[graphQL Documentation](https://autom8ter.github.io/kdeploy/)
+[graphQL Documentation](https://autom8ter.github.io/meshpaas/)
 
 ## Features
 
-- [x] [gRPC API](kdeploy.proto)
-    - [x] golang client sdk[![GoDoc](https://godoc.org/github.com/autom8ter/kdeploy/kdeploy-client-go?status.svg)](https://godoc.org/github.com/autom8ter/kdeploy/kdeploy-client-go)
+- [x] [gRPC API](schema.proto)
+    - [x] golang client sdk[![GoDoc](https://godoc.org/github.com/autom8ter/meshpaas/meshpaas-client-go?status.svg)](https://godoc.org/github.com/autom8ter/meshpaas/meshpaas-client-go)
     - [x] [javascript client sdk](gen/grpc/js)
     - [x] [java client sdk](gen/grpc/java)
     - [x] [php client sdk](gen/grpc/php)
@@ -41,7 +41,7 @@ an opinionated, OAuth-protected graphQL/gRPC API for easily deploying kubernetes
 ## Command Line
 
 ```
-Usage of kdeploy:
+Usage of meshpaas:
       --allow-headers strings         cors allow headers (env: KDEPLOY_ALLOW_HEADERS) (default [*])
       --allow-methods strings         cors allow methods (env: KDEPLOY_ALLOW_METHODS) (default [HEAD,GET,POST,PUT,PATCH,DELETE])
       --allow-origins strings         cors allow origins (env: KDEPLOY_ALLOW_ORIGINS) (default [*])
@@ -62,7 +62,7 @@ Usage of kdeploy:
 Given a running Kubernetes cluster, run:
 
 ```yaml
-curl https://raw.githubusercontent.com/autom8ter/kdeploy/master/k8s.yaml >> k8s.yaml
+curl https://raw.githubusercontent.com/autom8ter/meshpaas/master/k8s.yaml >> k8s.yaml
 ```
 
 inspect the manifest and add/adjust environmental variables in the deployment spec(see flags for supported environmental variables)
@@ -73,6 +73,6 @@ then run:
 
 to view pods as they spin up, run:
 
-    kubectl get pods -n kdeploy -w
+    kubectl get pods -n meshpaas -w
 
 Kdeploy is intended to be deployed behind an SSL ingress/proxy and doesn't handle TLS termination.

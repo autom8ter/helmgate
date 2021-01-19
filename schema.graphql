@@ -242,7 +242,7 @@ type Query {
     getTask(input: Ref!): Task
     # listTasks lists all tasks(k8s cron jobs) within an existing namespace
     listTasks(input: Namespace!): [Task!]
-    # listNamespaces lists all namespaces created by kdeploy
+    # listNamespaces lists all namespaces created by meshpaas
     listNamespaces(input: String): Namespaces!
 }
 

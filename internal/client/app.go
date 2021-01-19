@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"context"
 	"fmt"
-	kdeploypb "github.com/autom8ter/kdeploy/gen/grpc/go"
+	meshpaaspb "github.com/autom8ter/meshpaas/gen/grpc/go"
 	"github.com/pkg/errors"
 	"go.uber.org/zap"
 	"io"
@@ -13,7 +13,7 @@ import (
 	"sync"
 )
 
-func (m *Manager) CreateApp(ctx context.Context, app *kdeploypb.AppInput) (*kdeploypb.App, error) {
+func (m *Manager) CreateApp(ctx context.Context, app *meshpaaspb.AppInput) (*meshpaaspb.App, error) {
 	kapp := &k8sApp{}
 	namespace, err := m.kclient.Namespaces().Get(ctx, app.Namespace, v1.GetOptions{})
 	if err != nil {
@@ -46,7 +46,7 @@ func (m *Manager) CreateApp(ctx context.Context, app *kdeploypb.AppInput) (*kdep
 	return a, nil
 }
 
-func (m *Manager) UpdateApp(ctx context.Context, app *kdeploypb.AppInput) (*kdeploypb.App, error) {
+func (m *Manager) UpdateApp(ctx context.Context, app *meshpaaspb.AppInput) (*meshpaaspb.App, error) {
 	kapp := &k8sApp{}
 	namespace, err := m.kclient.Namespaces().Get(ctx, app.Namespace, v1.GetOptions{})
 	if err != nil {
@@ -85,7 +85,7 @@ func (m *Manager) UpdateApp(ctx context.Context, app *kdeploypb.AppInput) (*kdep
 	return a, nil
 }
 
-func (m *Manager) GetApp(ctx context.Context, ref *kdeploypb.Ref) (*kdeploypb.App, error) {
+func (m *Manager) GetApp(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb.App, error) {
 	kapp := &k8sApp{}
 
 	ns, err := m.kclient.Namespaces().Get(ctx, ref.Namespace, v1.GetOptions{})
@@ -112,7 +112,7 @@ func (m *Manager) GetApp(ctx context.Context, ref *kdeploypb.Ref) (*kdeploypb.Ap
 	return a, nil
 }
 
-func (m *Manager) DeleteApp(ctx context.Context, ref *kdeploypb.Ref) error {
+func (m *Manager) DeleteApp(ctx context.Context, ref *meshpaaspb.Ref) error {
 	if err := m.kclient.Services(ref.Namespace).Delete(ctx, ref.Name, v1.DeleteOptions{}); err != nil {
 		m.logger.Error("failed to delete service",
 			zap.Error(err),
@@ -130,29 +130,29 @@ func (m *Manager) DeleteApp(ctx context.Context, ref *kdeploypb.Ref) error {
 	return nil
 }
 
-func (m *Manager) DeleteAll(ctx context.Context, ref *kdeploypb.Namespace) error {
+func (m *Manager) DeleteAll(ctx context.Context, ref *meshpaaspb.Namespace) error {
 	if err := m.kclient.Namespaces().Delete(ctx, ref.GetNamespace(), v1.DeleteOptions{}); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (m *Manager) ListNamespaces(ctx context.Context) (*kdeploypb.Namespaces, error) {
+func (m *Manager) ListNamespaces(ctx context.Context) (*meshpaaspb.Namespaces, error) {
 	namespaces, err := m.kclient.Namespaces().List(ctx, v1.ListOptions{
 		LabelSelector: labelSelector,
 	})
 	if err != nil {
 		return nil, err
 	}
-	var ns = &kdeploypb.Namespaces{}
+	var ns = &meshpaaspb.Namespaces{}
 	for _, n := range namespaces.Items {
 		ns.Namespaces = append(ns.Namespaces, n.Name)
 	}
 	return ns, nil
 }
 
-func (m *Manager) ListApps(ctx context.Context, namespace *kdeploypb.Namespace) (*kdeploypb.Apps, error) {
-	var kapps = &kdeploypb.Apps{}
+func (m *Manager) ListApps(ctx context.Context, namespace *meshpaaspb.Namespace) (*meshpaaspb.Apps, error) {
+	var kapps = &meshpaaspb.Apps{}
 
 	ns, err := m.kclient.Namespaces().Get(ctx, namespace.GetNamespace(), v1.GetOptions{})
 	if err != nil {
@@ -186,11 +186,11 @@ func (m *Manager) ListApps(ctx context.Context, namespace *kdeploypb.Namespace) 
 	return kapps, nil
 }
 
-func (m *Manager) StreamLogs(ctx context.Context, ref *kdeploypb.Ref) (chan string, error) {
+func (m *Manager) StreamLogs(ctx context.Context, ref *meshpaaspb.Ref) (chan string, error) {
 	pods, err := m.kclient.Pods(ref.Namespace).List(ctx, v1.ListOptions{
 		TypeMeta:      v1.TypeMeta{},
 		Watch:         false,
-		LabelSelector: fmt.Sprintf("kdeploy.app = %s", ref.Name),
+		LabelSelector: fmt.Sprintf("meshpaas.app = %s", ref.Name),
 	})
 	if err != nil {
 		return nil, err

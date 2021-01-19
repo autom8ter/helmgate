@@ -8,10 +8,10 @@ import (
 	"github.com/99designs/gqlgen/graphql/handler/extension"
 	"github.com/99designs/gqlgen/graphql/handler/lru"
 	"github.com/99designs/gqlgen/graphql/handler/transport"
-	"github.com/autom8ter/kdeploy/gen/gql/go/generated"
-	kdeploypb "github.com/autom8ter/kdeploy/gen/grpc/go"
-	"github.com/autom8ter/kdeploy/internal/helpers"
-	"github.com/autom8ter/kdeploy/internal/logger"
+	"github.com/autom8ter/meshpaas/gen/gql/go/generated"
+	meshpaaspb "github.com/autom8ter/meshpaas/gen/grpc/go"
+	"github.com/autom8ter/meshpaas/internal/helpers"
+	"github.com/autom8ter/meshpaas/internal/logger"
 	"github.com/gorilla/websocket"
 	"github.com/graphikDB/generic"
 	"github.com/pkg/errors"
@@ -30,7 +30,7 @@ import (
 // It serves as dependency injection for your app, add any dependencies you require here.
 
 type Resolver struct {
-	client      kdeploypb.KdeployServiceClient
+	client      meshpaaspb.KdeployServiceClient
 	cors        *cors.Cors
 	store       generic.Cache
 	config      *oauth2.Config
@@ -40,7 +40,7 @@ type Resolver struct {
 	userInfo    string
 }
 
-func NewResolver(client kdeploypb.KdeployServiceClient, cors *cors.Cors, config *oauth2.Config, logger *logger.Logger, userInfoEndpoint string) *Resolver {
+func NewResolver(client meshpaaspb.KdeployServiceClient, cors *cors.Cors, config *oauth2.Config, logger *logger.Logger, userInfoEndpoint string) *Resolver {
 	return &Resolver{
 		client:      client,
 		cors:        cors,

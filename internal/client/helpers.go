@@ -2,8 +2,8 @@ package client
 
 import (
 	"fmt"
-	kdeploypb "github.com/autom8ter/kdeploy/gen/grpc/go"
-	"github.com/autom8ter/kdeploy/internal/helpers"
+	meshpaaspb "github.com/autom8ter/meshpaas/gen/grpc/go"
+	"github.com/autom8ter/meshpaas/internal/helpers"
 	"github.com/pkg/errors"
 	"github.com/spf13/cast"
 	"istio.io/api/meta/v1alpha1"
@@ -24,7 +24,7 @@ const Always = "Always"
 const OnFailure = "OnFailure"
 const RWO = "ReadWriteOnce"
 
-func appContainers(app *kdeploypb.AppInput) ([]v12.Container, error) {
+func appContainers(app *meshpaaspb.AppInput) ([]v12.Container, error) {
 	ports := []v12.ContainerPort{}
 	for name, p := range app.Ports {
 		ports = append(ports, v12.ContainerPort{
@@ -52,7 +52,7 @@ func appContainers(app *kdeploypb.AppInput) ([]v12.Container, error) {
 	}, nil
 }
 
-func taskContainers(app *kdeploypb.TaskInput) ([]v12.Container, error) {
+func taskContainers(app *meshpaaspb.TaskInput) ([]v12.Container, error) {
 	env := []v12.EnvVar{}
 	for name, val := range app.Env {
 		env = append(env, v12.EnvVar{
@@ -72,7 +72,7 @@ func taskContainers(app *kdeploypb.TaskInput) ([]v12.Container, error) {
 	}, nil
 }
 
-func toNamespace(app *kdeploypb.AppInput) *v12.Namespace {
+func toNamespace(app *meshpaaspb.AppInput) *v12.Namespace {
 	return &v12.Namespace{
 		TypeMeta: metav1.TypeMeta{},
 		ObjectMeta: metav1.ObjectMeta{
@@ -84,7 +84,7 @@ func toNamespace(app *kdeploypb.AppInput) *v12.Namespace {
 	}
 }
 
-func toGwNamespace(gw *kdeploypb.GatewayInput) *v12.Namespace {
+func toGwNamespace(gw *meshpaaspb.GatewayInput) *v12.Namespace {
 	return &v12.Namespace{
 		TypeMeta: metav1.TypeMeta{},
 		ObjectMeta: metav1.ObjectMeta{
@@ -97,7 +97,7 @@ func toGwNamespace(gw *kdeploypb.GatewayInput) *v12.Namespace {
 	}
 }
 
-func toTaskNamespace(app *kdeploypb.TaskInput) *v12.Namespace {
+func toTaskNamespace(app *meshpaaspb.TaskInput) *v12.Namespace {
 	return &v12.Namespace{
 		TypeMeta: metav1.TypeMeta{},
 		ObjectMeta: metav1.ObjectMeta{
@@ -109,7 +109,7 @@ func toTaskNamespace(app *kdeploypb.TaskInput) *v12.Namespace {
 	}
 }
 
-func toServicePorts(app *kdeploypb.AppInput) []v12.ServicePort {
+func toServicePorts(app *meshpaaspb.AppInput) []v12.ServicePort {
 	var ports []v12.ServicePort
 	for name, p := range app.Ports {
 		ports = append(ports, v12.ServicePort{
@@ -120,7 +120,7 @@ func toServicePorts(app *kdeploypb.AppInput) []v12.ServicePort {
 	return ports
 }
 
-func overwriteService(svc *networking.VirtualService, app *kdeploypb.AppInput) *networking.VirtualService {
+func overwriteService(svc *networking.VirtualService, app *meshpaaspb.AppInput) *networking.VirtualService {
 	if svc.Namespace != "" {
 		svc.Namespace = app.Namespace
 	}
@@ -213,7 +213,7 @@ func overwriteService(svc *networking.VirtualService, app *kdeploypb.AppInput) *
 	Status: v1.ServiceStatus{},
 */
 
-func toService(app *kdeploypb.AppInput) *networking.VirtualService {
+func toService(app *meshpaaspb.AppInput) *networking.VirtualService {
 	svc := &networking.VirtualService{
 		TypeMeta: metav1.TypeMeta{},
 		ObjectMeta: metav1.ObjectMeta{
@@ -224,7 +224,7 @@ func toService(app *kdeploypb.AppInput) *networking.VirtualService {
 		Spec:   v1alpha3.VirtualService{},
 		Status: v1alpha1.IstioStatus{},
 	}
-	return overwriteService(svc, &kdeploypb.AppInput{
+	return overwriteService(svc, &meshpaaspb.AppInput{
 		Name:       app.Name,
 		Namespace:  app.Namespace,
 		Image:      app.Image,
@@ -236,7 +236,7 @@ func toService(app *kdeploypb.AppInput) *networking.VirtualService {
 	})
 }
 
-func toDeployment(app *kdeploypb.AppInput) (*apps.Deployment, error) {
+func toDeployment(app *meshpaaspb.AppInput) (*apps.Deployment, error) {
 	var (
 		replicas        = int32(app.Replicas)
 		containers, err = appContainers(app)
@@ -280,7 +280,7 @@ func toDeployment(app *kdeploypb.AppInput) (*apps.Deployment, error) {
 	}, nil
 }
 
-func toTask(app *kdeploypb.TaskInput) (*v1beta1.CronJob, error) {
+func toTask(app *meshpaaspb.TaskInput) (*v1beta1.CronJob, error) {
 	var (
 		containers, err = taskContainers(app)
 	)
@@ -324,7 +324,7 @@ func toTask(app *kdeploypb.TaskInput) (*v1beta1.CronJob, error) {
 	}, nil
 }
 
-func overwriteDeployment(deployment *apps.Deployment, app *kdeploypb.AppInput) (*apps.Deployment, error) {
+func overwriteDeployment(deployment *apps.Deployment, app *meshpaaspb.AppInput) (*apps.Deployment, error) {
 	var container *v1.Container
 	for _, c := range deployment.Spec.Template.Spec.Containers {
 		if c.Name == app.Name {
@@ -380,12 +380,12 @@ func overwriteDeployment(deployment *apps.Deployment, app *kdeploypb.AppInput) (
 	return deployment, nil
 }
 
-func overwriteGateway(gateway *pkgnv1alpha3.Gateway, gw *kdeploypb.GatewayInput) *pkgnv1alpha3.Gateway {
+func overwriteGateway(gateway *pkgnv1alpha3.Gateway, gw *meshpaaspb.GatewayInput) *pkgnv1alpha3.Gateway {
 
 	return gateway
 }
 
-func toGateway(gateway *kdeploypb.GatewayInput) *pkgnv1alpha3.Gateway {
+func toGateway(gateway *meshpaaspb.GatewayInput) *pkgnv1alpha3.Gateway {
 	var servers []*nv1alpha3.Server
 	for _, l := range gateway.GetListeners() {
 		var tls *nv1alpha3.ServerTLSSettings
@@ -394,15 +394,15 @@ func toGateway(gateway *kdeploypb.GatewayInput) *pkgnv1alpha3.Gateway {
 				HttpsRedirect: l.TlsConfig.HttpsRedirect,
 				Mode: func() nv1alpha3.ServerTLSSettings_TLSmode {
 					switch l.TlsConfig.Mode {
-					case kdeploypb.TLSmode_SIMPLE:
+					case meshpaaspb.TLSmode_SIMPLE:
 						return nv1alpha3.ServerTLSSettings_SIMPLE
-					case kdeploypb.TLSmode_AUTO_PASSTHROUGH:
+					case meshpaaspb.TLSmode_AUTO_PASSTHROUGH:
 						return nv1alpha3.ServerTLSSettings_AUTO_PASSTHROUGH
-					case kdeploypb.TLSmode_PASSTHROUGH:
+					case meshpaaspb.TLSmode_PASSTHROUGH:
 						return nv1alpha3.ServerTLSSettings_PASSTHROUGH
-					case kdeploypb.TLSmode_ISTIO_MUTUAL:
+					case meshpaaspb.TLSmode_ISTIO_MUTUAL:
 						return nv1alpha3.ServerTLSSettings_ISTIO_MUTUAL
-					case kdeploypb.TLSmode_MUTUAL:
+					case meshpaaspb.TLSmode_MUTUAL:
 						return nv1alpha3.ServerTLSSettings_MUTUAL
 					default:
 						return nv1alpha3.ServerTLSSettings_SIMPLE
@@ -446,7 +446,7 @@ func toGateway(gateway *kdeploypb.GatewayInput) *pkgnv1alpha3.Gateway {
 	}
 }
 
-func overwriteTask(cronJob *v1beta1.CronJob, task *kdeploypb.TaskInput) (*v1beta1.CronJob, error) {
+func overwriteTask(cronJob *v1beta1.CronJob, task *meshpaaspb.TaskInput) (*v1beta1.CronJob, error) {
 	var container *v12.Container
 	for _, c := range cronJob.Spec.JobTemplate.Spec.Template.Spec.Containers {
 		if c.Name == cronJob.Name {
@@ -494,8 +494,8 @@ type k8sApp struct {
 	service    *networking.VirtualService
 }
 
-func (k *k8sApp) toApp() *kdeploypb.App {
-	a := &kdeploypb.App{
+func (k *k8sApp) toApp() *meshpaaspb.App {
+	a := &meshpaaspb.App{
 		Name:      k.deployment.Name,
 		Namespace: k.deployment.Namespace,
 	}
@@ -528,8 +528,8 @@ type k8sTask struct {
 	cronJob   *v1beta1.CronJob
 }
 
-func (k *k8sTask) toTask() *kdeploypb.Task {
-	a := &kdeploypb.Task{
+func (k *k8sTask) toTask() *meshpaaspb.Task {
+	a := &meshpaaspb.Task{
 		Name:      k.cronJob.Name,
 		Namespace: k.cronJob.Namespace,
 	}
@@ -561,47 +561,47 @@ type k8sGateway struct {
 	gateway   *pkgnv1alpha3.Gateway
 }
 
-func (k *k8sGateway) toGateway() *kdeploypb.Gateway {
-	var listeners []*kdeploypb.GatewayListener
+func (k *k8sGateway) toGateway() *meshpaaspb.Gateway {
+	var listeners []*meshpaaspb.GatewayListener
 	for _, l := range k.gateway.Spec.GetServers() {
-		listeners = append(listeners, &kdeploypb.GatewayListener{
+		listeners = append(listeners, &meshpaaspb.GatewayListener{
 			Port: l.GetPort().GetNumber(),
 			Name: l.GetName(),
-			Protocol: func() kdeploypb.Protocol {
+			Protocol: func() meshpaaspb.Protocol {
 				switch l.GetPort().GetProtocol() {
 				case "GRPC":
-					return kdeploypb.Protocol_GRPC
+					return meshpaaspb.Protocol_GRPC
 				case "HTTP":
-					return kdeploypb.Protocol_HTTP
+					return meshpaaspb.Protocol_HTTP
 				case "HTTP2":
-					return kdeploypb.Protocol_HTTP2
+					return meshpaaspb.Protocol_HTTP2
 				case "HTTPS":
-					return kdeploypb.Protocol_HTTPS
+					return meshpaaspb.Protocol_HTTPS
 				case "MONGO":
-					return kdeploypb.Protocol_MONGO
+					return meshpaaspb.Protocol_MONGO
 				case "TLS":
-					return kdeploypb.Protocol_TLS
+					return meshpaaspb.Protocol_TLS
 				default:
-					return kdeploypb.Protocol_TCP
+					return meshpaaspb.Protocol_TCP
 				}
 			}(),
 			Hosts: l.GetHosts(),
-			TlsConfig: &kdeploypb.ServerTLSSettings{
+			TlsConfig: &meshpaaspb.ServerTLSSettings{
 				HttpsRedirect: l.GetTls().GetHttpsRedirect(),
-				Mode: func() kdeploypb.TLSmode {
+				Mode: func() meshpaaspb.TLSmode {
 					switch l.GetTls().GetMode() {
 					case nv1alpha3.ServerTLSSettings_SIMPLE:
-						return kdeploypb.TLSmode_SIMPLE
+						return meshpaaspb.TLSmode_SIMPLE
 					case nv1alpha3.ServerTLSSettings_MUTUAL:
-						return kdeploypb.TLSmode_MUTUAL
+						return meshpaaspb.TLSmode_MUTUAL
 					case nv1alpha3.ServerTLSSettings_ISTIO_MUTUAL:
-						return kdeploypb.TLSmode_ISTIO_MUTUAL
+						return meshpaaspb.TLSmode_ISTIO_MUTUAL
 					case nv1alpha3.ServerTLSSettings_AUTO_PASSTHROUGH:
-						return kdeploypb.TLSmode_AUTO_PASSTHROUGH
+						return meshpaaspb.TLSmode_AUTO_PASSTHROUGH
 					case nv1alpha3.ServerTLSSettings_PASSTHROUGH:
-						return kdeploypb.TLSmode_PASSTHROUGH
+						return meshpaaspb.TLSmode_PASSTHROUGH
 					default:
-						return kdeploypb.TLSmode_SIMPLE
+						return meshpaaspb.TLSmode_SIMPLE
 					}
 				}(),
 				ServerCertificate:     l.GetTls().GetServerCertificate(),
@@ -615,7 +615,7 @@ func (k *k8sGateway) toGateway() *kdeploypb.Gateway {
 			},
 		})
 	}
-	return &kdeploypb.Gateway{
+	return &meshpaaspb.Gateway{
 		Name:      k.gateway.ObjectMeta.Name,
 		Namespace: k.gateway.ObjectMeta.Namespace,
 		Listeners: listeners,

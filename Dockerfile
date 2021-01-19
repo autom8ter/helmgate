@@ -1,9 +1,9 @@
 FROM golang:1.15.6-alpine3.12 as build-env
 
-RUN mkdir /kdeploy
+RUN mkdir /meshpaas
 RUN apk --update add ca-certificates
 RUN apk add make git
-WORKDIR /kdeploy
+WORKDIR /meshpaas
 COPY go.mod .
 COPY go.sum .
 RUN go mod download
@@ -17,4 +17,4 @@ WORKDIR /workspace
 EXPOSE 8820
 EXPOSE 8821
 
-ENTRYPOINT ["/usr/local/bin/kdeploy"]
+ENTRYPOINT ["/usr/local/bin/meshpaas"]

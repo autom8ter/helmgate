@@ -2,9 +2,9 @@ package client_test
 
 import (
 	"context"
-	"github.com/autom8ter/kdeploy/internal/client"
-	"github.com/autom8ter/kdeploy/internal/logger"
 	"github.com/autom8ter/kubego"
+	"github.com/autom8ter/meshpaas/internal/client"
+	"github.com/autom8ter/meshpaas/internal/logger"
 	"testing"
 )
 

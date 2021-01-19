@@ -13,7 +13,7 @@ import (
 
 	"github.com/99designs/gqlgen/graphql"
 	"github.com/99designs/gqlgen/graphql/introspection"
-	"github.com/autom8ter/kdeploy/gen/gql/go/model"
+	"github.com/autom8ter/meshpaas/gen/gql/go/model"
 	gqlparser "github.com/vektah/gqlparser/v2"
 	"github.com/vektah/gqlparser/v2/ast"
 )
@@ -920,7 +920,7 @@ type Query {
     getTask(input: Ref!): Task
     # listTasks lists all tasks(k8s cron jobs) within an existing namespace
     listTasks(input: Namespace!): [Task!]
-    # listNamespaces lists all namespaces created by kdeploy
+    # listNamespaces lists all namespaces created by meshpaas
     listNamespaces(input: String): Namespaces!
 }
 
@@ -942,7 +942,7 @@ func (ec *executionContext) field_Mutation_createApp_args(ctx context.Context, r
 	var arg0 model.AppInput
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNAppInput2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐAppInput(ctx, tmp)
+		arg0, err = ec.unmarshalNAppInput2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -957,7 +957,7 @@ func (ec *executionContext) field_Mutation_createTask_args(ctx context.Context, 
 	var arg0 model.TaskInput
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNTaskInput2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐTaskInput(ctx, tmp)
+		arg0, err = ec.unmarshalNTaskInput2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐTaskInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -972,7 +972,7 @@ func (ec *executionContext) field_Mutation_delAll_args(ctx context.Context, rawA
 	var arg0 model.Namespace
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNNamespace2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐNamespace(ctx, tmp)
+		arg0, err = ec.unmarshalNNamespace2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐNamespace(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -987,7 +987,7 @@ func (ec *executionContext) field_Mutation_delApp_args(ctx context.Context, rawA
 	var arg0 model.Ref
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNRef2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐRef(ctx, tmp)
+		arg0, err = ec.unmarshalNRef2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐRef(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1002,7 +1002,7 @@ func (ec *executionContext) field_Mutation_delTask_args(ctx context.Context, raw
 	var arg0 model.Ref
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNRef2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐRef(ctx, tmp)
+		arg0, err = ec.unmarshalNRef2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐRef(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1017,7 +1017,7 @@ func (ec *executionContext) field_Mutation_updateApp_args(ctx context.Context, r
 	var arg0 model.AppInput
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNAppInput2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐAppInput(ctx, tmp)
+		arg0, err = ec.unmarshalNAppInput2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1032,7 +1032,7 @@ func (ec *executionContext) field_Mutation_updateTask_args(ctx context.Context, 
 	var arg0 model.TaskInput
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNTaskInput2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐTaskInput(ctx, tmp)
+		arg0, err = ec.unmarshalNTaskInput2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐTaskInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1062,7 +1062,7 @@ func (ec *executionContext) field_Query_getApp_args(ctx context.Context, rawArgs
 	var arg0 model.Ref
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNRef2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐRef(ctx, tmp)
+		arg0, err = ec.unmarshalNRef2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐRef(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1077,7 +1077,7 @@ func (ec *executionContext) field_Query_getTask_args(ctx context.Context, rawArg
 	var arg0 model.Ref
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNRef2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐRef(ctx, tmp)
+		arg0, err = ec.unmarshalNRef2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐRef(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1092,7 +1092,7 @@ func (ec *executionContext) field_Query_listApps_args(ctx context.Context, rawAr
 	var arg0 model.Namespace
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNNamespace2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐNamespace(ctx, tmp)
+		arg0, err = ec.unmarshalNNamespace2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐNamespace(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1122,7 +1122,7 @@ func (ec *executionContext) field_Query_listTasks_args(ctx context.Context, rawA
 	var arg0 model.Namespace
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNNamespace2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐNamespace(ctx, tmp)
+		arg0, err = ec.unmarshalNNamespace2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐNamespace(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1137,7 +1137,7 @@ func (ec *executionContext) field_Subscription_streamLogs_args(ctx context.Conte
 	var arg0 model.Ref
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNRef2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐRef(ctx, tmp)
+		arg0, err = ec.unmarshalNRef2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐRef(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1455,7 +1455,7 @@ func (ec *executionContext) _App_networking(ctx context.Context, field graphql.C
 	}
 	res := resTmp.(*model.Networking)
 	fc.Result = res
-	return ec.marshalNNetworking2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐNetworking(ctx, field.Selections, res)
+	return ec.marshalNNetworking2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐNetworking(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _App_status(ctx context.Context, field graphql.CollectedField, obj *model.App) (ret graphql.Marshaler) {
@@ -1490,7 +1490,7 @@ func (ec *executionContext) _App_status(ctx context.Context, field graphql.Colle
 	}
 	res := resTmp.(*model.AppStatus)
 	fc.Result = res
-	return ec.marshalNAppStatus2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐAppStatus(ctx, field.Selections, res)
+	return ec.marshalNAppStatus2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppStatus(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _App_labels(ctx context.Context, field graphql.CollectedField, obj *model.App) (ret graphql.Marshaler) {
@@ -1595,7 +1595,7 @@ func (ec *executionContext) _AppStatus_replicas(ctx context.Context, field graph
 	}
 	res := resTmp.([]*model.Replica)
 	fc.Result = res
-	return ec.marshalNReplica2ᚕᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐReplica(ctx, field.Selections, res)
+	return ec.marshalNReplica2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐReplica(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _HTTPRoute_name(ctx context.Context, field graphql.CollectedField, obj *model.HTTPRoute) (ret graphql.Marshaler) {
@@ -1966,7 +1966,7 @@ func (ec *executionContext) _Mutation_createApp(ctx context.Context, field graph
 	}
 	res := resTmp.(*model.App)
 	fc.Result = res
-	return ec.marshalNApp2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx, field.Selections, res)
+	return ec.marshalNApp2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_updateApp(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -2008,7 +2008,7 @@ func (ec *executionContext) _Mutation_updateApp(ctx context.Context, field graph
 	}
 	res := resTmp.(*model.App)
 	fc.Result = res
-	return ec.marshalNApp2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx, field.Selections, res)
+	return ec.marshalNApp2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_delApp(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -2089,7 +2089,7 @@ func (ec *executionContext) _Mutation_createTask(ctx context.Context, field grap
 	}
 	res := resTmp.(*model.Task)
 	fc.Result = res
-	return ec.marshalNTask2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐTask(ctx, field.Selections, res)
+	return ec.marshalNTask2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐTask(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_updateTask(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -2131,7 +2131,7 @@ func (ec *executionContext) _Mutation_updateTask(ctx context.Context, field grap
 	}
 	res := resTmp.(*model.Task)
 	fc.Result = res
-	return ec.marshalNTask2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐTask(ctx, field.Selections, res)
+	return ec.marshalNTask2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐTask(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_delTask(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -2369,7 +2369,7 @@ func (ec *executionContext) _Networking_http_routes(ctx context.Context, field g
 	}
 	res := resTmp.([]*model.HTTPRoute)
 	fc.Result = res
-	return ec.marshalOHTTPRoute2ᚕᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐHTTPRouteᚄ(ctx, field.Selections, res)
+	return ec.marshalOHTTPRoute2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐHTTPRouteᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_getApp(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -2408,7 +2408,7 @@ func (ec *executionContext) _Query_getApp(ctx context.Context, field graphql.Col
 	}
 	res := resTmp.(*model.App)
 	fc.Result = res
-	return ec.marshalOApp2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx, field.Selections, res)
+	return ec.marshalOApp2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_listApps(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -2447,7 +2447,7 @@ func (ec *executionContext) _Query_listApps(ctx context.Context, field graphql.C
 	}
 	res := resTmp.([]*model.App)
 	fc.Result = res
-	return ec.marshalOApp2ᚕᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐAppᚄ(ctx, field.Selections, res)
+	return ec.marshalOApp2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_getTask(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -2486,7 +2486,7 @@ func (ec *executionContext) _Query_getTask(ctx context.Context, field graphql.Co
 	}
 	res := resTmp.(*model.Task)
 	fc.Result = res
-	return ec.marshalOTask2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐTask(ctx, field.Selections, res)
+	return ec.marshalOTask2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐTask(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_listTasks(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -2525,7 +2525,7 @@ func (ec *executionContext) _Query_listTasks(ctx context.Context, field graphql.
 	}
 	res := resTmp.([]*model.Task)
 	fc.Result = res
-	return ec.marshalOTask2ᚕᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐTaskᚄ(ctx, field.Selections, res)
+	return ec.marshalOTask2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐTaskᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_listNamespaces(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -2567,7 +2567,7 @@ func (ec *executionContext) _Query_listNamespaces(ctx context.Context, field gra
 	}
 	res := resTmp.(*model.Namespaces)
 	fc.Result = res
-	return ec.marshalNNamespaces2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐNamespaces(ctx, field.Selections, res)
+	return ec.marshalNNamespaces2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐNamespaces(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query___type(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -4257,7 +4257,7 @@ func (ec *executionContext) unmarshalInputAppInput(ctx context.Context, obj inte
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("networking"))
-			it.Networking, err = ec.unmarshalNNetworkingInput2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐNetworkingInput(ctx, v)
+			it.Networking, err = ec.unmarshalNNetworkingInput2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐNetworkingInput(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -4421,7 +4421,7 @@ func (ec *executionContext) unmarshalInputNetworkingInput(ctx context.Context, o
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("http_routes"))
-			it.HTTPRoutes, err = ec.unmarshalOHTTPRouteInput2ᚕᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐHTTPRouteInputᚄ(ctx, v)
+			it.HTTPRoutes, err = ec.unmarshalOHTTPRouteInput2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐHTTPRouteInputᚄ(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -5276,11 +5276,11 @@ func (ec *executionContext) ___Type(ctx context.Context, sel ast.SelectionSet, o
 
 // region    ***************************** type.gotpl *****************************
 
-func (ec *executionContext) marshalNApp2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx context.Context, sel ast.SelectionSet, v model.App) graphql.Marshaler {
+func (ec *executionContext) marshalNApp2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx context.Context, sel ast.SelectionSet, v model.App) graphql.Marshaler {
 	return ec._App(ctx, sel, &v)
 }
 
-func (ec *executionContext) marshalNApp2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx context.Context, sel ast.SelectionSet, v *model.App) graphql.Marshaler {
+func (ec *executionContext) marshalNApp2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx context.Context, sel ast.SelectionSet, v *model.App) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "must not be null")
@@ -5290,12 +5290,12 @@ func (ec *executionContext) marshalNApp2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋ
 	return ec._App(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalNAppInput2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐAppInput(ctx context.Context, v interface{}) (model.AppInput, error) {
+func (ec *executionContext) unmarshalNAppInput2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppInput(ctx context.Context, v interface{}) (model.AppInput, error) {
 	res, err := ec.unmarshalInputAppInput(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNAppStatus2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐAppStatus(ctx context.Context, sel ast.SelectionSet, v *model.AppStatus) graphql.Marshaler {
+func (ec *executionContext) marshalNAppStatus2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppStatus(ctx context.Context, sel ast.SelectionSet, v *model.AppStatus) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "must not be null")
@@ -5320,7 +5320,7 @@ func (ec *executionContext) marshalNBoolean2bool(ctx context.Context, sel ast.Se
 	return res
 }
 
-func (ec *executionContext) marshalNHTTPRoute2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐHTTPRoute(ctx context.Context, sel ast.SelectionSet, v *model.HTTPRoute) graphql.Marshaler {
+func (ec *executionContext) marshalNHTTPRoute2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐHTTPRoute(ctx context.Context, sel ast.SelectionSet, v *model.HTTPRoute) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "must not be null")
@@ -5330,7 +5330,7 @@ func (ec *executionContext) marshalNHTTPRoute2ᚖgithubᚗcomᚋautom8terᚋkdep
 	return ec._HTTPRoute(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalNHTTPRouteInput2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐHTTPRouteInput(ctx context.Context, v interface{}) (*model.HTTPRouteInput, error) {
+func (ec *executionContext) unmarshalNHTTPRouteInput2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐHTTPRouteInput(ctx context.Context, v interface{}) (*model.HTTPRouteInput, error) {
 	res, err := ec.unmarshalInputHTTPRouteInput(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
@@ -5371,16 +5371,16 @@ func (ec *executionContext) marshalNMap2map(ctx context.Context, sel ast.Selecti
 	return res
 }
 
-func (ec *executionContext) unmarshalNNamespace2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐNamespace(ctx context.Context, v interface{}) (model.Namespace, error) {
+func (ec *executionContext) unmarshalNNamespace2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐNamespace(ctx context.Context, v interface{}) (model.Namespace, error) {
 	res, err := ec.unmarshalInputNamespace(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNNamespaces2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐNamespaces(ctx context.Context, sel ast.SelectionSet, v model.Namespaces) graphql.Marshaler {
+func (ec *executionContext) marshalNNamespaces2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐNamespaces(ctx context.Context, sel ast.SelectionSet, v model.Namespaces) graphql.Marshaler {
 	return ec._Namespaces(ctx, sel, &v)
 }
 
-func (ec *executionContext) marshalNNamespaces2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐNamespaces(ctx context.Context, sel ast.SelectionSet, v *model.Namespaces) graphql.Marshaler {
+func (ec *executionContext) marshalNNamespaces2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐNamespaces(ctx context.Context, sel ast.SelectionSet, v *model.Namespaces) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "must not be null")
@@ -5390,7 +5390,7 @@ func (ec *executionContext) marshalNNamespaces2ᚖgithubᚗcomᚋautom8terᚋkde
 	return ec._Namespaces(ctx, sel, v)
 }
 
-func (ec *executionContext) marshalNNetworking2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐNetworking(ctx context.Context, sel ast.SelectionSet, v *model.Networking) graphql.Marshaler {
+func (ec *executionContext) marshalNNetworking2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐNetworking(ctx context.Context, sel ast.SelectionSet, v *model.Networking) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "must not be null")
@@ -5400,17 +5400,17 @@ func (ec *executionContext) marshalNNetworking2ᚖgithubᚗcomᚋautom8terᚋkde
 	return ec._Networking(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalNNetworkingInput2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐNetworkingInput(ctx context.Context, v interface{}) (*model.NetworkingInput, error) {
+func (ec *executionContext) unmarshalNNetworkingInput2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐNetworkingInput(ctx context.Context, v interface{}) (*model.NetworkingInput, error) {
 	res, err := ec.unmarshalInputNetworkingInput(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNRef2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐRef(ctx context.Context, v interface{}) (model.Ref, error) {
+func (ec *executionContext) unmarshalNRef2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐRef(ctx context.Context, v interface{}) (model.Ref, error) {
 	res, err := ec.unmarshalInputRef(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNReplica2ᚕᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐReplica(ctx context.Context, sel ast.SelectionSet, v []*model.Replica) graphql.Marshaler {
+func (ec *executionContext) marshalNReplica2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐReplica(ctx context.Context, sel ast.SelectionSet, v []*model.Replica) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
 	isLen1 := len(v) == 1
@@ -5434,7 +5434,7 @@ func (ec *executionContext) marshalNReplica2ᚕᚖgithubᚗcomᚋautom8terᚋkde
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalOReplica2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐReplica(ctx, sel, v[i])
+			ret[i] = ec.marshalOReplica2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐReplica(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -5462,11 +5462,11 @@ func (ec *executionContext) marshalNString2string(ctx context.Context, sel ast.S
 	return res
 }
 
-func (ec *executionContext) marshalNTask2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐTask(ctx context.Context, sel ast.SelectionSet, v model.Task) graphql.Marshaler {
+func (ec *executionContext) marshalNTask2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐTask(ctx context.Context, sel ast.SelectionSet, v model.Task) graphql.Marshaler {
 	return ec._Task(ctx, sel, &v)
 }
 
-func (ec *executionContext) marshalNTask2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐTask(ctx context.Context, sel ast.SelectionSet, v *model.Task) graphql.Marshaler {
+func (ec *executionContext) marshalNTask2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐTask(ctx context.Context, sel ast.SelectionSet, v *model.Task) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "must not be null")
@@ -5476,7 +5476,7 @@ func (ec *executionContext) marshalNTask2ᚖgithubᚗcomᚋautom8terᚋkdeploy�
 	return ec._Task(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalNTaskInput2githubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐTaskInput(ctx context.Context, v interface{}) (model.TaskInput, error) {
+func (ec *executionContext) unmarshalNTaskInput2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐTaskInput(ctx context.Context, v interface{}) (model.TaskInput, error) {
 	res, err := ec.unmarshalInputTaskInput(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
@@ -5710,7 +5710,7 @@ func (ec *executionContext) marshalN__TypeKind2string(ctx context.Context, sel a
 	return res
 }
 
-func (ec *executionContext) marshalOApp2ᚕᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐAppᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.App) graphql.Marshaler {
+func (ec *executionContext) marshalOApp2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.App) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
@@ -5737,7 +5737,7 @@ func (ec *executionContext) marshalOApp2ᚕᚖgithubᚗcomᚋautom8terᚋkdeploy
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalNApp2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx, sel, v[i])
+			ret[i] = ec.marshalNApp2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -5750,7 +5750,7 @@ func (ec *executionContext) marshalOApp2ᚕᚖgithubᚗcomᚋautom8terᚋkdeploy
 	return ret
 }
 
-func (ec *executionContext) marshalOApp2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx context.Context, sel ast.SelectionSet, v *model.App) graphql.Marshaler {
+func (ec *executionContext) marshalOApp2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx context.Context, sel ast.SelectionSet, v *model.App) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
@@ -5781,7 +5781,7 @@ func (ec *executionContext) marshalOBoolean2ᚖbool(ctx context.Context, sel ast
 	return graphql.MarshalBoolean(*v)
 }
 
-func (ec *executionContext) marshalOHTTPRoute2ᚕᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐHTTPRouteᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.HTTPRoute) graphql.Marshaler {
+func (ec *executionContext) marshalOHTTPRoute2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐHTTPRouteᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.HTTPRoute) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
@@ -5808,7 +5808,7 @@ func (ec *executionContext) marshalOHTTPRoute2ᚕᚖgithubᚗcomᚋautom8terᚋk
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalNHTTPRoute2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐHTTPRoute(ctx, sel, v[i])
+			ret[i] = ec.marshalNHTTPRoute2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐHTTPRoute(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -5821,7 +5821,7 @@ func (ec *executionContext) marshalOHTTPRoute2ᚕᚖgithubᚗcomᚋautom8terᚋk
 	return ret
 }
 
-func (ec *executionContext) unmarshalOHTTPRouteInput2ᚕᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐHTTPRouteInputᚄ(ctx context.Context, v interface{}) ([]*model.HTTPRouteInput, error) {
+func (ec *executionContext) unmarshalOHTTPRouteInput2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐHTTPRouteInputᚄ(ctx context.Context, v interface{}) ([]*model.HTTPRouteInput, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -5837,7 +5837,7 @@ func (ec *executionContext) unmarshalOHTTPRouteInput2ᚕᚖgithubᚗcomᚋautom8
 	res := make([]*model.HTTPRouteInput, len(vSlice))
 	for i := range vSlice {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNHTTPRouteInput2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐHTTPRouteInput(ctx, vSlice[i])
+		res[i], err = ec.unmarshalNHTTPRouteInput2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐHTTPRouteInput(ctx, vSlice[i])
 		if err != nil {
 			return nil, err
 		}
@@ -5875,7 +5875,7 @@ func (ec *executionContext) marshalOMap2map(ctx context.Context, sel ast.Selecti
 	return graphql.MarshalMap(v)
 }
 
-func (ec *executionContext) marshalOReplica2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐReplica(ctx context.Context, sel ast.SelectionSet, v *model.Replica) graphql.Marshaler {
+func (ec *executionContext) marshalOReplica2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐReplica(ctx context.Context, sel ast.SelectionSet, v *model.Replica) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
@@ -5942,7 +5942,7 @@ func (ec *executionContext) marshalOString2ᚖstring(ctx context.Context, sel as
 	return graphql.MarshalString(*v)
 }
 
-func (ec *executionContext) marshalOTask2ᚕᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐTaskᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.Task) graphql.Marshaler {
+func (ec *executionContext) marshalOTask2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐTaskᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.Task) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
@@ -5969,7 +5969,7 @@ func (ec *executionContext) marshalOTask2ᚕᚖgithubᚗcomᚋautom8terᚋkdeplo
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalNTask2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐTask(ctx, sel, v[i])
+			ret[i] = ec.marshalNTask2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐTask(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -5982,7 +5982,7 @@ func (ec *executionContext) marshalOTask2ᚕᚖgithubᚗcomᚋautom8terᚋkdeplo
 	return ret
 }
 
-func (ec *executionContext) marshalOTask2ᚖgithubᚗcomᚋautom8terᚋkdeployᚋgenᚋgqlᚋgoᚋmodelᚐTask(ctx context.Context, sel ast.SelectionSet, v *model.Task) graphql.Marshaler {
+func (ec *executionContext) marshalOTask2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐTask(ctx context.Context, sel ast.SelectionSet, v *model.Task) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}

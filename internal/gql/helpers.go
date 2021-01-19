@@ -1,13 +1,13 @@
 package gql
 
 import (
-	"github.com/autom8ter/kdeploy/gen/gql/go/model"
-	kdeploypb "github.com/autom8ter/kdeploy/gen/grpc/go"
-	"github.com/autom8ter/kdeploy/internal/helpers"
+	"github.com/autom8ter/meshpaas/gen/gql/go/model"
+	meshpaaspb "github.com/autom8ter/meshpaas/gen/grpc/go"
+	"github.com/autom8ter/meshpaas/internal/helpers"
 	"github.com/spf13/cast"
 )
 
-func toAppC(input model.AppInput) *kdeploypb.AppInput {
+func toAppC(input model.AppInput) *meshpaaspb.AppInput {
 	var env map[string]string
 	var ports map[string]uint32
 	if input.Env != nil {
@@ -19,7 +19,7 @@ func toAppC(input model.AppInput) *kdeploypb.AppInput {
 			ports[k] = cast.ToUint32(v)
 		}
 	}
-	return &kdeploypb.AppInput{
+	return &meshpaaspb.AppInput{
 		Name:      input.Name,
 		Namespace: input.Namespace,
 		Image:     input.Image,
@@ -30,7 +30,7 @@ func toAppC(input model.AppInput) *kdeploypb.AppInput {
 	}
 }
 
-func toTaskC(input model.TaskInput) *kdeploypb.TaskInput {
+func toTaskC(input model.TaskInput) *meshpaaspb.TaskInput {
 	var env map[string]string
 	var completions uint32
 	if input.Env != nil {
@@ -39,7 +39,7 @@ func toTaskC(input model.TaskInput) *kdeploypb.TaskInput {
 	if input.Completions != nil {
 		completions = uint32(*input.Completions)
 	}
-	return &kdeploypb.TaskInput{
+	return &meshpaaspb.TaskInput{
 		Name:        input.Name,
 		Namespace:   input.Namespace,
 		Image:       input.Image,
@@ -50,7 +50,7 @@ func toTaskC(input model.TaskInput) *kdeploypb.TaskInput {
 	}
 }
 
-func toAppU(input model.AppInput) *kdeploypb.AppInput {
+func toAppU(input model.AppInput) *meshpaaspb.AppInput {
 	var (
 		env   map[string]string
 		ports map[string]uint32
@@ -64,7 +64,7 @@ func toAppU(input model.AppInput) *kdeploypb.AppInput {
 			ports[k] = cast.ToUint32(v)
 		}
 	}
-	return &kdeploypb.AppInput{
+	return &meshpaaspb.AppInput{
 		Name:       input.Name,
 		Namespace:  input.Namespace,
 		Image:      input.Image,
@@ -76,7 +76,7 @@ func toAppU(input model.AppInput) *kdeploypb.AppInput {
 	}
 }
 
-func toTaskU(input model.TaskInput) *kdeploypb.TaskInput {
+func toTaskU(input model.TaskInput) *meshpaaspb.TaskInput {
 	var (
 		env         map[string]string
 		completions int
@@ -87,7 +87,7 @@ func toTaskU(input model.TaskInput) *kdeploypb.TaskInput {
 	if input.Completions != nil {
 		completions = int(*input.Completions)
 	}
-	return &kdeploypb.TaskInput{
+	return &meshpaaspb.TaskInput{
 		Name:        input.Name,
 		Namespace:   input.Namespace,
 		Image:       input.Image,
@@ -100,7 +100,7 @@ func toTaskU(input model.TaskInput) *kdeploypb.TaskInput {
 	}
 }
 
-func fromApp(app *kdeploypb.App) *model.App {
+func fromApp(app *meshpaaspb.App) *model.App {
 	var (
 		env    map[string]interface{}
 		ports  map[string]interface{}
@@ -140,13 +140,13 @@ func fromApp(app *kdeploypb.App) *model.App {
 	}
 }
 
-func toNetworking(input *model.NetworkingInput) *kdeploypb.Networking {
+func toNetworking(input *model.NetworkingInput) *meshpaaspb.Networking {
 	if input == nil {
 		return nil
 	}
-	var routes []*kdeploypb.HTTPRoute
+	var routes []*meshpaaspb.HTTPRoute
 	for _, r := range input.HTTPRoutes {
-		route := &kdeploypb.HTTPRoute{
+		route := &meshpaaspb.HTTPRoute{
 			AllowOrigins:  r.AllowOrigins,
 			AllowMethods:  r.AllowMethods,
 			AllowHeaders:  r.AllowHeaders,
@@ -170,7 +170,7 @@ func toNetworking(input *model.NetworkingInput) *kdeploypb.Networking {
 		}
 		routes = append(routes, route)
 	}
-	n := &kdeploypb.Networking{
+	n := &meshpaaspb.Networking{
 		Gateways:   input.Gateways,
 		Hosts:      input.Hosts,
 		HttpRoutes: routes,
@@ -181,7 +181,7 @@ func toNetworking(input *model.NetworkingInput) *kdeploypb.Networking {
 	return n
 }
 
-func fromNetworking(networking *kdeploypb.Networking) *model.Networking {
+func fromNetworking(networking *meshpaaspb.Networking) *model.Networking {
 	var routes []*model.HTTPRoute
 	for _, r := range networking.GetHttpRoutes() {
 		route := &model.HTTPRoute{
@@ -211,7 +211,7 @@ func fromNetworking(networking *kdeploypb.Networking) *model.Networking {
 	}
 }
 
-func fromTask(app *kdeploypb.Task) *model.Task {
+func fromTask(app *meshpaaspb.Task) *model.Task {
 	var (
 		env         map[string]interface{}
 		completions int

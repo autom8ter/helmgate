@@ -2,10 +2,10 @@ package client_test
 
 import (
 	"context"
-	kdeploypb "github.com/autom8ter/kdeploy/gen/grpc/go"
-	"github.com/autom8ter/kdeploy/internal/client"
-	"github.com/autom8ter/kdeploy/internal/logger"
 	"github.com/autom8ter/kubego"
+	meshpaaspb "github.com/autom8ter/meshpaas/gen/grpc/go"
+	"github.com/autom8ter/meshpaas/internal/client"
+	"github.com/autom8ter/meshpaas/internal/logger"
 	"testing"
 )
 
@@ -34,7 +34,7 @@ func TestTasks(t *testing.T) {
 	for _, n := range namespaces.GetNamespaces() {
 		t.Log(n)
 	}
-	tsk, err := cli.CreateTask(context.Background(), &kdeploypb.TaskInput{
+	tsk, err := cli.CreateTask(context.Background(), &meshpaaspb.TaskInput{
 		Name:        "echo-date",
 		Namespace:   "colemanw",
 		Image:       "busybox",
