@@ -218,3 +218,25 @@ func (c *Client) StreamLogs(ctx context.Context, ref *meshpaaspb.Ref, fn func(l 
 		}
 	}
 }
+
+
+// CreateGateway creates a new gateway
+func (c *Client) CreateGateway(ctx context.Context, app *meshpaaspb.GatewayInput) (*meshpaaspb.Gateway, error) {
+	return c.client.CreateGateway(ctx, app)
+}
+
+// UpdateGateway updates a gateway - it performs a full replace
+func (c *Client) UpdateGateway(ctx context.Context, app *meshpaaspb.GatewayInput) (*meshpaaspb.Gateway, error) {
+	return c.client.UpdateGateway(ctx, app)
+}
+
+// DeleteGateway deletes a gateway by reference(name/namespace)
+func (c *Client) DeleteGateway(ctx context.Context, ref *meshpaaspb.Ref) error {
+	_, err := c.client.DeleteGateway(ctx, ref)
+	return err
+}
+
+// GetGateway gets a gateway by reference(name/namespace)
+func (c *Client) GetGateway(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb.Gateway, error) {
+	return c.client.GetGateway(ctx, ref)
+}
