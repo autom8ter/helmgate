@@ -18,19 +18,19 @@ class App extends \Google\Protobuf\Internal\Message
     /**
      * name of the application
      *
-     * Generated from protobuf field <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      */
     private $name = '';
     /**
      * application namespace
      *
-     * Generated from protobuf field <code>string namespace = 2;</code>
+     * Generated from protobuf field <code>string namespace = 2 [(.validator.field) = {</code>
      */
     private $namespace = '';
     /**
      * docker image of application
      *
-     * Generated from protobuf field <code>string image = 3;</code>
+     * Generated from protobuf field <code>string image = 3 [(.validator.field) = {</code>
      */
     private $image = '';
     /**
@@ -48,7 +48,7 @@ class App extends \Google\Protobuf\Internal\Message
     /**
      * k/v map of ports to expose ex: http: 80 https: 443
      *
-     * Generated from protobuf field <code>map<string, uint32> ports = 7;</code>
+     * Generated from protobuf field <code>map<string, uint32> ports = 7 [(.validator.field) = {</code>
      */
     private $ports;
     /**
@@ -58,15 +58,19 @@ class App extends \Google\Protobuf\Internal\Message
      */
     private $replicas = 0;
     /**
+     * Generated from protobuf field <code>map<string, string> labels = 9;</code>
+     */
+    private $labels;
+    /**
      * gateway/service-mesh networking
      *
-     * Generated from protobuf field <code>.kdeploy.Networking networking = 9;</code>
+     * Generated from protobuf field <code>.kdeploy.Networking networking = 10 [(.validator.field) = {</code>
      */
     private $networking = null;
     /**
      * status tracks the state of the application during it's lifecycle
      *
-     * Generated from protobuf field <code>.kdeploy.AppStatus status = 20;</code>
+     * Generated from protobuf field <code>.kdeploy.AppStatus status = 20 [(.validator.field) = {</code>
      */
     private $status = null;
 
@@ -90,6 +94,7 @@ class App extends \Google\Protobuf\Internal\Message
      *           k/v map of ports to expose ex: http: 80 https: 443
      *     @type int $replicas
      *           number of deployment replicas
+     *     @type array|\Google\Protobuf\Internal\MapField $labels
      *     @type \Kdeploy\Networking $networking
      *           gateway/service-mesh networking
      *     @type \Kdeploy\AppStatus $status
@@ -104,7 +109,7 @@ class App extends \Google\Protobuf\Internal\Message
     /**
      * name of the application
      *
-     * Generated from protobuf field <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      * @return string
      */
     public function getName()
@@ -115,7 +120,7 @@ class App extends \Google\Protobuf\Internal\Message
     /**
      * name of the application
      *
-     * Generated from protobuf field <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      * @param string $var
      * @return $this
      */
@@ -130,7 +135,7 @@ class App extends \Google\Protobuf\Internal\Message
     /**
      * application namespace
      *
-     * Generated from protobuf field <code>string namespace = 2;</code>
+     * Generated from protobuf field <code>string namespace = 2 [(.validator.field) = {</code>
      * @return string
      */
     public function getNamespace()
@@ -141,7 +146,7 @@ class App extends \Google\Protobuf\Internal\Message
     /**
      * application namespace
      *
-     * Generated from protobuf field <code>string namespace = 2;</code>
+     * Generated from protobuf field <code>string namespace = 2 [(.validator.field) = {</code>
      * @param string $var
      * @return $this
      */
@@ -156,7 +161,7 @@ class App extends \Google\Protobuf\Internal\Message
     /**
      * docker image of application
      *
-     * Generated from protobuf field <code>string image = 3;</code>
+     * Generated from protobuf field <code>string image = 3 [(.validator.field) = {</code>
      * @return string
      */
     public function getImage()
@@ -167,7 +172,7 @@ class App extends \Google\Protobuf\Internal\Message
     /**
      * docker image of application
      *
-     * Generated from protobuf field <code>string image = 3;</code>
+     * Generated from protobuf field <code>string image = 3 [(.validator.field) = {</code>
      * @param string $var
      * @return $this
      */
@@ -234,7 +239,7 @@ class App extends \Google\Protobuf\Internal\Message
     /**
      * k/v map of ports to expose ex: http: 80 https: 443
      *
-     * Generated from protobuf field <code>map<string, uint32> ports = 7;</code>
+     * Generated from protobuf field <code>map<string, uint32> ports = 7 [(.validator.field) = {</code>
      * @return \Google\Protobuf\Internal\MapField
      */
     public function getPorts()
@@ -245,7 +250,7 @@ class App extends \Google\Protobuf\Internal\Message
     /**
      * k/v map of ports to expose ex: http: 80 https: 443
      *
-     * Generated from protobuf field <code>map<string, uint32> ports = 7;</code>
+     * Generated from protobuf field <code>map<string, uint32> ports = 7 [(.validator.field) = {</code>
      * @param array|\Google\Protobuf\Internal\MapField $var
      * @return $this
      */
@@ -284,9 +289,31 @@ class App extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Generated from protobuf field <code>map<string, string> labels = 9;</code>
+     * @return \Google\Protobuf\Internal\MapField
+     */
+    public function getLabels()
+    {
+        return $this->labels;
+    }
+
+    /**
+     * Generated from protobuf field <code>map<string, string> labels = 9;</code>
+     * @param array|\Google\Protobuf\Internal\MapField $var
+     * @return $this
+     */
+    public function setLabels($var)
+    {
+        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::STRING);
+        $this->labels = $arr;
+
+        return $this;
+    }
+
+    /**
      * gateway/service-mesh networking
      *
-     * Generated from protobuf field <code>.kdeploy.Networking networking = 9;</code>
+     * Generated from protobuf field <code>.kdeploy.Networking networking = 10 [(.validator.field) = {</code>
      * @return \Kdeploy\Networking
      */
     public function getNetworking()
@@ -297,7 +324,7 @@ class App extends \Google\Protobuf\Internal\Message
     /**
      * gateway/service-mesh networking
      *
-     * Generated from protobuf field <code>.kdeploy.Networking networking = 9;</code>
+     * Generated from protobuf field <code>.kdeploy.Networking networking = 10 [(.validator.field) = {</code>
      * @param \Kdeploy\Networking $var
      * @return $this
      */
@@ -312,7 +339,7 @@ class App extends \Google\Protobuf\Internal\Message
     /**
      * status tracks the state of the application during it's lifecycle
      *
-     * Generated from protobuf field <code>.kdeploy.AppStatus status = 20;</code>
+     * Generated from protobuf field <code>.kdeploy.AppStatus status = 20 [(.validator.field) = {</code>
      * @return \Kdeploy\AppStatus
      */
     public function getStatus()
@@ -323,7 +350,7 @@ class App extends \Google\Protobuf\Internal\Message
     /**
      * status tracks the state of the application during it's lifecycle
      *
-     * Generated from protobuf field <code>.kdeploy.AppStatus status = 20;</code>
+     * Generated from protobuf field <code>.kdeploy.AppStatus status = 20 [(.validator.field) = {</code>
      * @param \Kdeploy\AppStatus $var
      * @return $this
      */

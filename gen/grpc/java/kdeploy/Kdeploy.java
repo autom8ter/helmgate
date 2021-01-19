@@ -14,22 +14,4712 @@ public final class Kdeploy {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  public interface HTTPRouteOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:kdeploy.HTTPRoute)
+  /**
+   * Protobuf enum {@code kdeploy.Protocol}
+   */
+  public enum Protocol
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>INVALID_PROTOCOL = 0;</code>
+     */
+    INVALID_PROTOCOL(0),
+    /**
+     * <code>HTTP = 1;</code>
+     */
+    HTTP(1),
+    /**
+     * <code>HTTPS = 2;</code>
+     */
+    HTTPS(2),
+    /**
+     * <code>GRPC = 3;</code>
+     */
+    GRPC(3),
+    /**
+     * <code>HTTP2 = 4;</code>
+     */
+    HTTP2(4),
+    /**
+     * <code>MONGO = 5;</code>
+     */
+    MONGO(5),
+    /**
+     * <code>TCP = 6;</code>
+     */
+    TCP(6),
+    /**
+     * <code>TLS = 7;</code>
+     */
+    TLS(7),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>INVALID_PROTOCOL = 0;</code>
+     */
+    public static final int INVALID_PROTOCOL_VALUE = 0;
+    /**
+     * <code>HTTP = 1;</code>
+     */
+    public static final int HTTP_VALUE = 1;
+    /**
+     * <code>HTTPS = 2;</code>
+     */
+    public static final int HTTPS_VALUE = 2;
+    /**
+     * <code>GRPC = 3;</code>
+     */
+    public static final int GRPC_VALUE = 3;
+    /**
+     * <code>HTTP2 = 4;</code>
+     */
+    public static final int HTTP2_VALUE = 4;
+    /**
+     * <code>MONGO = 5;</code>
+     */
+    public static final int MONGO_VALUE = 5;
+    /**
+     * <code>TCP = 6;</code>
+     */
+    public static final int TCP_VALUE = 6;
+    /**
+     * <code>TLS = 7;</code>
+     */
+    public static final int TLS_VALUE = 7;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static Protocol valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static Protocol forNumber(int value) {
+      switch (value) {
+        case 0: return INVALID_PROTOCOL;
+        case 1: return HTTP;
+        case 2: return HTTPS;
+        case 3: return GRPC;
+        case 4: return HTTP2;
+        case 5: return MONGO;
+        case 6: return TCP;
+        case 7: return TLS;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<Protocol>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        Protocol> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<Protocol>() {
+            public Protocol findValueByNumber(int number) {
+              return Protocol.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return kdeploy.Kdeploy.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final Protocol[] VALUES = values();
+
+    public static Protocol valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private Protocol(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:kdeploy.Protocol)
+  }
+
+  /**
+   * Protobuf enum {@code kdeploy.TLSmode}
+   */
+  public enum TLSmode
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>PASSTHROUGH = 0;</code>
+     */
+    PASSTHROUGH(0),
+    /**
+     * <code>SIMPLE = 1;</code>
+     */
+    SIMPLE(1),
+    /**
+     * <code>MUTUAL = 2;</code>
+     */
+    MUTUAL(2),
+    /**
+     * <code>AUTO_PASSTHROUGH = 3;</code>
+     */
+    AUTO_PASSTHROUGH(3),
+    /**
+     * <code>ISTIO_MUTUAL = 4;</code>
+     */
+    ISTIO_MUTUAL(4),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>PASSTHROUGH = 0;</code>
+     */
+    public static final int PASSTHROUGH_VALUE = 0;
+    /**
+     * <code>SIMPLE = 1;</code>
+     */
+    public static final int SIMPLE_VALUE = 1;
+    /**
+     * <code>MUTUAL = 2;</code>
+     */
+    public static final int MUTUAL_VALUE = 2;
+    /**
+     * <code>AUTO_PASSTHROUGH = 3;</code>
+     */
+    public static final int AUTO_PASSTHROUGH_VALUE = 3;
+    /**
+     * <code>ISTIO_MUTUAL = 4;</code>
+     */
+    public static final int ISTIO_MUTUAL_VALUE = 4;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static TLSmode valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static TLSmode forNumber(int value) {
+      switch (value) {
+        case 0: return PASSTHROUGH;
+        case 1: return SIMPLE;
+        case 2: return MUTUAL;
+        case 3: return AUTO_PASSTHROUGH;
+        case 4: return ISTIO_MUTUAL;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<TLSmode>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        TLSmode> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<TLSmode>() {
+            public TLSmode findValueByNumber(int number) {
+              return TLSmode.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return kdeploy.Kdeploy.getDescriptor().getEnumTypes().get(1);
+    }
+
+    private static final TLSmode[] VALUES = values();
+
+    public static TLSmode valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private TLSmode(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:kdeploy.TLSmode)
+  }
+
+  public interface ServerTLSSettingsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:kdeploy.ServerTLSSettings)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string name = 1;</code>
+     * <code>bool https_redirect = 1;</code>
+     */
+    boolean getHttpsRedirect();
+
+    /**
+     * <code>.kdeploy.TLSmode mode = 2;</code>
+     */
+    int getModeValue();
+    /**
+     * <code>.kdeploy.TLSmode mode = 2;</code>
+     */
+    kdeploy.Kdeploy.TLSmode getMode();
+
+    /**
+     * <code>string server_certificate = 3;</code>
+     */
+    java.lang.String getServerCertificate();
+    /**
+     * <code>string server_certificate = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getServerCertificateBytes();
+
+    /**
+     * <code>string private_key = 4;</code>
+     */
+    java.lang.String getPrivateKey();
+    /**
+     * <code>string private_key = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getPrivateKeyBytes();
+
+    /**
+     * <code>string ca_certificates = 5;</code>
+     */
+    java.lang.String getCaCertificates();
+    /**
+     * <code>string ca_certificates = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getCaCertificatesBytes();
+
+    /**
+     * <code>string credential_name = 10;</code>
+     */
+    java.lang.String getCredentialName();
+    /**
+     * <code>string credential_name = 10;</code>
+     */
+    com.google.protobuf.ByteString
+        getCredentialNameBytes();
+
+    /**
+     * <code>repeated string subject_alt_names = 6;</code>
+     */
+    java.util.List<java.lang.String>
+        getSubjectAltNamesList();
+    /**
+     * <code>repeated string subject_alt_names = 6;</code>
+     */
+    int getSubjectAltNamesCount();
+    /**
+     * <code>repeated string subject_alt_names = 6;</code>
+     */
+    java.lang.String getSubjectAltNames(int index);
+    /**
+     * <code>repeated string subject_alt_names = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getSubjectAltNamesBytes(int index);
+
+    /**
+     * <code>repeated string verify_certificate_spki = 11;</code>
+     */
+    java.util.List<java.lang.String>
+        getVerifyCertificateSpkiList();
+    /**
+     * <code>repeated string verify_certificate_spki = 11;</code>
+     */
+    int getVerifyCertificateSpkiCount();
+    /**
+     * <code>repeated string verify_certificate_spki = 11;</code>
+     */
+    java.lang.String getVerifyCertificateSpki(int index);
+    /**
+     * <code>repeated string verify_certificate_spki = 11;</code>
+     */
+    com.google.protobuf.ByteString
+        getVerifyCertificateSpkiBytes(int index);
+
+    /**
+     * <code>repeated string verify_certificate_hash = 12;</code>
+     */
+    java.util.List<java.lang.String>
+        getVerifyCertificateHashList();
+    /**
+     * <code>repeated string verify_certificate_hash = 12;</code>
+     */
+    int getVerifyCertificateHashCount();
+    /**
+     * <code>repeated string verify_certificate_hash = 12;</code>
+     */
+    java.lang.String getVerifyCertificateHash(int index);
+    /**
+     * <code>repeated string verify_certificate_hash = 12;</code>
+     */
+    com.google.protobuf.ByteString
+        getVerifyCertificateHashBytes(int index);
+
+    /**
+     * <code>repeated string cipher_suites = 9;</code>
+     */
+    java.util.List<java.lang.String>
+        getCipherSuitesList();
+    /**
+     * <code>repeated string cipher_suites = 9;</code>
+     */
+    int getCipherSuitesCount();
+    /**
+     * <code>repeated string cipher_suites = 9;</code>
+     */
+    java.lang.String getCipherSuites(int index);
+    /**
+     * <code>repeated string cipher_suites = 9;</code>
+     */
+    com.google.protobuf.ByteString
+        getCipherSuitesBytes(int index);
+  }
+  /**
+   * Protobuf type {@code kdeploy.ServerTLSSettings}
+   */
+  public  static final class ServerTLSSettings extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:kdeploy.ServerTLSSettings)
+      ServerTLSSettingsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ServerTLSSettings.newBuilder() to construct.
+    private ServerTLSSettings(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ServerTLSSettings() {
+      httpsRedirect_ = false;
+      mode_ = 0;
+      serverCertificate_ = "";
+      privateKey_ = "";
+      caCertificates_ = "";
+      credentialName_ = "";
+      subjectAltNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      verifyCertificateSpki_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      verifyCertificateHash_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      cipherSuites_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ServerTLSSettings(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              httpsRedirect_ = input.readBool();
+              break;
+            }
+            case 16: {
+              int rawValue = input.readEnum();
+
+              mode_ = rawValue;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              serverCertificate_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              privateKey_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              caCertificates_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+                subjectAltNames_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000040;
+              }
+              subjectAltNames_.add(s);
+              break;
+            }
+            case 74: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
+                cipherSuites_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000200;
+              }
+              cipherSuites_.add(s);
+              break;
+            }
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              credentialName_ = s;
+              break;
+            }
+            case 90: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+                verifyCertificateSpki_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000080;
+              }
+              verifyCertificateSpki_.add(s);
+              break;
+            }
+            case 98: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
+                verifyCertificateHash_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000100;
+              }
+              verifyCertificateHash_.add(s);
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+          subjectAltNames_ = subjectAltNames_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
+          cipherSuites_ = cipherSuites_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+          verifyCertificateSpki_ = verifyCertificateSpki_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
+          verifyCertificateHash_ = verifyCertificateHash_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return kdeploy.Kdeploy.internal_static_kdeploy_ServerTLSSettings_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return kdeploy.Kdeploy.internal_static_kdeploy_ServerTLSSettings_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              kdeploy.Kdeploy.ServerTLSSettings.class, kdeploy.Kdeploy.ServerTLSSettings.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int HTTPS_REDIRECT_FIELD_NUMBER = 1;
+    private boolean httpsRedirect_;
+    /**
+     * <code>bool https_redirect = 1;</code>
+     */
+    public boolean getHttpsRedirect() {
+      return httpsRedirect_;
+    }
+
+    public static final int MODE_FIELD_NUMBER = 2;
+    private int mode_;
+    /**
+     * <code>.kdeploy.TLSmode mode = 2;</code>
+     */
+    public int getModeValue() {
+      return mode_;
+    }
+    /**
+     * <code>.kdeploy.TLSmode mode = 2;</code>
+     */
+    public kdeploy.Kdeploy.TLSmode getMode() {
+      @SuppressWarnings("deprecation")
+      kdeploy.Kdeploy.TLSmode result = kdeploy.Kdeploy.TLSmode.valueOf(mode_);
+      return result == null ? kdeploy.Kdeploy.TLSmode.UNRECOGNIZED : result;
+    }
+
+    public static final int SERVER_CERTIFICATE_FIELD_NUMBER = 3;
+    private volatile java.lang.Object serverCertificate_;
+    /**
+     * <code>string server_certificate = 3;</code>
+     */
+    public java.lang.String getServerCertificate() {
+      java.lang.Object ref = serverCertificate_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        serverCertificate_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string server_certificate = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getServerCertificateBytes() {
+      java.lang.Object ref = serverCertificate_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        serverCertificate_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PRIVATE_KEY_FIELD_NUMBER = 4;
+    private volatile java.lang.Object privateKey_;
+    /**
+     * <code>string private_key = 4;</code>
+     */
+    public java.lang.String getPrivateKey() {
+      java.lang.Object ref = privateKey_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        privateKey_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string private_key = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPrivateKeyBytes() {
+      java.lang.Object ref = privateKey_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        privateKey_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CA_CERTIFICATES_FIELD_NUMBER = 5;
+    private volatile java.lang.Object caCertificates_;
+    /**
+     * <code>string ca_certificates = 5;</code>
+     */
+    public java.lang.String getCaCertificates() {
+      java.lang.Object ref = caCertificates_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        caCertificates_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string ca_certificates = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getCaCertificatesBytes() {
+      java.lang.Object ref = caCertificates_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        caCertificates_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CREDENTIAL_NAME_FIELD_NUMBER = 10;
+    private volatile java.lang.Object credentialName_;
+    /**
+     * <code>string credential_name = 10;</code>
+     */
+    public java.lang.String getCredentialName() {
+      java.lang.Object ref = credentialName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        credentialName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string credential_name = 10;</code>
+     */
+    public com.google.protobuf.ByteString
+        getCredentialNameBytes() {
+      java.lang.Object ref = credentialName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        credentialName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SUBJECT_ALT_NAMES_FIELD_NUMBER = 6;
+    private com.google.protobuf.LazyStringList subjectAltNames_;
+    /**
+     * <code>repeated string subject_alt_names = 6;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getSubjectAltNamesList() {
+      return subjectAltNames_;
+    }
+    /**
+     * <code>repeated string subject_alt_names = 6;</code>
+     */
+    public int getSubjectAltNamesCount() {
+      return subjectAltNames_.size();
+    }
+    /**
+     * <code>repeated string subject_alt_names = 6;</code>
+     */
+    public java.lang.String getSubjectAltNames(int index) {
+      return subjectAltNames_.get(index);
+    }
+    /**
+     * <code>repeated string subject_alt_names = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSubjectAltNamesBytes(int index) {
+      return subjectAltNames_.getByteString(index);
+    }
+
+    public static final int VERIFY_CERTIFICATE_SPKI_FIELD_NUMBER = 11;
+    private com.google.protobuf.LazyStringList verifyCertificateSpki_;
+    /**
+     * <code>repeated string verify_certificate_spki = 11;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getVerifyCertificateSpkiList() {
+      return verifyCertificateSpki_;
+    }
+    /**
+     * <code>repeated string verify_certificate_spki = 11;</code>
+     */
+    public int getVerifyCertificateSpkiCount() {
+      return verifyCertificateSpki_.size();
+    }
+    /**
+     * <code>repeated string verify_certificate_spki = 11;</code>
+     */
+    public java.lang.String getVerifyCertificateSpki(int index) {
+      return verifyCertificateSpki_.get(index);
+    }
+    /**
+     * <code>repeated string verify_certificate_spki = 11;</code>
+     */
+    public com.google.protobuf.ByteString
+        getVerifyCertificateSpkiBytes(int index) {
+      return verifyCertificateSpki_.getByteString(index);
+    }
+
+    public static final int VERIFY_CERTIFICATE_HASH_FIELD_NUMBER = 12;
+    private com.google.protobuf.LazyStringList verifyCertificateHash_;
+    /**
+     * <code>repeated string verify_certificate_hash = 12;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getVerifyCertificateHashList() {
+      return verifyCertificateHash_;
+    }
+    /**
+     * <code>repeated string verify_certificate_hash = 12;</code>
+     */
+    public int getVerifyCertificateHashCount() {
+      return verifyCertificateHash_.size();
+    }
+    /**
+     * <code>repeated string verify_certificate_hash = 12;</code>
+     */
+    public java.lang.String getVerifyCertificateHash(int index) {
+      return verifyCertificateHash_.get(index);
+    }
+    /**
+     * <code>repeated string verify_certificate_hash = 12;</code>
+     */
+    public com.google.protobuf.ByteString
+        getVerifyCertificateHashBytes(int index) {
+      return verifyCertificateHash_.getByteString(index);
+    }
+
+    public static final int CIPHER_SUITES_FIELD_NUMBER = 9;
+    private com.google.protobuf.LazyStringList cipherSuites_;
+    /**
+     * <code>repeated string cipher_suites = 9;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getCipherSuitesList() {
+      return cipherSuites_;
+    }
+    /**
+     * <code>repeated string cipher_suites = 9;</code>
+     */
+    public int getCipherSuitesCount() {
+      return cipherSuites_.size();
+    }
+    /**
+     * <code>repeated string cipher_suites = 9;</code>
+     */
+    public java.lang.String getCipherSuites(int index) {
+      return cipherSuites_.get(index);
+    }
+    /**
+     * <code>repeated string cipher_suites = 9;</code>
+     */
+    public com.google.protobuf.ByteString
+        getCipherSuitesBytes(int index) {
+      return cipherSuites_.getByteString(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (httpsRedirect_ != false) {
+        output.writeBool(1, httpsRedirect_);
+      }
+      if (mode_ != kdeploy.Kdeploy.TLSmode.PASSTHROUGH.getNumber()) {
+        output.writeEnum(2, mode_);
+      }
+      if (!getServerCertificateBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, serverCertificate_);
+      }
+      if (!getPrivateKeyBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, privateKey_);
+      }
+      if (!getCaCertificatesBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, caCertificates_);
+      }
+      for (int i = 0; i < subjectAltNames_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, subjectAltNames_.getRaw(i));
+      }
+      for (int i = 0; i < cipherSuites_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, cipherSuites_.getRaw(i));
+      }
+      if (!getCredentialNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, credentialName_);
+      }
+      for (int i = 0; i < verifyCertificateSpki_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 11, verifyCertificateSpki_.getRaw(i));
+      }
+      for (int i = 0; i < verifyCertificateHash_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 12, verifyCertificateHash_.getRaw(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (httpsRedirect_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, httpsRedirect_);
+      }
+      if (mode_ != kdeploy.Kdeploy.TLSmode.PASSTHROUGH.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(2, mode_);
+      }
+      if (!getServerCertificateBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, serverCertificate_);
+      }
+      if (!getPrivateKeyBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, privateKey_);
+      }
+      if (!getCaCertificatesBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, caCertificates_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < subjectAltNames_.size(); i++) {
+          dataSize += computeStringSizeNoTag(subjectAltNames_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getSubjectAltNamesList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < cipherSuites_.size(); i++) {
+          dataSize += computeStringSizeNoTag(cipherSuites_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getCipherSuitesList().size();
+      }
+      if (!getCredentialNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, credentialName_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < verifyCertificateSpki_.size(); i++) {
+          dataSize += computeStringSizeNoTag(verifyCertificateSpki_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getVerifyCertificateSpkiList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < verifyCertificateHash_.size(); i++) {
+          dataSize += computeStringSizeNoTag(verifyCertificateHash_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getVerifyCertificateHashList().size();
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof kdeploy.Kdeploy.ServerTLSSettings)) {
+        return super.equals(obj);
+      }
+      kdeploy.Kdeploy.ServerTLSSettings other = (kdeploy.Kdeploy.ServerTLSSettings) obj;
+
+      boolean result = true;
+      result = result && (getHttpsRedirect()
+          == other.getHttpsRedirect());
+      result = result && mode_ == other.mode_;
+      result = result && getServerCertificate()
+          .equals(other.getServerCertificate());
+      result = result && getPrivateKey()
+          .equals(other.getPrivateKey());
+      result = result && getCaCertificates()
+          .equals(other.getCaCertificates());
+      result = result && getCredentialName()
+          .equals(other.getCredentialName());
+      result = result && getSubjectAltNamesList()
+          .equals(other.getSubjectAltNamesList());
+      result = result && getVerifyCertificateSpkiList()
+          .equals(other.getVerifyCertificateSpkiList());
+      result = result && getVerifyCertificateHashList()
+          .equals(other.getVerifyCertificateHashList());
+      result = result && getCipherSuitesList()
+          .equals(other.getCipherSuitesList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + HTTPS_REDIRECT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getHttpsRedirect());
+      hash = (37 * hash) + MODE_FIELD_NUMBER;
+      hash = (53 * hash) + mode_;
+      hash = (37 * hash) + SERVER_CERTIFICATE_FIELD_NUMBER;
+      hash = (53 * hash) + getServerCertificate().hashCode();
+      hash = (37 * hash) + PRIVATE_KEY_FIELD_NUMBER;
+      hash = (53 * hash) + getPrivateKey().hashCode();
+      hash = (37 * hash) + CA_CERTIFICATES_FIELD_NUMBER;
+      hash = (53 * hash) + getCaCertificates().hashCode();
+      hash = (37 * hash) + CREDENTIAL_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getCredentialName().hashCode();
+      if (getSubjectAltNamesCount() > 0) {
+        hash = (37 * hash) + SUBJECT_ALT_NAMES_FIELD_NUMBER;
+        hash = (53 * hash) + getSubjectAltNamesList().hashCode();
+      }
+      if (getVerifyCertificateSpkiCount() > 0) {
+        hash = (37 * hash) + VERIFY_CERTIFICATE_SPKI_FIELD_NUMBER;
+        hash = (53 * hash) + getVerifyCertificateSpkiList().hashCode();
+      }
+      if (getVerifyCertificateHashCount() > 0) {
+        hash = (37 * hash) + VERIFY_CERTIFICATE_HASH_FIELD_NUMBER;
+        hash = (53 * hash) + getVerifyCertificateHashList().hashCode();
+      }
+      if (getCipherSuitesCount() > 0) {
+        hash = (37 * hash) + CIPHER_SUITES_FIELD_NUMBER;
+        hash = (53 * hash) + getCipherSuitesList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static kdeploy.Kdeploy.ServerTLSSettings parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static kdeploy.Kdeploy.ServerTLSSettings parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.ServerTLSSettings parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static kdeploy.Kdeploy.ServerTLSSettings parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.ServerTLSSettings parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static kdeploy.Kdeploy.ServerTLSSettings parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.ServerTLSSettings parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static kdeploy.Kdeploy.ServerTLSSettings parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.ServerTLSSettings parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static kdeploy.Kdeploy.ServerTLSSettings parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.ServerTLSSettings parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static kdeploy.Kdeploy.ServerTLSSettings parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(kdeploy.Kdeploy.ServerTLSSettings prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code kdeploy.ServerTLSSettings}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:kdeploy.ServerTLSSettings)
+        kdeploy.Kdeploy.ServerTLSSettingsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return kdeploy.Kdeploy.internal_static_kdeploy_ServerTLSSettings_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return kdeploy.Kdeploy.internal_static_kdeploy_ServerTLSSettings_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                kdeploy.Kdeploy.ServerTLSSettings.class, kdeploy.Kdeploy.ServerTLSSettings.Builder.class);
+      }
+
+      // Construct using kdeploy.Kdeploy.ServerTLSSettings.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        httpsRedirect_ = false;
+
+        mode_ = 0;
+
+        serverCertificate_ = "";
+
+        privateKey_ = "";
+
+        caCertificates_ = "";
+
+        credentialName_ = "";
+
+        subjectAltNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000040);
+        verifyCertificateSpki_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        verifyCertificateHash_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000100);
+        cipherSuites_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000200);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return kdeploy.Kdeploy.internal_static_kdeploy_ServerTLSSettings_descriptor;
+      }
+
+      @java.lang.Override
+      public kdeploy.Kdeploy.ServerTLSSettings getDefaultInstanceForType() {
+        return kdeploy.Kdeploy.ServerTLSSettings.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public kdeploy.Kdeploy.ServerTLSSettings build() {
+        kdeploy.Kdeploy.ServerTLSSettings result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public kdeploy.Kdeploy.ServerTLSSettings buildPartial() {
+        kdeploy.Kdeploy.ServerTLSSettings result = new kdeploy.Kdeploy.ServerTLSSettings(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.httpsRedirect_ = httpsRedirect_;
+        result.mode_ = mode_;
+        result.serverCertificate_ = serverCertificate_;
+        result.privateKey_ = privateKey_;
+        result.caCertificates_ = caCertificates_;
+        result.credentialName_ = credentialName_;
+        if (((bitField0_ & 0x00000040) == 0x00000040)) {
+          subjectAltNames_ = subjectAltNames_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000040);
+        }
+        result.subjectAltNames_ = subjectAltNames_;
+        if (((bitField0_ & 0x00000080) == 0x00000080)) {
+          verifyCertificateSpki_ = verifyCertificateSpki_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000080);
+        }
+        result.verifyCertificateSpki_ = verifyCertificateSpki_;
+        if (((bitField0_ & 0x00000100) == 0x00000100)) {
+          verifyCertificateHash_ = verifyCertificateHash_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000100);
+        }
+        result.verifyCertificateHash_ = verifyCertificateHash_;
+        if (((bitField0_ & 0x00000200) == 0x00000200)) {
+          cipherSuites_ = cipherSuites_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000200);
+        }
+        result.cipherSuites_ = cipherSuites_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof kdeploy.Kdeploy.ServerTLSSettings) {
+          return mergeFrom((kdeploy.Kdeploy.ServerTLSSettings)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(kdeploy.Kdeploy.ServerTLSSettings other) {
+        if (other == kdeploy.Kdeploy.ServerTLSSettings.getDefaultInstance()) return this;
+        if (other.getHttpsRedirect() != false) {
+          setHttpsRedirect(other.getHttpsRedirect());
+        }
+        if (other.mode_ != 0) {
+          setModeValue(other.getModeValue());
+        }
+        if (!other.getServerCertificate().isEmpty()) {
+          serverCertificate_ = other.serverCertificate_;
+          onChanged();
+        }
+        if (!other.getPrivateKey().isEmpty()) {
+          privateKey_ = other.privateKey_;
+          onChanged();
+        }
+        if (!other.getCaCertificates().isEmpty()) {
+          caCertificates_ = other.caCertificates_;
+          onChanged();
+        }
+        if (!other.getCredentialName().isEmpty()) {
+          credentialName_ = other.credentialName_;
+          onChanged();
+        }
+        if (!other.subjectAltNames_.isEmpty()) {
+          if (subjectAltNames_.isEmpty()) {
+            subjectAltNames_ = other.subjectAltNames_;
+            bitField0_ = (bitField0_ & ~0x00000040);
+          } else {
+            ensureSubjectAltNamesIsMutable();
+            subjectAltNames_.addAll(other.subjectAltNames_);
+          }
+          onChanged();
+        }
+        if (!other.verifyCertificateSpki_.isEmpty()) {
+          if (verifyCertificateSpki_.isEmpty()) {
+            verifyCertificateSpki_ = other.verifyCertificateSpki_;
+            bitField0_ = (bitField0_ & ~0x00000080);
+          } else {
+            ensureVerifyCertificateSpkiIsMutable();
+            verifyCertificateSpki_.addAll(other.verifyCertificateSpki_);
+          }
+          onChanged();
+        }
+        if (!other.verifyCertificateHash_.isEmpty()) {
+          if (verifyCertificateHash_.isEmpty()) {
+            verifyCertificateHash_ = other.verifyCertificateHash_;
+            bitField0_ = (bitField0_ & ~0x00000100);
+          } else {
+            ensureVerifyCertificateHashIsMutable();
+            verifyCertificateHash_.addAll(other.verifyCertificateHash_);
+          }
+          onChanged();
+        }
+        if (!other.cipherSuites_.isEmpty()) {
+          if (cipherSuites_.isEmpty()) {
+            cipherSuites_ = other.cipherSuites_;
+            bitField0_ = (bitField0_ & ~0x00000200);
+          } else {
+            ensureCipherSuitesIsMutable();
+            cipherSuites_.addAll(other.cipherSuites_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        kdeploy.Kdeploy.ServerTLSSettings parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (kdeploy.Kdeploy.ServerTLSSettings) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private boolean httpsRedirect_ ;
+      /**
+       * <code>bool https_redirect = 1;</code>
+       */
+      public boolean getHttpsRedirect() {
+        return httpsRedirect_;
+      }
+      /**
+       * <code>bool https_redirect = 1;</code>
+       */
+      public Builder setHttpsRedirect(boolean value) {
+        
+        httpsRedirect_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool https_redirect = 1;</code>
+       */
+      public Builder clearHttpsRedirect() {
+        
+        httpsRedirect_ = false;
+        onChanged();
+        return this;
+      }
+
+      private int mode_ = 0;
+      /**
+       * <code>.kdeploy.TLSmode mode = 2;</code>
+       */
+      public int getModeValue() {
+        return mode_;
+      }
+      /**
+       * <code>.kdeploy.TLSmode mode = 2;</code>
+       */
+      public Builder setModeValue(int value) {
+        mode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.kdeploy.TLSmode mode = 2;</code>
+       */
+      public kdeploy.Kdeploy.TLSmode getMode() {
+        @SuppressWarnings("deprecation")
+        kdeploy.Kdeploy.TLSmode result = kdeploy.Kdeploy.TLSmode.valueOf(mode_);
+        return result == null ? kdeploy.Kdeploy.TLSmode.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.kdeploy.TLSmode mode = 2;</code>
+       */
+      public Builder setMode(kdeploy.Kdeploy.TLSmode value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        mode_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.kdeploy.TLSmode mode = 2;</code>
+       */
+      public Builder clearMode() {
+        
+        mode_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object serverCertificate_ = "";
+      /**
+       * <code>string server_certificate = 3;</code>
+       */
+      public java.lang.String getServerCertificate() {
+        java.lang.Object ref = serverCertificate_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          serverCertificate_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string server_certificate = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getServerCertificateBytes() {
+        java.lang.Object ref = serverCertificate_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          serverCertificate_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string server_certificate = 3;</code>
+       */
+      public Builder setServerCertificate(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        serverCertificate_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string server_certificate = 3;</code>
+       */
+      public Builder clearServerCertificate() {
+        
+        serverCertificate_ = getDefaultInstance().getServerCertificate();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string server_certificate = 3;</code>
+       */
+      public Builder setServerCertificateBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        serverCertificate_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object privateKey_ = "";
+      /**
+       * <code>string private_key = 4;</code>
+       */
+      public java.lang.String getPrivateKey() {
+        java.lang.Object ref = privateKey_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          privateKey_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string private_key = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPrivateKeyBytes() {
+        java.lang.Object ref = privateKey_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          privateKey_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string private_key = 4;</code>
+       */
+      public Builder setPrivateKey(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        privateKey_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string private_key = 4;</code>
+       */
+      public Builder clearPrivateKey() {
+        
+        privateKey_ = getDefaultInstance().getPrivateKey();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string private_key = 4;</code>
+       */
+      public Builder setPrivateKeyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        privateKey_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object caCertificates_ = "";
+      /**
+       * <code>string ca_certificates = 5;</code>
+       */
+      public java.lang.String getCaCertificates() {
+        java.lang.Object ref = caCertificates_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          caCertificates_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string ca_certificates = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getCaCertificatesBytes() {
+        java.lang.Object ref = caCertificates_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          caCertificates_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string ca_certificates = 5;</code>
+       */
+      public Builder setCaCertificates(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        caCertificates_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string ca_certificates = 5;</code>
+       */
+      public Builder clearCaCertificates() {
+        
+        caCertificates_ = getDefaultInstance().getCaCertificates();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string ca_certificates = 5;</code>
+       */
+      public Builder setCaCertificatesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        caCertificates_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object credentialName_ = "";
+      /**
+       * <code>string credential_name = 10;</code>
+       */
+      public java.lang.String getCredentialName() {
+        java.lang.Object ref = credentialName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          credentialName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string credential_name = 10;</code>
+       */
+      public com.google.protobuf.ByteString
+          getCredentialNameBytes() {
+        java.lang.Object ref = credentialName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          credentialName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string credential_name = 10;</code>
+       */
+      public Builder setCredentialName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        credentialName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string credential_name = 10;</code>
+       */
+      public Builder clearCredentialName() {
+        
+        credentialName_ = getDefaultInstance().getCredentialName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string credential_name = 10;</code>
+       */
+      public Builder setCredentialNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        credentialName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList subjectAltNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureSubjectAltNamesIsMutable() {
+        if (!((bitField0_ & 0x00000040) == 0x00000040)) {
+          subjectAltNames_ = new com.google.protobuf.LazyStringArrayList(subjectAltNames_);
+          bitField0_ |= 0x00000040;
+         }
+      }
+      /**
+       * <code>repeated string subject_alt_names = 6;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getSubjectAltNamesList() {
+        return subjectAltNames_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string subject_alt_names = 6;</code>
+       */
+      public int getSubjectAltNamesCount() {
+        return subjectAltNames_.size();
+      }
+      /**
+       * <code>repeated string subject_alt_names = 6;</code>
+       */
+      public java.lang.String getSubjectAltNames(int index) {
+        return subjectAltNames_.get(index);
+      }
+      /**
+       * <code>repeated string subject_alt_names = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSubjectAltNamesBytes(int index) {
+        return subjectAltNames_.getByteString(index);
+      }
+      /**
+       * <code>repeated string subject_alt_names = 6;</code>
+       */
+      public Builder setSubjectAltNames(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureSubjectAltNamesIsMutable();
+        subjectAltNames_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string subject_alt_names = 6;</code>
+       */
+      public Builder addSubjectAltNames(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureSubjectAltNamesIsMutable();
+        subjectAltNames_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string subject_alt_names = 6;</code>
+       */
+      public Builder addAllSubjectAltNames(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureSubjectAltNamesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, subjectAltNames_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string subject_alt_names = 6;</code>
+       */
+      public Builder clearSubjectAltNames() {
+        subjectAltNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000040);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string subject_alt_names = 6;</code>
+       */
+      public Builder addSubjectAltNamesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureSubjectAltNamesIsMutable();
+        subjectAltNames_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList verifyCertificateSpki_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureVerifyCertificateSpkiIsMutable() {
+        if (!((bitField0_ & 0x00000080) == 0x00000080)) {
+          verifyCertificateSpki_ = new com.google.protobuf.LazyStringArrayList(verifyCertificateSpki_);
+          bitField0_ |= 0x00000080;
+         }
+      }
+      /**
+       * <code>repeated string verify_certificate_spki = 11;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getVerifyCertificateSpkiList() {
+        return verifyCertificateSpki_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string verify_certificate_spki = 11;</code>
+       */
+      public int getVerifyCertificateSpkiCount() {
+        return verifyCertificateSpki_.size();
+      }
+      /**
+       * <code>repeated string verify_certificate_spki = 11;</code>
+       */
+      public java.lang.String getVerifyCertificateSpki(int index) {
+        return verifyCertificateSpki_.get(index);
+      }
+      /**
+       * <code>repeated string verify_certificate_spki = 11;</code>
+       */
+      public com.google.protobuf.ByteString
+          getVerifyCertificateSpkiBytes(int index) {
+        return verifyCertificateSpki_.getByteString(index);
+      }
+      /**
+       * <code>repeated string verify_certificate_spki = 11;</code>
+       */
+      public Builder setVerifyCertificateSpki(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureVerifyCertificateSpkiIsMutable();
+        verifyCertificateSpki_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string verify_certificate_spki = 11;</code>
+       */
+      public Builder addVerifyCertificateSpki(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureVerifyCertificateSpkiIsMutable();
+        verifyCertificateSpki_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string verify_certificate_spki = 11;</code>
+       */
+      public Builder addAllVerifyCertificateSpki(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureVerifyCertificateSpkiIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, verifyCertificateSpki_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string verify_certificate_spki = 11;</code>
+       */
+      public Builder clearVerifyCertificateSpki() {
+        verifyCertificateSpki_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string verify_certificate_spki = 11;</code>
+       */
+      public Builder addVerifyCertificateSpkiBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureVerifyCertificateSpkiIsMutable();
+        verifyCertificateSpki_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList verifyCertificateHash_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureVerifyCertificateHashIsMutable() {
+        if (!((bitField0_ & 0x00000100) == 0x00000100)) {
+          verifyCertificateHash_ = new com.google.protobuf.LazyStringArrayList(verifyCertificateHash_);
+          bitField0_ |= 0x00000100;
+         }
+      }
+      /**
+       * <code>repeated string verify_certificate_hash = 12;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getVerifyCertificateHashList() {
+        return verifyCertificateHash_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string verify_certificate_hash = 12;</code>
+       */
+      public int getVerifyCertificateHashCount() {
+        return verifyCertificateHash_.size();
+      }
+      /**
+       * <code>repeated string verify_certificate_hash = 12;</code>
+       */
+      public java.lang.String getVerifyCertificateHash(int index) {
+        return verifyCertificateHash_.get(index);
+      }
+      /**
+       * <code>repeated string verify_certificate_hash = 12;</code>
+       */
+      public com.google.protobuf.ByteString
+          getVerifyCertificateHashBytes(int index) {
+        return verifyCertificateHash_.getByteString(index);
+      }
+      /**
+       * <code>repeated string verify_certificate_hash = 12;</code>
+       */
+      public Builder setVerifyCertificateHash(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureVerifyCertificateHashIsMutable();
+        verifyCertificateHash_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string verify_certificate_hash = 12;</code>
+       */
+      public Builder addVerifyCertificateHash(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureVerifyCertificateHashIsMutable();
+        verifyCertificateHash_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string verify_certificate_hash = 12;</code>
+       */
+      public Builder addAllVerifyCertificateHash(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureVerifyCertificateHashIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, verifyCertificateHash_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string verify_certificate_hash = 12;</code>
+       */
+      public Builder clearVerifyCertificateHash() {
+        verifyCertificateHash_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000100);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string verify_certificate_hash = 12;</code>
+       */
+      public Builder addVerifyCertificateHashBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureVerifyCertificateHashIsMutable();
+        verifyCertificateHash_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList cipherSuites_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureCipherSuitesIsMutable() {
+        if (!((bitField0_ & 0x00000200) == 0x00000200)) {
+          cipherSuites_ = new com.google.protobuf.LazyStringArrayList(cipherSuites_);
+          bitField0_ |= 0x00000200;
+         }
+      }
+      /**
+       * <code>repeated string cipher_suites = 9;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getCipherSuitesList() {
+        return cipherSuites_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string cipher_suites = 9;</code>
+       */
+      public int getCipherSuitesCount() {
+        return cipherSuites_.size();
+      }
+      /**
+       * <code>repeated string cipher_suites = 9;</code>
+       */
+      public java.lang.String getCipherSuites(int index) {
+        return cipherSuites_.get(index);
+      }
+      /**
+       * <code>repeated string cipher_suites = 9;</code>
+       */
+      public com.google.protobuf.ByteString
+          getCipherSuitesBytes(int index) {
+        return cipherSuites_.getByteString(index);
+      }
+      /**
+       * <code>repeated string cipher_suites = 9;</code>
+       */
+      public Builder setCipherSuites(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureCipherSuitesIsMutable();
+        cipherSuites_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string cipher_suites = 9;</code>
+       */
+      public Builder addCipherSuites(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureCipherSuitesIsMutable();
+        cipherSuites_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string cipher_suites = 9;</code>
+       */
+      public Builder addAllCipherSuites(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureCipherSuitesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, cipherSuites_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string cipher_suites = 9;</code>
+       */
+      public Builder clearCipherSuites() {
+        cipherSuites_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000200);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string cipher_suites = 9;</code>
+       */
+      public Builder addCipherSuitesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureCipherSuitesIsMutable();
+        cipherSuites_.add(value);
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:kdeploy.ServerTLSSettings)
+    }
+
+    // @@protoc_insertion_point(class_scope:kdeploy.ServerTLSSettings)
+    private static final kdeploy.Kdeploy.ServerTLSSettings DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new kdeploy.Kdeploy.ServerTLSSettings();
+    }
+
+    public static kdeploy.Kdeploy.ServerTLSSettings getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ServerTLSSettings>
+        PARSER = new com.google.protobuf.AbstractParser<ServerTLSSettings>() {
+      @java.lang.Override
+      public ServerTLSSettings parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ServerTLSSettings(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ServerTLSSettings> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ServerTLSSettings> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public kdeploy.Kdeploy.ServerTLSSettings getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GatewayListenerOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:kdeploy.GatewayListener)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>uint32 port = 1 [(.validator.field) = { ... }</code>
+     */
+    int getPort();
+
+    /**
+     * <code>string name = 2 [(.validator.field) = { ... }</code>
      */
     java.lang.String getName();
     /**
-     * <code>string name = 1;</code>
+     * <code>string name = 2 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
         getNameBytes();
 
     /**
-     * <code>uint32 port = 2;</code>
+     * <code>.kdeploy.Protocol protocol = 3 [(.validator.field) = { ... }</code>
+     */
+    int getProtocolValue();
+    /**
+     * <code>.kdeploy.Protocol protocol = 3 [(.validator.field) = { ... }</code>
+     */
+    kdeploy.Kdeploy.Protocol getProtocol();
+
+    /**
+     * <code>repeated string hosts = 4 [(.validator.field) = { ... }</code>
+     */
+    java.util.List<java.lang.String>
+        getHostsList();
+    /**
+     * <code>repeated string hosts = 4 [(.validator.field) = { ... }</code>
+     */
+    int getHostsCount();
+    /**
+     * <code>repeated string hosts = 4 [(.validator.field) = { ... }</code>
+     */
+    java.lang.String getHosts(int index);
+    /**
+     * <code>repeated string hosts = 4 [(.validator.field) = { ... }</code>
+     */
+    com.google.protobuf.ByteString
+        getHostsBytes(int index);
+
+    /**
+     * <code>.kdeploy.ServerTLSSettings tls_config = 5;</code>
+     */
+    boolean hasTlsConfig();
+    /**
+     * <code>.kdeploy.ServerTLSSettings tls_config = 5;</code>
+     */
+    kdeploy.Kdeploy.ServerTLSSettings getTlsConfig();
+    /**
+     * <code>.kdeploy.ServerTLSSettings tls_config = 5;</code>
+     */
+    kdeploy.Kdeploy.ServerTLSSettingsOrBuilder getTlsConfigOrBuilder();
+  }
+  /**
+   * Protobuf type {@code kdeploy.GatewayListener}
+   */
+  public  static final class GatewayListener extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:kdeploy.GatewayListener)
+      GatewayListenerOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GatewayListener.newBuilder() to construct.
+    private GatewayListener(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GatewayListener() {
+      port_ = 0;
+      name_ = "";
+      protocol_ = 0;
+      hosts_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GatewayListener(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              port_ = input.readUInt32();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              name_ = s;
+              break;
+            }
+            case 24: {
+              int rawValue = input.readEnum();
+
+              protocol_ = rawValue;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                hosts_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              hosts_.add(s);
+              break;
+            }
+            case 42: {
+              kdeploy.Kdeploy.ServerTLSSettings.Builder subBuilder = null;
+              if (tlsConfig_ != null) {
+                subBuilder = tlsConfig_.toBuilder();
+              }
+              tlsConfig_ = input.readMessage(kdeploy.Kdeploy.ServerTLSSettings.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(tlsConfig_);
+                tlsConfig_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+          hosts_ = hosts_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return kdeploy.Kdeploy.internal_static_kdeploy_GatewayListener_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return kdeploy.Kdeploy.internal_static_kdeploy_GatewayListener_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              kdeploy.Kdeploy.GatewayListener.class, kdeploy.Kdeploy.GatewayListener.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int PORT_FIELD_NUMBER = 1;
+    private int port_;
+    /**
+     * <code>uint32 port = 1 [(.validator.field) = { ... }</code>
+     */
+    public int getPort() {
+      return port_;
+    }
+
+    public static final int NAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object name_;
+    /**
+     * <code>string name = 2 [(.validator.field) = { ... }</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string name = 2 [(.validator.field) = { ... }</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PROTOCOL_FIELD_NUMBER = 3;
+    private int protocol_;
+    /**
+     * <code>.kdeploy.Protocol protocol = 3 [(.validator.field) = { ... }</code>
+     */
+    public int getProtocolValue() {
+      return protocol_;
+    }
+    /**
+     * <code>.kdeploy.Protocol protocol = 3 [(.validator.field) = { ... }</code>
+     */
+    public kdeploy.Kdeploy.Protocol getProtocol() {
+      @SuppressWarnings("deprecation")
+      kdeploy.Kdeploy.Protocol result = kdeploy.Kdeploy.Protocol.valueOf(protocol_);
+      return result == null ? kdeploy.Kdeploy.Protocol.UNRECOGNIZED : result;
+    }
+
+    public static final int HOSTS_FIELD_NUMBER = 4;
+    private com.google.protobuf.LazyStringList hosts_;
+    /**
+     * <code>repeated string hosts = 4 [(.validator.field) = { ... }</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getHostsList() {
+      return hosts_;
+    }
+    /**
+     * <code>repeated string hosts = 4 [(.validator.field) = { ... }</code>
+     */
+    public int getHostsCount() {
+      return hosts_.size();
+    }
+    /**
+     * <code>repeated string hosts = 4 [(.validator.field) = { ... }</code>
+     */
+    public java.lang.String getHosts(int index) {
+      return hosts_.get(index);
+    }
+    /**
+     * <code>repeated string hosts = 4 [(.validator.field) = { ... }</code>
+     */
+    public com.google.protobuf.ByteString
+        getHostsBytes(int index) {
+      return hosts_.getByteString(index);
+    }
+
+    public static final int TLS_CONFIG_FIELD_NUMBER = 5;
+    private kdeploy.Kdeploy.ServerTLSSettings tlsConfig_;
+    /**
+     * <code>.kdeploy.ServerTLSSettings tls_config = 5;</code>
+     */
+    public boolean hasTlsConfig() {
+      return tlsConfig_ != null;
+    }
+    /**
+     * <code>.kdeploy.ServerTLSSettings tls_config = 5;</code>
+     */
+    public kdeploy.Kdeploy.ServerTLSSettings getTlsConfig() {
+      return tlsConfig_ == null ? kdeploy.Kdeploy.ServerTLSSettings.getDefaultInstance() : tlsConfig_;
+    }
+    /**
+     * <code>.kdeploy.ServerTLSSettings tls_config = 5;</code>
+     */
+    public kdeploy.Kdeploy.ServerTLSSettingsOrBuilder getTlsConfigOrBuilder() {
+      return getTlsConfig();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (port_ != 0) {
+        output.writeUInt32(1, port_);
+      }
+      if (!getNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
+      }
+      if (protocol_ != kdeploy.Kdeploy.Protocol.INVALID_PROTOCOL.getNumber()) {
+        output.writeEnum(3, protocol_);
+      }
+      for (int i = 0; i < hosts_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, hosts_.getRaw(i));
+      }
+      if (tlsConfig_ != null) {
+        output.writeMessage(5, getTlsConfig());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (port_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(1, port_);
+      }
+      if (!getNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+      }
+      if (protocol_ != kdeploy.Kdeploy.Protocol.INVALID_PROTOCOL.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(3, protocol_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < hosts_.size(); i++) {
+          dataSize += computeStringSizeNoTag(hosts_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getHostsList().size();
+      }
+      if (tlsConfig_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, getTlsConfig());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof kdeploy.Kdeploy.GatewayListener)) {
+        return super.equals(obj);
+      }
+      kdeploy.Kdeploy.GatewayListener other = (kdeploy.Kdeploy.GatewayListener) obj;
+
+      boolean result = true;
+      result = result && (getPort()
+          == other.getPort());
+      result = result && getName()
+          .equals(other.getName());
+      result = result && protocol_ == other.protocol_;
+      result = result && getHostsList()
+          .equals(other.getHostsList());
+      result = result && (hasTlsConfig() == other.hasTlsConfig());
+      if (hasTlsConfig()) {
+        result = result && getTlsConfig()
+            .equals(other.getTlsConfig());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + PORT_FIELD_NUMBER;
+      hash = (53 * hash) + getPort();
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
+      hash = (37 * hash) + PROTOCOL_FIELD_NUMBER;
+      hash = (53 * hash) + protocol_;
+      if (getHostsCount() > 0) {
+        hash = (37 * hash) + HOSTS_FIELD_NUMBER;
+        hash = (53 * hash) + getHostsList().hashCode();
+      }
+      if (hasTlsConfig()) {
+        hash = (37 * hash) + TLS_CONFIG_FIELD_NUMBER;
+        hash = (53 * hash) + getTlsConfig().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static kdeploy.Kdeploy.GatewayListener parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static kdeploy.Kdeploy.GatewayListener parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.GatewayListener parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static kdeploy.Kdeploy.GatewayListener parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.GatewayListener parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static kdeploy.Kdeploy.GatewayListener parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.GatewayListener parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static kdeploy.Kdeploy.GatewayListener parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.GatewayListener parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static kdeploy.Kdeploy.GatewayListener parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.GatewayListener parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static kdeploy.Kdeploy.GatewayListener parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(kdeploy.Kdeploy.GatewayListener prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code kdeploy.GatewayListener}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:kdeploy.GatewayListener)
+        kdeploy.Kdeploy.GatewayListenerOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return kdeploy.Kdeploy.internal_static_kdeploy_GatewayListener_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return kdeploy.Kdeploy.internal_static_kdeploy_GatewayListener_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                kdeploy.Kdeploy.GatewayListener.class, kdeploy.Kdeploy.GatewayListener.Builder.class);
+      }
+
+      // Construct using kdeploy.Kdeploy.GatewayListener.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        port_ = 0;
+
+        name_ = "";
+
+        protocol_ = 0;
+
+        hosts_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        if (tlsConfigBuilder_ == null) {
+          tlsConfig_ = null;
+        } else {
+          tlsConfig_ = null;
+          tlsConfigBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return kdeploy.Kdeploy.internal_static_kdeploy_GatewayListener_descriptor;
+      }
+
+      @java.lang.Override
+      public kdeploy.Kdeploy.GatewayListener getDefaultInstanceForType() {
+        return kdeploy.Kdeploy.GatewayListener.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public kdeploy.Kdeploy.GatewayListener build() {
+        kdeploy.Kdeploy.GatewayListener result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public kdeploy.Kdeploy.GatewayListener buildPartial() {
+        kdeploy.Kdeploy.GatewayListener result = new kdeploy.Kdeploy.GatewayListener(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.port_ = port_;
+        result.name_ = name_;
+        result.protocol_ = protocol_;
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          hosts_ = hosts_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.hosts_ = hosts_;
+        if (tlsConfigBuilder_ == null) {
+          result.tlsConfig_ = tlsConfig_;
+        } else {
+          result.tlsConfig_ = tlsConfigBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof kdeploy.Kdeploy.GatewayListener) {
+          return mergeFrom((kdeploy.Kdeploy.GatewayListener)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(kdeploy.Kdeploy.GatewayListener other) {
+        if (other == kdeploy.Kdeploy.GatewayListener.getDefaultInstance()) return this;
+        if (other.getPort() != 0) {
+          setPort(other.getPort());
+        }
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
+          onChanged();
+        }
+        if (other.protocol_ != 0) {
+          setProtocolValue(other.getProtocolValue());
+        }
+        if (!other.hosts_.isEmpty()) {
+          if (hosts_.isEmpty()) {
+            hosts_ = other.hosts_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureHostsIsMutable();
+            hosts_.addAll(other.hosts_);
+          }
+          onChanged();
+        }
+        if (other.hasTlsConfig()) {
+          mergeTlsConfig(other.getTlsConfig());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        kdeploy.Kdeploy.GatewayListener parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (kdeploy.Kdeploy.GatewayListener) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int port_ ;
+      /**
+       * <code>uint32 port = 1 [(.validator.field) = { ... }</code>
+       */
+      public int getPort() {
+        return port_;
+      }
+      /**
+       * <code>uint32 port = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder setPort(int value) {
+        
+        port_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 port = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder clearPort() {
+        
+        port_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object name_ = "";
+      /**
+       * <code>string name = 2 [(.validator.field) = { ... }</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string name = 2 [(.validator.field) = { ... }</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string name = 2 [(.validator.field) = { ... }</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 2 [(.validator.field) = { ... }</code>
+       */
+      public Builder clearName() {
+        
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 2 [(.validator.field) = { ... }</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int protocol_ = 0;
+      /**
+       * <code>.kdeploy.Protocol protocol = 3 [(.validator.field) = { ... }</code>
+       */
+      public int getProtocolValue() {
+        return protocol_;
+      }
+      /**
+       * <code>.kdeploy.Protocol protocol = 3 [(.validator.field) = { ... }</code>
+       */
+      public Builder setProtocolValue(int value) {
+        protocol_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.kdeploy.Protocol protocol = 3 [(.validator.field) = { ... }</code>
+       */
+      public kdeploy.Kdeploy.Protocol getProtocol() {
+        @SuppressWarnings("deprecation")
+        kdeploy.Kdeploy.Protocol result = kdeploy.Kdeploy.Protocol.valueOf(protocol_);
+        return result == null ? kdeploy.Kdeploy.Protocol.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.kdeploy.Protocol protocol = 3 [(.validator.field) = { ... }</code>
+       */
+      public Builder setProtocol(kdeploy.Kdeploy.Protocol value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        protocol_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.kdeploy.Protocol protocol = 3 [(.validator.field) = { ... }</code>
+       */
+      public Builder clearProtocol() {
+        
+        protocol_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList hosts_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureHostsIsMutable() {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+          hosts_ = new com.google.protobuf.LazyStringArrayList(hosts_);
+          bitField0_ |= 0x00000008;
+         }
+      }
+      /**
+       * <code>repeated string hosts = 4 [(.validator.field) = { ... }</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getHostsList() {
+        return hosts_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string hosts = 4 [(.validator.field) = { ... }</code>
+       */
+      public int getHostsCount() {
+        return hosts_.size();
+      }
+      /**
+       * <code>repeated string hosts = 4 [(.validator.field) = { ... }</code>
+       */
+      public java.lang.String getHosts(int index) {
+        return hosts_.get(index);
+      }
+      /**
+       * <code>repeated string hosts = 4 [(.validator.field) = { ... }</code>
+       */
+      public com.google.protobuf.ByteString
+          getHostsBytes(int index) {
+        return hosts_.getByteString(index);
+      }
+      /**
+       * <code>repeated string hosts = 4 [(.validator.field) = { ... }</code>
+       */
+      public Builder setHosts(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureHostsIsMutable();
+        hosts_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string hosts = 4 [(.validator.field) = { ... }</code>
+       */
+      public Builder addHosts(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureHostsIsMutable();
+        hosts_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string hosts = 4 [(.validator.field) = { ... }</code>
+       */
+      public Builder addAllHosts(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureHostsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, hosts_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string hosts = 4 [(.validator.field) = { ... }</code>
+       */
+      public Builder clearHosts() {
+        hosts_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string hosts = 4 [(.validator.field) = { ... }</code>
+       */
+      public Builder addHostsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureHostsIsMutable();
+        hosts_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private kdeploy.Kdeploy.ServerTLSSettings tlsConfig_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          kdeploy.Kdeploy.ServerTLSSettings, kdeploy.Kdeploy.ServerTLSSettings.Builder, kdeploy.Kdeploy.ServerTLSSettingsOrBuilder> tlsConfigBuilder_;
+      /**
+       * <code>.kdeploy.ServerTLSSettings tls_config = 5;</code>
+       */
+      public boolean hasTlsConfig() {
+        return tlsConfigBuilder_ != null || tlsConfig_ != null;
+      }
+      /**
+       * <code>.kdeploy.ServerTLSSettings tls_config = 5;</code>
+       */
+      public kdeploy.Kdeploy.ServerTLSSettings getTlsConfig() {
+        if (tlsConfigBuilder_ == null) {
+          return tlsConfig_ == null ? kdeploy.Kdeploy.ServerTLSSettings.getDefaultInstance() : tlsConfig_;
+        } else {
+          return tlsConfigBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.kdeploy.ServerTLSSettings tls_config = 5;</code>
+       */
+      public Builder setTlsConfig(kdeploy.Kdeploy.ServerTLSSettings value) {
+        if (tlsConfigBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          tlsConfig_ = value;
+          onChanged();
+        } else {
+          tlsConfigBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.kdeploy.ServerTLSSettings tls_config = 5;</code>
+       */
+      public Builder setTlsConfig(
+          kdeploy.Kdeploy.ServerTLSSettings.Builder builderForValue) {
+        if (tlsConfigBuilder_ == null) {
+          tlsConfig_ = builderForValue.build();
+          onChanged();
+        } else {
+          tlsConfigBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.kdeploy.ServerTLSSettings tls_config = 5;</code>
+       */
+      public Builder mergeTlsConfig(kdeploy.Kdeploy.ServerTLSSettings value) {
+        if (tlsConfigBuilder_ == null) {
+          if (tlsConfig_ != null) {
+            tlsConfig_ =
+              kdeploy.Kdeploy.ServerTLSSettings.newBuilder(tlsConfig_).mergeFrom(value).buildPartial();
+          } else {
+            tlsConfig_ = value;
+          }
+          onChanged();
+        } else {
+          tlsConfigBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.kdeploy.ServerTLSSettings tls_config = 5;</code>
+       */
+      public Builder clearTlsConfig() {
+        if (tlsConfigBuilder_ == null) {
+          tlsConfig_ = null;
+          onChanged();
+        } else {
+          tlsConfig_ = null;
+          tlsConfigBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.kdeploy.ServerTLSSettings tls_config = 5;</code>
+       */
+      public kdeploy.Kdeploy.ServerTLSSettings.Builder getTlsConfigBuilder() {
+        
+        onChanged();
+        return getTlsConfigFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.kdeploy.ServerTLSSettings tls_config = 5;</code>
+       */
+      public kdeploy.Kdeploy.ServerTLSSettingsOrBuilder getTlsConfigOrBuilder() {
+        if (tlsConfigBuilder_ != null) {
+          return tlsConfigBuilder_.getMessageOrBuilder();
+        } else {
+          return tlsConfig_ == null ?
+              kdeploy.Kdeploy.ServerTLSSettings.getDefaultInstance() : tlsConfig_;
+        }
+      }
+      /**
+       * <code>.kdeploy.ServerTLSSettings tls_config = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          kdeploy.Kdeploy.ServerTLSSettings, kdeploy.Kdeploy.ServerTLSSettings.Builder, kdeploy.Kdeploy.ServerTLSSettingsOrBuilder> 
+          getTlsConfigFieldBuilder() {
+        if (tlsConfigBuilder_ == null) {
+          tlsConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              kdeploy.Kdeploy.ServerTLSSettings, kdeploy.Kdeploy.ServerTLSSettings.Builder, kdeploy.Kdeploy.ServerTLSSettingsOrBuilder>(
+                  getTlsConfig(),
+                  getParentForChildren(),
+                  isClean());
+          tlsConfig_ = null;
+        }
+        return tlsConfigBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:kdeploy.GatewayListener)
+    }
+
+    // @@protoc_insertion_point(class_scope:kdeploy.GatewayListener)
+    private static final kdeploy.Kdeploy.GatewayListener DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new kdeploy.Kdeploy.GatewayListener();
+    }
+
+    public static kdeploy.Kdeploy.GatewayListener getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GatewayListener>
+        PARSER = new com.google.protobuf.AbstractParser<GatewayListener>() {
+      @java.lang.Override
+      public GatewayListener parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GatewayListener(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GatewayListener> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GatewayListener> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public kdeploy.Kdeploy.GatewayListener getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GatewayOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:kdeploy.Gateway)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * name of the application
+     * </pre>
+     *
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     */
+    java.lang.String getName();
+    /**
+     * <pre>
+     * name of the application
+     * </pre>
+     *
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <pre>
+     * application namespace
+     * </pre>
+     *
+     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+     */
+    java.lang.String getNamespace();
+    /**
+     * <pre>
+     * application namespace
+     * </pre>
+     *
+     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+     */
+    com.google.protobuf.ByteString
+        getNamespaceBytes();
+
+    /**
+     * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
+     */
+    java.util.List<kdeploy.Kdeploy.GatewayListener> 
+        getListenersList();
+    /**
+     * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
+     */
+    kdeploy.Kdeploy.GatewayListener getListeners(int index);
+    /**
+     * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
+     */
+    int getListenersCount();
+    /**
+     * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
+     */
+    java.util.List<? extends kdeploy.Kdeploy.GatewayListenerOrBuilder> 
+        getListenersOrBuilderList();
+    /**
+     * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
+     */
+    kdeploy.Kdeploy.GatewayListenerOrBuilder getListenersOrBuilder(
+        int index);
+
+    /**
+     * <code>map&lt;string, string&gt; labels = 4;</code>
+     */
+    int getLabelsCount();
+    /**
+     * <code>map&lt;string, string&gt; labels = 4;</code>
+     */
+    boolean containsLabels(
+        java.lang.String key);
+    /**
+     * Use {@link #getLabelsMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
+    getLabels();
+    /**
+     * <code>map&lt;string, string&gt; labels = 4;</code>
+     */
+    java.util.Map<java.lang.String, java.lang.String>
+    getLabelsMap();
+    /**
+     * <code>map&lt;string, string&gt; labels = 4;</code>
+     */
+
+    java.lang.String getLabelsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue);
+    /**
+     * <code>map&lt;string, string&gt; labels = 4;</code>
+     */
+
+    java.lang.String getLabelsOrThrow(
+        java.lang.String key);
+  }
+  /**
+   * Protobuf type {@code kdeploy.Gateway}
+   */
+  public  static final class Gateway extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:kdeploy.Gateway)
+      GatewayOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Gateway.newBuilder() to construct.
+    private Gateway(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Gateway() {
+      name_ = "";
+      namespace_ = "";
+      listeners_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Gateway(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              name_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              namespace_ = s;
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                listeners_ = new java.util.ArrayList<kdeploy.Kdeploy.GatewayListener>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              listeners_.add(
+                  input.readMessage(kdeploy.Kdeploy.GatewayListener.parser(), extensionRegistry));
+              break;
+            }
+            case 34: {
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                labels_ = com.google.protobuf.MapField.newMapField(
+                    LabelsDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000008;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              labels_.getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          listeners_ = java.util.Collections.unmodifiableList(listeners_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return kdeploy.Kdeploy.internal_static_kdeploy_Gateway_descriptor;
+    }
+
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 4:
+          return internalGetLabels();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return kdeploy.Kdeploy.internal_static_kdeploy_Gateway_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              kdeploy.Kdeploy.Gateway.class, kdeploy.Kdeploy.Gateway.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object name_;
+    /**
+     * <pre>
+     * name of the application
+     * </pre>
+     *
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * name of the application
+     * </pre>
+     *
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int NAMESPACE_FIELD_NUMBER = 2;
+    private volatile java.lang.Object namespace_;
+    /**
+     * <pre>
+     * application namespace
+     * </pre>
+     *
+     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+     */
+    public java.lang.String getNamespace() {
+      java.lang.Object ref = namespace_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        namespace_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * application namespace
+     * </pre>
+     *
+     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+     */
+    public com.google.protobuf.ByteString
+        getNamespaceBytes() {
+      java.lang.Object ref = namespace_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        namespace_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int LISTENERS_FIELD_NUMBER = 3;
+    private java.util.List<kdeploy.Kdeploy.GatewayListener> listeners_;
+    /**
+     * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
+     */
+    public java.util.List<kdeploy.Kdeploy.GatewayListener> getListenersList() {
+      return listeners_;
+    }
+    /**
+     * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
+     */
+    public java.util.List<? extends kdeploy.Kdeploy.GatewayListenerOrBuilder> 
+        getListenersOrBuilderList() {
+      return listeners_;
+    }
+    /**
+     * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
+     */
+    public int getListenersCount() {
+      return listeners_.size();
+    }
+    /**
+     * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
+     */
+    public kdeploy.Kdeploy.GatewayListener getListeners(int index) {
+      return listeners_.get(index);
+    }
+    /**
+     * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
+     */
+    public kdeploy.Kdeploy.GatewayListenerOrBuilder getListenersOrBuilder(
+        int index) {
+      return listeners_.get(index);
+    }
+
+    public static final int LABELS_FIELD_NUMBER = 4;
+    private static final class LabelsDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  kdeploy.Kdeploy.internal_static_kdeploy_Gateway_LabelsEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> labels_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetLabels() {
+      if (labels_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            LabelsDefaultEntryHolder.defaultEntry);
+      }
+      return labels_;
+    }
+
+    public int getLabelsCount() {
+      return internalGetLabels().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 4;</code>
+     */
+
+    public boolean containsLabels(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetLabels().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getLabelsMap()} instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getLabels() {
+      return getLabelsMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 4;</code>
+     */
+
+    public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
+      return internalGetLabels().getMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 4;</code>
+     */
+
+    public java.lang.String getLabelsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetLabels().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 4;</code>
+     */
+
+    public java.lang.String getLabelsOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetLabels().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      }
+      if (!getNamespaceBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, namespace_);
+      }
+      for (int i = 0; i < listeners_.size(); i++) {
+        output.writeMessage(3, listeners_.get(i));
+      }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetLabels(),
+          LabelsDefaultEntryHolder.defaultEntry,
+          4);
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      if (!getNamespaceBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, namespace_);
+      }
+      for (int i = 0; i < listeners_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, listeners_.get(i));
+      }
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+           : internalGetLabels().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+        labels__ = LabelsDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(4, labels__);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof kdeploy.Kdeploy.Gateway)) {
+        return super.equals(obj);
+      }
+      kdeploy.Kdeploy.Gateway other = (kdeploy.Kdeploy.Gateway) obj;
+
+      boolean result = true;
+      result = result && getName()
+          .equals(other.getName());
+      result = result && getNamespace()
+          .equals(other.getNamespace());
+      result = result && getListenersList()
+          .equals(other.getListenersList());
+      result = result && internalGetLabels().equals(
+          other.internalGetLabels());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
+      hash = (37 * hash) + NAMESPACE_FIELD_NUMBER;
+      hash = (53 * hash) + getNamespace().hashCode();
+      if (getListenersCount() > 0) {
+        hash = (37 * hash) + LISTENERS_FIELD_NUMBER;
+        hash = (53 * hash) + getListenersList().hashCode();
+      }
+      if (!internalGetLabels().getMap().isEmpty()) {
+        hash = (37 * hash) + LABELS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetLabels().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static kdeploy.Kdeploy.Gateway parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static kdeploy.Kdeploy.Gateway parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.Gateway parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static kdeploy.Kdeploy.Gateway parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.Gateway parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static kdeploy.Kdeploy.Gateway parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.Gateway parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static kdeploy.Kdeploy.Gateway parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.Gateway parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static kdeploy.Kdeploy.Gateway parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static kdeploy.Kdeploy.Gateway parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static kdeploy.Kdeploy.Gateway parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(kdeploy.Kdeploy.Gateway prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code kdeploy.Gateway}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:kdeploy.Gateway)
+        kdeploy.Kdeploy.GatewayOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return kdeploy.Kdeploy.internal_static_kdeploy_Gateway_descriptor;
+      }
+
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 4:
+            return internalGetLabels();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 4:
+            return internalGetMutableLabels();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return kdeploy.Kdeploy.internal_static_kdeploy_Gateway_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                kdeploy.Kdeploy.Gateway.class, kdeploy.Kdeploy.Gateway.Builder.class);
+      }
+
+      // Construct using kdeploy.Kdeploy.Gateway.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getListenersFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+
+        namespace_ = "";
+
+        if (listenersBuilder_ == null) {
+          listeners_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          listenersBuilder_.clear();
+        }
+        internalGetMutableLabels().clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return kdeploy.Kdeploy.internal_static_kdeploy_Gateway_descriptor;
+      }
+
+      @java.lang.Override
+      public kdeploy.Kdeploy.Gateway getDefaultInstanceForType() {
+        return kdeploy.Kdeploy.Gateway.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public kdeploy.Kdeploy.Gateway build() {
+        kdeploy.Kdeploy.Gateway result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public kdeploy.Kdeploy.Gateway buildPartial() {
+        kdeploy.Kdeploy.Gateway result = new kdeploy.Kdeploy.Gateway(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.name_ = name_;
+        result.namespace_ = namespace_;
+        if (listenersBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            listeners_ = java.util.Collections.unmodifiableList(listeners_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.listeners_ = listeners_;
+        } else {
+          result.listeners_ = listenersBuilder_.build();
+        }
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof kdeploy.Kdeploy.Gateway) {
+          return mergeFrom((kdeploy.Kdeploy.Gateway)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(kdeploy.Kdeploy.Gateway other) {
+        if (other == kdeploy.Kdeploy.Gateway.getDefaultInstance()) return this;
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
+          onChanged();
+        }
+        if (!other.getNamespace().isEmpty()) {
+          namespace_ = other.namespace_;
+          onChanged();
+        }
+        if (listenersBuilder_ == null) {
+          if (!other.listeners_.isEmpty()) {
+            if (listeners_.isEmpty()) {
+              listeners_ = other.listeners_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureListenersIsMutable();
+              listeners_.addAll(other.listeners_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.listeners_.isEmpty()) {
+            if (listenersBuilder_.isEmpty()) {
+              listenersBuilder_.dispose();
+              listenersBuilder_ = null;
+              listeners_ = other.listeners_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              listenersBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getListenersFieldBuilder() : null;
+            } else {
+              listenersBuilder_.addAllMessages(other.listeners_);
+            }
+          }
+        }
+        internalGetMutableLabels().mergeFrom(
+            other.internalGetLabels());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        kdeploy.Kdeploy.Gateway parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (kdeploy.Kdeploy.Gateway) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object name_ = "";
+      /**
+       * <pre>
+       * name of the application
+       * </pre>
+       *
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * name of the application
+       * </pre>
+       *
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * name of the application
+       * </pre>
+       *
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * name of the application
+       * </pre>
+       *
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder clearName() {
+        
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * name of the application
+       * </pre>
+       *
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object namespace_ = "";
+      /**
+       * <pre>
+       * application namespace
+       * </pre>
+       *
+       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       */
+      public java.lang.String getNamespace() {
+        java.lang.Object ref = namespace_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          namespace_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * application namespace
+       * </pre>
+       *
+       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       */
+      public com.google.protobuf.ByteString
+          getNamespaceBytes() {
+        java.lang.Object ref = namespace_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          namespace_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * application namespace
+       * </pre>
+       *
+       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       */
+      public Builder setNamespace(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        namespace_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * application namespace
+       * </pre>
+       *
+       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       */
+      public Builder clearNamespace() {
+        
+        namespace_ = getDefaultInstance().getNamespace();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * application namespace
+       * </pre>
+       *
+       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
+       */
+      public Builder setNamespaceBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        namespace_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<kdeploy.Kdeploy.GatewayListener> listeners_ =
+        java.util.Collections.emptyList();
+      private void ensureListenersIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          listeners_ = new java.util.ArrayList<kdeploy.Kdeploy.GatewayListener>(listeners_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          kdeploy.Kdeploy.GatewayListener, kdeploy.Kdeploy.GatewayListener.Builder, kdeploy.Kdeploy.GatewayListenerOrBuilder> listenersBuilder_;
+
+      /**
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
+       */
+      public java.util.List<kdeploy.Kdeploy.GatewayListener> getListenersList() {
+        if (listenersBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(listeners_);
+        } else {
+          return listenersBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
+       */
+      public int getListenersCount() {
+        if (listenersBuilder_ == null) {
+          return listeners_.size();
+        } else {
+          return listenersBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
+       */
+      public kdeploy.Kdeploy.GatewayListener getListeners(int index) {
+        if (listenersBuilder_ == null) {
+          return listeners_.get(index);
+        } else {
+          return listenersBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
+       */
+      public Builder setListeners(
+          int index, kdeploy.Kdeploy.GatewayListener value) {
+        if (listenersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureListenersIsMutable();
+          listeners_.set(index, value);
+          onChanged();
+        } else {
+          listenersBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
+       */
+      public Builder setListeners(
+          int index, kdeploy.Kdeploy.GatewayListener.Builder builderForValue) {
+        if (listenersBuilder_ == null) {
+          ensureListenersIsMutable();
+          listeners_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          listenersBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
+       */
+      public Builder addListeners(kdeploy.Kdeploy.GatewayListener value) {
+        if (listenersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureListenersIsMutable();
+          listeners_.add(value);
+          onChanged();
+        } else {
+          listenersBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
+       */
+      public Builder addListeners(
+          int index, kdeploy.Kdeploy.GatewayListener value) {
+        if (listenersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureListenersIsMutable();
+          listeners_.add(index, value);
+          onChanged();
+        } else {
+          listenersBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
+       */
+      public Builder addListeners(
+          kdeploy.Kdeploy.GatewayListener.Builder builderForValue) {
+        if (listenersBuilder_ == null) {
+          ensureListenersIsMutable();
+          listeners_.add(builderForValue.build());
+          onChanged();
+        } else {
+          listenersBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
+       */
+      public Builder addListeners(
+          int index, kdeploy.Kdeploy.GatewayListener.Builder builderForValue) {
+        if (listenersBuilder_ == null) {
+          ensureListenersIsMutable();
+          listeners_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          listenersBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
+       */
+      public Builder addAllListeners(
+          java.lang.Iterable<? extends kdeploy.Kdeploy.GatewayListener> values) {
+        if (listenersBuilder_ == null) {
+          ensureListenersIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, listeners_);
+          onChanged();
+        } else {
+          listenersBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
+       */
+      public Builder clearListeners() {
+        if (listenersBuilder_ == null) {
+          listeners_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          listenersBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
+       */
+      public Builder removeListeners(int index) {
+        if (listenersBuilder_ == null) {
+          ensureListenersIsMutable();
+          listeners_.remove(index);
+          onChanged();
+        } else {
+          listenersBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
+       */
+      public kdeploy.Kdeploy.GatewayListener.Builder getListenersBuilder(
+          int index) {
+        return getListenersFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
+       */
+      public kdeploy.Kdeploy.GatewayListenerOrBuilder getListenersOrBuilder(
+          int index) {
+        if (listenersBuilder_ == null) {
+          return listeners_.get(index);  } else {
+          return listenersBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
+       */
+      public java.util.List<? extends kdeploy.Kdeploy.GatewayListenerOrBuilder> 
+           getListenersOrBuilderList() {
+        if (listenersBuilder_ != null) {
+          return listenersBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(listeners_);
+        }
+      }
+      /**
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
+       */
+      public kdeploy.Kdeploy.GatewayListener.Builder addListenersBuilder() {
+        return getListenersFieldBuilder().addBuilder(
+            kdeploy.Kdeploy.GatewayListener.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
+       */
+      public kdeploy.Kdeploy.GatewayListener.Builder addListenersBuilder(
+          int index) {
+        return getListenersFieldBuilder().addBuilder(
+            index, kdeploy.Kdeploy.GatewayListener.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .kdeploy.GatewayListener listeners = 3;</code>
+       */
+      public java.util.List<kdeploy.Kdeploy.GatewayListener.Builder> 
+           getListenersBuilderList() {
+        return getListenersFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          kdeploy.Kdeploy.GatewayListener, kdeploy.Kdeploy.GatewayListener.Builder, kdeploy.Kdeploy.GatewayListenerOrBuilder> 
+          getListenersFieldBuilder() {
+        if (listenersBuilder_ == null) {
+          listenersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              kdeploy.Kdeploy.GatewayListener, kdeploy.Kdeploy.GatewayListener.Builder, kdeploy.Kdeploy.GatewayListenerOrBuilder>(
+                  listeners_,
+                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  getParentForChildren(),
+                  isClean());
+          listeners_ = null;
+        }
+        return listenersBuilder_;
+      }
+
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.String> labels_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetLabels() {
+        if (labels_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              LabelsDefaultEntryHolder.defaultEntry);
+        }
+        return labels_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableLabels() {
+        onChanged();;
+        if (labels_ == null) {
+          labels_ = com.google.protobuf.MapField.newMapField(
+              LabelsDefaultEntryHolder.defaultEntry);
+        }
+        if (!labels_.isMutable()) {
+          labels_ = labels_.copy();
+        }
+        return labels_;
+      }
+
+      public int getLabelsCount() {
+        return internalGetLabels().getMap().size();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 4;</code>
+       */
+
+      public boolean containsLabels(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        return internalGetLabels().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getLabelsMap()} instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getLabels() {
+        return getLabelsMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 4;</code>
+       */
+
+      public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
+        return internalGetLabels().getMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 4;</code>
+       */
+
+      public java.lang.String getLabelsOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetLabels().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 4;</code>
+       */
+
+      public java.lang.String getLabelsOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetLabels().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearLabels() {
+        internalGetMutableLabels().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 4;</code>
+       */
+
+      public Builder removeLabels(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableLabels().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
+      getMutableLabels() {
+        return internalGetMutableLabels().getMutableMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 4;</code>
+       */
+      public Builder putLabels(
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableLabels().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 4;</code>
+       */
+
+      public Builder putAllLabels(
+          java.util.Map<java.lang.String, java.lang.String> values) {
+        internalGetMutableLabels().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:kdeploy.Gateway)
+    }
+
+    // @@protoc_insertion_point(class_scope:kdeploy.Gateway)
+    private static final kdeploy.Kdeploy.Gateway DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new kdeploy.Kdeploy.Gateway();
+    }
+
+    public static kdeploy.Kdeploy.Gateway getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Gateway>
+        PARSER = new com.google.protobuf.AbstractParser<Gateway>() {
+      @java.lang.Override
+      public Gateway parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Gateway(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Gateway> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Gateway> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public kdeploy.Kdeploy.Gateway getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface HTTPRouteOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:kdeploy.HTTPRoute)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     */
+    java.lang.String getName();
+    /**
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <code>uint32 port = 2 [(.validator.field) = { ... }</code>
      */
     int getPort();
 
@@ -366,7 +5056,7 @@ public final class Kdeploy {
     public static final int NAME_FIELD_NUMBER = 1;
     private volatile java.lang.Object name_;
     /**
-     * <code>string name = 1;</code>
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -381,7 +5071,7 @@ public final class Kdeploy {
       }
     }
     /**
-     * <code>string name = 1;</code>
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -400,7 +5090,7 @@ public final class Kdeploy {
     public static final int PORT_FIELD_NUMBER = 2;
     private int port_;
     /**
-     * <code>uint32 port = 2;</code>
+     * <code>uint32 port = 2 [(.validator.field) = { ... }</code>
      */
     public int getPort() {
       return port_;
@@ -1185,7 +5875,7 @@ public final class Kdeploy {
 
       private java.lang.Object name_ = "";
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -1200,7 +5890,7 @@ public final class Kdeploy {
         }
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -1216,7 +5906,7 @@ public final class Kdeploy {
         }
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public Builder setName(
           java.lang.String value) {
@@ -1229,7 +5919,7 @@ public final class Kdeploy {
         return this;
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public Builder clearName() {
         
@@ -1238,7 +5928,7 @@ public final class Kdeploy {
         return this;
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -1254,13 +5944,13 @@ public final class Kdeploy {
 
       private int port_ ;
       /**
-       * <code>uint32 port = 2;</code>
+       * <code>uint32 port = 2 [(.validator.field) = { ... }</code>
        */
       public int getPort() {
         return port_;
       }
       /**
-       * <code>uint32 port = 2;</code>
+       * <code>uint32 port = 2 [(.validator.field) = { ... }</code>
        */
       public Builder setPort(int value) {
         
@@ -1269,7 +5959,7 @@ public final class Kdeploy {
         return this;
       }
       /**
-       * <code>uint32 port = 2;</code>
+       * <code>uint32 port = 2 [(.validator.field) = { ... }</code>
        */
       public Builder clearPort() {
         
@@ -3262,7 +7952,7 @@ public final class Kdeploy {
      * name of the application
      * </pre>
      *
-     * <code>string name = 1;</code>
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
      */
     java.lang.String getName();
     /**
@@ -3270,7 +7960,7 @@ public final class Kdeploy {
      * name of the application
      * </pre>
      *
-     * <code>string name = 1;</code>
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
         getNameBytes();
@@ -3280,7 +7970,7 @@ public final class Kdeploy {
      * application namespace
      * </pre>
      *
-     * <code>string namespace = 2;</code>
+     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
      */
     java.lang.String getNamespace();
     /**
@@ -3288,7 +7978,7 @@ public final class Kdeploy {
      * application namespace
      * </pre>
      *
-     * <code>string namespace = 2;</code>
+     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
         getNamespaceBytes();
@@ -3298,7 +7988,7 @@ public final class Kdeploy {
      * docker image of application
      * </pre>
      *
-     * <code>string image = 3;</code>
+     * <code>string image = 3 [(.validator.field) = { ... }</code>
      */
     java.lang.String getImage();
     /**
@@ -3306,7 +7996,7 @@ public final class Kdeploy {
      * docker image of application
      * </pre>
      *
-     * <code>string image = 3;</code>
+     * <code>string image = 3 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
         getImageBytes();
@@ -3405,7 +8095,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 7;</code>
+     * <code>map&lt;string, uint32&gt; ports = 7 [(.validator.field) = { ... }</code>
      */
     int getPortsCount();
     /**
@@ -3413,7 +8103,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 7;</code>
+     * <code>map&lt;string, uint32&gt; ports = 7 [(.validator.field) = { ... }</code>
      */
     boolean containsPorts(
         java.lang.String key);
@@ -3428,7 +8118,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 7;</code>
+     * <code>map&lt;string, uint32&gt; ports = 7 [(.validator.field) = { ... }</code>
      */
     java.util.Map<java.lang.String, java.lang.Integer>
     getPortsMap();
@@ -3437,7 +8127,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 7;</code>
+     * <code>map&lt;string, uint32&gt; ports = 7 [(.validator.field) = { ... }</code>
      */
 
     int getPortsOrDefault(
@@ -3448,7 +8138,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 7;</code>
+     * <code>map&lt;string, uint32&gt; ports = 7 [(.validator.field) = { ... }</code>
      */
 
     int getPortsOrThrow(
@@ -3464,11 +8154,45 @@ public final class Kdeploy {
     int getReplicas();
 
     /**
+     * <code>map&lt;string, string&gt; labels = 9;</code>
+     */
+    int getLabelsCount();
+    /**
+     * <code>map&lt;string, string&gt; labels = 9;</code>
+     */
+    boolean containsLabels(
+        java.lang.String key);
+    /**
+     * Use {@link #getLabelsMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
+    getLabels();
+    /**
+     * <code>map&lt;string, string&gt; labels = 9;</code>
+     */
+    java.util.Map<java.lang.String, java.lang.String>
+    getLabelsMap();
+    /**
+     * <code>map&lt;string, string&gt; labels = 9;</code>
+     */
+
+    java.lang.String getLabelsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue);
+    /**
+     * <code>map&lt;string, string&gt; labels = 9;</code>
+     */
+
+    java.lang.String getLabelsOrThrow(
+        java.lang.String key);
+
+    /**
      * <pre>
      * gateway/service-mesh networking
      * </pre>
      *
-     * <code>.kdeploy.Networking networking = 9;</code>
+     * <code>.kdeploy.Networking networking = 10 [(.validator.field) = { ... }</code>
      */
     boolean hasNetworking();
     /**
@@ -3476,7 +8200,7 @@ public final class Kdeploy {
      * gateway/service-mesh networking
      * </pre>
      *
-     * <code>.kdeploy.Networking networking = 9;</code>
+     * <code>.kdeploy.Networking networking = 10 [(.validator.field) = { ... }</code>
      */
     kdeploy.Kdeploy.Networking getNetworking();
     /**
@@ -3484,7 +8208,7 @@ public final class Kdeploy {
      * gateway/service-mesh networking
      * </pre>
      *
-     * <code>.kdeploy.Networking networking = 9;</code>
+     * <code>.kdeploy.Networking networking = 10 [(.validator.field) = { ... }</code>
      */
     kdeploy.Kdeploy.NetworkingOrBuilder getNetworkingOrBuilder();
 
@@ -3493,7 +8217,7 @@ public final class Kdeploy {
      * status tracks the state of the application during it's lifecycle
      * </pre>
      *
-     * <code>.kdeploy.AppStatus status = 20;</code>
+     * <code>.kdeploy.AppStatus status = 20 [(.validator.field) = { ... }</code>
      */
     boolean hasStatus();
     /**
@@ -3501,7 +8225,7 @@ public final class Kdeploy {
      * status tracks the state of the application during it's lifecycle
      * </pre>
      *
-     * <code>.kdeploy.AppStatus status = 20;</code>
+     * <code>.kdeploy.AppStatus status = 20 [(.validator.field) = { ... }</code>
      */
     kdeploy.Kdeploy.AppStatus getStatus();
     /**
@@ -3509,7 +8233,7 @@ public final class Kdeploy {
      * status tracks the state of the application during it's lifecycle
      * </pre>
      *
-     * <code>.kdeploy.AppStatus status = 20;</code>
+     * <code>.kdeploy.AppStatus status = 20 [(.validator.field) = { ... }</code>
      */
     kdeploy.Kdeploy.AppStatusOrBuilder getStatusOrBuilder();
   }
@@ -3620,6 +8344,19 @@ public final class Kdeploy {
               break;
             }
             case 74: {
+              if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+                labels_ = com.google.protobuf.MapField.newMapField(
+                    LabelsDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000080;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              labels_.getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              break;
+            }
+            case 82: {
               kdeploy.Kdeploy.Networking.Builder subBuilder = null;
               if (networking_ != null) {
                 subBuilder = networking_.toBuilder();
@@ -3681,6 +8418,8 @@ public final class Kdeploy {
           return internalGetEnv();
         case 7:
           return internalGetPorts();
+        case 9:
+          return internalGetLabels();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -3702,7 +8441,7 @@ public final class Kdeploy {
      * name of the application
      * </pre>
      *
-     * <code>string name = 1;</code>
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -3721,7 +8460,7 @@ public final class Kdeploy {
      * name of the application
      * </pre>
      *
-     * <code>string name = 1;</code>
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -3744,7 +8483,7 @@ public final class Kdeploy {
      * application namespace
      * </pre>
      *
-     * <code>string namespace = 2;</code>
+     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getNamespace() {
       java.lang.Object ref = namespace_;
@@ -3763,7 +8502,7 @@ public final class Kdeploy {
      * application namespace
      * </pre>
      *
-     * <code>string namespace = 2;</code>
+     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
         getNamespaceBytes() {
@@ -3786,7 +8525,7 @@ public final class Kdeploy {
      * docker image of application
      * </pre>
      *
-     * <code>string image = 3;</code>
+     * <code>string image = 3 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getImage() {
       java.lang.Object ref = image_;
@@ -3805,7 +8544,7 @@ public final class Kdeploy {
      * docker image of application
      * </pre>
      *
-     * <code>string image = 3;</code>
+     * <code>string image = 3 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
         getImageBytes() {
@@ -3989,7 +8728,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 7;</code>
+     * <code>map&lt;string, uint32&gt; ports = 7 [(.validator.field) = { ... }</code>
      */
 
     public boolean containsPorts(
@@ -4009,7 +8748,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 7;</code>
+     * <code>map&lt;string, uint32&gt; ports = 7 [(.validator.field) = { ... }</code>
      */
 
     public java.util.Map<java.lang.String, java.lang.Integer> getPortsMap() {
@@ -4020,7 +8759,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 7;</code>
+     * <code>map&lt;string, uint32&gt; ports = 7 [(.validator.field) = { ... }</code>
      */
 
     public int getPortsOrDefault(
@@ -4036,7 +8775,7 @@ public final class Kdeploy {
      * k/v map of ports to expose ex: http: 80 https: 443
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 7;</code>
+     * <code>map&lt;string, uint32&gt; ports = 7 [(.validator.field) = { ... }</code>
      */
 
     public int getPortsOrThrow(
@@ -4063,14 +8802,90 @@ public final class Kdeploy {
       return replicas_;
     }
 
-    public static final int NETWORKING_FIELD_NUMBER = 9;
+    public static final int LABELS_FIELD_NUMBER = 9;
+    private static final class LabelsDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  kdeploy.Kdeploy.internal_static_kdeploy_App_LabelsEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> labels_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetLabels() {
+      if (labels_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            LabelsDefaultEntryHolder.defaultEntry);
+      }
+      return labels_;
+    }
+
+    public int getLabelsCount() {
+      return internalGetLabels().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 9;</code>
+     */
+
+    public boolean containsLabels(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetLabels().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getLabelsMap()} instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getLabels() {
+      return getLabelsMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 9;</code>
+     */
+
+    public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
+      return internalGetLabels().getMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 9;</code>
+     */
+
+    public java.lang.String getLabelsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetLabels().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 9;</code>
+     */
+
+    public java.lang.String getLabelsOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetLabels().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    public static final int NETWORKING_FIELD_NUMBER = 10;
     private kdeploy.Kdeploy.Networking networking_;
     /**
      * <pre>
      * gateway/service-mesh networking
      * </pre>
      *
-     * <code>.kdeploy.Networking networking = 9;</code>
+     * <code>.kdeploy.Networking networking = 10 [(.validator.field) = { ... }</code>
      */
     public boolean hasNetworking() {
       return networking_ != null;
@@ -4080,7 +8895,7 @@ public final class Kdeploy {
      * gateway/service-mesh networking
      * </pre>
      *
-     * <code>.kdeploy.Networking networking = 9;</code>
+     * <code>.kdeploy.Networking networking = 10 [(.validator.field) = { ... }</code>
      */
     public kdeploy.Kdeploy.Networking getNetworking() {
       return networking_ == null ? kdeploy.Kdeploy.Networking.getDefaultInstance() : networking_;
@@ -4090,7 +8905,7 @@ public final class Kdeploy {
      * gateway/service-mesh networking
      * </pre>
      *
-     * <code>.kdeploy.Networking networking = 9;</code>
+     * <code>.kdeploy.Networking networking = 10 [(.validator.field) = { ... }</code>
      */
     public kdeploy.Kdeploy.NetworkingOrBuilder getNetworkingOrBuilder() {
       return getNetworking();
@@ -4103,7 +8918,7 @@ public final class Kdeploy {
      * status tracks the state of the application during it's lifecycle
      * </pre>
      *
-     * <code>.kdeploy.AppStatus status = 20;</code>
+     * <code>.kdeploy.AppStatus status = 20 [(.validator.field) = { ... }</code>
      */
     public boolean hasStatus() {
       return status_ != null;
@@ -4113,7 +8928,7 @@ public final class Kdeploy {
      * status tracks the state of the application during it's lifecycle
      * </pre>
      *
-     * <code>.kdeploy.AppStatus status = 20;</code>
+     * <code>.kdeploy.AppStatus status = 20 [(.validator.field) = { ... }</code>
      */
     public kdeploy.Kdeploy.AppStatus getStatus() {
       return status_ == null ? kdeploy.Kdeploy.AppStatus.getDefaultInstance() : status_;
@@ -4123,7 +8938,7 @@ public final class Kdeploy {
      * status tracks the state of the application during it's lifecycle
      * </pre>
      *
-     * <code>.kdeploy.AppStatus status = 20;</code>
+     * <code>.kdeploy.AppStatus status = 20 [(.validator.field) = { ... }</code>
      */
     public kdeploy.Kdeploy.AppStatusOrBuilder getStatusOrBuilder() {
       return getStatus();
@@ -4170,8 +8985,14 @@ public final class Kdeploy {
       if (replicas_ != 0) {
         output.writeUInt32(8, replicas_);
       }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetLabels(),
+          LabelsDefaultEntryHolder.defaultEntry,
+          9);
       if (networking_ != null) {
-        output.writeMessage(9, getNetworking());
+        output.writeMessage(10, getNetworking());
       }
       if (status_ != null) {
         output.writeMessage(20, getStatus());
@@ -4226,9 +9047,19 @@ public final class Kdeploy {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(8, replicas_);
       }
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+           : internalGetLabels().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+        labels__ = LabelsDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(9, labels__);
+      }
       if (networking_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(9, getNetworking());
+          .computeMessageSize(10, getNetworking());
       }
       if (status_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -4264,6 +9095,8 @@ public final class Kdeploy {
           other.internalGetPorts());
       result = result && (getReplicas()
           == other.getReplicas());
+      result = result && internalGetLabels().equals(
+          other.internalGetLabels());
       result = result && (hasNetworking() == other.hasNetworking());
       if (hasNetworking()) {
         result = result && getNetworking()
@@ -4305,6 +9138,10 @@ public final class Kdeploy {
       }
       hash = (37 * hash) + REPLICAS_FIELD_NUMBER;
       hash = (53 * hash) + getReplicas();
+      if (!internalGetLabels().getMap().isEmpty()) {
+        hash = (37 * hash) + LABELS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetLabels().hashCode();
+      }
       if (hasNetworking()) {
         hash = (37 * hash) + NETWORKING_FIELD_NUMBER;
         hash = (53 * hash) + getNetworking().hashCode();
@@ -4432,6 +9269,8 @@ public final class Kdeploy {
             return internalGetEnv();
           case 7:
             return internalGetPorts();
+          case 9:
+            return internalGetLabels();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -4445,6 +9284,8 @@ public final class Kdeploy {
             return internalGetMutableEnv();
           case 7:
             return internalGetMutablePorts();
+          case 9:
+            return internalGetMutableLabels();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -4488,6 +9329,7 @@ public final class Kdeploy {
         internalGetMutablePorts().clear();
         replicas_ = 0;
 
+        internalGetMutableLabels().clear();
         if (networkingBuilder_ == null) {
           networking_ = null;
         } else {
@@ -4541,6 +9383,8 @@ public final class Kdeploy {
         result.ports_ = internalGetPorts();
         result.ports_.makeImmutable();
         result.replicas_ = replicas_;
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
         if (networkingBuilder_ == null) {
           result.networking_ = networking_;
         } else {
@@ -4629,6 +9473,8 @@ public final class Kdeploy {
         if (other.getReplicas() != 0) {
           setReplicas(other.getReplicas());
         }
+        internalGetMutableLabels().mergeFrom(
+            other.internalGetLabels());
         if (other.hasNetworking()) {
           mergeNetworking(other.getNetworking());
         }
@@ -4671,7 +9517,7 @@ public final class Kdeploy {
        * name of the application
        * </pre>
        *
-       * <code>string name = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -4690,7 +9536,7 @@ public final class Kdeploy {
        * name of the application
        * </pre>
        *
-       * <code>string name = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -4710,7 +9556,7 @@ public final class Kdeploy {
        * name of the application
        * </pre>
        *
-       * <code>string name = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public Builder setName(
           java.lang.String value) {
@@ -4727,7 +9573,7 @@ public final class Kdeploy {
        * name of the application
        * </pre>
        *
-       * <code>string name = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public Builder clearName() {
         
@@ -4740,7 +9586,7 @@ public final class Kdeploy {
        * name of the application
        * </pre>
        *
-       * <code>string name = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -4760,7 +9606,7 @@ public final class Kdeploy {
        * application namespace
        * </pre>
        *
-       * <code>string namespace = 2;</code>
+       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getNamespace() {
         java.lang.Object ref = namespace_;
@@ -4779,7 +9625,7 @@ public final class Kdeploy {
        * application namespace
        * </pre>
        *
-       * <code>string namespace = 2;</code>
+       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
           getNamespaceBytes() {
@@ -4799,7 +9645,7 @@ public final class Kdeploy {
        * application namespace
        * </pre>
        *
-       * <code>string namespace = 2;</code>
+       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
        */
       public Builder setNamespace(
           java.lang.String value) {
@@ -4816,7 +9662,7 @@ public final class Kdeploy {
        * application namespace
        * </pre>
        *
-       * <code>string namespace = 2;</code>
+       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
        */
       public Builder clearNamespace() {
         
@@ -4829,7 +9675,7 @@ public final class Kdeploy {
        * application namespace
        * </pre>
        *
-       * <code>string namespace = 2;</code>
+       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
        */
       public Builder setNamespaceBytes(
           com.google.protobuf.ByteString value) {
@@ -4849,7 +9695,7 @@ public final class Kdeploy {
        * docker image of application
        * </pre>
        *
-       * <code>string image = 3;</code>
+       * <code>string image = 3 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getImage() {
         java.lang.Object ref = image_;
@@ -4868,7 +9714,7 @@ public final class Kdeploy {
        * docker image of application
        * </pre>
        *
-       * <code>string image = 3;</code>
+       * <code>string image = 3 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
           getImageBytes() {
@@ -4888,7 +9734,7 @@ public final class Kdeploy {
        * docker image of application
        * </pre>
        *
-       * <code>string image = 3;</code>
+       * <code>string image = 3 [(.validator.field) = { ... }</code>
        */
       public Builder setImage(
           java.lang.String value) {
@@ -4905,7 +9751,7 @@ public final class Kdeploy {
        * docker image of application
        * </pre>
        *
-       * <code>string image = 3;</code>
+       * <code>string image = 3 [(.validator.field) = { ... }</code>
        */
       public Builder clearImage() {
         
@@ -4918,7 +9764,7 @@ public final class Kdeploy {
        * docker image of application
        * </pre>
        *
-       * <code>string image = 3;</code>
+       * <code>string image = 3 [(.validator.field) = { ... }</code>
        */
       public Builder setImageBytes(
           com.google.protobuf.ByteString value) {
@@ -5244,7 +10090,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 7;</code>
+       * <code>map&lt;string, uint32&gt; ports = 7 [(.validator.field) = { ... }</code>
        */
 
       public boolean containsPorts(
@@ -5264,7 +10110,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 7;</code>
+       * <code>map&lt;string, uint32&gt; ports = 7 [(.validator.field) = { ... }</code>
        */
 
       public java.util.Map<java.lang.String, java.lang.Integer> getPortsMap() {
@@ -5275,7 +10121,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 7;</code>
+       * <code>map&lt;string, uint32&gt; ports = 7 [(.validator.field) = { ... }</code>
        */
 
       public int getPortsOrDefault(
@@ -5291,7 +10137,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 7;</code>
+       * <code>map&lt;string, uint32&gt; ports = 7 [(.validator.field) = { ... }</code>
        */
 
       public int getPortsOrThrow(
@@ -5315,7 +10161,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 7;</code>
+       * <code>map&lt;string, uint32&gt; ports = 7 [(.validator.field) = { ... }</code>
        */
 
       public Builder removePorts(
@@ -5338,7 +10184,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 7;</code>
+       * <code>map&lt;string, uint32&gt; ports = 7 [(.validator.field) = { ... }</code>
        */
       public Builder putPorts(
           java.lang.String key,
@@ -5354,7 +10200,7 @@ public final class Kdeploy {
        * k/v map of ports to expose ex: http: 80 https: 443
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 7;</code>
+       * <code>map&lt;string, uint32&gt; ports = 7 [(.validator.field) = { ... }</code>
        */
 
       public Builder putAllPorts(
@@ -5402,6 +10248,129 @@ public final class Kdeploy {
         return this;
       }
 
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.String> labels_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetLabels() {
+        if (labels_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              LabelsDefaultEntryHolder.defaultEntry);
+        }
+        return labels_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableLabels() {
+        onChanged();;
+        if (labels_ == null) {
+          labels_ = com.google.protobuf.MapField.newMapField(
+              LabelsDefaultEntryHolder.defaultEntry);
+        }
+        if (!labels_.isMutable()) {
+          labels_ = labels_.copy();
+        }
+        return labels_;
+      }
+
+      public int getLabelsCount() {
+        return internalGetLabels().getMap().size();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9;</code>
+       */
+
+      public boolean containsLabels(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        return internalGetLabels().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getLabelsMap()} instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getLabels() {
+        return getLabelsMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9;</code>
+       */
+
+      public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
+        return internalGetLabels().getMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9;</code>
+       */
+
+      public java.lang.String getLabelsOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetLabels().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9;</code>
+       */
+
+      public java.lang.String getLabelsOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetLabels().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearLabels() {
+        internalGetMutableLabels().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9;</code>
+       */
+
+      public Builder removeLabels(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableLabels().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
+      getMutableLabels() {
+        return internalGetMutableLabels().getMutableMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9;</code>
+       */
+      public Builder putLabels(
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableLabels().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9;</code>
+       */
+
+      public Builder putAllLabels(
+          java.util.Map<java.lang.String, java.lang.String> values) {
+        internalGetMutableLabels().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+
       private kdeploy.Kdeploy.Networking networking_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
           kdeploy.Kdeploy.Networking, kdeploy.Kdeploy.Networking.Builder, kdeploy.Kdeploy.NetworkingOrBuilder> networkingBuilder_;
@@ -5410,7 +10379,7 @@ public final class Kdeploy {
        * gateway/service-mesh networking
        * </pre>
        *
-       * <code>.kdeploy.Networking networking = 9;</code>
+       * <code>.kdeploy.Networking networking = 10 [(.validator.field) = { ... }</code>
        */
       public boolean hasNetworking() {
         return networkingBuilder_ != null || networking_ != null;
@@ -5420,7 +10389,7 @@ public final class Kdeploy {
        * gateway/service-mesh networking
        * </pre>
        *
-       * <code>.kdeploy.Networking networking = 9;</code>
+       * <code>.kdeploy.Networking networking = 10 [(.validator.field) = { ... }</code>
        */
       public kdeploy.Kdeploy.Networking getNetworking() {
         if (networkingBuilder_ == null) {
@@ -5434,7 +10403,7 @@ public final class Kdeploy {
        * gateway/service-mesh networking
        * </pre>
        *
-       * <code>.kdeploy.Networking networking = 9;</code>
+       * <code>.kdeploy.Networking networking = 10 [(.validator.field) = { ... }</code>
        */
       public Builder setNetworking(kdeploy.Kdeploy.Networking value) {
         if (networkingBuilder_ == null) {
@@ -5454,7 +10423,7 @@ public final class Kdeploy {
        * gateway/service-mesh networking
        * </pre>
        *
-       * <code>.kdeploy.Networking networking = 9;</code>
+       * <code>.kdeploy.Networking networking = 10 [(.validator.field) = { ... }</code>
        */
       public Builder setNetworking(
           kdeploy.Kdeploy.Networking.Builder builderForValue) {
@@ -5472,7 +10441,7 @@ public final class Kdeploy {
        * gateway/service-mesh networking
        * </pre>
        *
-       * <code>.kdeploy.Networking networking = 9;</code>
+       * <code>.kdeploy.Networking networking = 10 [(.validator.field) = { ... }</code>
        */
       public Builder mergeNetworking(kdeploy.Kdeploy.Networking value) {
         if (networkingBuilder_ == null) {
@@ -5494,7 +10463,7 @@ public final class Kdeploy {
        * gateway/service-mesh networking
        * </pre>
        *
-       * <code>.kdeploy.Networking networking = 9;</code>
+       * <code>.kdeploy.Networking networking = 10 [(.validator.field) = { ... }</code>
        */
       public Builder clearNetworking() {
         if (networkingBuilder_ == null) {
@@ -5512,7 +10481,7 @@ public final class Kdeploy {
        * gateway/service-mesh networking
        * </pre>
        *
-       * <code>.kdeploy.Networking networking = 9;</code>
+       * <code>.kdeploy.Networking networking = 10 [(.validator.field) = { ... }</code>
        */
       public kdeploy.Kdeploy.Networking.Builder getNetworkingBuilder() {
         
@@ -5524,7 +10493,7 @@ public final class Kdeploy {
        * gateway/service-mesh networking
        * </pre>
        *
-       * <code>.kdeploy.Networking networking = 9;</code>
+       * <code>.kdeploy.Networking networking = 10 [(.validator.field) = { ... }</code>
        */
       public kdeploy.Kdeploy.NetworkingOrBuilder getNetworkingOrBuilder() {
         if (networkingBuilder_ != null) {
@@ -5539,7 +10508,7 @@ public final class Kdeploy {
        * gateway/service-mesh networking
        * </pre>
        *
-       * <code>.kdeploy.Networking networking = 9;</code>
+       * <code>.kdeploy.Networking networking = 10 [(.validator.field) = { ... }</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           kdeploy.Kdeploy.Networking, kdeploy.Kdeploy.Networking.Builder, kdeploy.Kdeploy.NetworkingOrBuilder> 
@@ -5563,7 +10532,7 @@ public final class Kdeploy {
        * status tracks the state of the application during it's lifecycle
        * </pre>
        *
-       * <code>.kdeploy.AppStatus status = 20;</code>
+       * <code>.kdeploy.AppStatus status = 20 [(.validator.field) = { ... }</code>
        */
       public boolean hasStatus() {
         return statusBuilder_ != null || status_ != null;
@@ -5573,7 +10542,7 @@ public final class Kdeploy {
        * status tracks the state of the application during it's lifecycle
        * </pre>
        *
-       * <code>.kdeploy.AppStatus status = 20;</code>
+       * <code>.kdeploy.AppStatus status = 20 [(.validator.field) = { ... }</code>
        */
       public kdeploy.Kdeploy.AppStatus getStatus() {
         if (statusBuilder_ == null) {
@@ -5587,7 +10556,7 @@ public final class Kdeploy {
        * status tracks the state of the application during it's lifecycle
        * </pre>
        *
-       * <code>.kdeploy.AppStatus status = 20;</code>
+       * <code>.kdeploy.AppStatus status = 20 [(.validator.field) = { ... }</code>
        */
       public Builder setStatus(kdeploy.Kdeploy.AppStatus value) {
         if (statusBuilder_ == null) {
@@ -5607,7 +10576,7 @@ public final class Kdeploy {
        * status tracks the state of the application during it's lifecycle
        * </pre>
        *
-       * <code>.kdeploy.AppStatus status = 20;</code>
+       * <code>.kdeploy.AppStatus status = 20 [(.validator.field) = { ... }</code>
        */
       public Builder setStatus(
           kdeploy.Kdeploy.AppStatus.Builder builderForValue) {
@@ -5625,7 +10594,7 @@ public final class Kdeploy {
        * status tracks the state of the application during it's lifecycle
        * </pre>
        *
-       * <code>.kdeploy.AppStatus status = 20;</code>
+       * <code>.kdeploy.AppStatus status = 20 [(.validator.field) = { ... }</code>
        */
       public Builder mergeStatus(kdeploy.Kdeploy.AppStatus value) {
         if (statusBuilder_ == null) {
@@ -5647,7 +10616,7 @@ public final class Kdeploy {
        * status tracks the state of the application during it's lifecycle
        * </pre>
        *
-       * <code>.kdeploy.AppStatus status = 20;</code>
+       * <code>.kdeploy.AppStatus status = 20 [(.validator.field) = { ... }</code>
        */
       public Builder clearStatus() {
         if (statusBuilder_ == null) {
@@ -5665,7 +10634,7 @@ public final class Kdeploy {
        * status tracks the state of the application during it's lifecycle
        * </pre>
        *
-       * <code>.kdeploy.AppStatus status = 20;</code>
+       * <code>.kdeploy.AppStatus status = 20 [(.validator.field) = { ... }</code>
        */
       public kdeploy.Kdeploy.AppStatus.Builder getStatusBuilder() {
         
@@ -5677,7 +10646,7 @@ public final class Kdeploy {
        * status tracks the state of the application during it's lifecycle
        * </pre>
        *
-       * <code>.kdeploy.AppStatus status = 20;</code>
+       * <code>.kdeploy.AppStatus status = 20 [(.validator.field) = { ... }</code>
        */
       public kdeploy.Kdeploy.AppStatusOrBuilder getStatusOrBuilder() {
         if (statusBuilder_ != null) {
@@ -5692,7 +10661,7 @@ public final class Kdeploy {
        * status tracks the state of the application during it's lifecycle
        * </pre>
        *
-       * <code>.kdeploy.AppStatus status = 20;</code>
+       * <code>.kdeploy.AppStatus status = 20 [(.validator.field) = { ... }</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           kdeploy.Kdeploy.AppStatus, kdeploy.Kdeploy.AppStatus.Builder, kdeploy.Kdeploy.AppStatusOrBuilder> 
@@ -5769,7 +10738,7 @@ public final class Kdeploy {
      * name of the task
      * </pre>
      *
-     * <code>string name = 1;</code>
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
      */
     java.lang.String getName();
     /**
@@ -5777,7 +10746,7 @@ public final class Kdeploy {
      * name of the task
      * </pre>
      *
-     * <code>string name = 1;</code>
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
         getNameBytes();
@@ -5787,7 +10756,7 @@ public final class Kdeploy {
      * task namespace
      * </pre>
      *
-     * <code>string namespace = 2;</code>
+     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
      */
     java.lang.String getNamespace();
     /**
@@ -5795,7 +10764,7 @@ public final class Kdeploy {
      * task namespace
      * </pre>
      *
-     * <code>string namespace = 2;</code>
+     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
         getNamespaceBytes();
@@ -5805,7 +10774,7 @@ public final class Kdeploy {
      * docker image of task
      * </pre>
      *
-     * <code>string image = 3;</code>
+     * <code>string image = 3 [(.validator.field) = { ... }</code>
      */
     java.lang.String getImage();
     /**
@@ -5813,7 +10782,7 @@ public final class Kdeploy {
      * docker image of task
      * </pre>
      *
-     * <code>string image = 3;</code>
+     * <code>string image = 3 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
         getImageBytes();
@@ -5912,7 +10881,7 @@ public final class Kdeploy {
      * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
      * </pre>
      *
-     * <code>string schedule = 7;</code>
+     * <code>string schedule = 7 [(.validator.field) = { ... }</code>
      */
     java.lang.String getSchedule();
     /**
@@ -5920,7 +10889,7 @@ public final class Kdeploy {
      * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
      * </pre>
      *
-     * <code>string schedule = 7;</code>
+     * <code>string schedule = 7 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
         getScheduleBytes();
@@ -5933,6 +10902,40 @@ public final class Kdeploy {
      * <code>uint32 completions = 8;</code>
      */
     int getCompletions();
+
+    /**
+     * <code>map&lt;string, string&gt; labels = 9;</code>
+     */
+    int getLabelsCount();
+    /**
+     * <code>map&lt;string, string&gt; labels = 9;</code>
+     */
+    boolean containsLabels(
+        java.lang.String key);
+    /**
+     * Use {@link #getLabelsMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
+    getLabels();
+    /**
+     * <code>map&lt;string, string&gt; labels = 9;</code>
+     */
+    java.util.Map<java.lang.String, java.lang.String>
+    getLabelsMap();
+    /**
+     * <code>map&lt;string, string&gt; labels = 9;</code>
+     */
+
+    java.lang.String getLabelsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue);
+    /**
+     * <code>map&lt;string, string&gt; labels = 9;</code>
+     */
+
+    java.lang.String getLabelsOrThrow(
+        java.lang.String key);
   }
   /**
    * <pre>
@@ -6034,6 +11037,19 @@ public final class Kdeploy {
               completions_ = input.readUInt32();
               break;
             }
+            case 74: {
+              if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+                labels_ = com.google.protobuf.MapField.newMapField(
+                    LabelsDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000080;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              labels_.getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              break;
+            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -6068,6 +11084,8 @@ public final class Kdeploy {
       switch (number) {
         case 6:
           return internalGetEnv();
+        case 9:
+          return internalGetLabels();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -6089,7 +11107,7 @@ public final class Kdeploy {
      * name of the task
      * </pre>
      *
-     * <code>string name = 1;</code>
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -6108,7 +11126,7 @@ public final class Kdeploy {
      * name of the task
      * </pre>
      *
-     * <code>string name = 1;</code>
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -6131,7 +11149,7 @@ public final class Kdeploy {
      * task namespace
      * </pre>
      *
-     * <code>string namespace = 2;</code>
+     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getNamespace() {
       java.lang.Object ref = namespace_;
@@ -6150,7 +11168,7 @@ public final class Kdeploy {
      * task namespace
      * </pre>
      *
-     * <code>string namespace = 2;</code>
+     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
         getNamespaceBytes() {
@@ -6173,7 +11191,7 @@ public final class Kdeploy {
      * docker image of task
      * </pre>
      *
-     * <code>string image = 3;</code>
+     * <code>string image = 3 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getImage() {
       java.lang.Object ref = image_;
@@ -6192,7 +11210,7 @@ public final class Kdeploy {
      * docker image of task
      * </pre>
      *
-     * <code>string image = 3;</code>
+     * <code>string image = 3 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
         getImageBytes() {
@@ -6352,7 +11370,7 @@ public final class Kdeploy {
      * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
      * </pre>
      *
-     * <code>string schedule = 7;</code>
+     * <code>string schedule = 7 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getSchedule() {
       java.lang.Object ref = schedule_;
@@ -6371,7 +11389,7 @@ public final class Kdeploy {
      * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
      * </pre>
      *
-     * <code>string schedule = 7;</code>
+     * <code>string schedule = 7 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
         getScheduleBytes() {
@@ -6398,6 +11416,82 @@ public final class Kdeploy {
      */
     public int getCompletions() {
       return completions_;
+    }
+
+    public static final int LABELS_FIELD_NUMBER = 9;
+    private static final class LabelsDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  kdeploy.Kdeploy.internal_static_kdeploy_Task_LabelsEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> labels_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetLabels() {
+      if (labels_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            LabelsDefaultEntryHolder.defaultEntry);
+      }
+      return labels_;
+    }
+
+    public int getLabelsCount() {
+      return internalGetLabels().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 9;</code>
+     */
+
+    public boolean containsLabels(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetLabels().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getLabelsMap()} instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getLabels() {
+      return getLabelsMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 9;</code>
+     */
+
+    public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
+      return internalGetLabels().getMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 9;</code>
+     */
+
+    public java.lang.String getLabelsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetLabels().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 9;</code>
+     */
+
+    public java.lang.String getLabelsOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetLabels().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -6438,6 +11532,12 @@ public final class Kdeploy {
       if (completions_ != 0) {
         output.writeUInt32(8, completions_);
       }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetLabels(),
+          LabelsDefaultEntryHolder.defaultEntry,
+          9);
       unknownFields.writeTo(output);
     }
 
@@ -6481,6 +11581,16 @@ public final class Kdeploy {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(8, completions_);
       }
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+           : internalGetLabels().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+        labels__ = LabelsDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(9, labels__);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -6511,6 +11621,8 @@ public final class Kdeploy {
           .equals(other.getSchedule());
       result = result && (getCompletions()
           == other.getCompletions());
+      result = result && internalGetLabels().equals(
+          other.internalGetLabels());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -6540,6 +11652,10 @@ public final class Kdeploy {
       hash = (53 * hash) + getSchedule().hashCode();
       hash = (37 * hash) + COMPLETIONS_FIELD_NUMBER;
       hash = (53 * hash) + getCompletions();
+      if (!internalGetLabels().getMap().isEmpty()) {
+        hash = (37 * hash) + LABELS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetLabels().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -6657,6 +11773,8 @@ public final class Kdeploy {
         switch (number) {
           case 6:
             return internalGetEnv();
+          case 9:
+            return internalGetLabels();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -6668,6 +11786,8 @@ public final class Kdeploy {
         switch (number) {
           case 6:
             return internalGetMutableEnv();
+          case 9:
+            return internalGetMutableLabels();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -6712,6 +11832,7 @@ public final class Kdeploy {
 
         completions_ = 0;
 
+        internalGetMutableLabels().clear();
         return this;
       }
 
@@ -6752,6 +11873,8 @@ public final class Kdeploy {
         result.env_.makeImmutable();
         result.schedule_ = schedule_;
         result.completions_ = completions_;
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -6832,6 +11955,8 @@ public final class Kdeploy {
         if (other.getCompletions() != 0) {
           setCompletions(other.getCompletions());
         }
+        internalGetMutableLabels().mergeFrom(
+            other.internalGetLabels());
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -6868,7 +11993,7 @@ public final class Kdeploy {
        * name of the task
        * </pre>
        *
-       * <code>string name = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -6887,7 +12012,7 @@ public final class Kdeploy {
        * name of the task
        * </pre>
        *
-       * <code>string name = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -6907,7 +12032,7 @@ public final class Kdeploy {
        * name of the task
        * </pre>
        *
-       * <code>string name = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public Builder setName(
           java.lang.String value) {
@@ -6924,7 +12049,7 @@ public final class Kdeploy {
        * name of the task
        * </pre>
        *
-       * <code>string name = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public Builder clearName() {
         
@@ -6937,7 +12062,7 @@ public final class Kdeploy {
        * name of the task
        * </pre>
        *
-       * <code>string name = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -6957,7 +12082,7 @@ public final class Kdeploy {
        * task namespace
        * </pre>
        *
-       * <code>string namespace = 2;</code>
+       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getNamespace() {
         java.lang.Object ref = namespace_;
@@ -6976,7 +12101,7 @@ public final class Kdeploy {
        * task namespace
        * </pre>
        *
-       * <code>string namespace = 2;</code>
+       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
           getNamespaceBytes() {
@@ -6996,7 +12121,7 @@ public final class Kdeploy {
        * task namespace
        * </pre>
        *
-       * <code>string namespace = 2;</code>
+       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
        */
       public Builder setNamespace(
           java.lang.String value) {
@@ -7013,7 +12138,7 @@ public final class Kdeploy {
        * task namespace
        * </pre>
        *
-       * <code>string namespace = 2;</code>
+       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
        */
       public Builder clearNamespace() {
         
@@ -7026,7 +12151,7 @@ public final class Kdeploy {
        * task namespace
        * </pre>
        *
-       * <code>string namespace = 2;</code>
+       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
        */
       public Builder setNamespaceBytes(
           com.google.protobuf.ByteString value) {
@@ -7046,7 +12171,7 @@ public final class Kdeploy {
        * docker image of task
        * </pre>
        *
-       * <code>string image = 3;</code>
+       * <code>string image = 3 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getImage() {
         java.lang.Object ref = image_;
@@ -7065,7 +12190,7 @@ public final class Kdeploy {
        * docker image of task
        * </pre>
        *
-       * <code>string image = 3;</code>
+       * <code>string image = 3 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
           getImageBytes() {
@@ -7085,7 +12210,7 @@ public final class Kdeploy {
        * docker image of task
        * </pre>
        *
-       * <code>string image = 3;</code>
+       * <code>string image = 3 [(.validator.field) = { ... }</code>
        */
       public Builder setImage(
           java.lang.String value) {
@@ -7102,7 +12227,7 @@ public final class Kdeploy {
        * docker image of task
        * </pre>
        *
-       * <code>string image = 3;</code>
+       * <code>string image = 3 [(.validator.field) = { ... }</code>
        */
       public Builder clearImage() {
         
@@ -7115,7 +12240,7 @@ public final class Kdeploy {
        * docker image of task
        * </pre>
        *
-       * <code>string image = 3;</code>
+       * <code>string image = 3 [(.validator.field) = { ... }</code>
        */
       public Builder setImageBytes(
           com.google.protobuf.ByteString value) {
@@ -7416,7 +12541,7 @@ public final class Kdeploy {
        * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
        * </pre>
        *
-       * <code>string schedule = 7;</code>
+       * <code>string schedule = 7 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getSchedule() {
         java.lang.Object ref = schedule_;
@@ -7435,7 +12560,7 @@ public final class Kdeploy {
        * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
        * </pre>
        *
-       * <code>string schedule = 7;</code>
+       * <code>string schedule = 7 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
           getScheduleBytes() {
@@ -7455,7 +12580,7 @@ public final class Kdeploy {
        * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
        * </pre>
        *
-       * <code>string schedule = 7;</code>
+       * <code>string schedule = 7 [(.validator.field) = { ... }</code>
        */
       public Builder setSchedule(
           java.lang.String value) {
@@ -7472,7 +12597,7 @@ public final class Kdeploy {
        * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
        * </pre>
        *
-       * <code>string schedule = 7;</code>
+       * <code>string schedule = 7 [(.validator.field) = { ... }</code>
        */
       public Builder clearSchedule() {
         
@@ -7485,7 +12610,7 @@ public final class Kdeploy {
        * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
        * </pre>
        *
-       * <code>string schedule = 7;</code>
+       * <code>string schedule = 7 [(.validator.field) = { ... }</code>
        */
       public Builder setScheduleBytes(
           com.google.protobuf.ByteString value) {
@@ -7534,6 +12659,129 @@ public final class Kdeploy {
         
         completions_ = 0;
         onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.String> labels_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetLabels() {
+        if (labels_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              LabelsDefaultEntryHolder.defaultEntry);
+        }
+        return labels_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableLabels() {
+        onChanged();;
+        if (labels_ == null) {
+          labels_ = com.google.protobuf.MapField.newMapField(
+              LabelsDefaultEntryHolder.defaultEntry);
+        }
+        if (!labels_.isMutable()) {
+          labels_ = labels_.copy();
+        }
+        return labels_;
+      }
+
+      public int getLabelsCount() {
+        return internalGetLabels().getMap().size();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9;</code>
+       */
+
+      public boolean containsLabels(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        return internalGetLabels().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getLabelsMap()} instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getLabels() {
+        return getLabelsMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9;</code>
+       */
+
+      public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
+        return internalGetLabels().getMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9;</code>
+       */
+
+      public java.lang.String getLabelsOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetLabels().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9;</code>
+       */
+
+      public java.lang.String getLabelsOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetLabels().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearLabels() {
+        internalGetMutableLabels().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9;</code>
+       */
+
+      public Builder removeLabels(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableLabels().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
+      getMutableLabels() {
+        return internalGetMutableLabels().getMutableMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9;</code>
+       */
+      public Builder putLabels(
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableLabels().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9;</code>
+       */
+
+      public Builder putAllLabels(
+          java.util.Map<java.lang.String, java.lang.String> values) {
+        internalGetMutableLabels().getMutableMap()
+            .putAll(values);
         return this;
       }
       @java.lang.Override
@@ -7762,6 +13010,40 @@ public final class Kdeploy {
      * <code>uint32 completions = 8;</code>
      */
     int getCompletions();
+
+    /**
+     * <code>map&lt;string, string&gt; labels = 9;</code>
+     */
+    int getLabelsCount();
+    /**
+     * <code>map&lt;string, string&gt; labels = 9;</code>
+     */
+    boolean containsLabels(
+        java.lang.String key);
+    /**
+     * Use {@link #getLabelsMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
+    getLabels();
+    /**
+     * <code>map&lt;string, string&gt; labels = 9;</code>
+     */
+    java.util.Map<java.lang.String, java.lang.String>
+    getLabelsMap();
+    /**
+     * <code>map&lt;string, string&gt; labels = 9;</code>
+     */
+
+    java.lang.String getLabelsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue);
+    /**
+     * <code>map&lt;string, string&gt; labels = 9;</code>
+     */
+
+    java.lang.String getLabelsOrThrow(
+        java.lang.String key);
   }
   /**
    * <pre>
@@ -7863,6 +13145,19 @@ public final class Kdeploy {
               completions_ = input.readUInt32();
               break;
             }
+            case 74: {
+              if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+                labels_ = com.google.protobuf.MapField.newMapField(
+                    LabelsDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000080;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              labels_.getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              break;
+            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -7897,6 +13192,8 @@ public final class Kdeploy {
       switch (number) {
         case 6:
           return internalGetEnv();
+        case 9:
+          return internalGetLabels();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -8229,6 +13526,82 @@ public final class Kdeploy {
       return completions_;
     }
 
+    public static final int LABELS_FIELD_NUMBER = 9;
+    private static final class LabelsDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  kdeploy.Kdeploy.internal_static_kdeploy_TaskInput_LabelsEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> labels_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetLabels() {
+      if (labels_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            LabelsDefaultEntryHolder.defaultEntry);
+      }
+      return labels_;
+    }
+
+    public int getLabelsCount() {
+      return internalGetLabels().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 9;</code>
+     */
+
+    public boolean containsLabels(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetLabels().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getLabelsMap()} instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getLabels() {
+      return getLabelsMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 9;</code>
+     */
+
+    public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
+      return internalGetLabels().getMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 9;</code>
+     */
+
+    public java.lang.String getLabelsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetLabels().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 9;</code>
+     */
+
+    public java.lang.String getLabelsOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetLabels().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -8267,6 +13640,12 @@ public final class Kdeploy {
       if (completions_ != 0) {
         output.writeUInt32(8, completions_);
       }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetLabels(),
+          LabelsDefaultEntryHolder.defaultEntry,
+          9);
       unknownFields.writeTo(output);
     }
 
@@ -8310,6 +13689,16 @@ public final class Kdeploy {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(8, completions_);
       }
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+           : internalGetLabels().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+        labels__ = LabelsDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(9, labels__);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -8340,6 +13729,8 @@ public final class Kdeploy {
           .equals(other.getSchedule());
       result = result && (getCompletions()
           == other.getCompletions());
+      result = result && internalGetLabels().equals(
+          other.internalGetLabels());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -8369,6 +13760,10 @@ public final class Kdeploy {
       hash = (53 * hash) + getSchedule().hashCode();
       hash = (37 * hash) + COMPLETIONS_FIELD_NUMBER;
       hash = (53 * hash) + getCompletions();
+      if (!internalGetLabels().getMap().isEmpty()) {
+        hash = (37 * hash) + LABELS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetLabels().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -8486,6 +13881,8 @@ public final class Kdeploy {
         switch (number) {
           case 6:
             return internalGetEnv();
+          case 9:
+            return internalGetLabels();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -8497,6 +13894,8 @@ public final class Kdeploy {
         switch (number) {
           case 6:
             return internalGetMutableEnv();
+          case 9:
+            return internalGetMutableLabels();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -8541,6 +13940,7 @@ public final class Kdeploy {
 
         completions_ = 0;
 
+        internalGetMutableLabels().clear();
         return this;
       }
 
@@ -8581,6 +13981,8 @@ public final class Kdeploy {
         result.env_.makeImmutable();
         result.schedule_ = schedule_;
         result.completions_ = completions_;
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -8661,6 +14063,8 @@ public final class Kdeploy {
         if (other.getCompletions() != 0) {
           setCompletions(other.getCompletions());
         }
+        internalGetMutableLabels().mergeFrom(
+            other.internalGetLabels());
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -9365,6 +14769,129 @@ public final class Kdeploy {
         onChanged();
         return this;
       }
+
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.String> labels_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetLabels() {
+        if (labels_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              LabelsDefaultEntryHolder.defaultEntry);
+        }
+        return labels_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableLabels() {
+        onChanged();;
+        if (labels_ == null) {
+          labels_ = com.google.protobuf.MapField.newMapField(
+              LabelsDefaultEntryHolder.defaultEntry);
+        }
+        if (!labels_.isMutable()) {
+          labels_ = labels_.copy();
+        }
+        return labels_;
+      }
+
+      public int getLabelsCount() {
+        return internalGetLabels().getMap().size();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9;</code>
+       */
+
+      public boolean containsLabels(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        return internalGetLabels().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getLabelsMap()} instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getLabels() {
+        return getLabelsMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9;</code>
+       */
+
+      public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
+        return internalGetLabels().getMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9;</code>
+       */
+
+      public java.lang.String getLabelsOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetLabels().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9;</code>
+       */
+
+      public java.lang.String getLabelsOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetLabels().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearLabels() {
+        internalGetMutableLabels().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9;</code>
+       */
+
+      public Builder removeLabels(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableLabels().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
+      getMutableLabels() {
+        return internalGetMutableLabels().getMutableMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9;</code>
+       */
+      public Builder putLabels(
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableLabels().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 9;</code>
+       */
+
+      public Builder putAllLabels(
+          java.util.Map<java.lang.String, java.lang.String> values) {
+        internalGetMutableLabels().getMutableMap()
+            .putAll(values);
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -9640,6 +15167,40 @@ public final class Kdeploy {
      * <code>.kdeploy.Networking networking = 9 [(.validator.field) = { ... }</code>
      */
     kdeploy.Kdeploy.NetworkingOrBuilder getNetworkingOrBuilder();
+
+    /**
+     * <code>map&lt;string, string&gt; labels = 10;</code>
+     */
+    int getLabelsCount();
+    /**
+     * <code>map&lt;string, string&gt; labels = 10;</code>
+     */
+    boolean containsLabels(
+        java.lang.String key);
+    /**
+     * Use {@link #getLabelsMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
+    getLabels();
+    /**
+     * <code>map&lt;string, string&gt; labels = 10;</code>
+     */
+    java.util.Map<java.lang.String, java.lang.String>
+    getLabelsMap();
+    /**
+     * <code>map&lt;string, string&gt; labels = 10;</code>
+     */
+
+    java.lang.String getLabelsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue);
+    /**
+     * <code>map&lt;string, string&gt; labels = 10;</code>
+     */
+
+    java.lang.String getLabelsOrThrow(
+        java.lang.String key);
   }
   /**
    * <pre>
@@ -9760,6 +15321,19 @@ public final class Kdeploy {
 
               break;
             }
+            case 82: {
+              if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
+                labels_ = com.google.protobuf.MapField.newMapField(
+                    LabelsDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000100;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              labels_.getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              break;
+            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -9796,6 +15370,8 @@ public final class Kdeploy {
           return internalGetEnv();
         case 6:
           return internalGetPorts();
+        case 10:
+          return internalGetLabels();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -10199,6 +15775,82 @@ public final class Kdeploy {
       return getNetworking();
     }
 
+    public static final int LABELS_FIELD_NUMBER = 10;
+    private static final class LabelsDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  kdeploy.Kdeploy.internal_static_kdeploy_AppInput_LabelsEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> labels_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetLabels() {
+      if (labels_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            LabelsDefaultEntryHolder.defaultEntry);
+      }
+      return labels_;
+    }
+
+    public int getLabelsCount() {
+      return internalGetLabels().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 10;</code>
+     */
+
+    public boolean containsLabels(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetLabels().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getLabelsMap()} instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getLabels() {
+      return getLabelsMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 10;</code>
+     */
+
+    public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
+      return internalGetLabels().getMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 10;</code>
+     */
+
+    public java.lang.String getLabelsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetLabels().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 10;</code>
+     */
+
+    public java.lang.String getLabelsOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetLabels().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -10243,6 +15895,12 @@ public final class Kdeploy {
       if (networking_ != null) {
         output.writeMessage(9, getNetworking());
       }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetLabels(),
+          LabelsDefaultEntryHolder.defaultEntry,
+          10);
       unknownFields.writeTo(output);
     }
 
@@ -10297,6 +15955,16 @@ public final class Kdeploy {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(9, getNetworking());
       }
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+           : internalGetLabels().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+        labels__ = LabelsDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(10, labels__);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -10332,6 +16000,8 @@ public final class Kdeploy {
         result = result && getNetworking()
             .equals(other.getNetworking());
       }
+      result = result && internalGetLabels().equals(
+          other.internalGetLabels());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -10366,6 +16036,10 @@ public final class Kdeploy {
       if (hasNetworking()) {
         hash = (37 * hash) + NETWORKING_FIELD_NUMBER;
         hash = (53 * hash) + getNetworking().hashCode();
+      }
+      if (!internalGetLabels().getMap().isEmpty()) {
+        hash = (37 * hash) + LABELS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetLabels().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -10486,6 +16160,8 @@ public final class Kdeploy {
             return internalGetEnv();
           case 6:
             return internalGetPorts();
+          case 10:
+            return internalGetLabels();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -10499,6 +16175,8 @@ public final class Kdeploy {
             return internalGetMutableEnv();
           case 6:
             return internalGetMutablePorts();
+          case 10:
+            return internalGetMutableLabels();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -10548,6 +16226,7 @@ public final class Kdeploy {
           networking_ = null;
           networkingBuilder_ = null;
         }
+        internalGetMutableLabels().clear();
         return this;
       }
 
@@ -10594,6 +16273,8 @@ public final class Kdeploy {
         } else {
           result.networking_ = networkingBuilder_.build();
         }
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -10675,6 +16356,8 @@ public final class Kdeploy {
         if (other.hasNetworking()) {
           mergeNetworking(other.getNetworking());
         }
+        internalGetMutableLabels().mergeFrom(
+            other.internalGetLabels());
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -11557,6 +17240,129 @@ public final class Kdeploy {
           networking_ = null;
         }
         return networkingBuilder_;
+      }
+
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.String> labels_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetLabels() {
+        if (labels_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              LabelsDefaultEntryHolder.defaultEntry);
+        }
+        return labels_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableLabels() {
+        onChanged();;
+        if (labels_ == null) {
+          labels_ = com.google.protobuf.MapField.newMapField(
+              LabelsDefaultEntryHolder.defaultEntry);
+        }
+        if (!labels_.isMutable()) {
+          labels_ = labels_.copy();
+        }
+        return labels_;
+      }
+
+      public int getLabelsCount() {
+        return internalGetLabels().getMap().size();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 10;</code>
+       */
+
+      public boolean containsLabels(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        return internalGetLabels().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getLabelsMap()} instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getLabels() {
+        return getLabelsMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 10;</code>
+       */
+
+      public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
+        return internalGetLabels().getMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 10;</code>
+       */
+
+      public java.lang.String getLabelsOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetLabels().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 10;</code>
+       */
+
+      public java.lang.String getLabelsOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetLabels().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearLabels() {
+        internalGetMutableLabels().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 10;</code>
+       */
+
+      public Builder removeLabels(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableLabels().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
+      getMutableLabels() {
+        return internalGetMutableLabels().getMutableMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 10;</code>
+       */
+      public Builder putLabels(
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableLabels().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 10;</code>
+       */
+
+      public Builder putAllLabels(
+          java.util.Map<java.lang.String, java.lang.String> values) {
+        internalGetMutableLabels().getMutableMap()
+            .putAll(values);
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -17245,6 +23051,26 @@ public final class Kdeploy {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_kdeploy_ServerTLSSettings_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_kdeploy_ServerTLSSettings_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_kdeploy_GatewayListener_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_kdeploy_GatewayListener_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_kdeploy_Gateway_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_kdeploy_Gateway_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_kdeploy_Gateway_LabelsEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_kdeploy_Gateway_LabelsEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_kdeploy_HTTPRoute_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -17270,6 +23096,11 @@ public final class Kdeploy {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_kdeploy_App_PortsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_kdeploy_App_LabelsEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_kdeploy_App_LabelsEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_kdeploy_Task_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -17280,6 +23111,11 @@ public final class Kdeploy {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_kdeploy_Task_EnvEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_kdeploy_Task_LabelsEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_kdeploy_Task_LabelsEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_kdeploy_TaskInput_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -17289,6 +23125,11 @@ public final class Kdeploy {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_kdeploy_TaskInput_EnvEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_kdeploy_TaskInput_LabelsEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_kdeploy_TaskInput_LabelsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_kdeploy_AppInput_descriptor;
   private static final 
@@ -17304,6 +23145,11 @@ public final class Kdeploy {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_kdeploy_AppInput_PortsEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_kdeploy_AppInput_LabelsEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_kdeploy_AppInput_LabelsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_kdeploy_Ref_descriptor;
   private static final 
@@ -17358,70 +23204,106 @@ public final class Kdeploy {
       "p.proto\032\031google/protobuf/any.proto\032\033goog" +
       "le/protobuf/empty.proto\0326github.com/mwit" +
       "kow/go-proto-validators/validator.proto\"" +
-      "\311\001\n\tHTTPRoute\022\014\n\004name\030\001 \001(\t\022\014\n\004port\030\002 \001(" +
-      "\r\022\023\n\013path_prefix\030\003 \001(\t\022\023\n\013rewrite_uri\030\004 " +
-      "\001(\t\022\025\n\rallow_origins\030\005 \003(\t\022\025\n\rallow_meth" +
-      "ods\030\006 \003(\t\022\025\n\rallow_headers\030\007 \003(\t\022\026\n\016expo" +
-      "se_headers\030\010 \003(\t\022\031\n\021allow_credentials\030\t " +
-      "\001(\010\"f\n\nNetworking\022\020\n\010gateways\030\001 \003(\t\022\r\n\005h" +
-      "osts\030\002 \003(\t\022\016\n\006export\030\003 \001(\010\022\'\n\013http_route" +
-      "s\030\004 \003(\0132\022.kdeploy.HTTPRoute\"\310\002\n\003App\022\014\n\004n" +
-      "ame\030\001 \001(\t\022\021\n\tnamespace\030\002 \001(\t\022\r\n\005image\030\003 " +
-      "\001(\t\022\014\n\004args\030\005 \003(\t\022\"\n\003env\030\006 \003(\0132\025.kdeploy" +
-      ".App.EnvEntry\022&\n\005ports\030\007 \003(\0132\027.kdeploy.A" +
-      "pp.PortsEntry\022\020\n\010replicas\030\010 \001(\r\022\'\n\nnetwo" +
-      "rking\030\t \001(\0132\023.kdeploy.Networking\022\"\n\006stat" +
-      "us\030\024 \001(\0132\022.kdeploy.AppStatus\032*\n\010EnvEntry" +
-      "\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032,\n\nPort" +
-      "sEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\"\274" +
-      "\001\n\004Task\022\014\n\004name\030\001 \001(\t\022\021\n\tnamespace\030\002 \001(\t" +
-      "\022\r\n\005image\030\003 \001(\t\022\014\n\004args\030\005 \003(\t\022#\n\003env\030\006 \003" +
-      "(\0132\026.kdeploy.Task.EnvEntry\022\020\n\010schedule\030\007" +
-      " \001(\t\022\023\n\013completions\030\010 \001(\r\032*\n\010EnvEntry\022\013\n" +
-      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\216\002\n\tTaskIn" +
-      "put\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022#\n\tn" +
+      "\242\002\n\021ServerTLSSettings\022\026\n\016https_redirect\030" +
+      "\001 \001(\010\022\036\n\004mode\030\002 \001(\0162\020.kdeploy.TLSmode\022\032\n" +
+      "\022server_certificate\030\003 \001(\t\022\023\n\013private_key" +
+      "\030\004 \001(\t\022\027\n\017ca_certificates\030\005 \001(\t\022\027\n\017crede" +
+      "ntial_name\030\n \001(\t\022\031\n\021subject_alt_names\030\006 " +
+      "\003(\t\022\037\n\027verify_certificate_spki\030\013 \003(\t\022\037\n\027" +
+      "verify_certificate_hash\030\014 \003(\t\022\025\n\rcipher_" +
+      "suites\030\t \003(\t\"\273\001\n\017GatewayListener\022\024\n\004port" +
+      "\030\001 \001(\rB\006\342\337\037\002\020\000\022\036\n\004name\030\002 \001(\tB\020\342\337\037\014\n\n^.{1" +
+      ",225}$\022+\n\010protocol\030\003 \001(\0162\021.kdeploy.Proto" +
+      "colB\006\342\337\037\002\020\000\022\025\n\005hosts\030\004 \003(\tB\006\342\337\037\002`\000\022.\n\ntl" +
+      "s_config\030\005 \001(\0132\032.kdeploy.ServerTLSSettin" +
+      "gs\"\330\001\n\007Gateway\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1" +
+      ",225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,22" +
+      "5}$\022+\n\tlisteners\030\003 \003(\0132\030.kdeploy.Gateway" +
+      "Listener\022,\n\006labels\030\004 \003(\0132\034.kdeploy.Gatew" +
+      "ay.LabelsEntry\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001" +
+      "(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\343\001\n\tHTTPRoute\022\036\n\004n" +
+      "ame\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\024\n\004port\030\002 \001(" +
+      "\rB\006\342\337\037\002\020\000\022\023\n\013path_prefix\030\003 \001(\t\022\023\n\013rewrit" +
+      "e_uri\030\004 \001(\t\022\025\n\rallow_origins\030\005 \003(\t\022\025\n\ral" +
+      "low_methods\030\006 \003(\t\022\025\n\rallow_headers\030\007 \003(\t" +
+      "\022\026\n\016expose_headers\030\010 \003(\t\022\031\n\021allow_creden" +
+      "tials\030\t \001(\010\"f\n\nNetworking\022\020\n\010gateways\030\001 " +
+      "\003(\t\022\r\n\005hosts\030\002 \003(\t\022\016\n\006export\030\003 \001(\010\022\'\n\013ht" +
+      "tp_routes\030\004 \003(\0132\022.kdeploy.HTTPRoute\"\357\003\n\003" +
+      "App\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022#\n\tn" +
       "amespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\037\n\005imag" +
       "e\030\003 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\014\n\004args\030\005 \003(\t\022" +
-      "(\n\003env\030\006 \003(\0132\033.kdeploy.TaskInput.EnvEntr" +
-      "y\022\"\n\010schedule\030\007 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\023\n" +
-      "\013completions\030\010 \001(\r\032*\n\010EnvEntry\022\013\n\003key\030\001 " +
-      "\001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\371\002\n\010AppInput\022\036\n\004n" +
-      "ame\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022#\n\tnamespace" +
-      "\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\037\n\005image\030\003 \001(\tB" +
-      "\020\342\337\037\014\n\n^.{1,225}$\022\014\n\004args\030\004 \003(\t\022\'\n\003env\030\005" +
-      " \003(\0132\032.kdeploy.AppInput.EnvEntry\0223\n\005port" +
-      "s\030\006 \003(\0132\034.kdeploy.AppInput.PortsEntryB\006\342" +
-      "\337\037\002 \001\022\020\n\010replicas\030\007 \001(\r\022/\n\nnetworking\030\t " +
-      "\001(\0132\023.kdeploy.NetworkingB\006\342\337\037\002 \001\032*\n\010EnvE" +
-      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032,\n\n" +
-      "PortsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\002" +
-      "8\001\"J\n\003Ref\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}" +
-      "$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\";" +
-      "\n\007Replica\022\r\n\005phase\030\001 \001(\t\022\021\n\tcondition\030\002 " +
-      "\001(\t\022\016\n\006reason\030\003 \001(\t\"/\n\tAppStatus\022\"\n\010repl" +
-      "icas\030\001 \003(\0132\020.kdeploy.Replica\"\026\n\003Log\022\017\n\007m" +
-      "essage\030\001 \001(\t\"*\n\004Apps\022\"\n\014applications\030\001 \003" +
-      "(\0132\014.kdeploy.App\"%\n\005Tasks\022\034\n\005tasks\030\001 \003(\013" +
-      "2\r.kdeploy.Task\"\036\n\tNamespace\022\021\n\tnamespac" +
-      "e\030\001 \001(\t\" \n\nNamespaces\022\022\n\nnamespaces\030\001 \003(" +
-      "\t2\241\005\n\016KdeployService\022.\n\tCreateApp\022\021.kdep" +
-      "loy.AppInput\032\014.kdeploy.App\"\000\022.\n\tUpdateAp" +
-      "p\022\021.kdeploy.AppInput\032\014.kdeploy.App\"\000\0223\n\t" +
-      "DeleteApp\022\014.kdeploy.Ref\032\026.google.protobu" +
-      "f.Empty\"\000\022&\n\006GetApp\022\014.kdeploy.Ref\032\014.kdep" +
-      "loy.App\"\000\022/\n\010ListApps\022\022.kdeploy.Namespac" +
-      "e\032\r.kdeploy.Apps\"\000\022?\n\016ListNamespaces\022\026.g" +
-      "oogle.protobuf.Empty\032\023.kdeploy.Namespace" +
-      "s\"\000\0229\n\tDeleteAll\022\022.kdeploy.Namespace\032\026.g" +
-      "oogle.protobuf.Empty\"\000\0221\n\nCreateTask\022\022.k" +
-      "deploy.TaskInput\032\r.kdeploy.Task\"\000\0221\n\nUpd" +
-      "ateTask\022\022.kdeploy.TaskInput\032\r.kdeploy.Ta" +
-      "sk\"\000\0224\n\nDeleteTask\022\014.kdeploy.Ref\032\026.googl" +
-      "e.protobuf.Empty\"\000\022(\n\007GetTask\022\014.kdeploy." +
-      "Ref\032\r.kdeploy.Task\"\000\0221\n\tListTasks\022\022.kdep" +
-      "loy.Namespace\032\016.kdeploy.Tasks\"\000\022,\n\nStrea" +
-      "mLogs\022\014.kdeploy.Ref\032\014.kdeploy.Log\"\0000\001B\013Z" +
-      "\tkdeploypbb\006proto3"
+      "\"\n\003env\030\006 \003(\0132\025.kdeploy.App.EnvEntry\022.\n\005p" +
+      "orts\030\007 \003(\0132\027.kdeploy.App.PortsEntryB\006\342\337\037" +
+      "\002 \001\022\020\n\010replicas\030\010 \001(\r\022(\n\006labels\030\t \003(\0132\030." +
+      "kdeploy.App.LabelsEntry\022/\n\nnetworking\030\n " +
+      "\001(\0132\023.kdeploy.NetworkingB\006\342\337\037\002 \001\022*\n\006stat" +
+      "us\030\024 \001(\0132\022.kdeploy.AppStatusB\006\342\337\037\002 \001\032*\n\010" +
+      "EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001" +
+      "\032,\n\nPortsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001" +
+      "(\r:\0028\001\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
+      "lue\030\002 \001(\t:\0028\001\"\336\002\n\004Task\022\036\n\004name\030\001 \001(\tB\020\342\337" +
+      "\037\014\n\n^.{1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n" +
+      "\n^.{1,225}$\022\037\n\005image\030\003 \001(\tB\020\342\337\037\014\n\n^.{1,2" +
+      "25}$\022\014\n\004args\030\005 \003(\t\022#\n\003env\030\006 \003(\0132\026.kdeplo" +
+      "y.Task.EnvEntry\022\"\n\010schedule\030\007 \001(\tB\020\342\337\037\014\n" +
+      "\n^.{1,225}$\022\023\n\013completions\030\010 \001(\r\022)\n\006labe" +
+      "ls\030\t \003(\0132\031.kdeploy.Task.LabelsEntry\032*\n\010E" +
+      "nvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032" +
+      "-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001" +
+      "(\t:\0028\001\"\355\002\n\tTaskInput\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014" +
+      "\n\n^.{1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^" +
+      ".{1,225}$\022\037\n\005image\030\003 \001(\tB\020\342\337\037\014\n\n^.{1,225" +
+      "}$\022\014\n\004args\030\005 \003(\t\022(\n\003env\030\006 \003(\0132\033.kdeploy." +
+      "TaskInput.EnvEntry\022\"\n\010schedule\030\007 \001(\tB\020\342\337" +
+      "\037\014\n\n^.{1,225}$\022\023\n\013completions\030\010 \001(\r\022.\n\006l" +
+      "abels\030\t \003(\0132\036.kdeploy.TaskInput.LabelsEn" +
+      "try\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 " +
+      "\001(\t:\0028\001\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005v" +
+      "alue\030\002 \001(\t:\0028\001\"\327\003\n\010AppInput\022\036\n\004name\030\001 \001(" +
+      "\tB\020\342\337\037\014\n\n^.{1,225}$\022#\n\tnamespace\030\002 \001(\tB\020" +
+      "\342\337\037\014\n\n^.{1,225}$\022\037\n\005image\030\003 \001(\tB\020\342\337\037\014\n\n^" +
+      ".{1,225}$\022\014\n\004args\030\004 \003(\t\022\'\n\003env\030\005 \003(\0132\032.k" +
+      "deploy.AppInput.EnvEntry\0223\n\005ports\030\006 \003(\0132" +
+      "\034.kdeploy.AppInput.PortsEntryB\006\342\337\037\002 \001\022\020\n" +
+      "\010replicas\030\007 \001(\r\022/\n\nnetworking\030\t \001(\0132\023.kd" +
+      "eploy.NetworkingB\006\342\337\037\002 \001\022-\n\006labels\030\n \003(\013" +
+      "2\035.kdeploy.AppInput.LabelsEntry\032*\n\010EnvEn" +
+      "try\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032,\n\nP" +
+      "ortsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\0028" +
+      "\001\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002" +
+      " \001(\t:\0028\001\"J\n\003Ref\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{" +
+      "1,225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,2" +
+      "25}$\";\n\007Replica\022\r\n\005phase\030\001 \001(\t\022\021\n\tcondit" +
+      "ion\030\002 \001(\t\022\016\n\006reason\030\003 \001(\t\"/\n\tAppStatus\022\"" +
+      "\n\010replicas\030\001 \003(\0132\020.kdeploy.Replica\"\026\n\003Lo" +
+      "g\022\017\n\007message\030\001 \001(\t\"*\n\004Apps\022\"\n\014applicatio" +
+      "ns\030\001 \003(\0132\014.kdeploy.App\"%\n\005Tasks\022\034\n\005tasks" +
+      "\030\001 \003(\0132\r.kdeploy.Task\"\036\n\tNamespace\022\021\n\tna" +
+      "mespace\030\001 \001(\t\" \n\nNamespaces\022\022\n\nnamespace" +
+      "s\030\001 \003(\t*g\n\010Protocol\022\024\n\020INVALID_PROTOCOL\020" +
+      "\000\022\010\n\004HTTP\020\001\022\t\n\005HTTPS\020\002\022\010\n\004GRPC\020\003\022\t\n\005HTTP" +
+      "2\020\004\022\t\n\005MONGO\020\005\022\007\n\003TCP\020\006\022\007\n\003TLS\020\007*Z\n\007TLSm" +
+      "ode\022\017\n\013PASSTHROUGH\020\000\022\n\n\006SIMPLE\020\001\022\n\n\006MUTU" +
+      "AL\020\002\022\024\n\020AUTO_PASSTHROUGH\020\003\022\020\n\014ISTIO_MUTU" +
+      "AL\020\0042\241\005\n\016KdeployService\022.\n\tCreateApp\022\021.k" +
+      "deploy.AppInput\032\014.kdeploy.App\"\000\022.\n\tUpdat" +
+      "eApp\022\021.kdeploy.AppInput\032\014.kdeploy.App\"\000\022" +
+      "3\n\tDeleteApp\022\014.kdeploy.Ref\032\026.google.prot" +
+      "obuf.Empty\"\000\022&\n\006GetApp\022\014.kdeploy.Ref\032\014.k" +
+      "deploy.App\"\000\022/\n\010ListApps\022\022.kdeploy.Names" +
+      "pace\032\r.kdeploy.Apps\"\000\022?\n\016ListNamespaces\022" +
+      "\026.google.protobuf.Empty\032\023.kdeploy.Namesp" +
+      "aces\"\000\0229\n\tDeleteAll\022\022.kdeploy.Namespace\032" +
+      "\026.google.protobuf.Empty\"\000\0221\n\nCreateTask\022" +
+      "\022.kdeploy.TaskInput\032\r.kdeploy.Task\"\000\0221\n\n" +
+      "UpdateTask\022\022.kdeploy.TaskInput\032\r.kdeploy" +
+      ".Task\"\000\0224\n\nDeleteTask\022\014.kdeploy.Ref\032\026.go" +
+      "ogle.protobuf.Empty\"\000\022(\n\007GetTask\022\014.kdepl" +
+      "oy.Ref\032\r.kdeploy.Task\"\000\0221\n\tListTasks\022\022.k" +
+      "deploy.Namespace\032\016.kdeploy.Tasks\"\000\022,\n\nSt" +
+      "reamLogs\022\014.kdeploy.Ref\032\014.kdeploy.Log\"\0000\001" +
+      "B\013Z\tkdeploypbb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -17440,24 +23322,48 @@ public final class Kdeploy {
           com.google.protobuf.EmptyProto.getDescriptor(),
           validator.Validator.getDescriptor(),
         }, assigner);
-    internal_static_kdeploy_HTTPRoute_descriptor =
+    internal_static_kdeploy_ServerTLSSettings_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_kdeploy_ServerTLSSettings_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_kdeploy_ServerTLSSettings_descriptor,
+        new java.lang.String[] { "HttpsRedirect", "Mode", "ServerCertificate", "PrivateKey", "CaCertificates", "CredentialName", "SubjectAltNames", "VerifyCertificateSpki", "VerifyCertificateHash", "CipherSuites", });
+    internal_static_kdeploy_GatewayListener_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_kdeploy_GatewayListener_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_kdeploy_GatewayListener_descriptor,
+        new java.lang.String[] { "Port", "Name", "Protocol", "Hosts", "TlsConfig", });
+    internal_static_kdeploy_Gateway_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_kdeploy_Gateway_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_kdeploy_Gateway_descriptor,
+        new java.lang.String[] { "Name", "Namespace", "Listeners", "Labels", });
+    internal_static_kdeploy_Gateway_LabelsEntry_descriptor =
+      internal_static_kdeploy_Gateway_descriptor.getNestedTypes().get(0);
+    internal_static_kdeploy_Gateway_LabelsEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_kdeploy_Gateway_LabelsEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_kdeploy_HTTPRoute_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_kdeploy_HTTPRoute_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_HTTPRoute_descriptor,
         new java.lang.String[] { "Name", "Port", "PathPrefix", "RewriteUri", "AllowOrigins", "AllowMethods", "AllowHeaders", "ExposeHeaders", "AllowCredentials", });
     internal_static_kdeploy_Networking_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_kdeploy_Networking_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Networking_descriptor,
         new java.lang.String[] { "Gateways", "Hosts", "Export", "HttpRoutes", });
     internal_static_kdeploy_App_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_kdeploy_App_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_App_descriptor,
-        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", "Networking", "Status", });
+        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", "Labels", "Networking", "Status", });
     internal_static_kdeploy_App_EnvEntry_descriptor =
       internal_static_kdeploy_App_descriptor.getNestedTypes().get(0);
     internal_static_kdeploy_App_EnvEntry_fieldAccessorTable = new
@@ -17470,36 +23376,54 @@ public final class Kdeploy {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_App_PortsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
+    internal_static_kdeploy_App_LabelsEntry_descriptor =
+      internal_static_kdeploy_App_descriptor.getNestedTypes().get(2);
+    internal_static_kdeploy_App_LabelsEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_kdeploy_App_LabelsEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     internal_static_kdeploy_Task_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_kdeploy_Task_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Task_descriptor,
-        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Schedule", "Completions", });
+        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Schedule", "Completions", "Labels", });
     internal_static_kdeploy_Task_EnvEntry_descriptor =
       internal_static_kdeploy_Task_descriptor.getNestedTypes().get(0);
     internal_static_kdeploy_Task_EnvEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Task_EnvEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
+    internal_static_kdeploy_Task_LabelsEntry_descriptor =
+      internal_static_kdeploy_Task_descriptor.getNestedTypes().get(1);
+    internal_static_kdeploy_Task_LabelsEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_kdeploy_Task_LabelsEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     internal_static_kdeploy_TaskInput_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_kdeploy_TaskInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_TaskInput_descriptor,
-        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Schedule", "Completions", });
+        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Schedule", "Completions", "Labels", });
     internal_static_kdeploy_TaskInput_EnvEntry_descriptor =
       internal_static_kdeploy_TaskInput_descriptor.getNestedTypes().get(0);
     internal_static_kdeploy_TaskInput_EnvEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_TaskInput_EnvEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
+    internal_static_kdeploy_TaskInput_LabelsEntry_descriptor =
+      internal_static_kdeploy_TaskInput_descriptor.getNestedTypes().get(1);
+    internal_static_kdeploy_TaskInput_LabelsEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_kdeploy_TaskInput_LabelsEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     internal_static_kdeploy_AppInput_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_kdeploy_AppInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_AppInput_descriptor,
-        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", "Networking", });
+        new java.lang.String[] { "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", "Networking", "Labels", });
     internal_static_kdeploy_AppInput_EnvEntry_descriptor =
       internal_static_kdeploy_AppInput_descriptor.getNestedTypes().get(0);
     internal_static_kdeploy_AppInput_EnvEntry_fieldAccessorTable = new
@@ -17512,50 +23436,56 @@ public final class Kdeploy {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_AppInput_PortsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
+    internal_static_kdeploy_AppInput_LabelsEntry_descriptor =
+      internal_static_kdeploy_AppInput_descriptor.getNestedTypes().get(2);
+    internal_static_kdeploy_AppInput_LabelsEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_kdeploy_AppInput_LabelsEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     internal_static_kdeploy_Ref_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_kdeploy_Ref_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Ref_descriptor,
         new java.lang.String[] { "Name", "Namespace", });
     internal_static_kdeploy_Replica_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_kdeploy_Replica_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Replica_descriptor,
         new java.lang.String[] { "Phase", "Condition", "Reason", });
     internal_static_kdeploy_AppStatus_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_kdeploy_AppStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_AppStatus_descriptor,
         new java.lang.String[] { "Replicas", });
     internal_static_kdeploy_Log_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_kdeploy_Log_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Log_descriptor,
         new java.lang.String[] { "Message", });
     internal_static_kdeploy_Apps_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_kdeploy_Apps_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Apps_descriptor,
         new java.lang.String[] { "Applications", });
     internal_static_kdeploy_Tasks_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_kdeploy_Tasks_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Tasks_descriptor,
         new java.lang.String[] { "Tasks", });
     internal_static_kdeploy_Namespace_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_kdeploy_Namespace_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Namespace_descriptor,
         new java.lang.String[] { "Namespace", });
     internal_static_kdeploy_Namespaces_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_kdeploy_Namespaces_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_kdeploy_Namespaces_descriptor,

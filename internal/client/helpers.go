@@ -9,17 +9,31 @@ import (
 	"istio.io/api/meta/v1alpha1"
 	"istio.io/api/networking/v1alpha3"
 	networking "istio.io/client-go/pkg/apis/networking/v1alpha3"
+	pkgnv1alpha3 "istio.io/client-go/pkg/apis/networking/v1alpha3"
+	nv1alpha3 "istio.io/api/networking/v1alpha3"
 	apps "k8s.io/api/apps/v1"
 	batchv1 "k8s.io/api/batch/v1"
 	"k8s.io/api/batch/v1beta1"
 	v1 "k8s.io/api/core/v1"
 	v12 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"strings"
 )
 
 const Always = "Always"
 const OnFailure = "OnFailure"
 const RWO = "ReadWriteOnce"
+
+func gwLabels(app *kdeploypb.Gateway) map[string]string {
+	labels := map[string]string{
+		"kdeploy.gateway": app.Name,
+		"kdeploy":         "true",
+	}
+	for k, v := range app.Labels {
+		labels[k] = v
+	}
+	return labels
+}
 
 func appLabels(app *kdeploypb.AppInput) map[string]string {
 	return map[string]string{
@@ -382,6 +396,63 @@ func overwriteDeployment(deployment *apps.Deployment, app *kdeploypb.AppInput) (
 	}
 	deployment.Spec.Template.Spec.Containers = containers
 	return deployment, nil
+}
+
+func overwriteGateway(gateway *v1alpha3.Gateway, gw *kdeploypb.Gateway) *v1alpha3.Gateway {
+
+	return gateway
+}
+
+func toGateway(gateway *kdeploypb.Gateway) *pkgnv1alpha3.Gateway {
+	var servers []*nv1alpha3.Server
+	for _, l := range gateway.GetListeners() {
+		var tls *nv1alpha3.ServerTLSSettings
+		if l.TlsConfig != nil {
+			tls = &nv1alpha3.ServerTLSSettings{
+				HttpsRedirect:         l.TlsConfig.HttpsRedirect,
+				Mode:                  func() nv1alpha3.ServerTLSSettings_TLSmode {
+					switch l.TlsConfig.Mode {
+					case kdeploypb.TLSmode_SIMPLE:
+						return nv1alpha3.ServerTLSSettings_SIMPLE
+					case kdeploypb.TLSmode_AUTO_PASSTHROUGH:
+						return nv1alpha3.ServerTLSSettings_AUTO_PASSTHROUGH
+					case kdeploypb.TLSmode_PASSTHROUGH:
+						return nv1alpha3.ServerTLSSettings_PASSTHROUGH
+					case kdeploypb.TLSmode_ISTIO_MUTUAL:
+						return nv1alpha3.ServerTLSSettings_ISTIO_MUTUAL
+					case kdeploypb.TLSmode_MUTUAL:
+						return nv1alpha3.ServerTLSSettings_MUTUAL
+					default:
+						return nv1alpha3.ServerTLSSettings_SIMPLE
+					}
+				}(),
+				ServerCertificate:     l.TlsConfig.ServerCertificate,
+				PrivateKey:            l.TlsConfig.PrivateKey,
+				CaCertificates:        l.TlsConfig.CaCertificates,
+				CredentialName:        l.TlsConfig.CredentialName,
+				SubjectAltNames:       l.TlsConfig.SubjectAltNames,
+				VerifyCertificateSpki: l.TlsConfig.VerifyCertificateSpki,
+				VerifyCertificateHash: l.TlsConfig.VerifyCertificateHash,
+				MinProtocolVersion:    nv1alpha3.ServerTLSSettings_TLS_AUTO,
+				MaxProtocolVersion:    nv1alpha3.ServerTLSSettings_TLS_AUTO,
+				CipherSuites:          l.TlsConfig.CipherSuites,
+			}
+		}
+		servers = append(servers, &nv1alpha3.Server{
+			Port: &nv1alpha3.Port{
+				Number:   l.Port,
+				Protocol: l.Protocol.String(),
+				Name:     strings.ToLower(l.Protocol.String()),
+			},
+			Hosts:                l.GetHosts(),
+			Tls:                  tls,
+			Name:                 l.GetName(),
+		})
+	}
+	return &nv1alpha3.Gateway{
+		Servers:              servers,
+		Selector:             gwLabels(gateway),
+	}
 }
 
 func overwriteTask(cronJob *v1beta1.CronJob, task *kdeploypb.TaskInput) (*v1beta1.CronJob, error) {

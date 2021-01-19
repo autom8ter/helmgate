@@ -28,72 +28,107 @@ namespace Kdeploy {
             "dWN0LnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvGhln",
             "b29nbGUvcHJvdG9idWYvYW55LnByb3RvGhtnb29nbGUvcHJvdG9idWYvZW1w",
             "dHkucHJvdG8aNmdpdGh1Yi5jb20vbXdpdGtvdy9nby1wcm90by12YWxpZGF0",
-            "b3JzL3ZhbGlkYXRvci5wcm90byLJAQoJSFRUUFJvdXRlEgwKBG5hbWUYASAB",
-            "KAkSDAoEcG9ydBgCIAEoDRITCgtwYXRoX3ByZWZpeBgDIAEoCRITCgtyZXdy",
-            "aXRlX3VyaRgEIAEoCRIVCg1hbGxvd19vcmlnaW5zGAUgAygJEhUKDWFsbG93",
-            "X21ldGhvZHMYBiADKAkSFQoNYWxsb3dfaGVhZGVycxgHIAMoCRIWCg5leHBv",
-            "c2VfaGVhZGVycxgIIAMoCRIZChFhbGxvd19jcmVkZW50aWFscxgJIAEoCCJm",
-            "CgpOZXR3b3JraW5nEhAKCGdhdGV3YXlzGAEgAygJEg0KBWhvc3RzGAIgAygJ",
-            "Eg4KBmV4cG9ydBgDIAEoCBInCgtodHRwX3JvdXRlcxgEIAMoCzISLmtkZXBs",
-            "b3kuSFRUUFJvdXRlIsgCCgNBcHASDAoEbmFtZRgBIAEoCRIRCgluYW1lc3Bh",
-            "Y2UYAiABKAkSDQoFaW1hZ2UYAyABKAkSDAoEYXJncxgFIAMoCRIiCgNlbnYY",
-            "BiADKAsyFS5rZGVwbG95LkFwcC5FbnZFbnRyeRImCgVwb3J0cxgHIAMoCzIX",
-            "LmtkZXBsb3kuQXBwLlBvcnRzRW50cnkSEAoIcmVwbGljYXMYCCABKA0SJwoK",
-            "bmV0d29ya2luZxgJIAEoCzITLmtkZXBsb3kuTmV0d29ya2luZxIiCgZzdGF0",
-            "dXMYFCABKAsyEi5rZGVwbG95LkFwcFN0YXR1cxoqCghFbnZFbnRyeRILCgNr",
-            "ZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBGiwKClBvcnRzRW50cnkSCwoD",
-            "a2V5GAEgASgJEg0KBXZhbHVlGAIgASgNOgI4ASK8AQoEVGFzaxIMCgRuYW1l",
-            "GAEgASgJEhEKCW5hbWVzcGFjZRgCIAEoCRINCgVpbWFnZRgDIAEoCRIMCgRh",
-            "cmdzGAUgAygJEiMKA2VudhgGIAMoCzIWLmtkZXBsb3kuVGFzay5FbnZFbnRy",
-            "eRIQCghzY2hlZHVsZRgHIAEoCRITCgtjb21wbGV0aW9ucxgIIAEoDRoqCghF",
-            "bnZFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBIo4CCglU",
-            "YXNrSW5wdXQSHgoEbmFtZRgBIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIjCglu",
-            "YW1lc3BhY2UYAiABKAlCEOLfHwwKCl4uezEsMjI1fSQSHwoFaW1hZ2UYAyAB",
-            "KAlCEOLfHwwKCl4uezEsMjI1fSQSDAoEYXJncxgFIAMoCRIoCgNlbnYYBiAD",
-            "KAsyGy5rZGVwbG95LlRhc2tJbnB1dC5FbnZFbnRyeRIiCghzY2hlZHVsZRgH",
-            "IAEoCUIQ4t8fDAoKXi57MSwyMjV9JBITCgtjb21wbGV0aW9ucxgIIAEoDRoq",
-            "CghFbnZFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBIvkC",
-            "CghBcHBJbnB1dBIeCgRuYW1lGAEgASgJQhDi3x8MCgpeLnsxLDIyNX0kEiMK",
-            "CW5hbWVzcGFjZRgCIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIfCgVpbWFnZRgD",
-            "IAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIMCgRhcmdzGAQgAygJEicKA2VudhgF",
-            "IAMoCzIaLmtkZXBsb3kuQXBwSW5wdXQuRW52RW50cnkSMwoFcG9ydHMYBiAD",
-            "KAsyHC5rZGVwbG95LkFwcElucHV0LlBvcnRzRW50cnlCBuLfHwIgARIQCghy",
-            "ZXBsaWNhcxgHIAEoDRIvCgpuZXR3b3JraW5nGAkgASgLMhMua2RlcGxveS5O",
-            "ZXR3b3JraW5nQgbi3x8CIAEaKgoIRW52RW50cnkSCwoDa2V5GAEgASgJEg0K",
-            "BXZhbHVlGAIgASgJOgI4ARosCgpQb3J0c0VudHJ5EgsKA2tleRgBIAEoCRIN",
-            "CgV2YWx1ZRgCIAEoDToCOAEiSgoDUmVmEh4KBG5hbWUYASABKAlCEOLfHwwK",
-            "Cl4uezEsMjI1fSQSIwoJbmFtZXNwYWNlGAIgASgJQhDi3x8MCgpeLnsxLDIy",
-            "NX0kIjsKB1JlcGxpY2ESDQoFcGhhc2UYASABKAkSEQoJY29uZGl0aW9uGAIg",
-            "ASgJEg4KBnJlYXNvbhgDIAEoCSIvCglBcHBTdGF0dXMSIgoIcmVwbGljYXMY",
-            "ASADKAsyEC5rZGVwbG95LlJlcGxpY2EiFgoDTG9nEg8KB21lc3NhZ2UYASAB",
-            "KAkiKgoEQXBwcxIiCgxhcHBsaWNhdGlvbnMYASADKAsyDC5rZGVwbG95LkFw",
-            "cCIlCgVUYXNrcxIcCgV0YXNrcxgBIAMoCzINLmtkZXBsb3kuVGFzayIeCglO",
-            "YW1lc3BhY2USEQoJbmFtZXNwYWNlGAEgASgJIiAKCk5hbWVzcGFjZXMSEgoK",
-            "bmFtZXNwYWNlcxgBIAMoCTKhBQoOS2RlcGxveVNlcnZpY2USLgoJQ3JlYXRl",
-            "QXBwEhEua2RlcGxveS5BcHBJbnB1dBoMLmtkZXBsb3kuQXBwIgASLgoJVXBk",
-            "YXRlQXBwEhEua2RlcGxveS5BcHBJbnB1dBoMLmtkZXBsb3kuQXBwIgASMwoJ",
-            "RGVsZXRlQXBwEgwua2RlcGxveS5SZWYaFi5nb29nbGUucHJvdG9idWYuRW1w",
-            "dHkiABImCgZHZXRBcHASDC5rZGVwbG95LlJlZhoMLmtkZXBsb3kuQXBwIgAS",
-            "LwoITGlzdEFwcHMSEi5rZGVwbG95Lk5hbWVzcGFjZRoNLmtkZXBsb3kuQXBw",
-            "cyIAEj8KDkxpc3ROYW1lc3BhY2VzEhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5",
-            "GhMua2RlcGxveS5OYW1lc3BhY2VzIgASOQoJRGVsZXRlQWxsEhIua2RlcGxv",
-            "eS5OYW1lc3BhY2UaFi5nb29nbGUucHJvdG9idWYuRW1wdHkiABIxCgpDcmVh",
-            "dGVUYXNrEhIua2RlcGxveS5UYXNrSW5wdXQaDS5rZGVwbG95LlRhc2siABIx",
-            "CgpVcGRhdGVUYXNrEhIua2RlcGxveS5UYXNrSW5wdXQaDS5rZGVwbG95LlRh",
-            "c2siABI0CgpEZWxldGVUYXNrEgwua2RlcGxveS5SZWYaFi5nb29nbGUucHJv",
-            "dG9idWYuRW1wdHkiABIoCgdHZXRUYXNrEgwua2RlcGxveS5SZWYaDS5rZGVw",
-            "bG95LlRhc2siABIxCglMaXN0VGFza3MSEi5rZGVwbG95Lk5hbWVzcGFjZRoO",
-            "LmtkZXBsb3kuVGFza3MiABIsCgpTdHJlYW1Mb2dzEgwua2RlcGxveS5SZWYa",
-            "DC5rZGVwbG95LkxvZyIAMAFCC1oJa2RlcGxveXBiYgZwcm90bzM="));
+            "b3JzL3ZhbGlkYXRvci5wcm90byKiAgoRU2VydmVyVExTU2V0dGluZ3MSFgoO",
+            "aHR0cHNfcmVkaXJlY3QYASABKAgSHgoEbW9kZRgCIAEoDjIQLmtkZXBsb3ku",
+            "VExTbW9kZRIaChJzZXJ2ZXJfY2VydGlmaWNhdGUYAyABKAkSEwoLcHJpdmF0",
+            "ZV9rZXkYBCABKAkSFwoPY2FfY2VydGlmaWNhdGVzGAUgASgJEhcKD2NyZWRl",
+            "bnRpYWxfbmFtZRgKIAEoCRIZChFzdWJqZWN0X2FsdF9uYW1lcxgGIAMoCRIf",
+            "Chd2ZXJpZnlfY2VydGlmaWNhdGVfc3BraRgLIAMoCRIfChd2ZXJpZnlfY2Vy",
+            "dGlmaWNhdGVfaGFzaBgMIAMoCRIVCg1jaXBoZXJfc3VpdGVzGAkgAygJIrsB",
+            "Cg9HYXRld2F5TGlzdGVuZXISFAoEcG9ydBgBIAEoDUIG4t8fAhAAEh4KBG5h",
+            "bWUYAiABKAlCEOLfHwwKCl4uezEsMjI1fSQSKwoIcHJvdG9jb2wYAyABKA4y",
+            "ES5rZGVwbG95LlByb3RvY29sQgbi3x8CEAASFQoFaG9zdHMYBCADKAlCBuLf",
+            "HwJgABIuCgp0bHNfY29uZmlnGAUgASgLMhoua2RlcGxveS5TZXJ2ZXJUTFNT",
+            "ZXR0aW5ncyLYAQoHR2F0ZXdheRIeCgRuYW1lGAEgASgJQhDi3x8MCgpeLnsx",
+            "LDIyNX0kEiMKCW5hbWVzcGFjZRgCIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIr",
+            "CglsaXN0ZW5lcnMYAyADKAsyGC5rZGVwbG95LkdhdGV3YXlMaXN0ZW5lchIs",
+            "CgZsYWJlbHMYBCADKAsyHC5rZGVwbG95LkdhdGV3YXkuTGFiZWxzRW50cnka",
+            "LQoLTGFiZWxzRW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4",
+            "ASLjAQoJSFRUUFJvdXRlEh4KBG5hbWUYASABKAlCEOLfHwwKCl4uezEsMjI1",
+            "fSQSFAoEcG9ydBgCIAEoDUIG4t8fAhAAEhMKC3BhdGhfcHJlZml4GAMgASgJ",
+            "EhMKC3Jld3JpdGVfdXJpGAQgASgJEhUKDWFsbG93X29yaWdpbnMYBSADKAkS",
+            "FQoNYWxsb3dfbWV0aG9kcxgGIAMoCRIVCg1hbGxvd19oZWFkZXJzGAcgAygJ",
+            "EhYKDmV4cG9zZV9oZWFkZXJzGAggAygJEhkKEWFsbG93X2NyZWRlbnRpYWxz",
+            "GAkgASgIImYKCk5ldHdvcmtpbmcSEAoIZ2F0ZXdheXMYASADKAkSDQoFaG9z",
+            "dHMYAiADKAkSDgoGZXhwb3J0GAMgASgIEicKC2h0dHBfcm91dGVzGAQgAygL",
+            "MhIua2RlcGxveS5IVFRQUm91dGUi7wMKA0FwcBIeCgRuYW1lGAEgASgJQhDi",
+            "3x8MCgpeLnsxLDIyNX0kEiMKCW5hbWVzcGFjZRgCIAEoCUIQ4t8fDAoKXi57",
+            "MSwyMjV9JBIfCgVpbWFnZRgDIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIMCgRh",
+            "cmdzGAUgAygJEiIKA2VudhgGIAMoCzIVLmtkZXBsb3kuQXBwLkVudkVudHJ5",
+            "Ei4KBXBvcnRzGAcgAygLMhcua2RlcGxveS5BcHAuUG9ydHNFbnRyeUIG4t8f",
+            "AiABEhAKCHJlcGxpY2FzGAggASgNEigKBmxhYmVscxgJIAMoCzIYLmtkZXBs",
+            "b3kuQXBwLkxhYmVsc0VudHJ5Ei8KCm5ldHdvcmtpbmcYCiABKAsyEy5rZGVw",
+            "bG95Lk5ldHdvcmtpbmdCBuLfHwIgARIqCgZzdGF0dXMYFCABKAsyEi5rZGVw",
+            "bG95LkFwcFN0YXR1c0IG4t8fAiABGioKCEVudkVudHJ5EgsKA2tleRgBIAEo",
+            "CRINCgV2YWx1ZRgCIAEoCToCOAEaLAoKUG9ydHNFbnRyeRILCgNrZXkYASAB",
+            "KAkSDQoFdmFsdWUYAiABKA06AjgBGi0KC0xhYmVsc0VudHJ5EgsKA2tleRgB",
+            "IAEoCRINCgV2YWx1ZRgCIAEoCToCOAEi3gIKBFRhc2sSHgoEbmFtZRgBIAEo",
+            "CUIQ4t8fDAoKXi57MSwyMjV9JBIjCgluYW1lc3BhY2UYAiABKAlCEOLfHwwK",
+            "Cl4uezEsMjI1fSQSHwoFaW1hZ2UYAyABKAlCEOLfHwwKCl4uezEsMjI1fSQS",
+            "DAoEYXJncxgFIAMoCRIjCgNlbnYYBiADKAsyFi5rZGVwbG95LlRhc2suRW52",
+            "RW50cnkSIgoIc2NoZWR1bGUYByABKAlCEOLfHwwKCl4uezEsMjI1fSQSEwoL",
+            "Y29tcGxldGlvbnMYCCABKA0SKQoGbGFiZWxzGAkgAygLMhkua2RlcGxveS5U",
+            "YXNrLkxhYmVsc0VudHJ5GioKCEVudkVudHJ5EgsKA2tleRgBIAEoCRINCgV2",
+            "YWx1ZRgCIAEoCToCOAEaLQoLTGFiZWxzRW50cnkSCwoDa2V5GAEgASgJEg0K",
+            "BXZhbHVlGAIgASgJOgI4ASLtAgoJVGFza0lucHV0Eh4KBG5hbWUYASABKAlC",
+            "EOLfHwwKCl4uezEsMjI1fSQSIwoJbmFtZXNwYWNlGAIgASgJQhDi3x8MCgpe",
+            "LnsxLDIyNX0kEh8KBWltYWdlGAMgASgJQhDi3x8MCgpeLnsxLDIyNX0kEgwK",
+            "BGFyZ3MYBSADKAkSKAoDZW52GAYgAygLMhsua2RlcGxveS5UYXNrSW5wdXQu",
+            "RW52RW50cnkSIgoIc2NoZWR1bGUYByABKAlCEOLfHwwKCl4uezEsMjI1fSQS",
+            "EwoLY29tcGxldGlvbnMYCCABKA0SLgoGbGFiZWxzGAkgAygLMh4ua2RlcGxv",
+            "eS5UYXNrSW5wdXQuTGFiZWxzRW50cnkaKgoIRW52RW50cnkSCwoDa2V5GAEg",
+            "ASgJEg0KBXZhbHVlGAIgASgJOgI4ARotCgtMYWJlbHNFbnRyeRILCgNrZXkY",
+            "ASABKAkSDQoFdmFsdWUYAiABKAk6AjgBItcDCghBcHBJbnB1dBIeCgRuYW1l",
+            "GAEgASgJQhDi3x8MCgpeLnsxLDIyNX0kEiMKCW5hbWVzcGFjZRgCIAEoCUIQ",
+            "4t8fDAoKXi57MSwyMjV9JBIfCgVpbWFnZRgDIAEoCUIQ4t8fDAoKXi57MSwy",
+            "MjV9JBIMCgRhcmdzGAQgAygJEicKA2VudhgFIAMoCzIaLmtkZXBsb3kuQXBw",
+            "SW5wdXQuRW52RW50cnkSMwoFcG9ydHMYBiADKAsyHC5rZGVwbG95LkFwcElu",
+            "cHV0LlBvcnRzRW50cnlCBuLfHwIgARIQCghyZXBsaWNhcxgHIAEoDRIvCgpu",
+            "ZXR3b3JraW5nGAkgASgLMhMua2RlcGxveS5OZXR3b3JraW5nQgbi3x8CIAES",
+            "LQoGbGFiZWxzGAogAygLMh0ua2RlcGxveS5BcHBJbnB1dC5MYWJlbHNFbnRy",
+            "eRoqCghFbnZFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgB",
+            "GiwKClBvcnRzRW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgNOgI4",
+            "ARotCgtMYWJlbHNFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6",
+            "AjgBIkoKA1JlZhIeCgRuYW1lGAEgASgJQhDi3x8MCgpeLnsxLDIyNX0kEiMK",
+            "CW5hbWVzcGFjZRgCIAEoCUIQ4t8fDAoKXi57MSwyMjV9JCI7CgdSZXBsaWNh",
+            "Eg0KBXBoYXNlGAEgASgJEhEKCWNvbmRpdGlvbhgCIAEoCRIOCgZyZWFzb24Y",
+            "AyABKAkiLwoJQXBwU3RhdHVzEiIKCHJlcGxpY2FzGAEgAygLMhAua2RlcGxv",
+            "eS5SZXBsaWNhIhYKA0xvZxIPCgdtZXNzYWdlGAEgASgJIioKBEFwcHMSIgoM",
+            "YXBwbGljYXRpb25zGAEgAygLMgwua2RlcGxveS5BcHAiJQoFVGFza3MSHAoF",
+            "dGFza3MYASADKAsyDS5rZGVwbG95LlRhc2siHgoJTmFtZXNwYWNlEhEKCW5h",
+            "bWVzcGFjZRgBIAEoCSIgCgpOYW1lc3BhY2VzEhIKCm5hbWVzcGFjZXMYASAD",
+            "KAkqZwoIUHJvdG9jb2wSFAoQSU5WQUxJRF9QUk9UT0NPTBAAEggKBEhUVFAQ",
+            "ARIJCgVIVFRQUxACEggKBEdSUEMQAxIJCgVIVFRQMhAEEgkKBU1PTkdPEAUS",
+            "BwoDVENQEAYSBwoDVExTEAcqWgoHVExTbW9kZRIPCgtQQVNTVEhST1VHSBAA",
+            "EgoKBlNJTVBMRRABEgoKBk1VVFVBTBACEhQKEEFVVE9fUEFTU1RIUk9VR0gQ",
+            "AxIQCgxJU1RJT19NVVRVQUwQBDKhBQoOS2RlcGxveVNlcnZpY2USLgoJQ3Jl",
+            "YXRlQXBwEhEua2RlcGxveS5BcHBJbnB1dBoMLmtkZXBsb3kuQXBwIgASLgoJ",
+            "VXBkYXRlQXBwEhEua2RlcGxveS5BcHBJbnB1dBoMLmtkZXBsb3kuQXBwIgAS",
+            "MwoJRGVsZXRlQXBwEgwua2RlcGxveS5SZWYaFi5nb29nbGUucHJvdG9idWYu",
+            "RW1wdHkiABImCgZHZXRBcHASDC5rZGVwbG95LlJlZhoMLmtkZXBsb3kuQXBw",
+            "IgASLwoITGlzdEFwcHMSEi5rZGVwbG95Lk5hbWVzcGFjZRoNLmtkZXBsb3ku",
+            "QXBwcyIAEj8KDkxpc3ROYW1lc3BhY2VzEhYuZ29vZ2xlLnByb3RvYnVmLkVt",
+            "cHR5GhMua2RlcGxveS5OYW1lc3BhY2VzIgASOQoJRGVsZXRlQWxsEhIua2Rl",
+            "cGxveS5OYW1lc3BhY2UaFi5nb29nbGUucHJvdG9idWYuRW1wdHkiABIxCgpD",
+            "cmVhdGVUYXNrEhIua2RlcGxveS5UYXNrSW5wdXQaDS5rZGVwbG95LlRhc2si",
+            "ABIxCgpVcGRhdGVUYXNrEhIua2RlcGxveS5UYXNrSW5wdXQaDS5rZGVwbG95",
+            "LlRhc2siABI0CgpEZWxldGVUYXNrEgwua2RlcGxveS5SZWYaFi5nb29nbGUu",
+            "cHJvdG9idWYuRW1wdHkiABIoCgdHZXRUYXNrEgwua2RlcGxveS5SZWYaDS5r",
+            "ZGVwbG95LlRhc2siABIxCglMaXN0VGFza3MSEi5rZGVwbG95Lk5hbWVzcGFj",
+            "ZRoOLmtkZXBsb3kuVGFza3MiABIsCgpTdHJlYW1Mb2dzEgwua2RlcGxveS5S",
+            "ZWYaDC5rZGVwbG95LkxvZyIAMAFCC1oJa2RlcGxveXBiYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Validator.ValidatorReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Kdeploy.Protocol), typeof(global::Kdeploy.TLSmode), }, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.ServerTLSSettings), global::Kdeploy.ServerTLSSettings.Parser, new[]{ "HttpsRedirect", "Mode", "ServerCertificate", "PrivateKey", "CaCertificates", "CredentialName", "SubjectAltNames", "VerifyCertificateSpki", "VerifyCertificateHash", "CipherSuites" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.GatewayListener), global::Kdeploy.GatewayListener.Parser, new[]{ "Port", "Name", "Protocol", "Hosts", "TlsConfig" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.Gateway), global::Kdeploy.Gateway.Parser, new[]{ "Name", "Namespace", "Listeners", "Labels" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.HTTPRoute), global::Kdeploy.HTTPRoute.Parser, new[]{ "Name", "Port", "PathPrefix", "RewriteUri", "AllowOrigins", "AllowMethods", "AllowHeaders", "ExposeHeaders", "AllowCredentials" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.Networking), global::Kdeploy.Networking.Parser, new[]{ "Gateways", "Hosts", "Export", "HttpRoutes" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.App), global::Kdeploy.App.Parser, new[]{ "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", "Networking", "Status" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.Task), global::Kdeploy.Task.Parser, new[]{ "Name", "Namespace", "Image", "Args", "Env", "Schedule", "Completions" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.TaskInput), global::Kdeploy.TaskInput.Parser, new[]{ "Name", "Namespace", "Image", "Args", "Env", "Schedule", "Completions" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.AppInput), global::Kdeploy.AppInput.Parser, new[]{ "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", "Networking" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.App), global::Kdeploy.App.Parser, new[]{ "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", "Labels", "Networking", "Status" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.Task), global::Kdeploy.Task.Parser, new[]{ "Name", "Namespace", "Image", "Args", "Env", "Schedule", "Completions", "Labels" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.TaskInput), global::Kdeploy.TaskInput.Parser, new[]{ "Name", "Namespace", "Image", "Args", "Env", "Schedule", "Completions", "Labels" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.AppInput), global::Kdeploy.AppInput.Parser, new[]{ "Name", "Namespace", "Image", "Args", "Env", "Ports", "Replicas", "Networking", "Labels" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.Ref), global::Kdeploy.Ref.Parser, new[]{ "Name", "Namespace" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.Replica), global::Kdeploy.Replica.Parser, new[]{ "Phase", "Condition", "Reason" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Kdeploy.AppStatus), global::Kdeploy.AppStatus.Parser, new[]{ "Replicas" }, null, null, null),
@@ -107,7 +142,820 @@ namespace Kdeploy {
     #endregion
 
   }
+  #region Enums
+  public enum Protocol {
+    [pbr::OriginalName("INVALID_PROTOCOL")] InvalidProtocol = 0,
+    [pbr::OriginalName("HTTP")] Http = 1,
+    [pbr::OriginalName("HTTPS")] Https = 2,
+    [pbr::OriginalName("GRPC")] Grpc = 3,
+    [pbr::OriginalName("HTTP2")] Http2 = 4,
+    [pbr::OriginalName("MONGO")] Mongo = 5,
+    [pbr::OriginalName("TCP")] Tcp = 6,
+    [pbr::OriginalName("TLS")] Tls = 7,
+  }
+
+  public enum TLSmode {
+    [pbr::OriginalName("PASSTHROUGH")] Passthrough = 0,
+    [pbr::OriginalName("SIMPLE")] Simple = 1,
+    [pbr::OriginalName("MUTUAL")] Mutual = 2,
+    [pbr::OriginalName("AUTO_PASSTHROUGH")] AutoPassthrough = 3,
+    [pbr::OriginalName("ISTIO_MUTUAL")] IstioMutual = 4,
+  }
+
+  #endregion
+
   #region Messages
+  public sealed partial class ServerTLSSettings : pb::IMessage<ServerTLSSettings> {
+    private static readonly pb::MessageParser<ServerTLSSettings> _parser = new pb::MessageParser<ServerTLSSettings>(() => new ServerTLSSettings());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<ServerTLSSettings> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[0]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ServerTLSSettings() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ServerTLSSettings(ServerTLSSettings other) : this() {
+      httpsRedirect_ = other.httpsRedirect_;
+      mode_ = other.mode_;
+      serverCertificate_ = other.serverCertificate_;
+      privateKey_ = other.privateKey_;
+      caCertificates_ = other.caCertificates_;
+      credentialName_ = other.credentialName_;
+      subjectAltNames_ = other.subjectAltNames_.Clone();
+      verifyCertificateSpki_ = other.verifyCertificateSpki_.Clone();
+      verifyCertificateHash_ = other.verifyCertificateHash_.Clone();
+      cipherSuites_ = other.cipherSuites_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ServerTLSSettings Clone() {
+      return new ServerTLSSettings(this);
+    }
+
+    /// <summary>Field number for the "https_redirect" field.</summary>
+    public const int HttpsRedirectFieldNumber = 1;
+    private bool httpsRedirect_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool HttpsRedirect {
+      get { return httpsRedirect_; }
+      set {
+        httpsRedirect_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "mode" field.</summary>
+    public const int ModeFieldNumber = 2;
+    private global::Kdeploy.TLSmode mode_ = 0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Kdeploy.TLSmode Mode {
+      get { return mode_; }
+      set {
+        mode_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "server_certificate" field.</summary>
+    public const int ServerCertificateFieldNumber = 3;
+    private string serverCertificate_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ServerCertificate {
+      get { return serverCertificate_; }
+      set {
+        serverCertificate_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "private_key" field.</summary>
+    public const int PrivateKeyFieldNumber = 4;
+    private string privateKey_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string PrivateKey {
+      get { return privateKey_; }
+      set {
+        privateKey_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "ca_certificates" field.</summary>
+    public const int CaCertificatesFieldNumber = 5;
+    private string caCertificates_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string CaCertificates {
+      get { return caCertificates_; }
+      set {
+        caCertificates_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "credential_name" field.</summary>
+    public const int CredentialNameFieldNumber = 10;
+    private string credentialName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string CredentialName {
+      get { return credentialName_; }
+      set {
+        credentialName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "subject_alt_names" field.</summary>
+    public const int SubjectAltNamesFieldNumber = 6;
+    private static readonly pb::FieldCodec<string> _repeated_subjectAltNames_codec
+        = pb::FieldCodec.ForString(50);
+    private readonly pbc::RepeatedField<string> subjectAltNames_ = new pbc::RepeatedField<string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<string> SubjectAltNames {
+      get { return subjectAltNames_; }
+    }
+
+    /// <summary>Field number for the "verify_certificate_spki" field.</summary>
+    public const int VerifyCertificateSpkiFieldNumber = 11;
+    private static readonly pb::FieldCodec<string> _repeated_verifyCertificateSpki_codec
+        = pb::FieldCodec.ForString(90);
+    private readonly pbc::RepeatedField<string> verifyCertificateSpki_ = new pbc::RepeatedField<string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<string> VerifyCertificateSpki {
+      get { return verifyCertificateSpki_; }
+    }
+
+    /// <summary>Field number for the "verify_certificate_hash" field.</summary>
+    public const int VerifyCertificateHashFieldNumber = 12;
+    private static readonly pb::FieldCodec<string> _repeated_verifyCertificateHash_codec
+        = pb::FieldCodec.ForString(98);
+    private readonly pbc::RepeatedField<string> verifyCertificateHash_ = new pbc::RepeatedField<string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<string> VerifyCertificateHash {
+      get { return verifyCertificateHash_; }
+    }
+
+    /// <summary>Field number for the "cipher_suites" field.</summary>
+    public const int CipherSuitesFieldNumber = 9;
+    private static readonly pb::FieldCodec<string> _repeated_cipherSuites_codec
+        = pb::FieldCodec.ForString(74);
+    private readonly pbc::RepeatedField<string> cipherSuites_ = new pbc::RepeatedField<string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<string> CipherSuites {
+      get { return cipherSuites_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as ServerTLSSettings);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(ServerTLSSettings other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (HttpsRedirect != other.HttpsRedirect) return false;
+      if (Mode != other.Mode) return false;
+      if (ServerCertificate != other.ServerCertificate) return false;
+      if (PrivateKey != other.PrivateKey) return false;
+      if (CaCertificates != other.CaCertificates) return false;
+      if (CredentialName != other.CredentialName) return false;
+      if(!subjectAltNames_.Equals(other.subjectAltNames_)) return false;
+      if(!verifyCertificateSpki_.Equals(other.verifyCertificateSpki_)) return false;
+      if(!verifyCertificateHash_.Equals(other.verifyCertificateHash_)) return false;
+      if(!cipherSuites_.Equals(other.cipherSuites_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (HttpsRedirect != false) hash ^= HttpsRedirect.GetHashCode();
+      if (Mode != 0) hash ^= Mode.GetHashCode();
+      if (ServerCertificate.Length != 0) hash ^= ServerCertificate.GetHashCode();
+      if (PrivateKey.Length != 0) hash ^= PrivateKey.GetHashCode();
+      if (CaCertificates.Length != 0) hash ^= CaCertificates.GetHashCode();
+      if (CredentialName.Length != 0) hash ^= CredentialName.GetHashCode();
+      hash ^= subjectAltNames_.GetHashCode();
+      hash ^= verifyCertificateSpki_.GetHashCode();
+      hash ^= verifyCertificateHash_.GetHashCode();
+      hash ^= cipherSuites_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (HttpsRedirect != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(HttpsRedirect);
+      }
+      if (Mode != 0) {
+        output.WriteRawTag(16);
+        output.WriteEnum((int) Mode);
+      }
+      if (ServerCertificate.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(ServerCertificate);
+      }
+      if (PrivateKey.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(PrivateKey);
+      }
+      if (CaCertificates.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(CaCertificates);
+      }
+      subjectAltNames_.WriteTo(output, _repeated_subjectAltNames_codec);
+      cipherSuites_.WriteTo(output, _repeated_cipherSuites_codec);
+      if (CredentialName.Length != 0) {
+        output.WriteRawTag(82);
+        output.WriteString(CredentialName);
+      }
+      verifyCertificateSpki_.WriteTo(output, _repeated_verifyCertificateSpki_codec);
+      verifyCertificateHash_.WriteTo(output, _repeated_verifyCertificateHash_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (HttpsRedirect != false) {
+        size += 1 + 1;
+      }
+      if (Mode != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Mode);
+      }
+      if (ServerCertificate.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ServerCertificate);
+      }
+      if (PrivateKey.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(PrivateKey);
+      }
+      if (CaCertificates.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(CaCertificates);
+      }
+      if (CredentialName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(CredentialName);
+      }
+      size += subjectAltNames_.CalculateSize(_repeated_subjectAltNames_codec);
+      size += verifyCertificateSpki_.CalculateSize(_repeated_verifyCertificateSpki_codec);
+      size += verifyCertificateHash_.CalculateSize(_repeated_verifyCertificateHash_codec);
+      size += cipherSuites_.CalculateSize(_repeated_cipherSuites_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(ServerTLSSettings other) {
+      if (other == null) {
+        return;
+      }
+      if (other.HttpsRedirect != false) {
+        HttpsRedirect = other.HttpsRedirect;
+      }
+      if (other.Mode != 0) {
+        Mode = other.Mode;
+      }
+      if (other.ServerCertificate.Length != 0) {
+        ServerCertificate = other.ServerCertificate;
+      }
+      if (other.PrivateKey.Length != 0) {
+        PrivateKey = other.PrivateKey;
+      }
+      if (other.CaCertificates.Length != 0) {
+        CaCertificates = other.CaCertificates;
+      }
+      if (other.CredentialName.Length != 0) {
+        CredentialName = other.CredentialName;
+      }
+      subjectAltNames_.Add(other.subjectAltNames_);
+      verifyCertificateSpki_.Add(other.verifyCertificateSpki_);
+      verifyCertificateHash_.Add(other.verifyCertificateHash_);
+      cipherSuites_.Add(other.cipherSuites_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            HttpsRedirect = input.ReadBool();
+            break;
+          }
+          case 16: {
+            mode_ = (global::Kdeploy.TLSmode) input.ReadEnum();
+            break;
+          }
+          case 26: {
+            ServerCertificate = input.ReadString();
+            break;
+          }
+          case 34: {
+            PrivateKey = input.ReadString();
+            break;
+          }
+          case 42: {
+            CaCertificates = input.ReadString();
+            break;
+          }
+          case 50: {
+            subjectAltNames_.AddEntriesFrom(input, _repeated_subjectAltNames_codec);
+            break;
+          }
+          case 74: {
+            cipherSuites_.AddEntriesFrom(input, _repeated_cipherSuites_codec);
+            break;
+          }
+          case 82: {
+            CredentialName = input.ReadString();
+            break;
+          }
+          case 90: {
+            verifyCertificateSpki_.AddEntriesFrom(input, _repeated_verifyCertificateSpki_codec);
+            break;
+          }
+          case 98: {
+            verifyCertificateHash_.AddEntriesFrom(input, _repeated_verifyCertificateHash_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class GatewayListener : pb::IMessage<GatewayListener> {
+    private static readonly pb::MessageParser<GatewayListener> _parser = new pb::MessageParser<GatewayListener>(() => new GatewayListener());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<GatewayListener> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[1]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public GatewayListener() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public GatewayListener(GatewayListener other) : this() {
+      port_ = other.port_;
+      name_ = other.name_;
+      protocol_ = other.protocol_;
+      hosts_ = other.hosts_.Clone();
+      tlsConfig_ = other.tlsConfig_ != null ? other.tlsConfig_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public GatewayListener Clone() {
+      return new GatewayListener(this);
+    }
+
+    /// <summary>Field number for the "port" field.</summary>
+    public const int PortFieldNumber = 1;
+    private uint port_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint Port {
+      get { return port_; }
+      set {
+        port_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 2;
+    private string name_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "protocol" field.</summary>
+    public const int ProtocolFieldNumber = 3;
+    private global::Kdeploy.Protocol protocol_ = 0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Kdeploy.Protocol Protocol {
+      get { return protocol_; }
+      set {
+        protocol_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "hosts" field.</summary>
+    public const int HostsFieldNumber = 4;
+    private static readonly pb::FieldCodec<string> _repeated_hosts_codec
+        = pb::FieldCodec.ForString(34);
+    private readonly pbc::RepeatedField<string> hosts_ = new pbc::RepeatedField<string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<string> Hosts {
+      get { return hosts_; }
+    }
+
+    /// <summary>Field number for the "tls_config" field.</summary>
+    public const int TlsConfigFieldNumber = 5;
+    private global::Kdeploy.ServerTLSSettings tlsConfig_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Kdeploy.ServerTLSSettings TlsConfig {
+      get { return tlsConfig_; }
+      set {
+        tlsConfig_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as GatewayListener);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(GatewayListener other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Port != other.Port) return false;
+      if (Name != other.Name) return false;
+      if (Protocol != other.Protocol) return false;
+      if(!hosts_.Equals(other.hosts_)) return false;
+      if (!object.Equals(TlsConfig, other.TlsConfig)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Port != 0) hash ^= Port.GetHashCode();
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (Protocol != 0) hash ^= Protocol.GetHashCode();
+      hash ^= hosts_.GetHashCode();
+      if (tlsConfig_ != null) hash ^= TlsConfig.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Port != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Port);
+      }
+      if (Name.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Name);
+      }
+      if (Protocol != 0) {
+        output.WriteRawTag(24);
+        output.WriteEnum((int) Protocol);
+      }
+      hosts_.WriteTo(output, _repeated_hosts_codec);
+      if (tlsConfig_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(TlsConfig);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Port != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Port);
+      }
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (Protocol != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Protocol);
+      }
+      size += hosts_.CalculateSize(_repeated_hosts_codec);
+      if (tlsConfig_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(TlsConfig);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(GatewayListener other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Port != 0) {
+        Port = other.Port;
+      }
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+      if (other.Protocol != 0) {
+        Protocol = other.Protocol;
+      }
+      hosts_.Add(other.hosts_);
+      if (other.tlsConfig_ != null) {
+        if (tlsConfig_ == null) {
+          tlsConfig_ = new global::Kdeploy.ServerTLSSettings();
+        }
+        TlsConfig.MergeFrom(other.TlsConfig);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Port = input.ReadUInt32();
+            break;
+          }
+          case 18: {
+            Name = input.ReadString();
+            break;
+          }
+          case 24: {
+            protocol_ = (global::Kdeploy.Protocol) input.ReadEnum();
+            break;
+          }
+          case 34: {
+            hosts_.AddEntriesFrom(input, _repeated_hosts_codec);
+            break;
+          }
+          case 42: {
+            if (tlsConfig_ == null) {
+              tlsConfig_ = new global::Kdeploy.ServerTLSSettings();
+            }
+            input.ReadMessage(tlsConfig_);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class Gateway : pb::IMessage<Gateway> {
+    private static readonly pb::MessageParser<Gateway> _parser = new pb::MessageParser<Gateway>(() => new Gateway());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<Gateway> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[2]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Gateway() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Gateway(Gateway other) : this() {
+      name_ = other.name_;
+      namespace_ = other.namespace_;
+      listeners_ = other.listeners_.Clone();
+      labels_ = other.labels_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Gateway Clone() {
+      return new Gateway(this);
+    }
+
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 1;
+    private string name_ = "";
+    /// <summary>
+    /// name of the application
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "namespace" field.</summary>
+    public const int NamespaceFieldNumber = 2;
+    private string namespace_ = "";
+    /// <summary>
+    /// application namespace
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Namespace {
+      get { return namespace_; }
+      set {
+        namespace_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "listeners" field.</summary>
+    public const int ListenersFieldNumber = 3;
+    private static readonly pb::FieldCodec<global::Kdeploy.GatewayListener> _repeated_listeners_codec
+        = pb::FieldCodec.ForMessage(26, global::Kdeploy.GatewayListener.Parser);
+    private readonly pbc::RepeatedField<global::Kdeploy.GatewayListener> listeners_ = new pbc::RepeatedField<global::Kdeploy.GatewayListener>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Kdeploy.GatewayListener> Listeners {
+      get { return listeners_; }
+    }
+
+    /// <summary>Field number for the "labels" field.</summary>
+    public const int LabelsFieldNumber = 4;
+    private static readonly pbc::MapField<string, string>.Codec _map_labels_codec
+        = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForString(18), 34);
+    private readonly pbc::MapField<string, string> labels_ = new pbc::MapField<string, string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::MapField<string, string> Labels {
+      get { return labels_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as Gateway);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(Gateway other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Name != other.Name) return false;
+      if (Namespace != other.Namespace) return false;
+      if(!listeners_.Equals(other.listeners_)) return false;
+      if (!Labels.Equals(other.Labels)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (Namespace.Length != 0) hash ^= Namespace.GetHashCode();
+      hash ^= listeners_.GetHashCode();
+      hash ^= Labels.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Name.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Name);
+      }
+      if (Namespace.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Namespace);
+      }
+      listeners_.WriteTo(output, _repeated_listeners_codec);
+      labels_.WriteTo(output, _map_labels_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (Namespace.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Namespace);
+      }
+      size += listeners_.CalculateSize(_repeated_listeners_codec);
+      size += labels_.CalculateSize(_map_labels_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(Gateway other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+      if (other.Namespace.Length != 0) {
+        Namespace = other.Namespace;
+      }
+      listeners_.Add(other.listeners_);
+      labels_.Add(other.labels_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Name = input.ReadString();
+            break;
+          }
+          case 18: {
+            Namespace = input.ReadString();
+            break;
+          }
+          case 26: {
+            listeners_.AddEntriesFrom(input, _repeated_listeners_codec);
+            break;
+          }
+          case 34: {
+            labels_.AddEntriesFrom(input, _map_labels_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
   /// <summary>
   /// HTTPRoute is a single http route(istio HttpRoute)
   /// </summary>
@@ -119,7 +967,7 @@ namespace Kdeploy {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -455,7 +1303,7 @@ namespace Kdeploy {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -647,7 +1495,7 @@ namespace Kdeploy {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -671,6 +1519,7 @@ namespace Kdeploy {
       env_ = other.env_.Clone();
       ports_ = other.ports_.Clone();
       replicas_ = other.replicas_;
+      labels_ = other.labels_.Clone();
       networking_ = other.networking_ != null ? other.networking_.Clone() : null;
       status_ = other.status_ != null ? other.status_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -776,8 +1625,18 @@ namespace Kdeploy {
       }
     }
 
+    /// <summary>Field number for the "labels" field.</summary>
+    public const int LabelsFieldNumber = 9;
+    private static readonly pbc::MapField<string, string>.Codec _map_labels_codec
+        = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForString(18), 74);
+    private readonly pbc::MapField<string, string> labels_ = new pbc::MapField<string, string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::MapField<string, string> Labels {
+      get { return labels_; }
+    }
+
     /// <summary>Field number for the "networking" field.</summary>
-    public const int NetworkingFieldNumber = 9;
+    public const int NetworkingFieldNumber = 10;
     private global::Kdeploy.Networking networking_;
     /// <summary>
     /// gateway/service-mesh networking
@@ -824,6 +1683,7 @@ namespace Kdeploy {
       if (!Env.Equals(other.Env)) return false;
       if (!Ports.Equals(other.Ports)) return false;
       if (Replicas != other.Replicas) return false;
+      if (!Labels.Equals(other.Labels)) return false;
       if (!object.Equals(Networking, other.Networking)) return false;
       if (!object.Equals(Status, other.Status)) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -839,6 +1699,7 @@ namespace Kdeploy {
       hash ^= Env.GetHashCode();
       hash ^= Ports.GetHashCode();
       if (Replicas != 0) hash ^= Replicas.GetHashCode();
+      hash ^= Labels.GetHashCode();
       if (networking_ != null) hash ^= Networking.GetHashCode();
       if (status_ != null) hash ^= Status.GetHashCode();
       if (_unknownFields != null) {
@@ -873,8 +1734,9 @@ namespace Kdeploy {
         output.WriteRawTag(64);
         output.WriteUInt32(Replicas);
       }
+      labels_.WriteTo(output, _map_labels_codec);
       if (networking_ != null) {
-        output.WriteRawTag(74);
+        output.WriteRawTag(82);
         output.WriteMessage(Networking);
       }
       if (status_ != null) {
@@ -904,6 +1766,7 @@ namespace Kdeploy {
       if (Replicas != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Replicas);
       }
+      size += labels_.CalculateSize(_map_labels_codec);
       if (networking_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Networking);
       }
@@ -936,6 +1799,7 @@ namespace Kdeploy {
       if (other.Replicas != 0) {
         Replicas = other.Replicas;
       }
+      labels_.Add(other.labels_);
       if (other.networking_ != null) {
         if (networking_ == null) {
           networking_ = new global::Kdeploy.Networking();
@@ -988,6 +1852,10 @@ namespace Kdeploy {
             break;
           }
           case 74: {
+            labels_.AddEntriesFrom(input, _map_labels_codec);
+            break;
+          }
+          case 82: {
             if (networking_ == null) {
               networking_ = new global::Kdeploy.Networking();
             }
@@ -1018,7 +1886,7 @@ namespace Kdeploy {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1042,6 +1910,7 @@ namespace Kdeploy {
       env_ = other.env_.Clone();
       schedule_ = other.schedule_;
       completions_ = other.completions_;
+      labels_ = other.labels_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1146,6 +2015,16 @@ namespace Kdeploy {
       }
     }
 
+    /// <summary>Field number for the "labels" field.</summary>
+    public const int LabelsFieldNumber = 9;
+    private static readonly pbc::MapField<string, string>.Codec _map_labels_codec
+        = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForString(18), 74);
+    private readonly pbc::MapField<string, string> labels_ = new pbc::MapField<string, string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::MapField<string, string> Labels {
+      get { return labels_; }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as Task);
@@ -1166,6 +2045,7 @@ namespace Kdeploy {
       if (!Env.Equals(other.Env)) return false;
       if (Schedule != other.Schedule) return false;
       if (Completions != other.Completions) return false;
+      if (!Labels.Equals(other.Labels)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1179,6 +2059,7 @@ namespace Kdeploy {
       hash ^= Env.GetHashCode();
       if (Schedule.Length != 0) hash ^= Schedule.GetHashCode();
       if (Completions != 0) hash ^= Completions.GetHashCode();
+      hash ^= Labels.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1214,6 +2095,7 @@ namespace Kdeploy {
         output.WriteRawTag(64);
         output.WriteUInt32(Completions);
       }
+      labels_.WriteTo(output, _map_labels_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1239,6 +2121,7 @@ namespace Kdeploy {
       if (Completions != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Completions);
       }
+      size += labels_.CalculateSize(_map_labels_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1267,6 +2150,7 @@ namespace Kdeploy {
       if (other.Completions != 0) {
         Completions = other.Completions;
       }
+      labels_.Add(other.labels_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -1306,6 +2190,10 @@ namespace Kdeploy {
             Completions = input.ReadUInt32();
             break;
           }
+          case 74: {
+            labels_.AddEntriesFrom(input, _map_labels_codec);
+            break;
+          }
         }
       }
     }
@@ -1323,7 +2211,7 @@ namespace Kdeploy {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1347,6 +2235,7 @@ namespace Kdeploy {
       env_ = other.env_.Clone();
       schedule_ = other.schedule_;
       completions_ = other.completions_;
+      labels_ = other.labels_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1451,6 +2340,16 @@ namespace Kdeploy {
       }
     }
 
+    /// <summary>Field number for the "labels" field.</summary>
+    public const int LabelsFieldNumber = 9;
+    private static readonly pbc::MapField<string, string>.Codec _map_labels_codec
+        = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForString(18), 74);
+    private readonly pbc::MapField<string, string> labels_ = new pbc::MapField<string, string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::MapField<string, string> Labels {
+      get { return labels_; }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as TaskInput);
@@ -1471,6 +2370,7 @@ namespace Kdeploy {
       if (!Env.Equals(other.Env)) return false;
       if (Schedule != other.Schedule) return false;
       if (Completions != other.Completions) return false;
+      if (!Labels.Equals(other.Labels)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1484,6 +2384,7 @@ namespace Kdeploy {
       hash ^= Env.GetHashCode();
       if (Schedule.Length != 0) hash ^= Schedule.GetHashCode();
       if (Completions != 0) hash ^= Completions.GetHashCode();
+      hash ^= Labels.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1519,6 +2420,7 @@ namespace Kdeploy {
         output.WriteRawTag(64);
         output.WriteUInt32(Completions);
       }
+      labels_.WriteTo(output, _map_labels_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1544,6 +2446,7 @@ namespace Kdeploy {
       if (Completions != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Completions);
       }
+      size += labels_.CalculateSize(_map_labels_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1572,6 +2475,7 @@ namespace Kdeploy {
       if (other.Completions != 0) {
         Completions = other.Completions;
       }
+      labels_.Add(other.labels_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -1611,6 +2515,10 @@ namespace Kdeploy {
             Completions = input.ReadUInt32();
             break;
           }
+          case 74: {
+            labels_.AddEntriesFrom(input, _map_labels_codec);
+            break;
+          }
         }
       }
     }
@@ -1628,7 +2536,7 @@ namespace Kdeploy {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1653,6 +2561,7 @@ namespace Kdeploy {
       ports_ = other.ports_.Clone();
       replicas_ = other.replicas_;
       networking_ = other.networking_ != null ? other.networking_.Clone() : null;
+      labels_ = other.labels_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1767,6 +2676,16 @@ namespace Kdeploy {
       }
     }
 
+    /// <summary>Field number for the "labels" field.</summary>
+    public const int LabelsFieldNumber = 10;
+    private static readonly pbc::MapField<string, string>.Codec _map_labels_codec
+        = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForString(18), 82);
+    private readonly pbc::MapField<string, string> labels_ = new pbc::MapField<string, string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::MapField<string, string> Labels {
+      get { return labels_; }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as AppInput);
@@ -1788,6 +2707,7 @@ namespace Kdeploy {
       if (!Ports.Equals(other.Ports)) return false;
       if (Replicas != other.Replicas) return false;
       if (!object.Equals(Networking, other.Networking)) return false;
+      if (!Labels.Equals(other.Labels)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1802,6 +2722,7 @@ namespace Kdeploy {
       hash ^= Ports.GetHashCode();
       if (Replicas != 0) hash ^= Replicas.GetHashCode();
       if (networking_ != null) hash ^= Networking.GetHashCode();
+      hash ^= Labels.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1838,6 +2759,7 @@ namespace Kdeploy {
         output.WriteRawTag(74);
         output.WriteMessage(Networking);
       }
+      labels_.WriteTo(output, _map_labels_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1864,6 +2786,7 @@ namespace Kdeploy {
       if (networking_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Networking);
       }
+      size += labels_.CalculateSize(_map_labels_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1896,6 +2819,7 @@ namespace Kdeploy {
         }
         Networking.MergeFrom(other.Networking);
       }
+      labels_.Add(other.labels_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -1942,6 +2866,10 @@ namespace Kdeploy {
             input.ReadMessage(networking_);
             break;
           }
+          case 82: {
+            labels_.AddEntriesFrom(input, _map_labels_codec);
+            break;
+          }
         }
       }
     }
@@ -1956,7 +2884,7 @@ namespace Kdeploy {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2119,7 +3047,7 @@ namespace Kdeploy {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[7]; }
+      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2304,7 +3232,7 @@ namespace Kdeploy {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[8]; }
+      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2425,7 +3353,7 @@ namespace Kdeploy {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[9]; }
+      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2554,7 +3482,7 @@ namespace Kdeploy {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[10]; }
+      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2675,7 +3603,7 @@ namespace Kdeploy {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[11]; }
+      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2796,7 +3724,7 @@ namespace Kdeploy {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[12]; }
+      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2925,7 +3853,7 @@ namespace Kdeploy {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[13]; }
+      get { return global::Kdeploy.KdeployReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

@@ -18,19 +18,19 @@ class Task extends \Google\Protobuf\Internal\Message
     /**
      * name of the task
      *
-     * Generated from protobuf field <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      */
     private $name = '';
     /**
      * task namespace
      *
-     * Generated from protobuf field <code>string namespace = 2;</code>
+     * Generated from protobuf field <code>string namespace = 2 [(.validator.field) = {</code>
      */
     private $namespace = '';
     /**
      * docker image of task
      *
-     * Generated from protobuf field <code>string image = 3;</code>
+     * Generated from protobuf field <code>string image = 3 [(.validator.field) = {</code>
      */
     private $image = '';
     /**
@@ -48,7 +48,7 @@ class Task extends \Google\Protobuf\Internal\Message
     /**
      * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
      *
-     * Generated from protobuf field <code>string schedule = 7;</code>
+     * Generated from protobuf field <code>string schedule = 7 [(.validator.field) = {</code>
      */
     private $schedule = '';
     /**
@@ -57,6 +57,10 @@ class Task extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>uint32 completions = 8;</code>
      */
     private $completions = 0;
+    /**
+     * Generated from protobuf field <code>map<string, string> labels = 9;</code>
+     */
+    private $labels;
 
     /**
      * Constructor.
@@ -78,6 +82,7 @@ class Task extends \Google\Protobuf\Internal\Message
      *           schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
      *     @type int $completions
      *           completions is the number of times to execute the task. If completions = 0, the task will run forever
+     *     @type array|\Google\Protobuf\Internal\MapField $labels
      * }
      */
     public function __construct($data = NULL) {
@@ -88,7 +93,7 @@ class Task extends \Google\Protobuf\Internal\Message
     /**
      * name of the task
      *
-     * Generated from protobuf field <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      * @return string
      */
     public function getName()
@@ -99,7 +104,7 @@ class Task extends \Google\Protobuf\Internal\Message
     /**
      * name of the task
      *
-     * Generated from protobuf field <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      * @param string $var
      * @return $this
      */
@@ -114,7 +119,7 @@ class Task extends \Google\Protobuf\Internal\Message
     /**
      * task namespace
      *
-     * Generated from protobuf field <code>string namespace = 2;</code>
+     * Generated from protobuf field <code>string namespace = 2 [(.validator.field) = {</code>
      * @return string
      */
     public function getNamespace()
@@ -125,7 +130,7 @@ class Task extends \Google\Protobuf\Internal\Message
     /**
      * task namespace
      *
-     * Generated from protobuf field <code>string namespace = 2;</code>
+     * Generated from protobuf field <code>string namespace = 2 [(.validator.field) = {</code>
      * @param string $var
      * @return $this
      */
@@ -140,7 +145,7 @@ class Task extends \Google\Protobuf\Internal\Message
     /**
      * docker image of task
      *
-     * Generated from protobuf field <code>string image = 3;</code>
+     * Generated from protobuf field <code>string image = 3 [(.validator.field) = {</code>
      * @return string
      */
     public function getImage()
@@ -151,7 +156,7 @@ class Task extends \Google\Protobuf\Internal\Message
     /**
      * docker image of task
      *
-     * Generated from protobuf field <code>string image = 3;</code>
+     * Generated from protobuf field <code>string image = 3 [(.validator.field) = {</code>
      * @param string $var
      * @return $this
      */
@@ -218,7 +223,7 @@ class Task extends \Google\Protobuf\Internal\Message
     /**
      * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
      *
-     * Generated from protobuf field <code>string schedule = 7;</code>
+     * Generated from protobuf field <code>string schedule = 7 [(.validator.field) = {</code>
      * @return string
      */
     public function getSchedule()
@@ -229,7 +234,7 @@ class Task extends \Google\Protobuf\Internal\Message
     /**
      * schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
      *
-     * Generated from protobuf field <code>string schedule = 7;</code>
+     * Generated from protobuf field <code>string schedule = 7 [(.validator.field) = {</code>
      * @param string $var
      * @return $this
      */
@@ -263,6 +268,28 @@ class Task extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint32($var);
         $this->completions = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>map<string, string> labels = 9;</code>
+     * @return \Google\Protobuf\Internal\MapField
+     */
+    public function getLabels()
+    {
+        return $this->labels;
+    }
+
+    /**
+     * Generated from protobuf field <code>map<string, string> labels = 9;</code>
+     * @param array|\Google\Protobuf\Internal\MapField $var
+     * @return $this
+     */
+    public function setLabels($var)
+    {
+        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::STRING);
+        $this->labels = $arr;
 
         return $this;
     }

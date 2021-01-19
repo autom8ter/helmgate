@@ -16,11 +16,11 @@ use Google\Protobuf\Internal\GPBUtil;
 class HTTPRoute extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      */
     private $name = '';
     /**
-     * Generated from protobuf field <code>uint32 port = 2;</code>
+     * Generated from protobuf field <code>uint32 port = 2 [(.validator.field) = {</code>
      */
     private $port = 0;
     /**
@@ -90,7 +90,7 @@ class HTTPRoute extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      * @return string
      */
     public function getName()
@@ -99,7 +99,7 @@ class HTTPRoute extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      * @param string $var
      * @return $this
      */
@@ -112,7 +112,7 @@ class HTTPRoute extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>uint32 port = 2;</code>
+     * Generated from protobuf field <code>uint32 port = 2 [(.validator.field) = {</code>
      * @return int
      */
     public function getPort()
@@ -121,7 +121,7 @@ class HTTPRoute extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>uint32 port = 2;</code>
+     * Generated from protobuf field <code>uint32 port = 2 [(.validator.field) = {</code>
      * @param int $var
      * @return $this
      */

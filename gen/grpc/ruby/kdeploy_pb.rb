@@ -8,6 +8,31 @@ require 'google/protobuf/timestamp_pb'
 require 'google/protobuf/any_pb'
 require 'google/protobuf/empty_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
+  add_message "kdeploy.ServerTLSSettings" do
+    optional :https_redirect, :bool, 1
+    optional :mode, :enum, 2, "kdeploy.TLSmode"
+    optional :server_certificate, :string, 3
+    optional :private_key, :string, 4
+    optional :ca_certificates, :string, 5
+    optional :credential_name, :string, 10
+    repeated :subject_alt_names, :string, 6
+    repeated :verify_certificate_spki, :string, 11
+    repeated :verify_certificate_hash, :string, 12
+    repeated :cipher_suites, :string, 9
+  end
+  add_message "kdeploy.GatewayListener" do
+    optional :port, :uint32, 1
+    optional :name, :string, 2
+    optional :protocol, :enum, 3, "kdeploy.Protocol"
+    repeated :hosts, :string, 4
+    optional :tls_config, :message, 5, "kdeploy.ServerTLSSettings"
+  end
+  add_message "kdeploy.Gateway" do
+    optional :name, :string, 1
+    optional :namespace, :string, 2
+    repeated :listeners, :message, 3, "kdeploy.GatewayListener"
+    map :labels, :string, :string, 4
+  end
   add_message "kdeploy.HTTPRoute" do
     optional :name, :string, 1
     optional :port, :uint32, 2
@@ -33,7 +58,8 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     map :env, :string, :string, 6
     map :ports, :string, :uint32, 7
     optional :replicas, :uint32, 8
-    optional :networking, :message, 9, "kdeploy.Networking"
+    map :labels, :string, :string, 9
+    optional :networking, :message, 10, "kdeploy.Networking"
     optional :status, :message, 20, "kdeploy.AppStatus"
   end
   add_message "kdeploy.Task" do
@@ -44,6 +70,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     map :env, :string, :string, 6
     optional :schedule, :string, 7
     optional :completions, :uint32, 8
+    map :labels, :string, :string, 9
   end
   add_message "kdeploy.TaskInput" do
     optional :name, :string, 1
@@ -53,6 +80,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     map :env, :string, :string, 6
     optional :schedule, :string, 7
     optional :completions, :uint32, 8
+    map :labels, :string, :string, 9
   end
   add_message "kdeploy.AppInput" do
     optional :name, :string, 1
@@ -63,6 +91,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     map :ports, :string, :uint32, 6
     optional :replicas, :uint32, 7
     optional :networking, :message, 9, "kdeploy.Networking"
+    map :labels, :string, :string, 10
   end
   add_message "kdeploy.Ref" do
     optional :name, :string, 1
@@ -91,9 +120,29 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   add_message "kdeploy.Namespaces" do
     repeated :namespaces, :string, 1
   end
+  add_enum "kdeploy.Protocol" do
+    value :INVALID_PROTOCOL, 0
+    value :HTTP, 1
+    value :HTTPS, 2
+    value :GRPC, 3
+    value :HTTP2, 4
+    value :MONGO, 5
+    value :TCP, 6
+    value :TLS, 7
+  end
+  add_enum "kdeploy.TLSmode" do
+    value :PASSTHROUGH, 0
+    value :SIMPLE, 1
+    value :MUTUAL, 2
+    value :AUTO_PASSTHROUGH, 3
+    value :ISTIO_MUTUAL, 4
+  end
 end
 
 module Kdeploy
+  ServerTLSSettings = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.ServerTLSSettings").msgclass
+  GatewayListener = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.GatewayListener").msgclass
+  Gateway = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Gateway").msgclass
   HTTPRoute = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.HTTPRoute").msgclass
   Networking = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Networking").msgclass
   App = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.App").msgclass
@@ -108,4 +157,6 @@ module Kdeploy
   Tasks = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Tasks").msgclass
   Namespace = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Namespace").msgclass
   Namespaces = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Namespaces").msgclass
+  Protocol = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.Protocol").enummodule
+  TLSmode = Google::Protobuf::DescriptorPool.generated_pool.lookup("kdeploy.TLSmode").enummodule
 end
