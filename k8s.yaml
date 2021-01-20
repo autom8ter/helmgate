@@ -14,13 +14,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: meshpaas
 rules:
-  - apiGroups: [""] # "" indicates the core API group
-    resources: ["pods", "namespaces", "services"]
-    verbs: ["*"]
-  - apiGroups: ["extensions", "apps"]
-    resources: ["deployments"]
-    verbs: ["*"]
-  - apiGroups: ["extensions", "apps", "batch"]
+  - apiGroups: ["", "extensions", "apps",  "batch", "networking.k8s.io", "networking.istio.io", "authentication.istio.io""rbac.istio.io", "config.istio.io", "security.istio.io"]
     resources: ["*"]
     verbs: ["*"]
 
