@@ -22,9 +22,6 @@ func TestApps(t *testing.T) {
 		kclient,
 		iclient,
 		lgger,
-		nil,
-		"https://openidconnect.googleapis.com/v1/userinfo",
-		nil,
 	)
 	namespaces, err := cli.ListProjects(context.Background())
 	if err != nil {

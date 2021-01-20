@@ -5,6 +5,8 @@
 namespace Meshpaas;
 
 /**
+ * AuthzAction is the result of an Authorization Decision
+ *
  * Protobuf type <code>meshpaas.AuthzAction</code>
  */
 class AuthzAction

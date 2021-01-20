@@ -19,9 +19,8 @@ an opinionated, OAuth-protected graphQL/gRPC API for easily deploying applicatio
     - [x] [csharp client sdk](gen/grpc/csharp)
 - [x] [graphQL API](schema.graphql)
     - served on `/graphql` endpoint
-- [x] SSO/Oauth protected graphQL playground(autocomplete/schema-documentation/query-console)
+- [x] graphQL playground(autocomplete/schema-documentation/query-console)
     - playground served on `/`
-    - oauth callback handler served on `/oauth/callback`
 - [x] Run in cluster
 - [x] Run out of cluster
 - [x] OpenID Connect based Authentication
@@ -37,6 +36,16 @@ an opinionated, OAuth-protected graphQL/gRPC API for easily deploying applicatio
 - [x] Get Task
 - [x] Destroy Task
 - [x] List Tasks
+- [x] Create Gateway
+- [x] Update Gateway
+- [x] Get Gateway
+- [x] Destroy Gateway
+- [x] List Gateways
+- [x] Create Secret
+- [x] Update Secret
+- [x] Get Secret
+- [x] Destroy Secret
+- [x] List Secrets
 
 ## Command Line
 
@@ -47,14 +56,7 @@ Usage of meshpaas:
       --allow-origins strings         cors allow origins (env: KDEPLOY_ALLOW_ORIGINS) (default [*])
       --debug                         enable debug logs (env: KDEPLOY_DEBUG) (default true)
       --listen-port int               serve gRPC & graphQL on this port (env: KDEPLOY_LISTEN_PORT) (default 8820)
-      --oauth-client-id string        playground oauth client id (env: KDEPLOY_OAUTH_CLIENT_ID) (required for graphQL playground) (default "723941275880-6i69h7d27ngmcnq02p6t8lbbgenm26um.apps.googleusercontent.com")
-      --oauth-client-secret string    playground oauth client secret (env: KDEPLOY_OAUTH_CLIENT_SECRET) (required for graphQL playground) (default "E2ru-iJAxijisJ9RzMbloe4c")
-      --oauth-redirect string         playground oauth redirect (env: KDEPLOY_OAUTH_REDIRECT) (required for graphQL playground) (default "http://localhost:8820/oauth2/callback")
-      --open-id string                open id connect discovery uri ex: https://accounts.google.com/.well-known/openid-configuration (env: KDEPLOY_OPEN_ID) (required)
       --out-of-cluster                enable out of cluster k8s config discovery (env: KDEPLOY_OUT_OF_CLUSTER)
-      --request-authorizers strings   request authorizer expressions (env: KDEPLOY_REQUEST_AUTHORIZERS)
-      --root-users strings            root users that bypass request authorizers (env: KDEPLOY_ROOT_USERS)
-
 ```
 
 ## Installation
@@ -75,4 +77,3 @@ to view pods as they spin up, run:
 
     kubectl get pods -n meshpaas -w
 
-MeshPaas is intended to be deployed behind an SSL ingress/proxy and doesn't handle TLS termination.

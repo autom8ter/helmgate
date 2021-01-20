@@ -28,15 +28,12 @@ type Manager struct {
 	userInfoEndpoint   string
 }
 
-func New(kclient *kubego.Kube, iclient *kubego.Istio, logger *logger.Logger, rootUsers []string, userInfoEndpoint string, authorizers []*trigger.Decision) *Manager {
+func New(kclient *kubego.Kube, iclient *kubego.Istio, logger *logger.Logger) *Manager {
 	return &Manager{
-		kclient:            kclient,
-		iclient:            iclient,
-		jwtCache:           generic.NewCache(1 * time.Minute),
-		logger:             logger,
-		rootUsers:          rootUsers,
-		userInfoEndpoint:   userInfoEndpoint,
-		requestAuthorizers: authorizers,
+		kclient:  kclient,
+		iclient:  iclient,
+		jwtCache: generic.NewCache(1 * time.Minute),
+		logger:   logger,
 	}
 }
 

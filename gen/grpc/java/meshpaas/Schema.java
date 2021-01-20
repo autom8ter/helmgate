@@ -15,6 +15,10 @@ public final class Schema {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   /**
+   * <pre>
+   * AuthzAction is the result of an Authorization Decision
+   * </pre>
+   *
    * Protobuf enum {@code meshpaas.AuthzAction}
    */
   public enum AuthzAction

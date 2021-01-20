@@ -29,6 +29,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// AuthzAction is the result of an Authorization Decision
 type AuthzAction int32
 
 const (

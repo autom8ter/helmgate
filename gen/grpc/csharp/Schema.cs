@@ -197,6 +197,9 @@ namespace Meshpaas {
 
   }
   #region Enums
+  /// <summary>
+  /// AuthzAction is the result of an Authorization Decision
+  /// </summary>
   public enum AuthzAction {
     [pbr::OriginalName("ALLOW")] Allow = 0,
     [pbr::OriginalName("DENY")] Deny = 1,

@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"github.com/autom8ter/kubego"
 	"github.com/autom8ter/machine"
@@ -12,7 +11,6 @@ import (
 	"github.com/autom8ter/meshpaas/internal/helpers"
 	"github.com/autom8ter/meshpaas/internal/logger"
 	"github.com/autom8ter/meshpaas/internal/service"
-	"github.com/graphikDB/trigger"
 	grpc_zap "github.com/grpc-ecosystem/go-grpc-middleware/logging/zap"
 	grpc_recovery "github.com/grpc-ecosystem/go-grpc-middleware/recovery"
 	grpc_validator "github.com/grpc-ecosystem/go-grpc-middleware/validator"
@@ -23,10 +21,8 @@ import (
 	"github.com/soheilhy/cmux"
 	"github.com/spf13/pflag"
 	"go.uber.org/zap"
-	"golang.org/x/oauth2"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
-	"io/ioutil"
 	"net"
 	"net/http"
 	"net/http/pprof"
@@ -38,33 +34,21 @@ import (
 )
 
 var (
-	debug              bool
-	listenPort         int64
-	oidc               string
-	allowedOrigins     []string
-	allowedHeaders     []string
-	allowedMethods     []string
-	rootUsers          []string
-	requestAuthorizers []string
-	clientID           string
-	clientSecret       string
-	redirect           string
-	outOfCluster       bool
+	debug          bool
+	listenPort     int64
+	allowedOrigins []string
+	allowedHeaders []string
+	allowedMethods []string
+	outOfCluster   bool
 )
 
 func init() {
 	godotenv.Load()
 	pflag.CommandLine.BoolVar(&debug, "debug", helpers.BoolEnvOr("KDEPLOY_DEBUG", false), "enable debug logs (env: KDEPLOY_DEBUG)")
 	pflag.CommandLine.Int64Var(&listenPort, "listen-port", int64(helpers.IntEnvOr("KDEPLOY_LISTEN_PORT", 8820)), "serve gRPC & graphQL on this port (env: KDEPLOY_LISTEN_PORT)")
-	pflag.CommandLine.StringVar(&oidc, "open-id", helpers.EnvOr("KDEPLOY_OPEN_ID", ""), "open id connect discovery uri ex: https://accounts.google.com/.well-known/openid-configuration (env: KDEPLOY_OPEN_ID) (required)")
 	pflag.CommandLine.StringSliceVar(&allowedHeaders, "allow-headers", helpers.StringSliceEnvOr("KDEPLOY_ALLOW_HEADERS", []string{"*"}), "cors allow headers (env: KDEPLOY_ALLOW_HEADERS)")
 	pflag.CommandLine.StringSliceVar(&allowedOrigins, "allow-origins", helpers.StringSliceEnvOr("KDEPLOY_ALLOW_ORIGINS", []string{"*"}), "cors allow origins (env: KDEPLOY_ALLOW_ORIGINS)")
 	pflag.CommandLine.StringSliceVar(&allowedMethods, "allow-methods", helpers.StringSliceEnvOr("KDEPLOY_ALLOW_METHODS", []string{"HEAD", "GET", "POST", "PUT", "PATCH", "DELETE"}), "cors allow methods (env: KDEPLOY_ALLOW_METHODS)")
-	pflag.CommandLine.StringSliceVar(&rootUsers, "root-users", helpers.StringSliceEnvOr("KDEPLOY_ROOT_USERS", nil), "root users that bypass request authorizers (env: KDEPLOY_ROOT_USERS)")
-	pflag.CommandLine.StringSliceVar(&requestAuthorizers, "request-authorizers", helpers.StringSliceEnvOr("KDEPLOY_REQUEST_AUTHORIZERS", nil), "request authorizer expressions (env: KDEPLOY_REQUEST_AUTHORIZERS)")
-	pflag.CommandLine.StringVar(&clientID, "oauth-client-id", helpers.EnvOr("KDEPLOY_OAUTH_CLIENT_ID", ""), "playground oauth client id (env: KDEPLOY_OAUTH_CLIENT_ID) (required for graphQL playground)")
-	pflag.CommandLine.StringVar(&clientSecret, "oauth-client-secret", helpers.EnvOr("KDEPLOY_OAUTH_CLIENT_SECRET", ""), "playground oauth client secret (env: KDEPLOY_OAUTH_CLIENT_SECRET) (required for graphQL playground)")
-	pflag.CommandLine.StringVar(&redirect, "oauth-redirect", helpers.EnvOr("KDEPLOY_OAUTH_REDIRECT", ""), "playground oauth redirect (env: KDEPLOY_OAUTH_REDIRECT) (required for graphQL playground)")
 	pflag.CommandLine.BoolVar(&outOfCluster, "out-of-cluster", helpers.BoolEnvOr("KDEPLOY_OUT_OF_CLUSTER", false), "enable out of cluster k8s config discovery (env: KDEPLOY_OUT_OF_CLUSTER)")
 	pflag.Parse()
 }
@@ -75,10 +59,6 @@ func main() {
 
 func run(ctx context.Context) {
 	var lgger = logger.New(debug)
-	if oidc == "" {
-		lgger.Error("empty open-id connect discovery --open-id")
-		return
-	}
 	var (
 		metricsLis net.Listener
 		m          = machine.New(ctx)
@@ -145,47 +125,6 @@ func run(ctx context.Context) {
 			lgger.Error("metrics server failure", zap.Error(err))
 		}
 	})
-	resp, err := http.DefaultClient.Get(oidc)
-	if err != nil {
-		lgger.Error("failed to get oidc", zap.Error(err))
-		return
-	}
-
-	var openID = map[string]interface{}{}
-	bits, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		lgger.Error("failed to get oidc", zap.Error(err))
-		return
-	}
-	resp.Body.Close()
-	if err := json.Unmarshal(bits, &openID); err != nil {
-		lgger.Error("failed to get oidc", zap.Error(err))
-		return
-	}
-	var authorizers []*trigger.Decision
-	for _, a := range requestAuthorizers {
-		decision, err := trigger.NewDecision(a)
-		if err != nil {
-			lgger.Error("failed to create authorizer", zap.Error(err))
-			return
-		}
-		authorizers = append(authorizers, decision)
-	}
-	var config *oauth2.Config
-	if clientID != "" {
-		lgger.Debug("meshpaas graphQL playground enabled")
-		config = &oauth2.Config{
-			ClientID:     clientID,
-			ClientSecret: clientSecret,
-			Endpoint: oauth2.Endpoint{
-				AuthURL:  openID["authorization_endpoint"].(string),
-				TokenURL: openID["token_endpoint"].(string),
-			},
-			RedirectURL: redirect,
-			Scopes:      []string{"openid", "email", "profile"},
-		}
-	}
-
 	var cli *client.Manager
 	if outOfCluster {
 		kclient, err := kubego.NewOutOfClusterKubeClient()
@@ -198,7 +137,7 @@ func run(ctx context.Context) {
 			lgger.Error(err.Error())
 			return
 		}
-		cli = client.New(kclient, iclient, lgger, rootUsers, openID["userinfo_endpoint"].(string), authorizers)
+		cli = client.New(kclient, iclient, lgger)
 	} else {
 		kclient, err := kubego.NewInClusterKubeClient()
 		if err != nil {
@@ -210,7 +149,7 @@ func run(ctx context.Context) {
 			lgger.Error(err.Error())
 			return
 		}
-		cli = client.New(kclient, iclient, lgger, rootUsers, openID["userinfo_endpoint"].(string), authorizers)
+		cli = client.New(kclient, iclient, lgger)
 	}
 
 	gopts := []grpc.ServerOption{
@@ -218,14 +157,12 @@ func run(ctx context.Context) {
 			grpc_prometheus.UnaryServerInterceptor,
 			grpc_zap.UnaryServerInterceptor(lgger.Zap()),
 			grpc_validator.UnaryServerInterceptor(),
-			cli.UnaryInterceptor(),
 			grpc_recovery.UnaryServerInterceptor(),
 		),
 		grpc.ChainStreamInterceptor(
 			grpc_prometheus.StreamServerInterceptor,
 			grpc_zap.StreamServerInterceptor(lgger.Zap()),
 			grpc_validator.StreamServerInterceptor(),
-			cli.StreamInterceptor(),
 			grpc_recovery.StreamServerInterceptor(),
 		),
 	}
@@ -254,15 +191,12 @@ func run(ctx context.Context) {
 		AllowedOrigins: allowedOrigins,
 		AllowedMethods: allowedMethods,
 		AllowedHeaders: allowedHeaders,
-	}), config, lgger, openID["userinfo_endpoint"].(string))
+	}), lgger)
 
 	mux := http.NewServeMux()
 
 	mux.Handle("/graphql", resolver.QueryHandler())
-	if config != nil {
-		mux.Handle("/", resolver.Playground())
-		mux.Handle("/oauth2/callback", resolver.PlaygroundCallback("/"))
-	}
+	mux.Handle("/", resolver.Playground())
 
 	graphQLServer := &http.Server{
 		Handler: mux,

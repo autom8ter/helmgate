@@ -2,7 +2,6 @@ package gql
 
 import (
 	"context"
-	"fmt"
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/handler/apollotracing"
 	"github.com/99designs/gqlgen/graphql/handler/extension"
@@ -10,17 +9,11 @@ import (
 	"github.com/99designs/gqlgen/graphql/handler/transport"
 	"github.com/autom8ter/meshpaas/gen/gql/go/generated"
 	meshpaaspb "github.com/autom8ter/meshpaas/gen/grpc/go"
-	"github.com/autom8ter/meshpaas/internal/helpers"
 	"github.com/autom8ter/meshpaas/internal/logger"
 	"github.com/gorilla/websocket"
-	"github.com/graphikDB/generic"
-	"github.com/pkg/errors"
 	"github.com/rs/cors"
-	"go.uber.org/zap"
-	"golang.org/x/oauth2"
 	"google.golang.org/grpc/metadata"
 	"html/template"
-	"math/rand"
 	"net/http"
 	"time"
 )
@@ -30,26 +23,16 @@ import (
 // It serves as dependency injection for your app, add any dependencies you require here.
 
 type Resolver struct {
-	client      meshpaaspb.MeshPaasServiceClient
-	cors        *cors.Cors
-	store       generic.Cache
-	config      *oauth2.Config
-	tokenCookie string
-	stateCookie string
-	logger      *logger.Logger
-	userInfo    string
+	client meshpaaspb.MeshPaasServiceClient
+	cors   *cors.Cors
+	logger *logger.Logger
 }
 
-func NewResolver(client meshpaaspb.MeshPaasServiceClient, cors *cors.Cors, config *oauth2.Config, logger *logger.Logger, userInfoEndpoint string) *Resolver {
+func NewResolver(client meshpaaspb.MeshPaasServiceClient, cors *cors.Cors, logger *logger.Logger) *Resolver {
 	return &Resolver{
-		client:      client,
-		cors:        cors,
-		config:      config,
-		tokenCookie: "graphik-playground-token",
-		stateCookie: "graphik-playground-state",
-		store:       generic.NewCache(5 * time.Minute),
-		logger:      logger,
-		userInfo:    userInfoEndpoint,
+		client: client,
+		cors:   cors,
+		logger: logger,
 	}
 }
 
@@ -88,12 +71,6 @@ func (r *Resolver) QueryHandler() http.Handler {
 func (r *Resolver) authMiddleware(handler http.Handler) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
 		ctx := req.Context()
-		if r.store != nil && r.config != nil && r.config.ClientID != "" {
-			token, _ := r.getToken(req)
-			if token != nil && req.Header.Get("Authorization") == "" {
-				req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", token.AccessToken))
-			}
-		}
 		for k, arr := range req.Header {
 			if len(arr) > 0 {
 				ctx = metadata.AppendToOutgoingContext(ctx, k, arr[0])
@@ -105,24 +82,6 @@ func (r *Resolver) authMiddleware(handler http.Handler) http.HandlerFunc {
 
 func (r *Resolver) Playground() http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
-		if r.config == nil || r.config.ClientID == "" {
-			http.Error(w, "playground disabled", http.StatusNotFound)
-			return
-		}
-		authToken, err := r.getToken(req)
-		if err != nil {
-			r.logger.Error("playground: failed to get session - redirecting", zap.Error(err))
-			r.redirectLogin(w, req)
-			return
-		}
-		if authToken == nil {
-			r.redirectLogin(w, req)
-			return
-		}
-		if !authToken.Valid() {
-			r.redirectLogin(w, req)
-			return
-		}
 		w.Header().Add("Content-Type", "text/html")
 		var playground = template.Must(template.New("playground").Parse(`<!DOCTYPE html>
 <html>
@@ -193,103 +152,4 @@ func (r *Resolver) Playground() http.HandlerFunc {
 
 		playground.Execute(w, map[string]string{})
 	}
-}
-
-func (r *Resolver) redirectLogin(w http.ResponseWriter, req *http.Request) {
-	state := helpers.Hash([]byte(fmt.Sprint(rand.Int())))
-	r.setState(w, state)
-	redirect := r.config.AuthCodeURL(state)
-	http.Redirect(w, req, redirect, http.StatusTemporaryRedirect)
-}
-
-func (r *Resolver) PlaygroundCallback(playgroundRedirect string) http.HandlerFunc {
-	return func(w http.ResponseWriter, req *http.Request) {
-		if r.config == nil || r.config.ClientID == "" {
-			http.Error(w, "playground disabled", http.StatusNotFound)
-			return
-		}
-		code := req.URL.Query().Get("code")
-		state := req.URL.Query().Get("state")
-		if code == "" {
-			r.logger.Error("playground: empty authorization code - redirecting")
-			r.redirectLogin(w, req)
-			return
-		}
-		if state == "" {
-			r.logger.Error("playground: empty authorization state - redirecting")
-			r.redirectLogin(w, req)
-			return
-		}
-
-		stateVal, err := r.getState(req)
-		if err != nil {
-			r.logger.Error("playground: failed to get session state - redirecting", zap.Error(err))
-			r.redirectLogin(w, req)
-			return
-		}
-		if stateVal != state {
-			r.logger.Error("playground: session state mismatch - redirecting")
-			r.redirectLogin(w, req)
-			return
-		}
-		token, err := r.config.Exchange(req.Context(), code)
-		if err != nil {
-			r.logger.Error("playground: failed to exchange authorization code - redirecting", zap.Error(err))
-			r.redirectLogin(w, req)
-			return
-		}
-		r.setToken(w, req, token)
-		http.Redirect(w, req, playgroundRedirect, http.StatusTemporaryRedirect)
-	}
-}
-
-func (r *Resolver) refreshToken(token *oauth2.Token) (*oauth2.Token, error) {
-	return r.config.TokenSource(oauth2.NoContext, token).Token()
-}
-
-func (r *Resolver) getToken(req *http.Request) (*oauth2.Token, error) {
-	cookie, err := req.Cookie(r.tokenCookie)
-	if err != nil {
-		return nil, errors.Wrapf(err, "failed to get cookie: %s", r.tokenCookie)
-	}
-	val, ok := r.store.Get(cookie.Value)
-	if !ok || val == nil {
-		return nil, ErrNoTokenSession
-	}
-	return r.refreshToken(val.(*oauth2.Token))
-}
-
-func (r *Resolver) setToken(w http.ResponseWriter, req *http.Request, token *oauth2.Token) {
-	id := helpers.Hash([]byte(fmt.Sprint(rand.Int())))
-	r.store.Set(id, token, 1*time.Hour)
-	cookie := &http.Cookie{
-		Name:    r.tokenCookie,
-		Value:   id,
-		Expires: time.Now().Add(1 * time.Hour),
-		Path:    "/",
-	}
-	http.SetCookie(w, cookie)
-}
-
-func (r *Resolver) getState(req *http.Request) (string, error) {
-	cookie, err := req.Cookie(r.stateCookie)
-	if err != nil {
-		return "", errors.Wrapf(err, "failed to get cookie: %s", r.stateCookie)
-	}
-	val, ok := r.store.Get(cookie.Value)
-	if !ok || val == nil {
-		return "", ErrNoStateSession
-	}
-	return val.(string), nil
-}
-
-func (r *Resolver) setState(w http.ResponseWriter, state string) {
-	id := helpers.Hash([]byte(fmt.Sprint(rand.Int())))
-	r.store.Set(id, state, 5*time.Minute)
-	http.SetCookie(w, &http.Cookie{
-		Name:    r.stateCookie,
-		Value:   id,
-		Expires: time.Now().Add(5 * time.Minute),
-		Path:    "/",
-	})
 }

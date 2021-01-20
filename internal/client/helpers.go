@@ -627,9 +627,47 @@ func (k *k8sApp) toApp() *meshpaaspb.App {
 		var rules []*meshpaaspb.AuthzRule
 		for _, r := range policy.Spec.Rules {
 			rules = append(rules, &meshpaaspb.AuthzRule{
-				Sources:      r.From,
-				Conditions:   r.When,
-				Destinations: r.To,
+				Sources: func() []*meshpaaspb.AuthzSource {
+					var sources []*meshpaaspb.AuthzSource
+					for _, from := range r.From {
+						sources = append(sources, &meshpaaspb.AuthzSource{
+							PrincipalsWhitelist:        from.GetSource().GetPrincipals(),
+							PrincipalsBlacklist:        from.GetSource().GetNotPrincipals(),
+							RequestPrincipalsWhitelist: from.GetSource().GetRequestPrincipals(),
+							RequestPrincipalsBlacklist: from.GetSource().GetNotRequestPrincipals(),
+							NamespacesWhitelist:        from.GetSource().GetNamespaces(),
+							NamespacesBlacklist:        from.GetSource().GetNotNamespaces(),
+						})
+					}
+					return sources
+				}(),
+				Conditions: func() []*meshpaaspb.AuthzCondition {
+					var conditions []*meshpaaspb.AuthzCondition
+					for _, to := range r.When {
+						conditions = append(conditions, &meshpaaspb.AuthzCondition{
+							Key:       to.Key,
+							Equals:    to.Values,
+							NotEquals: to.NotValues,
+						})
+					}
+					return conditions
+				}(),
+				Destinations: func() []*meshpaaspb.AuthzDestination {
+					var destinations []*meshpaaspb.AuthzDestination
+					for _, to := range r.To {
+						destinations = append(destinations, &meshpaaspb.AuthzDestination{
+							HostsWhitelist:   to.Operation.Hosts,
+							HostsBlacklist:   to.Operation.NotHosts,
+							PortsWhitelist:   to.Operation.Ports,
+							PortsBlacklist:   to.Operation.NotPorts,
+							MethodsWhitelist: to.Operation.Methods,
+							MethodsBlacklist: to.Operation.NotMethods,
+							PathsWhitelist:   to.Operation.Paths,
+							PathsBlacklist:   to.Operation.NotPaths,
+						})
+					}
+					return destinations
+				}(),
 			})
 		}
 		a.Authorization.Policies = append(a.Authorization.Policies, &meshpaaspb.AuthzPolicy{
