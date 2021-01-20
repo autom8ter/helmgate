@@ -12,8 +12,7 @@ func (m *Manager) CreateProject(ctx context.Context, project *meshpaaspb.Project
 		return nil, err
 	}
 	return &meshpaaspb.Project{
-		Name:   namespace.Name,
-		Labels: namespace.Labels,
+		Name: namespace.Name,
 	}, nil
 }
 
@@ -23,8 +22,7 @@ func (m *Manager) GetProject(ctx context.Context, project *meshpaaspb.ProjectRef
 		return nil, err
 	}
 	return &meshpaaspb.Project{
-		Name:   namespace.Name,
-		Labels: namespace.Labels,
+		Name: namespace.Name,
 	}, nil
 }
 
@@ -33,14 +31,12 @@ func (m *Manager) UpdateProject(ctx context.Context, project *meshpaaspb.Project
 	if err != nil {
 		return nil, err
 	}
-	namespace.Labels = project.Labels
 	namespace, err = m.kclient.Namespaces().Update(ctx, namespace, v1.UpdateOptions{})
 	if err != nil {
 		return nil, err
 	}
 	return &meshpaaspb.Project{
-		Name:   namespace.Name,
-		Labels: namespace.Labels,
+		Name: namespace.Name,
 	}, nil
 }
 

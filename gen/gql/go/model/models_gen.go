@@ -3,24 +3,20 @@
 package model
 
 type App struct {
-	Name       string                 `json:"name"`
-	Project    string                 `json:"project"`
-	Containers []*Container           `json:"containers"`
-	Replicas   int                    `json:"replicas"`
-	Networking *Networking            `json:"networking"`
-	Status     *AppStatus             `json:"status"`
-	Labels     map[string]interface{} `json:"labels"`
-	Selector   map[string]interface{} `json:"selector"`
+	Name       string       `json:"name"`
+	Project    string       `json:"project"`
+	Containers []*Container `json:"containers"`
+	Replicas   int          `json:"replicas"`
+	Networking *Networking  `json:"networking"`
+	Status     *AppStatus   `json:"status"`
 }
 
 type AppInput struct {
-	Name       string                 `json:"name"`
-	Project    string                 `json:"project"`
-	Containers []*ContainerInput      `json:"containers"`
-	Replicas   int                    `json:"replicas"`
-	Networking *NetworkingInput       `json:"networking"`
-	Labels     map[string]interface{} `json:"labels"`
-	Selector   map[string]interface{} `json:"selector"`
+	Name       string            `json:"name"`
+	Project    string            `json:"project"`
+	Containers []*ContainerInput `json:"containers"`
+	Replicas   int               `json:"replicas"`
+	Networking *NetworkingInput  `json:"networking"`
 }
 
 type AppStatus struct {
@@ -86,13 +82,11 @@ type NetworkingInput struct {
 }
 
 type Project struct {
-	Name   string                 `json:"name"`
-	Labels map[string]interface{} `json:"labels"`
+	Name string `json:"name"`
 }
 
 type ProjectInput struct {
-	Name   string                 `json:"name"`
-	Labels map[string]interface{} `json:"labels"`
+	Name string `json:"name"`
 }
 
 type ProjectRef struct {
@@ -115,21 +109,17 @@ type Replica struct {
 }
 
 type Task struct {
-	Name        string                 `json:"name"`
-	Project     string                 `json:"project"`
-	Containers  []*Container           `json:"containers"`
-	Schedule    string                 `json:"schedule"`
-	Completions *int                   `json:"completions"`
-	Labels      map[string]interface{} `json:"labels"`
-	Selector    map[string]interface{} `json:"selector"`
+	Name        string       `json:"name"`
+	Project     string       `json:"project"`
+	Containers  []*Container `json:"containers"`
+	Schedule    string       `json:"schedule"`
+	Completions *int         `json:"completions"`
 }
 
 type TaskInput struct {
-	Name        string                 `json:"name"`
-	Project     string                 `json:"project"`
-	Containers  []*ContainerInput      `json:"containers"`
-	Schedule    string                 `json:"schedule"`
-	Completions *int                   `json:"completions"`
-	Labels      map[string]interface{} `json:"labels"`
-	Selector    map[string]interface{} `json:"selector"`
+	Name        string            `json:"name"`
+	Project     string            `json:"project"`
+	Containers  []*ContainerInput `json:"containers"`
+	Schedule    string            `json:"schedule"`
+	Completions *int              `json:"completions"`
 }

@@ -38,19 +38,23 @@ class App extends \Google\Protobuf\Internal\Message
      */
     private $replicas = 0;
     /**
-     * Generated from protobuf field <code>map<string, string> labels = 9 [(.validator.field) = {</code>
-     */
-    private $labels;
-    /**
-     * Generated from protobuf field <code>map<string, string> selector = 10 [(.validator.field) = {</code>
-     */
-    private $selector;
-    /**
      * gateway/service-mesh networking
      *
      * Generated from protobuf field <code>.meshpaas.Networking networking = 11 [(.validator.field) = {</code>
      */
     private $networking = null;
+    /**
+     * application authentication options
+     *
+     * Generated from protobuf field <code>.meshpaas.Authn authentication = 12;</code>
+     */
+    private $authentication = null;
+    /**
+     * application authorization options
+     *
+     * Generated from protobuf field <code>.meshpaas.Authz authorization = 13;</code>
+     */
+    private $authorization = null;
     /**
      * status tracks the state of the application during it's lifecycle
      *
@@ -71,10 +75,12 @@ class App extends \Google\Protobuf\Internal\Message
      *     @type \Meshpaas\Container[]|\Google\Protobuf\Internal\RepeatedField $containers
      *     @type int $replicas
      *           number of deployment replicas
-     *     @type array|\Google\Protobuf\Internal\MapField $labels
-     *     @type array|\Google\Protobuf\Internal\MapField $selector
      *     @type \Meshpaas\Networking $networking
      *           gateway/service-mesh networking
+     *     @type \Meshpaas\Authn $authentication
+     *           application authentication options
+     *     @type \Meshpaas\Authz $authorization
+     *           application authorization options
      *     @type \Meshpaas\AppStatus $status
      *           status tracks the state of the application during it's lifecycle
      * }
@@ -185,50 +191,6 @@ class App extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>map<string, string> labels = 9 [(.validator.field) = {</code>
-     * @return \Google\Protobuf\Internal\MapField
-     */
-    public function getLabels()
-    {
-        return $this->labels;
-    }
-
-    /**
-     * Generated from protobuf field <code>map<string, string> labels = 9 [(.validator.field) = {</code>
-     * @param array|\Google\Protobuf\Internal\MapField $var
-     * @return $this
-     */
-    public function setLabels($var)
-    {
-        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->labels = $arr;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>map<string, string> selector = 10 [(.validator.field) = {</code>
-     * @return \Google\Protobuf\Internal\MapField
-     */
-    public function getSelector()
-    {
-        return $this->selector;
-    }
-
-    /**
-     * Generated from protobuf field <code>map<string, string> selector = 10 [(.validator.field) = {</code>
-     * @param array|\Google\Protobuf\Internal\MapField $var
-     * @return $this
-     */
-    public function setSelector($var)
-    {
-        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->selector = $arr;
-
-        return $this;
-    }
-
-    /**
      * gateway/service-mesh networking
      *
      * Generated from protobuf field <code>.meshpaas.Networking networking = 11 [(.validator.field) = {</code>
@@ -250,6 +212,58 @@ class App extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Meshpaas\Networking::class);
         $this->networking = $var;
+
+        return $this;
+    }
+
+    /**
+     * application authentication options
+     *
+     * Generated from protobuf field <code>.meshpaas.Authn authentication = 12;</code>
+     * @return \Meshpaas\Authn
+     */
+    public function getAuthentication()
+    {
+        return $this->authentication;
+    }
+
+    /**
+     * application authentication options
+     *
+     * Generated from protobuf field <code>.meshpaas.Authn authentication = 12;</code>
+     * @param \Meshpaas\Authn $var
+     * @return $this
+     */
+    public function setAuthentication($var)
+    {
+        GPBUtil::checkMessage($var, \Meshpaas\Authn::class);
+        $this->authentication = $var;
+
+        return $this;
+    }
+
+    /**
+     * application authorization options
+     *
+     * Generated from protobuf field <code>.meshpaas.Authz authorization = 13;</code>
+     * @return \Meshpaas\Authz
+     */
+    public function getAuthorization()
+    {
+        return $this->authorization;
+    }
+
+    /**
+     * application authorization options
+     *
+     * Generated from protobuf field <code>.meshpaas.Authz authorization = 13;</code>
+     * @param \Meshpaas\Authz $var
+     * @return $this
+     */
+    public function setAuthorization($var)
+    {
+        GPBUtil::checkMessage($var, \Meshpaas\Authz::class);
+        $this->authorization = $var;
 
         return $this;
     }

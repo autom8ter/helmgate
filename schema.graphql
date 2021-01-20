@@ -131,8 +131,8 @@ type App {
     networking: Networking!
     # status tracks the state of the application during it's lifecycle
     status: AppStatus!
-    labels: Map!
-    selector: Map!
+    
+
 }
 
 # Task is scheduled cron job
@@ -146,8 +146,8 @@ type Task {
     schedule: String!
     # completions is the number of times to execute the task. If completions = 0, the task will run forever
     completions: Int
-    labels: Map!
-    selector: Map!
+    
+
 }
 
 # Replica tracks the state of a single instance
@@ -174,13 +174,13 @@ type Projects {
 
 type Project {
     name: String!
-    labels: Map!
+    
 }
 
 # Project is a primitive used for logical segmentation of resources
 input ProjectInput {
     name: String!
-    labels: Map!
+    
 }
 
 # AppInput creates a new stateless Application
@@ -194,8 +194,6 @@ input AppInput {
     replicas: Int!
     # gateway/servicemesh configuration
     networking: NetworkingInput!
-    labels: Map!
-    selector: Map!
 }
 
 # TaskInput creates a new task(cron job)
@@ -209,8 +207,8 @@ input TaskInput {
     schedule: String!
     # completions is the number of times to execute the task. If completions = 0, the task will run forever
     completions: Int
-    labels: Map!
-    selector: Map!
+    
+
 }
 
 input Ref {

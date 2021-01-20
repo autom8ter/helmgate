@@ -8,13 +8,56 @@ require 'google/protobuf/timestamp_pb'
 require 'google/protobuf/any_pb'
 require 'google/protobuf/empty_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
+  add_message "meshpaas.AuthzDestination" do
+    repeated :hosts_whitelist, :string, 1
+    repeated :hosts_blacklist, :string, 5
+    repeated :ports_whitelist, :string, 2
+    repeated :ports_blacklist, :string, 6
+    repeated :methods_whitelist, :string, 3
+    repeated :methods_blacklist, :string, 7
+    repeated :paths_whitelist, :string, 4
+    repeated :paths_blacklist, :string, 8
+  end
+  add_message "meshpaas.AuthzSource" do
+    repeated :principals_whitelist, :string, 1
+    repeated :principals_blacklist, :string, 5
+    repeated :request_principals_whitelist, :string, 2
+    repeated :request_principals_blacklist, :string, 6
+    repeated :namespaces_whitelist, :string, 3
+    repeated :namespaces_blacklist, :string, 7
+  end
+  add_message "meshpaas.AuthzCondition" do
+    optional :key, :string, 1
+    repeated :equals, :string, 2
+    repeated :not_equals, :string, 3
+  end
+  add_message "meshpaas.AuthzRule" do
+    repeated :sources, :message, 1, "meshpaas.AuthzSource"
+    repeated :conditions, :message, 2, "meshpaas.AuthzCondition"
+    repeated :destinations, :message, 3, "meshpaas.AuthzDestination"
+  end
+  add_message "meshpaas.AuthzPolicy" do
+    optional :action, :enum, 1, "meshpaas.AuthzAction"
+    repeated :rules, :message, 2, "meshpaas.AuthzRule"
+  end
+  add_message "meshpaas.Authz" do
+    repeated :policies, :message, 1, "meshpaas.AuthzPolicy"
+  end
+  add_message "meshpaas.AuthnRule" do
+    optional :jwks_uri, :string, 1
+    optional :issuer, :string, 2
+    repeated :audience, :string, 3
+    optional :ouput_payload_header, :string, 4
+  end
+  add_message "meshpaas.Authn" do
+    repeated :rules, :message, 1, "meshpaas.AuthnRule"
+  end
   add_message "meshpaas.SecretInput" do
     optional :name, :string, 1
     optional :project, :string, 2
     optional :type, :enum, 3, "meshpaas.SecretType"
     optional :immutable, :bool, 4
     map :data, :string, :string, 5
-    map :labels, :string, :string, 6
   end
   add_message "meshpaas.Secret" do
     optional :name, :string, 1
@@ -22,7 +65,6 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     optional :type, :enum, 3, "meshpaas.SecretType"
     optional :immutable, :bool, 4
     map :data, :string, :string, 5
-    map :labels, :string, :string, 6
   end
   add_message "meshpaas.ServerTLSSettings" do
     optional :https_redirect, :bool, 1
@@ -44,15 +86,11 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     optional :name, :string, 1
     optional :project, :string, 2
     repeated :listeners, :message, 3, "meshpaas.GatewayListener"
-    map :labels, :string, :string, 4
-    map :selector, :string, :string, 5
   end
   add_message "meshpaas.GatewayInput" do
     optional :name, :string, 1
     optional :project, :string, 2
     repeated :listeners, :message, 3, "meshpaas.GatewayListener"
-    map :labels, :string, :string, 4
-    map :selector, :string, :string, 5
   end
   add_message "meshpaas.HTTPRoute" do
     optional :name, :string, 1
@@ -83,9 +121,9 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     optional :project, :string, 2
     repeated :containers, :message, 3, "meshpaas.Container"
     optional :replicas, :uint32, 8
-    map :labels, :string, :string, 9
-    map :selector, :string, :string, 10
     optional :networking, :message, 11, "meshpaas.Networking"
+    optional :authentication, :message, 12, "meshpaas.Authn"
+    optional :authorization, :message, 13, "meshpaas.Authz"
     optional :status, :message, 20, "meshpaas.AppStatus"
   end
   add_message "meshpaas.Task" do
@@ -94,8 +132,6 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     repeated :containers, :message, 3, "meshpaas.Container"
     optional :schedule, :string, 7
     optional :completions, :uint32, 8
-    map :labels, :string, :string, 9
-    map :selector, :string, :string, 10
   end
   add_message "meshpaas.TaskInput" do
     optional :name, :string, 1
@@ -103,17 +139,15 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     repeated :containers, :message, 3, "meshpaas.Container"
     optional :schedule, :string, 7
     optional :completions, :uint32, 8
-    map :labels, :string, :string, 9
-    map :selector, :string, :string, 10
   end
   add_message "meshpaas.AppInput" do
     optional :name, :string, 1
     optional :project, :string, 2
     repeated :containers, :message, 3, "meshpaas.Container"
     optional :replicas, :uint32, 7
-    optional :networking, :message, 9, "meshpaas.Networking"
-    map :labels, :string, :string, 10
-    map :selector, :string, :string, 11
+    optional :networking, :message, 10, "meshpaas.Networking"
+    optional :authentication, :message, 12, "meshpaas.Authn"
+    optional :authorization, :message, 13, "meshpaas.Authz"
   end
   add_message "meshpaas.Ref" do
     optional :name, :string, 1
@@ -138,17 +172,19 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   end
   add_message "meshpaas.ProjectInput" do
     optional :name, :string, 1
-    map :labels, :string, :string, 2
   end
   add_message "meshpaas.Project" do
     optional :name, :string, 1
-    map :labels, :string, :string, 2
   end
   add_message "meshpaas.ProjectRef" do
     optional :name, :string, 1
   end
   add_message "meshpaas.Projects" do
     repeated :projects, :string, 1
+  end
+  add_enum "meshpaas.AuthzAction" do
+    value :ALLOW, 0
+    value :DENY, 1
   end
   add_enum "meshpaas.SecretType" do
     value :OPAQUE, 0
@@ -175,6 +211,14 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
 end
 
 module Meshpaas
+  AuthzDestination = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.AuthzDestination").msgclass
+  AuthzSource = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.AuthzSource").msgclass
+  AuthzCondition = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.AuthzCondition").msgclass
+  AuthzRule = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.AuthzRule").msgclass
+  AuthzPolicy = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.AuthzPolicy").msgclass
+  Authz = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Authz").msgclass
+  AuthnRule = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.AuthnRule").msgclass
+  Authn = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Authn").msgclass
   SecretInput = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.SecretInput").msgclass
   Secret = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Secret").msgclass
   ServerTLSSettings = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.ServerTLSSettings").msgclass
@@ -198,6 +242,7 @@ module Meshpaas
   Project = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Project").msgclass
   ProjectRef = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.ProjectRef").msgclass
   Projects = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Projects").msgclass
+  AuthzAction = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.AuthzAction").enummodule
   SecretType = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.SecretType").enummodule
   Protocol = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Protocol").enummodule
   TLSmode = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.TLSmode").enummodule

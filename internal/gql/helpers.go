@@ -48,8 +48,6 @@ func toApp(input model.AppInput) *meshpaaspb.AppInput {
 		Containers: containers,
 		Replicas:   uint32(input.Replicas),
 		Networking: networking,
-		Labels:     helpers.ConvertMapS(input.Labels),
-		Selector:   helpers.ConvertMapS(input.Selector),
 	}
 }
 
@@ -78,8 +76,6 @@ func toTask(input model.TaskInput) *meshpaaspb.TaskInput {
 		Containers:  containers,
 		Schedule:    input.Schedule,
 		Completions: completions,
-		Labels:      helpers.ConvertMapS(input.Labels),
-		Selector:    helpers.ConvertMapS(input.Selector),
 	}
 }
 
@@ -128,8 +124,6 @@ func fromApp(app *meshpaaspb.App) *model.App {
 		Replicas:   int(app.Replicas),
 		Networking: fromNetworking(app.GetNetworking()),
 		Status:     status,
-		Labels:     helpers.ConvertMap(app.Labels),
-		Selector:   helpers.ConvertMap(app.Selector),
 	}
 }
 
@@ -201,7 +195,5 @@ func fromTask(app *meshpaaspb.Task) *model.Task {
 		Containers:  containers,
 		Schedule:    app.Schedule,
 		Completions: &completions,
-		Labels:      helpers.ConvertMap(app.Labels),
-		Selector:    helpers.ConvertMap(app.Selector),
 	}
 }

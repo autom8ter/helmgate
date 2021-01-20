@@ -10,15 +10,13 @@ import (
 	"github.com/autom8ter/meshpaas/gen/gql/go/generated"
 	"github.com/autom8ter/meshpaas/gen/gql/go/model"
 	meshpaaspb "github.com/autom8ter/meshpaas/gen/grpc/go"
-	"github.com/autom8ter/meshpaas/internal/helpers"
 	"github.com/golang/protobuf/ptypes/empty"
 	"github.com/vektah/gqlparser/v2/gqlerror"
 )
 
 func (r *mutationResolver) CreateProject(ctx context.Context, input model.ProjectInput) (*model.Project, error) {
 	p, err := r.client.CreateProject(ctx, &meshpaaspb.ProjectInput{
-		Name:   input.Name,
-		Labels: helpers.ConvertMapS(input.Labels),
+		Name: input.Name,
 	})
 	if err != nil {
 		return nil, &gqlerror.Error{
@@ -27,15 +25,13 @@ func (r *mutationResolver) CreateProject(ctx context.Context, input model.Projec
 		}
 	}
 	return &model.Project{
-		Name:   p.Name,
-		Labels: helpers.ConvertMap(p.Labels),
+		Name: p.Name,
 	}, nil
 }
 
 func (r *mutationResolver) UpdateProject(ctx context.Context, input model.ProjectInput) (*model.Project, error) {
 	p, err := r.client.UpdateProject(ctx, &meshpaaspb.ProjectInput{
-		Name:   input.Name,
-		Labels: helpers.ConvertMapS(input.Labels),
+		Name: input.Name,
 	})
 	if err != nil {
 		return nil, &gqlerror.Error{
@@ -44,8 +40,7 @@ func (r *mutationResolver) UpdateProject(ctx context.Context, input model.Projec
 		}
 	}
 	return &model.Project{
-		Name:   p.Name,
-		Labels: helpers.ConvertMap(p.Labels),
+		Name: p.Name,
 	}, nil
 }
 
@@ -158,8 +153,7 @@ func (r *queryResolver) GetProject(ctx context.Context, input model.ProjectRef) 
 		}
 	}
 	return &model.Project{
-		Name:   p.Name,
-		Labels: helpers.ConvertMap(p.Labels),
+		Name: p.Name,
 	}, nil
 }
 

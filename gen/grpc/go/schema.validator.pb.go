@@ -21,6 +21,93 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+func (this *AuthzDestination) Validate() error {
+	return nil
+}
+func (this *AuthzSource) Validate() error {
+	return nil
+}
+
+var _regex_AuthzCondition_Key = regexp.MustCompile(`^.{1,225}$`)
+
+func (this *AuthzCondition) Validate() error {
+	if !_regex_AuthzCondition_Key.MatchString(this.Key) {
+		return github_com_mwitkow_go_proto_validators.FieldError("Key", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Key))
+	}
+	return nil
+}
+func (this *AuthzRule) Validate() error {
+	for _, item := range this.Sources {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Sources", err)
+			}
+		}
+	}
+	for _, item := range this.Conditions {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Conditions", err)
+			}
+		}
+	}
+	for _, item := range this.Destinations {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Destinations", err)
+			}
+		}
+	}
+	return nil
+}
+func (this *AuthzPolicy) Validate() error {
+	for _, item := range this.Rules {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Rules", err)
+			}
+		}
+	}
+	return nil
+}
+func (this *Authz) Validate() error {
+	for _, item := range this.Policies {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Policies", err)
+			}
+		}
+	}
+	return nil
+}
+
+var _regex_AuthnRule_JwksUri = regexp.MustCompile(`^.{1,225}$`)
+var _regex_AuthnRule_Issuer = regexp.MustCompile(`^.{1,225}$`)
+var _regex_AuthnRule_OuputPayloadHeader = regexp.MustCompile(`^.{1,225}$`)
+
+func (this *AuthnRule) Validate() error {
+	if !_regex_AuthnRule_JwksUri.MatchString(this.JwksUri) {
+		return github_com_mwitkow_go_proto_validators.FieldError("JwksUri", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.JwksUri))
+	}
+	if !_regex_AuthnRule_Issuer.MatchString(this.Issuer) {
+		return github_com_mwitkow_go_proto_validators.FieldError("Issuer", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Issuer))
+	}
+	if !_regex_AuthnRule_OuputPayloadHeader.MatchString(this.OuputPayloadHeader) {
+		return github_com_mwitkow_go_proto_validators.FieldError("OuputPayloadHeader", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.OuputPayloadHeader))
+	}
+	return nil
+}
+func (this *Authn) Validate() error {
+	for _, item := range this.Rules {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Rules", err)
+			}
+		}
+	}
+	return nil
+}
+
 var _regex_SecretInput_Name = regexp.MustCompile(`^.{1,225}$`)
 var _regex_SecretInput_Project = regexp.MustCompile(`^.{1,225}$`)
 
@@ -31,7 +118,6 @@ func (this *SecretInput) Validate() error {
 	if !_regex_SecretInput_Project.MatchString(this.Project) {
 		return github_com_mwitkow_go_proto_validators.FieldError("Project", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Project))
 	}
-	// Validation of proto3 map<> fields is unsupported.
 	// Validation of proto3 map<> fields is unsupported.
 	return nil
 }
@@ -46,7 +132,6 @@ func (this *Secret) Validate() error {
 	if !_regex_Secret_Project.MatchString(this.Project) {
 		return github_com_mwitkow_go_proto_validators.FieldError("Project", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Project))
 	}
-	// Validation of proto3 map<> fields is unsupported.
 	// Validation of proto3 map<> fields is unsupported.
 	return nil
 }
@@ -81,8 +166,6 @@ func (this *Gateway) Validate() error {
 			}
 		}
 	}
-	// Validation of proto3 map<> fields is unsupported.
-	// Validation of proto3 map<> fields is unsupported.
 	return nil
 }
 
@@ -103,8 +186,6 @@ func (this *GatewayInput) Validate() error {
 			}
 		}
 	}
-	// Validation of proto3 map<> fields is unsupported.
-	// Validation of proto3 map<> fields is unsupported.
 	return nil
 }
 
@@ -162,14 +243,22 @@ func (this *App) Validate() error {
 			}
 		}
 	}
-	// Validation of proto3 map<> fields is unsupported.
-	// Validation of proto3 map<> fields is unsupported.
 	if nil == this.Networking {
 		return github_com_mwitkow_go_proto_validators.FieldError("Networking", fmt.Errorf("message must exist"))
 	}
 	if this.Networking != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Networking); err != nil {
 			return github_com_mwitkow_go_proto_validators.FieldError("Networking", err)
+		}
+	}
+	if this.Authentication != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Authentication); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Authentication", err)
+		}
+	}
+	if this.Authorization != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Authorization); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Authorization", err)
 		}
 	}
 	if nil == this.Status {
@@ -204,8 +293,6 @@ func (this *Task) Validate() error {
 	if !_regex_Task_Schedule.MatchString(this.Schedule) {
 		return github_com_mwitkow_go_proto_validators.FieldError("Schedule", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Schedule))
 	}
-	// Validation of proto3 map<> fields is unsupported.
-	// Validation of proto3 map<> fields is unsupported.
 	return nil
 }
 
@@ -230,8 +317,6 @@ func (this *TaskInput) Validate() error {
 	if !_regex_TaskInput_Schedule.MatchString(this.Schedule) {
 		return github_com_mwitkow_go_proto_validators.FieldError("Schedule", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Schedule))
 	}
-	// Validation of proto3 map<> fields is unsupported.
-	// Validation of proto3 map<> fields is unsupported.
 	return nil
 }
 
@@ -260,8 +345,16 @@ func (this *AppInput) Validate() error {
 			return github_com_mwitkow_go_proto_validators.FieldError("Networking", err)
 		}
 	}
-	// Validation of proto3 map<> fields is unsupported.
-	// Validation of proto3 map<> fields is unsupported.
+	if this.Authentication != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Authentication); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Authentication", err)
+		}
+	}
+	if this.Authorization != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Authorization); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Authorization", err)
+		}
+	}
 	return nil
 }
 
@@ -320,11 +413,9 @@ func (this *ProjectInput) Validate() error {
 	if !_regex_ProjectInput_Name.MatchString(this.Name) {
 		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
 	}
-	// Validation of proto3 map<> fields is unsupported.
 	return nil
 }
 func (this *Project) Validate() error {
-	// Validation of proto3 map<> fields is unsupported.
 	return nil
 }
 

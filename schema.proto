@@ -10,6 +10,64 @@ import "google/protobuf/any.proto";
 import "google/protobuf/empty.proto";
 import "github.com/mwitkow/go-proto-validators/validator.proto";
 
+// AuthzAction is the result of an Authorization Decision
+enum AuthzAction {
+  ALLOW = 0;
+  DENY = 1;
+}
+
+message AuthzDestination {
+  repeated string hosts_whitelist = 1;
+  repeated string hosts_blacklist = 5;
+  repeated string ports_whitelist = 2;
+  repeated string ports_blacklist = 6;
+  repeated string methods_whitelist = 3;
+  repeated string methods_blacklist = 7;
+  repeated string paths_whitelist = 4;
+  repeated string paths_blacklist = 8;
+}
+
+message AuthzSource {
+  repeated string principals_whitelist = 1;
+  repeated string principals_blacklist = 5;
+  repeated string request_principals_whitelist = 2;
+  repeated string request_principals_blacklist = 6;
+  repeated string namespaces_whitelist = 3;
+  repeated string namespaces_blacklist = 7;
+}
+
+message AuthzCondition {
+  string key = 1[(validator.field) = {regex : "^.{1,225}$"}];
+  repeated string equals = 2;
+  repeated string not_equals = 3;
+}
+
+message AuthzRule {
+  repeated AuthzSource sources =1;
+  repeated AuthzCondition conditions =2;
+  repeated AuthzDestination destinations =3;
+}
+
+message AuthzPolicy {
+  AuthzAction action =1;
+  repeated AuthzRule rules =2;
+}
+
+message Authz {
+  repeated AuthzPolicy policies =1;
+}
+
+message AuthnRule {
+  string jwks_uri =1[(validator.field) = {regex : "^.{1,225}$"}];
+  string issuer =2[(validator.field) = {regex : "^.{1,225}$"}];
+  repeated string audience =3;
+  string ouput_payload_header =4[(validator.field) = {regex : "^.{1,225}$"}];
+}
+
+message Authn {
+  repeated AuthnRule rules =1;
+}
+
 enum SecretType {
   OPAQUE =0;
   TLS_CERT_KEY =1;
@@ -24,7 +82,6 @@ message SecretInput {
   SecretType type =3;
   bool immutable =4;
   map<string, string> data =5[(validator.field) = {msg_exists : true}];
-  map<string, string> labels =6[(validator.field) = {msg_exists : true}];
 }
 
 message Secret {
@@ -35,7 +92,6 @@ message Secret {
   SecretType type =3;
   bool immutable =4;
   map<string, string> data =5[(validator.field) = {msg_exists : true}];
-  map<string, string> labels =6[(validator.field) = {msg_exists : true}];
 }
 
 enum Protocol {
@@ -81,8 +137,6 @@ message Gateway {
   // application project
   string project =2;
   repeated GatewayListener listeners = 3;
-  map<string, string> labels =4;
-  map<string, string> selector =5;
 }
 
 message GatewayInput {
@@ -91,8 +145,6 @@ message GatewayInput {
   // application project
   string project =2[(validator.field) = {regex : "^.{1,225}$"}];
   repeated GatewayListener listeners = 3;
-  map<string, string> labels =4[(validator.field) = {msg_exists : true}];
-  map<string, string> selector =5[(validator.field) = {msg_exists : true}];
 }
 
 // HTTPRoute is a single http route(istio HttpRoute)
@@ -143,10 +195,12 @@ message App {
   repeated Container containers =3[(validator.field) = {msg_exists : true}];
   // number of deployment replicas
   uint32 replicas =8;
-  map<string, string> labels =9[(validator.field) = {msg_exists : true}];
-  map<string, string> selector =10[(validator.field) = {msg_exists : true}];
   // gateway/service-mesh networking
   Networking networking =11[(validator.field) = {msg_exists : true}];
+  // application authentication options
+  Authn authentication =12;
+  // application authorization options
+  Authz authorization =13;
   // status tracks the state of the application during it's lifecycle
   AppStatus status =20[(validator.field) = {msg_exists : true}];
 }
@@ -163,8 +217,6 @@ message Task {
   string schedule = 7[(validator.field) = {regex : "^.{1,225}$"}];
   // completions is the number of times to execute the task. If completions = 0, the task will run forever
   uint32 completions = 8;
-  map<string, string> labels =9[(validator.field) = {msg_exists : true}];
-  map<string, string> selector =10[(validator.field) = {msg_exists : true}];
 }
 
 // TaskInput creates/updates a task(cron job)
@@ -178,8 +230,6 @@ message TaskInput {
   string schedule = 7[(validator.field) = {regex : "^.{1,225}$"}];
   // completions is the number of times to execute the task. If completions = 0, the task will run forever
   uint32 completions = 8;
-  map<string, string> labels =9[(validator.field) = {msg_exists : true}];
-  map<string, string> selector =10[(validator.field) = {msg_exists : true}];
 }
 
 // AppInput creates/replaces an app
@@ -191,9 +241,11 @@ message AppInput {
   repeated Container containers =3[(validator.field) = {msg_exists : true}];
   // number of deployment replicas
   uint32 replicas =7;
-  Networking networking =9[(validator.field) = {msg_exists : true}];
-  map<string, string> labels =10[(validator.field) = {msg_exists : true}];
-  map<string, string> selector =11[(validator.field) = {msg_exists : true}];
+  Networking networking =10[(validator.field) = {msg_exists : true}];
+  // application authentication options
+  Authn authentication =12;
+  // application authorization options
+  Authz authorization =13;
 }
 
 message Ref {
@@ -228,12 +280,10 @@ message Tasks {
 
 message ProjectInput {
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  map<string, string> labels =2[(validator.field) = {msg_exists : true}];
 }
 
 message Project {
   string name =1;
-  map<string, string> labels =2;
 }
 
 message ProjectRef {

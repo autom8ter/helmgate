@@ -38,17 +38,21 @@ class AppInput extends \Google\Protobuf\Internal\Message
      */
     private $replicas = 0;
     /**
-     * Generated from protobuf field <code>.meshpaas.Networking networking = 9 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>.meshpaas.Networking networking = 10 [(.validator.field) = {</code>
      */
     private $networking = null;
     /**
-     * Generated from protobuf field <code>map<string, string> labels = 10 [(.validator.field) = {</code>
+     * application authentication options
+     *
+     * Generated from protobuf field <code>.meshpaas.Authn authentication = 12;</code>
      */
-    private $labels;
+    private $authentication = null;
     /**
-     * Generated from protobuf field <code>map<string, string> selector = 11 [(.validator.field) = {</code>
+     * application authorization options
+     *
+     * Generated from protobuf field <code>.meshpaas.Authz authorization = 13;</code>
      */
-    private $selector;
+    private $authorization = null;
 
     /**
      * Constructor.
@@ -64,8 +68,10 @@ class AppInput extends \Google\Protobuf\Internal\Message
      *     @type int $replicas
      *           number of deployment replicas
      *     @type \Meshpaas\Networking $networking
-     *     @type array|\Google\Protobuf\Internal\MapField $labels
-     *     @type array|\Google\Protobuf\Internal\MapField $selector
+     *     @type \Meshpaas\Authn $authentication
+     *           application authentication options
+     *     @type \Meshpaas\Authz $authorization
+     *           application authorization options
      * }
      */
     public function __construct($data = NULL) {
@@ -174,7 +180,7 @@ class AppInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.meshpaas.Networking networking = 9 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>.meshpaas.Networking networking = 10 [(.validator.field) = {</code>
      * @return \Meshpaas\Networking
      */
     public function getNetworking()
@@ -183,7 +189,7 @@ class AppInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.meshpaas.Networking networking = 9 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>.meshpaas.Networking networking = 10 [(.validator.field) = {</code>
      * @param \Meshpaas\Networking $var
      * @return $this
      */
@@ -196,45 +202,53 @@ class AppInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>map<string, string> labels = 10 [(.validator.field) = {</code>
-     * @return \Google\Protobuf\Internal\MapField
+     * application authentication options
+     *
+     * Generated from protobuf field <code>.meshpaas.Authn authentication = 12;</code>
+     * @return \Meshpaas\Authn
      */
-    public function getLabels()
+    public function getAuthentication()
     {
-        return $this->labels;
+        return $this->authentication;
     }
 
     /**
-     * Generated from protobuf field <code>map<string, string> labels = 10 [(.validator.field) = {</code>
-     * @param array|\Google\Protobuf\Internal\MapField $var
+     * application authentication options
+     *
+     * Generated from protobuf field <code>.meshpaas.Authn authentication = 12;</code>
+     * @param \Meshpaas\Authn $var
      * @return $this
      */
-    public function setLabels($var)
+    public function setAuthentication($var)
     {
-        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->labels = $arr;
+        GPBUtil::checkMessage($var, \Meshpaas\Authn::class);
+        $this->authentication = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>map<string, string> selector = 11 [(.validator.field) = {</code>
-     * @return \Google\Protobuf\Internal\MapField
+     * application authorization options
+     *
+     * Generated from protobuf field <code>.meshpaas.Authz authorization = 13;</code>
+     * @return \Meshpaas\Authz
      */
-    public function getSelector()
+    public function getAuthorization()
     {
-        return $this->selector;
+        return $this->authorization;
     }
 
     /**
-     * Generated from protobuf field <code>map<string, string> selector = 11 [(.validator.field) = {</code>
-     * @param array|\Google\Protobuf\Internal\MapField $var
+     * application authorization options
+     *
+     * Generated from protobuf field <code>.meshpaas.Authz authorization = 13;</code>
+     * @param \Meshpaas\Authz $var
      * @return $this
      */
-    public function setSelector($var)
+    public function setAuthorization($var)
     {
-        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->selector = $arr;
+        GPBUtil::checkMessage($var, \Meshpaas\Authz::class);
+        $this->authorization = $var;
 
         return $this;
     }

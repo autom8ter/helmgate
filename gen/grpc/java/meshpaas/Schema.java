@@ -15,6 +15,104 @@ public final class Schema {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   /**
+   * Protobuf enum {@code meshpaas.AuthzAction}
+   */
+  public enum AuthzAction
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>ALLOW = 0;</code>
+     */
+    ALLOW(0),
+    /**
+     * <code>DENY = 1;</code>
+     */
+    DENY(1),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>ALLOW = 0;</code>
+     */
+    public static final int ALLOW_VALUE = 0;
+    /**
+     * <code>DENY = 1;</code>
+     */
+    public static final int DENY_VALUE = 1;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static AuthzAction valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static AuthzAction forNumber(int value) {
+      switch (value) {
+        case 0: return ALLOW;
+        case 1: return DENY;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<AuthzAction>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        AuthzAction> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<AuthzAction>() {
+            public AuthzAction findValueByNumber(int number) {
+              return AuthzAction.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return meshpaas.Schema.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final AuthzAction[] VALUES = values();
+
+    public static AuthzAction valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private AuthzAction(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:meshpaas.AuthzAction)
+  }
+
+  /**
    * Protobuf enum {@code meshpaas.SecretType}
    */
   public enum SecretType
@@ -95,7 +193,7 @@ public final class Schema {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return meshpaas.Schema.getDescriptor().getEnumTypes().get(0);
+      return meshpaas.Schema.getDescriptor().getEnumTypes().get(1);
     }
 
     private static final SecretType[] VALUES = values();
@@ -247,7 +345,7 @@ public final class Schema {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return meshpaas.Schema.getDescriptor().getEnumTypes().get(1);
+      return meshpaas.Schema.getDescriptor().getEnumTypes().get(2);
     }
 
     private static final Protocol[] VALUES = values();
@@ -372,7 +470,7 @@ public final class Schema {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return meshpaas.Schema.getDescriptor().getEnumTypes().get(2);
+      return meshpaas.Schema.getDescriptor().getEnumTypes().get(3);
     }
 
     private static final TLSmode[] VALUES = values();
@@ -396,6 +494,9392 @@ public final class Schema {
     }
 
     // @@protoc_insertion_point(enum_scope:meshpaas.TLSmode)
+  }
+
+  public interface AuthzDestinationOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:meshpaas.AuthzDestination)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated string hosts_whitelist = 1;</code>
+     */
+    java.util.List<java.lang.String>
+        getHostsWhitelistList();
+    /**
+     * <code>repeated string hosts_whitelist = 1;</code>
+     */
+    int getHostsWhitelistCount();
+    /**
+     * <code>repeated string hosts_whitelist = 1;</code>
+     */
+    java.lang.String getHostsWhitelist(int index);
+    /**
+     * <code>repeated string hosts_whitelist = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getHostsWhitelistBytes(int index);
+
+    /**
+     * <code>repeated string hosts_blacklist = 5;</code>
+     */
+    java.util.List<java.lang.String>
+        getHostsBlacklistList();
+    /**
+     * <code>repeated string hosts_blacklist = 5;</code>
+     */
+    int getHostsBlacklistCount();
+    /**
+     * <code>repeated string hosts_blacklist = 5;</code>
+     */
+    java.lang.String getHostsBlacklist(int index);
+    /**
+     * <code>repeated string hosts_blacklist = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getHostsBlacklistBytes(int index);
+
+    /**
+     * <code>repeated string ports_whitelist = 2;</code>
+     */
+    java.util.List<java.lang.String>
+        getPortsWhitelistList();
+    /**
+     * <code>repeated string ports_whitelist = 2;</code>
+     */
+    int getPortsWhitelistCount();
+    /**
+     * <code>repeated string ports_whitelist = 2;</code>
+     */
+    java.lang.String getPortsWhitelist(int index);
+    /**
+     * <code>repeated string ports_whitelist = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getPortsWhitelistBytes(int index);
+
+    /**
+     * <code>repeated string ports_blacklist = 6;</code>
+     */
+    java.util.List<java.lang.String>
+        getPortsBlacklistList();
+    /**
+     * <code>repeated string ports_blacklist = 6;</code>
+     */
+    int getPortsBlacklistCount();
+    /**
+     * <code>repeated string ports_blacklist = 6;</code>
+     */
+    java.lang.String getPortsBlacklist(int index);
+    /**
+     * <code>repeated string ports_blacklist = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getPortsBlacklistBytes(int index);
+
+    /**
+     * <code>repeated string methods_whitelist = 3;</code>
+     */
+    java.util.List<java.lang.String>
+        getMethodsWhitelistList();
+    /**
+     * <code>repeated string methods_whitelist = 3;</code>
+     */
+    int getMethodsWhitelistCount();
+    /**
+     * <code>repeated string methods_whitelist = 3;</code>
+     */
+    java.lang.String getMethodsWhitelist(int index);
+    /**
+     * <code>repeated string methods_whitelist = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getMethodsWhitelistBytes(int index);
+
+    /**
+     * <code>repeated string methods_blacklist = 7;</code>
+     */
+    java.util.List<java.lang.String>
+        getMethodsBlacklistList();
+    /**
+     * <code>repeated string methods_blacklist = 7;</code>
+     */
+    int getMethodsBlacklistCount();
+    /**
+     * <code>repeated string methods_blacklist = 7;</code>
+     */
+    java.lang.String getMethodsBlacklist(int index);
+    /**
+     * <code>repeated string methods_blacklist = 7;</code>
+     */
+    com.google.protobuf.ByteString
+        getMethodsBlacklistBytes(int index);
+
+    /**
+     * <code>repeated string paths_whitelist = 4;</code>
+     */
+    java.util.List<java.lang.String>
+        getPathsWhitelistList();
+    /**
+     * <code>repeated string paths_whitelist = 4;</code>
+     */
+    int getPathsWhitelistCount();
+    /**
+     * <code>repeated string paths_whitelist = 4;</code>
+     */
+    java.lang.String getPathsWhitelist(int index);
+    /**
+     * <code>repeated string paths_whitelist = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getPathsWhitelistBytes(int index);
+
+    /**
+     * <code>repeated string paths_blacklist = 8;</code>
+     */
+    java.util.List<java.lang.String>
+        getPathsBlacklistList();
+    /**
+     * <code>repeated string paths_blacklist = 8;</code>
+     */
+    int getPathsBlacklistCount();
+    /**
+     * <code>repeated string paths_blacklist = 8;</code>
+     */
+    java.lang.String getPathsBlacklist(int index);
+    /**
+     * <code>repeated string paths_blacklist = 8;</code>
+     */
+    com.google.protobuf.ByteString
+        getPathsBlacklistBytes(int index);
+  }
+  /**
+   * Protobuf type {@code meshpaas.AuthzDestination}
+   */
+  public  static final class AuthzDestination extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:meshpaas.AuthzDestination)
+      AuthzDestinationOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AuthzDestination.newBuilder() to construct.
+    private AuthzDestination(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AuthzDestination() {
+      hostsWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      hostsBlacklist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      portsWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      portsBlacklist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      methodsWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      methodsBlacklist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      pathsWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      pathsBlacklist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AuthzDestination(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                hostsWhitelist_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              hostsWhitelist_.add(s);
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                portsWhitelist_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              portsWhitelist_.add(s);
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+                methodsWhitelist_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              methodsWhitelist_.add(s);
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+                pathsWhitelist_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000040;
+              }
+              pathsWhitelist_.add(s);
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                hostsBlacklist_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              hostsBlacklist_.add(s);
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                portsBlacklist_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              portsBlacklist_.add(s);
+              break;
+            }
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+                methodsBlacklist_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000020;
+              }
+              methodsBlacklist_.add(s);
+              break;
+            }
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+                pathsBlacklist_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000080;
+              }
+              pathsBlacklist_.add(s);
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          hostsWhitelist_ = hostsWhitelist_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          portsWhitelist_ = portsWhitelist_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+          methodsWhitelist_ = methodsWhitelist_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+          pathsWhitelist_ = pathsWhitelist_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          hostsBlacklist_ = hostsBlacklist_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+          portsBlacklist_ = portsBlacklist_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+          methodsBlacklist_ = methodsBlacklist_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+          pathsBlacklist_ = pathsBlacklist_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return meshpaas.Schema.internal_static_meshpaas_AuthzDestination_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return meshpaas.Schema.internal_static_meshpaas_AuthzDestination_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              meshpaas.Schema.AuthzDestination.class, meshpaas.Schema.AuthzDestination.Builder.class);
+    }
+
+    public static final int HOSTS_WHITELIST_FIELD_NUMBER = 1;
+    private com.google.protobuf.LazyStringList hostsWhitelist_;
+    /**
+     * <code>repeated string hosts_whitelist = 1;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getHostsWhitelistList() {
+      return hostsWhitelist_;
+    }
+    /**
+     * <code>repeated string hosts_whitelist = 1;</code>
+     */
+    public int getHostsWhitelistCount() {
+      return hostsWhitelist_.size();
+    }
+    /**
+     * <code>repeated string hosts_whitelist = 1;</code>
+     */
+    public java.lang.String getHostsWhitelist(int index) {
+      return hostsWhitelist_.get(index);
+    }
+    /**
+     * <code>repeated string hosts_whitelist = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getHostsWhitelistBytes(int index) {
+      return hostsWhitelist_.getByteString(index);
+    }
+
+    public static final int HOSTS_BLACKLIST_FIELD_NUMBER = 5;
+    private com.google.protobuf.LazyStringList hostsBlacklist_;
+    /**
+     * <code>repeated string hosts_blacklist = 5;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getHostsBlacklistList() {
+      return hostsBlacklist_;
+    }
+    /**
+     * <code>repeated string hosts_blacklist = 5;</code>
+     */
+    public int getHostsBlacklistCount() {
+      return hostsBlacklist_.size();
+    }
+    /**
+     * <code>repeated string hosts_blacklist = 5;</code>
+     */
+    public java.lang.String getHostsBlacklist(int index) {
+      return hostsBlacklist_.get(index);
+    }
+    /**
+     * <code>repeated string hosts_blacklist = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getHostsBlacklistBytes(int index) {
+      return hostsBlacklist_.getByteString(index);
+    }
+
+    public static final int PORTS_WHITELIST_FIELD_NUMBER = 2;
+    private com.google.protobuf.LazyStringList portsWhitelist_;
+    /**
+     * <code>repeated string ports_whitelist = 2;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getPortsWhitelistList() {
+      return portsWhitelist_;
+    }
+    /**
+     * <code>repeated string ports_whitelist = 2;</code>
+     */
+    public int getPortsWhitelistCount() {
+      return portsWhitelist_.size();
+    }
+    /**
+     * <code>repeated string ports_whitelist = 2;</code>
+     */
+    public java.lang.String getPortsWhitelist(int index) {
+      return portsWhitelist_.get(index);
+    }
+    /**
+     * <code>repeated string ports_whitelist = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPortsWhitelistBytes(int index) {
+      return portsWhitelist_.getByteString(index);
+    }
+
+    public static final int PORTS_BLACKLIST_FIELD_NUMBER = 6;
+    private com.google.protobuf.LazyStringList portsBlacklist_;
+    /**
+     * <code>repeated string ports_blacklist = 6;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getPortsBlacklistList() {
+      return portsBlacklist_;
+    }
+    /**
+     * <code>repeated string ports_blacklist = 6;</code>
+     */
+    public int getPortsBlacklistCount() {
+      return portsBlacklist_.size();
+    }
+    /**
+     * <code>repeated string ports_blacklist = 6;</code>
+     */
+    public java.lang.String getPortsBlacklist(int index) {
+      return portsBlacklist_.get(index);
+    }
+    /**
+     * <code>repeated string ports_blacklist = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPortsBlacklistBytes(int index) {
+      return portsBlacklist_.getByteString(index);
+    }
+
+    public static final int METHODS_WHITELIST_FIELD_NUMBER = 3;
+    private com.google.protobuf.LazyStringList methodsWhitelist_;
+    /**
+     * <code>repeated string methods_whitelist = 3;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getMethodsWhitelistList() {
+      return methodsWhitelist_;
+    }
+    /**
+     * <code>repeated string methods_whitelist = 3;</code>
+     */
+    public int getMethodsWhitelistCount() {
+      return methodsWhitelist_.size();
+    }
+    /**
+     * <code>repeated string methods_whitelist = 3;</code>
+     */
+    public java.lang.String getMethodsWhitelist(int index) {
+      return methodsWhitelist_.get(index);
+    }
+    /**
+     * <code>repeated string methods_whitelist = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMethodsWhitelistBytes(int index) {
+      return methodsWhitelist_.getByteString(index);
+    }
+
+    public static final int METHODS_BLACKLIST_FIELD_NUMBER = 7;
+    private com.google.protobuf.LazyStringList methodsBlacklist_;
+    /**
+     * <code>repeated string methods_blacklist = 7;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getMethodsBlacklistList() {
+      return methodsBlacklist_;
+    }
+    /**
+     * <code>repeated string methods_blacklist = 7;</code>
+     */
+    public int getMethodsBlacklistCount() {
+      return methodsBlacklist_.size();
+    }
+    /**
+     * <code>repeated string methods_blacklist = 7;</code>
+     */
+    public java.lang.String getMethodsBlacklist(int index) {
+      return methodsBlacklist_.get(index);
+    }
+    /**
+     * <code>repeated string methods_blacklist = 7;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMethodsBlacklistBytes(int index) {
+      return methodsBlacklist_.getByteString(index);
+    }
+
+    public static final int PATHS_WHITELIST_FIELD_NUMBER = 4;
+    private com.google.protobuf.LazyStringList pathsWhitelist_;
+    /**
+     * <code>repeated string paths_whitelist = 4;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getPathsWhitelistList() {
+      return pathsWhitelist_;
+    }
+    /**
+     * <code>repeated string paths_whitelist = 4;</code>
+     */
+    public int getPathsWhitelistCount() {
+      return pathsWhitelist_.size();
+    }
+    /**
+     * <code>repeated string paths_whitelist = 4;</code>
+     */
+    public java.lang.String getPathsWhitelist(int index) {
+      return pathsWhitelist_.get(index);
+    }
+    /**
+     * <code>repeated string paths_whitelist = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPathsWhitelistBytes(int index) {
+      return pathsWhitelist_.getByteString(index);
+    }
+
+    public static final int PATHS_BLACKLIST_FIELD_NUMBER = 8;
+    private com.google.protobuf.LazyStringList pathsBlacklist_;
+    /**
+     * <code>repeated string paths_blacklist = 8;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getPathsBlacklistList() {
+      return pathsBlacklist_;
+    }
+    /**
+     * <code>repeated string paths_blacklist = 8;</code>
+     */
+    public int getPathsBlacklistCount() {
+      return pathsBlacklist_.size();
+    }
+    /**
+     * <code>repeated string paths_blacklist = 8;</code>
+     */
+    public java.lang.String getPathsBlacklist(int index) {
+      return pathsBlacklist_.get(index);
+    }
+    /**
+     * <code>repeated string paths_blacklist = 8;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPathsBlacklistBytes(int index) {
+      return pathsBlacklist_.getByteString(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < hostsWhitelist_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, hostsWhitelist_.getRaw(i));
+      }
+      for (int i = 0; i < portsWhitelist_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, portsWhitelist_.getRaw(i));
+      }
+      for (int i = 0; i < methodsWhitelist_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, methodsWhitelist_.getRaw(i));
+      }
+      for (int i = 0; i < pathsWhitelist_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, pathsWhitelist_.getRaw(i));
+      }
+      for (int i = 0; i < hostsBlacklist_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, hostsBlacklist_.getRaw(i));
+      }
+      for (int i = 0; i < portsBlacklist_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, portsBlacklist_.getRaw(i));
+      }
+      for (int i = 0; i < methodsBlacklist_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, methodsBlacklist_.getRaw(i));
+      }
+      for (int i = 0; i < pathsBlacklist_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, pathsBlacklist_.getRaw(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < hostsWhitelist_.size(); i++) {
+          dataSize += computeStringSizeNoTag(hostsWhitelist_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getHostsWhitelistList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < portsWhitelist_.size(); i++) {
+          dataSize += computeStringSizeNoTag(portsWhitelist_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getPortsWhitelistList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < methodsWhitelist_.size(); i++) {
+          dataSize += computeStringSizeNoTag(methodsWhitelist_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getMethodsWhitelistList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < pathsWhitelist_.size(); i++) {
+          dataSize += computeStringSizeNoTag(pathsWhitelist_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getPathsWhitelistList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < hostsBlacklist_.size(); i++) {
+          dataSize += computeStringSizeNoTag(hostsBlacklist_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getHostsBlacklistList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < portsBlacklist_.size(); i++) {
+          dataSize += computeStringSizeNoTag(portsBlacklist_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getPortsBlacklistList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < methodsBlacklist_.size(); i++) {
+          dataSize += computeStringSizeNoTag(methodsBlacklist_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getMethodsBlacklistList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < pathsBlacklist_.size(); i++) {
+          dataSize += computeStringSizeNoTag(pathsBlacklist_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getPathsBlacklistList().size();
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof meshpaas.Schema.AuthzDestination)) {
+        return super.equals(obj);
+      }
+      meshpaas.Schema.AuthzDestination other = (meshpaas.Schema.AuthzDestination) obj;
+
+      boolean result = true;
+      result = result && getHostsWhitelistList()
+          .equals(other.getHostsWhitelistList());
+      result = result && getHostsBlacklistList()
+          .equals(other.getHostsBlacklistList());
+      result = result && getPortsWhitelistList()
+          .equals(other.getPortsWhitelistList());
+      result = result && getPortsBlacklistList()
+          .equals(other.getPortsBlacklistList());
+      result = result && getMethodsWhitelistList()
+          .equals(other.getMethodsWhitelistList());
+      result = result && getMethodsBlacklistList()
+          .equals(other.getMethodsBlacklistList());
+      result = result && getPathsWhitelistList()
+          .equals(other.getPathsWhitelistList());
+      result = result && getPathsBlacklistList()
+          .equals(other.getPathsBlacklistList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getHostsWhitelistCount() > 0) {
+        hash = (37 * hash) + HOSTS_WHITELIST_FIELD_NUMBER;
+        hash = (53 * hash) + getHostsWhitelistList().hashCode();
+      }
+      if (getHostsBlacklistCount() > 0) {
+        hash = (37 * hash) + HOSTS_BLACKLIST_FIELD_NUMBER;
+        hash = (53 * hash) + getHostsBlacklistList().hashCode();
+      }
+      if (getPortsWhitelistCount() > 0) {
+        hash = (37 * hash) + PORTS_WHITELIST_FIELD_NUMBER;
+        hash = (53 * hash) + getPortsWhitelistList().hashCode();
+      }
+      if (getPortsBlacklistCount() > 0) {
+        hash = (37 * hash) + PORTS_BLACKLIST_FIELD_NUMBER;
+        hash = (53 * hash) + getPortsBlacklistList().hashCode();
+      }
+      if (getMethodsWhitelistCount() > 0) {
+        hash = (37 * hash) + METHODS_WHITELIST_FIELD_NUMBER;
+        hash = (53 * hash) + getMethodsWhitelistList().hashCode();
+      }
+      if (getMethodsBlacklistCount() > 0) {
+        hash = (37 * hash) + METHODS_BLACKLIST_FIELD_NUMBER;
+        hash = (53 * hash) + getMethodsBlacklistList().hashCode();
+      }
+      if (getPathsWhitelistCount() > 0) {
+        hash = (37 * hash) + PATHS_WHITELIST_FIELD_NUMBER;
+        hash = (53 * hash) + getPathsWhitelistList().hashCode();
+      }
+      if (getPathsBlacklistCount() > 0) {
+        hash = (37 * hash) + PATHS_BLACKLIST_FIELD_NUMBER;
+        hash = (53 * hash) + getPathsBlacklistList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static meshpaas.Schema.AuthzDestination parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.AuthzDestination parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.AuthzDestination parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.AuthzDestination parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.AuthzDestination parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.AuthzDestination parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.AuthzDestination parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.AuthzDestination parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static meshpaas.Schema.AuthzDestination parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.AuthzDestination parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static meshpaas.Schema.AuthzDestination parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.AuthzDestination parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(meshpaas.Schema.AuthzDestination prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code meshpaas.AuthzDestination}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:meshpaas.AuthzDestination)
+        meshpaas.Schema.AuthzDestinationOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return meshpaas.Schema.internal_static_meshpaas_AuthzDestination_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return meshpaas.Schema.internal_static_meshpaas_AuthzDestination_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                meshpaas.Schema.AuthzDestination.class, meshpaas.Schema.AuthzDestination.Builder.class);
+      }
+
+      // Construct using meshpaas.Schema.AuthzDestination.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        hostsWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        hostsBlacklist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        portsWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        portsBlacklist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        methodsWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        methodsBlacklist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        pathsWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000040);
+        pathsBlacklist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return meshpaas.Schema.internal_static_meshpaas_AuthzDestination_descriptor;
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.AuthzDestination getDefaultInstanceForType() {
+        return meshpaas.Schema.AuthzDestination.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.AuthzDestination build() {
+        meshpaas.Schema.AuthzDestination result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.AuthzDestination buildPartial() {
+        meshpaas.Schema.AuthzDestination result = new meshpaas.Schema.AuthzDestination(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          hostsWhitelist_ = hostsWhitelist_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.hostsWhitelist_ = hostsWhitelist_;
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          hostsBlacklist_ = hostsBlacklist_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.hostsBlacklist_ = hostsBlacklist_;
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          portsWhitelist_ = portsWhitelist_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.portsWhitelist_ = portsWhitelist_;
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          portsBlacklist_ = portsBlacklist_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.portsBlacklist_ = portsBlacklist_;
+        if (((bitField0_ & 0x00000010) == 0x00000010)) {
+          methodsWhitelist_ = methodsWhitelist_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000010);
+        }
+        result.methodsWhitelist_ = methodsWhitelist_;
+        if (((bitField0_ & 0x00000020) == 0x00000020)) {
+          methodsBlacklist_ = methodsBlacklist_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000020);
+        }
+        result.methodsBlacklist_ = methodsBlacklist_;
+        if (((bitField0_ & 0x00000040) == 0x00000040)) {
+          pathsWhitelist_ = pathsWhitelist_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000040);
+        }
+        result.pathsWhitelist_ = pathsWhitelist_;
+        if (((bitField0_ & 0x00000080) == 0x00000080)) {
+          pathsBlacklist_ = pathsBlacklist_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000080);
+        }
+        result.pathsBlacklist_ = pathsBlacklist_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof meshpaas.Schema.AuthzDestination) {
+          return mergeFrom((meshpaas.Schema.AuthzDestination)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(meshpaas.Schema.AuthzDestination other) {
+        if (other == meshpaas.Schema.AuthzDestination.getDefaultInstance()) return this;
+        if (!other.hostsWhitelist_.isEmpty()) {
+          if (hostsWhitelist_.isEmpty()) {
+            hostsWhitelist_ = other.hostsWhitelist_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureHostsWhitelistIsMutable();
+            hostsWhitelist_.addAll(other.hostsWhitelist_);
+          }
+          onChanged();
+        }
+        if (!other.hostsBlacklist_.isEmpty()) {
+          if (hostsBlacklist_.isEmpty()) {
+            hostsBlacklist_ = other.hostsBlacklist_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureHostsBlacklistIsMutable();
+            hostsBlacklist_.addAll(other.hostsBlacklist_);
+          }
+          onChanged();
+        }
+        if (!other.portsWhitelist_.isEmpty()) {
+          if (portsWhitelist_.isEmpty()) {
+            portsWhitelist_ = other.portsWhitelist_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensurePortsWhitelistIsMutable();
+            portsWhitelist_.addAll(other.portsWhitelist_);
+          }
+          onChanged();
+        }
+        if (!other.portsBlacklist_.isEmpty()) {
+          if (portsBlacklist_.isEmpty()) {
+            portsBlacklist_ = other.portsBlacklist_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensurePortsBlacklistIsMutable();
+            portsBlacklist_.addAll(other.portsBlacklist_);
+          }
+          onChanged();
+        }
+        if (!other.methodsWhitelist_.isEmpty()) {
+          if (methodsWhitelist_.isEmpty()) {
+            methodsWhitelist_ = other.methodsWhitelist_;
+            bitField0_ = (bitField0_ & ~0x00000010);
+          } else {
+            ensureMethodsWhitelistIsMutable();
+            methodsWhitelist_.addAll(other.methodsWhitelist_);
+          }
+          onChanged();
+        }
+        if (!other.methodsBlacklist_.isEmpty()) {
+          if (methodsBlacklist_.isEmpty()) {
+            methodsBlacklist_ = other.methodsBlacklist_;
+            bitField0_ = (bitField0_ & ~0x00000020);
+          } else {
+            ensureMethodsBlacklistIsMutable();
+            methodsBlacklist_.addAll(other.methodsBlacklist_);
+          }
+          onChanged();
+        }
+        if (!other.pathsWhitelist_.isEmpty()) {
+          if (pathsWhitelist_.isEmpty()) {
+            pathsWhitelist_ = other.pathsWhitelist_;
+            bitField0_ = (bitField0_ & ~0x00000040);
+          } else {
+            ensurePathsWhitelistIsMutable();
+            pathsWhitelist_.addAll(other.pathsWhitelist_);
+          }
+          onChanged();
+        }
+        if (!other.pathsBlacklist_.isEmpty()) {
+          if (pathsBlacklist_.isEmpty()) {
+            pathsBlacklist_ = other.pathsBlacklist_;
+            bitField0_ = (bitField0_ & ~0x00000080);
+          } else {
+            ensurePathsBlacklistIsMutable();
+            pathsBlacklist_.addAll(other.pathsBlacklist_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        meshpaas.Schema.AuthzDestination parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (meshpaas.Schema.AuthzDestination) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.LazyStringList hostsWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureHostsWhitelistIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          hostsWhitelist_ = new com.google.protobuf.LazyStringArrayList(hostsWhitelist_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated string hosts_whitelist = 1;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getHostsWhitelistList() {
+        return hostsWhitelist_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string hosts_whitelist = 1;</code>
+       */
+      public int getHostsWhitelistCount() {
+        return hostsWhitelist_.size();
+      }
+      /**
+       * <code>repeated string hosts_whitelist = 1;</code>
+       */
+      public java.lang.String getHostsWhitelist(int index) {
+        return hostsWhitelist_.get(index);
+      }
+      /**
+       * <code>repeated string hosts_whitelist = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getHostsWhitelistBytes(int index) {
+        return hostsWhitelist_.getByteString(index);
+      }
+      /**
+       * <code>repeated string hosts_whitelist = 1;</code>
+       */
+      public Builder setHostsWhitelist(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureHostsWhitelistIsMutable();
+        hostsWhitelist_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string hosts_whitelist = 1;</code>
+       */
+      public Builder addHostsWhitelist(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureHostsWhitelistIsMutable();
+        hostsWhitelist_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string hosts_whitelist = 1;</code>
+       */
+      public Builder addAllHostsWhitelist(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureHostsWhitelistIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, hostsWhitelist_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string hosts_whitelist = 1;</code>
+       */
+      public Builder clearHostsWhitelist() {
+        hostsWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string hosts_whitelist = 1;</code>
+       */
+      public Builder addHostsWhitelistBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureHostsWhitelistIsMutable();
+        hostsWhitelist_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList hostsBlacklist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureHostsBlacklistIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          hostsBlacklist_ = new com.google.protobuf.LazyStringArrayList(hostsBlacklist_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <code>repeated string hosts_blacklist = 5;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getHostsBlacklistList() {
+        return hostsBlacklist_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string hosts_blacklist = 5;</code>
+       */
+      public int getHostsBlacklistCount() {
+        return hostsBlacklist_.size();
+      }
+      /**
+       * <code>repeated string hosts_blacklist = 5;</code>
+       */
+      public java.lang.String getHostsBlacklist(int index) {
+        return hostsBlacklist_.get(index);
+      }
+      /**
+       * <code>repeated string hosts_blacklist = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getHostsBlacklistBytes(int index) {
+        return hostsBlacklist_.getByteString(index);
+      }
+      /**
+       * <code>repeated string hosts_blacklist = 5;</code>
+       */
+      public Builder setHostsBlacklist(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureHostsBlacklistIsMutable();
+        hostsBlacklist_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string hosts_blacklist = 5;</code>
+       */
+      public Builder addHostsBlacklist(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureHostsBlacklistIsMutable();
+        hostsBlacklist_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string hosts_blacklist = 5;</code>
+       */
+      public Builder addAllHostsBlacklist(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureHostsBlacklistIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, hostsBlacklist_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string hosts_blacklist = 5;</code>
+       */
+      public Builder clearHostsBlacklist() {
+        hostsBlacklist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string hosts_blacklist = 5;</code>
+       */
+      public Builder addHostsBlacklistBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureHostsBlacklistIsMutable();
+        hostsBlacklist_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList portsWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensurePortsWhitelistIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          portsWhitelist_ = new com.google.protobuf.LazyStringArrayList(portsWhitelist_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+      /**
+       * <code>repeated string ports_whitelist = 2;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getPortsWhitelistList() {
+        return portsWhitelist_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string ports_whitelist = 2;</code>
+       */
+      public int getPortsWhitelistCount() {
+        return portsWhitelist_.size();
+      }
+      /**
+       * <code>repeated string ports_whitelist = 2;</code>
+       */
+      public java.lang.String getPortsWhitelist(int index) {
+        return portsWhitelist_.get(index);
+      }
+      /**
+       * <code>repeated string ports_whitelist = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPortsWhitelistBytes(int index) {
+        return portsWhitelist_.getByteString(index);
+      }
+      /**
+       * <code>repeated string ports_whitelist = 2;</code>
+       */
+      public Builder setPortsWhitelist(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePortsWhitelistIsMutable();
+        portsWhitelist_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string ports_whitelist = 2;</code>
+       */
+      public Builder addPortsWhitelist(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePortsWhitelistIsMutable();
+        portsWhitelist_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string ports_whitelist = 2;</code>
+       */
+      public Builder addAllPortsWhitelist(
+          java.lang.Iterable<java.lang.String> values) {
+        ensurePortsWhitelistIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, portsWhitelist_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string ports_whitelist = 2;</code>
+       */
+      public Builder clearPortsWhitelist() {
+        portsWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string ports_whitelist = 2;</code>
+       */
+      public Builder addPortsWhitelistBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensurePortsWhitelistIsMutable();
+        portsWhitelist_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList portsBlacklist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensurePortsBlacklistIsMutable() {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+          portsBlacklist_ = new com.google.protobuf.LazyStringArrayList(portsBlacklist_);
+          bitField0_ |= 0x00000008;
+         }
+      }
+      /**
+       * <code>repeated string ports_blacklist = 6;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getPortsBlacklistList() {
+        return portsBlacklist_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string ports_blacklist = 6;</code>
+       */
+      public int getPortsBlacklistCount() {
+        return portsBlacklist_.size();
+      }
+      /**
+       * <code>repeated string ports_blacklist = 6;</code>
+       */
+      public java.lang.String getPortsBlacklist(int index) {
+        return portsBlacklist_.get(index);
+      }
+      /**
+       * <code>repeated string ports_blacklist = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPortsBlacklistBytes(int index) {
+        return portsBlacklist_.getByteString(index);
+      }
+      /**
+       * <code>repeated string ports_blacklist = 6;</code>
+       */
+      public Builder setPortsBlacklist(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePortsBlacklistIsMutable();
+        portsBlacklist_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string ports_blacklist = 6;</code>
+       */
+      public Builder addPortsBlacklist(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePortsBlacklistIsMutable();
+        portsBlacklist_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string ports_blacklist = 6;</code>
+       */
+      public Builder addAllPortsBlacklist(
+          java.lang.Iterable<java.lang.String> values) {
+        ensurePortsBlacklistIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, portsBlacklist_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string ports_blacklist = 6;</code>
+       */
+      public Builder clearPortsBlacklist() {
+        portsBlacklist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string ports_blacklist = 6;</code>
+       */
+      public Builder addPortsBlacklistBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensurePortsBlacklistIsMutable();
+        portsBlacklist_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList methodsWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureMethodsWhitelistIsMutable() {
+        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+          methodsWhitelist_ = new com.google.protobuf.LazyStringArrayList(methodsWhitelist_);
+          bitField0_ |= 0x00000010;
+         }
+      }
+      /**
+       * <code>repeated string methods_whitelist = 3;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getMethodsWhitelistList() {
+        return methodsWhitelist_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string methods_whitelist = 3;</code>
+       */
+      public int getMethodsWhitelistCount() {
+        return methodsWhitelist_.size();
+      }
+      /**
+       * <code>repeated string methods_whitelist = 3;</code>
+       */
+      public java.lang.String getMethodsWhitelist(int index) {
+        return methodsWhitelist_.get(index);
+      }
+      /**
+       * <code>repeated string methods_whitelist = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMethodsWhitelistBytes(int index) {
+        return methodsWhitelist_.getByteString(index);
+      }
+      /**
+       * <code>repeated string methods_whitelist = 3;</code>
+       */
+      public Builder setMethodsWhitelist(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureMethodsWhitelistIsMutable();
+        methodsWhitelist_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string methods_whitelist = 3;</code>
+       */
+      public Builder addMethodsWhitelist(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureMethodsWhitelistIsMutable();
+        methodsWhitelist_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string methods_whitelist = 3;</code>
+       */
+      public Builder addAllMethodsWhitelist(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureMethodsWhitelistIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, methodsWhitelist_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string methods_whitelist = 3;</code>
+       */
+      public Builder clearMethodsWhitelist() {
+        methodsWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string methods_whitelist = 3;</code>
+       */
+      public Builder addMethodsWhitelistBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureMethodsWhitelistIsMutable();
+        methodsWhitelist_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList methodsBlacklist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureMethodsBlacklistIsMutable() {
+        if (!((bitField0_ & 0x00000020) == 0x00000020)) {
+          methodsBlacklist_ = new com.google.protobuf.LazyStringArrayList(methodsBlacklist_);
+          bitField0_ |= 0x00000020;
+         }
+      }
+      /**
+       * <code>repeated string methods_blacklist = 7;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getMethodsBlacklistList() {
+        return methodsBlacklist_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string methods_blacklist = 7;</code>
+       */
+      public int getMethodsBlacklistCount() {
+        return methodsBlacklist_.size();
+      }
+      /**
+       * <code>repeated string methods_blacklist = 7;</code>
+       */
+      public java.lang.String getMethodsBlacklist(int index) {
+        return methodsBlacklist_.get(index);
+      }
+      /**
+       * <code>repeated string methods_blacklist = 7;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMethodsBlacklistBytes(int index) {
+        return methodsBlacklist_.getByteString(index);
+      }
+      /**
+       * <code>repeated string methods_blacklist = 7;</code>
+       */
+      public Builder setMethodsBlacklist(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureMethodsBlacklistIsMutable();
+        methodsBlacklist_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string methods_blacklist = 7;</code>
+       */
+      public Builder addMethodsBlacklist(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureMethodsBlacklistIsMutable();
+        methodsBlacklist_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string methods_blacklist = 7;</code>
+       */
+      public Builder addAllMethodsBlacklist(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureMethodsBlacklistIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, methodsBlacklist_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string methods_blacklist = 7;</code>
+       */
+      public Builder clearMethodsBlacklist() {
+        methodsBlacklist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string methods_blacklist = 7;</code>
+       */
+      public Builder addMethodsBlacklistBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureMethodsBlacklistIsMutable();
+        methodsBlacklist_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList pathsWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensurePathsWhitelistIsMutable() {
+        if (!((bitField0_ & 0x00000040) == 0x00000040)) {
+          pathsWhitelist_ = new com.google.protobuf.LazyStringArrayList(pathsWhitelist_);
+          bitField0_ |= 0x00000040;
+         }
+      }
+      /**
+       * <code>repeated string paths_whitelist = 4;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getPathsWhitelistList() {
+        return pathsWhitelist_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string paths_whitelist = 4;</code>
+       */
+      public int getPathsWhitelistCount() {
+        return pathsWhitelist_.size();
+      }
+      /**
+       * <code>repeated string paths_whitelist = 4;</code>
+       */
+      public java.lang.String getPathsWhitelist(int index) {
+        return pathsWhitelist_.get(index);
+      }
+      /**
+       * <code>repeated string paths_whitelist = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPathsWhitelistBytes(int index) {
+        return pathsWhitelist_.getByteString(index);
+      }
+      /**
+       * <code>repeated string paths_whitelist = 4;</code>
+       */
+      public Builder setPathsWhitelist(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePathsWhitelistIsMutable();
+        pathsWhitelist_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string paths_whitelist = 4;</code>
+       */
+      public Builder addPathsWhitelist(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePathsWhitelistIsMutable();
+        pathsWhitelist_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string paths_whitelist = 4;</code>
+       */
+      public Builder addAllPathsWhitelist(
+          java.lang.Iterable<java.lang.String> values) {
+        ensurePathsWhitelistIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, pathsWhitelist_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string paths_whitelist = 4;</code>
+       */
+      public Builder clearPathsWhitelist() {
+        pathsWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000040);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string paths_whitelist = 4;</code>
+       */
+      public Builder addPathsWhitelistBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensurePathsWhitelistIsMutable();
+        pathsWhitelist_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList pathsBlacklist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensurePathsBlacklistIsMutable() {
+        if (!((bitField0_ & 0x00000080) == 0x00000080)) {
+          pathsBlacklist_ = new com.google.protobuf.LazyStringArrayList(pathsBlacklist_);
+          bitField0_ |= 0x00000080;
+         }
+      }
+      /**
+       * <code>repeated string paths_blacklist = 8;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getPathsBlacklistList() {
+        return pathsBlacklist_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string paths_blacklist = 8;</code>
+       */
+      public int getPathsBlacklistCount() {
+        return pathsBlacklist_.size();
+      }
+      /**
+       * <code>repeated string paths_blacklist = 8;</code>
+       */
+      public java.lang.String getPathsBlacklist(int index) {
+        return pathsBlacklist_.get(index);
+      }
+      /**
+       * <code>repeated string paths_blacklist = 8;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPathsBlacklistBytes(int index) {
+        return pathsBlacklist_.getByteString(index);
+      }
+      /**
+       * <code>repeated string paths_blacklist = 8;</code>
+       */
+      public Builder setPathsBlacklist(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePathsBlacklistIsMutable();
+        pathsBlacklist_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string paths_blacklist = 8;</code>
+       */
+      public Builder addPathsBlacklist(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePathsBlacklistIsMutable();
+        pathsBlacklist_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string paths_blacklist = 8;</code>
+       */
+      public Builder addAllPathsBlacklist(
+          java.lang.Iterable<java.lang.String> values) {
+        ensurePathsBlacklistIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, pathsBlacklist_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string paths_blacklist = 8;</code>
+       */
+      public Builder clearPathsBlacklist() {
+        pathsBlacklist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string paths_blacklist = 8;</code>
+       */
+      public Builder addPathsBlacklistBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensurePathsBlacklistIsMutable();
+        pathsBlacklist_.add(value);
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:meshpaas.AuthzDestination)
+    }
+
+    // @@protoc_insertion_point(class_scope:meshpaas.AuthzDestination)
+    private static final meshpaas.Schema.AuthzDestination DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new meshpaas.Schema.AuthzDestination();
+    }
+
+    public static meshpaas.Schema.AuthzDestination getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<AuthzDestination>
+        PARSER = new com.google.protobuf.AbstractParser<AuthzDestination>() {
+      @java.lang.Override
+      public AuthzDestination parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new AuthzDestination(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<AuthzDestination> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AuthzDestination> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public meshpaas.Schema.AuthzDestination getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface AuthzSourceOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:meshpaas.AuthzSource)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated string principals_whitelist = 1;</code>
+     */
+    java.util.List<java.lang.String>
+        getPrincipalsWhitelistList();
+    /**
+     * <code>repeated string principals_whitelist = 1;</code>
+     */
+    int getPrincipalsWhitelistCount();
+    /**
+     * <code>repeated string principals_whitelist = 1;</code>
+     */
+    java.lang.String getPrincipalsWhitelist(int index);
+    /**
+     * <code>repeated string principals_whitelist = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getPrincipalsWhitelistBytes(int index);
+
+    /**
+     * <code>repeated string principals_blacklist = 5;</code>
+     */
+    java.util.List<java.lang.String>
+        getPrincipalsBlacklistList();
+    /**
+     * <code>repeated string principals_blacklist = 5;</code>
+     */
+    int getPrincipalsBlacklistCount();
+    /**
+     * <code>repeated string principals_blacklist = 5;</code>
+     */
+    java.lang.String getPrincipalsBlacklist(int index);
+    /**
+     * <code>repeated string principals_blacklist = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getPrincipalsBlacklistBytes(int index);
+
+    /**
+     * <code>repeated string request_principals_whitelist = 2;</code>
+     */
+    java.util.List<java.lang.String>
+        getRequestPrincipalsWhitelistList();
+    /**
+     * <code>repeated string request_principals_whitelist = 2;</code>
+     */
+    int getRequestPrincipalsWhitelistCount();
+    /**
+     * <code>repeated string request_principals_whitelist = 2;</code>
+     */
+    java.lang.String getRequestPrincipalsWhitelist(int index);
+    /**
+     * <code>repeated string request_principals_whitelist = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getRequestPrincipalsWhitelistBytes(int index);
+
+    /**
+     * <code>repeated string request_principals_blacklist = 6;</code>
+     */
+    java.util.List<java.lang.String>
+        getRequestPrincipalsBlacklistList();
+    /**
+     * <code>repeated string request_principals_blacklist = 6;</code>
+     */
+    int getRequestPrincipalsBlacklistCount();
+    /**
+     * <code>repeated string request_principals_blacklist = 6;</code>
+     */
+    java.lang.String getRequestPrincipalsBlacklist(int index);
+    /**
+     * <code>repeated string request_principals_blacklist = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getRequestPrincipalsBlacklistBytes(int index);
+
+    /**
+     * <code>repeated string namespaces_whitelist = 3;</code>
+     */
+    java.util.List<java.lang.String>
+        getNamespacesWhitelistList();
+    /**
+     * <code>repeated string namespaces_whitelist = 3;</code>
+     */
+    int getNamespacesWhitelistCount();
+    /**
+     * <code>repeated string namespaces_whitelist = 3;</code>
+     */
+    java.lang.String getNamespacesWhitelist(int index);
+    /**
+     * <code>repeated string namespaces_whitelist = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getNamespacesWhitelistBytes(int index);
+
+    /**
+     * <code>repeated string namespaces_blacklist = 7;</code>
+     */
+    java.util.List<java.lang.String>
+        getNamespacesBlacklistList();
+    /**
+     * <code>repeated string namespaces_blacklist = 7;</code>
+     */
+    int getNamespacesBlacklistCount();
+    /**
+     * <code>repeated string namespaces_blacklist = 7;</code>
+     */
+    java.lang.String getNamespacesBlacklist(int index);
+    /**
+     * <code>repeated string namespaces_blacklist = 7;</code>
+     */
+    com.google.protobuf.ByteString
+        getNamespacesBlacklistBytes(int index);
+  }
+  /**
+   * Protobuf type {@code meshpaas.AuthzSource}
+   */
+  public  static final class AuthzSource extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:meshpaas.AuthzSource)
+      AuthzSourceOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AuthzSource.newBuilder() to construct.
+    private AuthzSource(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AuthzSource() {
+      principalsWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      principalsBlacklist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      requestPrincipalsWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      requestPrincipalsBlacklist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      namespacesWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      namespacesBlacklist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AuthzSource(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                principalsWhitelist_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              principalsWhitelist_.add(s);
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                requestPrincipalsWhitelist_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              requestPrincipalsWhitelist_.add(s);
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+                namespacesWhitelist_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              namespacesWhitelist_.add(s);
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                principalsBlacklist_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              principalsBlacklist_.add(s);
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                requestPrincipalsBlacklist_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              requestPrincipalsBlacklist_.add(s);
+              break;
+            }
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+                namespacesBlacklist_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000020;
+              }
+              namespacesBlacklist_.add(s);
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          principalsWhitelist_ = principalsWhitelist_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          requestPrincipalsWhitelist_ = requestPrincipalsWhitelist_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+          namespacesWhitelist_ = namespacesWhitelist_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          principalsBlacklist_ = principalsBlacklist_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+          requestPrincipalsBlacklist_ = requestPrincipalsBlacklist_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+          namespacesBlacklist_ = namespacesBlacklist_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return meshpaas.Schema.internal_static_meshpaas_AuthzSource_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return meshpaas.Schema.internal_static_meshpaas_AuthzSource_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              meshpaas.Schema.AuthzSource.class, meshpaas.Schema.AuthzSource.Builder.class);
+    }
+
+    public static final int PRINCIPALS_WHITELIST_FIELD_NUMBER = 1;
+    private com.google.protobuf.LazyStringList principalsWhitelist_;
+    /**
+     * <code>repeated string principals_whitelist = 1;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getPrincipalsWhitelistList() {
+      return principalsWhitelist_;
+    }
+    /**
+     * <code>repeated string principals_whitelist = 1;</code>
+     */
+    public int getPrincipalsWhitelistCount() {
+      return principalsWhitelist_.size();
+    }
+    /**
+     * <code>repeated string principals_whitelist = 1;</code>
+     */
+    public java.lang.String getPrincipalsWhitelist(int index) {
+      return principalsWhitelist_.get(index);
+    }
+    /**
+     * <code>repeated string principals_whitelist = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPrincipalsWhitelistBytes(int index) {
+      return principalsWhitelist_.getByteString(index);
+    }
+
+    public static final int PRINCIPALS_BLACKLIST_FIELD_NUMBER = 5;
+    private com.google.protobuf.LazyStringList principalsBlacklist_;
+    /**
+     * <code>repeated string principals_blacklist = 5;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getPrincipalsBlacklistList() {
+      return principalsBlacklist_;
+    }
+    /**
+     * <code>repeated string principals_blacklist = 5;</code>
+     */
+    public int getPrincipalsBlacklistCount() {
+      return principalsBlacklist_.size();
+    }
+    /**
+     * <code>repeated string principals_blacklist = 5;</code>
+     */
+    public java.lang.String getPrincipalsBlacklist(int index) {
+      return principalsBlacklist_.get(index);
+    }
+    /**
+     * <code>repeated string principals_blacklist = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPrincipalsBlacklistBytes(int index) {
+      return principalsBlacklist_.getByteString(index);
+    }
+
+    public static final int REQUEST_PRINCIPALS_WHITELIST_FIELD_NUMBER = 2;
+    private com.google.protobuf.LazyStringList requestPrincipalsWhitelist_;
+    /**
+     * <code>repeated string request_principals_whitelist = 2;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getRequestPrincipalsWhitelistList() {
+      return requestPrincipalsWhitelist_;
+    }
+    /**
+     * <code>repeated string request_principals_whitelist = 2;</code>
+     */
+    public int getRequestPrincipalsWhitelistCount() {
+      return requestPrincipalsWhitelist_.size();
+    }
+    /**
+     * <code>repeated string request_principals_whitelist = 2;</code>
+     */
+    public java.lang.String getRequestPrincipalsWhitelist(int index) {
+      return requestPrincipalsWhitelist_.get(index);
+    }
+    /**
+     * <code>repeated string request_principals_whitelist = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getRequestPrincipalsWhitelistBytes(int index) {
+      return requestPrincipalsWhitelist_.getByteString(index);
+    }
+
+    public static final int REQUEST_PRINCIPALS_BLACKLIST_FIELD_NUMBER = 6;
+    private com.google.protobuf.LazyStringList requestPrincipalsBlacklist_;
+    /**
+     * <code>repeated string request_principals_blacklist = 6;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getRequestPrincipalsBlacklistList() {
+      return requestPrincipalsBlacklist_;
+    }
+    /**
+     * <code>repeated string request_principals_blacklist = 6;</code>
+     */
+    public int getRequestPrincipalsBlacklistCount() {
+      return requestPrincipalsBlacklist_.size();
+    }
+    /**
+     * <code>repeated string request_principals_blacklist = 6;</code>
+     */
+    public java.lang.String getRequestPrincipalsBlacklist(int index) {
+      return requestPrincipalsBlacklist_.get(index);
+    }
+    /**
+     * <code>repeated string request_principals_blacklist = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getRequestPrincipalsBlacklistBytes(int index) {
+      return requestPrincipalsBlacklist_.getByteString(index);
+    }
+
+    public static final int NAMESPACES_WHITELIST_FIELD_NUMBER = 3;
+    private com.google.protobuf.LazyStringList namespacesWhitelist_;
+    /**
+     * <code>repeated string namespaces_whitelist = 3;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getNamespacesWhitelistList() {
+      return namespacesWhitelist_;
+    }
+    /**
+     * <code>repeated string namespaces_whitelist = 3;</code>
+     */
+    public int getNamespacesWhitelistCount() {
+      return namespacesWhitelist_.size();
+    }
+    /**
+     * <code>repeated string namespaces_whitelist = 3;</code>
+     */
+    public java.lang.String getNamespacesWhitelist(int index) {
+      return namespacesWhitelist_.get(index);
+    }
+    /**
+     * <code>repeated string namespaces_whitelist = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNamespacesWhitelistBytes(int index) {
+      return namespacesWhitelist_.getByteString(index);
+    }
+
+    public static final int NAMESPACES_BLACKLIST_FIELD_NUMBER = 7;
+    private com.google.protobuf.LazyStringList namespacesBlacklist_;
+    /**
+     * <code>repeated string namespaces_blacklist = 7;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getNamespacesBlacklistList() {
+      return namespacesBlacklist_;
+    }
+    /**
+     * <code>repeated string namespaces_blacklist = 7;</code>
+     */
+    public int getNamespacesBlacklistCount() {
+      return namespacesBlacklist_.size();
+    }
+    /**
+     * <code>repeated string namespaces_blacklist = 7;</code>
+     */
+    public java.lang.String getNamespacesBlacklist(int index) {
+      return namespacesBlacklist_.get(index);
+    }
+    /**
+     * <code>repeated string namespaces_blacklist = 7;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNamespacesBlacklistBytes(int index) {
+      return namespacesBlacklist_.getByteString(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < principalsWhitelist_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, principalsWhitelist_.getRaw(i));
+      }
+      for (int i = 0; i < requestPrincipalsWhitelist_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, requestPrincipalsWhitelist_.getRaw(i));
+      }
+      for (int i = 0; i < namespacesWhitelist_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, namespacesWhitelist_.getRaw(i));
+      }
+      for (int i = 0; i < principalsBlacklist_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, principalsBlacklist_.getRaw(i));
+      }
+      for (int i = 0; i < requestPrincipalsBlacklist_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, requestPrincipalsBlacklist_.getRaw(i));
+      }
+      for (int i = 0; i < namespacesBlacklist_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, namespacesBlacklist_.getRaw(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < principalsWhitelist_.size(); i++) {
+          dataSize += computeStringSizeNoTag(principalsWhitelist_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getPrincipalsWhitelistList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < requestPrincipalsWhitelist_.size(); i++) {
+          dataSize += computeStringSizeNoTag(requestPrincipalsWhitelist_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getRequestPrincipalsWhitelistList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < namespacesWhitelist_.size(); i++) {
+          dataSize += computeStringSizeNoTag(namespacesWhitelist_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getNamespacesWhitelistList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < principalsBlacklist_.size(); i++) {
+          dataSize += computeStringSizeNoTag(principalsBlacklist_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getPrincipalsBlacklistList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < requestPrincipalsBlacklist_.size(); i++) {
+          dataSize += computeStringSizeNoTag(requestPrincipalsBlacklist_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getRequestPrincipalsBlacklistList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < namespacesBlacklist_.size(); i++) {
+          dataSize += computeStringSizeNoTag(namespacesBlacklist_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getNamespacesBlacklistList().size();
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof meshpaas.Schema.AuthzSource)) {
+        return super.equals(obj);
+      }
+      meshpaas.Schema.AuthzSource other = (meshpaas.Schema.AuthzSource) obj;
+
+      boolean result = true;
+      result = result && getPrincipalsWhitelistList()
+          .equals(other.getPrincipalsWhitelistList());
+      result = result && getPrincipalsBlacklistList()
+          .equals(other.getPrincipalsBlacklistList());
+      result = result && getRequestPrincipalsWhitelistList()
+          .equals(other.getRequestPrincipalsWhitelistList());
+      result = result && getRequestPrincipalsBlacklistList()
+          .equals(other.getRequestPrincipalsBlacklistList());
+      result = result && getNamespacesWhitelistList()
+          .equals(other.getNamespacesWhitelistList());
+      result = result && getNamespacesBlacklistList()
+          .equals(other.getNamespacesBlacklistList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getPrincipalsWhitelistCount() > 0) {
+        hash = (37 * hash) + PRINCIPALS_WHITELIST_FIELD_NUMBER;
+        hash = (53 * hash) + getPrincipalsWhitelistList().hashCode();
+      }
+      if (getPrincipalsBlacklistCount() > 0) {
+        hash = (37 * hash) + PRINCIPALS_BLACKLIST_FIELD_NUMBER;
+        hash = (53 * hash) + getPrincipalsBlacklistList().hashCode();
+      }
+      if (getRequestPrincipalsWhitelistCount() > 0) {
+        hash = (37 * hash) + REQUEST_PRINCIPALS_WHITELIST_FIELD_NUMBER;
+        hash = (53 * hash) + getRequestPrincipalsWhitelistList().hashCode();
+      }
+      if (getRequestPrincipalsBlacklistCount() > 0) {
+        hash = (37 * hash) + REQUEST_PRINCIPALS_BLACKLIST_FIELD_NUMBER;
+        hash = (53 * hash) + getRequestPrincipalsBlacklistList().hashCode();
+      }
+      if (getNamespacesWhitelistCount() > 0) {
+        hash = (37 * hash) + NAMESPACES_WHITELIST_FIELD_NUMBER;
+        hash = (53 * hash) + getNamespacesWhitelistList().hashCode();
+      }
+      if (getNamespacesBlacklistCount() > 0) {
+        hash = (37 * hash) + NAMESPACES_BLACKLIST_FIELD_NUMBER;
+        hash = (53 * hash) + getNamespacesBlacklistList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static meshpaas.Schema.AuthzSource parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.AuthzSource parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.AuthzSource parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.AuthzSource parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.AuthzSource parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.AuthzSource parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.AuthzSource parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.AuthzSource parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static meshpaas.Schema.AuthzSource parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.AuthzSource parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static meshpaas.Schema.AuthzSource parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.AuthzSource parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(meshpaas.Schema.AuthzSource prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code meshpaas.AuthzSource}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:meshpaas.AuthzSource)
+        meshpaas.Schema.AuthzSourceOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return meshpaas.Schema.internal_static_meshpaas_AuthzSource_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return meshpaas.Schema.internal_static_meshpaas_AuthzSource_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                meshpaas.Schema.AuthzSource.class, meshpaas.Schema.AuthzSource.Builder.class);
+      }
+
+      // Construct using meshpaas.Schema.AuthzSource.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        principalsWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        principalsBlacklist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        requestPrincipalsWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        requestPrincipalsBlacklist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        namespacesWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        namespacesBlacklist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return meshpaas.Schema.internal_static_meshpaas_AuthzSource_descriptor;
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.AuthzSource getDefaultInstanceForType() {
+        return meshpaas.Schema.AuthzSource.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.AuthzSource build() {
+        meshpaas.Schema.AuthzSource result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.AuthzSource buildPartial() {
+        meshpaas.Schema.AuthzSource result = new meshpaas.Schema.AuthzSource(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          principalsWhitelist_ = principalsWhitelist_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.principalsWhitelist_ = principalsWhitelist_;
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          principalsBlacklist_ = principalsBlacklist_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.principalsBlacklist_ = principalsBlacklist_;
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          requestPrincipalsWhitelist_ = requestPrincipalsWhitelist_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.requestPrincipalsWhitelist_ = requestPrincipalsWhitelist_;
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          requestPrincipalsBlacklist_ = requestPrincipalsBlacklist_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.requestPrincipalsBlacklist_ = requestPrincipalsBlacklist_;
+        if (((bitField0_ & 0x00000010) == 0x00000010)) {
+          namespacesWhitelist_ = namespacesWhitelist_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000010);
+        }
+        result.namespacesWhitelist_ = namespacesWhitelist_;
+        if (((bitField0_ & 0x00000020) == 0x00000020)) {
+          namespacesBlacklist_ = namespacesBlacklist_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000020);
+        }
+        result.namespacesBlacklist_ = namespacesBlacklist_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof meshpaas.Schema.AuthzSource) {
+          return mergeFrom((meshpaas.Schema.AuthzSource)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(meshpaas.Schema.AuthzSource other) {
+        if (other == meshpaas.Schema.AuthzSource.getDefaultInstance()) return this;
+        if (!other.principalsWhitelist_.isEmpty()) {
+          if (principalsWhitelist_.isEmpty()) {
+            principalsWhitelist_ = other.principalsWhitelist_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensurePrincipalsWhitelistIsMutable();
+            principalsWhitelist_.addAll(other.principalsWhitelist_);
+          }
+          onChanged();
+        }
+        if (!other.principalsBlacklist_.isEmpty()) {
+          if (principalsBlacklist_.isEmpty()) {
+            principalsBlacklist_ = other.principalsBlacklist_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensurePrincipalsBlacklistIsMutable();
+            principalsBlacklist_.addAll(other.principalsBlacklist_);
+          }
+          onChanged();
+        }
+        if (!other.requestPrincipalsWhitelist_.isEmpty()) {
+          if (requestPrincipalsWhitelist_.isEmpty()) {
+            requestPrincipalsWhitelist_ = other.requestPrincipalsWhitelist_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureRequestPrincipalsWhitelistIsMutable();
+            requestPrincipalsWhitelist_.addAll(other.requestPrincipalsWhitelist_);
+          }
+          onChanged();
+        }
+        if (!other.requestPrincipalsBlacklist_.isEmpty()) {
+          if (requestPrincipalsBlacklist_.isEmpty()) {
+            requestPrincipalsBlacklist_ = other.requestPrincipalsBlacklist_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureRequestPrincipalsBlacklistIsMutable();
+            requestPrincipalsBlacklist_.addAll(other.requestPrincipalsBlacklist_);
+          }
+          onChanged();
+        }
+        if (!other.namespacesWhitelist_.isEmpty()) {
+          if (namespacesWhitelist_.isEmpty()) {
+            namespacesWhitelist_ = other.namespacesWhitelist_;
+            bitField0_ = (bitField0_ & ~0x00000010);
+          } else {
+            ensureNamespacesWhitelistIsMutable();
+            namespacesWhitelist_.addAll(other.namespacesWhitelist_);
+          }
+          onChanged();
+        }
+        if (!other.namespacesBlacklist_.isEmpty()) {
+          if (namespacesBlacklist_.isEmpty()) {
+            namespacesBlacklist_ = other.namespacesBlacklist_;
+            bitField0_ = (bitField0_ & ~0x00000020);
+          } else {
+            ensureNamespacesBlacklistIsMutable();
+            namespacesBlacklist_.addAll(other.namespacesBlacklist_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        meshpaas.Schema.AuthzSource parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (meshpaas.Schema.AuthzSource) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.LazyStringList principalsWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensurePrincipalsWhitelistIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          principalsWhitelist_ = new com.google.protobuf.LazyStringArrayList(principalsWhitelist_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated string principals_whitelist = 1;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getPrincipalsWhitelistList() {
+        return principalsWhitelist_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string principals_whitelist = 1;</code>
+       */
+      public int getPrincipalsWhitelistCount() {
+        return principalsWhitelist_.size();
+      }
+      /**
+       * <code>repeated string principals_whitelist = 1;</code>
+       */
+      public java.lang.String getPrincipalsWhitelist(int index) {
+        return principalsWhitelist_.get(index);
+      }
+      /**
+       * <code>repeated string principals_whitelist = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPrincipalsWhitelistBytes(int index) {
+        return principalsWhitelist_.getByteString(index);
+      }
+      /**
+       * <code>repeated string principals_whitelist = 1;</code>
+       */
+      public Builder setPrincipalsWhitelist(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePrincipalsWhitelistIsMutable();
+        principalsWhitelist_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string principals_whitelist = 1;</code>
+       */
+      public Builder addPrincipalsWhitelist(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePrincipalsWhitelistIsMutable();
+        principalsWhitelist_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string principals_whitelist = 1;</code>
+       */
+      public Builder addAllPrincipalsWhitelist(
+          java.lang.Iterable<java.lang.String> values) {
+        ensurePrincipalsWhitelistIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, principalsWhitelist_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string principals_whitelist = 1;</code>
+       */
+      public Builder clearPrincipalsWhitelist() {
+        principalsWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string principals_whitelist = 1;</code>
+       */
+      public Builder addPrincipalsWhitelistBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensurePrincipalsWhitelistIsMutable();
+        principalsWhitelist_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList principalsBlacklist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensurePrincipalsBlacklistIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          principalsBlacklist_ = new com.google.protobuf.LazyStringArrayList(principalsBlacklist_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <code>repeated string principals_blacklist = 5;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getPrincipalsBlacklistList() {
+        return principalsBlacklist_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string principals_blacklist = 5;</code>
+       */
+      public int getPrincipalsBlacklistCount() {
+        return principalsBlacklist_.size();
+      }
+      /**
+       * <code>repeated string principals_blacklist = 5;</code>
+       */
+      public java.lang.String getPrincipalsBlacklist(int index) {
+        return principalsBlacklist_.get(index);
+      }
+      /**
+       * <code>repeated string principals_blacklist = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPrincipalsBlacklistBytes(int index) {
+        return principalsBlacklist_.getByteString(index);
+      }
+      /**
+       * <code>repeated string principals_blacklist = 5;</code>
+       */
+      public Builder setPrincipalsBlacklist(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePrincipalsBlacklistIsMutable();
+        principalsBlacklist_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string principals_blacklist = 5;</code>
+       */
+      public Builder addPrincipalsBlacklist(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePrincipalsBlacklistIsMutable();
+        principalsBlacklist_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string principals_blacklist = 5;</code>
+       */
+      public Builder addAllPrincipalsBlacklist(
+          java.lang.Iterable<java.lang.String> values) {
+        ensurePrincipalsBlacklistIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, principalsBlacklist_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string principals_blacklist = 5;</code>
+       */
+      public Builder clearPrincipalsBlacklist() {
+        principalsBlacklist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string principals_blacklist = 5;</code>
+       */
+      public Builder addPrincipalsBlacklistBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensurePrincipalsBlacklistIsMutable();
+        principalsBlacklist_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList requestPrincipalsWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureRequestPrincipalsWhitelistIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          requestPrincipalsWhitelist_ = new com.google.protobuf.LazyStringArrayList(requestPrincipalsWhitelist_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+      /**
+       * <code>repeated string request_principals_whitelist = 2;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getRequestPrincipalsWhitelistList() {
+        return requestPrincipalsWhitelist_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string request_principals_whitelist = 2;</code>
+       */
+      public int getRequestPrincipalsWhitelistCount() {
+        return requestPrincipalsWhitelist_.size();
+      }
+      /**
+       * <code>repeated string request_principals_whitelist = 2;</code>
+       */
+      public java.lang.String getRequestPrincipalsWhitelist(int index) {
+        return requestPrincipalsWhitelist_.get(index);
+      }
+      /**
+       * <code>repeated string request_principals_whitelist = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getRequestPrincipalsWhitelistBytes(int index) {
+        return requestPrincipalsWhitelist_.getByteString(index);
+      }
+      /**
+       * <code>repeated string request_principals_whitelist = 2;</code>
+       */
+      public Builder setRequestPrincipalsWhitelist(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureRequestPrincipalsWhitelistIsMutable();
+        requestPrincipalsWhitelist_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string request_principals_whitelist = 2;</code>
+       */
+      public Builder addRequestPrincipalsWhitelist(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureRequestPrincipalsWhitelistIsMutable();
+        requestPrincipalsWhitelist_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string request_principals_whitelist = 2;</code>
+       */
+      public Builder addAllRequestPrincipalsWhitelist(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureRequestPrincipalsWhitelistIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, requestPrincipalsWhitelist_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string request_principals_whitelist = 2;</code>
+       */
+      public Builder clearRequestPrincipalsWhitelist() {
+        requestPrincipalsWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string request_principals_whitelist = 2;</code>
+       */
+      public Builder addRequestPrincipalsWhitelistBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureRequestPrincipalsWhitelistIsMutable();
+        requestPrincipalsWhitelist_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList requestPrincipalsBlacklist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureRequestPrincipalsBlacklistIsMutable() {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+          requestPrincipalsBlacklist_ = new com.google.protobuf.LazyStringArrayList(requestPrincipalsBlacklist_);
+          bitField0_ |= 0x00000008;
+         }
+      }
+      /**
+       * <code>repeated string request_principals_blacklist = 6;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getRequestPrincipalsBlacklistList() {
+        return requestPrincipalsBlacklist_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string request_principals_blacklist = 6;</code>
+       */
+      public int getRequestPrincipalsBlacklistCount() {
+        return requestPrincipalsBlacklist_.size();
+      }
+      /**
+       * <code>repeated string request_principals_blacklist = 6;</code>
+       */
+      public java.lang.String getRequestPrincipalsBlacklist(int index) {
+        return requestPrincipalsBlacklist_.get(index);
+      }
+      /**
+       * <code>repeated string request_principals_blacklist = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getRequestPrincipalsBlacklistBytes(int index) {
+        return requestPrincipalsBlacklist_.getByteString(index);
+      }
+      /**
+       * <code>repeated string request_principals_blacklist = 6;</code>
+       */
+      public Builder setRequestPrincipalsBlacklist(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureRequestPrincipalsBlacklistIsMutable();
+        requestPrincipalsBlacklist_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string request_principals_blacklist = 6;</code>
+       */
+      public Builder addRequestPrincipalsBlacklist(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureRequestPrincipalsBlacklistIsMutable();
+        requestPrincipalsBlacklist_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string request_principals_blacklist = 6;</code>
+       */
+      public Builder addAllRequestPrincipalsBlacklist(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureRequestPrincipalsBlacklistIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, requestPrincipalsBlacklist_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string request_principals_blacklist = 6;</code>
+       */
+      public Builder clearRequestPrincipalsBlacklist() {
+        requestPrincipalsBlacklist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string request_principals_blacklist = 6;</code>
+       */
+      public Builder addRequestPrincipalsBlacklistBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureRequestPrincipalsBlacklistIsMutable();
+        requestPrincipalsBlacklist_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList namespacesWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureNamespacesWhitelistIsMutable() {
+        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+          namespacesWhitelist_ = new com.google.protobuf.LazyStringArrayList(namespacesWhitelist_);
+          bitField0_ |= 0x00000010;
+         }
+      }
+      /**
+       * <code>repeated string namespaces_whitelist = 3;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getNamespacesWhitelistList() {
+        return namespacesWhitelist_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string namespaces_whitelist = 3;</code>
+       */
+      public int getNamespacesWhitelistCount() {
+        return namespacesWhitelist_.size();
+      }
+      /**
+       * <code>repeated string namespaces_whitelist = 3;</code>
+       */
+      public java.lang.String getNamespacesWhitelist(int index) {
+        return namespacesWhitelist_.get(index);
+      }
+      /**
+       * <code>repeated string namespaces_whitelist = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNamespacesWhitelistBytes(int index) {
+        return namespacesWhitelist_.getByteString(index);
+      }
+      /**
+       * <code>repeated string namespaces_whitelist = 3;</code>
+       */
+      public Builder setNamespacesWhitelist(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureNamespacesWhitelistIsMutable();
+        namespacesWhitelist_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string namespaces_whitelist = 3;</code>
+       */
+      public Builder addNamespacesWhitelist(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureNamespacesWhitelistIsMutable();
+        namespacesWhitelist_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string namespaces_whitelist = 3;</code>
+       */
+      public Builder addAllNamespacesWhitelist(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureNamespacesWhitelistIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, namespacesWhitelist_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string namespaces_whitelist = 3;</code>
+       */
+      public Builder clearNamespacesWhitelist() {
+        namespacesWhitelist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string namespaces_whitelist = 3;</code>
+       */
+      public Builder addNamespacesWhitelistBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureNamespacesWhitelistIsMutable();
+        namespacesWhitelist_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList namespacesBlacklist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureNamespacesBlacklistIsMutable() {
+        if (!((bitField0_ & 0x00000020) == 0x00000020)) {
+          namespacesBlacklist_ = new com.google.protobuf.LazyStringArrayList(namespacesBlacklist_);
+          bitField0_ |= 0x00000020;
+         }
+      }
+      /**
+       * <code>repeated string namespaces_blacklist = 7;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getNamespacesBlacklistList() {
+        return namespacesBlacklist_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string namespaces_blacklist = 7;</code>
+       */
+      public int getNamespacesBlacklistCount() {
+        return namespacesBlacklist_.size();
+      }
+      /**
+       * <code>repeated string namespaces_blacklist = 7;</code>
+       */
+      public java.lang.String getNamespacesBlacklist(int index) {
+        return namespacesBlacklist_.get(index);
+      }
+      /**
+       * <code>repeated string namespaces_blacklist = 7;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNamespacesBlacklistBytes(int index) {
+        return namespacesBlacklist_.getByteString(index);
+      }
+      /**
+       * <code>repeated string namespaces_blacklist = 7;</code>
+       */
+      public Builder setNamespacesBlacklist(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureNamespacesBlacklistIsMutable();
+        namespacesBlacklist_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string namespaces_blacklist = 7;</code>
+       */
+      public Builder addNamespacesBlacklist(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureNamespacesBlacklistIsMutable();
+        namespacesBlacklist_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string namespaces_blacklist = 7;</code>
+       */
+      public Builder addAllNamespacesBlacklist(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureNamespacesBlacklistIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, namespacesBlacklist_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string namespaces_blacklist = 7;</code>
+       */
+      public Builder clearNamespacesBlacklist() {
+        namespacesBlacklist_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string namespaces_blacklist = 7;</code>
+       */
+      public Builder addNamespacesBlacklistBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureNamespacesBlacklistIsMutable();
+        namespacesBlacklist_.add(value);
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:meshpaas.AuthzSource)
+    }
+
+    // @@protoc_insertion_point(class_scope:meshpaas.AuthzSource)
+    private static final meshpaas.Schema.AuthzSource DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new meshpaas.Schema.AuthzSource();
+    }
+
+    public static meshpaas.Schema.AuthzSource getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<AuthzSource>
+        PARSER = new com.google.protobuf.AbstractParser<AuthzSource>() {
+      @java.lang.Override
+      public AuthzSource parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new AuthzSource(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<AuthzSource> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AuthzSource> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public meshpaas.Schema.AuthzSource getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface AuthzConditionOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:meshpaas.AuthzCondition)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string key = 1 [(.validator.field) = { ... }</code>
+     */
+    java.lang.String getKey();
+    /**
+     * <code>string key = 1 [(.validator.field) = { ... }</code>
+     */
+    com.google.protobuf.ByteString
+        getKeyBytes();
+
+    /**
+     * <code>repeated string equals = 2;</code>
+     */
+    java.util.List<java.lang.String>
+        getEqualsList();
+    /**
+     * <code>repeated string equals = 2;</code>
+     */
+    int getEqualsCount();
+    /**
+     * <code>repeated string equals = 2;</code>
+     */
+    java.lang.String getEquals(int index);
+    /**
+     * <code>repeated string equals = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getEqualsBytes(int index);
+
+    /**
+     * <code>repeated string not_equals = 3;</code>
+     */
+    java.util.List<java.lang.String>
+        getNotEqualsList();
+    /**
+     * <code>repeated string not_equals = 3;</code>
+     */
+    int getNotEqualsCount();
+    /**
+     * <code>repeated string not_equals = 3;</code>
+     */
+    java.lang.String getNotEquals(int index);
+    /**
+     * <code>repeated string not_equals = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getNotEqualsBytes(int index);
+  }
+  /**
+   * Protobuf type {@code meshpaas.AuthzCondition}
+   */
+  public  static final class AuthzCondition extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:meshpaas.AuthzCondition)
+      AuthzConditionOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AuthzCondition.newBuilder() to construct.
+    private AuthzCondition(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AuthzCondition() {
+      key_ = "";
+      equals_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      notEquals_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AuthzCondition(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              key_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                equals_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              equals_.add(s);
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                notEquals_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              notEquals_.add(s);
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          equals_ = equals_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          notEquals_ = notEquals_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return meshpaas.Schema.internal_static_meshpaas_AuthzCondition_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return meshpaas.Schema.internal_static_meshpaas_AuthzCondition_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              meshpaas.Schema.AuthzCondition.class, meshpaas.Schema.AuthzCondition.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int KEY_FIELD_NUMBER = 1;
+    private volatile java.lang.Object key_;
+    /**
+     * <code>string key = 1 [(.validator.field) = { ... }</code>
+     */
+    public java.lang.String getKey() {
+      java.lang.Object ref = key_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        key_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string key = 1 [(.validator.field) = { ... }</code>
+     */
+    public com.google.protobuf.ByteString
+        getKeyBytes() {
+      java.lang.Object ref = key_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        key_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int EQUALS_FIELD_NUMBER = 2;
+    private com.google.protobuf.LazyStringList equals_;
+    /**
+     * <code>repeated string equals = 2;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getEqualsList() {
+      return equals_;
+    }
+    /**
+     * <code>repeated string equals = 2;</code>
+     */
+    public int getEqualsCount() {
+      return equals_.size();
+    }
+    /**
+     * <code>repeated string equals = 2;</code>
+     */
+    public java.lang.String getEquals(int index) {
+      return equals_.get(index);
+    }
+    /**
+     * <code>repeated string equals = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getEqualsBytes(int index) {
+      return equals_.getByteString(index);
+    }
+
+    public static final int NOT_EQUALS_FIELD_NUMBER = 3;
+    private com.google.protobuf.LazyStringList notEquals_;
+    /**
+     * <code>repeated string not_equals = 3;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getNotEqualsList() {
+      return notEquals_;
+    }
+    /**
+     * <code>repeated string not_equals = 3;</code>
+     */
+    public int getNotEqualsCount() {
+      return notEquals_.size();
+    }
+    /**
+     * <code>repeated string not_equals = 3;</code>
+     */
+    public java.lang.String getNotEquals(int index) {
+      return notEquals_.get(index);
+    }
+    /**
+     * <code>repeated string not_equals = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNotEqualsBytes(int index) {
+      return notEquals_.getByteString(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getKeyBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, key_);
+      }
+      for (int i = 0; i < equals_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, equals_.getRaw(i));
+      }
+      for (int i = 0; i < notEquals_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, notEquals_.getRaw(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getKeyBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, key_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < equals_.size(); i++) {
+          dataSize += computeStringSizeNoTag(equals_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getEqualsList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < notEquals_.size(); i++) {
+          dataSize += computeStringSizeNoTag(notEquals_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getNotEqualsList().size();
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof meshpaas.Schema.AuthzCondition)) {
+        return super.equals(obj);
+      }
+      meshpaas.Schema.AuthzCondition other = (meshpaas.Schema.AuthzCondition) obj;
+
+      boolean result = true;
+      result = result && getKey()
+          .equals(other.getKey());
+      result = result && getEqualsList()
+          .equals(other.getEqualsList());
+      result = result && getNotEqualsList()
+          .equals(other.getNotEqualsList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + KEY_FIELD_NUMBER;
+      hash = (53 * hash) + getKey().hashCode();
+      if (getEqualsCount() > 0) {
+        hash = (37 * hash) + EQUALS_FIELD_NUMBER;
+        hash = (53 * hash) + getEqualsList().hashCode();
+      }
+      if (getNotEqualsCount() > 0) {
+        hash = (37 * hash) + NOT_EQUALS_FIELD_NUMBER;
+        hash = (53 * hash) + getNotEqualsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static meshpaas.Schema.AuthzCondition parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.AuthzCondition parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.AuthzCondition parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.AuthzCondition parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.AuthzCondition parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.AuthzCondition parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.AuthzCondition parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.AuthzCondition parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static meshpaas.Schema.AuthzCondition parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.AuthzCondition parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static meshpaas.Schema.AuthzCondition parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.AuthzCondition parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(meshpaas.Schema.AuthzCondition prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code meshpaas.AuthzCondition}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:meshpaas.AuthzCondition)
+        meshpaas.Schema.AuthzConditionOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return meshpaas.Schema.internal_static_meshpaas_AuthzCondition_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return meshpaas.Schema.internal_static_meshpaas_AuthzCondition_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                meshpaas.Schema.AuthzCondition.class, meshpaas.Schema.AuthzCondition.Builder.class);
+      }
+
+      // Construct using meshpaas.Schema.AuthzCondition.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        key_ = "";
+
+        equals_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        notEquals_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return meshpaas.Schema.internal_static_meshpaas_AuthzCondition_descriptor;
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.AuthzCondition getDefaultInstanceForType() {
+        return meshpaas.Schema.AuthzCondition.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.AuthzCondition build() {
+        meshpaas.Schema.AuthzCondition result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.AuthzCondition buildPartial() {
+        meshpaas.Schema.AuthzCondition result = new meshpaas.Schema.AuthzCondition(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.key_ = key_;
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          equals_ = equals_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.equals_ = equals_;
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          notEquals_ = notEquals_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.notEquals_ = notEquals_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof meshpaas.Schema.AuthzCondition) {
+          return mergeFrom((meshpaas.Schema.AuthzCondition)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(meshpaas.Schema.AuthzCondition other) {
+        if (other == meshpaas.Schema.AuthzCondition.getDefaultInstance()) return this;
+        if (!other.getKey().isEmpty()) {
+          key_ = other.key_;
+          onChanged();
+        }
+        if (!other.equals_.isEmpty()) {
+          if (equals_.isEmpty()) {
+            equals_ = other.equals_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureEqualsIsMutable();
+            equals_.addAll(other.equals_);
+          }
+          onChanged();
+        }
+        if (!other.notEquals_.isEmpty()) {
+          if (notEquals_.isEmpty()) {
+            notEquals_ = other.notEquals_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureNotEqualsIsMutable();
+            notEquals_.addAll(other.notEquals_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        meshpaas.Schema.AuthzCondition parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (meshpaas.Schema.AuthzCondition) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object key_ = "";
+      /**
+       * <code>string key = 1 [(.validator.field) = { ... }</code>
+       */
+      public java.lang.String getKey() {
+        java.lang.Object ref = key_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          key_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string key = 1 [(.validator.field) = { ... }</code>
+       */
+      public com.google.protobuf.ByteString
+          getKeyBytes() {
+        java.lang.Object ref = key_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          key_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string key = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder setKey(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        key_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string key = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder clearKey() {
+        
+        key_ = getDefaultInstance().getKey();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string key = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder setKeyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        key_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList equals_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureEqualsIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          equals_ = new com.google.protobuf.LazyStringArrayList(equals_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <code>repeated string equals = 2;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getEqualsList() {
+        return equals_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string equals = 2;</code>
+       */
+      public int getEqualsCount() {
+        return equals_.size();
+      }
+      /**
+       * <code>repeated string equals = 2;</code>
+       */
+      public java.lang.String getEquals(int index) {
+        return equals_.get(index);
+      }
+      /**
+       * <code>repeated string equals = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getEqualsBytes(int index) {
+        return equals_.getByteString(index);
+      }
+      /**
+       * <code>repeated string equals = 2;</code>
+       */
+      public Builder setEquals(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureEqualsIsMutable();
+        equals_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string equals = 2;</code>
+       */
+      public Builder addEquals(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureEqualsIsMutable();
+        equals_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string equals = 2;</code>
+       */
+      public Builder addAllEquals(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureEqualsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, equals_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string equals = 2;</code>
+       */
+      public Builder clearEquals() {
+        equals_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string equals = 2;</code>
+       */
+      public Builder addEqualsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureEqualsIsMutable();
+        equals_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList notEquals_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureNotEqualsIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          notEquals_ = new com.google.protobuf.LazyStringArrayList(notEquals_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+      /**
+       * <code>repeated string not_equals = 3;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getNotEqualsList() {
+        return notEquals_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string not_equals = 3;</code>
+       */
+      public int getNotEqualsCount() {
+        return notEquals_.size();
+      }
+      /**
+       * <code>repeated string not_equals = 3;</code>
+       */
+      public java.lang.String getNotEquals(int index) {
+        return notEquals_.get(index);
+      }
+      /**
+       * <code>repeated string not_equals = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNotEqualsBytes(int index) {
+        return notEquals_.getByteString(index);
+      }
+      /**
+       * <code>repeated string not_equals = 3;</code>
+       */
+      public Builder setNotEquals(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureNotEqualsIsMutable();
+        notEquals_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string not_equals = 3;</code>
+       */
+      public Builder addNotEquals(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureNotEqualsIsMutable();
+        notEquals_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string not_equals = 3;</code>
+       */
+      public Builder addAllNotEquals(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureNotEqualsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, notEquals_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string not_equals = 3;</code>
+       */
+      public Builder clearNotEquals() {
+        notEquals_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string not_equals = 3;</code>
+       */
+      public Builder addNotEqualsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureNotEqualsIsMutable();
+        notEquals_.add(value);
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:meshpaas.AuthzCondition)
+    }
+
+    // @@protoc_insertion_point(class_scope:meshpaas.AuthzCondition)
+    private static final meshpaas.Schema.AuthzCondition DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new meshpaas.Schema.AuthzCondition();
+    }
+
+    public static meshpaas.Schema.AuthzCondition getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<AuthzCondition>
+        PARSER = new com.google.protobuf.AbstractParser<AuthzCondition>() {
+      @java.lang.Override
+      public AuthzCondition parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new AuthzCondition(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<AuthzCondition> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AuthzCondition> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public meshpaas.Schema.AuthzCondition getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface AuthzRuleOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:meshpaas.AuthzRule)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .meshpaas.AuthzSource sources = 1;</code>
+     */
+    java.util.List<meshpaas.Schema.AuthzSource> 
+        getSourcesList();
+    /**
+     * <code>repeated .meshpaas.AuthzSource sources = 1;</code>
+     */
+    meshpaas.Schema.AuthzSource getSources(int index);
+    /**
+     * <code>repeated .meshpaas.AuthzSource sources = 1;</code>
+     */
+    int getSourcesCount();
+    /**
+     * <code>repeated .meshpaas.AuthzSource sources = 1;</code>
+     */
+    java.util.List<? extends meshpaas.Schema.AuthzSourceOrBuilder> 
+        getSourcesOrBuilderList();
+    /**
+     * <code>repeated .meshpaas.AuthzSource sources = 1;</code>
+     */
+    meshpaas.Schema.AuthzSourceOrBuilder getSourcesOrBuilder(
+        int index);
+
+    /**
+     * <code>repeated .meshpaas.AuthzCondition conditions = 2;</code>
+     */
+    java.util.List<meshpaas.Schema.AuthzCondition> 
+        getConditionsList();
+    /**
+     * <code>repeated .meshpaas.AuthzCondition conditions = 2;</code>
+     */
+    meshpaas.Schema.AuthzCondition getConditions(int index);
+    /**
+     * <code>repeated .meshpaas.AuthzCondition conditions = 2;</code>
+     */
+    int getConditionsCount();
+    /**
+     * <code>repeated .meshpaas.AuthzCondition conditions = 2;</code>
+     */
+    java.util.List<? extends meshpaas.Schema.AuthzConditionOrBuilder> 
+        getConditionsOrBuilderList();
+    /**
+     * <code>repeated .meshpaas.AuthzCondition conditions = 2;</code>
+     */
+    meshpaas.Schema.AuthzConditionOrBuilder getConditionsOrBuilder(
+        int index);
+
+    /**
+     * <code>repeated .meshpaas.AuthzDestination destinations = 3;</code>
+     */
+    java.util.List<meshpaas.Schema.AuthzDestination> 
+        getDestinationsList();
+    /**
+     * <code>repeated .meshpaas.AuthzDestination destinations = 3;</code>
+     */
+    meshpaas.Schema.AuthzDestination getDestinations(int index);
+    /**
+     * <code>repeated .meshpaas.AuthzDestination destinations = 3;</code>
+     */
+    int getDestinationsCount();
+    /**
+     * <code>repeated .meshpaas.AuthzDestination destinations = 3;</code>
+     */
+    java.util.List<? extends meshpaas.Schema.AuthzDestinationOrBuilder> 
+        getDestinationsOrBuilderList();
+    /**
+     * <code>repeated .meshpaas.AuthzDestination destinations = 3;</code>
+     */
+    meshpaas.Schema.AuthzDestinationOrBuilder getDestinationsOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code meshpaas.AuthzRule}
+   */
+  public  static final class AuthzRule extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:meshpaas.AuthzRule)
+      AuthzRuleOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AuthzRule.newBuilder() to construct.
+    private AuthzRule(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AuthzRule() {
+      sources_ = java.util.Collections.emptyList();
+      conditions_ = java.util.Collections.emptyList();
+      destinations_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AuthzRule(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                sources_ = new java.util.ArrayList<meshpaas.Schema.AuthzSource>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              sources_.add(
+                  input.readMessage(meshpaas.Schema.AuthzSource.parser(), extensionRegistry));
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                conditions_ = new java.util.ArrayList<meshpaas.Schema.AuthzCondition>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              conditions_.add(
+                  input.readMessage(meshpaas.Schema.AuthzCondition.parser(), extensionRegistry));
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                destinations_ = new java.util.ArrayList<meshpaas.Schema.AuthzDestination>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              destinations_.add(
+                  input.readMessage(meshpaas.Schema.AuthzDestination.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          sources_ = java.util.Collections.unmodifiableList(sources_);
+        }
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          conditions_ = java.util.Collections.unmodifiableList(conditions_);
+        }
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          destinations_ = java.util.Collections.unmodifiableList(destinations_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return meshpaas.Schema.internal_static_meshpaas_AuthzRule_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return meshpaas.Schema.internal_static_meshpaas_AuthzRule_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              meshpaas.Schema.AuthzRule.class, meshpaas.Schema.AuthzRule.Builder.class);
+    }
+
+    public static final int SOURCES_FIELD_NUMBER = 1;
+    private java.util.List<meshpaas.Schema.AuthzSource> sources_;
+    /**
+     * <code>repeated .meshpaas.AuthzSource sources = 1;</code>
+     */
+    public java.util.List<meshpaas.Schema.AuthzSource> getSourcesList() {
+      return sources_;
+    }
+    /**
+     * <code>repeated .meshpaas.AuthzSource sources = 1;</code>
+     */
+    public java.util.List<? extends meshpaas.Schema.AuthzSourceOrBuilder> 
+        getSourcesOrBuilderList() {
+      return sources_;
+    }
+    /**
+     * <code>repeated .meshpaas.AuthzSource sources = 1;</code>
+     */
+    public int getSourcesCount() {
+      return sources_.size();
+    }
+    /**
+     * <code>repeated .meshpaas.AuthzSource sources = 1;</code>
+     */
+    public meshpaas.Schema.AuthzSource getSources(int index) {
+      return sources_.get(index);
+    }
+    /**
+     * <code>repeated .meshpaas.AuthzSource sources = 1;</code>
+     */
+    public meshpaas.Schema.AuthzSourceOrBuilder getSourcesOrBuilder(
+        int index) {
+      return sources_.get(index);
+    }
+
+    public static final int CONDITIONS_FIELD_NUMBER = 2;
+    private java.util.List<meshpaas.Schema.AuthzCondition> conditions_;
+    /**
+     * <code>repeated .meshpaas.AuthzCondition conditions = 2;</code>
+     */
+    public java.util.List<meshpaas.Schema.AuthzCondition> getConditionsList() {
+      return conditions_;
+    }
+    /**
+     * <code>repeated .meshpaas.AuthzCondition conditions = 2;</code>
+     */
+    public java.util.List<? extends meshpaas.Schema.AuthzConditionOrBuilder> 
+        getConditionsOrBuilderList() {
+      return conditions_;
+    }
+    /**
+     * <code>repeated .meshpaas.AuthzCondition conditions = 2;</code>
+     */
+    public int getConditionsCount() {
+      return conditions_.size();
+    }
+    /**
+     * <code>repeated .meshpaas.AuthzCondition conditions = 2;</code>
+     */
+    public meshpaas.Schema.AuthzCondition getConditions(int index) {
+      return conditions_.get(index);
+    }
+    /**
+     * <code>repeated .meshpaas.AuthzCondition conditions = 2;</code>
+     */
+    public meshpaas.Schema.AuthzConditionOrBuilder getConditionsOrBuilder(
+        int index) {
+      return conditions_.get(index);
+    }
+
+    public static final int DESTINATIONS_FIELD_NUMBER = 3;
+    private java.util.List<meshpaas.Schema.AuthzDestination> destinations_;
+    /**
+     * <code>repeated .meshpaas.AuthzDestination destinations = 3;</code>
+     */
+    public java.util.List<meshpaas.Schema.AuthzDestination> getDestinationsList() {
+      return destinations_;
+    }
+    /**
+     * <code>repeated .meshpaas.AuthzDestination destinations = 3;</code>
+     */
+    public java.util.List<? extends meshpaas.Schema.AuthzDestinationOrBuilder> 
+        getDestinationsOrBuilderList() {
+      return destinations_;
+    }
+    /**
+     * <code>repeated .meshpaas.AuthzDestination destinations = 3;</code>
+     */
+    public int getDestinationsCount() {
+      return destinations_.size();
+    }
+    /**
+     * <code>repeated .meshpaas.AuthzDestination destinations = 3;</code>
+     */
+    public meshpaas.Schema.AuthzDestination getDestinations(int index) {
+      return destinations_.get(index);
+    }
+    /**
+     * <code>repeated .meshpaas.AuthzDestination destinations = 3;</code>
+     */
+    public meshpaas.Schema.AuthzDestinationOrBuilder getDestinationsOrBuilder(
+        int index) {
+      return destinations_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < sources_.size(); i++) {
+        output.writeMessage(1, sources_.get(i));
+      }
+      for (int i = 0; i < conditions_.size(); i++) {
+        output.writeMessage(2, conditions_.get(i));
+      }
+      for (int i = 0; i < destinations_.size(); i++) {
+        output.writeMessage(3, destinations_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < sources_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, sources_.get(i));
+      }
+      for (int i = 0; i < conditions_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, conditions_.get(i));
+      }
+      for (int i = 0; i < destinations_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, destinations_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof meshpaas.Schema.AuthzRule)) {
+        return super.equals(obj);
+      }
+      meshpaas.Schema.AuthzRule other = (meshpaas.Schema.AuthzRule) obj;
+
+      boolean result = true;
+      result = result && getSourcesList()
+          .equals(other.getSourcesList());
+      result = result && getConditionsList()
+          .equals(other.getConditionsList());
+      result = result && getDestinationsList()
+          .equals(other.getDestinationsList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getSourcesCount() > 0) {
+        hash = (37 * hash) + SOURCES_FIELD_NUMBER;
+        hash = (53 * hash) + getSourcesList().hashCode();
+      }
+      if (getConditionsCount() > 0) {
+        hash = (37 * hash) + CONDITIONS_FIELD_NUMBER;
+        hash = (53 * hash) + getConditionsList().hashCode();
+      }
+      if (getDestinationsCount() > 0) {
+        hash = (37 * hash) + DESTINATIONS_FIELD_NUMBER;
+        hash = (53 * hash) + getDestinationsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static meshpaas.Schema.AuthzRule parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.AuthzRule parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.AuthzRule parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.AuthzRule parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.AuthzRule parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.AuthzRule parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.AuthzRule parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.AuthzRule parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static meshpaas.Schema.AuthzRule parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.AuthzRule parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static meshpaas.Schema.AuthzRule parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.AuthzRule parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(meshpaas.Schema.AuthzRule prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code meshpaas.AuthzRule}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:meshpaas.AuthzRule)
+        meshpaas.Schema.AuthzRuleOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return meshpaas.Schema.internal_static_meshpaas_AuthzRule_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return meshpaas.Schema.internal_static_meshpaas_AuthzRule_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                meshpaas.Schema.AuthzRule.class, meshpaas.Schema.AuthzRule.Builder.class);
+      }
+
+      // Construct using meshpaas.Schema.AuthzRule.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getSourcesFieldBuilder();
+          getConditionsFieldBuilder();
+          getDestinationsFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (sourcesBuilder_ == null) {
+          sources_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          sourcesBuilder_.clear();
+        }
+        if (conditionsBuilder_ == null) {
+          conditions_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          conditionsBuilder_.clear();
+        }
+        if (destinationsBuilder_ == null) {
+          destinations_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          destinationsBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return meshpaas.Schema.internal_static_meshpaas_AuthzRule_descriptor;
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.AuthzRule getDefaultInstanceForType() {
+        return meshpaas.Schema.AuthzRule.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.AuthzRule build() {
+        meshpaas.Schema.AuthzRule result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.AuthzRule buildPartial() {
+        meshpaas.Schema.AuthzRule result = new meshpaas.Schema.AuthzRule(this);
+        int from_bitField0_ = bitField0_;
+        if (sourcesBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            sources_ = java.util.Collections.unmodifiableList(sources_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.sources_ = sources_;
+        } else {
+          result.sources_ = sourcesBuilder_.build();
+        }
+        if (conditionsBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            conditions_ = java.util.Collections.unmodifiableList(conditions_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.conditions_ = conditions_;
+        } else {
+          result.conditions_ = conditionsBuilder_.build();
+        }
+        if (destinationsBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            destinations_ = java.util.Collections.unmodifiableList(destinations_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.destinations_ = destinations_;
+        } else {
+          result.destinations_ = destinationsBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof meshpaas.Schema.AuthzRule) {
+          return mergeFrom((meshpaas.Schema.AuthzRule)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(meshpaas.Schema.AuthzRule other) {
+        if (other == meshpaas.Schema.AuthzRule.getDefaultInstance()) return this;
+        if (sourcesBuilder_ == null) {
+          if (!other.sources_.isEmpty()) {
+            if (sources_.isEmpty()) {
+              sources_ = other.sources_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureSourcesIsMutable();
+              sources_.addAll(other.sources_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.sources_.isEmpty()) {
+            if (sourcesBuilder_.isEmpty()) {
+              sourcesBuilder_.dispose();
+              sourcesBuilder_ = null;
+              sources_ = other.sources_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              sourcesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getSourcesFieldBuilder() : null;
+            } else {
+              sourcesBuilder_.addAllMessages(other.sources_);
+            }
+          }
+        }
+        if (conditionsBuilder_ == null) {
+          if (!other.conditions_.isEmpty()) {
+            if (conditions_.isEmpty()) {
+              conditions_ = other.conditions_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureConditionsIsMutable();
+              conditions_.addAll(other.conditions_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.conditions_.isEmpty()) {
+            if (conditionsBuilder_.isEmpty()) {
+              conditionsBuilder_.dispose();
+              conditionsBuilder_ = null;
+              conditions_ = other.conditions_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              conditionsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getConditionsFieldBuilder() : null;
+            } else {
+              conditionsBuilder_.addAllMessages(other.conditions_);
+            }
+          }
+        }
+        if (destinationsBuilder_ == null) {
+          if (!other.destinations_.isEmpty()) {
+            if (destinations_.isEmpty()) {
+              destinations_ = other.destinations_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureDestinationsIsMutable();
+              destinations_.addAll(other.destinations_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.destinations_.isEmpty()) {
+            if (destinationsBuilder_.isEmpty()) {
+              destinationsBuilder_.dispose();
+              destinationsBuilder_ = null;
+              destinations_ = other.destinations_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              destinationsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getDestinationsFieldBuilder() : null;
+            } else {
+              destinationsBuilder_.addAllMessages(other.destinations_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        meshpaas.Schema.AuthzRule parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (meshpaas.Schema.AuthzRule) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<meshpaas.Schema.AuthzSource> sources_ =
+        java.util.Collections.emptyList();
+      private void ensureSourcesIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          sources_ = new java.util.ArrayList<meshpaas.Schema.AuthzSource>(sources_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          meshpaas.Schema.AuthzSource, meshpaas.Schema.AuthzSource.Builder, meshpaas.Schema.AuthzSourceOrBuilder> sourcesBuilder_;
+
+      /**
+       * <code>repeated .meshpaas.AuthzSource sources = 1;</code>
+       */
+      public java.util.List<meshpaas.Schema.AuthzSource> getSourcesList() {
+        if (sourcesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(sources_);
+        } else {
+          return sourcesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzSource sources = 1;</code>
+       */
+      public int getSourcesCount() {
+        if (sourcesBuilder_ == null) {
+          return sources_.size();
+        } else {
+          return sourcesBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzSource sources = 1;</code>
+       */
+      public meshpaas.Schema.AuthzSource getSources(int index) {
+        if (sourcesBuilder_ == null) {
+          return sources_.get(index);
+        } else {
+          return sourcesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzSource sources = 1;</code>
+       */
+      public Builder setSources(
+          int index, meshpaas.Schema.AuthzSource value) {
+        if (sourcesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSourcesIsMutable();
+          sources_.set(index, value);
+          onChanged();
+        } else {
+          sourcesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzSource sources = 1;</code>
+       */
+      public Builder setSources(
+          int index, meshpaas.Schema.AuthzSource.Builder builderForValue) {
+        if (sourcesBuilder_ == null) {
+          ensureSourcesIsMutable();
+          sources_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          sourcesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzSource sources = 1;</code>
+       */
+      public Builder addSources(meshpaas.Schema.AuthzSource value) {
+        if (sourcesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSourcesIsMutable();
+          sources_.add(value);
+          onChanged();
+        } else {
+          sourcesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzSource sources = 1;</code>
+       */
+      public Builder addSources(
+          int index, meshpaas.Schema.AuthzSource value) {
+        if (sourcesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSourcesIsMutable();
+          sources_.add(index, value);
+          onChanged();
+        } else {
+          sourcesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzSource sources = 1;</code>
+       */
+      public Builder addSources(
+          meshpaas.Schema.AuthzSource.Builder builderForValue) {
+        if (sourcesBuilder_ == null) {
+          ensureSourcesIsMutable();
+          sources_.add(builderForValue.build());
+          onChanged();
+        } else {
+          sourcesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzSource sources = 1;</code>
+       */
+      public Builder addSources(
+          int index, meshpaas.Schema.AuthzSource.Builder builderForValue) {
+        if (sourcesBuilder_ == null) {
+          ensureSourcesIsMutable();
+          sources_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          sourcesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzSource sources = 1;</code>
+       */
+      public Builder addAllSources(
+          java.lang.Iterable<? extends meshpaas.Schema.AuthzSource> values) {
+        if (sourcesBuilder_ == null) {
+          ensureSourcesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, sources_);
+          onChanged();
+        } else {
+          sourcesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzSource sources = 1;</code>
+       */
+      public Builder clearSources() {
+        if (sourcesBuilder_ == null) {
+          sources_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          sourcesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzSource sources = 1;</code>
+       */
+      public Builder removeSources(int index) {
+        if (sourcesBuilder_ == null) {
+          ensureSourcesIsMutable();
+          sources_.remove(index);
+          onChanged();
+        } else {
+          sourcesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzSource sources = 1;</code>
+       */
+      public meshpaas.Schema.AuthzSource.Builder getSourcesBuilder(
+          int index) {
+        return getSourcesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzSource sources = 1;</code>
+       */
+      public meshpaas.Schema.AuthzSourceOrBuilder getSourcesOrBuilder(
+          int index) {
+        if (sourcesBuilder_ == null) {
+          return sources_.get(index);  } else {
+          return sourcesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzSource sources = 1;</code>
+       */
+      public java.util.List<? extends meshpaas.Schema.AuthzSourceOrBuilder> 
+           getSourcesOrBuilderList() {
+        if (sourcesBuilder_ != null) {
+          return sourcesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(sources_);
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzSource sources = 1;</code>
+       */
+      public meshpaas.Schema.AuthzSource.Builder addSourcesBuilder() {
+        return getSourcesFieldBuilder().addBuilder(
+            meshpaas.Schema.AuthzSource.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzSource sources = 1;</code>
+       */
+      public meshpaas.Schema.AuthzSource.Builder addSourcesBuilder(
+          int index) {
+        return getSourcesFieldBuilder().addBuilder(
+            index, meshpaas.Schema.AuthzSource.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzSource sources = 1;</code>
+       */
+      public java.util.List<meshpaas.Schema.AuthzSource.Builder> 
+           getSourcesBuilderList() {
+        return getSourcesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          meshpaas.Schema.AuthzSource, meshpaas.Schema.AuthzSource.Builder, meshpaas.Schema.AuthzSourceOrBuilder> 
+          getSourcesFieldBuilder() {
+        if (sourcesBuilder_ == null) {
+          sourcesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              meshpaas.Schema.AuthzSource, meshpaas.Schema.AuthzSource.Builder, meshpaas.Schema.AuthzSourceOrBuilder>(
+                  sources_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          sources_ = null;
+        }
+        return sourcesBuilder_;
+      }
+
+      private java.util.List<meshpaas.Schema.AuthzCondition> conditions_ =
+        java.util.Collections.emptyList();
+      private void ensureConditionsIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          conditions_ = new java.util.ArrayList<meshpaas.Schema.AuthzCondition>(conditions_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          meshpaas.Schema.AuthzCondition, meshpaas.Schema.AuthzCondition.Builder, meshpaas.Schema.AuthzConditionOrBuilder> conditionsBuilder_;
+
+      /**
+       * <code>repeated .meshpaas.AuthzCondition conditions = 2;</code>
+       */
+      public java.util.List<meshpaas.Schema.AuthzCondition> getConditionsList() {
+        if (conditionsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(conditions_);
+        } else {
+          return conditionsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzCondition conditions = 2;</code>
+       */
+      public int getConditionsCount() {
+        if (conditionsBuilder_ == null) {
+          return conditions_.size();
+        } else {
+          return conditionsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzCondition conditions = 2;</code>
+       */
+      public meshpaas.Schema.AuthzCondition getConditions(int index) {
+        if (conditionsBuilder_ == null) {
+          return conditions_.get(index);
+        } else {
+          return conditionsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzCondition conditions = 2;</code>
+       */
+      public Builder setConditions(
+          int index, meshpaas.Schema.AuthzCondition value) {
+        if (conditionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureConditionsIsMutable();
+          conditions_.set(index, value);
+          onChanged();
+        } else {
+          conditionsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzCondition conditions = 2;</code>
+       */
+      public Builder setConditions(
+          int index, meshpaas.Schema.AuthzCondition.Builder builderForValue) {
+        if (conditionsBuilder_ == null) {
+          ensureConditionsIsMutable();
+          conditions_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          conditionsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzCondition conditions = 2;</code>
+       */
+      public Builder addConditions(meshpaas.Schema.AuthzCondition value) {
+        if (conditionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureConditionsIsMutable();
+          conditions_.add(value);
+          onChanged();
+        } else {
+          conditionsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzCondition conditions = 2;</code>
+       */
+      public Builder addConditions(
+          int index, meshpaas.Schema.AuthzCondition value) {
+        if (conditionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureConditionsIsMutable();
+          conditions_.add(index, value);
+          onChanged();
+        } else {
+          conditionsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzCondition conditions = 2;</code>
+       */
+      public Builder addConditions(
+          meshpaas.Schema.AuthzCondition.Builder builderForValue) {
+        if (conditionsBuilder_ == null) {
+          ensureConditionsIsMutable();
+          conditions_.add(builderForValue.build());
+          onChanged();
+        } else {
+          conditionsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzCondition conditions = 2;</code>
+       */
+      public Builder addConditions(
+          int index, meshpaas.Schema.AuthzCondition.Builder builderForValue) {
+        if (conditionsBuilder_ == null) {
+          ensureConditionsIsMutable();
+          conditions_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          conditionsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzCondition conditions = 2;</code>
+       */
+      public Builder addAllConditions(
+          java.lang.Iterable<? extends meshpaas.Schema.AuthzCondition> values) {
+        if (conditionsBuilder_ == null) {
+          ensureConditionsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, conditions_);
+          onChanged();
+        } else {
+          conditionsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzCondition conditions = 2;</code>
+       */
+      public Builder clearConditions() {
+        if (conditionsBuilder_ == null) {
+          conditions_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          conditionsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzCondition conditions = 2;</code>
+       */
+      public Builder removeConditions(int index) {
+        if (conditionsBuilder_ == null) {
+          ensureConditionsIsMutable();
+          conditions_.remove(index);
+          onChanged();
+        } else {
+          conditionsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzCondition conditions = 2;</code>
+       */
+      public meshpaas.Schema.AuthzCondition.Builder getConditionsBuilder(
+          int index) {
+        return getConditionsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzCondition conditions = 2;</code>
+       */
+      public meshpaas.Schema.AuthzConditionOrBuilder getConditionsOrBuilder(
+          int index) {
+        if (conditionsBuilder_ == null) {
+          return conditions_.get(index);  } else {
+          return conditionsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzCondition conditions = 2;</code>
+       */
+      public java.util.List<? extends meshpaas.Schema.AuthzConditionOrBuilder> 
+           getConditionsOrBuilderList() {
+        if (conditionsBuilder_ != null) {
+          return conditionsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(conditions_);
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzCondition conditions = 2;</code>
+       */
+      public meshpaas.Schema.AuthzCondition.Builder addConditionsBuilder() {
+        return getConditionsFieldBuilder().addBuilder(
+            meshpaas.Schema.AuthzCondition.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzCondition conditions = 2;</code>
+       */
+      public meshpaas.Schema.AuthzCondition.Builder addConditionsBuilder(
+          int index) {
+        return getConditionsFieldBuilder().addBuilder(
+            index, meshpaas.Schema.AuthzCondition.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzCondition conditions = 2;</code>
+       */
+      public java.util.List<meshpaas.Schema.AuthzCondition.Builder> 
+           getConditionsBuilderList() {
+        return getConditionsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          meshpaas.Schema.AuthzCondition, meshpaas.Schema.AuthzCondition.Builder, meshpaas.Schema.AuthzConditionOrBuilder> 
+          getConditionsFieldBuilder() {
+        if (conditionsBuilder_ == null) {
+          conditionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              meshpaas.Schema.AuthzCondition, meshpaas.Schema.AuthzCondition.Builder, meshpaas.Schema.AuthzConditionOrBuilder>(
+                  conditions_,
+                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  getParentForChildren(),
+                  isClean());
+          conditions_ = null;
+        }
+        return conditionsBuilder_;
+      }
+
+      private java.util.List<meshpaas.Schema.AuthzDestination> destinations_ =
+        java.util.Collections.emptyList();
+      private void ensureDestinationsIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          destinations_ = new java.util.ArrayList<meshpaas.Schema.AuthzDestination>(destinations_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          meshpaas.Schema.AuthzDestination, meshpaas.Schema.AuthzDestination.Builder, meshpaas.Schema.AuthzDestinationOrBuilder> destinationsBuilder_;
+
+      /**
+       * <code>repeated .meshpaas.AuthzDestination destinations = 3;</code>
+       */
+      public java.util.List<meshpaas.Schema.AuthzDestination> getDestinationsList() {
+        if (destinationsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(destinations_);
+        } else {
+          return destinationsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzDestination destinations = 3;</code>
+       */
+      public int getDestinationsCount() {
+        if (destinationsBuilder_ == null) {
+          return destinations_.size();
+        } else {
+          return destinationsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzDestination destinations = 3;</code>
+       */
+      public meshpaas.Schema.AuthzDestination getDestinations(int index) {
+        if (destinationsBuilder_ == null) {
+          return destinations_.get(index);
+        } else {
+          return destinationsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzDestination destinations = 3;</code>
+       */
+      public Builder setDestinations(
+          int index, meshpaas.Schema.AuthzDestination value) {
+        if (destinationsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDestinationsIsMutable();
+          destinations_.set(index, value);
+          onChanged();
+        } else {
+          destinationsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzDestination destinations = 3;</code>
+       */
+      public Builder setDestinations(
+          int index, meshpaas.Schema.AuthzDestination.Builder builderForValue) {
+        if (destinationsBuilder_ == null) {
+          ensureDestinationsIsMutable();
+          destinations_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          destinationsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzDestination destinations = 3;</code>
+       */
+      public Builder addDestinations(meshpaas.Schema.AuthzDestination value) {
+        if (destinationsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDestinationsIsMutable();
+          destinations_.add(value);
+          onChanged();
+        } else {
+          destinationsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzDestination destinations = 3;</code>
+       */
+      public Builder addDestinations(
+          int index, meshpaas.Schema.AuthzDestination value) {
+        if (destinationsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDestinationsIsMutable();
+          destinations_.add(index, value);
+          onChanged();
+        } else {
+          destinationsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzDestination destinations = 3;</code>
+       */
+      public Builder addDestinations(
+          meshpaas.Schema.AuthzDestination.Builder builderForValue) {
+        if (destinationsBuilder_ == null) {
+          ensureDestinationsIsMutable();
+          destinations_.add(builderForValue.build());
+          onChanged();
+        } else {
+          destinationsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzDestination destinations = 3;</code>
+       */
+      public Builder addDestinations(
+          int index, meshpaas.Schema.AuthzDestination.Builder builderForValue) {
+        if (destinationsBuilder_ == null) {
+          ensureDestinationsIsMutable();
+          destinations_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          destinationsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzDestination destinations = 3;</code>
+       */
+      public Builder addAllDestinations(
+          java.lang.Iterable<? extends meshpaas.Schema.AuthzDestination> values) {
+        if (destinationsBuilder_ == null) {
+          ensureDestinationsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, destinations_);
+          onChanged();
+        } else {
+          destinationsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzDestination destinations = 3;</code>
+       */
+      public Builder clearDestinations() {
+        if (destinationsBuilder_ == null) {
+          destinations_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          destinationsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzDestination destinations = 3;</code>
+       */
+      public Builder removeDestinations(int index) {
+        if (destinationsBuilder_ == null) {
+          ensureDestinationsIsMutable();
+          destinations_.remove(index);
+          onChanged();
+        } else {
+          destinationsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzDestination destinations = 3;</code>
+       */
+      public meshpaas.Schema.AuthzDestination.Builder getDestinationsBuilder(
+          int index) {
+        return getDestinationsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzDestination destinations = 3;</code>
+       */
+      public meshpaas.Schema.AuthzDestinationOrBuilder getDestinationsOrBuilder(
+          int index) {
+        if (destinationsBuilder_ == null) {
+          return destinations_.get(index);  } else {
+          return destinationsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzDestination destinations = 3;</code>
+       */
+      public java.util.List<? extends meshpaas.Schema.AuthzDestinationOrBuilder> 
+           getDestinationsOrBuilderList() {
+        if (destinationsBuilder_ != null) {
+          return destinationsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(destinations_);
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzDestination destinations = 3;</code>
+       */
+      public meshpaas.Schema.AuthzDestination.Builder addDestinationsBuilder() {
+        return getDestinationsFieldBuilder().addBuilder(
+            meshpaas.Schema.AuthzDestination.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzDestination destinations = 3;</code>
+       */
+      public meshpaas.Schema.AuthzDestination.Builder addDestinationsBuilder(
+          int index) {
+        return getDestinationsFieldBuilder().addBuilder(
+            index, meshpaas.Schema.AuthzDestination.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzDestination destinations = 3;</code>
+       */
+      public java.util.List<meshpaas.Schema.AuthzDestination.Builder> 
+           getDestinationsBuilderList() {
+        return getDestinationsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          meshpaas.Schema.AuthzDestination, meshpaas.Schema.AuthzDestination.Builder, meshpaas.Schema.AuthzDestinationOrBuilder> 
+          getDestinationsFieldBuilder() {
+        if (destinationsBuilder_ == null) {
+          destinationsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              meshpaas.Schema.AuthzDestination, meshpaas.Schema.AuthzDestination.Builder, meshpaas.Schema.AuthzDestinationOrBuilder>(
+                  destinations_,
+                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  getParentForChildren(),
+                  isClean());
+          destinations_ = null;
+        }
+        return destinationsBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:meshpaas.AuthzRule)
+    }
+
+    // @@protoc_insertion_point(class_scope:meshpaas.AuthzRule)
+    private static final meshpaas.Schema.AuthzRule DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new meshpaas.Schema.AuthzRule();
+    }
+
+    public static meshpaas.Schema.AuthzRule getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<AuthzRule>
+        PARSER = new com.google.protobuf.AbstractParser<AuthzRule>() {
+      @java.lang.Override
+      public AuthzRule parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new AuthzRule(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<AuthzRule> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AuthzRule> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public meshpaas.Schema.AuthzRule getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface AuthzPolicyOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:meshpaas.AuthzPolicy)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.meshpaas.AuthzAction action = 1;</code>
+     */
+    int getActionValue();
+    /**
+     * <code>.meshpaas.AuthzAction action = 1;</code>
+     */
+    meshpaas.Schema.AuthzAction getAction();
+
+    /**
+     * <code>repeated .meshpaas.AuthzRule rules = 2;</code>
+     */
+    java.util.List<meshpaas.Schema.AuthzRule> 
+        getRulesList();
+    /**
+     * <code>repeated .meshpaas.AuthzRule rules = 2;</code>
+     */
+    meshpaas.Schema.AuthzRule getRules(int index);
+    /**
+     * <code>repeated .meshpaas.AuthzRule rules = 2;</code>
+     */
+    int getRulesCount();
+    /**
+     * <code>repeated .meshpaas.AuthzRule rules = 2;</code>
+     */
+    java.util.List<? extends meshpaas.Schema.AuthzRuleOrBuilder> 
+        getRulesOrBuilderList();
+    /**
+     * <code>repeated .meshpaas.AuthzRule rules = 2;</code>
+     */
+    meshpaas.Schema.AuthzRuleOrBuilder getRulesOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code meshpaas.AuthzPolicy}
+   */
+  public  static final class AuthzPolicy extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:meshpaas.AuthzPolicy)
+      AuthzPolicyOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AuthzPolicy.newBuilder() to construct.
+    private AuthzPolicy(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AuthzPolicy() {
+      action_ = 0;
+      rules_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AuthzPolicy(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int rawValue = input.readEnum();
+
+              action_ = rawValue;
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                rules_ = new java.util.ArrayList<meshpaas.Schema.AuthzRule>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              rules_.add(
+                  input.readMessage(meshpaas.Schema.AuthzRule.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          rules_ = java.util.Collections.unmodifiableList(rules_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return meshpaas.Schema.internal_static_meshpaas_AuthzPolicy_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return meshpaas.Schema.internal_static_meshpaas_AuthzPolicy_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              meshpaas.Schema.AuthzPolicy.class, meshpaas.Schema.AuthzPolicy.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int ACTION_FIELD_NUMBER = 1;
+    private int action_;
+    /**
+     * <code>.meshpaas.AuthzAction action = 1;</code>
+     */
+    public int getActionValue() {
+      return action_;
+    }
+    /**
+     * <code>.meshpaas.AuthzAction action = 1;</code>
+     */
+    public meshpaas.Schema.AuthzAction getAction() {
+      @SuppressWarnings("deprecation")
+      meshpaas.Schema.AuthzAction result = meshpaas.Schema.AuthzAction.valueOf(action_);
+      return result == null ? meshpaas.Schema.AuthzAction.UNRECOGNIZED : result;
+    }
+
+    public static final int RULES_FIELD_NUMBER = 2;
+    private java.util.List<meshpaas.Schema.AuthzRule> rules_;
+    /**
+     * <code>repeated .meshpaas.AuthzRule rules = 2;</code>
+     */
+    public java.util.List<meshpaas.Schema.AuthzRule> getRulesList() {
+      return rules_;
+    }
+    /**
+     * <code>repeated .meshpaas.AuthzRule rules = 2;</code>
+     */
+    public java.util.List<? extends meshpaas.Schema.AuthzRuleOrBuilder> 
+        getRulesOrBuilderList() {
+      return rules_;
+    }
+    /**
+     * <code>repeated .meshpaas.AuthzRule rules = 2;</code>
+     */
+    public int getRulesCount() {
+      return rules_.size();
+    }
+    /**
+     * <code>repeated .meshpaas.AuthzRule rules = 2;</code>
+     */
+    public meshpaas.Schema.AuthzRule getRules(int index) {
+      return rules_.get(index);
+    }
+    /**
+     * <code>repeated .meshpaas.AuthzRule rules = 2;</code>
+     */
+    public meshpaas.Schema.AuthzRuleOrBuilder getRulesOrBuilder(
+        int index) {
+      return rules_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (action_ != meshpaas.Schema.AuthzAction.ALLOW.getNumber()) {
+        output.writeEnum(1, action_);
+      }
+      for (int i = 0; i < rules_.size(); i++) {
+        output.writeMessage(2, rules_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (action_ != meshpaas.Schema.AuthzAction.ALLOW.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, action_);
+      }
+      for (int i = 0; i < rules_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, rules_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof meshpaas.Schema.AuthzPolicy)) {
+        return super.equals(obj);
+      }
+      meshpaas.Schema.AuthzPolicy other = (meshpaas.Schema.AuthzPolicy) obj;
+
+      boolean result = true;
+      result = result && action_ == other.action_;
+      result = result && getRulesList()
+          .equals(other.getRulesList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ACTION_FIELD_NUMBER;
+      hash = (53 * hash) + action_;
+      if (getRulesCount() > 0) {
+        hash = (37 * hash) + RULES_FIELD_NUMBER;
+        hash = (53 * hash) + getRulesList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static meshpaas.Schema.AuthzPolicy parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.AuthzPolicy parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.AuthzPolicy parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.AuthzPolicy parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.AuthzPolicy parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.AuthzPolicy parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.AuthzPolicy parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.AuthzPolicy parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static meshpaas.Schema.AuthzPolicy parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.AuthzPolicy parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static meshpaas.Schema.AuthzPolicy parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.AuthzPolicy parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(meshpaas.Schema.AuthzPolicy prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code meshpaas.AuthzPolicy}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:meshpaas.AuthzPolicy)
+        meshpaas.Schema.AuthzPolicyOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return meshpaas.Schema.internal_static_meshpaas_AuthzPolicy_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return meshpaas.Schema.internal_static_meshpaas_AuthzPolicy_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                meshpaas.Schema.AuthzPolicy.class, meshpaas.Schema.AuthzPolicy.Builder.class);
+      }
+
+      // Construct using meshpaas.Schema.AuthzPolicy.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getRulesFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        action_ = 0;
+
+        if (rulesBuilder_ == null) {
+          rules_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          rulesBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return meshpaas.Schema.internal_static_meshpaas_AuthzPolicy_descriptor;
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.AuthzPolicy getDefaultInstanceForType() {
+        return meshpaas.Schema.AuthzPolicy.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.AuthzPolicy build() {
+        meshpaas.Schema.AuthzPolicy result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.AuthzPolicy buildPartial() {
+        meshpaas.Schema.AuthzPolicy result = new meshpaas.Schema.AuthzPolicy(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.action_ = action_;
+        if (rulesBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            rules_ = java.util.Collections.unmodifiableList(rules_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.rules_ = rules_;
+        } else {
+          result.rules_ = rulesBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof meshpaas.Schema.AuthzPolicy) {
+          return mergeFrom((meshpaas.Schema.AuthzPolicy)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(meshpaas.Schema.AuthzPolicy other) {
+        if (other == meshpaas.Schema.AuthzPolicy.getDefaultInstance()) return this;
+        if (other.action_ != 0) {
+          setActionValue(other.getActionValue());
+        }
+        if (rulesBuilder_ == null) {
+          if (!other.rules_.isEmpty()) {
+            if (rules_.isEmpty()) {
+              rules_ = other.rules_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureRulesIsMutable();
+              rules_.addAll(other.rules_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.rules_.isEmpty()) {
+            if (rulesBuilder_.isEmpty()) {
+              rulesBuilder_.dispose();
+              rulesBuilder_ = null;
+              rules_ = other.rules_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              rulesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getRulesFieldBuilder() : null;
+            } else {
+              rulesBuilder_.addAllMessages(other.rules_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        meshpaas.Schema.AuthzPolicy parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (meshpaas.Schema.AuthzPolicy) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int action_ = 0;
+      /**
+       * <code>.meshpaas.AuthzAction action = 1;</code>
+       */
+      public int getActionValue() {
+        return action_;
+      }
+      /**
+       * <code>.meshpaas.AuthzAction action = 1;</code>
+       */
+      public Builder setActionValue(int value) {
+        action_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.meshpaas.AuthzAction action = 1;</code>
+       */
+      public meshpaas.Schema.AuthzAction getAction() {
+        @SuppressWarnings("deprecation")
+        meshpaas.Schema.AuthzAction result = meshpaas.Schema.AuthzAction.valueOf(action_);
+        return result == null ? meshpaas.Schema.AuthzAction.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.meshpaas.AuthzAction action = 1;</code>
+       */
+      public Builder setAction(meshpaas.Schema.AuthzAction value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        action_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.meshpaas.AuthzAction action = 1;</code>
+       */
+      public Builder clearAction() {
+        
+        action_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<meshpaas.Schema.AuthzRule> rules_ =
+        java.util.Collections.emptyList();
+      private void ensureRulesIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          rules_ = new java.util.ArrayList<meshpaas.Schema.AuthzRule>(rules_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          meshpaas.Schema.AuthzRule, meshpaas.Schema.AuthzRule.Builder, meshpaas.Schema.AuthzRuleOrBuilder> rulesBuilder_;
+
+      /**
+       * <code>repeated .meshpaas.AuthzRule rules = 2;</code>
+       */
+      public java.util.List<meshpaas.Schema.AuthzRule> getRulesList() {
+        if (rulesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(rules_);
+        } else {
+          return rulesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzRule rules = 2;</code>
+       */
+      public int getRulesCount() {
+        if (rulesBuilder_ == null) {
+          return rules_.size();
+        } else {
+          return rulesBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzRule rules = 2;</code>
+       */
+      public meshpaas.Schema.AuthzRule getRules(int index) {
+        if (rulesBuilder_ == null) {
+          return rules_.get(index);
+        } else {
+          return rulesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzRule rules = 2;</code>
+       */
+      public Builder setRules(
+          int index, meshpaas.Schema.AuthzRule value) {
+        if (rulesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRulesIsMutable();
+          rules_.set(index, value);
+          onChanged();
+        } else {
+          rulesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzRule rules = 2;</code>
+       */
+      public Builder setRules(
+          int index, meshpaas.Schema.AuthzRule.Builder builderForValue) {
+        if (rulesBuilder_ == null) {
+          ensureRulesIsMutable();
+          rules_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          rulesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzRule rules = 2;</code>
+       */
+      public Builder addRules(meshpaas.Schema.AuthzRule value) {
+        if (rulesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRulesIsMutable();
+          rules_.add(value);
+          onChanged();
+        } else {
+          rulesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzRule rules = 2;</code>
+       */
+      public Builder addRules(
+          int index, meshpaas.Schema.AuthzRule value) {
+        if (rulesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRulesIsMutable();
+          rules_.add(index, value);
+          onChanged();
+        } else {
+          rulesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzRule rules = 2;</code>
+       */
+      public Builder addRules(
+          meshpaas.Schema.AuthzRule.Builder builderForValue) {
+        if (rulesBuilder_ == null) {
+          ensureRulesIsMutable();
+          rules_.add(builderForValue.build());
+          onChanged();
+        } else {
+          rulesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzRule rules = 2;</code>
+       */
+      public Builder addRules(
+          int index, meshpaas.Schema.AuthzRule.Builder builderForValue) {
+        if (rulesBuilder_ == null) {
+          ensureRulesIsMutable();
+          rules_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          rulesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzRule rules = 2;</code>
+       */
+      public Builder addAllRules(
+          java.lang.Iterable<? extends meshpaas.Schema.AuthzRule> values) {
+        if (rulesBuilder_ == null) {
+          ensureRulesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, rules_);
+          onChanged();
+        } else {
+          rulesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzRule rules = 2;</code>
+       */
+      public Builder clearRules() {
+        if (rulesBuilder_ == null) {
+          rules_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          rulesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzRule rules = 2;</code>
+       */
+      public Builder removeRules(int index) {
+        if (rulesBuilder_ == null) {
+          ensureRulesIsMutable();
+          rules_.remove(index);
+          onChanged();
+        } else {
+          rulesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzRule rules = 2;</code>
+       */
+      public meshpaas.Schema.AuthzRule.Builder getRulesBuilder(
+          int index) {
+        return getRulesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzRule rules = 2;</code>
+       */
+      public meshpaas.Schema.AuthzRuleOrBuilder getRulesOrBuilder(
+          int index) {
+        if (rulesBuilder_ == null) {
+          return rules_.get(index);  } else {
+          return rulesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzRule rules = 2;</code>
+       */
+      public java.util.List<? extends meshpaas.Schema.AuthzRuleOrBuilder> 
+           getRulesOrBuilderList() {
+        if (rulesBuilder_ != null) {
+          return rulesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(rules_);
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzRule rules = 2;</code>
+       */
+      public meshpaas.Schema.AuthzRule.Builder addRulesBuilder() {
+        return getRulesFieldBuilder().addBuilder(
+            meshpaas.Schema.AuthzRule.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzRule rules = 2;</code>
+       */
+      public meshpaas.Schema.AuthzRule.Builder addRulesBuilder(
+          int index) {
+        return getRulesFieldBuilder().addBuilder(
+            index, meshpaas.Schema.AuthzRule.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzRule rules = 2;</code>
+       */
+      public java.util.List<meshpaas.Schema.AuthzRule.Builder> 
+           getRulesBuilderList() {
+        return getRulesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          meshpaas.Schema.AuthzRule, meshpaas.Schema.AuthzRule.Builder, meshpaas.Schema.AuthzRuleOrBuilder> 
+          getRulesFieldBuilder() {
+        if (rulesBuilder_ == null) {
+          rulesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              meshpaas.Schema.AuthzRule, meshpaas.Schema.AuthzRule.Builder, meshpaas.Schema.AuthzRuleOrBuilder>(
+                  rules_,
+                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  getParentForChildren(),
+                  isClean());
+          rules_ = null;
+        }
+        return rulesBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:meshpaas.AuthzPolicy)
+    }
+
+    // @@protoc_insertion_point(class_scope:meshpaas.AuthzPolicy)
+    private static final meshpaas.Schema.AuthzPolicy DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new meshpaas.Schema.AuthzPolicy();
+    }
+
+    public static meshpaas.Schema.AuthzPolicy getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<AuthzPolicy>
+        PARSER = new com.google.protobuf.AbstractParser<AuthzPolicy>() {
+      @java.lang.Override
+      public AuthzPolicy parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new AuthzPolicy(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<AuthzPolicy> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AuthzPolicy> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public meshpaas.Schema.AuthzPolicy getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface AuthzOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:meshpaas.Authz)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .meshpaas.AuthzPolicy policies = 1;</code>
+     */
+    java.util.List<meshpaas.Schema.AuthzPolicy> 
+        getPoliciesList();
+    /**
+     * <code>repeated .meshpaas.AuthzPolicy policies = 1;</code>
+     */
+    meshpaas.Schema.AuthzPolicy getPolicies(int index);
+    /**
+     * <code>repeated .meshpaas.AuthzPolicy policies = 1;</code>
+     */
+    int getPoliciesCount();
+    /**
+     * <code>repeated .meshpaas.AuthzPolicy policies = 1;</code>
+     */
+    java.util.List<? extends meshpaas.Schema.AuthzPolicyOrBuilder> 
+        getPoliciesOrBuilderList();
+    /**
+     * <code>repeated .meshpaas.AuthzPolicy policies = 1;</code>
+     */
+    meshpaas.Schema.AuthzPolicyOrBuilder getPoliciesOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code meshpaas.Authz}
+   */
+  public  static final class Authz extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:meshpaas.Authz)
+      AuthzOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Authz.newBuilder() to construct.
+    private Authz(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Authz() {
+      policies_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Authz(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                policies_ = new java.util.ArrayList<meshpaas.Schema.AuthzPolicy>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              policies_.add(
+                  input.readMessage(meshpaas.Schema.AuthzPolicy.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          policies_ = java.util.Collections.unmodifiableList(policies_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return meshpaas.Schema.internal_static_meshpaas_Authz_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return meshpaas.Schema.internal_static_meshpaas_Authz_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              meshpaas.Schema.Authz.class, meshpaas.Schema.Authz.Builder.class);
+    }
+
+    public static final int POLICIES_FIELD_NUMBER = 1;
+    private java.util.List<meshpaas.Schema.AuthzPolicy> policies_;
+    /**
+     * <code>repeated .meshpaas.AuthzPolicy policies = 1;</code>
+     */
+    public java.util.List<meshpaas.Schema.AuthzPolicy> getPoliciesList() {
+      return policies_;
+    }
+    /**
+     * <code>repeated .meshpaas.AuthzPolicy policies = 1;</code>
+     */
+    public java.util.List<? extends meshpaas.Schema.AuthzPolicyOrBuilder> 
+        getPoliciesOrBuilderList() {
+      return policies_;
+    }
+    /**
+     * <code>repeated .meshpaas.AuthzPolicy policies = 1;</code>
+     */
+    public int getPoliciesCount() {
+      return policies_.size();
+    }
+    /**
+     * <code>repeated .meshpaas.AuthzPolicy policies = 1;</code>
+     */
+    public meshpaas.Schema.AuthzPolicy getPolicies(int index) {
+      return policies_.get(index);
+    }
+    /**
+     * <code>repeated .meshpaas.AuthzPolicy policies = 1;</code>
+     */
+    public meshpaas.Schema.AuthzPolicyOrBuilder getPoliciesOrBuilder(
+        int index) {
+      return policies_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < policies_.size(); i++) {
+        output.writeMessage(1, policies_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < policies_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, policies_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof meshpaas.Schema.Authz)) {
+        return super.equals(obj);
+      }
+      meshpaas.Schema.Authz other = (meshpaas.Schema.Authz) obj;
+
+      boolean result = true;
+      result = result && getPoliciesList()
+          .equals(other.getPoliciesList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getPoliciesCount() > 0) {
+        hash = (37 * hash) + POLICIES_FIELD_NUMBER;
+        hash = (53 * hash) + getPoliciesList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static meshpaas.Schema.Authz parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.Authz parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.Authz parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.Authz parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.Authz parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.Authz parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.Authz parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.Authz parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static meshpaas.Schema.Authz parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.Authz parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static meshpaas.Schema.Authz parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.Authz parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(meshpaas.Schema.Authz prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code meshpaas.Authz}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:meshpaas.Authz)
+        meshpaas.Schema.AuthzOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return meshpaas.Schema.internal_static_meshpaas_Authz_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return meshpaas.Schema.internal_static_meshpaas_Authz_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                meshpaas.Schema.Authz.class, meshpaas.Schema.Authz.Builder.class);
+      }
+
+      // Construct using meshpaas.Schema.Authz.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getPoliciesFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (policiesBuilder_ == null) {
+          policies_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          policiesBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return meshpaas.Schema.internal_static_meshpaas_Authz_descriptor;
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.Authz getDefaultInstanceForType() {
+        return meshpaas.Schema.Authz.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.Authz build() {
+        meshpaas.Schema.Authz result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.Authz buildPartial() {
+        meshpaas.Schema.Authz result = new meshpaas.Schema.Authz(this);
+        int from_bitField0_ = bitField0_;
+        if (policiesBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            policies_ = java.util.Collections.unmodifiableList(policies_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.policies_ = policies_;
+        } else {
+          result.policies_ = policiesBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof meshpaas.Schema.Authz) {
+          return mergeFrom((meshpaas.Schema.Authz)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(meshpaas.Schema.Authz other) {
+        if (other == meshpaas.Schema.Authz.getDefaultInstance()) return this;
+        if (policiesBuilder_ == null) {
+          if (!other.policies_.isEmpty()) {
+            if (policies_.isEmpty()) {
+              policies_ = other.policies_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensurePoliciesIsMutable();
+              policies_.addAll(other.policies_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.policies_.isEmpty()) {
+            if (policiesBuilder_.isEmpty()) {
+              policiesBuilder_.dispose();
+              policiesBuilder_ = null;
+              policies_ = other.policies_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              policiesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getPoliciesFieldBuilder() : null;
+            } else {
+              policiesBuilder_.addAllMessages(other.policies_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        meshpaas.Schema.Authz parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (meshpaas.Schema.Authz) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<meshpaas.Schema.AuthzPolicy> policies_ =
+        java.util.Collections.emptyList();
+      private void ensurePoliciesIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          policies_ = new java.util.ArrayList<meshpaas.Schema.AuthzPolicy>(policies_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          meshpaas.Schema.AuthzPolicy, meshpaas.Schema.AuthzPolicy.Builder, meshpaas.Schema.AuthzPolicyOrBuilder> policiesBuilder_;
+
+      /**
+       * <code>repeated .meshpaas.AuthzPolicy policies = 1;</code>
+       */
+      public java.util.List<meshpaas.Schema.AuthzPolicy> getPoliciesList() {
+        if (policiesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(policies_);
+        } else {
+          return policiesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzPolicy policies = 1;</code>
+       */
+      public int getPoliciesCount() {
+        if (policiesBuilder_ == null) {
+          return policies_.size();
+        } else {
+          return policiesBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzPolicy policies = 1;</code>
+       */
+      public meshpaas.Schema.AuthzPolicy getPolicies(int index) {
+        if (policiesBuilder_ == null) {
+          return policies_.get(index);
+        } else {
+          return policiesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzPolicy policies = 1;</code>
+       */
+      public Builder setPolicies(
+          int index, meshpaas.Schema.AuthzPolicy value) {
+        if (policiesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePoliciesIsMutable();
+          policies_.set(index, value);
+          onChanged();
+        } else {
+          policiesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzPolicy policies = 1;</code>
+       */
+      public Builder setPolicies(
+          int index, meshpaas.Schema.AuthzPolicy.Builder builderForValue) {
+        if (policiesBuilder_ == null) {
+          ensurePoliciesIsMutable();
+          policies_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          policiesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzPolicy policies = 1;</code>
+       */
+      public Builder addPolicies(meshpaas.Schema.AuthzPolicy value) {
+        if (policiesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePoliciesIsMutable();
+          policies_.add(value);
+          onChanged();
+        } else {
+          policiesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzPolicy policies = 1;</code>
+       */
+      public Builder addPolicies(
+          int index, meshpaas.Schema.AuthzPolicy value) {
+        if (policiesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePoliciesIsMutable();
+          policies_.add(index, value);
+          onChanged();
+        } else {
+          policiesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzPolicy policies = 1;</code>
+       */
+      public Builder addPolicies(
+          meshpaas.Schema.AuthzPolicy.Builder builderForValue) {
+        if (policiesBuilder_ == null) {
+          ensurePoliciesIsMutable();
+          policies_.add(builderForValue.build());
+          onChanged();
+        } else {
+          policiesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzPolicy policies = 1;</code>
+       */
+      public Builder addPolicies(
+          int index, meshpaas.Schema.AuthzPolicy.Builder builderForValue) {
+        if (policiesBuilder_ == null) {
+          ensurePoliciesIsMutable();
+          policies_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          policiesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzPolicy policies = 1;</code>
+       */
+      public Builder addAllPolicies(
+          java.lang.Iterable<? extends meshpaas.Schema.AuthzPolicy> values) {
+        if (policiesBuilder_ == null) {
+          ensurePoliciesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, policies_);
+          onChanged();
+        } else {
+          policiesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzPolicy policies = 1;</code>
+       */
+      public Builder clearPolicies() {
+        if (policiesBuilder_ == null) {
+          policies_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          policiesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzPolicy policies = 1;</code>
+       */
+      public Builder removePolicies(int index) {
+        if (policiesBuilder_ == null) {
+          ensurePoliciesIsMutable();
+          policies_.remove(index);
+          onChanged();
+        } else {
+          policiesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzPolicy policies = 1;</code>
+       */
+      public meshpaas.Schema.AuthzPolicy.Builder getPoliciesBuilder(
+          int index) {
+        return getPoliciesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzPolicy policies = 1;</code>
+       */
+      public meshpaas.Schema.AuthzPolicyOrBuilder getPoliciesOrBuilder(
+          int index) {
+        if (policiesBuilder_ == null) {
+          return policies_.get(index);  } else {
+          return policiesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzPolicy policies = 1;</code>
+       */
+      public java.util.List<? extends meshpaas.Schema.AuthzPolicyOrBuilder> 
+           getPoliciesOrBuilderList() {
+        if (policiesBuilder_ != null) {
+          return policiesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(policies_);
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzPolicy policies = 1;</code>
+       */
+      public meshpaas.Schema.AuthzPolicy.Builder addPoliciesBuilder() {
+        return getPoliciesFieldBuilder().addBuilder(
+            meshpaas.Schema.AuthzPolicy.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzPolicy policies = 1;</code>
+       */
+      public meshpaas.Schema.AuthzPolicy.Builder addPoliciesBuilder(
+          int index) {
+        return getPoliciesFieldBuilder().addBuilder(
+            index, meshpaas.Schema.AuthzPolicy.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .meshpaas.AuthzPolicy policies = 1;</code>
+       */
+      public java.util.List<meshpaas.Schema.AuthzPolicy.Builder> 
+           getPoliciesBuilderList() {
+        return getPoliciesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          meshpaas.Schema.AuthzPolicy, meshpaas.Schema.AuthzPolicy.Builder, meshpaas.Schema.AuthzPolicyOrBuilder> 
+          getPoliciesFieldBuilder() {
+        if (policiesBuilder_ == null) {
+          policiesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              meshpaas.Schema.AuthzPolicy, meshpaas.Schema.AuthzPolicy.Builder, meshpaas.Schema.AuthzPolicyOrBuilder>(
+                  policies_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          policies_ = null;
+        }
+        return policiesBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:meshpaas.Authz)
+    }
+
+    // @@protoc_insertion_point(class_scope:meshpaas.Authz)
+    private static final meshpaas.Schema.Authz DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new meshpaas.Schema.Authz();
+    }
+
+    public static meshpaas.Schema.Authz getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Authz>
+        PARSER = new com.google.protobuf.AbstractParser<Authz>() {
+      @java.lang.Override
+      public Authz parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Authz(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Authz> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Authz> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public meshpaas.Schema.Authz getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface AuthnRuleOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:meshpaas.AuthnRule)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string jwks_uri = 1 [(.validator.field) = { ... }</code>
+     */
+    java.lang.String getJwksUri();
+    /**
+     * <code>string jwks_uri = 1 [(.validator.field) = { ... }</code>
+     */
+    com.google.protobuf.ByteString
+        getJwksUriBytes();
+
+    /**
+     * <code>string issuer = 2 [(.validator.field) = { ... }</code>
+     */
+    java.lang.String getIssuer();
+    /**
+     * <code>string issuer = 2 [(.validator.field) = { ... }</code>
+     */
+    com.google.protobuf.ByteString
+        getIssuerBytes();
+
+    /**
+     * <code>repeated string audience = 3;</code>
+     */
+    java.util.List<java.lang.String>
+        getAudienceList();
+    /**
+     * <code>repeated string audience = 3;</code>
+     */
+    int getAudienceCount();
+    /**
+     * <code>repeated string audience = 3;</code>
+     */
+    java.lang.String getAudience(int index);
+    /**
+     * <code>repeated string audience = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getAudienceBytes(int index);
+
+    /**
+     * <code>string ouput_payload_header = 4 [(.validator.field) = { ... }</code>
+     */
+    java.lang.String getOuputPayloadHeader();
+    /**
+     * <code>string ouput_payload_header = 4 [(.validator.field) = { ... }</code>
+     */
+    com.google.protobuf.ByteString
+        getOuputPayloadHeaderBytes();
+  }
+  /**
+   * Protobuf type {@code meshpaas.AuthnRule}
+   */
+  public  static final class AuthnRule extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:meshpaas.AuthnRule)
+      AuthnRuleOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AuthnRule.newBuilder() to construct.
+    private AuthnRule(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AuthnRule() {
+      jwksUri_ = "";
+      issuer_ = "";
+      audience_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      ouputPayloadHeader_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AuthnRule(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              jwksUri_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              issuer_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                audience_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              audience_.add(s);
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              ouputPayloadHeader_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          audience_ = audience_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return meshpaas.Schema.internal_static_meshpaas_AuthnRule_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return meshpaas.Schema.internal_static_meshpaas_AuthnRule_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              meshpaas.Schema.AuthnRule.class, meshpaas.Schema.AuthnRule.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int JWKS_URI_FIELD_NUMBER = 1;
+    private volatile java.lang.Object jwksUri_;
+    /**
+     * <code>string jwks_uri = 1 [(.validator.field) = { ... }</code>
+     */
+    public java.lang.String getJwksUri() {
+      java.lang.Object ref = jwksUri_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        jwksUri_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string jwks_uri = 1 [(.validator.field) = { ... }</code>
+     */
+    public com.google.protobuf.ByteString
+        getJwksUriBytes() {
+      java.lang.Object ref = jwksUri_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        jwksUri_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ISSUER_FIELD_NUMBER = 2;
+    private volatile java.lang.Object issuer_;
+    /**
+     * <code>string issuer = 2 [(.validator.field) = { ... }</code>
+     */
+    public java.lang.String getIssuer() {
+      java.lang.Object ref = issuer_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        issuer_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string issuer = 2 [(.validator.field) = { ... }</code>
+     */
+    public com.google.protobuf.ByteString
+        getIssuerBytes() {
+      java.lang.Object ref = issuer_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        issuer_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int AUDIENCE_FIELD_NUMBER = 3;
+    private com.google.protobuf.LazyStringList audience_;
+    /**
+     * <code>repeated string audience = 3;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getAudienceList() {
+      return audience_;
+    }
+    /**
+     * <code>repeated string audience = 3;</code>
+     */
+    public int getAudienceCount() {
+      return audience_.size();
+    }
+    /**
+     * <code>repeated string audience = 3;</code>
+     */
+    public java.lang.String getAudience(int index) {
+      return audience_.get(index);
+    }
+    /**
+     * <code>repeated string audience = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAudienceBytes(int index) {
+      return audience_.getByteString(index);
+    }
+
+    public static final int OUPUT_PAYLOAD_HEADER_FIELD_NUMBER = 4;
+    private volatile java.lang.Object ouputPayloadHeader_;
+    /**
+     * <code>string ouput_payload_header = 4 [(.validator.field) = { ... }</code>
+     */
+    public java.lang.String getOuputPayloadHeader() {
+      java.lang.Object ref = ouputPayloadHeader_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        ouputPayloadHeader_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string ouput_payload_header = 4 [(.validator.field) = { ... }</code>
+     */
+    public com.google.protobuf.ByteString
+        getOuputPayloadHeaderBytes() {
+      java.lang.Object ref = ouputPayloadHeader_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        ouputPayloadHeader_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getJwksUriBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, jwksUri_);
+      }
+      if (!getIssuerBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, issuer_);
+      }
+      for (int i = 0; i < audience_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, audience_.getRaw(i));
+      }
+      if (!getOuputPayloadHeaderBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, ouputPayloadHeader_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getJwksUriBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, jwksUri_);
+      }
+      if (!getIssuerBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, issuer_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < audience_.size(); i++) {
+          dataSize += computeStringSizeNoTag(audience_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getAudienceList().size();
+      }
+      if (!getOuputPayloadHeaderBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, ouputPayloadHeader_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof meshpaas.Schema.AuthnRule)) {
+        return super.equals(obj);
+      }
+      meshpaas.Schema.AuthnRule other = (meshpaas.Schema.AuthnRule) obj;
+
+      boolean result = true;
+      result = result && getJwksUri()
+          .equals(other.getJwksUri());
+      result = result && getIssuer()
+          .equals(other.getIssuer());
+      result = result && getAudienceList()
+          .equals(other.getAudienceList());
+      result = result && getOuputPayloadHeader()
+          .equals(other.getOuputPayloadHeader());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + JWKS_URI_FIELD_NUMBER;
+      hash = (53 * hash) + getJwksUri().hashCode();
+      hash = (37 * hash) + ISSUER_FIELD_NUMBER;
+      hash = (53 * hash) + getIssuer().hashCode();
+      if (getAudienceCount() > 0) {
+        hash = (37 * hash) + AUDIENCE_FIELD_NUMBER;
+        hash = (53 * hash) + getAudienceList().hashCode();
+      }
+      hash = (37 * hash) + OUPUT_PAYLOAD_HEADER_FIELD_NUMBER;
+      hash = (53 * hash) + getOuputPayloadHeader().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static meshpaas.Schema.AuthnRule parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.AuthnRule parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.AuthnRule parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.AuthnRule parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.AuthnRule parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.AuthnRule parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.AuthnRule parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.AuthnRule parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static meshpaas.Schema.AuthnRule parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.AuthnRule parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static meshpaas.Schema.AuthnRule parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.AuthnRule parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(meshpaas.Schema.AuthnRule prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code meshpaas.AuthnRule}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:meshpaas.AuthnRule)
+        meshpaas.Schema.AuthnRuleOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return meshpaas.Schema.internal_static_meshpaas_AuthnRule_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return meshpaas.Schema.internal_static_meshpaas_AuthnRule_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                meshpaas.Schema.AuthnRule.class, meshpaas.Schema.AuthnRule.Builder.class);
+      }
+
+      // Construct using meshpaas.Schema.AuthnRule.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        jwksUri_ = "";
+
+        issuer_ = "";
+
+        audience_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        ouputPayloadHeader_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return meshpaas.Schema.internal_static_meshpaas_AuthnRule_descriptor;
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.AuthnRule getDefaultInstanceForType() {
+        return meshpaas.Schema.AuthnRule.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.AuthnRule build() {
+        meshpaas.Schema.AuthnRule result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.AuthnRule buildPartial() {
+        meshpaas.Schema.AuthnRule result = new meshpaas.Schema.AuthnRule(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.jwksUri_ = jwksUri_;
+        result.issuer_ = issuer_;
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          audience_ = audience_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.audience_ = audience_;
+        result.ouputPayloadHeader_ = ouputPayloadHeader_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof meshpaas.Schema.AuthnRule) {
+          return mergeFrom((meshpaas.Schema.AuthnRule)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(meshpaas.Schema.AuthnRule other) {
+        if (other == meshpaas.Schema.AuthnRule.getDefaultInstance()) return this;
+        if (!other.getJwksUri().isEmpty()) {
+          jwksUri_ = other.jwksUri_;
+          onChanged();
+        }
+        if (!other.getIssuer().isEmpty()) {
+          issuer_ = other.issuer_;
+          onChanged();
+        }
+        if (!other.audience_.isEmpty()) {
+          if (audience_.isEmpty()) {
+            audience_ = other.audience_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureAudienceIsMutable();
+            audience_.addAll(other.audience_);
+          }
+          onChanged();
+        }
+        if (!other.getOuputPayloadHeader().isEmpty()) {
+          ouputPayloadHeader_ = other.ouputPayloadHeader_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        meshpaas.Schema.AuthnRule parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (meshpaas.Schema.AuthnRule) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object jwksUri_ = "";
+      /**
+       * <code>string jwks_uri = 1 [(.validator.field) = { ... }</code>
+       */
+      public java.lang.String getJwksUri() {
+        java.lang.Object ref = jwksUri_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          jwksUri_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string jwks_uri = 1 [(.validator.field) = { ... }</code>
+       */
+      public com.google.protobuf.ByteString
+          getJwksUriBytes() {
+        java.lang.Object ref = jwksUri_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          jwksUri_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string jwks_uri = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder setJwksUri(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        jwksUri_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string jwks_uri = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder clearJwksUri() {
+        
+        jwksUri_ = getDefaultInstance().getJwksUri();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string jwks_uri = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder setJwksUriBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        jwksUri_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object issuer_ = "";
+      /**
+       * <code>string issuer = 2 [(.validator.field) = { ... }</code>
+       */
+      public java.lang.String getIssuer() {
+        java.lang.Object ref = issuer_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          issuer_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string issuer = 2 [(.validator.field) = { ... }</code>
+       */
+      public com.google.protobuf.ByteString
+          getIssuerBytes() {
+        java.lang.Object ref = issuer_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          issuer_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string issuer = 2 [(.validator.field) = { ... }</code>
+       */
+      public Builder setIssuer(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        issuer_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string issuer = 2 [(.validator.field) = { ... }</code>
+       */
+      public Builder clearIssuer() {
+        
+        issuer_ = getDefaultInstance().getIssuer();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string issuer = 2 [(.validator.field) = { ... }</code>
+       */
+      public Builder setIssuerBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        issuer_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList audience_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureAudienceIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          audience_ = new com.google.protobuf.LazyStringArrayList(audience_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+      /**
+       * <code>repeated string audience = 3;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getAudienceList() {
+        return audience_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string audience = 3;</code>
+       */
+      public int getAudienceCount() {
+        return audience_.size();
+      }
+      /**
+       * <code>repeated string audience = 3;</code>
+       */
+      public java.lang.String getAudience(int index) {
+        return audience_.get(index);
+      }
+      /**
+       * <code>repeated string audience = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAudienceBytes(int index) {
+        return audience_.getByteString(index);
+      }
+      /**
+       * <code>repeated string audience = 3;</code>
+       */
+      public Builder setAudience(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAudienceIsMutable();
+        audience_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string audience = 3;</code>
+       */
+      public Builder addAudience(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAudienceIsMutable();
+        audience_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string audience = 3;</code>
+       */
+      public Builder addAllAudience(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureAudienceIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, audience_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string audience = 3;</code>
+       */
+      public Builder clearAudience() {
+        audience_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string audience = 3;</code>
+       */
+      public Builder addAudienceBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureAudienceIsMutable();
+        audience_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object ouputPayloadHeader_ = "";
+      /**
+       * <code>string ouput_payload_header = 4 [(.validator.field) = { ... }</code>
+       */
+      public java.lang.String getOuputPayloadHeader() {
+        java.lang.Object ref = ouputPayloadHeader_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          ouputPayloadHeader_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string ouput_payload_header = 4 [(.validator.field) = { ... }</code>
+       */
+      public com.google.protobuf.ByteString
+          getOuputPayloadHeaderBytes() {
+        java.lang.Object ref = ouputPayloadHeader_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          ouputPayloadHeader_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string ouput_payload_header = 4 [(.validator.field) = { ... }</code>
+       */
+      public Builder setOuputPayloadHeader(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        ouputPayloadHeader_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string ouput_payload_header = 4 [(.validator.field) = { ... }</code>
+       */
+      public Builder clearOuputPayloadHeader() {
+        
+        ouputPayloadHeader_ = getDefaultInstance().getOuputPayloadHeader();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string ouput_payload_header = 4 [(.validator.field) = { ... }</code>
+       */
+      public Builder setOuputPayloadHeaderBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        ouputPayloadHeader_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:meshpaas.AuthnRule)
+    }
+
+    // @@protoc_insertion_point(class_scope:meshpaas.AuthnRule)
+    private static final meshpaas.Schema.AuthnRule DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new meshpaas.Schema.AuthnRule();
+    }
+
+    public static meshpaas.Schema.AuthnRule getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<AuthnRule>
+        PARSER = new com.google.protobuf.AbstractParser<AuthnRule>() {
+      @java.lang.Override
+      public AuthnRule parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new AuthnRule(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<AuthnRule> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AuthnRule> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public meshpaas.Schema.AuthnRule getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface AuthnOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:meshpaas.Authn)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .meshpaas.AuthnRule rules = 1;</code>
+     */
+    java.util.List<meshpaas.Schema.AuthnRule> 
+        getRulesList();
+    /**
+     * <code>repeated .meshpaas.AuthnRule rules = 1;</code>
+     */
+    meshpaas.Schema.AuthnRule getRules(int index);
+    /**
+     * <code>repeated .meshpaas.AuthnRule rules = 1;</code>
+     */
+    int getRulesCount();
+    /**
+     * <code>repeated .meshpaas.AuthnRule rules = 1;</code>
+     */
+    java.util.List<? extends meshpaas.Schema.AuthnRuleOrBuilder> 
+        getRulesOrBuilderList();
+    /**
+     * <code>repeated .meshpaas.AuthnRule rules = 1;</code>
+     */
+    meshpaas.Schema.AuthnRuleOrBuilder getRulesOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code meshpaas.Authn}
+   */
+  public  static final class Authn extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:meshpaas.Authn)
+      AuthnOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Authn.newBuilder() to construct.
+    private Authn(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Authn() {
+      rules_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Authn(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                rules_ = new java.util.ArrayList<meshpaas.Schema.AuthnRule>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              rules_.add(
+                  input.readMessage(meshpaas.Schema.AuthnRule.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          rules_ = java.util.Collections.unmodifiableList(rules_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return meshpaas.Schema.internal_static_meshpaas_Authn_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return meshpaas.Schema.internal_static_meshpaas_Authn_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              meshpaas.Schema.Authn.class, meshpaas.Schema.Authn.Builder.class);
+    }
+
+    public static final int RULES_FIELD_NUMBER = 1;
+    private java.util.List<meshpaas.Schema.AuthnRule> rules_;
+    /**
+     * <code>repeated .meshpaas.AuthnRule rules = 1;</code>
+     */
+    public java.util.List<meshpaas.Schema.AuthnRule> getRulesList() {
+      return rules_;
+    }
+    /**
+     * <code>repeated .meshpaas.AuthnRule rules = 1;</code>
+     */
+    public java.util.List<? extends meshpaas.Schema.AuthnRuleOrBuilder> 
+        getRulesOrBuilderList() {
+      return rules_;
+    }
+    /**
+     * <code>repeated .meshpaas.AuthnRule rules = 1;</code>
+     */
+    public int getRulesCount() {
+      return rules_.size();
+    }
+    /**
+     * <code>repeated .meshpaas.AuthnRule rules = 1;</code>
+     */
+    public meshpaas.Schema.AuthnRule getRules(int index) {
+      return rules_.get(index);
+    }
+    /**
+     * <code>repeated .meshpaas.AuthnRule rules = 1;</code>
+     */
+    public meshpaas.Schema.AuthnRuleOrBuilder getRulesOrBuilder(
+        int index) {
+      return rules_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < rules_.size(); i++) {
+        output.writeMessage(1, rules_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < rules_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, rules_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof meshpaas.Schema.Authn)) {
+        return super.equals(obj);
+      }
+      meshpaas.Schema.Authn other = (meshpaas.Schema.Authn) obj;
+
+      boolean result = true;
+      result = result && getRulesList()
+          .equals(other.getRulesList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getRulesCount() > 0) {
+        hash = (37 * hash) + RULES_FIELD_NUMBER;
+        hash = (53 * hash) + getRulesList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static meshpaas.Schema.Authn parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.Authn parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.Authn parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.Authn parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.Authn parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.Authn parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.Authn parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.Authn parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static meshpaas.Schema.Authn parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.Authn parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static meshpaas.Schema.Authn parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.Authn parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(meshpaas.Schema.Authn prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code meshpaas.Authn}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:meshpaas.Authn)
+        meshpaas.Schema.AuthnOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return meshpaas.Schema.internal_static_meshpaas_Authn_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return meshpaas.Schema.internal_static_meshpaas_Authn_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                meshpaas.Schema.Authn.class, meshpaas.Schema.Authn.Builder.class);
+      }
+
+      // Construct using meshpaas.Schema.Authn.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getRulesFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (rulesBuilder_ == null) {
+          rules_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          rulesBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return meshpaas.Schema.internal_static_meshpaas_Authn_descriptor;
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.Authn getDefaultInstanceForType() {
+        return meshpaas.Schema.Authn.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.Authn build() {
+        meshpaas.Schema.Authn result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.Authn buildPartial() {
+        meshpaas.Schema.Authn result = new meshpaas.Schema.Authn(this);
+        int from_bitField0_ = bitField0_;
+        if (rulesBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            rules_ = java.util.Collections.unmodifiableList(rules_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.rules_ = rules_;
+        } else {
+          result.rules_ = rulesBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof meshpaas.Schema.Authn) {
+          return mergeFrom((meshpaas.Schema.Authn)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(meshpaas.Schema.Authn other) {
+        if (other == meshpaas.Schema.Authn.getDefaultInstance()) return this;
+        if (rulesBuilder_ == null) {
+          if (!other.rules_.isEmpty()) {
+            if (rules_.isEmpty()) {
+              rules_ = other.rules_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureRulesIsMutable();
+              rules_.addAll(other.rules_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.rules_.isEmpty()) {
+            if (rulesBuilder_.isEmpty()) {
+              rulesBuilder_.dispose();
+              rulesBuilder_ = null;
+              rules_ = other.rules_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              rulesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getRulesFieldBuilder() : null;
+            } else {
+              rulesBuilder_.addAllMessages(other.rules_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        meshpaas.Schema.Authn parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (meshpaas.Schema.Authn) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<meshpaas.Schema.AuthnRule> rules_ =
+        java.util.Collections.emptyList();
+      private void ensureRulesIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          rules_ = new java.util.ArrayList<meshpaas.Schema.AuthnRule>(rules_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          meshpaas.Schema.AuthnRule, meshpaas.Schema.AuthnRule.Builder, meshpaas.Schema.AuthnRuleOrBuilder> rulesBuilder_;
+
+      /**
+       * <code>repeated .meshpaas.AuthnRule rules = 1;</code>
+       */
+      public java.util.List<meshpaas.Schema.AuthnRule> getRulesList() {
+        if (rulesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(rules_);
+        } else {
+          return rulesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.AuthnRule rules = 1;</code>
+       */
+      public int getRulesCount() {
+        if (rulesBuilder_ == null) {
+          return rules_.size();
+        } else {
+          return rulesBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.AuthnRule rules = 1;</code>
+       */
+      public meshpaas.Schema.AuthnRule getRules(int index) {
+        if (rulesBuilder_ == null) {
+          return rules_.get(index);
+        } else {
+          return rulesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.AuthnRule rules = 1;</code>
+       */
+      public Builder setRules(
+          int index, meshpaas.Schema.AuthnRule value) {
+        if (rulesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRulesIsMutable();
+          rules_.set(index, value);
+          onChanged();
+        } else {
+          rulesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthnRule rules = 1;</code>
+       */
+      public Builder setRules(
+          int index, meshpaas.Schema.AuthnRule.Builder builderForValue) {
+        if (rulesBuilder_ == null) {
+          ensureRulesIsMutable();
+          rules_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          rulesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthnRule rules = 1;</code>
+       */
+      public Builder addRules(meshpaas.Schema.AuthnRule value) {
+        if (rulesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRulesIsMutable();
+          rules_.add(value);
+          onChanged();
+        } else {
+          rulesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthnRule rules = 1;</code>
+       */
+      public Builder addRules(
+          int index, meshpaas.Schema.AuthnRule value) {
+        if (rulesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRulesIsMutable();
+          rules_.add(index, value);
+          onChanged();
+        } else {
+          rulesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthnRule rules = 1;</code>
+       */
+      public Builder addRules(
+          meshpaas.Schema.AuthnRule.Builder builderForValue) {
+        if (rulesBuilder_ == null) {
+          ensureRulesIsMutable();
+          rules_.add(builderForValue.build());
+          onChanged();
+        } else {
+          rulesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthnRule rules = 1;</code>
+       */
+      public Builder addRules(
+          int index, meshpaas.Schema.AuthnRule.Builder builderForValue) {
+        if (rulesBuilder_ == null) {
+          ensureRulesIsMutable();
+          rules_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          rulesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthnRule rules = 1;</code>
+       */
+      public Builder addAllRules(
+          java.lang.Iterable<? extends meshpaas.Schema.AuthnRule> values) {
+        if (rulesBuilder_ == null) {
+          ensureRulesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, rules_);
+          onChanged();
+        } else {
+          rulesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthnRule rules = 1;</code>
+       */
+      public Builder clearRules() {
+        if (rulesBuilder_ == null) {
+          rules_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          rulesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthnRule rules = 1;</code>
+       */
+      public Builder removeRules(int index) {
+        if (rulesBuilder_ == null) {
+          ensureRulesIsMutable();
+          rules_.remove(index);
+          onChanged();
+        } else {
+          rulesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .meshpaas.AuthnRule rules = 1;</code>
+       */
+      public meshpaas.Schema.AuthnRule.Builder getRulesBuilder(
+          int index) {
+        return getRulesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .meshpaas.AuthnRule rules = 1;</code>
+       */
+      public meshpaas.Schema.AuthnRuleOrBuilder getRulesOrBuilder(
+          int index) {
+        if (rulesBuilder_ == null) {
+          return rules_.get(index);  } else {
+          return rulesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.AuthnRule rules = 1;</code>
+       */
+      public java.util.List<? extends meshpaas.Schema.AuthnRuleOrBuilder> 
+           getRulesOrBuilderList() {
+        if (rulesBuilder_ != null) {
+          return rulesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(rules_);
+        }
+      }
+      /**
+       * <code>repeated .meshpaas.AuthnRule rules = 1;</code>
+       */
+      public meshpaas.Schema.AuthnRule.Builder addRulesBuilder() {
+        return getRulesFieldBuilder().addBuilder(
+            meshpaas.Schema.AuthnRule.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .meshpaas.AuthnRule rules = 1;</code>
+       */
+      public meshpaas.Schema.AuthnRule.Builder addRulesBuilder(
+          int index) {
+        return getRulesFieldBuilder().addBuilder(
+            index, meshpaas.Schema.AuthnRule.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .meshpaas.AuthnRule rules = 1;</code>
+       */
+      public java.util.List<meshpaas.Schema.AuthnRule.Builder> 
+           getRulesBuilderList() {
+        return getRulesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          meshpaas.Schema.AuthnRule, meshpaas.Schema.AuthnRule.Builder, meshpaas.Schema.AuthnRuleOrBuilder> 
+          getRulesFieldBuilder() {
+        if (rulesBuilder_ == null) {
+          rulesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              meshpaas.Schema.AuthnRule, meshpaas.Schema.AuthnRule.Builder, meshpaas.Schema.AuthnRuleOrBuilder>(
+                  rules_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          rules_ = null;
+        }
+        return rulesBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:meshpaas.Authn)
+    }
+
+    // @@protoc_insertion_point(class_scope:meshpaas.Authn)
+    private static final meshpaas.Schema.Authn DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new meshpaas.Schema.Authn();
+    }
+
+    public static meshpaas.Schema.Authn getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Authn>
+        PARSER = new com.google.protobuf.AbstractParser<Authn>() {
+      @java.lang.Override
+      public Authn parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Authn(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Authn> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Authn> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public meshpaas.Schema.Authn getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface SecretInputOrBuilder extends
@@ -485,40 +9969,6 @@ public final class Schema {
 
     java.lang.String getDataOrThrow(
         java.lang.String key);
-
-    /**
-     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
-     */
-    int getLabelsCount();
-    /**
-     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
-     */
-    boolean containsLabels(
-        java.lang.String key);
-    /**
-     * Use {@link #getLabelsMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.String>
-    getLabels();
-    /**
-     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
-     */
-    java.util.Map<java.lang.String, java.lang.String>
-    getLabelsMap();
-    /**
-     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
-     */
-
-    java.lang.String getLabelsOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue);
-    /**
-     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
-     */
-
-    java.lang.String getLabelsOrThrow(
-        java.lang.String key);
   }
   /**
    * Protobuf type {@code meshpaas.SecretInput}
@@ -599,19 +10049,6 @@ public final class Schema {
                   data__.getKey(), data__.getValue());
               break;
             }
-            case 50: {
-              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
-                labels_ = com.google.protobuf.MapField.newMapField(
-                    LabelsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000020;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              labels__ = input.readMessage(
-                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              labels_.getMutableMap().put(
-                  labels__.getKey(), labels__.getValue());
-              break;
-            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -643,8 +10080,6 @@ public final class Schema {
       switch (number) {
         case 5:
           return internalGetData();
-        case 6:
-          return internalGetLabels();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -845,82 +10280,6 @@ public final class Schema {
       return map.get(key);
     }
 
-    public static final int LABELS_FIELD_NUMBER = 6;
-    private static final class LabelsDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.String> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.String>newDefaultInstance(
-                  meshpaas.Schema.internal_static_meshpaas_SecretInput_LabelsEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "");
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> labels_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
-      if (labels_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            LabelsDefaultEntryHolder.defaultEntry);
-      }
-      return labels_;
-    }
-
-    public int getLabelsCount() {
-      return internalGetLabels().getMap().size();
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
-     */
-
-    public boolean containsLabels(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetLabels().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getLabelsMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getLabels() {
-      return getLabelsMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
-     */
-
-    public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
-      return internalGetLabels().getMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
-     */
-
-    public java.lang.String getLabelsOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetLabels().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
-     */
-
-    public java.lang.String getLabelsOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetLabels().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -953,12 +10312,6 @@ public final class Schema {
           internalGetData(),
           DataDefaultEntryHolder.defaultEntry,
           5);
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetLabels(),
-          LabelsDefaultEntryHolder.defaultEntry,
-          6);
       unknownFields.writeTo(output);
     }
 
@@ -992,16 +10345,6 @@ public final class Schema {
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(5, data__);
       }
-      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetLabels().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        labels__ = LabelsDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(6, labels__);
-      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -1027,8 +10370,6 @@ public final class Schema {
           == other.getImmutable());
       result = result && internalGetData().equals(
           other.internalGetData());
-      result = result && internalGetLabels().equals(
-          other.internalGetLabels());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -1052,10 +10393,6 @@ public final class Schema {
       if (!internalGetData().getMap().isEmpty()) {
         hash = (37 * hash) + DATA_FIELD_NUMBER;
         hash = (53 * hash) + internalGetData().hashCode();
-      }
-      if (!internalGetLabels().getMap().isEmpty()) {
-        hash = (37 * hash) + LABELS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetLabels().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -1170,8 +10507,6 @@ public final class Schema {
         switch (number) {
           case 5:
             return internalGetData();
-          case 6:
-            return internalGetLabels();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -1183,8 +10518,6 @@ public final class Schema {
         switch (number) {
           case 5:
             return internalGetMutableData();
-          case 6:
-            return internalGetMutableLabels();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -1225,7 +10558,6 @@ public final class Schema {
         immutable_ = false;
 
         internalGetMutableData().clear();
-        internalGetMutableLabels().clear();
         return this;
       }
 
@@ -1260,8 +10592,6 @@ public final class Schema {
         result.immutable_ = immutable_;
         result.data_ = internalGetData();
         result.data_.makeImmutable();
-        result.labels_ = internalGetLabels();
-        result.labels_.makeImmutable();
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1327,8 +10657,6 @@ public final class Schema {
         }
         internalGetMutableData().mergeFrom(
             other.internalGetData());
-        internalGetMutableLabels().mergeFrom(
-            other.internalGetLabels());
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -1730,129 +11058,6 @@ public final class Schema {
             .putAll(values);
         return this;
       }
-
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> labels_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetLabels() {
-        if (labels_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              LabelsDefaultEntryHolder.defaultEntry);
-        }
-        return labels_;
-      }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableLabels() {
-        onChanged();;
-        if (labels_ == null) {
-          labels_ = com.google.protobuf.MapField.newMapField(
-              LabelsDefaultEntryHolder.defaultEntry);
-        }
-        if (!labels_.isMutable()) {
-          labels_ = labels_.copy();
-        }
-        return labels_;
-      }
-
-      public int getLabelsCount() {
-        return internalGetLabels().getMap().size();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
-       */
-
-      public boolean containsLabels(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetLabels().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getLabelsMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getLabels() {
-        return getLabelsMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
-       */
-
-      public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
-        return internalGetLabels().getMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
-       */
-
-      public java.lang.String getLabelsOrDefault(
-          java.lang.String key,
-          java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetLabels().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
-       */
-
-      public java.lang.String getLabelsOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetLabels().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-
-      public Builder clearLabels() {
-        internalGetMutableLabels().getMutableMap()
-            .clear();
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
-       */
-
-      public Builder removeLabels(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableLabels().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String>
-      getMutableLabels() {
-        return internalGetMutableLabels().getMutableMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
-       */
-      public Builder putLabels(
-          java.lang.String key,
-          java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableLabels().getMutableMap()
-            .put(key, value);
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
-       */
-
-      public Builder putAllLabels(
-          java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableLabels().getMutableMap()
-            .putAll(values);
-        return this;
-      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1993,40 +11198,6 @@ public final class Schema {
 
     java.lang.String getDataOrThrow(
         java.lang.String key);
-
-    /**
-     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
-     */
-    int getLabelsCount();
-    /**
-     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
-     */
-    boolean containsLabels(
-        java.lang.String key);
-    /**
-     * Use {@link #getLabelsMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.String>
-    getLabels();
-    /**
-     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
-     */
-    java.util.Map<java.lang.String, java.lang.String>
-    getLabelsMap();
-    /**
-     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
-     */
-
-    java.lang.String getLabelsOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue);
-    /**
-     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
-     */
-
-    java.lang.String getLabelsOrThrow(
-        java.lang.String key);
   }
   /**
    * Protobuf type {@code meshpaas.Secret}
@@ -2107,19 +11278,6 @@ public final class Schema {
                   data__.getKey(), data__.getValue());
               break;
             }
-            case 50: {
-              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
-                labels_ = com.google.protobuf.MapField.newMapField(
-                    LabelsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000020;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              labels__ = input.readMessage(
-                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              labels_.getMutableMap().put(
-                  labels__.getKey(), labels__.getValue());
-              break;
-            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -2151,8 +11309,6 @@ public final class Schema {
       switch (number) {
         case 5:
           return internalGetData();
-        case 6:
-          return internalGetLabels();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -2353,82 +11509,6 @@ public final class Schema {
       return map.get(key);
     }
 
-    public static final int LABELS_FIELD_NUMBER = 6;
-    private static final class LabelsDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.String> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.String>newDefaultInstance(
-                  meshpaas.Schema.internal_static_meshpaas_Secret_LabelsEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "");
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> labels_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
-      if (labels_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            LabelsDefaultEntryHolder.defaultEntry);
-      }
-      return labels_;
-    }
-
-    public int getLabelsCount() {
-      return internalGetLabels().getMap().size();
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
-     */
-
-    public boolean containsLabels(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetLabels().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getLabelsMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getLabels() {
-      return getLabelsMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
-     */
-
-    public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
-      return internalGetLabels().getMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
-     */
-
-    public java.lang.String getLabelsOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetLabels().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
-     */
-
-    public java.lang.String getLabelsOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetLabels().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2461,12 +11541,6 @@ public final class Schema {
           internalGetData(),
           DataDefaultEntryHolder.defaultEntry,
           5);
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetLabels(),
-          LabelsDefaultEntryHolder.defaultEntry,
-          6);
       unknownFields.writeTo(output);
     }
 
@@ -2500,16 +11574,6 @@ public final class Schema {
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(5, data__);
       }
-      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetLabels().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        labels__ = LabelsDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(6, labels__);
-      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -2535,8 +11599,6 @@ public final class Schema {
           == other.getImmutable());
       result = result && internalGetData().equals(
           other.internalGetData());
-      result = result && internalGetLabels().equals(
-          other.internalGetLabels());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -2560,10 +11622,6 @@ public final class Schema {
       if (!internalGetData().getMap().isEmpty()) {
         hash = (37 * hash) + DATA_FIELD_NUMBER;
         hash = (53 * hash) + internalGetData().hashCode();
-      }
-      if (!internalGetLabels().getMap().isEmpty()) {
-        hash = (37 * hash) + LABELS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetLabels().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -2678,8 +11736,6 @@ public final class Schema {
         switch (number) {
           case 5:
             return internalGetData();
-          case 6:
-            return internalGetLabels();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -2691,8 +11747,6 @@ public final class Schema {
         switch (number) {
           case 5:
             return internalGetMutableData();
-          case 6:
-            return internalGetMutableLabels();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -2733,7 +11787,6 @@ public final class Schema {
         immutable_ = false;
 
         internalGetMutableData().clear();
-        internalGetMutableLabels().clear();
         return this;
       }
 
@@ -2768,8 +11821,6 @@ public final class Schema {
         result.immutable_ = immutable_;
         result.data_ = internalGetData();
         result.data_.makeImmutable();
-        result.labels_ = internalGetLabels();
-        result.labels_.makeImmutable();
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -2835,8 +11886,6 @@ public final class Schema {
         }
         internalGetMutableData().mergeFrom(
             other.internalGetData());
-        internalGetMutableLabels().mergeFrom(
-            other.internalGetLabels());
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -3235,129 +12284,6 @@ public final class Schema {
       public Builder putAllData(
           java.util.Map<java.lang.String, java.lang.String> values) {
         internalGetMutableData().getMutableMap()
-            .putAll(values);
-        return this;
-      }
-
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> labels_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetLabels() {
-        if (labels_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              LabelsDefaultEntryHolder.defaultEntry);
-        }
-        return labels_;
-      }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableLabels() {
-        onChanged();;
-        if (labels_ == null) {
-          labels_ = com.google.protobuf.MapField.newMapField(
-              LabelsDefaultEntryHolder.defaultEntry);
-        }
-        if (!labels_.isMutable()) {
-          labels_ = labels_.copy();
-        }
-        return labels_;
-      }
-
-      public int getLabelsCount() {
-        return internalGetLabels().getMap().size();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
-       */
-
-      public boolean containsLabels(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetLabels().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getLabelsMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getLabels() {
-        return getLabelsMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
-       */
-
-      public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
-        return internalGetLabels().getMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
-       */
-
-      public java.lang.String getLabelsOrDefault(
-          java.lang.String key,
-          java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetLabels().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
-       */
-
-      public java.lang.String getLabelsOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetLabels().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-
-      public Builder clearLabels() {
-        internalGetMutableLabels().getMutableMap()
-            .clear();
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
-       */
-
-      public Builder removeLabels(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableLabels().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String>
-      getMutableLabels() {
-        return internalGetMutableLabels().getMutableMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
-       */
-      public Builder putLabels(
-          java.lang.String key,
-          java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableLabels().getMutableMap()
-            .put(key, value);
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 6 [(.validator.field) = { ... }</code>
-       */
-
-      public Builder putAllLabels(
-          java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableLabels().getMutableMap()
             .putAll(values);
         return this;
       }
@@ -6041,74 +14967,6 @@ public final class Schema {
      */
     meshpaas.Schema.GatewayListenerOrBuilder getListenersOrBuilder(
         int index);
-
-    /**
-     * <code>map&lt;string, string&gt; labels = 4;</code>
-     */
-    int getLabelsCount();
-    /**
-     * <code>map&lt;string, string&gt; labels = 4;</code>
-     */
-    boolean containsLabels(
-        java.lang.String key);
-    /**
-     * Use {@link #getLabelsMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.String>
-    getLabels();
-    /**
-     * <code>map&lt;string, string&gt; labels = 4;</code>
-     */
-    java.util.Map<java.lang.String, java.lang.String>
-    getLabelsMap();
-    /**
-     * <code>map&lt;string, string&gt; labels = 4;</code>
-     */
-
-    java.lang.String getLabelsOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue);
-    /**
-     * <code>map&lt;string, string&gt; labels = 4;</code>
-     */
-
-    java.lang.String getLabelsOrThrow(
-        java.lang.String key);
-
-    /**
-     * <code>map&lt;string, string&gt; selector = 5;</code>
-     */
-    int getSelectorCount();
-    /**
-     * <code>map&lt;string, string&gt; selector = 5;</code>
-     */
-    boolean containsSelector(
-        java.lang.String key);
-    /**
-     * Use {@link #getSelectorMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.String>
-    getSelector();
-    /**
-     * <code>map&lt;string, string&gt; selector = 5;</code>
-     */
-    java.util.Map<java.lang.String, java.lang.String>
-    getSelectorMap();
-    /**
-     * <code>map&lt;string, string&gt; selector = 5;</code>
-     */
-
-    java.lang.String getSelectorOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue);
-    /**
-     * <code>map&lt;string, string&gt; selector = 5;</code>
-     */
-
-    java.lang.String getSelectorOrThrow(
-        java.lang.String key);
   }
   /**
    * Protobuf type {@code meshpaas.Gateway}
@@ -6173,32 +15031,6 @@ public final class Schema {
                   input.readMessage(meshpaas.Schema.GatewayListener.parser(), extensionRegistry));
               break;
             }
-            case 34: {
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                labels_ = com.google.protobuf.MapField.newMapField(
-                    LabelsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000008;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              labels__ = input.readMessage(
-                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              labels_.getMutableMap().put(
-                  labels__.getKey(), labels__.getValue());
-              break;
-            }
-            case 42: {
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-                selector_ = com.google.protobuf.MapField.newMapField(
-                    SelectorDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000010;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              selector__ = input.readMessage(
-                  SelectorDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              selector_.getMutableMap().put(
-                  selector__.getKey(), selector__.getValue());
-              break;
-            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -6226,20 +15058,6 @@ public final class Schema {
       return meshpaas.Schema.internal_static_meshpaas_Gateway_descriptor;
     }
 
-    @SuppressWarnings({"rawtypes"})
-    @java.lang.Override
-    protected com.google.protobuf.MapField internalGetMapField(
-        int number) {
-      switch (number) {
-        case 4:
-          return internalGetLabels();
-        case 5:
-          return internalGetSelector();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -6368,158 +15186,6 @@ public final class Schema {
       return listeners_.get(index);
     }
 
-    public static final int LABELS_FIELD_NUMBER = 4;
-    private static final class LabelsDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.String> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.String>newDefaultInstance(
-                  meshpaas.Schema.internal_static_meshpaas_Gateway_LabelsEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "");
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> labels_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
-      if (labels_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            LabelsDefaultEntryHolder.defaultEntry);
-      }
-      return labels_;
-    }
-
-    public int getLabelsCount() {
-      return internalGetLabels().getMap().size();
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 4;</code>
-     */
-
-    public boolean containsLabels(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetLabels().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getLabelsMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getLabels() {
-      return getLabelsMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 4;</code>
-     */
-
-    public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
-      return internalGetLabels().getMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 4;</code>
-     */
-
-    public java.lang.String getLabelsOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetLabels().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 4;</code>
-     */
-
-    public java.lang.String getLabelsOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetLabels().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
-    public static final int SELECTOR_FIELD_NUMBER = 5;
-    private static final class SelectorDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.String> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.String>newDefaultInstance(
-                  meshpaas.Schema.internal_static_meshpaas_Gateway_SelectorEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "");
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> selector_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetSelector() {
-      if (selector_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            SelectorDefaultEntryHolder.defaultEntry);
-      }
-      return selector_;
-    }
-
-    public int getSelectorCount() {
-      return internalGetSelector().getMap().size();
-    }
-    /**
-     * <code>map&lt;string, string&gt; selector = 5;</code>
-     */
-
-    public boolean containsSelector(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetSelector().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getSelectorMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getSelector() {
-      return getSelectorMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; selector = 5;</code>
-     */
-
-    public java.util.Map<java.lang.String, java.lang.String> getSelectorMap() {
-      return internalGetSelector().getMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; selector = 5;</code>
-     */
-
-    public java.lang.String getSelectorOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetSelector().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;string, string&gt; selector = 5;</code>
-     */
-
-    public java.lang.String getSelectorOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetSelector().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -6543,18 +15209,6 @@ public final class Schema {
       for (int i = 0; i < listeners_.size(); i++) {
         output.writeMessage(3, listeners_.get(i));
       }
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetLabels(),
-          LabelsDefaultEntryHolder.defaultEntry,
-          4);
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetSelector(),
-          SelectorDefaultEntryHolder.defaultEntry,
-          5);
       unknownFields.writeTo(output);
     }
 
@@ -6573,26 +15227,6 @@ public final class Schema {
       for (int i = 0; i < listeners_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, listeners_.get(i));
-      }
-      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetLabels().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        labels__ = LabelsDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(4, labels__);
-      }
-      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetSelector().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        selector__ = SelectorDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(5, selector__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6616,10 +15250,6 @@ public final class Schema {
           .equals(other.getProject());
       result = result && getListenersList()
           .equals(other.getListenersList());
-      result = result && internalGetLabels().equals(
-          other.internalGetLabels());
-      result = result && internalGetSelector().equals(
-          other.internalGetSelector());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -6638,14 +15268,6 @@ public final class Schema {
       if (getListenersCount() > 0) {
         hash = (37 * hash) + LISTENERS_FIELD_NUMBER;
         hash = (53 * hash) + getListenersList().hashCode();
-      }
-      if (!internalGetLabels().getMap().isEmpty()) {
-        hash = (37 * hash) + LABELS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetLabels().hashCode();
-      }
-      if (!internalGetSelector().getMap().isEmpty()) {
-        hash = (37 * hash) + SELECTOR_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetSelector().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -6754,32 +15376,6 @@ public final class Schema {
         return meshpaas.Schema.internal_static_meshpaas_Gateway_descriptor;
       }
 
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMapField(
-          int number) {
-        switch (number) {
-          case 4:
-            return internalGetLabels();
-          case 5:
-            return internalGetSelector();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMutableMapField(
-          int number) {
-        switch (number) {
-          case 4:
-            return internalGetMutableLabels();
-          case 5:
-            return internalGetMutableSelector();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
@@ -6817,8 +15413,6 @@ public final class Schema {
         } else {
           listenersBuilder_.clear();
         }
-        internalGetMutableLabels().clear();
-        internalGetMutableSelector().clear();
         return this;
       }
 
@@ -6858,10 +15452,6 @@ public final class Schema {
         } else {
           result.listeners_ = listenersBuilder_.build();
         }
-        result.labels_ = internalGetLabels();
-        result.labels_.makeImmutable();
-        result.selector_ = internalGetSelector();
-        result.selector_.makeImmutable();
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -6945,10 +15535,6 @@ public final class Schema {
             }
           }
         }
-        internalGetMutableLabels().mergeFrom(
-            other.internalGetLabels());
-        internalGetMutableSelector().mergeFrom(
-            other.internalGetSelector());
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -7396,252 +15982,6 @@ public final class Schema {
         }
         return listenersBuilder_;
       }
-
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> labels_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetLabels() {
-        if (labels_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              LabelsDefaultEntryHolder.defaultEntry);
-        }
-        return labels_;
-      }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableLabels() {
-        onChanged();;
-        if (labels_ == null) {
-          labels_ = com.google.protobuf.MapField.newMapField(
-              LabelsDefaultEntryHolder.defaultEntry);
-        }
-        if (!labels_.isMutable()) {
-          labels_ = labels_.copy();
-        }
-        return labels_;
-      }
-
-      public int getLabelsCount() {
-        return internalGetLabels().getMap().size();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 4;</code>
-       */
-
-      public boolean containsLabels(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetLabels().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getLabelsMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getLabels() {
-        return getLabelsMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 4;</code>
-       */
-
-      public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
-        return internalGetLabels().getMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 4;</code>
-       */
-
-      public java.lang.String getLabelsOrDefault(
-          java.lang.String key,
-          java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetLabels().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 4;</code>
-       */
-
-      public java.lang.String getLabelsOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetLabels().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-
-      public Builder clearLabels() {
-        internalGetMutableLabels().getMutableMap()
-            .clear();
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 4;</code>
-       */
-
-      public Builder removeLabels(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableLabels().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String>
-      getMutableLabels() {
-        return internalGetMutableLabels().getMutableMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 4;</code>
-       */
-      public Builder putLabels(
-          java.lang.String key,
-          java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableLabels().getMutableMap()
-            .put(key, value);
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 4;</code>
-       */
-
-      public Builder putAllLabels(
-          java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableLabels().getMutableMap()
-            .putAll(values);
-        return this;
-      }
-
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> selector_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetSelector() {
-        if (selector_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              SelectorDefaultEntryHolder.defaultEntry);
-        }
-        return selector_;
-      }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableSelector() {
-        onChanged();;
-        if (selector_ == null) {
-          selector_ = com.google.protobuf.MapField.newMapField(
-              SelectorDefaultEntryHolder.defaultEntry);
-        }
-        if (!selector_.isMutable()) {
-          selector_ = selector_.copy();
-        }
-        return selector_;
-      }
-
-      public int getSelectorCount() {
-        return internalGetSelector().getMap().size();
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 5;</code>
-       */
-
-      public boolean containsSelector(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetSelector().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getSelectorMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getSelector() {
-        return getSelectorMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 5;</code>
-       */
-
-      public java.util.Map<java.lang.String, java.lang.String> getSelectorMap() {
-        return internalGetSelector().getMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 5;</code>
-       */
-
-      public java.lang.String getSelectorOrDefault(
-          java.lang.String key,
-          java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetSelector().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 5;</code>
-       */
-
-      public java.lang.String getSelectorOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetSelector().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-
-      public Builder clearSelector() {
-        internalGetMutableSelector().getMutableMap()
-            .clear();
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 5;</code>
-       */
-
-      public Builder removeSelector(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableSelector().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String>
-      getMutableSelector() {
-        return internalGetMutableSelector().getMutableMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 5;</code>
-       */
-      public Builder putSelector(
-          java.lang.String key,
-          java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableSelector().getMutableMap()
-            .put(key, value);
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 5;</code>
-       */
-
-      public Builder putAllSelector(
-          java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableSelector().getMutableMap()
-            .putAll(values);
-        return this;
-      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -7758,74 +16098,6 @@ public final class Schema {
      */
     meshpaas.Schema.GatewayListenerOrBuilder getListenersOrBuilder(
         int index);
-
-    /**
-     * <code>map&lt;string, string&gt; labels = 4 [(.validator.field) = { ... }</code>
-     */
-    int getLabelsCount();
-    /**
-     * <code>map&lt;string, string&gt; labels = 4 [(.validator.field) = { ... }</code>
-     */
-    boolean containsLabels(
-        java.lang.String key);
-    /**
-     * Use {@link #getLabelsMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.String>
-    getLabels();
-    /**
-     * <code>map&lt;string, string&gt; labels = 4 [(.validator.field) = { ... }</code>
-     */
-    java.util.Map<java.lang.String, java.lang.String>
-    getLabelsMap();
-    /**
-     * <code>map&lt;string, string&gt; labels = 4 [(.validator.field) = { ... }</code>
-     */
-
-    java.lang.String getLabelsOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue);
-    /**
-     * <code>map&lt;string, string&gt; labels = 4 [(.validator.field) = { ... }</code>
-     */
-
-    java.lang.String getLabelsOrThrow(
-        java.lang.String key);
-
-    /**
-     * <code>map&lt;string, string&gt; selector = 5 [(.validator.field) = { ... }</code>
-     */
-    int getSelectorCount();
-    /**
-     * <code>map&lt;string, string&gt; selector = 5 [(.validator.field) = { ... }</code>
-     */
-    boolean containsSelector(
-        java.lang.String key);
-    /**
-     * Use {@link #getSelectorMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.String>
-    getSelector();
-    /**
-     * <code>map&lt;string, string&gt; selector = 5 [(.validator.field) = { ... }</code>
-     */
-    java.util.Map<java.lang.String, java.lang.String>
-    getSelectorMap();
-    /**
-     * <code>map&lt;string, string&gt; selector = 5 [(.validator.field) = { ... }</code>
-     */
-
-    java.lang.String getSelectorOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue);
-    /**
-     * <code>map&lt;string, string&gt; selector = 5 [(.validator.field) = { ... }</code>
-     */
-
-    java.lang.String getSelectorOrThrow(
-        java.lang.String key);
   }
   /**
    * Protobuf type {@code meshpaas.GatewayInput}
@@ -7890,32 +16162,6 @@ public final class Schema {
                   input.readMessage(meshpaas.Schema.GatewayListener.parser(), extensionRegistry));
               break;
             }
-            case 34: {
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                labels_ = com.google.protobuf.MapField.newMapField(
-                    LabelsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000008;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              labels__ = input.readMessage(
-                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              labels_.getMutableMap().put(
-                  labels__.getKey(), labels__.getValue());
-              break;
-            }
-            case 42: {
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-                selector_ = com.google.protobuf.MapField.newMapField(
-                    SelectorDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000010;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              selector__ = input.readMessage(
-                  SelectorDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              selector_.getMutableMap().put(
-                  selector__.getKey(), selector__.getValue());
-              break;
-            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -7943,20 +16189,6 @@ public final class Schema {
       return meshpaas.Schema.internal_static_meshpaas_GatewayInput_descriptor;
     }
 
-    @SuppressWarnings({"rawtypes"})
-    @java.lang.Override
-    protected com.google.protobuf.MapField internalGetMapField(
-        int number) {
-      switch (number) {
-        case 4:
-          return internalGetLabels();
-        case 5:
-          return internalGetSelector();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -8085,158 +16317,6 @@ public final class Schema {
       return listeners_.get(index);
     }
 
-    public static final int LABELS_FIELD_NUMBER = 4;
-    private static final class LabelsDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.String> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.String>newDefaultInstance(
-                  meshpaas.Schema.internal_static_meshpaas_GatewayInput_LabelsEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "");
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> labels_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
-      if (labels_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            LabelsDefaultEntryHolder.defaultEntry);
-      }
-      return labels_;
-    }
-
-    public int getLabelsCount() {
-      return internalGetLabels().getMap().size();
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 4 [(.validator.field) = { ... }</code>
-     */
-
-    public boolean containsLabels(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetLabels().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getLabelsMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getLabels() {
-      return getLabelsMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 4 [(.validator.field) = { ... }</code>
-     */
-
-    public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
-      return internalGetLabels().getMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 4 [(.validator.field) = { ... }</code>
-     */
-
-    public java.lang.String getLabelsOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetLabels().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 4 [(.validator.field) = { ... }</code>
-     */
-
-    public java.lang.String getLabelsOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetLabels().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
-    public static final int SELECTOR_FIELD_NUMBER = 5;
-    private static final class SelectorDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.String> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.String>newDefaultInstance(
-                  meshpaas.Schema.internal_static_meshpaas_GatewayInput_SelectorEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "");
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> selector_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetSelector() {
-      if (selector_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            SelectorDefaultEntryHolder.defaultEntry);
-      }
-      return selector_;
-    }
-
-    public int getSelectorCount() {
-      return internalGetSelector().getMap().size();
-    }
-    /**
-     * <code>map&lt;string, string&gt; selector = 5 [(.validator.field) = { ... }</code>
-     */
-
-    public boolean containsSelector(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetSelector().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getSelectorMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getSelector() {
-      return getSelectorMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; selector = 5 [(.validator.field) = { ... }</code>
-     */
-
-    public java.util.Map<java.lang.String, java.lang.String> getSelectorMap() {
-      return internalGetSelector().getMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; selector = 5 [(.validator.field) = { ... }</code>
-     */
-
-    public java.lang.String getSelectorOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetSelector().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;string, string&gt; selector = 5 [(.validator.field) = { ... }</code>
-     */
-
-    public java.lang.String getSelectorOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetSelector().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -8260,18 +16340,6 @@ public final class Schema {
       for (int i = 0; i < listeners_.size(); i++) {
         output.writeMessage(3, listeners_.get(i));
       }
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetLabels(),
-          LabelsDefaultEntryHolder.defaultEntry,
-          4);
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetSelector(),
-          SelectorDefaultEntryHolder.defaultEntry,
-          5);
       unknownFields.writeTo(output);
     }
 
@@ -8290,26 +16358,6 @@ public final class Schema {
       for (int i = 0; i < listeners_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, listeners_.get(i));
-      }
-      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetLabels().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        labels__ = LabelsDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(4, labels__);
-      }
-      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetSelector().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        selector__ = SelectorDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(5, selector__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -8333,10 +16381,6 @@ public final class Schema {
           .equals(other.getProject());
       result = result && getListenersList()
           .equals(other.getListenersList());
-      result = result && internalGetLabels().equals(
-          other.internalGetLabels());
-      result = result && internalGetSelector().equals(
-          other.internalGetSelector());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -8355,14 +16399,6 @@ public final class Schema {
       if (getListenersCount() > 0) {
         hash = (37 * hash) + LISTENERS_FIELD_NUMBER;
         hash = (53 * hash) + getListenersList().hashCode();
-      }
-      if (!internalGetLabels().getMap().isEmpty()) {
-        hash = (37 * hash) + LABELS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetLabels().hashCode();
-      }
-      if (!internalGetSelector().getMap().isEmpty()) {
-        hash = (37 * hash) + SELECTOR_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetSelector().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -8471,32 +16507,6 @@ public final class Schema {
         return meshpaas.Schema.internal_static_meshpaas_GatewayInput_descriptor;
       }
 
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMapField(
-          int number) {
-        switch (number) {
-          case 4:
-            return internalGetLabels();
-          case 5:
-            return internalGetSelector();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMutableMapField(
-          int number) {
-        switch (number) {
-          case 4:
-            return internalGetMutableLabels();
-          case 5:
-            return internalGetMutableSelector();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
@@ -8534,8 +16544,6 @@ public final class Schema {
         } else {
           listenersBuilder_.clear();
         }
-        internalGetMutableLabels().clear();
-        internalGetMutableSelector().clear();
         return this;
       }
 
@@ -8575,10 +16583,6 @@ public final class Schema {
         } else {
           result.listeners_ = listenersBuilder_.build();
         }
-        result.labels_ = internalGetLabels();
-        result.labels_.makeImmutable();
-        result.selector_ = internalGetSelector();
-        result.selector_.makeImmutable();
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -8662,10 +16666,6 @@ public final class Schema {
             }
           }
         }
-        internalGetMutableLabels().mergeFrom(
-            other.internalGetLabels());
-        internalGetMutableSelector().mergeFrom(
-            other.internalGetSelector());
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -9112,252 +17112,6 @@ public final class Schema {
           listeners_ = null;
         }
         return listenersBuilder_;
-      }
-
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> labels_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetLabels() {
-        if (labels_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              LabelsDefaultEntryHolder.defaultEntry);
-        }
-        return labels_;
-      }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableLabels() {
-        onChanged();;
-        if (labels_ == null) {
-          labels_ = com.google.protobuf.MapField.newMapField(
-              LabelsDefaultEntryHolder.defaultEntry);
-        }
-        if (!labels_.isMutable()) {
-          labels_ = labels_.copy();
-        }
-        return labels_;
-      }
-
-      public int getLabelsCount() {
-        return internalGetLabels().getMap().size();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 4 [(.validator.field) = { ... }</code>
-       */
-
-      public boolean containsLabels(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetLabels().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getLabelsMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getLabels() {
-        return getLabelsMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 4 [(.validator.field) = { ... }</code>
-       */
-
-      public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
-        return internalGetLabels().getMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 4 [(.validator.field) = { ... }</code>
-       */
-
-      public java.lang.String getLabelsOrDefault(
-          java.lang.String key,
-          java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetLabels().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 4 [(.validator.field) = { ... }</code>
-       */
-
-      public java.lang.String getLabelsOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetLabels().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-
-      public Builder clearLabels() {
-        internalGetMutableLabels().getMutableMap()
-            .clear();
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 4 [(.validator.field) = { ... }</code>
-       */
-
-      public Builder removeLabels(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableLabels().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String>
-      getMutableLabels() {
-        return internalGetMutableLabels().getMutableMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 4 [(.validator.field) = { ... }</code>
-       */
-      public Builder putLabels(
-          java.lang.String key,
-          java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableLabels().getMutableMap()
-            .put(key, value);
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 4 [(.validator.field) = { ... }</code>
-       */
-
-      public Builder putAllLabels(
-          java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableLabels().getMutableMap()
-            .putAll(values);
-        return this;
-      }
-
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> selector_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetSelector() {
-        if (selector_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              SelectorDefaultEntryHolder.defaultEntry);
-        }
-        return selector_;
-      }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableSelector() {
-        onChanged();;
-        if (selector_ == null) {
-          selector_ = com.google.protobuf.MapField.newMapField(
-              SelectorDefaultEntryHolder.defaultEntry);
-        }
-        if (!selector_.isMutable()) {
-          selector_ = selector_.copy();
-        }
-        return selector_;
-      }
-
-      public int getSelectorCount() {
-        return internalGetSelector().getMap().size();
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 5 [(.validator.field) = { ... }</code>
-       */
-
-      public boolean containsSelector(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetSelector().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getSelectorMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getSelector() {
-        return getSelectorMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 5 [(.validator.field) = { ... }</code>
-       */
-
-      public java.util.Map<java.lang.String, java.lang.String> getSelectorMap() {
-        return internalGetSelector().getMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 5 [(.validator.field) = { ... }</code>
-       */
-
-      public java.lang.String getSelectorOrDefault(
-          java.lang.String key,
-          java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetSelector().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 5 [(.validator.field) = { ... }</code>
-       */
-
-      public java.lang.String getSelectorOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetSelector().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-
-      public Builder clearSelector() {
-        internalGetMutableSelector().getMutableMap()
-            .clear();
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 5 [(.validator.field) = { ... }</code>
-       */
-
-      public Builder removeSelector(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableSelector().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String>
-      getMutableSelector() {
-        return internalGetMutableSelector().getMutableMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 5 [(.validator.field) = { ... }</code>
-       */
-      public Builder putSelector(
-          java.lang.String key,
-          java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableSelector().getMutableMap()
-            .put(key, value);
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 5 [(.validator.field) = { ... }</code>
-       */
-
-      public Builder putAllSelector(
-          java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableSelector().getMutableMap()
-            .putAll(values);
-        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -14468,74 +22222,6 @@ public final class Schema {
     int getReplicas();
 
     /**
-     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-     */
-    int getLabelsCount();
-    /**
-     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-     */
-    boolean containsLabels(
-        java.lang.String key);
-    /**
-     * Use {@link #getLabelsMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.String>
-    getLabels();
-    /**
-     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-     */
-    java.util.Map<java.lang.String, java.lang.String>
-    getLabelsMap();
-    /**
-     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-     */
-
-    java.lang.String getLabelsOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue);
-    /**
-     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-     */
-
-    java.lang.String getLabelsOrThrow(
-        java.lang.String key);
-
-    /**
-     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-     */
-    int getSelectorCount();
-    /**
-     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-     */
-    boolean containsSelector(
-        java.lang.String key);
-    /**
-     * Use {@link #getSelectorMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.String>
-    getSelector();
-    /**
-     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-     */
-    java.util.Map<java.lang.String, java.lang.String>
-    getSelectorMap();
-    /**
-     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-     */
-
-    java.lang.String getSelectorOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue);
-    /**
-     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-     */
-
-    java.lang.String getSelectorOrThrow(
-        java.lang.String key);
-
-    /**
      * <pre>
      * gateway/service-mesh networking
      * </pre>
@@ -14559,6 +22245,56 @@ public final class Schema {
      * <code>.meshpaas.Networking networking = 11 [(.validator.field) = { ... }</code>
      */
     meshpaas.Schema.NetworkingOrBuilder getNetworkingOrBuilder();
+
+    /**
+     * <pre>
+     * application authentication options
+     * </pre>
+     *
+     * <code>.meshpaas.Authn authentication = 12;</code>
+     */
+    boolean hasAuthentication();
+    /**
+     * <pre>
+     * application authentication options
+     * </pre>
+     *
+     * <code>.meshpaas.Authn authentication = 12;</code>
+     */
+    meshpaas.Schema.Authn getAuthentication();
+    /**
+     * <pre>
+     * application authentication options
+     * </pre>
+     *
+     * <code>.meshpaas.Authn authentication = 12;</code>
+     */
+    meshpaas.Schema.AuthnOrBuilder getAuthenticationOrBuilder();
+
+    /**
+     * <pre>
+     * application authorization options
+     * </pre>
+     *
+     * <code>.meshpaas.Authz authorization = 13;</code>
+     */
+    boolean hasAuthorization();
+    /**
+     * <pre>
+     * application authorization options
+     * </pre>
+     *
+     * <code>.meshpaas.Authz authorization = 13;</code>
+     */
+    meshpaas.Schema.Authz getAuthorization();
+    /**
+     * <pre>
+     * application authorization options
+     * </pre>
+     *
+     * <code>.meshpaas.Authz authorization = 13;</code>
+     */
+    meshpaas.Schema.AuthzOrBuilder getAuthorizationOrBuilder();
 
     /**
      * <pre>
@@ -14658,32 +22394,6 @@ public final class Schema {
               replicas_ = input.readUInt32();
               break;
             }
-            case 74: {
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-                labels_ = com.google.protobuf.MapField.newMapField(
-                    LabelsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000010;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              labels__ = input.readMessage(
-                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              labels_.getMutableMap().put(
-                  labels__.getKey(), labels__.getValue());
-              break;
-            }
-            case 82: {
-              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
-                selector_ = com.google.protobuf.MapField.newMapField(
-                    SelectorDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000020;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              selector__ = input.readMessage(
-                  SelectorDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              selector_.getMutableMap().put(
-                  selector__.getKey(), selector__.getValue());
-              break;
-            }
             case 90: {
               meshpaas.Schema.Networking.Builder subBuilder = null;
               if (networking_ != null) {
@@ -14693,6 +22403,32 @@ public final class Schema {
               if (subBuilder != null) {
                 subBuilder.mergeFrom(networking_);
                 networking_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 98: {
+              meshpaas.Schema.Authn.Builder subBuilder = null;
+              if (authentication_ != null) {
+                subBuilder = authentication_.toBuilder();
+              }
+              authentication_ = input.readMessage(meshpaas.Schema.Authn.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(authentication_);
+                authentication_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 106: {
+              meshpaas.Schema.Authz.Builder subBuilder = null;
+              if (authorization_ != null) {
+                subBuilder = authorization_.toBuilder();
+              }
+              authorization_ = input.readMessage(meshpaas.Schema.Authz.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(authorization_);
+                authorization_ = subBuilder.buildPartial();
               }
 
               break;
@@ -14737,20 +22473,6 @@ public final class Schema {
       return meshpaas.Schema.internal_static_meshpaas_App_descriptor;
     }
 
-    @SuppressWarnings({"rawtypes"})
-    @java.lang.Override
-    protected com.google.protobuf.MapField internalGetMapField(
-        int number) {
-      switch (number) {
-        case 9:
-          return internalGetLabels();
-        case 10:
-          return internalGetSelector();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -14892,158 +22614,6 @@ public final class Schema {
       return replicas_;
     }
 
-    public static final int LABELS_FIELD_NUMBER = 9;
-    private static final class LabelsDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.String> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.String>newDefaultInstance(
-                  meshpaas.Schema.internal_static_meshpaas_App_LabelsEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "");
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> labels_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
-      if (labels_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            LabelsDefaultEntryHolder.defaultEntry);
-      }
-      return labels_;
-    }
-
-    public int getLabelsCount() {
-      return internalGetLabels().getMap().size();
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-     */
-
-    public boolean containsLabels(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetLabels().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getLabelsMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getLabels() {
-      return getLabelsMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-     */
-
-    public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
-      return internalGetLabels().getMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-     */
-
-    public java.lang.String getLabelsOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetLabels().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-     */
-
-    public java.lang.String getLabelsOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetLabels().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
-    public static final int SELECTOR_FIELD_NUMBER = 10;
-    private static final class SelectorDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.String> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.String>newDefaultInstance(
-                  meshpaas.Schema.internal_static_meshpaas_App_SelectorEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "");
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> selector_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetSelector() {
-      if (selector_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            SelectorDefaultEntryHolder.defaultEntry);
-      }
-      return selector_;
-    }
-
-    public int getSelectorCount() {
-      return internalGetSelector().getMap().size();
-    }
-    /**
-     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-     */
-
-    public boolean containsSelector(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetSelector().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getSelectorMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getSelector() {
-      return getSelectorMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-     */
-
-    public java.util.Map<java.lang.String, java.lang.String> getSelectorMap() {
-      return internalGetSelector().getMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-     */
-
-    public java.lang.String getSelectorOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetSelector().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-     */
-
-    public java.lang.String getSelectorOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetSelector().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
     public static final int NETWORKING_FIELD_NUMBER = 11;
     private meshpaas.Schema.Networking networking_;
     /**
@@ -15075,6 +22645,72 @@ public final class Schema {
      */
     public meshpaas.Schema.NetworkingOrBuilder getNetworkingOrBuilder() {
       return getNetworking();
+    }
+
+    public static final int AUTHENTICATION_FIELD_NUMBER = 12;
+    private meshpaas.Schema.Authn authentication_;
+    /**
+     * <pre>
+     * application authentication options
+     * </pre>
+     *
+     * <code>.meshpaas.Authn authentication = 12;</code>
+     */
+    public boolean hasAuthentication() {
+      return authentication_ != null;
+    }
+    /**
+     * <pre>
+     * application authentication options
+     * </pre>
+     *
+     * <code>.meshpaas.Authn authentication = 12;</code>
+     */
+    public meshpaas.Schema.Authn getAuthentication() {
+      return authentication_ == null ? meshpaas.Schema.Authn.getDefaultInstance() : authentication_;
+    }
+    /**
+     * <pre>
+     * application authentication options
+     * </pre>
+     *
+     * <code>.meshpaas.Authn authentication = 12;</code>
+     */
+    public meshpaas.Schema.AuthnOrBuilder getAuthenticationOrBuilder() {
+      return getAuthentication();
+    }
+
+    public static final int AUTHORIZATION_FIELD_NUMBER = 13;
+    private meshpaas.Schema.Authz authorization_;
+    /**
+     * <pre>
+     * application authorization options
+     * </pre>
+     *
+     * <code>.meshpaas.Authz authorization = 13;</code>
+     */
+    public boolean hasAuthorization() {
+      return authorization_ != null;
+    }
+    /**
+     * <pre>
+     * application authorization options
+     * </pre>
+     *
+     * <code>.meshpaas.Authz authorization = 13;</code>
+     */
+    public meshpaas.Schema.Authz getAuthorization() {
+      return authorization_ == null ? meshpaas.Schema.Authz.getDefaultInstance() : authorization_;
+    }
+    /**
+     * <pre>
+     * application authorization options
+     * </pre>
+     *
+     * <code>.meshpaas.Authz authorization = 13;</code>
+     */
+    public meshpaas.Schema.AuthzOrBuilder getAuthorizationOrBuilder() {
+      return getAuthorization();
     }
 
     public static final int STATUS_FIELD_NUMBER = 20;
@@ -15136,20 +22772,14 @@ public final class Schema {
       if (replicas_ != 0) {
         output.writeUInt32(8, replicas_);
       }
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetLabels(),
-          LabelsDefaultEntryHolder.defaultEntry,
-          9);
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetSelector(),
-          SelectorDefaultEntryHolder.defaultEntry,
-          10);
       if (networking_ != null) {
         output.writeMessage(11, getNetworking());
+      }
+      if (authentication_ != null) {
+        output.writeMessage(12, getAuthentication());
+      }
+      if (authorization_ != null) {
+        output.writeMessage(13, getAuthorization());
       }
       if (status_ != null) {
         output.writeMessage(20, getStatus());
@@ -15177,29 +22807,17 @@ public final class Schema {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(8, replicas_);
       }
-      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetLabels().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        labels__ = LabelsDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(9, labels__);
-      }
-      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetSelector().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        selector__ = SelectorDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(10, selector__);
-      }
       if (networking_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(11, getNetworking());
+      }
+      if (authentication_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(12, getAuthentication());
+      }
+      if (authorization_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(13, getAuthorization());
       }
       if (status_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -15229,14 +22847,20 @@ public final class Schema {
           .equals(other.getContainersList());
       result = result && (getReplicas()
           == other.getReplicas());
-      result = result && internalGetLabels().equals(
-          other.internalGetLabels());
-      result = result && internalGetSelector().equals(
-          other.internalGetSelector());
       result = result && (hasNetworking() == other.hasNetworking());
       if (hasNetworking()) {
         result = result && getNetworking()
             .equals(other.getNetworking());
+      }
+      result = result && (hasAuthentication() == other.hasAuthentication());
+      if (hasAuthentication()) {
+        result = result && getAuthentication()
+            .equals(other.getAuthentication());
+      }
+      result = result && (hasAuthorization() == other.hasAuthorization());
+      if (hasAuthorization()) {
+        result = result && getAuthorization()
+            .equals(other.getAuthorization());
       }
       result = result && (hasStatus() == other.hasStatus());
       if (hasStatus()) {
@@ -15264,17 +22888,17 @@ public final class Schema {
       }
       hash = (37 * hash) + REPLICAS_FIELD_NUMBER;
       hash = (53 * hash) + getReplicas();
-      if (!internalGetLabels().getMap().isEmpty()) {
-        hash = (37 * hash) + LABELS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetLabels().hashCode();
-      }
-      if (!internalGetSelector().getMap().isEmpty()) {
-        hash = (37 * hash) + SELECTOR_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetSelector().hashCode();
-      }
       if (hasNetworking()) {
         hash = (37 * hash) + NETWORKING_FIELD_NUMBER;
         hash = (53 * hash) + getNetworking().hashCode();
+      }
+      if (hasAuthentication()) {
+        hash = (37 * hash) + AUTHENTICATION_FIELD_NUMBER;
+        hash = (53 * hash) + getAuthentication().hashCode();
+      }
+      if (hasAuthorization()) {
+        hash = (37 * hash) + AUTHORIZATION_FIELD_NUMBER;
+        hash = (53 * hash) + getAuthorization().hashCode();
       }
       if (hasStatus()) {
         hash = (37 * hash) + STATUS_FIELD_NUMBER;
@@ -15391,32 +23015,6 @@ public final class Schema {
         return meshpaas.Schema.internal_static_meshpaas_App_descriptor;
       }
 
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMapField(
-          int number) {
-        switch (number) {
-          case 9:
-            return internalGetLabels();
-          case 10:
-            return internalGetSelector();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMutableMapField(
-          int number) {
-        switch (number) {
-          case 9:
-            return internalGetMutableLabels();
-          case 10:
-            return internalGetMutableSelector();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
@@ -15456,13 +23054,23 @@ public final class Schema {
         }
         replicas_ = 0;
 
-        internalGetMutableLabels().clear();
-        internalGetMutableSelector().clear();
         if (networkingBuilder_ == null) {
           networking_ = null;
         } else {
           networking_ = null;
           networkingBuilder_ = null;
+        }
+        if (authenticationBuilder_ == null) {
+          authentication_ = null;
+        } else {
+          authentication_ = null;
+          authenticationBuilder_ = null;
+        }
+        if (authorizationBuilder_ == null) {
+          authorization_ = null;
+        } else {
+          authorization_ = null;
+          authorizationBuilder_ = null;
         }
         if (statusBuilder_ == null) {
           status_ = null;
@@ -15510,14 +23118,20 @@ public final class Schema {
           result.containers_ = containersBuilder_.build();
         }
         result.replicas_ = replicas_;
-        result.labels_ = internalGetLabels();
-        result.labels_.makeImmutable();
-        result.selector_ = internalGetSelector();
-        result.selector_.makeImmutable();
         if (networkingBuilder_ == null) {
           result.networking_ = networking_;
         } else {
           result.networking_ = networkingBuilder_.build();
+        }
+        if (authenticationBuilder_ == null) {
+          result.authentication_ = authentication_;
+        } else {
+          result.authentication_ = authenticationBuilder_.build();
+        }
+        if (authorizationBuilder_ == null) {
+          result.authorization_ = authorization_;
+        } else {
+          result.authorization_ = authorizationBuilder_.build();
         }
         if (statusBuilder_ == null) {
           result.status_ = status_;
@@ -15610,12 +23224,14 @@ public final class Schema {
         if (other.getReplicas() != 0) {
           setReplicas(other.getReplicas());
         }
-        internalGetMutableLabels().mergeFrom(
-            other.internalGetLabels());
-        internalGetMutableSelector().mergeFrom(
-            other.internalGetSelector());
         if (other.hasNetworking()) {
           mergeNetworking(other.getNetworking());
+        }
+        if (other.hasAuthentication()) {
+          mergeAuthentication(other.getAuthentication());
+        }
+        if (other.hasAuthorization()) {
+          mergeAuthorization(other.getAuthorization());
         }
         if (other.hasStatus()) {
           mergeStatus(other.getStatus());
@@ -16106,252 +23722,6 @@ public final class Schema {
         return this;
       }
 
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> labels_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetLabels() {
-        if (labels_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              LabelsDefaultEntryHolder.defaultEntry);
-        }
-        return labels_;
-      }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableLabels() {
-        onChanged();;
-        if (labels_ == null) {
-          labels_ = com.google.protobuf.MapField.newMapField(
-              LabelsDefaultEntryHolder.defaultEntry);
-        }
-        if (!labels_.isMutable()) {
-          labels_ = labels_.copy();
-        }
-        return labels_;
-      }
-
-      public int getLabelsCount() {
-        return internalGetLabels().getMap().size();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-       */
-
-      public boolean containsLabels(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetLabels().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getLabelsMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getLabels() {
-        return getLabelsMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-       */
-
-      public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
-        return internalGetLabels().getMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-       */
-
-      public java.lang.String getLabelsOrDefault(
-          java.lang.String key,
-          java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetLabels().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-       */
-
-      public java.lang.String getLabelsOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetLabels().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-
-      public Builder clearLabels() {
-        internalGetMutableLabels().getMutableMap()
-            .clear();
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-       */
-
-      public Builder removeLabels(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableLabels().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String>
-      getMutableLabels() {
-        return internalGetMutableLabels().getMutableMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-       */
-      public Builder putLabels(
-          java.lang.String key,
-          java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableLabels().getMutableMap()
-            .put(key, value);
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-       */
-
-      public Builder putAllLabels(
-          java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableLabels().getMutableMap()
-            .putAll(values);
-        return this;
-      }
-
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> selector_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetSelector() {
-        if (selector_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              SelectorDefaultEntryHolder.defaultEntry);
-        }
-        return selector_;
-      }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableSelector() {
-        onChanged();;
-        if (selector_ == null) {
-          selector_ = com.google.protobuf.MapField.newMapField(
-              SelectorDefaultEntryHolder.defaultEntry);
-        }
-        if (!selector_.isMutable()) {
-          selector_ = selector_.copy();
-        }
-        return selector_;
-      }
-
-      public int getSelectorCount() {
-        return internalGetSelector().getMap().size();
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-       */
-
-      public boolean containsSelector(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetSelector().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getSelectorMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getSelector() {
-        return getSelectorMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-       */
-
-      public java.util.Map<java.lang.String, java.lang.String> getSelectorMap() {
-        return internalGetSelector().getMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-       */
-
-      public java.lang.String getSelectorOrDefault(
-          java.lang.String key,
-          java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetSelector().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-       */
-
-      public java.lang.String getSelectorOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetSelector().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-
-      public Builder clearSelector() {
-        internalGetMutableSelector().getMutableMap()
-            .clear();
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-       */
-
-      public Builder removeSelector(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableSelector().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String>
-      getMutableSelector() {
-        return internalGetMutableSelector().getMutableMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-       */
-      public Builder putSelector(
-          java.lang.String key,
-          java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableSelector().getMutableMap()
-            .put(key, value);
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-       */
-
-      public Builder putAllSelector(
-          java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableSelector().getMutableMap()
-            .putAll(values);
-        return this;
-      }
-
       private meshpaas.Schema.Networking networking_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
           meshpaas.Schema.Networking, meshpaas.Schema.Networking.Builder, meshpaas.Schema.NetworkingOrBuilder> networkingBuilder_;
@@ -16503,6 +23873,312 @@ public final class Schema {
           networking_ = null;
         }
         return networkingBuilder_;
+      }
+
+      private meshpaas.Schema.Authn authentication_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          meshpaas.Schema.Authn, meshpaas.Schema.Authn.Builder, meshpaas.Schema.AuthnOrBuilder> authenticationBuilder_;
+      /**
+       * <pre>
+       * application authentication options
+       * </pre>
+       *
+       * <code>.meshpaas.Authn authentication = 12;</code>
+       */
+      public boolean hasAuthentication() {
+        return authenticationBuilder_ != null || authentication_ != null;
+      }
+      /**
+       * <pre>
+       * application authentication options
+       * </pre>
+       *
+       * <code>.meshpaas.Authn authentication = 12;</code>
+       */
+      public meshpaas.Schema.Authn getAuthentication() {
+        if (authenticationBuilder_ == null) {
+          return authentication_ == null ? meshpaas.Schema.Authn.getDefaultInstance() : authentication_;
+        } else {
+          return authenticationBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * application authentication options
+       * </pre>
+       *
+       * <code>.meshpaas.Authn authentication = 12;</code>
+       */
+      public Builder setAuthentication(meshpaas.Schema.Authn value) {
+        if (authenticationBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          authentication_ = value;
+          onChanged();
+        } else {
+          authenticationBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * application authentication options
+       * </pre>
+       *
+       * <code>.meshpaas.Authn authentication = 12;</code>
+       */
+      public Builder setAuthentication(
+          meshpaas.Schema.Authn.Builder builderForValue) {
+        if (authenticationBuilder_ == null) {
+          authentication_ = builderForValue.build();
+          onChanged();
+        } else {
+          authenticationBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * application authentication options
+       * </pre>
+       *
+       * <code>.meshpaas.Authn authentication = 12;</code>
+       */
+      public Builder mergeAuthentication(meshpaas.Schema.Authn value) {
+        if (authenticationBuilder_ == null) {
+          if (authentication_ != null) {
+            authentication_ =
+              meshpaas.Schema.Authn.newBuilder(authentication_).mergeFrom(value).buildPartial();
+          } else {
+            authentication_ = value;
+          }
+          onChanged();
+        } else {
+          authenticationBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * application authentication options
+       * </pre>
+       *
+       * <code>.meshpaas.Authn authentication = 12;</code>
+       */
+      public Builder clearAuthentication() {
+        if (authenticationBuilder_ == null) {
+          authentication_ = null;
+          onChanged();
+        } else {
+          authentication_ = null;
+          authenticationBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * application authentication options
+       * </pre>
+       *
+       * <code>.meshpaas.Authn authentication = 12;</code>
+       */
+      public meshpaas.Schema.Authn.Builder getAuthenticationBuilder() {
+        
+        onChanged();
+        return getAuthenticationFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * application authentication options
+       * </pre>
+       *
+       * <code>.meshpaas.Authn authentication = 12;</code>
+       */
+      public meshpaas.Schema.AuthnOrBuilder getAuthenticationOrBuilder() {
+        if (authenticationBuilder_ != null) {
+          return authenticationBuilder_.getMessageOrBuilder();
+        } else {
+          return authentication_ == null ?
+              meshpaas.Schema.Authn.getDefaultInstance() : authentication_;
+        }
+      }
+      /**
+       * <pre>
+       * application authentication options
+       * </pre>
+       *
+       * <code>.meshpaas.Authn authentication = 12;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          meshpaas.Schema.Authn, meshpaas.Schema.Authn.Builder, meshpaas.Schema.AuthnOrBuilder> 
+          getAuthenticationFieldBuilder() {
+        if (authenticationBuilder_ == null) {
+          authenticationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              meshpaas.Schema.Authn, meshpaas.Schema.Authn.Builder, meshpaas.Schema.AuthnOrBuilder>(
+                  getAuthentication(),
+                  getParentForChildren(),
+                  isClean());
+          authentication_ = null;
+        }
+        return authenticationBuilder_;
+      }
+
+      private meshpaas.Schema.Authz authorization_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          meshpaas.Schema.Authz, meshpaas.Schema.Authz.Builder, meshpaas.Schema.AuthzOrBuilder> authorizationBuilder_;
+      /**
+       * <pre>
+       * application authorization options
+       * </pre>
+       *
+       * <code>.meshpaas.Authz authorization = 13;</code>
+       */
+      public boolean hasAuthorization() {
+        return authorizationBuilder_ != null || authorization_ != null;
+      }
+      /**
+       * <pre>
+       * application authorization options
+       * </pre>
+       *
+       * <code>.meshpaas.Authz authorization = 13;</code>
+       */
+      public meshpaas.Schema.Authz getAuthorization() {
+        if (authorizationBuilder_ == null) {
+          return authorization_ == null ? meshpaas.Schema.Authz.getDefaultInstance() : authorization_;
+        } else {
+          return authorizationBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * application authorization options
+       * </pre>
+       *
+       * <code>.meshpaas.Authz authorization = 13;</code>
+       */
+      public Builder setAuthorization(meshpaas.Schema.Authz value) {
+        if (authorizationBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          authorization_ = value;
+          onChanged();
+        } else {
+          authorizationBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * application authorization options
+       * </pre>
+       *
+       * <code>.meshpaas.Authz authorization = 13;</code>
+       */
+      public Builder setAuthorization(
+          meshpaas.Schema.Authz.Builder builderForValue) {
+        if (authorizationBuilder_ == null) {
+          authorization_ = builderForValue.build();
+          onChanged();
+        } else {
+          authorizationBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * application authorization options
+       * </pre>
+       *
+       * <code>.meshpaas.Authz authorization = 13;</code>
+       */
+      public Builder mergeAuthorization(meshpaas.Schema.Authz value) {
+        if (authorizationBuilder_ == null) {
+          if (authorization_ != null) {
+            authorization_ =
+              meshpaas.Schema.Authz.newBuilder(authorization_).mergeFrom(value).buildPartial();
+          } else {
+            authorization_ = value;
+          }
+          onChanged();
+        } else {
+          authorizationBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * application authorization options
+       * </pre>
+       *
+       * <code>.meshpaas.Authz authorization = 13;</code>
+       */
+      public Builder clearAuthorization() {
+        if (authorizationBuilder_ == null) {
+          authorization_ = null;
+          onChanged();
+        } else {
+          authorization_ = null;
+          authorizationBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * application authorization options
+       * </pre>
+       *
+       * <code>.meshpaas.Authz authorization = 13;</code>
+       */
+      public meshpaas.Schema.Authz.Builder getAuthorizationBuilder() {
+        
+        onChanged();
+        return getAuthorizationFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * application authorization options
+       * </pre>
+       *
+       * <code>.meshpaas.Authz authorization = 13;</code>
+       */
+      public meshpaas.Schema.AuthzOrBuilder getAuthorizationOrBuilder() {
+        if (authorizationBuilder_ != null) {
+          return authorizationBuilder_.getMessageOrBuilder();
+        } else {
+          return authorization_ == null ?
+              meshpaas.Schema.Authz.getDefaultInstance() : authorization_;
+        }
+      }
+      /**
+       * <pre>
+       * application authorization options
+       * </pre>
+       *
+       * <code>.meshpaas.Authz authorization = 13;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          meshpaas.Schema.Authz, meshpaas.Schema.Authz.Builder, meshpaas.Schema.AuthzOrBuilder> 
+          getAuthorizationFieldBuilder() {
+        if (authorizationBuilder_ == null) {
+          authorizationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              meshpaas.Schema.Authz, meshpaas.Schema.Authz.Builder, meshpaas.Schema.AuthzOrBuilder>(
+                  getAuthorization(),
+                  getParentForChildren(),
+                  isClean());
+          authorization_ = null;
+        }
+        return authorizationBuilder_;
       }
 
       private meshpaas.Schema.AppStatus status_ = null;
@@ -16800,74 +24476,6 @@ public final class Schema {
      * <code>uint32 completions = 8;</code>
      */
     int getCompletions();
-
-    /**
-     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-     */
-    int getLabelsCount();
-    /**
-     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-     */
-    boolean containsLabels(
-        java.lang.String key);
-    /**
-     * Use {@link #getLabelsMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.String>
-    getLabels();
-    /**
-     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-     */
-    java.util.Map<java.lang.String, java.lang.String>
-    getLabelsMap();
-    /**
-     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-     */
-
-    java.lang.String getLabelsOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue);
-    /**
-     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-     */
-
-    java.lang.String getLabelsOrThrow(
-        java.lang.String key);
-
-    /**
-     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-     */
-    int getSelectorCount();
-    /**
-     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-     */
-    boolean containsSelector(
-        java.lang.String key);
-    /**
-     * Use {@link #getSelectorMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.String>
-    getSelector();
-    /**
-     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-     */
-    java.util.Map<java.lang.String, java.lang.String>
-    getSelectorMap();
-    /**
-     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-     */
-
-    java.lang.String getSelectorOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue);
-    /**
-     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-     */
-
-    java.lang.String getSelectorOrThrow(
-        java.lang.String key);
   }
   /**
    * <pre>
@@ -16949,32 +24557,6 @@ public final class Schema {
               completions_ = input.readUInt32();
               break;
             }
-            case 74: {
-              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
-                labels_ = com.google.protobuf.MapField.newMapField(
-                    LabelsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000020;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              labels__ = input.readMessage(
-                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              labels_.getMutableMap().put(
-                  labels__.getKey(), labels__.getValue());
-              break;
-            }
-            case 82: {
-              if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
-                selector_ = com.google.protobuf.MapField.newMapField(
-                    SelectorDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000040;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              selector__ = input.readMessage(
-                  SelectorDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              selector_.getMutableMap().put(
-                  selector__.getKey(), selector__.getValue());
-              break;
-            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -17002,20 +24584,6 @@ public final class Schema {
       return meshpaas.Schema.internal_static_meshpaas_Task_descriptor;
     }
 
-    @SuppressWarnings({"rawtypes"})
-    @java.lang.Override
-    protected com.google.protobuf.MapField internalGetMapField(
-        int number) {
-      switch (number) {
-        case 9:
-          return internalGetLabels();
-        case 10:
-          return internalGetSelector();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -17199,158 +24767,6 @@ public final class Schema {
       return completions_;
     }
 
-    public static final int LABELS_FIELD_NUMBER = 9;
-    private static final class LabelsDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.String> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.String>newDefaultInstance(
-                  meshpaas.Schema.internal_static_meshpaas_Task_LabelsEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "");
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> labels_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
-      if (labels_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            LabelsDefaultEntryHolder.defaultEntry);
-      }
-      return labels_;
-    }
-
-    public int getLabelsCount() {
-      return internalGetLabels().getMap().size();
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-     */
-
-    public boolean containsLabels(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetLabels().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getLabelsMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getLabels() {
-      return getLabelsMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-     */
-
-    public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
-      return internalGetLabels().getMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-     */
-
-    public java.lang.String getLabelsOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetLabels().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-     */
-
-    public java.lang.String getLabelsOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetLabels().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
-    public static final int SELECTOR_FIELD_NUMBER = 10;
-    private static final class SelectorDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.String> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.String>newDefaultInstance(
-                  meshpaas.Schema.internal_static_meshpaas_Task_SelectorEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "");
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> selector_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetSelector() {
-      if (selector_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            SelectorDefaultEntryHolder.defaultEntry);
-      }
-      return selector_;
-    }
-
-    public int getSelectorCount() {
-      return internalGetSelector().getMap().size();
-    }
-    /**
-     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-     */
-
-    public boolean containsSelector(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetSelector().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getSelectorMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getSelector() {
-      return getSelectorMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-     */
-
-    public java.util.Map<java.lang.String, java.lang.String> getSelectorMap() {
-      return internalGetSelector().getMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-     */
-
-    public java.lang.String getSelectorOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetSelector().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-     */
-
-    public java.lang.String getSelectorOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetSelector().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -17380,18 +24796,6 @@ public final class Schema {
       if (completions_ != 0) {
         output.writeUInt32(8, completions_);
       }
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetLabels(),
-          LabelsDefaultEntryHolder.defaultEntry,
-          9);
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetSelector(),
-          SelectorDefaultEntryHolder.defaultEntry,
-          10);
       unknownFields.writeTo(output);
     }
 
@@ -17417,26 +24821,6 @@ public final class Schema {
       if (completions_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(8, completions_);
-      }
-      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetLabels().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        labels__ = LabelsDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(9, labels__);
-      }
-      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetSelector().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        selector__ = SelectorDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(10, selector__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -17464,10 +24848,6 @@ public final class Schema {
           .equals(other.getSchedule());
       result = result && (getCompletions()
           == other.getCompletions());
-      result = result && internalGetLabels().equals(
-          other.internalGetLabels());
-      result = result && internalGetSelector().equals(
-          other.internalGetSelector());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -17491,14 +24871,6 @@ public final class Schema {
       hash = (53 * hash) + getSchedule().hashCode();
       hash = (37 * hash) + COMPLETIONS_FIELD_NUMBER;
       hash = (53 * hash) + getCompletions();
-      if (!internalGetLabels().getMap().isEmpty()) {
-        hash = (37 * hash) + LABELS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetLabels().hashCode();
-      }
-      if (!internalGetSelector().getMap().isEmpty()) {
-        hash = (37 * hash) + SELECTOR_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetSelector().hashCode();
-      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -17610,32 +24982,6 @@ public final class Schema {
         return meshpaas.Schema.internal_static_meshpaas_Task_descriptor;
       }
 
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMapField(
-          int number) {
-        switch (number) {
-          case 9:
-            return internalGetLabels();
-          case 10:
-            return internalGetSelector();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMutableMapField(
-          int number) {
-        switch (number) {
-          case 9:
-            return internalGetMutableLabels();
-          case 10:
-            return internalGetMutableSelector();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
@@ -17677,8 +25023,6 @@ public final class Schema {
 
         completions_ = 0;
 
-        internalGetMutableLabels().clear();
-        internalGetMutableSelector().clear();
         return this;
       }
 
@@ -17720,10 +25064,6 @@ public final class Schema {
         }
         result.schedule_ = schedule_;
         result.completions_ = completions_;
-        result.labels_ = internalGetLabels();
-        result.labels_.makeImmutable();
-        result.selector_ = internalGetSelector();
-        result.selector_.makeImmutable();
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -17814,10 +25154,6 @@ public final class Schema {
         if (other.getCompletions() != 0) {
           setCompletions(other.getCompletions());
         }
-        internalGetMutableLabels().mergeFrom(
-            other.internalGetLabels());
-        internalGetMutableSelector().mergeFrom(
-            other.internalGetSelector());
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -18392,252 +25728,6 @@ public final class Schema {
         onChanged();
         return this;
       }
-
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> labels_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetLabels() {
-        if (labels_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              LabelsDefaultEntryHolder.defaultEntry);
-        }
-        return labels_;
-      }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableLabels() {
-        onChanged();;
-        if (labels_ == null) {
-          labels_ = com.google.protobuf.MapField.newMapField(
-              LabelsDefaultEntryHolder.defaultEntry);
-        }
-        if (!labels_.isMutable()) {
-          labels_ = labels_.copy();
-        }
-        return labels_;
-      }
-
-      public int getLabelsCount() {
-        return internalGetLabels().getMap().size();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-       */
-
-      public boolean containsLabels(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetLabels().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getLabelsMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getLabels() {
-        return getLabelsMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-       */
-
-      public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
-        return internalGetLabels().getMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-       */
-
-      public java.lang.String getLabelsOrDefault(
-          java.lang.String key,
-          java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetLabels().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-       */
-
-      public java.lang.String getLabelsOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetLabels().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-
-      public Builder clearLabels() {
-        internalGetMutableLabels().getMutableMap()
-            .clear();
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-       */
-
-      public Builder removeLabels(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableLabels().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String>
-      getMutableLabels() {
-        return internalGetMutableLabels().getMutableMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-       */
-      public Builder putLabels(
-          java.lang.String key,
-          java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableLabels().getMutableMap()
-            .put(key, value);
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-       */
-
-      public Builder putAllLabels(
-          java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableLabels().getMutableMap()
-            .putAll(values);
-        return this;
-      }
-
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> selector_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetSelector() {
-        if (selector_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              SelectorDefaultEntryHolder.defaultEntry);
-        }
-        return selector_;
-      }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableSelector() {
-        onChanged();;
-        if (selector_ == null) {
-          selector_ = com.google.protobuf.MapField.newMapField(
-              SelectorDefaultEntryHolder.defaultEntry);
-        }
-        if (!selector_.isMutable()) {
-          selector_ = selector_.copy();
-        }
-        return selector_;
-      }
-
-      public int getSelectorCount() {
-        return internalGetSelector().getMap().size();
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-       */
-
-      public boolean containsSelector(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetSelector().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getSelectorMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getSelector() {
-        return getSelectorMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-       */
-
-      public java.util.Map<java.lang.String, java.lang.String> getSelectorMap() {
-        return internalGetSelector().getMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-       */
-
-      public java.lang.String getSelectorOrDefault(
-          java.lang.String key,
-          java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetSelector().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-       */
-
-      public java.lang.String getSelectorOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetSelector().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-
-      public Builder clearSelector() {
-        internalGetMutableSelector().getMutableMap()
-            .clear();
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-       */
-
-      public Builder removeSelector(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableSelector().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String>
-      getMutableSelector() {
-        return internalGetMutableSelector().getMutableMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-       */
-      public Builder putSelector(
-          java.lang.String key,
-          java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableSelector().getMutableMap()
-            .put(key, value);
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-       */
-
-      public Builder putAllSelector(
-          java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableSelector().getMutableMap()
-            .putAll(values);
-        return this;
-      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -18781,74 +25871,6 @@ public final class Schema {
      * <code>uint32 completions = 8;</code>
      */
     int getCompletions();
-
-    /**
-     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-     */
-    int getLabelsCount();
-    /**
-     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-     */
-    boolean containsLabels(
-        java.lang.String key);
-    /**
-     * Use {@link #getLabelsMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.String>
-    getLabels();
-    /**
-     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-     */
-    java.util.Map<java.lang.String, java.lang.String>
-    getLabelsMap();
-    /**
-     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-     */
-
-    java.lang.String getLabelsOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue);
-    /**
-     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-     */
-
-    java.lang.String getLabelsOrThrow(
-        java.lang.String key);
-
-    /**
-     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-     */
-    int getSelectorCount();
-    /**
-     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-     */
-    boolean containsSelector(
-        java.lang.String key);
-    /**
-     * Use {@link #getSelectorMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.String>
-    getSelector();
-    /**
-     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-     */
-    java.util.Map<java.lang.String, java.lang.String>
-    getSelectorMap();
-    /**
-     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-     */
-
-    java.lang.String getSelectorOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue);
-    /**
-     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-     */
-
-    java.lang.String getSelectorOrThrow(
-        java.lang.String key);
   }
   /**
    * <pre>
@@ -18930,32 +25952,6 @@ public final class Schema {
               completions_ = input.readUInt32();
               break;
             }
-            case 74: {
-              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
-                labels_ = com.google.protobuf.MapField.newMapField(
-                    LabelsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000020;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              labels__ = input.readMessage(
-                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              labels_.getMutableMap().put(
-                  labels__.getKey(), labels__.getValue());
-              break;
-            }
-            case 82: {
-              if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
-                selector_ = com.google.protobuf.MapField.newMapField(
-                    SelectorDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000040;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              selector__ = input.readMessage(
-                  SelectorDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              selector_.getMutableMap().put(
-                  selector__.getKey(), selector__.getValue());
-              break;
-            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -18983,20 +25979,6 @@ public final class Schema {
       return meshpaas.Schema.internal_static_meshpaas_TaskInput_descriptor;
     }
 
-    @SuppressWarnings({"rawtypes"})
-    @java.lang.Override
-    protected com.google.protobuf.MapField internalGetMapField(
-        int number) {
-      switch (number) {
-        case 9:
-          return internalGetLabels();
-        case 10:
-          return internalGetSelector();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -19180,158 +26162,6 @@ public final class Schema {
       return completions_;
     }
 
-    public static final int LABELS_FIELD_NUMBER = 9;
-    private static final class LabelsDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.String> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.String>newDefaultInstance(
-                  meshpaas.Schema.internal_static_meshpaas_TaskInput_LabelsEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "");
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> labels_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
-      if (labels_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            LabelsDefaultEntryHolder.defaultEntry);
-      }
-      return labels_;
-    }
-
-    public int getLabelsCount() {
-      return internalGetLabels().getMap().size();
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-     */
-
-    public boolean containsLabels(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetLabels().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getLabelsMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getLabels() {
-      return getLabelsMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-     */
-
-    public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
-      return internalGetLabels().getMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-     */
-
-    public java.lang.String getLabelsOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetLabels().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-     */
-
-    public java.lang.String getLabelsOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetLabels().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
-    public static final int SELECTOR_FIELD_NUMBER = 10;
-    private static final class SelectorDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.String> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.String>newDefaultInstance(
-                  meshpaas.Schema.internal_static_meshpaas_TaskInput_SelectorEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "");
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> selector_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetSelector() {
-      if (selector_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            SelectorDefaultEntryHolder.defaultEntry);
-      }
-      return selector_;
-    }
-
-    public int getSelectorCount() {
-      return internalGetSelector().getMap().size();
-    }
-    /**
-     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-     */
-
-    public boolean containsSelector(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetSelector().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getSelectorMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getSelector() {
-      return getSelectorMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-     */
-
-    public java.util.Map<java.lang.String, java.lang.String> getSelectorMap() {
-      return internalGetSelector().getMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-     */
-
-    public java.lang.String getSelectorOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetSelector().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-     */
-
-    public java.lang.String getSelectorOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetSelector().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -19361,18 +26191,6 @@ public final class Schema {
       if (completions_ != 0) {
         output.writeUInt32(8, completions_);
       }
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetLabels(),
-          LabelsDefaultEntryHolder.defaultEntry,
-          9);
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetSelector(),
-          SelectorDefaultEntryHolder.defaultEntry,
-          10);
       unknownFields.writeTo(output);
     }
 
@@ -19398,26 +26216,6 @@ public final class Schema {
       if (completions_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(8, completions_);
-      }
-      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetLabels().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        labels__ = LabelsDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(9, labels__);
-      }
-      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetSelector().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        selector__ = SelectorDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(10, selector__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -19445,10 +26243,6 @@ public final class Schema {
           .equals(other.getSchedule());
       result = result && (getCompletions()
           == other.getCompletions());
-      result = result && internalGetLabels().equals(
-          other.internalGetLabels());
-      result = result && internalGetSelector().equals(
-          other.internalGetSelector());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -19472,14 +26266,6 @@ public final class Schema {
       hash = (53 * hash) + getSchedule().hashCode();
       hash = (37 * hash) + COMPLETIONS_FIELD_NUMBER;
       hash = (53 * hash) + getCompletions();
-      if (!internalGetLabels().getMap().isEmpty()) {
-        hash = (37 * hash) + LABELS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetLabels().hashCode();
-      }
-      if (!internalGetSelector().getMap().isEmpty()) {
-        hash = (37 * hash) + SELECTOR_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetSelector().hashCode();
-      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -19591,32 +26377,6 @@ public final class Schema {
         return meshpaas.Schema.internal_static_meshpaas_TaskInput_descriptor;
       }
 
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMapField(
-          int number) {
-        switch (number) {
-          case 9:
-            return internalGetLabels();
-          case 10:
-            return internalGetSelector();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMutableMapField(
-          int number) {
-        switch (number) {
-          case 9:
-            return internalGetMutableLabels();
-          case 10:
-            return internalGetMutableSelector();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
@@ -19658,8 +26418,6 @@ public final class Schema {
 
         completions_ = 0;
 
-        internalGetMutableLabels().clear();
-        internalGetMutableSelector().clear();
         return this;
       }
 
@@ -19701,10 +26459,6 @@ public final class Schema {
         }
         result.schedule_ = schedule_;
         result.completions_ = completions_;
-        result.labels_ = internalGetLabels();
-        result.labels_.makeImmutable();
-        result.selector_ = internalGetSelector();
-        result.selector_.makeImmutable();
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -19795,10 +26549,6 @@ public final class Schema {
         if (other.getCompletions() != 0) {
           setCompletions(other.getCompletions());
         }
-        internalGetMutableLabels().mergeFrom(
-            other.internalGetLabels());
-        internalGetMutableSelector().mergeFrom(
-            other.internalGetSelector());
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -20373,252 +27123,6 @@ public final class Schema {
         onChanged();
         return this;
       }
-
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> labels_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetLabels() {
-        if (labels_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              LabelsDefaultEntryHolder.defaultEntry);
-        }
-        return labels_;
-      }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableLabels() {
-        onChanged();;
-        if (labels_ == null) {
-          labels_ = com.google.protobuf.MapField.newMapField(
-              LabelsDefaultEntryHolder.defaultEntry);
-        }
-        if (!labels_.isMutable()) {
-          labels_ = labels_.copy();
-        }
-        return labels_;
-      }
-
-      public int getLabelsCount() {
-        return internalGetLabels().getMap().size();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-       */
-
-      public boolean containsLabels(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetLabels().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getLabelsMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getLabels() {
-        return getLabelsMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-       */
-
-      public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
-        return internalGetLabels().getMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-       */
-
-      public java.lang.String getLabelsOrDefault(
-          java.lang.String key,
-          java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetLabels().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-       */
-
-      public java.lang.String getLabelsOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetLabels().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-
-      public Builder clearLabels() {
-        internalGetMutableLabels().getMutableMap()
-            .clear();
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-       */
-
-      public Builder removeLabels(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableLabels().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String>
-      getMutableLabels() {
-        return internalGetMutableLabels().getMutableMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-       */
-      public Builder putLabels(
-          java.lang.String key,
-          java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableLabels().getMutableMap()
-            .put(key, value);
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 9 [(.validator.field) = { ... }</code>
-       */
-
-      public Builder putAllLabels(
-          java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableLabels().getMutableMap()
-            .putAll(values);
-        return this;
-      }
-
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> selector_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetSelector() {
-        if (selector_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              SelectorDefaultEntryHolder.defaultEntry);
-        }
-        return selector_;
-      }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableSelector() {
-        onChanged();;
-        if (selector_ == null) {
-          selector_ = com.google.protobuf.MapField.newMapField(
-              SelectorDefaultEntryHolder.defaultEntry);
-        }
-        if (!selector_.isMutable()) {
-          selector_ = selector_.copy();
-        }
-        return selector_;
-      }
-
-      public int getSelectorCount() {
-        return internalGetSelector().getMap().size();
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-       */
-
-      public boolean containsSelector(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetSelector().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getSelectorMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getSelector() {
-        return getSelectorMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-       */
-
-      public java.util.Map<java.lang.String, java.lang.String> getSelectorMap() {
-        return internalGetSelector().getMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-       */
-
-      public java.lang.String getSelectorOrDefault(
-          java.lang.String key,
-          java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetSelector().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-       */
-
-      public java.lang.String getSelectorOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetSelector().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-
-      public Builder clearSelector() {
-        internalGetMutableSelector().getMutableMap()
-            .clear();
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-       */
-
-      public Builder removeSelector(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableSelector().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String>
-      getMutableSelector() {
-        return internalGetMutableSelector().getMutableMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-       */
-      public Builder putSelector(
-          java.lang.String key,
-          java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableSelector().getMutableMap()
-            .put(key, value);
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 10 [(.validator.field) = { ... }</code>
-       */
-
-      public Builder putAllSelector(
-          java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableSelector().getMutableMap()
-            .putAll(values);
-        return this;
-      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -20746,85 +27250,67 @@ public final class Schema {
     int getReplicas();
 
     /**
-     * <code>.meshpaas.Networking networking = 9 [(.validator.field) = { ... }</code>
+     * <code>.meshpaas.Networking networking = 10 [(.validator.field) = { ... }</code>
      */
     boolean hasNetworking();
     /**
-     * <code>.meshpaas.Networking networking = 9 [(.validator.field) = { ... }</code>
+     * <code>.meshpaas.Networking networking = 10 [(.validator.field) = { ... }</code>
      */
     meshpaas.Schema.Networking getNetworking();
     /**
-     * <code>.meshpaas.Networking networking = 9 [(.validator.field) = { ... }</code>
+     * <code>.meshpaas.Networking networking = 10 [(.validator.field) = { ... }</code>
      */
     meshpaas.Schema.NetworkingOrBuilder getNetworkingOrBuilder();
 
     /**
-     * <code>map&lt;string, string&gt; labels = 10 [(.validator.field) = { ... }</code>
+     * <pre>
+     * application authentication options
+     * </pre>
+     *
+     * <code>.meshpaas.Authn authentication = 12;</code>
      */
-    int getLabelsCount();
+    boolean hasAuthentication();
     /**
-     * <code>map&lt;string, string&gt; labels = 10 [(.validator.field) = { ... }</code>
+     * <pre>
+     * application authentication options
+     * </pre>
+     *
+     * <code>.meshpaas.Authn authentication = 12;</code>
      */
-    boolean containsLabels(
-        java.lang.String key);
+    meshpaas.Schema.Authn getAuthentication();
     /**
-     * Use {@link #getLabelsMap()} instead.
+     * <pre>
+     * application authentication options
+     * </pre>
+     *
+     * <code>.meshpaas.Authn authentication = 12;</code>
      */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.String>
-    getLabels();
-    /**
-     * <code>map&lt;string, string&gt; labels = 10 [(.validator.field) = { ... }</code>
-     */
-    java.util.Map<java.lang.String, java.lang.String>
-    getLabelsMap();
-    /**
-     * <code>map&lt;string, string&gt; labels = 10 [(.validator.field) = { ... }</code>
-     */
-
-    java.lang.String getLabelsOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue);
-    /**
-     * <code>map&lt;string, string&gt; labels = 10 [(.validator.field) = { ... }</code>
-     */
-
-    java.lang.String getLabelsOrThrow(
-        java.lang.String key);
+    meshpaas.Schema.AuthnOrBuilder getAuthenticationOrBuilder();
 
     /**
-     * <code>map&lt;string, string&gt; selector = 11 [(.validator.field) = { ... }</code>
+     * <pre>
+     * application authorization options
+     * </pre>
+     *
+     * <code>.meshpaas.Authz authorization = 13;</code>
      */
-    int getSelectorCount();
+    boolean hasAuthorization();
     /**
-     * <code>map&lt;string, string&gt; selector = 11 [(.validator.field) = { ... }</code>
+     * <pre>
+     * application authorization options
+     * </pre>
+     *
+     * <code>.meshpaas.Authz authorization = 13;</code>
      */
-    boolean containsSelector(
-        java.lang.String key);
+    meshpaas.Schema.Authz getAuthorization();
     /**
-     * Use {@link #getSelectorMap()} instead.
+     * <pre>
+     * application authorization options
+     * </pre>
+     *
+     * <code>.meshpaas.Authz authorization = 13;</code>
      */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.String>
-    getSelector();
-    /**
-     * <code>map&lt;string, string&gt; selector = 11 [(.validator.field) = { ... }</code>
-     */
-    java.util.Map<java.lang.String, java.lang.String>
-    getSelectorMap();
-    /**
-     * <code>map&lt;string, string&gt; selector = 11 [(.validator.field) = { ... }</code>
-     */
-
-    java.lang.String getSelectorOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue);
-    /**
-     * <code>map&lt;string, string&gt; selector = 11 [(.validator.field) = { ... }</code>
-     */
-
-    java.lang.String getSelectorOrThrow(
-        java.lang.String key);
+    meshpaas.Schema.AuthzOrBuilder getAuthorizationOrBuilder();
   }
   /**
    * <pre>
@@ -20899,7 +27385,7 @@ public final class Schema {
               replicas_ = input.readUInt32();
               break;
             }
-            case 74: {
+            case 82: {
               meshpaas.Schema.Networking.Builder subBuilder = null;
               if (networking_ != null) {
                 subBuilder = networking_.toBuilder();
@@ -20912,30 +27398,30 @@ public final class Schema {
 
               break;
             }
-            case 82: {
-              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
-                labels_ = com.google.protobuf.MapField.newMapField(
-                    LabelsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000020;
+            case 98: {
+              meshpaas.Schema.Authn.Builder subBuilder = null;
+              if (authentication_ != null) {
+                subBuilder = authentication_.toBuilder();
               }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              labels__ = input.readMessage(
-                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              labels_.getMutableMap().put(
-                  labels__.getKey(), labels__.getValue());
+              authentication_ = input.readMessage(meshpaas.Schema.Authn.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(authentication_);
+                authentication_ = subBuilder.buildPartial();
+              }
+
               break;
             }
-            case 90: {
-              if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
-                selector_ = com.google.protobuf.MapField.newMapField(
-                    SelectorDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000040;
+            case 106: {
+              meshpaas.Schema.Authz.Builder subBuilder = null;
+              if (authorization_ != null) {
+                subBuilder = authorization_.toBuilder();
               }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              selector__ = input.readMessage(
-                  SelectorDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              selector_.getMutableMap().put(
-                  selector__.getKey(), selector__.getValue());
+              authorization_ = input.readMessage(meshpaas.Schema.Authz.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(authorization_);
+                authorization_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -20965,20 +27451,6 @@ public final class Schema {
       return meshpaas.Schema.internal_static_meshpaas_AppInput_descriptor;
     }
 
-    @SuppressWarnings({"rawtypes"})
-    @java.lang.Override
-    protected com.google.protobuf.MapField internalGetMapField(
-        int number) {
-      switch (number) {
-        case 10:
-          return internalGetLabels();
-        case 11:
-          return internalGetSelector();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -21120,177 +27592,91 @@ public final class Schema {
       return replicas_;
     }
 
-    public static final int NETWORKING_FIELD_NUMBER = 9;
+    public static final int NETWORKING_FIELD_NUMBER = 10;
     private meshpaas.Schema.Networking networking_;
     /**
-     * <code>.meshpaas.Networking networking = 9 [(.validator.field) = { ... }</code>
+     * <code>.meshpaas.Networking networking = 10 [(.validator.field) = { ... }</code>
      */
     public boolean hasNetworking() {
       return networking_ != null;
     }
     /**
-     * <code>.meshpaas.Networking networking = 9 [(.validator.field) = { ... }</code>
+     * <code>.meshpaas.Networking networking = 10 [(.validator.field) = { ... }</code>
      */
     public meshpaas.Schema.Networking getNetworking() {
       return networking_ == null ? meshpaas.Schema.Networking.getDefaultInstance() : networking_;
     }
     /**
-     * <code>.meshpaas.Networking networking = 9 [(.validator.field) = { ... }</code>
+     * <code>.meshpaas.Networking networking = 10 [(.validator.field) = { ... }</code>
      */
     public meshpaas.Schema.NetworkingOrBuilder getNetworkingOrBuilder() {
       return getNetworking();
     }
 
-    public static final int LABELS_FIELD_NUMBER = 10;
-    private static final class LabelsDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.String> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.String>newDefaultInstance(
-                  meshpaas.Schema.internal_static_meshpaas_AppInput_LabelsEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "");
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> labels_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
-      if (labels_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            LabelsDefaultEntryHolder.defaultEntry);
-      }
-      return labels_;
-    }
-
-    public int getLabelsCount() {
-      return internalGetLabels().getMap().size();
+    public static final int AUTHENTICATION_FIELD_NUMBER = 12;
+    private meshpaas.Schema.Authn authentication_;
+    /**
+     * <pre>
+     * application authentication options
+     * </pre>
+     *
+     * <code>.meshpaas.Authn authentication = 12;</code>
+     */
+    public boolean hasAuthentication() {
+      return authentication_ != null;
     }
     /**
-     * <code>map&lt;string, string&gt; labels = 10 [(.validator.field) = { ... }</code>
+     * <pre>
+     * application authentication options
+     * </pre>
+     *
+     * <code>.meshpaas.Authn authentication = 12;</code>
      */
-
-    public boolean containsLabels(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetLabels().getMap().containsKey(key);
+    public meshpaas.Schema.Authn getAuthentication() {
+      return authentication_ == null ? meshpaas.Schema.Authn.getDefaultInstance() : authentication_;
     }
     /**
-     * Use {@link #getLabelsMap()} instead.
+     * <pre>
+     * application authentication options
+     * </pre>
+     *
+     * <code>.meshpaas.Authn authentication = 12;</code>
      */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getLabels() {
-      return getLabelsMap();
+    public meshpaas.Schema.AuthnOrBuilder getAuthenticationOrBuilder() {
+      return getAuthentication();
+    }
+
+    public static final int AUTHORIZATION_FIELD_NUMBER = 13;
+    private meshpaas.Schema.Authz authorization_;
+    /**
+     * <pre>
+     * application authorization options
+     * </pre>
+     *
+     * <code>.meshpaas.Authz authorization = 13;</code>
+     */
+    public boolean hasAuthorization() {
+      return authorization_ != null;
     }
     /**
-     * <code>map&lt;string, string&gt; labels = 10 [(.validator.field) = { ... }</code>
+     * <pre>
+     * application authorization options
+     * </pre>
+     *
+     * <code>.meshpaas.Authz authorization = 13;</code>
      */
-
-    public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
-      return internalGetLabels().getMap();
+    public meshpaas.Schema.Authz getAuthorization() {
+      return authorization_ == null ? meshpaas.Schema.Authz.getDefaultInstance() : authorization_;
     }
     /**
-     * <code>map&lt;string, string&gt; labels = 10 [(.validator.field) = { ... }</code>
+     * <pre>
+     * application authorization options
+     * </pre>
+     *
+     * <code>.meshpaas.Authz authorization = 13;</code>
      */
-
-    public java.lang.String getLabelsOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetLabels().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 10 [(.validator.field) = { ... }</code>
-     */
-
-    public java.lang.String getLabelsOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetLabels().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
-    public static final int SELECTOR_FIELD_NUMBER = 11;
-    private static final class SelectorDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.String> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.String>newDefaultInstance(
-                  meshpaas.Schema.internal_static_meshpaas_AppInput_SelectorEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "");
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> selector_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetSelector() {
-      if (selector_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            SelectorDefaultEntryHolder.defaultEntry);
-      }
-      return selector_;
-    }
-
-    public int getSelectorCount() {
-      return internalGetSelector().getMap().size();
-    }
-    /**
-     * <code>map&lt;string, string&gt; selector = 11 [(.validator.field) = { ... }</code>
-     */
-
-    public boolean containsSelector(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetSelector().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getSelectorMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getSelector() {
-      return getSelectorMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; selector = 11 [(.validator.field) = { ... }</code>
-     */
-
-    public java.util.Map<java.lang.String, java.lang.String> getSelectorMap() {
-      return internalGetSelector().getMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; selector = 11 [(.validator.field) = { ... }</code>
-     */
-
-    public java.lang.String getSelectorOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetSelector().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;string, string&gt; selector = 11 [(.validator.field) = { ... }</code>
-     */
-
-    public java.lang.String getSelectorOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetSelector().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
+    public meshpaas.Schema.AuthzOrBuilder getAuthorizationOrBuilder() {
+      return getAuthorization();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -21320,20 +27706,14 @@ public final class Schema {
         output.writeUInt32(7, replicas_);
       }
       if (networking_ != null) {
-        output.writeMessage(9, getNetworking());
+        output.writeMessage(10, getNetworking());
       }
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetLabels(),
-          LabelsDefaultEntryHolder.defaultEntry,
-          10);
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetSelector(),
-          SelectorDefaultEntryHolder.defaultEntry,
-          11);
+      if (authentication_ != null) {
+        output.writeMessage(12, getAuthentication());
+      }
+      if (authorization_ != null) {
+        output.writeMessage(13, getAuthorization());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -21359,27 +27739,15 @@ public final class Schema {
       }
       if (networking_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(9, getNetworking());
+          .computeMessageSize(10, getNetworking());
       }
-      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetLabels().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        labels__ = LabelsDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
+      if (authentication_ != null) {
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(10, labels__);
+          .computeMessageSize(12, getAuthentication());
       }
-      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetSelector().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        selector__ = SelectorDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
+      if (authorization_ != null) {
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(11, selector__);
+          .computeMessageSize(13, getAuthorization());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -21410,10 +27778,16 @@ public final class Schema {
         result = result && getNetworking()
             .equals(other.getNetworking());
       }
-      result = result && internalGetLabels().equals(
-          other.internalGetLabels());
-      result = result && internalGetSelector().equals(
-          other.internalGetSelector());
+      result = result && (hasAuthentication() == other.hasAuthentication());
+      if (hasAuthentication()) {
+        result = result && getAuthentication()
+            .equals(other.getAuthentication());
+      }
+      result = result && (hasAuthorization() == other.hasAuthorization());
+      if (hasAuthorization()) {
+        result = result && getAuthorization()
+            .equals(other.getAuthorization());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -21439,13 +27813,13 @@ public final class Schema {
         hash = (37 * hash) + NETWORKING_FIELD_NUMBER;
         hash = (53 * hash) + getNetworking().hashCode();
       }
-      if (!internalGetLabels().getMap().isEmpty()) {
-        hash = (37 * hash) + LABELS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetLabels().hashCode();
+      if (hasAuthentication()) {
+        hash = (37 * hash) + AUTHENTICATION_FIELD_NUMBER;
+        hash = (53 * hash) + getAuthentication().hashCode();
       }
-      if (!internalGetSelector().getMap().isEmpty()) {
-        hash = (37 * hash) + SELECTOR_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetSelector().hashCode();
+      if (hasAuthorization()) {
+        hash = (37 * hash) + AUTHORIZATION_FIELD_NUMBER;
+        hash = (53 * hash) + getAuthorization().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -21558,32 +27932,6 @@ public final class Schema {
         return meshpaas.Schema.internal_static_meshpaas_AppInput_descriptor;
       }
 
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMapField(
-          int number) {
-        switch (number) {
-          case 10:
-            return internalGetLabels();
-          case 11:
-            return internalGetSelector();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMutableMapField(
-          int number) {
-        switch (number) {
-          case 10:
-            return internalGetMutableLabels();
-          case 11:
-            return internalGetMutableSelector();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
@@ -21629,8 +27977,18 @@ public final class Schema {
           networking_ = null;
           networkingBuilder_ = null;
         }
-        internalGetMutableLabels().clear();
-        internalGetMutableSelector().clear();
+        if (authenticationBuilder_ == null) {
+          authentication_ = null;
+        } else {
+          authentication_ = null;
+          authenticationBuilder_ = null;
+        }
+        if (authorizationBuilder_ == null) {
+          authorization_ = null;
+        } else {
+          authorization_ = null;
+          authorizationBuilder_ = null;
+        }
         return this;
       }
 
@@ -21676,10 +28034,16 @@ public final class Schema {
         } else {
           result.networking_ = networkingBuilder_.build();
         }
-        result.labels_ = internalGetLabels();
-        result.labels_.makeImmutable();
-        result.selector_ = internalGetSelector();
-        result.selector_.makeImmutable();
+        if (authenticationBuilder_ == null) {
+          result.authentication_ = authentication_;
+        } else {
+          result.authentication_ = authenticationBuilder_.build();
+        }
+        if (authorizationBuilder_ == null) {
+          result.authorization_ = authorization_;
+        } else {
+          result.authorization_ = authorizationBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -21769,10 +28133,12 @@ public final class Schema {
         if (other.hasNetworking()) {
           mergeNetworking(other.getNetworking());
         }
-        internalGetMutableLabels().mergeFrom(
-            other.internalGetLabels());
-        internalGetMutableSelector().mergeFrom(
-            other.internalGetSelector());
+        if (other.hasAuthentication()) {
+          mergeAuthentication(other.getAuthentication());
+        }
+        if (other.hasAuthorization()) {
+          mergeAuthorization(other.getAuthorization());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -22263,13 +28629,13 @@ public final class Schema {
       private com.google.protobuf.SingleFieldBuilderV3<
           meshpaas.Schema.Networking, meshpaas.Schema.Networking.Builder, meshpaas.Schema.NetworkingOrBuilder> networkingBuilder_;
       /**
-       * <code>.meshpaas.Networking networking = 9 [(.validator.field) = { ... }</code>
+       * <code>.meshpaas.Networking networking = 10 [(.validator.field) = { ... }</code>
        */
       public boolean hasNetworking() {
         return networkingBuilder_ != null || networking_ != null;
       }
       /**
-       * <code>.meshpaas.Networking networking = 9 [(.validator.field) = { ... }</code>
+       * <code>.meshpaas.Networking networking = 10 [(.validator.field) = { ... }</code>
        */
       public meshpaas.Schema.Networking getNetworking() {
         if (networkingBuilder_ == null) {
@@ -22279,7 +28645,7 @@ public final class Schema {
         }
       }
       /**
-       * <code>.meshpaas.Networking networking = 9 [(.validator.field) = { ... }</code>
+       * <code>.meshpaas.Networking networking = 10 [(.validator.field) = { ... }</code>
        */
       public Builder setNetworking(meshpaas.Schema.Networking value) {
         if (networkingBuilder_ == null) {
@@ -22295,7 +28661,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>.meshpaas.Networking networking = 9 [(.validator.field) = { ... }</code>
+       * <code>.meshpaas.Networking networking = 10 [(.validator.field) = { ... }</code>
        */
       public Builder setNetworking(
           meshpaas.Schema.Networking.Builder builderForValue) {
@@ -22309,7 +28675,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>.meshpaas.Networking networking = 9 [(.validator.field) = { ... }</code>
+       * <code>.meshpaas.Networking networking = 10 [(.validator.field) = { ... }</code>
        */
       public Builder mergeNetworking(meshpaas.Schema.Networking value) {
         if (networkingBuilder_ == null) {
@@ -22327,7 +28693,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>.meshpaas.Networking networking = 9 [(.validator.field) = { ... }</code>
+       * <code>.meshpaas.Networking networking = 10 [(.validator.field) = { ... }</code>
        */
       public Builder clearNetworking() {
         if (networkingBuilder_ == null) {
@@ -22341,7 +28707,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>.meshpaas.Networking networking = 9 [(.validator.field) = { ... }</code>
+       * <code>.meshpaas.Networking networking = 10 [(.validator.field) = { ... }</code>
        */
       public meshpaas.Schema.Networking.Builder getNetworkingBuilder() {
         
@@ -22349,7 +28715,7 @@ public final class Schema {
         return getNetworkingFieldBuilder().getBuilder();
       }
       /**
-       * <code>.meshpaas.Networking networking = 9 [(.validator.field) = { ... }</code>
+       * <code>.meshpaas.Networking networking = 10 [(.validator.field) = { ... }</code>
        */
       public meshpaas.Schema.NetworkingOrBuilder getNetworkingOrBuilder() {
         if (networkingBuilder_ != null) {
@@ -22360,7 +28726,7 @@ public final class Schema {
         }
       }
       /**
-       * <code>.meshpaas.Networking networking = 9 [(.validator.field) = { ... }</code>
+       * <code>.meshpaas.Networking networking = 10 [(.validator.field) = { ... }</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           meshpaas.Schema.Networking, meshpaas.Schema.Networking.Builder, meshpaas.Schema.NetworkingOrBuilder> 
@@ -22376,250 +28742,310 @@ public final class Schema {
         return networkingBuilder_;
       }
 
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> labels_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetLabels() {
-        if (labels_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              LabelsDefaultEntryHolder.defaultEntry);
+      private meshpaas.Schema.Authn authentication_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          meshpaas.Schema.Authn, meshpaas.Schema.Authn.Builder, meshpaas.Schema.AuthnOrBuilder> authenticationBuilder_;
+      /**
+       * <pre>
+       * application authentication options
+       * </pre>
+       *
+       * <code>.meshpaas.Authn authentication = 12;</code>
+       */
+      public boolean hasAuthentication() {
+        return authenticationBuilder_ != null || authentication_ != null;
+      }
+      /**
+       * <pre>
+       * application authentication options
+       * </pre>
+       *
+       * <code>.meshpaas.Authn authentication = 12;</code>
+       */
+      public meshpaas.Schema.Authn getAuthentication() {
+        if (authenticationBuilder_ == null) {
+          return authentication_ == null ? meshpaas.Schema.Authn.getDefaultInstance() : authentication_;
+        } else {
+          return authenticationBuilder_.getMessage();
         }
-        return labels_;
       }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableLabels() {
-        onChanged();;
-        if (labels_ == null) {
-          labels_ = com.google.protobuf.MapField.newMapField(
-              LabelsDefaultEntryHolder.defaultEntry);
+      /**
+       * <pre>
+       * application authentication options
+       * </pre>
+       *
+       * <code>.meshpaas.Authn authentication = 12;</code>
+       */
+      public Builder setAuthentication(meshpaas.Schema.Authn value) {
+        if (authenticationBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          authentication_ = value;
+          onChanged();
+        } else {
+          authenticationBuilder_.setMessage(value);
         }
-        if (!labels_.isMutable()) {
-          labels_ = labels_.copy();
-        }
-        return labels_;
-      }
 
-      public int getLabelsCount() {
-        return internalGetLabels().getMap().size();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 10 [(.validator.field) = { ... }</code>
-       */
-
-      public boolean containsLabels(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetLabels().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getLabelsMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getLabels() {
-        return getLabelsMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 10 [(.validator.field) = { ... }</code>
-       */
-
-      public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
-        return internalGetLabels().getMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 10 [(.validator.field) = { ... }</code>
-       */
-
-      public java.lang.String getLabelsOrDefault(
-          java.lang.String key,
-          java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetLabels().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 10 [(.validator.field) = { ... }</code>
-       */
-
-      public java.lang.String getLabelsOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetLabels().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-
-      public Builder clearLabels() {
-        internalGetMutableLabels().getMutableMap()
-            .clear();
         return this;
       }
       /**
-       * <code>map&lt;string, string&gt; labels = 10 [(.validator.field) = { ... }</code>
+       * <pre>
+       * application authentication options
+       * </pre>
+       *
+       * <code>.meshpaas.Authn authentication = 12;</code>
        */
-
-      public Builder removeLabels(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableLabels().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String>
-      getMutableLabels() {
-        return internalGetMutableLabels().getMutableMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 10 [(.validator.field) = { ... }</code>
-       */
-      public Builder putLabels(
-          java.lang.String key,
-          java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableLabels().getMutableMap()
-            .put(key, value);
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 10 [(.validator.field) = { ... }</code>
-       */
-
-      public Builder putAllLabels(
-          java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableLabels().getMutableMap()
-            .putAll(values);
-        return this;
-      }
-
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> selector_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetSelector() {
-        if (selector_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              SelectorDefaultEntryHolder.defaultEntry);
+      public Builder setAuthentication(
+          meshpaas.Schema.Authn.Builder builderForValue) {
+        if (authenticationBuilder_ == null) {
+          authentication_ = builderForValue.build();
+          onChanged();
+        } else {
+          authenticationBuilder_.setMessage(builderForValue.build());
         }
-        return selector_;
+
+        return this;
       }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableSelector() {
-        onChanged();;
-        if (selector_ == null) {
-          selector_ = com.google.protobuf.MapField.newMapField(
-              SelectorDefaultEntryHolder.defaultEntry);
+      /**
+       * <pre>
+       * application authentication options
+       * </pre>
+       *
+       * <code>.meshpaas.Authn authentication = 12;</code>
+       */
+      public Builder mergeAuthentication(meshpaas.Schema.Authn value) {
+        if (authenticationBuilder_ == null) {
+          if (authentication_ != null) {
+            authentication_ =
+              meshpaas.Schema.Authn.newBuilder(authentication_).mergeFrom(value).buildPartial();
+          } else {
+            authentication_ = value;
+          }
+          onChanged();
+        } else {
+          authenticationBuilder_.mergeFrom(value);
         }
-        if (!selector_.isMutable()) {
-          selector_ = selector_.copy();
+
+        return this;
+      }
+      /**
+       * <pre>
+       * application authentication options
+       * </pre>
+       *
+       * <code>.meshpaas.Authn authentication = 12;</code>
+       */
+      public Builder clearAuthentication() {
+        if (authenticationBuilder_ == null) {
+          authentication_ = null;
+          onChanged();
+        } else {
+          authentication_ = null;
+          authenticationBuilder_ = null;
         }
-        return selector_;
-      }
 
-      public int getSelectorCount() {
-        return internalGetSelector().getMap().size();
+        return this;
       }
       /**
-       * <code>map&lt;string, string&gt; selector = 11 [(.validator.field) = { ... }</code>
+       * <pre>
+       * application authentication options
+       * </pre>
+       *
+       * <code>.meshpaas.Authn authentication = 12;</code>
        */
-
-      public boolean containsSelector(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetSelector().getMap().containsKey(key);
+      public meshpaas.Schema.Authn.Builder getAuthenticationBuilder() {
+        
+        onChanged();
+        return getAuthenticationFieldBuilder().getBuilder();
       }
       /**
-       * Use {@link #getSelectorMap()} instead.
+       * <pre>
+       * application authentication options
+       * </pre>
+       *
+       * <code>.meshpaas.Authn authentication = 12;</code>
        */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getSelector() {
-        return getSelectorMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 11 [(.validator.field) = { ... }</code>
-       */
-
-      public java.util.Map<java.lang.String, java.lang.String> getSelectorMap() {
-        return internalGetSelector().getMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 11 [(.validator.field) = { ... }</code>
-       */
-
-      public java.lang.String getSelectorOrDefault(
-          java.lang.String key,
-          java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetSelector().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 11 [(.validator.field) = { ... }</code>
-       */
-
-      public java.lang.String getSelectorOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetSelector().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
+      public meshpaas.Schema.AuthnOrBuilder getAuthenticationOrBuilder() {
+        if (authenticationBuilder_ != null) {
+          return authenticationBuilder_.getMessageOrBuilder();
+        } else {
+          return authentication_ == null ?
+              meshpaas.Schema.Authn.getDefaultInstance() : authentication_;
         }
-        return map.get(key);
+      }
+      /**
+       * <pre>
+       * application authentication options
+       * </pre>
+       *
+       * <code>.meshpaas.Authn authentication = 12;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          meshpaas.Schema.Authn, meshpaas.Schema.Authn.Builder, meshpaas.Schema.AuthnOrBuilder> 
+          getAuthenticationFieldBuilder() {
+        if (authenticationBuilder_ == null) {
+          authenticationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              meshpaas.Schema.Authn, meshpaas.Schema.Authn.Builder, meshpaas.Schema.AuthnOrBuilder>(
+                  getAuthentication(),
+                  getParentForChildren(),
+                  isClean());
+          authentication_ = null;
+        }
+        return authenticationBuilder_;
       }
 
-      public Builder clearSelector() {
-        internalGetMutableSelector().getMutableMap()
-            .clear();
-        return this;
+      private meshpaas.Schema.Authz authorization_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          meshpaas.Schema.Authz, meshpaas.Schema.Authz.Builder, meshpaas.Schema.AuthzOrBuilder> authorizationBuilder_;
+      /**
+       * <pre>
+       * application authorization options
+       * </pre>
+       *
+       * <code>.meshpaas.Authz authorization = 13;</code>
+       */
+      public boolean hasAuthorization() {
+        return authorizationBuilder_ != null || authorization_ != null;
       }
       /**
-       * <code>map&lt;string, string&gt; selector = 11 [(.validator.field) = { ... }</code>
+       * <pre>
+       * application authorization options
+       * </pre>
+       *
+       * <code>.meshpaas.Authz authorization = 13;</code>
        */
+      public meshpaas.Schema.Authz getAuthorization() {
+        if (authorizationBuilder_ == null) {
+          return authorization_ == null ? meshpaas.Schema.Authz.getDefaultInstance() : authorization_;
+        } else {
+          return authorizationBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * application authorization options
+       * </pre>
+       *
+       * <code>.meshpaas.Authz authorization = 13;</code>
+       */
+      public Builder setAuthorization(meshpaas.Schema.Authz value) {
+        if (authorizationBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          authorization_ = value;
+          onChanged();
+        } else {
+          authorizationBuilder_.setMessage(value);
+        }
 
-      public Builder removeSelector(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableSelector().getMutableMap()
-            .remove(key);
         return this;
       }
       /**
-       * Use alternate mutation accessors instead.
+       * <pre>
+       * application authorization options
+       * </pre>
+       *
+       * <code>.meshpaas.Authz authorization = 13;</code>
        */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String>
-      getMutableSelector() {
-        return internalGetMutableSelector().getMutableMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 11 [(.validator.field) = { ... }</code>
-       */
-      public Builder putSelector(
-          java.lang.String key,
-          java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableSelector().getMutableMap()
-            .put(key, value);
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; selector = 11 [(.validator.field) = { ... }</code>
-       */
+      public Builder setAuthorization(
+          meshpaas.Schema.Authz.Builder builderForValue) {
+        if (authorizationBuilder_ == null) {
+          authorization_ = builderForValue.build();
+          onChanged();
+        } else {
+          authorizationBuilder_.setMessage(builderForValue.build());
+        }
 
-      public Builder putAllSelector(
-          java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableSelector().getMutableMap()
-            .putAll(values);
         return this;
+      }
+      /**
+       * <pre>
+       * application authorization options
+       * </pre>
+       *
+       * <code>.meshpaas.Authz authorization = 13;</code>
+       */
+      public Builder mergeAuthorization(meshpaas.Schema.Authz value) {
+        if (authorizationBuilder_ == null) {
+          if (authorization_ != null) {
+            authorization_ =
+              meshpaas.Schema.Authz.newBuilder(authorization_).mergeFrom(value).buildPartial();
+          } else {
+            authorization_ = value;
+          }
+          onChanged();
+        } else {
+          authorizationBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * application authorization options
+       * </pre>
+       *
+       * <code>.meshpaas.Authz authorization = 13;</code>
+       */
+      public Builder clearAuthorization() {
+        if (authorizationBuilder_ == null) {
+          authorization_ = null;
+          onChanged();
+        } else {
+          authorization_ = null;
+          authorizationBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * application authorization options
+       * </pre>
+       *
+       * <code>.meshpaas.Authz authorization = 13;</code>
+       */
+      public meshpaas.Schema.Authz.Builder getAuthorizationBuilder() {
+        
+        onChanged();
+        return getAuthorizationFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * application authorization options
+       * </pre>
+       *
+       * <code>.meshpaas.Authz authorization = 13;</code>
+       */
+      public meshpaas.Schema.AuthzOrBuilder getAuthorizationOrBuilder() {
+        if (authorizationBuilder_ != null) {
+          return authorizationBuilder_.getMessageOrBuilder();
+        } else {
+          return authorization_ == null ?
+              meshpaas.Schema.Authz.getDefaultInstance() : authorization_;
+        }
+      }
+      /**
+       * <pre>
+       * application authorization options
+       * </pre>
+       *
+       * <code>.meshpaas.Authz authorization = 13;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          meshpaas.Schema.Authz, meshpaas.Schema.Authz.Builder, meshpaas.Schema.AuthzOrBuilder> 
+          getAuthorizationFieldBuilder() {
+        if (authorizationBuilder_ == null) {
+          authorizationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              meshpaas.Schema.Authz, meshpaas.Schema.Authz.Builder, meshpaas.Schema.AuthzOrBuilder>(
+                  getAuthorization(),
+                  getParentForChildren(),
+                  isClean());
+          authorization_ = null;
+        }
+        return authorizationBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -27166,40 +33592,6 @@ public final class Schema {
      */
     com.google.protobuf.ByteString
         getNameBytes();
-
-    /**
-     * <code>map&lt;string, string&gt; labels = 2 [(.validator.field) = { ... }</code>
-     */
-    int getLabelsCount();
-    /**
-     * <code>map&lt;string, string&gt; labels = 2 [(.validator.field) = { ... }</code>
-     */
-    boolean containsLabels(
-        java.lang.String key);
-    /**
-     * Use {@link #getLabelsMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.String>
-    getLabels();
-    /**
-     * <code>map&lt;string, string&gt; labels = 2 [(.validator.field) = { ... }</code>
-     */
-    java.util.Map<java.lang.String, java.lang.String>
-    getLabelsMap();
-    /**
-     * <code>map&lt;string, string&gt; labels = 2 [(.validator.field) = { ... }</code>
-     */
-
-    java.lang.String getLabelsOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue);
-    /**
-     * <code>map&lt;string, string&gt; labels = 2 [(.validator.field) = { ... }</code>
-     */
-
-    java.lang.String getLabelsOrThrow(
-        java.lang.String key);
   }
   /**
    * Protobuf type {@code meshpaas.ProjectInput}
@@ -27247,19 +33639,6 @@ public final class Schema {
               name_ = s;
               break;
             }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                labels_ = com.google.protobuf.MapField.newMapField(
-                    LabelsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000002;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              labels__ = input.readMessage(
-                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              labels_.getMutableMap().put(
-                  labels__.getKey(), labels__.getValue());
-              break;
-            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -27284,18 +33663,6 @@ public final class Schema {
       return meshpaas.Schema.internal_static_meshpaas_ProjectInput_descriptor;
     }
 
-    @SuppressWarnings({"rawtypes"})
-    @java.lang.Override
-    protected com.google.protobuf.MapField internalGetMapField(
-        int number) {
-      switch (number) {
-        case 2:
-          return internalGetLabels();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -27304,7 +33671,6 @@ public final class Schema {
               meshpaas.Schema.ProjectInput.class, meshpaas.Schema.ProjectInput.Builder.class);
     }
 
-    private int bitField0_;
     public static final int NAME_FIELD_NUMBER = 1;
     private volatile java.lang.Object name_;
     /**
@@ -27339,82 +33705,6 @@ public final class Schema {
       }
     }
 
-    public static final int LABELS_FIELD_NUMBER = 2;
-    private static final class LabelsDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.String> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.String>newDefaultInstance(
-                  meshpaas.Schema.internal_static_meshpaas_ProjectInput_LabelsEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "");
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> labels_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
-      if (labels_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            LabelsDefaultEntryHolder.defaultEntry);
-      }
-      return labels_;
-    }
-
-    public int getLabelsCount() {
-      return internalGetLabels().getMap().size();
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 2 [(.validator.field) = { ... }</code>
-     */
-
-    public boolean containsLabels(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetLabels().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getLabelsMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getLabels() {
-      return getLabelsMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 2 [(.validator.field) = { ... }</code>
-     */
-
-    public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
-      return internalGetLabels().getMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 2 [(.validator.field) = { ... }</code>
-     */
-
-    public java.lang.String getLabelsOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetLabels().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 2 [(.validator.field) = { ... }</code>
-     */
-
-    public java.lang.String getLabelsOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetLabels().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -27432,12 +33722,6 @@ public final class Schema {
       if (!getNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetLabels(),
-          LabelsDefaultEntryHolder.defaultEntry,
-          2);
       unknownFields.writeTo(output);
     }
 
@@ -27449,16 +33733,6 @@ public final class Schema {
       size = 0;
       if (!getNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
-      }
-      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetLabels().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        labels__ = LabelsDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(2, labels__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -27478,8 +33752,6 @@ public final class Schema {
       boolean result = true;
       result = result && getName()
           .equals(other.getName());
-      result = result && internalGetLabels().equals(
-          other.internalGetLabels());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -27493,10 +33765,6 @@ public final class Schema {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      if (!internalGetLabels().getMap().isEmpty()) {
-        hash = (37 * hash) + LABELS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetLabels().hashCode();
-      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -27604,28 +33872,6 @@ public final class Schema {
         return meshpaas.Schema.internal_static_meshpaas_ProjectInput_descriptor;
       }
 
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMapField(
-          int number) {
-        switch (number) {
-          case 2:
-            return internalGetLabels();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMutableMapField(
-          int number) {
-        switch (number) {
-          case 2:
-            return internalGetMutableLabels();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
@@ -27654,7 +33900,6 @@ public final class Schema {
         super.clear();
         name_ = "";
 
-        internalGetMutableLabels().clear();
         return this;
       }
 
@@ -27681,12 +33926,7 @@ public final class Schema {
       @java.lang.Override
       public meshpaas.Schema.ProjectInput buildPartial() {
         meshpaas.Schema.ProjectInput result = new meshpaas.Schema.ProjectInput(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         result.name_ = name_;
-        result.labels_ = internalGetLabels();
-        result.labels_.makeImmutable();
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -27739,8 +33979,6 @@ public final class Schema {
           name_ = other.name_;
           onChanged();
         }
-        internalGetMutableLabels().mergeFrom(
-            other.internalGetLabels());
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -27769,7 +34007,6 @@ public final class Schema {
         }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object name_ = "";
       /**
@@ -27839,129 +34076,6 @@ public final class Schema {
         onChanged();
         return this;
       }
-
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> labels_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetLabels() {
-        if (labels_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              LabelsDefaultEntryHolder.defaultEntry);
-        }
-        return labels_;
-      }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableLabels() {
-        onChanged();;
-        if (labels_ == null) {
-          labels_ = com.google.protobuf.MapField.newMapField(
-              LabelsDefaultEntryHolder.defaultEntry);
-        }
-        if (!labels_.isMutable()) {
-          labels_ = labels_.copy();
-        }
-        return labels_;
-      }
-
-      public int getLabelsCount() {
-        return internalGetLabels().getMap().size();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 2 [(.validator.field) = { ... }</code>
-       */
-
-      public boolean containsLabels(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetLabels().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getLabelsMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getLabels() {
-        return getLabelsMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 2 [(.validator.field) = { ... }</code>
-       */
-
-      public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
-        return internalGetLabels().getMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 2 [(.validator.field) = { ... }</code>
-       */
-
-      public java.lang.String getLabelsOrDefault(
-          java.lang.String key,
-          java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetLabels().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 2 [(.validator.field) = { ... }</code>
-       */
-
-      public java.lang.String getLabelsOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetLabels().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-
-      public Builder clearLabels() {
-        internalGetMutableLabels().getMutableMap()
-            .clear();
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 2 [(.validator.field) = { ... }</code>
-       */
-
-      public Builder removeLabels(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableLabels().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String>
-      getMutableLabels() {
-        return internalGetMutableLabels().getMutableMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 2 [(.validator.field) = { ... }</code>
-       */
-      public Builder putLabels(
-          java.lang.String key,
-          java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableLabels().getMutableMap()
-            .put(key, value);
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 2 [(.validator.field) = { ... }</code>
-       */
-
-      public Builder putAllLabels(
-          java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableLabels().getMutableMap()
-            .putAll(values);
-        return this;
-      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -28028,40 +34142,6 @@ public final class Schema {
      */
     com.google.protobuf.ByteString
         getNameBytes();
-
-    /**
-     * <code>map&lt;string, string&gt; labels = 2;</code>
-     */
-    int getLabelsCount();
-    /**
-     * <code>map&lt;string, string&gt; labels = 2;</code>
-     */
-    boolean containsLabels(
-        java.lang.String key);
-    /**
-     * Use {@link #getLabelsMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.String>
-    getLabels();
-    /**
-     * <code>map&lt;string, string&gt; labels = 2;</code>
-     */
-    java.util.Map<java.lang.String, java.lang.String>
-    getLabelsMap();
-    /**
-     * <code>map&lt;string, string&gt; labels = 2;</code>
-     */
-
-    java.lang.String getLabelsOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue);
-    /**
-     * <code>map&lt;string, string&gt; labels = 2;</code>
-     */
-
-    java.lang.String getLabelsOrThrow(
-        java.lang.String key);
   }
   /**
    * Protobuf type {@code meshpaas.Project}
@@ -28109,19 +34189,6 @@ public final class Schema {
               name_ = s;
               break;
             }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                labels_ = com.google.protobuf.MapField.newMapField(
-                    LabelsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000002;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              labels__ = input.readMessage(
-                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              labels_.getMutableMap().put(
-                  labels__.getKey(), labels__.getValue());
-              break;
-            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -28146,18 +34213,6 @@ public final class Schema {
       return meshpaas.Schema.internal_static_meshpaas_Project_descriptor;
     }
 
-    @SuppressWarnings({"rawtypes"})
-    @java.lang.Override
-    protected com.google.protobuf.MapField internalGetMapField(
-        int number) {
-      switch (number) {
-        case 2:
-          return internalGetLabels();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -28166,7 +34221,6 @@ public final class Schema {
               meshpaas.Schema.Project.class, meshpaas.Schema.Project.Builder.class);
     }
 
-    private int bitField0_;
     public static final int NAME_FIELD_NUMBER = 1;
     private volatile java.lang.Object name_;
     /**
@@ -28201,82 +34255,6 @@ public final class Schema {
       }
     }
 
-    public static final int LABELS_FIELD_NUMBER = 2;
-    private static final class LabelsDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.String> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.String>newDefaultInstance(
-                  meshpaas.Schema.internal_static_meshpaas_Project_LabelsEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "");
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> labels_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
-      if (labels_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            LabelsDefaultEntryHolder.defaultEntry);
-      }
-      return labels_;
-    }
-
-    public int getLabelsCount() {
-      return internalGetLabels().getMap().size();
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 2;</code>
-     */
-
-    public boolean containsLabels(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetLabels().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getLabelsMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getLabels() {
-      return getLabelsMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 2;</code>
-     */
-
-    public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
-      return internalGetLabels().getMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 2;</code>
-     */
-
-    public java.lang.String getLabelsOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetLabels().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;string, string&gt; labels = 2;</code>
-     */
-
-    public java.lang.String getLabelsOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetLabels().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -28294,12 +34272,6 @@ public final class Schema {
       if (!getNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetLabels(),
-          LabelsDefaultEntryHolder.defaultEntry,
-          2);
       unknownFields.writeTo(output);
     }
 
@@ -28311,16 +34283,6 @@ public final class Schema {
       size = 0;
       if (!getNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
-      }
-      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetLabels().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        labels__ = LabelsDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(2, labels__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -28340,8 +34302,6 @@ public final class Schema {
       boolean result = true;
       result = result && getName()
           .equals(other.getName());
-      result = result && internalGetLabels().equals(
-          other.internalGetLabels());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -28355,10 +34315,6 @@ public final class Schema {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      if (!internalGetLabels().getMap().isEmpty()) {
-        hash = (37 * hash) + LABELS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetLabels().hashCode();
-      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -28466,28 +34422,6 @@ public final class Schema {
         return meshpaas.Schema.internal_static_meshpaas_Project_descriptor;
       }
 
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMapField(
-          int number) {
-        switch (number) {
-          case 2:
-            return internalGetLabels();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMutableMapField(
-          int number) {
-        switch (number) {
-          case 2:
-            return internalGetMutableLabels();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
@@ -28516,7 +34450,6 @@ public final class Schema {
         super.clear();
         name_ = "";
 
-        internalGetMutableLabels().clear();
         return this;
       }
 
@@ -28543,12 +34476,7 @@ public final class Schema {
       @java.lang.Override
       public meshpaas.Schema.Project buildPartial() {
         meshpaas.Schema.Project result = new meshpaas.Schema.Project(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         result.name_ = name_;
-        result.labels_ = internalGetLabels();
-        result.labels_.makeImmutable();
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -28601,8 +34529,6 @@ public final class Schema {
           name_ = other.name_;
           onChanged();
         }
-        internalGetMutableLabels().mergeFrom(
-            other.internalGetLabels());
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -28631,7 +34557,6 @@ public final class Schema {
         }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object name_ = "";
       /**
@@ -28699,129 +34624,6 @@ public final class Schema {
         
         name_ = value;
         onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> labels_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetLabels() {
-        if (labels_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              LabelsDefaultEntryHolder.defaultEntry);
-        }
-        return labels_;
-      }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableLabels() {
-        onChanged();;
-        if (labels_ == null) {
-          labels_ = com.google.protobuf.MapField.newMapField(
-              LabelsDefaultEntryHolder.defaultEntry);
-        }
-        if (!labels_.isMutable()) {
-          labels_ = labels_.copy();
-        }
-        return labels_;
-      }
-
-      public int getLabelsCount() {
-        return internalGetLabels().getMap().size();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 2;</code>
-       */
-
-      public boolean containsLabels(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetLabels().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getLabelsMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getLabels() {
-        return getLabelsMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 2;</code>
-       */
-
-      public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
-        return internalGetLabels().getMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 2;</code>
-       */
-
-      public java.lang.String getLabelsOrDefault(
-          java.lang.String key,
-          java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetLabels().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 2;</code>
-       */
-
-      public java.lang.String getLabelsOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetLabels().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-
-      public Builder clearLabels() {
-        internalGetMutableLabels().getMutableMap()
-            .clear();
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 2;</code>
-       */
-
-      public Builder removeLabels(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableLabels().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String>
-      getMutableLabels() {
-        return internalGetMutableLabels().getMutableMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 2;</code>
-       */
-      public Builder putLabels(
-          java.lang.String key,
-          java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableLabels().getMutableMap()
-            .put(key, value);
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; labels = 2;</code>
-       */
-
-      public Builder putAllLabels(
-          java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableLabels().getMutableMap()
-            .putAll(values);
         return this;
       }
       @java.lang.Override
@@ -30032,6 +35834,46 @@ public final class Schema {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_meshpaas_AuthzDestination_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_meshpaas_AuthzDestination_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_meshpaas_AuthzSource_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_meshpaas_AuthzSource_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_meshpaas_AuthzCondition_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_meshpaas_AuthzCondition_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_meshpaas_AuthzRule_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_meshpaas_AuthzRule_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_meshpaas_AuthzPolicy_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_meshpaas_AuthzPolicy_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_meshpaas_Authz_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_meshpaas_Authz_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_meshpaas_AuthnRule_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_meshpaas_AuthnRule_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_meshpaas_Authn_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_meshpaas_Authn_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_meshpaas_SecretInput_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -30042,11 +35884,6 @@ public final class Schema {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_meshpaas_SecretInput_DataEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_SecretInput_LabelsEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_SecretInput_LabelsEntry_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_meshpaas_Secret_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -30056,11 +35893,6 @@ public final class Schema {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_meshpaas_Secret_DataEntry_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_Secret_LabelsEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_Secret_LabelsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_meshpaas_ServerTLSSettings_descriptor;
   private static final 
@@ -30077,30 +35909,10 @@ public final class Schema {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_meshpaas_Gateway_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_Gateway_LabelsEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_Gateway_LabelsEntry_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_Gateway_SelectorEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_Gateway_SelectorEntry_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_meshpaas_GatewayInput_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_meshpaas_GatewayInput_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_GatewayInput_LabelsEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_GatewayInput_LabelsEntry_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_GatewayInput_SelectorEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_GatewayInput_SelectorEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_meshpaas_HTTPRoute_descriptor;
   private static final 
@@ -30132,60 +35944,20 @@ public final class Schema {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_meshpaas_App_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_App_LabelsEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_App_LabelsEntry_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_App_SelectorEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_App_SelectorEntry_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_meshpaas_Task_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_meshpaas_Task_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_Task_LabelsEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_Task_LabelsEntry_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_Task_SelectorEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_Task_SelectorEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_meshpaas_TaskInput_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_meshpaas_TaskInput_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_TaskInput_LabelsEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_TaskInput_LabelsEntry_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_TaskInput_SelectorEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_TaskInput_SelectorEntry_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_meshpaas_AppInput_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_meshpaas_AppInput_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_AppInput_LabelsEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_AppInput_LabelsEntry_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_AppInput_SelectorEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_AppInput_SelectorEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_meshpaas_Ref_descriptor;
   private static final 
@@ -30222,20 +35994,10 @@ public final class Schema {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_meshpaas_ProjectInput_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_ProjectInput_LabelsEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_ProjectInput_LabelsEntry_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_meshpaas_Project_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_meshpaas_Project_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_Project_LabelsEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_Project_LabelsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_meshpaas_ProjectRef_descriptor;
   private static final 
@@ -30260,22 +36022,42 @@ public final class Schema {
       "p.proto\032\031google/protobuf/any.proto\032\033goog" +
       "le/protobuf/empty.proto\0326github.com/mwit" +
       "kow/go-proto-validators/validator.proto\"" +
-      "\325\002\n\013SecretInput\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{" +
+      "\336\001\n\020AuthzDestination\022\027\n\017hosts_whitelist\030" +
+      "\001 \003(\t\022\027\n\017hosts_blacklist\030\005 \003(\t\022\027\n\017ports_" +
+      "whitelist\030\002 \003(\t\022\027\n\017ports_blacklist\030\006 \003(\t" +
+      "\022\031\n\021methods_whitelist\030\003 \003(\t\022\031\n\021methods_b" +
+      "lacklist\030\007 \003(\t\022\027\n\017paths_whitelist\030\004 \003(\t\022" +
+      "\027\n\017paths_blacklist\030\010 \003(\t\"\321\001\n\013AuthzSource" +
+      "\022\034\n\024principals_whitelist\030\001 \003(\t\022\034\n\024princi" +
+      "pals_blacklist\030\005 \003(\t\022$\n\034request_principa" +
+      "ls_whitelist\030\002 \003(\t\022$\n\034request_principals" +
+      "_blacklist\030\006 \003(\t\022\034\n\024namespaces_whitelist" +
+      "\030\003 \003(\t\022\034\n\024namespaces_blacklist\030\007 \003(\t\"S\n\016" +
+      "AuthzCondition\022\035\n\003key\030\001 \001(\tB\020\342\337\037\014\n\n^.{1," +
+      "225}$\022\016\n\006equals\030\002 \003(\t\022\022\n\nnot_equals\030\003 \003(" +
+      "\t\"\223\001\n\tAuthzRule\022&\n\007sources\030\001 \003(\0132\025.meshp" +
+      "aas.AuthzSource\022,\n\nconditions\030\002 \003(\0132\030.me" +
+      "shpaas.AuthzCondition\0220\n\014destinations\030\003 " +
+      "\003(\0132\032.meshpaas.AuthzDestination\"X\n\013Authz" +
+      "Policy\022%\n\006action\030\001 \001(\0162\025.meshpaas.AuthzA" +
+      "ction\022\"\n\005rules\030\002 \003(\0132\023.meshpaas.AuthzRul" +
+      "e\"0\n\005Authz\022\'\n\010policies\030\001 \003(\0132\025.meshpaas." +
+      "AuthzPolicy\"\223\001\n\tAuthnRule\022\"\n\010jwks_uri\030\001 " +
+      "\001(\tB\020\342\337\037\014\n\n^.{1,225}$\022 \n\006issuer\030\002 \001(\tB\020\342" +
+      "\337\037\014\n\n^.{1,225}$\022\020\n\010audience\030\003 \003(\t\022.\n\024oup" +
+      "ut_payload_header\030\004 \001(\tB\020\342\337\037\014\n\n^.{1,225}" +
+      "$\"+\n\005Authn\022\"\n\005rules\030\001 \003(\0132\023.meshpaas.Aut" +
+      "hnRule\"\353\001\n\013SecretInput\022\036\n\004name\030\001 \001(\tB\020\342\337" +
+      "\037\014\n\n^.{1,225}$\022!\n\007project\030\002 \001(\tB\020\342\337\037\014\n\n^" +
+      ".{1,225}$\022\"\n\004type\030\003 \001(\0162\024.meshpaas.Secre" +
+      "tType\022\021\n\timmutable\030\004 \001(\010\0225\n\004data\030\005 \003(\0132\037" +
+      ".meshpaas.SecretInput.DataEntryB\006\342\337\037\002 \001\032" +
+      "+\n\tDataEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t" +
+      ":\0028\001\"\341\001\n\006Secret\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{" +
       "1,225}$\022!\n\007project\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225" +
       "}$\022\"\n\004type\030\003 \001(\0162\024.meshpaas.SecretType\022\021" +
-      "\n\timmutable\030\004 \001(\010\0225\n\004data\030\005 \003(\0132\037.meshpa" +
-      "as.SecretInput.DataEntryB\006\342\337\037\002 \001\0229\n\006labe" +
-      "ls\030\006 \003(\0132!.meshpaas.SecretInput.LabelsEn" +
-      "tryB\006\342\337\037\002 \001\032+\n\tDataEntry\022\013\n\003key\030\001 \001(\t\022\r\n" +
-      "\005value\030\002 \001(\t:\0028\001\032-\n\013LabelsEntry\022\013\n\003key\030\001" +
-      " \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\306\002\n\006Secret\022\036\n\004na" +
-      "me\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022!\n\007project\030\002 " +
-      "\001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\"\n\004type\030\003 \001(\0162\024.me" +
-      "shpaas.SecretType\022\021\n\timmutable\030\004 \001(\010\0220\n\004" +
-      "data\030\005 \003(\0132\032.meshpaas.Secret.DataEntryB\006" +
-      "\342\337\037\002 \001\0224\n\006labels\030\006 \003(\0132\034.meshpaas.Secret" +
-      ".LabelsEntryB\006\342\337\037\002 \001\032+\n\tDataEntry\022\013\n\003key" +
-      "\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032-\n\013LabelsEntry" +
+      "\n\timmutable\030\004 \001(\010\0220\n\004data\030\005 \003(\0132\032.meshpa" +
+      "as.Secret.DataEntryB\006\342\337\037\002 \001\032+\n\tDataEntry" +
       "\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\331\001\n\021Ser" +
       "verTLSSettings\022\026\n\016https_redirect\030\001 \001(\010\022\037" +
       "\n\004mode\030\002 \001(\0162\021.meshpaas.TLSmode\022\027\n\017crede" +
@@ -30287,135 +36069,104 @@ public final class Schema {
       ",225}$\022,\n\010protocol\030\003 \001(\0162\022.meshpaas.Prot" +
       "ocolB\006\342\337\037\002\020\000\022\025\n\005hosts\030\004 \003(\tB\006\342\337\037\002`\000\022/\n\nt" +
       "ls_config\030\005 \001(\0132\033.meshpaas.ServerTLSSett" +
-      "ings\"\230\002\n\007Gateway\022\014\n\004name\030\001 \001(\t\022\017\n\007projec" +
-      "t\030\002 \001(\t\022,\n\tlisteners\030\003 \003(\0132\031.meshpaas.Ga" +
-      "tewayListener\022-\n\006labels\030\004 \003(\0132\035.meshpaas" +
-      ".Gateway.LabelsEntry\0221\n\010selector\030\005 \003(\0132\037" +
-      ".meshpaas.Gateway.SelectorEntry\032-\n\013Label" +
-      "sEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032/" +
-      "\n\rSelectorEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 " +
-      "\001(\t:\0028\001\"\333\002\n\014GatewayInput\022\036\n\004name\030\001 \001(\tB\020" +
-      "\342\337\037\014\n\n^.{1,225}$\022!\n\007project\030\002 \001(\tB\020\342\337\037\014\n" +
-      "\n^.{1,225}$\022,\n\tlisteners\030\003 \003(\0132\031.meshpaa" +
-      "s.GatewayListener\022:\n\006labels\030\004 \003(\0132\".mesh" +
-      "paas.GatewayInput.LabelsEntryB\006\342\337\037\002 \001\022>\n" +
-      "\010selector\030\005 \003(\0132$.meshpaas.GatewayInput." +
-      "SelectorEntryB\006\342\337\037\002 \001\032-\n\013LabelsEntry\022\013\n\003" +
-      "key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032/\n\rSelector" +
-      "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\343\001" +
-      "\n\tHTTPRoute\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,22" +
-      "5}$\022\024\n\004port\030\002 \001(\rB\006\342\337\037\002\020\000\022\023\n\013path_prefix" +
-      "\030\003 \001(\t\022\023\n\013rewrite_uri\030\005 \001(\t\022\025\n\rallow_ori" +
-      "gins\030\006 \003(\t\022\025\n\rallow_methods\030\007 \003(\t\022\025\n\rall" +
-      "ow_headers\030\010 \003(\t\022\026\n\016expose_headers\030\t \003(\t" +
-      "\022\031\n\021allow_credentials\030\n \001(\010\"g\n\nNetworkin" +
-      "g\022\020\n\010gateways\030\001 \003(\t\022\r\n\005hosts\030\002 \003(\t\022\016\n\006ex" +
-      "port\030\003 \001(\010\022(\n\013http_routes\030\004 \003(\0132\023.meshpa" +
-      "as.HTTPRoute\"\226\002\n\tContainer\022\036\n\004name\030\001 \001(\t" +
-      "B\020\342\337\037\014\n\n^.{1,225}$\022\037\n\005image\030\002 \001(\tB\020\342\337\037\014\n" +
-      "\n^.{1,225}$\022\014\n\004args\030\003 \003(\t\022)\n\003env\030\004 \003(\0132\034" +
-      ".meshpaas.Container.EnvEntry\0225\n\005ports\030\005 " +
-      "\003(\0132\036.meshpaas.Container.PortsEntryB\006\342\337\037" +
-      "\002 \001\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 " +
-      "\001(\t:\0028\001\032,\n\nPortsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
-      "lue\030\002 \001(\r:\0028\001\"\264\003\n\003App\022\036\n\004name\030\001 \001(\tB\020\342\337\037" +
-      "\014\n\n^.{1,225}$\022!\n\007project\030\002 \001(\tB\020\342\337\037\014\n\n^." +
-      "{1,225}$\022/\n\ncontainers\030\003 \003(\0132\023.meshpaas." +
-      "ContainerB\006\342\337\037\002 \001\022\020\n\010replicas\030\010 \001(\r\0221\n\006l" +
-      "abels\030\t \003(\0132\031.meshpaas.App.LabelsEntryB\006" +
-      "\342\337\037\002 \001\0225\n\010selector\030\n \003(\0132\033.meshpaas.App." +
-      "SelectorEntryB\006\342\337\037\002 \001\0220\n\nnetworking\030\013 \001(" +
-      "\0132\024.meshpaas.NetworkingB\006\342\337\037\002 \001\022+\n\006statu" +
-      "s\030\024 \001(\0132\023.meshpaas.AppStatusB\006\342\337\037\002 \001\032-\n\013" +
-      "LabelsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:" +
-      "\0028\001\032/\n\rSelectorEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005val" +
-      "ue\030\002 \001(\t:\0028\001\"\377\002\n\004Task\022\036\n\004name\030\001 \001(\tB\020\342\337\037" +
-      "\014\n\n^.{1,225}$\022!\n\007project\030\002 \001(\tB\020\342\337\037\014\n\n^." +
-      "{1,225}$\022/\n\ncontainers\030\003 \003(\0132\023.meshpaas." +
-      "ContainerB\006\342\337\037\002 \001\022\"\n\010schedule\030\007 \001(\tB\020\342\337\037" +
-      "\014\n\n^.{1,225}$\022\023\n\013completions\030\010 \001(\r\0222\n\006la" +
-      "bels\030\t \003(\0132\032.meshpaas.Task.LabelsEntryB\006" +
-      "\342\337\037\002 \001\0226\n\010selector\030\n \003(\0132\034.meshpaas.Task" +
-      ".SelectorEntryB\006\342\337\037\002 \001\032-\n\013LabelsEntry\022\013\n" +
-      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032/\n\rSelecto" +
-      "rEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\216" +
-      "\003\n\tTaskInput\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,2" +
-      "25}$\022!\n\007project\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022" +
-      "/\n\ncontainers\030\003 \003(\0132\023.meshpaas.Container" +
-      "B\006\342\337\037\002 \001\022\"\n\010schedule\030\007 \001(\tB\020\342\337\037\014\n\n^.{1,2" +
-      "25}$\022\023\n\013completions\030\010 \001(\r\0227\n\006labels\030\t \003(" +
-      "\0132\037.meshpaas.TaskInput.LabelsEntryB\006\342\337\037\002" +
-      " \001\022;\n\010selector\030\n \003(\0132!.meshpaas.TaskInpu" +
-      "t.SelectorEntryB\006\342\337\037\002 \001\032-\n\013LabelsEntry\022\013" +
-      "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032/\n\rSelect" +
-      "orEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"" +
-      "\226\003\n\010AppInput\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,2" +
-      "25}$\022!\n\007project\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022" +
-      "/\n\ncontainers\030\003 \003(\0132\023.meshpaas.Container" +
-      "B\006\342\337\037\002 \001\022\020\n\010replicas\030\007 \001(\r\0220\n\nnetworking" +
-      "\030\t \001(\0132\024.meshpaas.NetworkingB\006\342\337\037\002 \001\0226\n\006" +
-      "labels\030\n \003(\0132\036.meshpaas.AppInput.LabelsE" +
-      "ntryB\006\342\337\037\002 \001\022:\n\010selector\030\013 \003(\0132 .meshpaa" +
-      "s.AppInput.SelectorEntryB\006\342\337\037\002 \001\032-\n\013Labe" +
-      "lsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032" +
-      "/\n\rSelectorEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002" +
-      " \001(\t:\0028\001\"H\n\003Ref\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{" +
-      "1,225}$\022!\n\007project\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225" +
-      "}$\";\n\007Replica\022\r\n\005phase\030\001 \001(\t\022\021\n\tconditio" +
-      "n\030\002 \001(\t\022\016\n\006reason\030\003 \001(\t\"0\n\tAppStatus\022#\n\010" +
-      "replicas\030\001 \003(\0132\021.meshpaas.Replica\"\026\n\003Log" +
-      "\022\017\n\007message\030\001 \001(\t\"+\n\004Apps\022#\n\014application" +
-      "s\030\001 \003(\0132\r.meshpaas.App\"&\n\005Tasks\022\035\n\005tasks" +
-      "\030\001 \003(\0132\016.meshpaas.Task\"\231\001\n\014ProjectInput\022" +
-      "\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022:\n\006label" +
-      "s\030\002 \003(\0132\".meshpaas.ProjectInput.LabelsEn" +
-      "tryB\006\342\337\037\002 \001\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t\022" +
-      "\r\n\005value\030\002 \001(\t:\0028\001\"u\n\007Project\022\014\n\004name\030\001 " +
-      "\001(\t\022-\n\006labels\030\002 \003(\0132\035.meshpaas.Project.L" +
-      "abelsEntry\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t\022\r" +
-      "\n\005value\030\002 \001(\t:\0028\001\",\n\nProjectRef\022\036\n\004name\030" +
-      "\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\"\034\n\010Projects\022\020\n\010p" +
-      "rojects\030\001 \003(\t*=\n\nSecretType\022\n\n\006OPAQUE\020\000\022" +
-      "\020\n\014TLS_CERT_KEY\020\001\022\021\n\rDOCKER_CONFIG\020\002*g\n\010" +
-      "Protocol\022\024\n\020INVALID_PROTOCOL\020\000\022\010\n\004HTTP\020\001" +
-      "\022\t\n\005HTTPS\020\002\022\010\n\004GRPC\020\003\022\t\n\005HTTP2\020\004\022\t\n\005MONG" +
-      "O\020\005\022\007\n\003TCP\020\006\022\007\n\003TLS\020\007*Z\n\007TLSmode\022\017\n\013PASS" +
-      "THROUGH\020\000\022\n\n\006SIMPLE\020\001\022\n\n\006MUTUAL\020\002\022\024\n\020AUT" +
-      "O_PASSTHROUGH\020\003\022\020\n\014ISTIO_MUTUAL\020\0042\267\n\n\017Me" +
-      "shPaasService\022<\n\rCreateProject\022\026.meshpaa" +
-      "s.ProjectInput\032\021.meshpaas.Project\"\000\022<\n\014L" +
-      "istProjects\022\026.google.protobuf.Empty\032\022.me" +
-      "shpaas.Projects\"\000\022?\n\rDeleteProject\022\024.mes" +
-      "hpaas.ProjectRef\032\026.google.protobuf.Empty" +
-      "\"\000\0227\n\nGetProject\022\024.meshpaas.ProjectRef\032\021" +
-      ".meshpaas.Project\"\000\022<\n\rUpdateProject\022\026.m" +
-      "eshpaas.ProjectInput\032\021.meshpaas.Project\"" +
-      "\000\0220\n\tCreateApp\022\022.meshpaas.AppInput\032\r.mes" +
-      "hpaas.App\"\000\0220\n\tUpdateApp\022\022.meshpaas.AppI" +
-      "nput\032\r.meshpaas.App\"\000\0224\n\tDeleteApp\022\r.mes" +
-      "hpaas.Ref\032\026.google.protobuf.Empty\"\000\022(\n\006G" +
-      "etApp\022\r.meshpaas.Ref\032\r.meshpaas.App\"\000\0222\n" +
-      "\010ListApps\022\024.meshpaas.ProjectRef\032\016.meshpa" +
-      "as.Apps\"\000\0223\n\nCreateTask\022\023.meshpaas.TaskI" +
-      "nput\032\016.meshpaas.Task\"\000\0223\n\nUpdateTask\022\023.m" +
-      "eshpaas.TaskInput\032\016.meshpaas.Task\"\000\0225\n\nD" +
-      "eleteTask\022\r.meshpaas.Ref\032\026.google.protob" +
-      "uf.Empty\"\000\022*\n\007GetTask\022\r.meshpaas.Ref\032\016.m" +
-      "eshpaas.Task\"\000\0224\n\tListTasks\022\024.meshpaas.P" +
-      "rojectRef\032\017.meshpaas.Tasks\"\000\022<\n\rCreateGa" +
-      "teway\022\026.meshpaas.GatewayInput\032\021.meshpaas" +
-      ".Gateway\"\000\022<\n\rUpdateGateway\022\026.meshpaas.G" +
-      "atewayInput\032\021.meshpaas.Gateway\"\000\0228\n\rDele" +
-      "teGateway\022\r.meshpaas.Ref\032\026.google.protob" +
-      "uf.Empty\"\000\0220\n\nGetGateway\022\r.meshpaas.Ref\032" +
-      "\021.meshpaas.Gateway\"\000\0229\n\014CreateSecret\022\025.m" +
-      "eshpaas.SecretInput\032\020.meshpaas.Secret\"\000\022" +
-      "9\n\014UpdateSecret\022\025.meshpaas.SecretInput\032\020" +
-      ".meshpaas.Secret\"\000\0227\n\014DeleteSecret\022\r.mes" +
-      "hpaas.Ref\032\026.google.protobuf.Empty\"\000\022.\n\tG" +
-      "etSecret\022\r.meshpaas.Ref\032\020.meshpaas.Secre" +
-      "t\"\000\022.\n\nStreamLogs\022\r.meshpaas.Ref\032\r.meshp" +
-      "aas.Log\"\0000\001B\014Z\nmeshpaaspbb\006proto3"
+      "ings\"V\n\007Gateway\022\014\n\004name\030\001 \001(\t\022\017\n\007project" +
+      "\030\002 \001(\t\022,\n\tlisteners\030\003 \003(\0132\031.meshpaas.Gat" +
+      "ewayListener\"\177\n\014GatewayInput\022\036\n\004name\030\001 \001" +
+      "(\tB\020\342\337\037\014\n\n^.{1,225}$\022!\n\007project\030\002 \001(\tB\020\342" +
+      "\337\037\014\n\n^.{1,225}$\022,\n\tlisteners\030\003 \003(\0132\031.mes" +
+      "hpaas.GatewayListener\"\343\001\n\tHTTPRoute\022\036\n\004n" +
+      "ame\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\024\n\004port\030\002 \001(" +
+      "\rB\006\342\337\037\002\020\000\022\023\n\013path_prefix\030\003 \001(\t\022\023\n\013rewrit" +
+      "e_uri\030\005 \001(\t\022\025\n\rallow_origins\030\006 \003(\t\022\025\n\ral" +
+      "low_methods\030\007 \003(\t\022\025\n\rallow_headers\030\010 \003(\t" +
+      "\022\026\n\016expose_headers\030\t \003(\t\022\031\n\021allow_creden" +
+      "tials\030\n \001(\010\"g\n\nNetworking\022\020\n\010gateways\030\001 " +
+      "\003(\t\022\r\n\005hosts\030\002 \003(\t\022\016\n\006export\030\003 \001(\010\022(\n\013ht" +
+      "tp_routes\030\004 \003(\0132\023.meshpaas.HTTPRoute\"\226\002\n" +
+      "\tContainer\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225" +
+      "}$\022\037\n\005image\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\014\n\004a" +
+      "rgs\030\003 \003(\t\022)\n\003env\030\004 \003(\0132\034.meshpaas.Contai" +
+      "ner.EnvEntry\0225\n\005ports\030\005 \003(\0132\036.meshpaas.C" +
+      "ontainer.PortsEntryB\006\342\337\037\002 \001\032*\n\010EnvEntry\022" +
+      "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032,\n\nPorts" +
+      "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\"\273\002" +
+      "\n\003App\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022!\n" +
+      "\007project\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022/\n\ncont" +
+      "ainers\030\003 \003(\0132\023.meshpaas.ContainerB\006\342\337\037\002 " +
+      "\001\022\020\n\010replicas\030\010 \001(\r\0220\n\nnetworking\030\013 \001(\0132" +
+      "\024.meshpaas.NetworkingB\006\342\337\037\002 \001\022\'\n\016authent" +
+      "ication\030\014 \001(\0132\017.meshpaas.Authn\022&\n\rauthor" +
+      "ization\030\r \001(\0132\017.meshpaas.Authz\022+\n\006status" +
+      "\030\024 \001(\0132\023.meshpaas.AppStatusB\006\342\337\037\002 \001\"\263\001\n\004" +
+      "Task\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022!\n\007" +
+      "project\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022/\n\nconta" +
+      "iners\030\003 \003(\0132\023.meshpaas.ContainerB\006\342\337\037\002 \001" +
+      "\022\"\n\010schedule\030\007 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\023\n\013" +
+      "completions\030\010 \001(\r\"\270\001\n\tTaskInput\022\036\n\004name\030" +
+      "\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022!\n\007project\030\002 \001(\t" +
+      "B\020\342\337\037\014\n\n^.{1,225}$\022/\n\ncontainers\030\003 \003(\0132\023" +
+      ".meshpaas.ContainerB\006\342\337\037\002 \001\022\"\n\010schedule\030" +
+      "\007 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\023\n\013completions\030\010" +
+      " \001(\r\"\223\002\n\010AppInput\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^" +
+      ".{1,225}$\022!\n\007project\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,2" +
+      "25}$\022/\n\ncontainers\030\003 \003(\0132\023.meshpaas.Cont" +
+      "ainerB\006\342\337\037\002 \001\022\020\n\010replicas\030\007 \001(\r\0220\n\nnetwo" +
+      "rking\030\n \001(\0132\024.meshpaas.NetworkingB\006\342\337\037\002 " +
+      "\001\022\'\n\016authentication\030\014 \001(\0132\017.meshpaas.Aut" +
+      "hn\022&\n\rauthorization\030\r \001(\0132\017.meshpaas.Aut" +
+      "hz\"H\n\003Ref\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}" +
+      "$\022!\n\007project\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\";\n\007" +
+      "Replica\022\r\n\005phase\030\001 \001(\t\022\021\n\tcondition\030\002 \001(" +
+      "\t\022\016\n\006reason\030\003 \001(\t\"0\n\tAppStatus\022#\n\010replic" +
+      "as\030\001 \003(\0132\021.meshpaas.Replica\"\026\n\003Log\022\017\n\007me" +
+      "ssage\030\001 \001(\t\"+\n\004Apps\022#\n\014applications\030\001 \003(" +
+      "\0132\r.meshpaas.App\"&\n\005Tasks\022\035\n\005tasks\030\001 \003(\013" +
+      "2\016.meshpaas.Task\".\n\014ProjectInput\022\036\n\004name" +
+      "\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\"\027\n\007Project\022\014\n\004n" +
+      "ame\030\001 \001(\t\",\n\nProjectRef\022\036\n\004name\030\001 \001(\tB\020\342" +
+      "\337\037\014\n\n^.{1,225}$\"\034\n\010Projects\022\020\n\010projects\030" +
+      "\001 \003(\t*\"\n\013AuthzAction\022\t\n\005ALLOW\020\000\022\010\n\004DENY\020" +
+      "\001*=\n\nSecretType\022\n\n\006OPAQUE\020\000\022\020\n\014TLS_CERT_" +
+      "KEY\020\001\022\021\n\rDOCKER_CONFIG\020\002*g\n\010Protocol\022\024\n\020" +
+      "INVALID_PROTOCOL\020\000\022\010\n\004HTTP\020\001\022\t\n\005HTTPS\020\002\022" +
+      "\010\n\004GRPC\020\003\022\t\n\005HTTP2\020\004\022\t\n\005MONGO\020\005\022\007\n\003TCP\020\006" +
+      "\022\007\n\003TLS\020\007*Z\n\007TLSmode\022\017\n\013PASSTHROUGH\020\000\022\n\n" +
+      "\006SIMPLE\020\001\022\n\n\006MUTUAL\020\002\022\024\n\020AUTO_PASSTHROUG" +
+      "H\020\003\022\020\n\014ISTIO_MUTUAL\020\0042\267\n\n\017MeshPaasServic" +
+      "e\022<\n\rCreateProject\022\026.meshpaas.ProjectInp" +
+      "ut\032\021.meshpaas.Project\"\000\022<\n\014ListProjects\022" +
+      "\026.google.protobuf.Empty\032\022.meshpaas.Proje" +
+      "cts\"\000\022?\n\rDeleteProject\022\024.meshpaas.Projec" +
+      "tRef\032\026.google.protobuf.Empty\"\000\0227\n\nGetPro" +
+      "ject\022\024.meshpaas.ProjectRef\032\021.meshpaas.Pr" +
+      "oject\"\000\022<\n\rUpdateProject\022\026.meshpaas.Proj" +
+      "ectInput\032\021.meshpaas.Project\"\000\0220\n\tCreateA" +
+      "pp\022\022.meshpaas.AppInput\032\r.meshpaas.App\"\000\022" +
+      "0\n\tUpdateApp\022\022.meshpaas.AppInput\032\r.meshp" +
+      "aas.App\"\000\0224\n\tDeleteApp\022\r.meshpaas.Ref\032\026." +
+      "google.protobuf.Empty\"\000\022(\n\006GetApp\022\r.mesh" +
+      "paas.Ref\032\r.meshpaas.App\"\000\0222\n\010ListApps\022\024." +
+      "meshpaas.ProjectRef\032\016.meshpaas.Apps\"\000\0223\n" +
+      "\nCreateTask\022\023.meshpaas.TaskInput\032\016.meshp" +
+      "aas.Task\"\000\0223\n\nUpdateTask\022\023.meshpaas.Task" +
+      "Input\032\016.meshpaas.Task\"\000\0225\n\nDeleteTask\022\r." +
+      "meshpaas.Ref\032\026.google.protobuf.Empty\"\000\022*" +
+      "\n\007GetTask\022\r.meshpaas.Ref\032\016.meshpaas.Task" +
+      "\"\000\0224\n\tListTasks\022\024.meshpaas.ProjectRef\032\017." +
+      "meshpaas.Tasks\"\000\022<\n\rCreateGateway\022\026.mesh" +
+      "paas.GatewayInput\032\021.meshpaas.Gateway\"\000\022<" +
+      "\n\rUpdateGateway\022\026.meshpaas.GatewayInput\032" +
+      "\021.meshpaas.Gateway\"\000\0228\n\rDeleteGateway\022\r." +
+      "meshpaas.Ref\032\026.google.protobuf.Empty\"\000\0220" +
+      "\n\nGetGateway\022\r.meshpaas.Ref\032\021.meshpaas.G" +
+      "ateway\"\000\0229\n\014CreateSecret\022\025.meshpaas.Secr" +
+      "etInput\032\020.meshpaas.Secret\"\000\0229\n\014UpdateSec" +
+      "ret\022\025.meshpaas.SecretInput\032\020.meshpaas.Se" +
+      "cret\"\000\0227\n\014DeleteSecret\022\r.meshpaas.Ref\032\026." +
+      "google.protobuf.Empty\"\000\022.\n\tGetSecret\022\r.m" +
+      "eshpaas.Ref\032\020.meshpaas.Secret\"\000\022.\n\nStrea" +
+      "mLogs\022\r.meshpaas.Ref\032\r.meshpaas.Log\"\0000\001B" +
+      "\014Z\nmeshpaaspbb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -30434,104 +36185,116 @@ public final class Schema {
           com.google.protobuf.EmptyProto.getDescriptor(),
           validator.Validator.getDescriptor(),
         }, assigner);
-    internal_static_meshpaas_SecretInput_descriptor =
+    internal_static_meshpaas_AuthzDestination_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_meshpaas_AuthzDestination_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_meshpaas_AuthzDestination_descriptor,
+        new java.lang.String[] { "HostsWhitelist", "HostsBlacklist", "PortsWhitelist", "PortsBlacklist", "MethodsWhitelist", "MethodsBlacklist", "PathsWhitelist", "PathsBlacklist", });
+    internal_static_meshpaas_AuthzSource_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_meshpaas_AuthzSource_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_meshpaas_AuthzSource_descriptor,
+        new java.lang.String[] { "PrincipalsWhitelist", "PrincipalsBlacklist", "RequestPrincipalsWhitelist", "RequestPrincipalsBlacklist", "NamespacesWhitelist", "NamespacesBlacklist", });
+    internal_static_meshpaas_AuthzCondition_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_meshpaas_AuthzCondition_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_meshpaas_AuthzCondition_descriptor,
+        new java.lang.String[] { "Key", "Equals", "NotEquals", });
+    internal_static_meshpaas_AuthzRule_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_meshpaas_AuthzRule_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_meshpaas_AuthzRule_descriptor,
+        new java.lang.String[] { "Sources", "Conditions", "Destinations", });
+    internal_static_meshpaas_AuthzPolicy_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_meshpaas_AuthzPolicy_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_meshpaas_AuthzPolicy_descriptor,
+        new java.lang.String[] { "Action", "Rules", });
+    internal_static_meshpaas_Authz_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_meshpaas_Authz_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_meshpaas_Authz_descriptor,
+        new java.lang.String[] { "Policies", });
+    internal_static_meshpaas_AuthnRule_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_meshpaas_AuthnRule_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_meshpaas_AuthnRule_descriptor,
+        new java.lang.String[] { "JwksUri", "Issuer", "Audience", "OuputPayloadHeader", });
+    internal_static_meshpaas_Authn_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_meshpaas_Authn_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_meshpaas_Authn_descriptor,
+        new java.lang.String[] { "Rules", });
+    internal_static_meshpaas_SecretInput_descriptor =
+      getDescriptor().getMessageTypes().get(8);
     internal_static_meshpaas_SecretInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_SecretInput_descriptor,
-        new java.lang.String[] { "Name", "Project", "Type", "Immutable", "Data", "Labels", });
+        new java.lang.String[] { "Name", "Project", "Type", "Immutable", "Data", });
     internal_static_meshpaas_SecretInput_DataEntry_descriptor =
       internal_static_meshpaas_SecretInput_descriptor.getNestedTypes().get(0);
     internal_static_meshpaas_SecretInput_DataEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_SecretInput_DataEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_meshpaas_SecretInput_LabelsEntry_descriptor =
-      internal_static_meshpaas_SecretInput_descriptor.getNestedTypes().get(1);
-    internal_static_meshpaas_SecretInput_LabelsEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_SecretInput_LabelsEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
     internal_static_meshpaas_Secret_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_meshpaas_Secret_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Secret_descriptor,
-        new java.lang.String[] { "Name", "Project", "Type", "Immutable", "Data", "Labels", });
+        new java.lang.String[] { "Name", "Project", "Type", "Immutable", "Data", });
     internal_static_meshpaas_Secret_DataEntry_descriptor =
       internal_static_meshpaas_Secret_descriptor.getNestedTypes().get(0);
     internal_static_meshpaas_Secret_DataEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Secret_DataEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_meshpaas_Secret_LabelsEntry_descriptor =
-      internal_static_meshpaas_Secret_descriptor.getNestedTypes().get(1);
-    internal_static_meshpaas_Secret_LabelsEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_Secret_LabelsEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
     internal_static_meshpaas_ServerTLSSettings_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_meshpaas_ServerTLSSettings_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_ServerTLSSettings_descriptor,
         new java.lang.String[] { "HttpsRedirect", "Mode", "CredentialName", "SubjectAltNames", "VerifyCertificateSpki", "VerifyCertificateHash", "CipherSuites", });
     internal_static_meshpaas_GatewayListener_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_meshpaas_GatewayListener_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_GatewayListener_descriptor,
         new java.lang.String[] { "Port", "Name", "Protocol", "Hosts", "TlsConfig", });
     internal_static_meshpaas_Gateway_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_meshpaas_Gateway_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Gateway_descriptor,
-        new java.lang.String[] { "Name", "Project", "Listeners", "Labels", "Selector", });
-    internal_static_meshpaas_Gateway_LabelsEntry_descriptor =
-      internal_static_meshpaas_Gateway_descriptor.getNestedTypes().get(0);
-    internal_static_meshpaas_Gateway_LabelsEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_Gateway_LabelsEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
-    internal_static_meshpaas_Gateway_SelectorEntry_descriptor =
-      internal_static_meshpaas_Gateway_descriptor.getNestedTypes().get(1);
-    internal_static_meshpaas_Gateway_SelectorEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_Gateway_SelectorEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
+        new java.lang.String[] { "Name", "Project", "Listeners", });
     internal_static_meshpaas_GatewayInput_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_meshpaas_GatewayInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_GatewayInput_descriptor,
-        new java.lang.String[] { "Name", "Project", "Listeners", "Labels", "Selector", });
-    internal_static_meshpaas_GatewayInput_LabelsEntry_descriptor =
-      internal_static_meshpaas_GatewayInput_descriptor.getNestedTypes().get(0);
-    internal_static_meshpaas_GatewayInput_LabelsEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_GatewayInput_LabelsEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
-    internal_static_meshpaas_GatewayInput_SelectorEntry_descriptor =
-      internal_static_meshpaas_GatewayInput_descriptor.getNestedTypes().get(1);
-    internal_static_meshpaas_GatewayInput_SelectorEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_GatewayInput_SelectorEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
+        new java.lang.String[] { "Name", "Project", "Listeners", });
     internal_static_meshpaas_HTTPRoute_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_meshpaas_HTTPRoute_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_HTTPRoute_descriptor,
         new java.lang.String[] { "Name", "Port", "PathPrefix", "RewriteUri", "AllowOrigins", "AllowMethods", "AllowHeaders", "ExposeHeaders", "AllowCredentials", });
     internal_static_meshpaas_Networking_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_meshpaas_Networking_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Networking_descriptor,
         new java.lang.String[] { "Gateways", "Hosts", "Export", "HttpRoutes", });
     internal_static_meshpaas_Container_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_meshpaas_Container_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Container_descriptor,
@@ -30549,145 +36312,85 @@ public final class Schema {
         internal_static_meshpaas_Container_PortsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_meshpaas_App_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_meshpaas_App_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_App_descriptor,
-        new java.lang.String[] { "Name", "Project", "Containers", "Replicas", "Labels", "Selector", "Networking", "Status", });
-    internal_static_meshpaas_App_LabelsEntry_descriptor =
-      internal_static_meshpaas_App_descriptor.getNestedTypes().get(0);
-    internal_static_meshpaas_App_LabelsEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_App_LabelsEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
-    internal_static_meshpaas_App_SelectorEntry_descriptor =
-      internal_static_meshpaas_App_descriptor.getNestedTypes().get(1);
-    internal_static_meshpaas_App_SelectorEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_App_SelectorEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
+        new java.lang.String[] { "Name", "Project", "Containers", "Replicas", "Networking", "Authentication", "Authorization", "Status", });
     internal_static_meshpaas_Task_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_meshpaas_Task_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Task_descriptor,
-        new java.lang.String[] { "Name", "Project", "Containers", "Schedule", "Completions", "Labels", "Selector", });
-    internal_static_meshpaas_Task_LabelsEntry_descriptor =
-      internal_static_meshpaas_Task_descriptor.getNestedTypes().get(0);
-    internal_static_meshpaas_Task_LabelsEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_Task_LabelsEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
-    internal_static_meshpaas_Task_SelectorEntry_descriptor =
-      internal_static_meshpaas_Task_descriptor.getNestedTypes().get(1);
-    internal_static_meshpaas_Task_SelectorEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_Task_SelectorEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
+        new java.lang.String[] { "Name", "Project", "Containers", "Schedule", "Completions", });
     internal_static_meshpaas_TaskInput_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_meshpaas_TaskInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_TaskInput_descriptor,
-        new java.lang.String[] { "Name", "Project", "Containers", "Schedule", "Completions", "Labels", "Selector", });
-    internal_static_meshpaas_TaskInput_LabelsEntry_descriptor =
-      internal_static_meshpaas_TaskInput_descriptor.getNestedTypes().get(0);
-    internal_static_meshpaas_TaskInput_LabelsEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_TaskInput_LabelsEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
-    internal_static_meshpaas_TaskInput_SelectorEntry_descriptor =
-      internal_static_meshpaas_TaskInput_descriptor.getNestedTypes().get(1);
-    internal_static_meshpaas_TaskInput_SelectorEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_TaskInput_SelectorEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
+        new java.lang.String[] { "Name", "Project", "Containers", "Schedule", "Completions", });
     internal_static_meshpaas_AppInput_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_meshpaas_AppInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_AppInput_descriptor,
-        new java.lang.String[] { "Name", "Project", "Containers", "Replicas", "Networking", "Labels", "Selector", });
-    internal_static_meshpaas_AppInput_LabelsEntry_descriptor =
-      internal_static_meshpaas_AppInput_descriptor.getNestedTypes().get(0);
-    internal_static_meshpaas_AppInput_LabelsEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_AppInput_LabelsEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
-    internal_static_meshpaas_AppInput_SelectorEntry_descriptor =
-      internal_static_meshpaas_AppInput_descriptor.getNestedTypes().get(1);
-    internal_static_meshpaas_AppInput_SelectorEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_AppInput_SelectorEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
+        new java.lang.String[] { "Name", "Project", "Containers", "Replicas", "Networking", "Authentication", "Authorization", });
     internal_static_meshpaas_Ref_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_meshpaas_Ref_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Ref_descriptor,
         new java.lang.String[] { "Name", "Project", });
     internal_static_meshpaas_Replica_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_meshpaas_Replica_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Replica_descriptor,
         new java.lang.String[] { "Phase", "Condition", "Reason", });
     internal_static_meshpaas_AppStatus_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_meshpaas_AppStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_AppStatus_descriptor,
         new java.lang.String[] { "Replicas", });
     internal_static_meshpaas_Log_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(24);
     internal_static_meshpaas_Log_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Log_descriptor,
         new java.lang.String[] { "Message", });
     internal_static_meshpaas_Apps_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(25);
     internal_static_meshpaas_Apps_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Apps_descriptor,
         new java.lang.String[] { "Applications", });
     internal_static_meshpaas_Tasks_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(26);
     internal_static_meshpaas_Tasks_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Tasks_descriptor,
         new java.lang.String[] { "Tasks", });
     internal_static_meshpaas_ProjectInput_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(27);
     internal_static_meshpaas_ProjectInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_ProjectInput_descriptor,
-        new java.lang.String[] { "Name", "Labels", });
-    internal_static_meshpaas_ProjectInput_LabelsEntry_descriptor =
-      internal_static_meshpaas_ProjectInput_descriptor.getNestedTypes().get(0);
-    internal_static_meshpaas_ProjectInput_LabelsEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_ProjectInput_LabelsEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
+        new java.lang.String[] { "Name", });
     internal_static_meshpaas_Project_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(28);
     internal_static_meshpaas_Project_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Project_descriptor,
-        new java.lang.String[] { "Name", "Labels", });
-    internal_static_meshpaas_Project_LabelsEntry_descriptor =
-      internal_static_meshpaas_Project_descriptor.getNestedTypes().get(0);
-    internal_static_meshpaas_Project_LabelsEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_Project_LabelsEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
+        new java.lang.String[] { "Name", });
     internal_static_meshpaas_ProjectRef_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(29);
     internal_static_meshpaas_ProjectRef_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_ProjectRef_descriptor,
         new java.lang.String[] { "Name", });
     internal_static_meshpaas_Projects_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(30);
     internal_static_meshpaas_Projects_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Projects_descriptor,

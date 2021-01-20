@@ -8,6 +8,7 @@ import (
 	"github.com/pkg/errors"
 	"go.uber.org/zap"
 	"io"
+	securityv1beta1 "istio.io/api/security/v1beta1"
 	corev1 "k8s.io/api/core/v1"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"sync"
@@ -34,6 +35,13 @@ func (m *Manager) CreateApp(ctx context.Context, app *meshpaaspb.AppInput) (*mes
 		return nil, err
 	}
 	kapp.service = svc
+	if app.Authentication != nil {
+		auth, err := m.iclient.RequestAuthentications(app.Project).Create(ctx, toRequestAuthentication(app), v1.CreateOptions{})
+		if err != nil {
+			return nil, err
+		}
+		kapp.authentication = auth
+	}
 	status, err := m.getStatus(ctx, app.Project, app.Name)
 	if err != nil {
 		return nil, err
@@ -73,6 +81,31 @@ func (m *Manager) UpdateApp(ctx context.Context, app *meshpaaspb.AppInput) (*mes
 		return nil, err
 	}
 	kapp.service = svc
+	if app.Authentication != nil {
+		auth, err := m.iclient.RequestAuthentications(app.Project).Get(ctx, app.Name, v1.GetOptions{})
+		if err != nil {
+			auth, err = m.iclient.RequestAuthentications(app.Project).Create(ctx, toRequestAuthentication(app), v1.CreateOptions{})
+			if err != nil {
+				return nil, err
+			}
+		}
+		var rules []*securityv1beta1.JWTRule
+		for _, r := range app.Authentication.Rules {
+			rules = append(rules, &securityv1beta1.JWTRule{
+				Issuer:                r.Issuer,
+				Audiences:             r.Audience,
+				JwksUri:               r.JwksUri,
+				OutputPayloadToHeader: r.OuputPayloadHeader,
+				ForwardOriginalToken:  false,
+			})
+		}
+		auth.Spec.JwtRules = rules
+		auth, err = m.iclient.RequestAuthentications(app.Project).Update(ctx, auth, v1.UpdateOptions{})
+		if err != nil {
+			return nil, err
+		}
+		kapp.authentication = auth
+	}
 	status, err := m.getStatus(ctx, app.Project, app.Name)
 	if err != nil {
 		return nil, err
@@ -99,6 +132,8 @@ func (m *Manager) GetApp(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb.
 	if err != nil {
 		return nil, err
 	}
+	auth, _ := m.iclient.RequestAuthentications(ref.Project).Get(ctx, ref.Name, v1.GetOptions{})
+	kapp.authentication = auth
 	kapp.service = svc
 	status, err := m.getStatus(ctx, ref.Project, ref.Name)
 	if err != nil {
@@ -110,6 +145,7 @@ func (m *Manager) GetApp(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb.
 }
 
 func (m *Manager) DeleteApp(ctx context.Context, ref *meshpaaspb.Ref) error {
+	m.iclient.RequestAuthentications(ref.Project).Delete(ctx, ref.Name, v1.DeleteOptions{})
 	if err := m.kclient.Services(ref.Project).Delete(ctx, ref.Name, v1.DeleteOptions{}); err != nil {
 		m.logger.Error("failed to delete service",
 			zap.Error(err),
@@ -151,6 +187,8 @@ func (m *Manager) ListApps(ctx context.Context, namespace *meshpaaspb.ProjectRef
 			deployment: &deployment,
 			service:    svc,
 		}
+		auth, _ := m.iclient.RequestAuthentications(namespace.GetName()).Get(ctx, deployment.Name, v1.GetOptions{})
+		kapp.authentication = auth
 		a := kapp.toApp()
 		status, err := m.getStatus(ctx, namespace.GetName(), deployment.Name)
 		if err != nil {
@@ -166,7 +204,7 @@ func (m *Manager) StreamLogs(ctx context.Context, ref *meshpaaspb.Ref) (chan str
 	pods, err := m.kclient.Pods(ref.Project).List(ctx, v1.ListOptions{
 		TypeMeta:      v1.TypeMeta{},
 		Watch:         false,
-		LabelSelector: fmt.Sprintf("meshpaas.app = %s", ref.Name),
+		LabelSelector: fmt.Sprintf("app = %s", ref.Name),
 	})
 	if err != nil {
 		return nil, err

@@ -29,14 +29,6 @@ class Gateway extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>repeated .meshpaas.GatewayListener listeners = 3;</code>
      */
     private $listeners;
-    /**
-     * Generated from protobuf field <code>map<string, string> labels = 4;</code>
-     */
-    private $labels;
-    /**
-     * Generated from protobuf field <code>map<string, string> selector = 5;</code>
-     */
-    private $selector;
 
     /**
      * Constructor.
@@ -49,8 +41,6 @@ class Gateway extends \Google\Protobuf\Internal\Message
      *     @type string $project
      *           application project
      *     @type \Meshpaas\GatewayListener[]|\Google\Protobuf\Internal\RepeatedField $listeners
-     *     @type array|\Google\Protobuf\Internal\MapField $labels
-     *     @type array|\Google\Protobuf\Internal\MapField $selector
      * }
      */
     public function __construct($data = NULL) {
@@ -128,50 +118,6 @@ class Gateway extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Meshpaas\GatewayListener::class);
         $this->listeners = $arr;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>map<string, string> labels = 4;</code>
-     * @return \Google\Protobuf\Internal\MapField
-     */
-    public function getLabels()
-    {
-        return $this->labels;
-    }
-
-    /**
-     * Generated from protobuf field <code>map<string, string> labels = 4;</code>
-     * @param array|\Google\Protobuf\Internal\MapField $var
-     * @return $this
-     */
-    public function setLabels($var)
-    {
-        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->labels = $arr;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>map<string, string> selector = 5;</code>
-     * @return \Google\Protobuf\Internal\MapField
-     */
-    public function getSelector()
-    {
-        return $this->selector;
-    }
-
-    /**
-     * Generated from protobuf field <code>map<string, string> selector = 5;</code>
-     * @param array|\Google\Protobuf\Internal\MapField $var
-     * @return $this
-     */
-    public function setSelector($var)
-    {
-        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->selector = $arr;
 
         return $this;
     }
