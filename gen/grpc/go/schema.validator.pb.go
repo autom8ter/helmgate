@@ -5,15 +5,15 @@ package meshpaaspb
 
 import (
 	fmt "fmt"
+	math "math"
 	proto "github.com/golang/protobuf/proto"
-	_ "github.com/golang/protobuf/ptypes/any"
-	_ "github.com/golang/protobuf/ptypes/empty"
 	_ "github.com/golang/protobuf/ptypes/struct"
 	_ "github.com/golang/protobuf/ptypes/timestamp"
+	_ "github.com/golang/protobuf/ptypes/any"
+	_ "github.com/golang/protobuf/ptypes/empty"
 	_ "github.com/mwitkow/go-proto-validators"
-	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
-	math "math"
 	regexp "regexp"
+	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -65,6 +65,9 @@ func (this *AuthzRule) Validate() error {
 	return nil
 }
 func (this *Authz) Validate() error {
+	if len(this.Rules) < 0 {
+		return github_com_mwitkow_go_proto_validators.FieldError("Rules", fmt.Errorf(`value '%v' must contain at least 0 elements`, this.Rules))
+	}
 	for _, item := range this.Rules {
 		if item != nil {
 			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
@@ -75,6 +78,9 @@ func (this *Authz) Validate() error {
 	return nil
 }
 func (this *Authn) Validate() error {
+	if len(this.Rules) < 0 {
+		return github_com_mwitkow_go_proto_validators.FieldError("Rules", fmt.Errorf(`value '%v' must contain at least 0 elements`, this.Rules))
+	}
 	for _, item := range this.Rules {
 		if item != nil {
 			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {

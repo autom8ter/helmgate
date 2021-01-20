@@ -61,12 +61,12 @@ message AuthzRule {
 
 // Authz holds authorization options for an application
 message Authz {
-  repeated AuthzRule rules =1;
+  repeated AuthzRule rules =1[(validator.field) = {repeated_count_min : 0}];
 }
 
 // Authn holds authentication options for an application
 message Authn {
-  repeated AuthnRule rules =1;
+  repeated AuthnRule rules =1[(validator.field) = {repeated_count_min : 0}];
 }
 
 // SecretType is a secret scoped to a project

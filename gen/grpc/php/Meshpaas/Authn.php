@@ -16,7 +16,7 @@ use Google\Protobuf\Internal\GPBUtil;
 class Authn extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.AuthnRule rules = 1;</code>
+     * Generated from protobuf field <code>repeated .meshpaas.AuthnRule rules = 1 [(.validator.field) = {</code>
      */
     private $rules;
 
@@ -35,7 +35,7 @@ class Authn extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.AuthnRule rules = 1;</code>
+     * Generated from protobuf field <code>repeated .meshpaas.AuthnRule rules = 1 [(.validator.field) = {</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getRules()
@@ -44,7 +44,7 @@ class Authn extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.AuthnRule rules = 1;</code>
+     * Generated from protobuf field <code>repeated .meshpaas.AuthnRule rules = 1 [(.validator.field) = {</code>
      * @param \Meshpaas\AuthnRule[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
