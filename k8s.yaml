@@ -81,7 +81,7 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.podIP
-          image: colemanword/meshpaas:v0.0.14
+          image: colemanword/meshpaas:v0.0.16
           imagePullPolicy: Always
           ports:
           - containerPort: 8821
