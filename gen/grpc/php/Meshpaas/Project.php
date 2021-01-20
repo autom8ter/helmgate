@@ -16,9 +16,17 @@ use Google\Protobuf\Internal\GPBUtil;
 class Project extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>string name = 1;</code>
+     * unique name of the project
+     *
+     * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      */
     private $name = '';
+    /**
+     * a list of email addresses that may interact with this project
+     *
+     * Generated from protobuf field <code>repeated string allow_emails = 2 [(.validator.field) = {</code>
+     */
+    private $allow_emails;
 
     /**
      * Constructor.
@@ -27,6 +35,9 @@ class Project extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $name
+     *           unique name of the project
+     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $allow_emails
+     *           a list of email addresses that may interact with this project
      * }
      */
     public function __construct($data = NULL) {
@@ -35,7 +46,9 @@ class Project extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string name = 1;</code>
+     * unique name of the project
+     *
+     * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      * @return string
      */
     public function getName()
@@ -44,7 +57,9 @@ class Project extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string name = 1;</code>
+     * unique name of the project
+     *
+     * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      * @param string $var
      * @return $this
      */
@@ -52,6 +67,32 @@ class Project extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->name = $var;
+
+        return $this;
+    }
+
+    /**
+     * a list of email addresses that may interact with this project
+     *
+     * Generated from protobuf field <code>repeated string allow_emails = 2 [(.validator.field) = {</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
+     */
+    public function getAllowEmails()
+    {
+        return $this->allow_emails;
+    }
+
+    /**
+     * a list of email addresses that may interact with this project
+     *
+     * Generated from protobuf field <code>repeated string allow_emails = 2 [(.validator.field) = {</code>
+     * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
+     */
+    public function setAllowEmails($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
+        $this->allow_emails = $arr;
 
         return $this;
     }

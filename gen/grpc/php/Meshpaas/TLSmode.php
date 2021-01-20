@@ -10,14 +10,20 @@ namespace Meshpaas;
 class TLSmode
 {
     /**
+     * no termination
+     *
      * Generated from protobuf enum <code>PASSTHROUGH = 0;</code>
      */
     const PASSTHROUGH = 0;
     /**
+     * tls termination
+     *
      * Generated from protobuf enum <code>SIMPLE = 1;</code>
      */
     const SIMPLE = 1;
     /**
+     * mutual tls
+     *
      * Generated from protobuf enum <code>MUTUAL = 2;</code>
      */
     const MUTUAL = 2;

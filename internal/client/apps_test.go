@@ -23,11 +23,5 @@ func TestApps(t *testing.T) {
 		iclient,
 		lgger,
 	)
-	namespaces, err := cli.ListProjects(context.Background())
-	if err != nil {
-		t.Fatal(err.Error())
-	}
-	for _, n := range namespaces.GetProjects() {
-		t.Log(n)
-	}
+	cli.CreateSecret(context.Background(), nil)
 }

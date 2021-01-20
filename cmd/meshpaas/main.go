@@ -6,11 +6,13 @@ import (
 	"github.com/autom8ter/kubego"
 	"github.com/autom8ter/machine"
 	meshpaaspb "github.com/autom8ter/meshpaas/gen/grpc/go"
+	"github.com/autom8ter/meshpaas/internal/auth"
 	"github.com/autom8ter/meshpaas/internal/client"
 	"github.com/autom8ter/meshpaas/internal/gql"
 	"github.com/autom8ter/meshpaas/internal/helpers"
 	"github.com/autom8ter/meshpaas/internal/logger"
 	"github.com/autom8ter/meshpaas/internal/service"
+	grpc_auth "github.com/grpc-ecosystem/go-grpc-middleware/auth"
 	grpc_zap "github.com/grpc-ecosystem/go-grpc-middleware/logging/zap"
 	grpc_recovery "github.com/grpc-ecosystem/go-grpc-middleware/recovery"
 	grpc_validator "github.com/grpc-ecosystem/go-grpc-middleware/validator"
@@ -39,17 +41,21 @@ var (
 	allowedOrigins []string
 	allowedHeaders []string
 	allowedMethods []string
+	jwksUri        string
+	jwtIssuer      string
 	outOfCluster   bool
 )
 
 func init() {
 	godotenv.Load()
-	pflag.CommandLine.BoolVar(&debug, "debug", helpers.BoolEnvOr("KDEPLOY_DEBUG", false), "enable debug logs (env: KDEPLOY_DEBUG)")
-	pflag.CommandLine.Int64Var(&listenPort, "listen-port", int64(helpers.IntEnvOr("KDEPLOY_LISTEN_PORT", 8820)), "serve gRPC & graphQL on this port (env: KDEPLOY_LISTEN_PORT)")
-	pflag.CommandLine.StringSliceVar(&allowedHeaders, "allow-headers", helpers.StringSliceEnvOr("KDEPLOY_ALLOW_HEADERS", []string{"*"}), "cors allow headers (env: KDEPLOY_ALLOW_HEADERS)")
-	pflag.CommandLine.StringSliceVar(&allowedOrigins, "allow-origins", helpers.StringSliceEnvOr("KDEPLOY_ALLOW_ORIGINS", []string{"*"}), "cors allow origins (env: KDEPLOY_ALLOW_ORIGINS)")
-	pflag.CommandLine.StringSliceVar(&allowedMethods, "allow-methods", helpers.StringSliceEnvOr("KDEPLOY_ALLOW_METHODS", []string{"HEAD", "GET", "POST", "PUT", "PATCH", "DELETE"}), "cors allow methods (env: KDEPLOY_ALLOW_METHODS)")
-	pflag.CommandLine.BoolVar(&outOfCluster, "out-of-cluster", helpers.BoolEnvOr("KDEPLOY_OUT_OF_CLUSTER", false), "enable out of cluster k8s config discovery (env: KDEPLOY_OUT_OF_CLUSTER)")
+	pflag.CommandLine.BoolVar(&debug, "debug", helpers.BoolEnvOr("MESHPAAS_DEBUG", false), "enable debug logs (env: MESHPAAS_DEBUG)")
+	pflag.CommandLine.Int64Var(&listenPort, "listen-port", int64(helpers.IntEnvOr("MESHPAAS_LISTEN_PORT", 8820)), "serve gRPC & graphQL on this port (env: MESHPAAS_LISTEN_PORT)")
+	pflag.CommandLine.StringSliceVar(&allowedHeaders, "allow-headers", helpers.StringSliceEnvOr("MESHPAAS_ALLOW_HEADERS", []string{"*"}), "cors allow headers (env: MESHPAAS_ALLOW_HEADERS)")
+	pflag.CommandLine.StringSliceVar(&allowedOrigins, "allow-origins", helpers.StringSliceEnvOr("MESHPAAS_ALLOW_ORIGINS", []string{"*"}), "cors allow origins (env: MESHPAAS_ALLOW_ORIGINS)")
+	pflag.CommandLine.StringSliceVar(&allowedMethods, "allow-methods", helpers.StringSliceEnvOr("MESHPAAS_ALLOW_METHODS", []string{"HEAD", "GET", "POST", "PUT", "PATCH", "DELETE"}), "cors allow methods (env: MESHPAAS_ALLOW_METHODS)")
+	pflag.CommandLine.BoolVar(&outOfCluster, "out-of-cluster", helpers.BoolEnvOr("MESHPAAS_OUT_OF_CLUSTER", false), "enable out of cluster k8s config discovery (env: MESHPAAS_OUT_OF_CLUSTER)")
+	pflag.CommandLine.StringVar(&jwksUri, "jwks-uri", helpers.EnvOr("MESHPAAS_JWKS_URI", ""), "remote json web key set uri for verifying authorization tokens (env: MESHPAAS_JWKS_URI)")
+	pflag.CommandLine.StringVar(&jwtIssuer, "allow-jwt-issuer", helpers.EnvOr("MESHPAAS_ALLOW_ISSUER", ""), "allowed jwt.claim.iss issuer (env: MESHPAAS_ALLOW_ISSUER)")
 	pflag.Parse()
 }
 
@@ -151,17 +157,23 @@ func run(ctx context.Context) {
 		}
 		cli = client.New(kclient, iclient, lgger)
 	}
-
+	a, err := auth.NewAuth(jwksUri, jwtIssuer, lgger)
+	if err != nil {
+		lgger.Error(err.Error())
+		return
+	}
 	gopts := []grpc.ServerOption{
 		grpc.ChainUnaryInterceptor(
 			grpc_prometheus.UnaryServerInterceptor,
 			grpc_zap.UnaryServerInterceptor(lgger.Zap()),
+			grpc_auth.UnaryServerInterceptor(a.Interceptor()),
 			grpc_validator.UnaryServerInterceptor(),
 			grpc_recovery.UnaryServerInterceptor(),
 		),
 		grpc.ChainStreamInterceptor(
 			grpc_prometheus.StreamServerInterceptor,
 			grpc_zap.StreamServerInterceptor(lgger.Zap()),
+			grpc_auth.StreamServerInterceptor(a.Interceptor()),
 			grpc_validator.StreamServerInterceptor(),
 			grpc_recovery.StreamServerInterceptor(),
 		),

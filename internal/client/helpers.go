@@ -24,6 +24,7 @@ import (
 const Always = "Always"
 const OnFailure = "OnFailure"
 const RWO = "ReadWriteOnce"
+const meshpaasApp = "meshpaas.app"
 
 func appContainers(app *meshpaaspb.AppInput) ([]v12.Container, error) {
 	var containers []v12.Container
@@ -88,102 +89,54 @@ func taskContainers(app *meshpaaspb.TaskInput) ([]v12.Container, error) {
 	return containers, nil
 }
 
-func toNamespace(project *meshpaaspb.ProjectInput) *v12.Namespace {
+func toNamespace(usr map[string]interface{}) *v12.Namespace {
 	return &v12.Namespace{
 		TypeMeta: metav1.TypeMeta{},
 		ObjectMeta: metav1.ObjectMeta{
-			Name:      project.Name,
-			Namespace: project.Name,
-			Labels: map[string]string{
-				"project": project.Name,
-			},
+			Name:      cast.ToString(usr["aud"]),
+			Namespace: cast.ToString(usr["aud"]),
 		},
 		Spec:   v12.NamespaceSpec{},
 		Status: v12.NamespaceStatus{},
 	}
 }
 
-func toGwNamespace(gw *meshpaaspb.GatewayInput) *v12.Namespace {
-	return &v12.Namespace{
-		TypeMeta: metav1.TypeMeta{},
-		ObjectMeta: metav1.ObjectMeta{
-			Name:      gw.Project,
-			Namespace: gw.Project,
-			Labels: map[string]string{
-				"project": gw.Project,
-			},
-		},
-		Spec:   v12.NamespaceSpec{},
-		Status: v12.NamespaceStatus{},
-	}
-}
-
-func toSecretNamespace(secret *meshpaaspb.SecretInput) *v12.Namespace {
-	return &v12.Namespace{
-		TypeMeta: metav1.TypeMeta{},
-		ObjectMeta: metav1.ObjectMeta{
-			Name:      secret.Project,
-			Namespace: secret.Project,
-			Labels: map[string]string{
-				"project": secret.Project,
-			},
-		},
-		Spec:   v12.NamespaceSpec{},
-		Status: v12.NamespaceStatus{},
-	}
-}
-
-func toTaskNamespace(app *meshpaaspb.TaskInput) *v12.Namespace {
-	return &v12.Namespace{
-		TypeMeta: metav1.TypeMeta{},
-		ObjectMeta: metav1.ObjectMeta{
-			Name:      app.Project,
-			Namespace: app.Project,
-		},
-		Spec:   v12.NamespaceSpec{},
-		Status: v12.NamespaceStatus{},
-	}
-}
-
-func overwriteService(svc *networking.VirtualService, app *meshpaaspb.AppInput) *networking.VirtualService {
-	if svc.Namespace != "" {
-		svc.Namespace = app.Project
-	}
+func overwriteService(usr map[string]interface{}, svc *networking.VirtualService, app *meshpaaspb.AppInput) *networking.VirtualService {
 	if svc.Name != "" {
 		svc.Name = app.Name
 	}
-	if app.GetNetworking().GetGateways() != nil {
-		svc.Spec.Gateways = app.GetNetworking().GetGateways()
+	if app.GetRouting().GetGateways() != nil {
+		svc.Spec.Gateways = app.GetRouting().GetGateways()
 	}
-	if app.GetNetworking().GetHosts() != nil {
-		svc.Spec.Hosts = app.GetNetworking().GetHosts()
+	if app.GetRouting().GetHosts() != nil {
+		svc.Spec.Hosts = app.GetRouting().GetHosts()
 	}
-	if app.GetNetworking().GetExport() {
+	if app.GetRouting().GetExport() {
 		svc.Spec.ExportTo = []string{"*"}
 	} else {
 		svc.Spec.ExportTo = []string{"."}
 	}
-	if app.GetNetworking().GetHttpRoutes() != nil {
+	if app.GetRouting().GetHttpRoutes() != nil {
 		var (
 			routes       []*v1alpha3.HTTPRoute
 			origins      []*v1alpha3.StringMatch
 			destinations []*v1alpha3.Destination
 		)
 
-		for _, h := range app.GetNetworking().GetHttpRoutes() {
+		for _, h := range app.GetRouting().GetHttpRoutes() {
 			for _, o := range h.AllowOrigins {
 				origins = append(origins, &v1alpha3.StringMatch{
 					MatchType: &v1alpha3.StringMatch_Exact{Exact: o},
 				})
 			}
 			destinations = append(destinations, &v1alpha3.Destination{
-				Host: fmt.Sprintf("%s.%s.svc.cluster.local", app.Name, app.Project),
+				Host: fmt.Sprintf("%s.%s.svc.cluster.local", app.Name, cast.ToString(usr["aud"])),
 				Port: &v1alpha3.PortSelector{
 					Number: h.Port,
 				},
 			})
 		}
-		for _, h := range app.GetNetworking().GetHttpRoutes() {
+		for _, h := range app.GetRouting().GetHttpRoutes() {
 			routes = append(routes, &v1alpha3.HTTPRoute{
 				Name:  h.Name,
 				Match: nil,
@@ -227,7 +180,7 @@ func overwriteService(svc *networking.VirtualService, app *meshpaaspb.AppInput) 
 	TypeMeta: metav1.TypeMeta{},
 	ObjectMeta: metav1.ObjectMeta{
 		Name:      app.Name,
-		Namespace: app.Project,
+		Namespace: cast.ToString(usr["aud"]),
 		Labels:    app.Labels,
 	},
 	Spec: v1.ServiceSpec{
@@ -238,42 +191,41 @@ func overwriteService(svc *networking.VirtualService, app *meshpaaspb.AppInput) 
 	Status: v1.ServiceStatus{},
 */
 
-func toService(app *meshpaaspb.AppInput) *networking.VirtualService {
+func toService(usr map[string]interface{}, app *meshpaaspb.AppInput) *networking.VirtualService {
 	svc := &networking.VirtualService{
 		TypeMeta: metav1.TypeMeta{},
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      app.Name,
-			Namespace: app.Project,
+			Namespace: cast.ToString(usr["aud"]),
 			Labels: map[string]string{
-				"app":     app.Name,
-				"project": app.Project,
+				meshpaasApp: app.Name,
 			},
 		},
 		Spec:   v1alpha3.VirtualService{},
 		Status: v1alpha1.IstioStatus{},
 	}
 	if svc.Namespace != "" {
-		svc.Namespace = app.Project
+		svc.Namespace = cast.ToString(usr["aud"])
 	}
 	if svc.Name != "" {
 		svc.Name = app.Name
 	}
-	if app.GetNetworking().GetGateways() != nil {
-		svc.Spec.Gateways = app.GetNetworking().GetGateways()
+	if app.GetRouting().GetGateways() != nil {
+		svc.Spec.Gateways = app.GetRouting().GetGateways()
 	}
-	if app.GetNetworking().GetHosts() != nil {
-		svc.Spec.Hosts = app.GetNetworking().GetHosts()
+	if app.GetRouting().GetHosts() != nil {
+		svc.Spec.Hosts = app.GetRouting().GetHosts()
 	}
-	if app.GetNetworking().GetExport() {
+	if app.GetRouting().GetExport() {
 		svc.Spec.ExportTo = []string{"*"}
 	} else {
 		svc.Spec.ExportTo = []string{"."}
 	}
-	if app.GetNetworking().GetHttpRoutes() != nil {
+	if app.GetRouting().GetHttpRoutes() != nil {
 		var (
 			routes []*v1alpha3.HTTPRoute
 		)
-		for _, h := range app.GetNetworking().GetHttpRoutes() {
+		for _, h := range app.GetRouting().GetHttpRoutes() {
 			var (
 				origins []*v1alpha3.StringMatch
 			)
@@ -287,7 +239,7 @@ func toService(app *meshpaaspb.AppInput) *networking.VirtualService {
 				Route: []*v1alpha3.HTTPRouteDestination{
 					{
 						Destination: &v1alpha3.Destination{
-							Host:   fmt.Sprintf("%s.%s.svc.cluster.local", app.Name, app.Project),
+							Host:   fmt.Sprintf("%s.%s.svc.cluster.local", app.Name, cast.ToString(usr["aud"])),
 							Subset: "",
 							Port: &v1alpha3.PortSelector{
 								Number: h.Port,
@@ -333,22 +285,18 @@ func toService(app *meshpaaspb.AppInput) *networking.VirtualService {
 	return svc
 }
 
-func toRequestAuthentication(input *meshpaaspb.AppInput) *security.RequestAuthentication {
+func toRequestAuthentication(usr map[string]interface{}, input *meshpaaspb.AppInput) *security.RequestAuthentication {
 	if input.Authentication == nil {
 		return nil
 	}
 	var auth = &security.RequestAuthentication{
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      input.Name,
-			Namespace: input.Project,
-			Labels: map[string]string{
-				"project": input.Project,
-			},
+			Namespace: cast.ToString(usr["aud"]),
 		},
 	}
 	auth.Spec.Selector.MatchLabels = map[string]string{
-		"project": input.Project,
-		"app":     input.Name,
+		meshpaasApp: input.Name,
 	}
 	for _, r := range input.Authentication.Rules {
 		auth.Spec.JwtRules = append(auth.Spec.JwtRules, &securityv1beta1.JWTRule{
@@ -362,22 +310,18 @@ func toRequestAuthentication(input *meshpaaspb.AppInput) *security.RequestAuthen
 	return auth
 }
 
-func toAuthorizationPolicy(input *meshpaaspb.AppInput) *security.AuthorizationPolicy {
+func toAuthorizationPolicy(usr map[string]interface{}, input *meshpaaspb.AppInput) *security.AuthorizationPolicy {
 	if input.Authorization == nil {
 		return nil
 	}
 	var auth = &security.AuthorizationPolicy{
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      input.Name,
-			Namespace: input.Project,
-			Labels: map[string]string{
-				"project": input.Project,
-			},
+			Namespace: cast.ToString(usr["aud"]),
 		},
 	}
 	auth.Spec.Selector.MatchLabels = map[string]string{
-		"project": input.Project,
-		"app":     input.Name,
+		meshpaasApp: input.Name,
 	}
 	auth.Spec.Action = securityv1beta1.AuthorizationPolicy_ALLOW
 	for _, r := range input.Authorization.Rules {
@@ -421,7 +365,7 @@ func toAuthorizationPolicy(input *meshpaaspb.AppInput) *security.AuthorizationPo
 	return auth
 }
 
-func toDeployment(app *meshpaaspb.AppInput) (*apps.Deployment, error) {
+func toDeployment(usr map[string]interface{}, app *meshpaaspb.AppInput) (*apps.Deployment, error) {
 	var (
 		replicas        = int32(app.Replicas)
 		containers, err = appContainers(app)
@@ -436,8 +380,7 @@ func toDeployment(app *meshpaaspb.AppInput) (*apps.Deployment, error) {
 		})
 	}
 	var labels = map[string]string{
-		"project": app.Project,
-		"app":     app.Name,
+		meshpaasApp: app.Name,
 	}
 
 	return &apps.Deployment{
@@ -447,7 +390,7 @@ func toDeployment(app *meshpaaspb.AppInput) (*apps.Deployment, error) {
 		},
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      app.Name,
-			Namespace: app.Project,
+			Namespace: cast.ToString(usr["aud"]),
 			Labels:    labels,
 		},
 		Spec: apps.DeploymentSpec{
@@ -458,7 +401,7 @@ func toDeployment(app *meshpaaspb.AppInput) (*apps.Deployment, error) {
 			Template: v12.PodTemplateSpec{
 				ObjectMeta: metav1.ObjectMeta{
 					Name:      app.Name,
-					Namespace: app.Project,
+					Namespace: cast.ToString(usr["aud"]),
 					Labels:    labels,
 				},
 				Spec: v12.PodSpec{
@@ -477,7 +420,7 @@ func toDeployment(app *meshpaaspb.AppInput) (*apps.Deployment, error) {
 	}, nil
 }
 
-func toTask(app *meshpaaspb.TaskInput) (*v1beta1.CronJob, error) {
+func toTask(usr map[string]interface{}, app *meshpaaspb.TaskInput) (*v1beta1.CronJob, error) {
 	var (
 		containers, err = taskContainers(app)
 	)
@@ -485,8 +428,7 @@ func toTask(app *meshpaaspb.TaskInput) (*v1beta1.CronJob, error) {
 		return nil, err
 	}
 	var labels = map[string]string{
-		"app":     app.Name,
-		"project": app.Project,
+		meshpaasApp: app.Name,
 	}
 	return &v1beta1.CronJob{
 		TypeMeta: metav1.TypeMeta{
@@ -495,7 +437,7 @@ func toTask(app *meshpaaspb.TaskInput) (*v1beta1.CronJob, error) {
 		},
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      app.Name,
-			Namespace: app.Project,
+			Namespace: cast.ToString(usr["aud"]),
 			Labels:    labels,
 		},
 		Spec: v1beta1.CronJobSpec{
@@ -510,7 +452,7 @@ func toTask(app *meshpaaspb.TaskInput) (*v1beta1.CronJob, error) {
 					Template: v12.PodTemplateSpec{
 						ObjectMeta: metav1.ObjectMeta{
 							Name:      app.Name,
-							Namespace: app.Project,
+							Namespace: cast.ToString(usr["aud"]),
 							Labels:    labels,
 						},
 						Spec: v12.PodSpec{
@@ -547,7 +489,6 @@ func overwriteDeployment(deployment *apps.Deployment, app *meshpaaspb.AppInput) 
 
 func overwriteGateway(gateway *pkgnv1alpha3.Gateway, gw *meshpaaspb.GatewayInput) *pkgnv1alpha3.Gateway {
 	gateway.Name = gw.Name
-	gateway.Namespace = gw.Project
 	gateway.Spec.Servers = toServers(gw)
 	return gateway
 }
@@ -575,7 +516,7 @@ func toServers(gateway *meshpaaspb.GatewayInput) []*nv1alpha3.Server {
 						return nv1alpha3.ServerTLSSettings_SIMPLE
 					}
 				}(),
-				CredentialName:        l.TlsConfig.CredentialName,
+				CredentialName:        l.TlsConfig.SecretName,
 				SubjectAltNames:       l.TlsConfig.SubjectAltNames,
 				VerifyCertificateSpki: l.TlsConfig.VerifyCertificateSpki,
 				VerifyCertificateHash: l.TlsConfig.VerifyCertificateHash,
@@ -598,15 +539,12 @@ func toServers(gateway *meshpaaspb.GatewayInput) []*nv1alpha3.Server {
 	return servers
 }
 
-func toGateway(gateway *meshpaaspb.GatewayInput) *pkgnv1alpha3.Gateway {
+func toGateway(usr map[string]interface{}, gateway *meshpaaspb.GatewayInput) *pkgnv1alpha3.Gateway {
 	return &pkgnv1alpha3.Gateway{
 		TypeMeta: metav1.TypeMeta{},
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      gateway.GetName(),
-			Namespace: gateway.GetProject(),
-			Labels: map[string]string{
-				"project": gateway.Project,
-			},
+			Namespace: cast.ToString(usr["aud"]),
 		},
 		Spec: nv1alpha3.Gateway{
 			Servers: toServers(gateway),
@@ -648,17 +586,16 @@ type k8sApp struct {
 func (k *k8sApp) toApp() *meshpaaspb.App {
 	a := &meshpaaspb.App{
 		Name:           k.deployment.Name,
-		Project:        k.deployment.Namespace,
 		Containers:     nil,
 		Replicas:       uint32(*k.deployment.Spec.Replicas),
-		Networking:     &meshpaaspb.Networking{},
+		Routing:        &meshpaaspb.Routing{},
 		Status:         nil,
 		Authentication: &meshpaaspb.Authn{},
 	}
-	a.Networking.Gateways = k.service.Spec.Gateways
-	a.Networking.Hosts = k.service.Spec.Hosts
+	a.Routing.Gateways = k.service.Spec.Gateways
+	a.Routing.Hosts = k.service.Spec.Hosts
 	if len(k.service.Spec.ExportTo) > 0 {
-		a.Networking.Export = k.service.Spec.ExportTo[0] == "*"
+		a.Routing.Export = k.service.Spec.ExportTo[0] == "*"
 	}
 	for _, r := range k.service.Spec.Http {
 		var origins []string
@@ -666,7 +603,7 @@ func (k *k8sApp) toApp() *meshpaaspb.App {
 		if len(r.Match) > 0 {
 			prefix = r.Match[0].Uri.GetPrefix()
 		}
-		a.Networking.HttpRoutes = append(a.Networking.HttpRoutes, &meshpaaspb.HTTPRoute{
+		a.Routing.HttpRoutes = append(a.Routing.HttpRoutes, &meshpaaspb.HTTPRoute{
 			Name:             r.Name,
 			Port:             r.Route[0].Destination.Port.Number,
 			PathPrefix:       prefix,
@@ -750,8 +687,7 @@ type k8sTask struct {
 
 func (k *k8sTask) toTask() *meshpaaspb.Task {
 	a := &meshpaaspb.Task{
-		Name:    k.cronJob.Name,
-		Project: k.cronJob.Namespace,
+		Name: k.cronJob.Name,
 	}
 	a.Schedule = k.cronJob.Spec.Schedule
 	if len(k.cronJob.Spec.JobTemplate.Spec.Template.Spec.ImagePullSecrets) > 0 {
@@ -828,7 +764,7 @@ func (k *k8sGateway) toGateway() *meshpaaspb.Gateway {
 						return meshpaaspb.TLSmode_SIMPLE
 					}
 				}(),
-				CredentialName:        l.GetTls().GetCredentialName(),
+				SecretName:            l.GetTls().GetCredentialName(),
 				SubjectAltNames:       l.GetTls().GetSubjectAltNames(),
 				VerifyCertificateSpki: l.GetTls().GetVerifyCertificateSpki(),
 				VerifyCertificateHash: l.GetTls().GetVerifyCertificateHash(),
@@ -838,7 +774,6 @@ func (k *k8sGateway) toGateway() *meshpaaspb.Gateway {
 	}
 	return &meshpaaspb.Gateway{
 		Name:      k.gateway.ObjectMeta.Name,
-		Project:   k.gateway.ObjectMeta.Namespace,
 		Listeners: listeners,
 	}
 }
@@ -850,8 +785,7 @@ type k8sSecret struct {
 
 func (k *k8sSecret) toSecret() *meshpaaspb.Secret {
 	return &meshpaaspb.Secret{
-		Name:    k.secret.Name,
-		Project: k.secret.Namespace,
+		Name: k.secret.Name,
 		Type: func() meshpaaspb.SecretType {
 			switch k.secret.Type {
 			case v1.DockerConfigKey:
@@ -873,15 +807,12 @@ func (k *k8sSecret) toSecret() *meshpaaspb.Secret {
 	}
 }
 
-func toSecret(secret *meshpaaspb.SecretInput) *v1.Secret {
+func toSecret(usr map[string]interface{}, secret *meshpaaspb.SecretInput) *v1.Secret {
 	return &v1.Secret{
 		TypeMeta: metav1.TypeMeta{},
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      secret.GetName(),
-			Namespace: secret.GetProject(),
-			Labels: map[string]string{
-				"project": secret.Project,
-			},
+			Namespace: cast.ToString(usr["aud"]),
 		},
 		Immutable:  &secret.Immutable,
 		Data:       nil,
@@ -900,7 +831,6 @@ func toSecret(secret *meshpaaspb.SecretInput) *v1.Secret {
 }
 
 func overwriteSecret(secret *v1.Secret, update *meshpaaspb.SecretInput) *v1.Secret {
-	secret.Namespace = update.Project
 	secret.Name = update.Name
 	secret.Immutable = &update.Immutable
 	secret.StringData = update.Data

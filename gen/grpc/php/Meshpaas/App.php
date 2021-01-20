@@ -22,12 +22,8 @@ class App extends \Google\Protobuf\Internal\Message
      */
     private $name = '';
     /**
-     * application project
+     * containers are docker containers that run the application's business logic
      *
-     * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
-     */
-    private $project = '';
-    /**
      * Generated from protobuf field <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = {</code>
      */
     private $containers;
@@ -38,11 +34,11 @@ class App extends \Google\Protobuf\Internal\Message
      */
     private $replicas = 0;
     /**
-     * gateway/service-mesh networking
+     * gateway/service-mesh routing
      *
-     * Generated from protobuf field <code>.meshpaas.Networking networking = 11 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>.meshpaas.Routing routing = 11 [(.validator.field) = {</code>
      */
-    private $networking = null;
+    private $routing = null;
     /**
      * application authentication options
      *
@@ -56,6 +52,8 @@ class App extends \Google\Protobuf\Internal\Message
      */
     private $authorization = null;
     /**
+     * image_pull_secret is the secret used to pull images from docker registry
+     *
      * Generated from protobuf field <code>string image_pull_secret = 14;</code>
      */
     private $image_pull_secret = '';
@@ -74,18 +72,18 @@ class App extends \Google\Protobuf\Internal\Message
      *
      *     @type string $name
      *           name of the application
-     *     @type string $project
-     *           application project
      *     @type \Meshpaas\Container[]|\Google\Protobuf\Internal\RepeatedField $containers
+     *           containers are docker containers that run the application's business logic
      *     @type int $replicas
      *           number of deployment replicas
-     *     @type \Meshpaas\Networking $networking
-     *           gateway/service-mesh networking
+     *     @type \Meshpaas\Routing $routing
+     *           gateway/service-mesh routing
      *     @type \Meshpaas\Authn $authentication
      *           application authentication options
      *     @type \Meshpaas\Authz $authorization
      *           application authorization options
      *     @type string $image_pull_secret
+     *           image_pull_secret is the secret used to pull images from docker registry
      *     @type \Meshpaas\AppStatus $status
      *           status tracks the state of the application during it's lifecycle
      * }
@@ -122,32 +120,8 @@ class App extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * application project
+     * containers are docker containers that run the application's business logic
      *
-     * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
-     * @return string
-     */
-    public function getProject()
-    {
-        return $this->project;
-    }
-
-    /**
-     * application project
-     *
-     * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setProject($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->project = $var;
-
-        return $this;
-    }
-
-    /**
      * Generated from protobuf field <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = {</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
@@ -157,6 +131,8 @@ class App extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * containers are docker containers that run the application's business logic
+     *
      * Generated from protobuf field <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = {</code>
      * @param \Meshpaas\Container[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
@@ -196,27 +172,27 @@ class App extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * gateway/service-mesh networking
+     * gateway/service-mesh routing
      *
-     * Generated from protobuf field <code>.meshpaas.Networking networking = 11 [(.validator.field) = {</code>
-     * @return \Meshpaas\Networking
+     * Generated from protobuf field <code>.meshpaas.Routing routing = 11 [(.validator.field) = {</code>
+     * @return \Meshpaas\Routing
      */
-    public function getNetworking()
+    public function getRouting()
     {
-        return $this->networking;
+        return $this->routing;
     }
 
     /**
-     * gateway/service-mesh networking
+     * gateway/service-mesh routing
      *
-     * Generated from protobuf field <code>.meshpaas.Networking networking = 11 [(.validator.field) = {</code>
-     * @param \Meshpaas\Networking $var
+     * Generated from protobuf field <code>.meshpaas.Routing routing = 11 [(.validator.field) = {</code>
+     * @param \Meshpaas\Routing $var
      * @return $this
      */
-    public function setNetworking($var)
+    public function setRouting($var)
     {
-        GPBUtil::checkMessage($var, \Meshpaas\Networking::class);
-        $this->networking = $var;
+        GPBUtil::checkMessage($var, \Meshpaas\Routing::class);
+        $this->routing = $var;
 
         return $this;
     }
@@ -274,6 +250,8 @@ class App extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * image_pull_secret is the secret used to pull images from docker registry
+     *
      * Generated from protobuf field <code>string image_pull_secret = 14;</code>
      * @return string
      */
@@ -283,6 +261,8 @@ class App extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * image_pull_secret is the secret used to pull images from docker registry
+     *
      * Generated from protobuf field <code>string image_pull_secret = 14;</code>
      * @param string $var
      * @return $this

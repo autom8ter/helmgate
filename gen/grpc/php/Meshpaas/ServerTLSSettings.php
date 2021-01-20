@@ -9,22 +9,30 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
+ * ServerTLSSettings provides tls/ssl encryption options
+ *
  * Generated from protobuf message <code>meshpaas.ServerTLSSettings</code>
  */
 class ServerTLSSettings extends \Google\Protobuf\Internal\Message
 {
     /**
+     * automatically redirect http -> https
+     *
      * Generated from protobuf field <code>bool https_redirect = 1;</code>
      */
     private $https_redirect = false;
     /**
+     * tls mode
+     *
      * Generated from protobuf field <code>.meshpaas.TLSmode mode = 2;</code>
      */
     private $mode = 0;
     /**
-     * Generated from protobuf field <code>string credential_name = 3;</code>
+     * secret where tls credentials are stored
+     *
+     * Generated from protobuf field <code>string secret_name = 3;</code>
      */
-    private $credential_name = '';
+    private $secret_name = '';
     /**
      * Generated from protobuf field <code>repeated string subject_alt_names = 4;</code>
      */
@@ -49,8 +57,11 @@ class ServerTLSSettings extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type bool $https_redirect
+     *           automatically redirect http -> https
      *     @type int $mode
-     *     @type string $credential_name
+     *           tls mode
+     *     @type string $secret_name
+     *           secret where tls credentials are stored
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $subject_alt_names
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $verify_certificate_spki
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $verify_certificate_hash
@@ -63,6 +74,8 @@ class ServerTLSSettings extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * automatically redirect http -> https
+     *
      * Generated from protobuf field <code>bool https_redirect = 1;</code>
      * @return bool
      */
@@ -72,6 +85,8 @@ class ServerTLSSettings extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * automatically redirect http -> https
+     *
      * Generated from protobuf field <code>bool https_redirect = 1;</code>
      * @param bool $var
      * @return $this
@@ -85,6 +100,8 @@ class ServerTLSSettings extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * tls mode
+     *
      * Generated from protobuf field <code>.meshpaas.TLSmode mode = 2;</code>
      * @return int
      */
@@ -94,6 +111,8 @@ class ServerTLSSettings extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * tls mode
+     *
      * Generated from protobuf field <code>.meshpaas.TLSmode mode = 2;</code>
      * @param int $var
      * @return $this
@@ -107,23 +126,27 @@ class ServerTLSSettings extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string credential_name = 3;</code>
+     * secret where tls credentials are stored
+     *
+     * Generated from protobuf field <code>string secret_name = 3;</code>
      * @return string
      */
-    public function getCredentialName()
+    public function getSecretName()
     {
-        return $this->credential_name;
+        return $this->secret_name;
     }
 
     /**
-     * Generated from protobuf field <code>string credential_name = 3;</code>
+     * secret where tls credentials are stored
+     *
+     * Generated from protobuf field <code>string secret_name = 3;</code>
      * @param string $var
      * @return $this
      */
-    public function setCredentialName($var)
+    public function setSecretName($var)
     {
         GPBUtil::checkString($var, True);
-        $this->credential_name = $var;
+        $this->secret_name = $var;
 
         return $this;
     }

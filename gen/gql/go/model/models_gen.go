@@ -4,19 +4,17 @@ package model
 
 type App struct {
 	Name       string       `json:"name"`
-	Project    string       `json:"project"`
 	Containers []*Container `json:"containers"`
 	Replicas   int          `json:"replicas"`
-	Networking *Networking  `json:"networking"`
+	Routing    *Routing     `json:"routing"`
 	Status     *AppStatus   `json:"status"`
 }
 
 type AppInput struct {
 	Name       string            `json:"name"`
-	Project    string            `json:"project"`
 	Containers []*ContainerInput `json:"containers"`
 	Replicas   int               `json:"replicas"`
-	Networking *NetworkingInput  `json:"networking"`
+	Routing    *RoutingInput     `json:"routing"`
 }
 
 type AppStatus struct {
@@ -67,39 +65,8 @@ type Log struct {
 	Message string `json:"message"`
 }
 
-type Networking struct {
-	Gateways   []string     `json:"gateways"`
-	Hosts      []string     `json:"hosts"`
-	Export     *bool        `json:"export"`
-	HTTPRoutes []*HTTPRoute `json:"http_routes"`
-}
-
-type NetworkingInput struct {
-	Gateways   []string          `json:"gateways"`
-	Hosts      []string          `json:"hosts"`
-	Export     *bool             `json:"export"`
-	HTTPRoutes []*HTTPRouteInput `json:"http_routes"`
-}
-
-type Project struct {
-	Name string `json:"name"`
-}
-
-type ProjectInput struct {
-	Name string `json:"name"`
-}
-
-type ProjectRef struct {
-	Name string `json:"name"`
-}
-
-type Projects struct {
-	Projects []string `json:"projects"`
-}
-
 type Ref struct {
-	Name    string `json:"name"`
-	Project string `json:"project"`
+	Name string `json:"name"`
 }
 
 type Replica struct {
@@ -108,9 +75,22 @@ type Replica struct {
 	Reason    string `json:"reason"`
 }
 
+type Routing struct {
+	Gateways   []string     `json:"gateways"`
+	Hosts      []string     `json:"hosts"`
+	Export     *bool        `json:"export"`
+	HTTPRoutes []*HTTPRoute `json:"http_routes"`
+}
+
+type RoutingInput struct {
+	Gateways   []string          `json:"gateways"`
+	Hosts      []string          `json:"hosts"`
+	Export     *bool             `json:"export"`
+	HTTPRoutes []*HTTPRouteInput `json:"http_routes"`
+}
+
 type Task struct {
 	Name        string       `json:"name"`
-	Project     string       `json:"project"`
 	Containers  []*Container `json:"containers"`
 	Schedule    string       `json:"schedule"`
 	Completions *int         `json:"completions"`
@@ -118,7 +98,6 @@ type Task struct {
 
 type TaskInput struct {
 	Name        string            `json:"name"`
-	Project     string            `json:"project"`
 	Containers  []*ContainerInput `json:"containers"`
 	Schedule    string            `json:"schedule"`
 	Completions *int              `json:"completions"`

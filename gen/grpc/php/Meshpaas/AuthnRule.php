@@ -9,6 +9,8 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
+ * AuthnRule is an authentication rule
+ *
  * Generated from protobuf message <code>meshpaas.AuthnRule</code>
  */
 class AuthnRule extends \Google\Protobuf\Internal\Message

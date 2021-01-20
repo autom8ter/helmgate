@@ -5,7 +5,7 @@
 namespace Meshpaas;
 
 /**
- * SecretType is a secret scoped to a project
+ * SecretType is a classification of secret
  *
  * Protobuf type <code>meshpaas.SecretType</code>
  */

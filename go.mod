@@ -13,6 +13,7 @@ require (
 	github.com/grpc-ecosystem/go-grpc-middleware v1.2.2
 	github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0
 	github.com/joho/godotenv v1.3.0
+	github.com/lestrrat-go/jwx v1.0.8
 	github.com/mwitkow/go-proto-validators v0.3.2
 	github.com/pkg/errors v0.9.1
 	github.com/prometheus/client_golang v1.9.0
@@ -26,7 +27,7 @@ require (
 	google.golang.org/grpc v1.33.2
 	google.golang.org/protobuf v1.25.0
 	istio.io/api v0.0.0-20210115162953-da389fc06d2c
-	istio.io/client-go v0.0.0-20210115164403-c9e58f5c6252 // indirect
+	istio.io/client-go v0.0.0-20210115164403-c9e58f5c6252
 	k8s.io/api v0.19.0
 	k8s.io/apimachinery v0.19.0
 	k8s.io/client-go v0.19.0 // indirect

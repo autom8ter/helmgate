@@ -24,7 +24,7 @@ type HTTPRoute {
     allow_credentials: Boolean
 }
 
-type Networking {
+type Routing {
     #  The names of gateways and sidecars that should apply these routes.
     # Gateways in other projects may be referred to by
     # `<gateway project>/<gateway name>`; specifying a gateway with no
@@ -69,7 +69,7 @@ input HTTPRouteInput {
     allow_credentials: Boolean
 }
 
-input NetworkingInput {
+input RoutingInput {
     #  The names of gateways and sidecars that should apply these routes.
     # Gateways in other projects may be referred to by
     # `<gateway project>/<gateway name>`; specifying a gateway with no
@@ -122,13 +122,11 @@ input ContainerInput {
 type App {
     # name of the application
     name: String!
-    # application project
-    project: String!
     containers: [Container!]!
     # number of deployment replicas min:1
     replicas: Int!
-    # gateway/service mesh networking
-    networking: Networking!
+    # gateway/service mesh routing
+    routing: Routing!
     # status tracks the state of the application during it's lifecycle
     status: AppStatus!
     
@@ -139,8 +137,6 @@ type App {
 type Task {
     # name of the application
     name: String!
-    # application project
-    project: String!
     containers: [Container!]!
     # schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
     schedule: String!
@@ -167,41 +163,21 @@ type Log {
     message: String!
 }
 
-# Projects is a list of projects
-type Projects {
-    projects: [String!]
-}
-
-type Project {
-    name: String!
-    
-}
-
-# Project is a primitive used for logical segmentation of resources
-input ProjectInput {
-    name: String!
-    
-}
-
 # AppInput creates a new stateless Application
 input AppInput {
     # name of the application
     name: String!
-    # application project
-    project: String!
     containers: [ContainerInput!]!
     # number of deployment replicas min:1
     replicas: Int!
     # gateway/servicemesh configuration
-    networking: NetworkingInput!
+    routing: RoutingInput!
 }
 
 # TaskInput creates a new task(cron job)
 input TaskInput {
     # name of the application
     name: String!
-    # application project
-    project: String!
     containers: [ContainerInput!]!
     # schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
     schedule: String!
@@ -214,31 +190,18 @@ input TaskInput {
 input Ref {
     # name of the resource
     name: String!
-    # resource project
-    project: String!
-}
-
-input ProjectRef {
-    # name of the project
-    name: String!
 }
 
 type Mutation {
-    createProject(input: ProjectInput!): Project!
-    updateProject(input: ProjectInput!): Project!
     # delProject deletes all resources within an existing project
-    delProject(input: ProjectRef!): String
-
+    delProject(input: String): String
     # createApp creates a new stateless application(k8s deployment), exposed with a single load balancer(k8s service) within a single project(k8s project)
-    # the project will automatically be created if one does not already exist
     createApp(input: AppInput!): App!
     # updateApp edits/patches an existing stateless application(k8s deployment & service) within an existing project(k8s project)
     updateApp(input: AppInput!): App!
     # delApp deletes a single stateless application(k8s deployment & service) within an existing project
     delApp(input: Ref!): String
-
     # createTask creates a new task(k8s cron job) within a single project(k8s project)
-    # the project will automatically be created if one does not already exist
     createTask(input: TaskInput!): Task!
     #  UpdateTask edits/patches an existing task(k8s cron job) within an existing project(k8s project)
     updateTask(input: TaskInput!): Task!
@@ -249,19 +212,15 @@ type Mutation {
 }
 
 type Query {
-    # listProjects lists all projects created by meshpaas
-    listProjects(input: String): Projects!
-    getProject(input: ProjectRef!): Project!
-
     # getApp gets an existing stateless application(k8s deployment) by name within an existing project
     getApp(input: Ref!): App
     # listApps lists all an existing stateless applications(k8s deployments) within an existing project
-    listApps(input: ProjectRef!): [App!]
+    listApps(input: String): [App!]
 
     # getTask gets a task(k8s cron job) by name within an existing project
     getTask(input: Ref!): Task
     # listTasks lists all tasks(k8s cron jobs) within an existing project
-    listTasks(input: ProjectRef!): [Task!]
+    listTasks(input: String): [Task!]
 
 }
 

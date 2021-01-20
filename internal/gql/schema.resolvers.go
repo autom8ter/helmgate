@@ -5,6 +5,7 @@ package gql
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/99designs/gqlgen/graphql"
 	"github.com/autom8ter/meshpaas/gen/gql/go/generated"
@@ -14,45 +15,8 @@ import (
 	"github.com/vektah/gqlparser/v2/gqlerror"
 )
 
-func (r *mutationResolver) CreateProject(ctx context.Context, input model.ProjectInput) (*model.Project, error) {
-	p, err := r.client.CreateProject(ctx, &meshpaaspb.ProjectInput{
-		Name: input.Name,
-	})
-	if err != nil {
-		return nil, &gqlerror.Error{
-			Message: err.Error(),
-			Path:    graphql.GetPath(ctx),
-		}
-	}
-	return &model.Project{
-		Name: p.Name,
-	}, nil
-}
-
-func (r *mutationResolver) UpdateProject(ctx context.Context, input model.ProjectInput) (*model.Project, error) {
-	p, err := r.client.UpdateProject(ctx, &meshpaaspb.ProjectInput{
-		Name: input.Name,
-	})
-	if err != nil {
-		return nil, &gqlerror.Error{
-			Message: err.Error(),
-			Path:    graphql.GetPath(ctx),
-		}
-	}
-	return &model.Project{
-		Name: p.Name,
-	}, nil
-}
-
-func (r *mutationResolver) DelProject(ctx context.Context, input model.ProjectRef) (*string, error) {
-	_, err := r.client.DeleteProject(ctx, &meshpaaspb.ProjectRef{Name: input.Name})
-	if err != nil {
-		return nil, &gqlerror.Error{
-			Message: err.Error(),
-			Path:    graphql.GetPath(ctx),
-		}
-	}
-	return nil, nil
+func (r *mutationResolver) DelProject(ctx context.Context, input *string) (*string, error) {
+	panic(fmt.Errorf("not implemented"))
 }
 
 func (r *mutationResolver) CreateApp(ctx context.Context, input model.AppInput) (*model.App, error) {
@@ -79,8 +43,7 @@ func (r *mutationResolver) UpdateApp(ctx context.Context, input model.AppInput) 
 
 func (r *mutationResolver) DelApp(ctx context.Context, input model.Ref) (*string, error) {
 	_, err := r.client.DeleteApp(ctx, &meshpaaspb.Ref{
-		Name:    input.Name,
-		Project: input.Project,
+		Name: input.Name,
 	})
 	if err != nil {
 		return nil, &gqlerror.Error{
@@ -115,8 +78,7 @@ func (r *mutationResolver) UpdateTask(ctx context.Context, input model.TaskInput
 
 func (r *mutationResolver) DelTask(ctx context.Context, input model.Ref) (*string, error) {
 	_, err := r.client.DeleteApp(ctx, &meshpaaspb.Ref{
-		Name:    input.Name,
-		Project: input.Project,
+		Name: input.Name,
 	})
 	if err != nil {
 		return nil, &gqlerror.Error{
@@ -127,40 +89,9 @@ func (r *mutationResolver) DelTask(ctx context.Context, input model.Ref) (*strin
 	return nil, nil
 }
 
-func (r *queryResolver) ListProjects(ctx context.Context, input *string) (*model.Projects, error) {
-	namespaces, err := r.client.ListProjects(ctx, &empty.Empty{})
-	if err != nil {
-		return nil, &gqlerror.Error{
-			Message: err.Error(),
-			Path:    graphql.GetPath(ctx),
-		}
-	}
-	var toReturn = &model.Projects{}
-	for _, n := range namespaces.GetProjects() {
-		toReturn.Projects = append(toReturn.Projects, n)
-	}
-	return toReturn, nil
-}
-
-func (r *queryResolver) GetProject(ctx context.Context, input model.ProjectRef) (*model.Project, error) {
-	p, err := r.client.GetProject(ctx, &meshpaaspb.ProjectRef{
-		Name: input.Name,
-	})
-	if err != nil {
-		return nil, &gqlerror.Error{
-			Message: err.Error(),
-			Path:    graphql.GetPath(ctx),
-		}
-	}
-	return &model.Project{
-		Name: p.Name,
-	}, nil
-}
-
 func (r *queryResolver) GetApp(ctx context.Context, input model.Ref) (*model.App, error) {
 	app, err := r.client.GetApp(ctx, &meshpaaspb.Ref{
-		Name:    input.Name,
-		Project: input.Project,
+		Name: input.Name,
 	})
 	if err != nil {
 		return nil, &gqlerror.Error{
@@ -171,8 +102,8 @@ func (r *queryResolver) GetApp(ctx context.Context, input model.Ref) (*model.App
 	return fromApp(app), nil
 }
 
-func (r *queryResolver) ListApps(ctx context.Context, input model.ProjectRef) ([]*model.App, error) {
-	apps, err := r.client.ListApps(ctx, &meshpaaspb.ProjectRef{Name: input.Name})
+func (r *queryResolver) ListApps(ctx context.Context, input *string) ([]*model.App, error) {
+	apps, err := r.client.ListApps(ctx, &empty.Empty{})
 	if err != nil {
 		return nil, &gqlerror.Error{
 			Message: err.Error(),
@@ -188,8 +119,7 @@ func (r *queryResolver) ListApps(ctx context.Context, input model.ProjectRef) ([
 
 func (r *queryResolver) GetTask(ctx context.Context, input model.Ref) (*model.Task, error) {
 	app, err := r.client.GetTask(ctx, &meshpaaspb.Ref{
-		Name:    input.Name,
-		Project: input.Project,
+		Name: input.Name,
 	})
 	if err != nil {
 		return nil, &gqlerror.Error{
@@ -200,8 +130,8 @@ func (r *queryResolver) GetTask(ctx context.Context, input model.Ref) (*model.Ta
 	return fromTask(app), nil
 }
 
-func (r *queryResolver) ListTasks(ctx context.Context, input model.ProjectRef) ([]*model.Task, error) {
-	apps, err := r.client.ListTasks(ctx, &meshpaaspb.ProjectRef{Name: input.Name})
+func (r *queryResolver) ListTasks(ctx context.Context, input *string) ([]*model.Task, error) {
+	apps, err := r.client.ListTasks(ctx, &empty.Empty{})
 	if err != nil {
 		return nil, &gqlerror.Error{
 			Message: err.Error(),
@@ -217,8 +147,7 @@ func (r *queryResolver) ListTasks(ctx context.Context, input model.ProjectRef) (
 
 func (r *subscriptionResolver) StreamLogs(ctx context.Context, input model.Ref) (<-chan string, error) {
 	stream, err := r.client.StreamLogs(ctx, &meshpaaspb.Ref{
-		Name:    input.Name,
-		Project: input.Project,
+		Name: input.Name,
 	})
 	if err != nil {
 		return nil, &gqlerror.Error{

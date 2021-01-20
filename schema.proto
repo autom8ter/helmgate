@@ -10,6 +10,7 @@ import "google/protobuf/any.proto";
 import "google/protobuf/empty.proto";
 import "github.com/mwitkow/go-proto-validators/validator.proto";
 
+// AuthnRule is an authentication rule
 message AuthnRule {
   // json web keys uri ref: https://tools.ietf.org/html/rfc7517
   string jwks_uri =1[(validator.field) = {regex : "^.{1,225}$"}];
@@ -21,13 +22,13 @@ message AuthnRule {
   string ouput_payload_header =4[(validator.field) = {regex : "^.{1,225}$"}];
 }
 
-// the source of an authorization decision
+// AuthzSource is the source of a request
 message AuthzSource {
   // allow_namespaces restricts access to traffic coming from a particular namespace
   repeated string allow_namespaces =1;
 }
 
-// the subject of an authorization decision
+// AuthzSubject is a set of attributes derived from the jwt of on an inbound request
 message AuthzSubject {
   // allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
   repeated string allow_issuers =6;
@@ -61,15 +62,15 @@ message AuthzRule {
 
 // Authz holds authorization options for an application
 message Authz {
-  repeated AuthzRule rules =1[(validator.field) = {repeated_count_min : 0}];
+  repeated AuthzRule rules =1[(validator.field) = {repeated_count_min : 1}];
 }
 
 // Authn holds authentication options for an application
 message Authn {
-  repeated AuthnRule rules =1[(validator.field) = {repeated_count_min : 0}];
+  repeated AuthnRule rules =1[(validator.field) = {repeated_count_min : 1}];
 }
 
-// SecretType is a secret scoped to a project
+// SecretType is a classification of secret
 enum SecretType {
   OPAQUE =0;
   TLS_CERT_KEY =1;
@@ -80,8 +81,6 @@ enum SecretType {
 message SecretInput {
   // name of the secret
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // secret project
-  string project =2[(validator.field) = {regex : "^.{1,225}$"}];
   SecretType type =3;
   // prevent changes to the secret after it is created
   bool immutable =4;
@@ -89,11 +88,10 @@ message SecretInput {
   map<string, string> data =5[(validator.field) = {msg_exists : true}];
 }
 
+// Secret is a secret/credential used by various components of the service mesh
 message Secret {
   // name of the secret
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // secret project
-  string project =2[(validator.field) = {regex : "^.{1,225}$"}];
   SecretType type =3;
   // prevent changes to the secret after it is created
   bool immutable =4;
@@ -113,44 +111,53 @@ enum TransportProtocol {
 }
 
 enum TLSmode {
+  // no termination
   PASSTHROUGH = 0;
+  // tls termination
   SIMPLE = 1;
+  // mutual tls
   MUTUAL = 2;
   AUTO_PASSTHROUGH = 3;
   ISTIO_MUTUAL = 4;
 };
 
+// ServerTLSSettings provides tls/ssl encryption options
 message ServerTLSSettings {
+  // automatically redirect http -> https
   bool https_redirect = 1;
+  // tls mode
   TLSmode mode = 2;
-  string credential_name = 3;
+  // secret where tls credentials are stored
+  string secret_name = 3;
   repeated string subject_alt_names = 4;
   repeated string verify_certificate_spki = 5;
   repeated string verify_certificate_hash = 6;
   repeated string cipher_suites = 7;
 }
 
+// GatewayListener is a single, public tcp listener served by a gateway
 message GatewayListener {
+  // port the gateway listener will listen on ex: 80
   uint32 port =1[(validator.field) = {int_gt : 0}];
+  // name of the gateway listener ex: http
   string name =2[(validator.field) = {regex : "^.{1,225}$"}];
+  // protocol describes the transport protocol served by this listener
   TransportProtocol protocol =3[(validator.field) = {int_gt : 0}];
-  repeated string hosts =4[(validator.field) = {repeated_count_min : 0}];
+  // hosts describes hostnames that may route to this listener
+  repeated string hosts =4[(validator.field) = {repeated_count_min : 1}];
+  // tls_config provides tls/ssl encryption options
   ServerTLSSettings tls_config =5;
 }
 
 message Gateway {
   // name of the gateway
   string name =1;
-  // gateway's project
-  string project =2;
   repeated GatewayListener listeners = 3;
 }
 
 message GatewayInput {
   // name of the gateway
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // gateway's project
-  string project =2[(validator.field) = {regex : "^.{1,225}$"}];
   repeated GatewayListener listeners = 3;
 }
 
@@ -172,7 +179,8 @@ message HTTPRoute {
   bool allow_credentials =10;
 }
 
-message Networking {
+// Routing describes service mesh routing options(gateway/host bindings, route rewrites, etc) for an Application
+message Routing {
   // gateways to bind to
   repeated string gateways =1;
   // host names to bind to
@@ -202,16 +210,18 @@ message App {
   // name of the application
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
   // application project
-  string project =2[(validator.field) = {regex : "^.{1,225}$"}];
-  repeated Container containers =3[(validator.field) = {msg_exists : true}];
+  
+  // containers are docker containers that run the application's business logic
+  repeated Container containers =3 [(validator.field) = {repeated_count_min : 1}];
   // number of deployment replicas
   uint32 replicas =8;
-  // gateway/service-mesh networking
-  Networking networking =11[(validator.field) = {msg_exists : true}];
+  // gateway/service-mesh routing
+  Routing routing =11[(validator.field) = {msg_exists : true}];
   // application authentication options
   Authn authentication =12[(validator.field) = {msg_exists : true}];
   // application authorization options
   Authz authorization =13[(validator.field) = {msg_exists : true}];
+  // image_pull_secret is the secret used to pull images from docker registry
   string image_pull_secret =14;
   // status tracks the state of the application during it's lifecycle
   AppStatus status =20[(validator.field) = {msg_exists : true}];
@@ -223,9 +233,11 @@ message Task {
   // name of the task
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
   // task project
-  string project =2[(validator.field) = {regex : "^.{1,225}$"}];
+  
+  // image_pull_secret is the secret used to pull images from docker registry
   string image_pull_secret =3;
-  repeated Container containers =4[(validator.field) = {msg_exists : true}];
+  // containers are docker containers that run the task's business logic
+  repeated Container containers =4 [(validator.field) = {repeated_count_min : 1}];
   // schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
   string schedule = 7[(validator.field) = {regex : "^.{1,225}$"}];
   // completions is the number of times to execute the task. If completions = 0, the task will run forever
@@ -237,9 +249,11 @@ message TaskInput {
   // name of the task
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
   // task project
-  string project =2[(validator.field) = {regex : "^.{1,225}$"}];
+  
+  // image_pull_secret is the secret used to pull images from docker registry
   string image_pull_secret =3;
-  repeated Container containers =4[(validator.field) = {msg_exists : true}];
+  // containers are docker containers that run the task's business logic
+  repeated Container containers =4 [(validator.field) = {repeated_count_min : 1}];
   // schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
   string schedule = 7[(validator.field) = {regex : "^.{1,225}$"}];
   // completions is the number of times to execute the task. If completions = 0, the task will run forever
@@ -251,15 +265,18 @@ message AppInput {
   // name of the application
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
   // application project
-  string project =2[(validator.field) = {regex : "^.{1,225}$"}];
-  repeated Container containers =3[(validator.field) = {msg_exists : true}];
+  
+  // containers are docker containers that run the application's business logic
+  repeated Container containers =3 [(validator.field) = {repeated_count_min : 1}];
   // number of deployment replicas
   uint32 replicas =7;
-  Networking networking =10[(validator.field) = {msg_exists : true}];
+  // routing - routing options
+  Routing routing =10[(validator.field) = {msg_exists : true}];
   // application authentication options
   Authn authentication =12;
   // application authorization options
   Authz authorization =13[(validator.field) = {msg_exists : true}];
+  // image_pull_secret is the secret used to pull images from docker registry
   string image_pull_secret =14;
 }
 
@@ -267,8 +284,6 @@ message AppInput {
 message Ref {
   // name of the resource
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // resource's project
-  string project =2[(validator.field) = {regex : "^.{1,225}$"}];
 }
 
 // Replica tracks the state/status of an individual replica of an application
@@ -295,85 +310,53 @@ message Tasks {
   repeated Task tasks =1;
 }
 
-// Project creates/replaces a project(k8s namespace)
-message ProjectInput {
-  string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-}
-
-// Project is a reference to a project(k8s namespace)
-message Project {
-  string name =1;
-}
-
-// ProjectRef is a reference to an existing project(k8s namespace)
-message ProjectRef {
-  string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-}
-
-message Projects {
-  repeated string projects =1;
-}
-
-
 // MeshPaasService is a platform as a service backed by Istio service mesh
 service MeshPaasService {
-  rpc CreateProject(ProjectInput) returns(Project){}
-  // ListProjects lists all projects(k8s namespace) created by meshpaas
-  rpc ListProjects(google.protobuf.Empty) returns(Projects){}
-  // DeleteProject deletes a project(k8s namespace) & all its resources
-  rpc DeleteProject(ProjectRef) returns(google.protobuf.Empty){}
-  // GetProject gets an existing project(k8s namespace)
-  rpc GetProject(ProjectRef) returns(Project){}
-  // UpdateProject updates an existing project(k8s namespace)
-  rpc UpdateProject(ProjectInput) returns(Project){}
-
-  // CreateApp creates a new stateless application(k8s deployment & service) within a single project(k8s namespace)
-  // the project will automatically be created if one does not already exist
+  // CreateApp creates a new stateless application(k8s deployment & service)
   rpc CreateApp(AppInput) returns(App){}
-  // UpdateApp replaces an existing stateless application(k8s deployment & service) within an existing project(k8s namespace)
+  // UpdateApp replaces an existing stateless application(k8s deployment & service)
   rpc UpdateApp(AppInput) returns(App){}
-  // DeleteApp deletes a single stateless application(k8s deployment & service) within an existing project
+  // DeleteApp deletes a single stateless application(k8s deployment & service)
   rpc DeleteApp(Ref) returns(google.protobuf.Empty){}
-  // GetApp gets an app by name within an existing project
+  // GetApp gets an app by name
   rpc GetApp(Ref) returns(App){}
-  // ListApps lists all apps within an existing project
-  rpc ListApps(ProjectRef) returns(Apps){}
+  // ListApps lists all apps
+  rpc ListApps(google.protobuf.Empty) returns(Apps){}
 
-  // CreateTask creates a new task(k8s cron job) within a single project(k8s namespace)
-  // the project will automatically be created if one does not already exist
+  // CreateTask creates a new task(k8s cron job)
+  
   rpc CreateTask(TaskInput) returns(Task){}
-  // UpdateTask replaces an existing task(k8s cron job) within an existing project(k8s namespace)
+  // UpdateTask replaces an existing task(k8s cron job)
   rpc UpdateTask(TaskInput) returns(Task){}
-  // DeleteTask deletes a single task(k8s cron job) within an existing project
+  // DeleteTask deletes a single task(k8s cron job)
   rpc DeleteTask(Ref) returns(google.protobuf.Empty){}
-  // GetTask gets a task(k8s cron job) by name within an existing project
+  // GetTask gets a task(k8s cron job) by name
   rpc GetTask(Ref) returns(Task){}
-  // ListTasks lists all tasks(k8s cron jobs) within an existing project
-  rpc ListTasks(ProjectRef) returns(Tasks){}
+  // ListTasks lists all tasks(k8s cron jobs)
+  rpc ListTasks(google.protobuf.Empty) returns(Tasks){}
 
 
-  // CreateGateway creates a new gateway(istio gateway) within a single project(k8s namespace)
-  // the project will automatically be created if one does not already exist
+  // CreateGateway creates a new gateway(istio gateway)
+  
   rpc CreateGateway(GatewayInput) returns(Gateway){}
-  // UpdateGateway replaces an existing gateway(istio gateway) within an existing project(k8s namespace)
+  // UpdateGateway replaces an existing gateway(istio gateway)
   rpc UpdateGateway(GatewayInput) returns(Gateway){}
-  // DeleteGateway deletes a single gateway(istio gateway) within an existing project
+  // DeleteGateway deletes a single gateway(istio gateway)
   rpc DeleteGateway(Ref) returns(google.protobuf.Empty){}
-  // GetGateway gets a gateway(istio gateway) by name within an existing project
+  // GetGateway gets a gateway(istio gateway) by name
   rpc GetGateway(Ref) returns(Gateway){}
 
 
-  // CreateSecret creates a new secret(k8s secret) within a single project(k8s namespace)
-  // the project will automatically be created if one does not already exist
+  // CreateSecret creates a new secret(k8s secret)
   rpc CreateSecret(SecretInput) returns(Secret){}
-  // UpdateSecret replaces an existing secret(k8s secret) within an existing project(k8s namespace)
+  // UpdateSecret replaces an existing secret(k8s secret)
   rpc UpdateSecret(SecretInput) returns(Secret){}
-  // DeleteSecret deletes a single secret(k8s secret) within an existing project
+  // DeleteSecret deletes a single secret(k8s secret)
   rpc DeleteSecret(Ref) returns(google.protobuf.Empty){}
-  // GetSecret gets a secret(k8s secret) by name within an existing project
+  // GetSecret gets a secret(k8s secret) by name
   rpc GetSecret(Ref) returns(Secret){}
 
-  // StreamLogs streams logs from an app/task within an existing project.
+  // StreamLogs streams logs from an app/task.
   // Streams are opened to all replicas & converted into a single stream
   rpc StreamLogs(Ref) returns (stream Log){}
 }

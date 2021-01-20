@@ -255,31 +255,15 @@
                 </li>
               
                 <li>
-                  <a href="#meshpaas.Networking"><span class="badge">M</span>Networking</a>
-                </li>
-              
-                <li>
-                  <a href="#meshpaas.Project"><span class="badge">M</span>Project</a>
-                </li>
-              
-                <li>
-                  <a href="#meshpaas.ProjectInput"><span class="badge">M</span>ProjectInput</a>
-                </li>
-              
-                <li>
-                  <a href="#meshpaas.ProjectRef"><span class="badge">M</span>ProjectRef</a>
-                </li>
-              
-                <li>
-                  <a href="#meshpaas.Projects"><span class="badge">M</span>Projects</a>
-                </li>
-              
-                <li>
                   <a href="#meshpaas.Ref"><span class="badge">M</span>Ref</a>
                 </li>
               
                 <li>
                   <a href="#meshpaas.Replica"><span class="badge">M</span>Replica</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.Routing"><span class="badge">M</span>Routing</a>
                 </li>
               
                 <li>
@@ -362,21 +346,16 @@
                   <td>name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>name of the application </p></td>
-                </tr>
-              
-                <tr>
-                  <td>project</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>application project </p></td>
+                  <td><p>name of the application
+
+application project </p></td>
                 </tr>
               
                 <tr>
                   <td>containers</td>
                   <td><a href="#meshpaas.Container">Container</a></td>
                   <td>repeated</td>
-                  <td><p> </p></td>
+                  <td><p>containers are docker containers that run the application&#39;s business logic </p></td>
                 </tr>
               
                 <tr>
@@ -387,10 +366,10 @@
                 </tr>
               
                 <tr>
-                  <td>networking</td>
-                  <td><a href="#meshpaas.Networking">Networking</a></td>
+                  <td>routing</td>
+                  <td><a href="#meshpaas.Routing">Routing</a></td>
                   <td></td>
-                  <td><p>gateway/service-mesh networking </p></td>
+                  <td><p>gateway/service-mesh routing </p></td>
                 </tr>
               
                 <tr>
@@ -411,7 +390,7 @@
                   <td>image_pull_secret</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>image_pull_secret is the secret used to pull images from docker registry </p></td>
                 </tr>
               
                 <tr>
@@ -449,29 +428,18 @@
                 </tr>
               
                 <tr>
-                  <td>project</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
                   <td>containers</td>
                   <td>
                     <ul>
                     
-                      <li>msg_exists: true</li>
+                      <li>repeated_count_min: 1</li>
                     
                     </ul>
                   </td>
                 </tr>
               
                 <tr>
-                  <td>networking</td>
+                  <td>routing</td>
                   <td>
                     <ul>
                     
@@ -535,21 +503,16 @@
                   <td>name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>name of the application </p></td>
-                </tr>
-              
-                <tr>
-                  <td>project</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>application project </p></td>
+                  <td><p>name of the application
+
+application project </p></td>
                 </tr>
               
                 <tr>
                   <td>containers</td>
                   <td><a href="#meshpaas.Container">Container</a></td>
                   <td>repeated</td>
-                  <td><p> </p></td>
+                  <td><p>containers are docker containers that run the application&#39;s business logic </p></td>
                 </tr>
               
                 <tr>
@@ -560,10 +523,10 @@
                 </tr>
               
                 <tr>
-                  <td>networking</td>
-                  <td><a href="#meshpaas.Networking">Networking</a></td>
+                  <td>routing</td>
+                  <td><a href="#meshpaas.Routing">Routing</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>routing - routing options </p></td>
                 </tr>
               
                 <tr>
@@ -584,7 +547,7 @@
                   <td>image_pull_secret</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>image_pull_secret is the secret used to pull images from docker registry </p></td>
                 </tr>
               
             </tbody>
@@ -615,29 +578,18 @@
                 </tr>
               
                 <tr>
-                  <td>project</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
                   <td>containers</td>
                   <td>
                     <ul>
                     
-                      <li>msg_exists: true</li>
+                      <li>repeated_count_min: 1</li>
                     
                     </ul>
                   </td>
                 </tr>
               
                 <tr>
-                  <td>networking</td>
+                  <td>routing</td>
                   <td>
                     <ul>
                     
@@ -751,7 +703,7 @@
                   <td>
                     <ul>
                     
-                      <li>repeated_count_min: 0</li>
+                      <li>repeated_count_min: 1</li>
                     
                     </ul>
                   </td>
@@ -765,7 +717,7 @@
         
       
         <h3 id="meshpaas.AuthnRule">AuthnRule</h3>
-        <p></p>
+        <p>AuthnRule is an authentication rule</p>
 
         
           <table class="field-table">
@@ -896,7 +848,7 @@
                   <td>
                     <ul>
                     
-                      <li>repeated_count_min: 0</li>
+                      <li>repeated_count_min: 1</li>
                     
                     </ul>
                   </td>
@@ -993,7 +945,7 @@
         
       
         <h3 id="meshpaas.AuthzSource">AuthzSource</h3>
-        <p>the source of an authorization decision</p>
+        <p>AuthzSource is the source of a request</p>
 
         
           <table class="field-table">
@@ -1017,7 +969,7 @@
         
       
         <h3 id="meshpaas.AuthzSubject">AuthzSubject</h3>
-        <p>the subject of an authorization decision</p>
+        <p>AuthzSubject is a set of attributes derived from the jwt of on an inbound request</p>
 
         
           <table class="field-table">
@@ -1235,13 +1187,6 @@
                 </tr>
               
                 <tr>
-                  <td>project</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>gateway&#39;s project </p></td>
-                </tr>
-              
-                <tr>
                   <td>listeners</td>
                   <td><a href="#meshpaas.GatewayListener">GatewayListener</a></td>
                   <td>repeated</td>
@@ -1273,13 +1218,6 @@
                 </tr>
               
                 <tr>
-                  <td>project</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>gateway&#39;s project </p></td>
-                </tr>
-              
-                <tr>
                   <td>listeners</td>
                   <td><a href="#meshpaas.GatewayListener">GatewayListener</a></td>
                   <td>repeated</td>
@@ -1313,17 +1251,6 @@
                   </td>
                 </tr>
               
-                <tr>
-                  <td>project</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
               </tbody>
             </table>
             
@@ -1332,7 +1259,7 @@
         
       
         <h3 id="meshpaas.GatewayListener">GatewayListener</h3>
-        <p></p>
+        <p>GatewayListener is a single, public tcp listener served by a gateway</p>
 
         
           <table class="field-table">
@@ -1345,35 +1272,35 @@
                   <td>port</td>
                   <td><a href="#uint32">uint32</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>port the gateway listener will listen on ex: 80 </p></td>
                 </tr>
               
                 <tr>
                   <td>name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>name of the gateway listener ex: http </p></td>
                 </tr>
               
                 <tr>
                   <td>protocol</td>
                   <td><a href="#meshpaas.TransportProtocol">TransportProtocol</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>protocol describes the transport protocol served by this listener </p></td>
                 </tr>
               
                 <tr>
                   <td>hosts</td>
                   <td><a href="#string">string</a></td>
                   <td>repeated</td>
-                  <td><p> </p></td>
+                  <td><p>hosts describes hostnames that may route to this listener </p></td>
                 </tr>
               
                 <tr>
                   <td>tls_config</td>
                   <td><a href="#meshpaas.ServerTLSSettings">ServerTLSSettings</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>tls_config provides tls/ssl encryption options </p></td>
                 </tr>
               
             </tbody>
@@ -1430,7 +1357,7 @@
                   <td>
                     <ul>
                     
-                      <li>repeated_count_min: 0</li>
+                      <li>repeated_count_min: 1</li>
                     
                     </ul>
                   </td>
@@ -1585,201 +1512,6 @@
 
         
       
-        <h3 id="meshpaas.Networking">Networking</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>gateways</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p>gateways to bind to </p></td>
-                </tr>
-              
-                <tr>
-                  <td>hosts</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p>host names to bind to </p></td>
-                </tr>
-              
-                <tr>
-                  <td>export</td>
-                  <td><a href="#bool">bool</a></td>
-                  <td></td>
-                  <td><p>export service to other applications in other projects </p></td>
-                </tr>
-              
-                <tr>
-                  <td>http_routes</td>
-                  <td><a href="#meshpaas.HTTPRoute">HTTPRoute</a></td>
-                  <td>repeated</td>
-                  <td><p>http route matchers/configurations </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="meshpaas.Project">Project</h3>
-        <p>Project is a reference to a project(k8s namespace)</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="meshpaas.ProjectInput">ProjectInput</h3>
-        <p>Project creates/replaces a project(k8s namespace)</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-            
-            
-            <h4>Validated Fields</h4>
-            <table>
-              <thead>
-                <tr>
-                  <td>Field</td>
-                  <td>Validations</td>
-                </tr>
-              </thead>
-              <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-              </tbody>
-            </table>
-            
-          
-
-        
-      
-        <h3 id="meshpaas.ProjectRef">ProjectRef</h3>
-        <p>ProjectRef is a reference to an existing project(k8s namespace)</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-            
-            
-            <h4>Validated Fields</h4>
-            <table>
-              <thead>
-                <tr>
-                  <td>Field</td>
-                  <td>Validations</td>
-                </tr>
-              </thead>
-              <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-              </tbody>
-            </table>
-            
-          
-
-        
-      
-        <h3 id="meshpaas.Projects">Projects</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>projects</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
         <h3 id="meshpaas.Ref">Ref</h3>
         <p>Ref is a pointer to a resource</p>
 
@@ -1797,13 +1529,6 @@
                   <td><p>name of the resource </p></td>
                 </tr>
               
-                <tr>
-                  <td>project</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>resource&#39;s project </p></td>
-                </tr>
-              
             </tbody>
           </table>
 
@@ -1822,17 +1547,6 @@
               
                 <tr>
                   <td>name</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
-                  <td>project</td>
                   <td>
                     <ul>
                     
@@ -1887,8 +1601,53 @@
 
         
       
+        <h3 id="meshpaas.Routing">Routing</h3>
+        <p>Routing describes service mesh routing options(gateway/host bindings, route rewrites, etc) for an Application</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>gateways</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>gateways to bind to </p></td>
+                </tr>
+              
+                <tr>
+                  <td>hosts</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>host names to bind to </p></td>
+                </tr>
+              
+                <tr>
+                  <td>export</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>export service to other applications in other projects </p></td>
+                </tr>
+              
+                <tr>
+                  <td>http_routes</td>
+                  <td><a href="#meshpaas.HTTPRoute">HTTPRoute</a></td>
+                  <td>repeated</td>
+                  <td><p>http route matchers/configurations </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="meshpaas.Secret">Secret</h3>
-        <p></p>
+        <p>Secret is a secret/credential used by various components of the service mesh</p>
 
         
           <table class="field-table">
@@ -1902,13 +1661,6 @@
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>name of the secret </p></td>
-                </tr>
-              
-                <tr>
-                  <td>project</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>secret project </p></td>
                 </tr>
               
                 <tr>
@@ -1950,17 +1702,6 @@
               
                 <tr>
                   <td>name</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
-                  <td>project</td>
                   <td>
                     <ul>
                     
@@ -2037,13 +1778,6 @@
                 </tr>
               
                 <tr>
-                  <td>project</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>secret project </p></td>
-                </tr>
-              
-                <tr>
                   <td>type</td>
                   <td><a href="#meshpaas.SecretType">SecretType</a></td>
                   <td></td>
@@ -2082,17 +1816,6 @@
               
                 <tr>
                   <td>name</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
-                  <td>project</td>
                   <td>
                     <ul>
                     
@@ -2152,7 +1875,7 @@
         
       
         <h3 id="meshpaas.ServerTLSSettings">ServerTLSSettings</h3>
-        <p></p>
+        <p>ServerTLSSettings provides tls/ssl encryption options</p>
 
         
           <table class="field-table">
@@ -2165,21 +1888,21 @@
                   <td>https_redirect</td>
                   <td><a href="#bool">bool</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>automatically redirect http -&gt; https </p></td>
                 </tr>
               
                 <tr>
                   <td>mode</td>
                   <td><a href="#meshpaas.TLSmode">TLSmode</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>tls mode </p></td>
                 </tr>
               
                 <tr>
-                  <td>credential_name</td>
+                  <td>secret_name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>secret where tls credentials are stored </p></td>
                 </tr>
               
                 <tr>
@@ -2231,28 +1954,23 @@
                   <td>name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>name of the task </p></td>
-                </tr>
-              
-                <tr>
-                  <td>project</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>task project </p></td>
+                  <td><p>name of the task
+
+task project </p></td>
                 </tr>
               
                 <tr>
                   <td>image_pull_secret</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>image_pull_secret is the secret used to pull images from docker registry </p></td>
                 </tr>
               
                 <tr>
                   <td>containers</td>
                   <td><a href="#meshpaas.Container">Container</a></td>
                   <td>repeated</td>
-                  <td><p> </p></td>
+                  <td><p>containers are docker containers that run the task&#39;s business logic </p></td>
                 </tr>
               
                 <tr>
@@ -2297,22 +2015,11 @@
                 </tr>
               
                 <tr>
-                  <td>project</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
                   <td>containers</td>
                   <td>
                     <ul>
                     
-                      <li>msg_exists: true</li>
+                      <li>repeated_count_min: 1</li>
                     
                     </ul>
                   </td>
@@ -2350,28 +2057,23 @@
                   <td>name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>name of the task </p></td>
-                </tr>
-              
-                <tr>
-                  <td>project</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>task project </p></td>
+                  <td><p>name of the task
+
+task project </p></td>
                 </tr>
               
                 <tr>
                   <td>image_pull_secret</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>image_pull_secret is the secret used to pull images from docker registry </p></td>
                 </tr>
               
                 <tr>
                   <td>containers</td>
                   <td><a href="#meshpaas.Container">Container</a></td>
                   <td>repeated</td>
-                  <td><p> </p></td>
+                  <td><p>containers are docker containers that run the task&#39;s business logic </p></td>
                 </tr>
               
                 <tr>
@@ -2416,22 +2118,11 @@
                 </tr>
               
                 <tr>
-                  <td>project</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
                   <td>containers</td>
                   <td>
                     <ul>
                     
-                      <li>msg_exists: true</li>
+                      <li>repeated_count_min: 1</li>
                     
                     </ul>
                   </td>
@@ -2482,7 +2173,7 @@
 
       
         <h3 id="meshpaas.SecretType">SecretType</h3>
-        <p>SecretType is a secret scoped to a project</p>
+        <p>SecretType is a classification of secret</p>
         <table class="enum-table">
           <thead>
             <tr><td>Name</td><td>Number</td><td>Description</td></tr>
@@ -2521,19 +2212,19 @@
               <tr>
                 <td>PASSTHROUGH</td>
                 <td>0</td>
-                <td><p></p></td>
+                <td><p>no termination</p></td>
               </tr>
             
               <tr>
                 <td>SIMPLE</td>
                 <td>1</td>
-                <td><p></p></td>
+                <td><p>tls termination</p></td>
               </tr>
             
               <tr>
                 <td>MUTUAL</td>
                 <td>2</td>
-                <td><p></p></td>
+                <td><p>mutual tls</p></td>
               </tr>
             
               <tr>
@@ -2623,175 +2314,136 @@
           <tbody>
             
               <tr>
-                <td>CreateProject</td>
-                <td><a href="#meshpaas.ProjectInput">ProjectInput</a></td>
-                <td><a href="#meshpaas.Project">Project</a></td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>ListProjects</td>
-                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><a href="#meshpaas.Projects">Projects</a></td>
-                <td><p>ListProjects lists all projects(k8s namespace) created by meshpaas</p></td>
-              </tr>
-            
-              <tr>
-                <td>DeleteProject</td>
-                <td><a href="#meshpaas.ProjectRef">ProjectRef</a></td>
-                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>DeleteProject deletes a project(k8s namespace) &amp; all its resources</p></td>
-              </tr>
-            
-              <tr>
-                <td>GetProject</td>
-                <td><a href="#meshpaas.ProjectRef">ProjectRef</a></td>
-                <td><a href="#meshpaas.Project">Project</a></td>
-                <td><p>GetProject gets an existing project(k8s namespace)</p></td>
-              </tr>
-            
-              <tr>
-                <td>UpdateProject</td>
-                <td><a href="#meshpaas.ProjectInput">ProjectInput</a></td>
-                <td><a href="#meshpaas.Project">Project</a></td>
-                <td><p>UpdateProject updates an existing project(k8s namespace)</p></td>
-              </tr>
-            
-              <tr>
                 <td>CreateApp</td>
                 <td><a href="#meshpaas.AppInput">AppInput</a></td>
                 <td><a href="#meshpaas.App">App</a></td>
-                <td><p>CreateApp creates a new stateless application(k8s deployment &amp; service) within a single project(k8s namespace)
-the project will automatically be created if one does not already exist</p></td>
+                <td><p>CreateApp creates a new stateless application(k8s deployment &amp; service)</p></td>
               </tr>
             
               <tr>
                 <td>UpdateApp</td>
                 <td><a href="#meshpaas.AppInput">AppInput</a></td>
                 <td><a href="#meshpaas.App">App</a></td>
-                <td><p>UpdateApp replaces an existing stateless application(k8s deployment &amp; service) within an existing project(k8s namespace)</p></td>
+                <td><p>UpdateApp replaces an existing stateless application(k8s deployment &amp; service)</p></td>
               </tr>
             
               <tr>
                 <td>DeleteApp</td>
                 <td><a href="#meshpaas.Ref">Ref</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>DeleteApp deletes a single stateless application(k8s deployment &amp; service) within an existing project</p></td>
+                <td><p>DeleteApp deletes a single stateless application(k8s deployment &amp; service)</p></td>
               </tr>
             
               <tr>
                 <td>GetApp</td>
                 <td><a href="#meshpaas.Ref">Ref</a></td>
                 <td><a href="#meshpaas.App">App</a></td>
-                <td><p>GetApp gets an app by name within an existing project</p></td>
+                <td><p>GetApp gets an app by name</p></td>
               </tr>
             
               <tr>
                 <td>ListApps</td>
-                <td><a href="#meshpaas.ProjectRef">ProjectRef</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><a href="#meshpaas.Apps">Apps</a></td>
-                <td><p>ListApps lists all apps within an existing project</p></td>
+                <td><p>ListApps lists all apps</p></td>
               </tr>
             
               <tr>
                 <td>CreateTask</td>
                 <td><a href="#meshpaas.TaskInput">TaskInput</a></td>
                 <td><a href="#meshpaas.Task">Task</a></td>
-                <td><p>CreateTask creates a new task(k8s cron job) within a single project(k8s namespace)
-the project will automatically be created if one does not already exist</p></td>
+                <td><p></p></td>
               </tr>
             
               <tr>
                 <td>UpdateTask</td>
                 <td><a href="#meshpaas.TaskInput">TaskInput</a></td>
                 <td><a href="#meshpaas.Task">Task</a></td>
-                <td><p>UpdateTask replaces an existing task(k8s cron job) within an existing project(k8s namespace)</p></td>
+                <td><p>UpdateTask replaces an existing task(k8s cron job)</p></td>
               </tr>
             
               <tr>
                 <td>DeleteTask</td>
                 <td><a href="#meshpaas.Ref">Ref</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>DeleteTask deletes a single task(k8s cron job) within an existing project</p></td>
+                <td><p>DeleteTask deletes a single task(k8s cron job)</p></td>
               </tr>
             
               <tr>
                 <td>GetTask</td>
                 <td><a href="#meshpaas.Ref">Ref</a></td>
                 <td><a href="#meshpaas.Task">Task</a></td>
-                <td><p>GetTask gets a task(k8s cron job) by name within an existing project</p></td>
+                <td><p>GetTask gets a task(k8s cron job) by name</p></td>
               </tr>
             
               <tr>
                 <td>ListTasks</td>
-                <td><a href="#meshpaas.ProjectRef">ProjectRef</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><a href="#meshpaas.Tasks">Tasks</a></td>
-                <td><p>ListTasks lists all tasks(k8s cron jobs) within an existing project</p></td>
+                <td><p>ListTasks lists all tasks(k8s cron jobs)</p></td>
               </tr>
             
               <tr>
                 <td>CreateGateway</td>
                 <td><a href="#meshpaas.GatewayInput">GatewayInput</a></td>
                 <td><a href="#meshpaas.Gateway">Gateway</a></td>
-                <td><p>CreateGateway creates a new gateway(istio gateway) within a single project(k8s namespace)
-the project will automatically be created if one does not already exist</p></td>
+                <td><p></p></td>
               </tr>
             
               <tr>
                 <td>UpdateGateway</td>
                 <td><a href="#meshpaas.GatewayInput">GatewayInput</a></td>
                 <td><a href="#meshpaas.Gateway">Gateway</a></td>
-                <td><p>UpdateGateway replaces an existing gateway(istio gateway) within an existing project(k8s namespace)</p></td>
+                <td><p>UpdateGateway replaces an existing gateway(istio gateway)</p></td>
               </tr>
             
               <tr>
                 <td>DeleteGateway</td>
                 <td><a href="#meshpaas.Ref">Ref</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>DeleteGateway deletes a single gateway(istio gateway) within an existing project</p></td>
+                <td><p>DeleteGateway deletes a single gateway(istio gateway)</p></td>
               </tr>
             
               <tr>
                 <td>GetGateway</td>
                 <td><a href="#meshpaas.Ref">Ref</a></td>
                 <td><a href="#meshpaas.Gateway">Gateway</a></td>
-                <td><p>GetGateway gets a gateway(istio gateway) by name within an existing project</p></td>
+                <td><p>GetGateway gets a gateway(istio gateway) by name</p></td>
               </tr>
             
               <tr>
                 <td>CreateSecret</td>
                 <td><a href="#meshpaas.SecretInput">SecretInput</a></td>
                 <td><a href="#meshpaas.Secret">Secret</a></td>
-                <td><p>CreateSecret creates a new secret(k8s secret) within a single project(k8s namespace)
-the project will automatically be created if one does not already exist</p></td>
+                <td><p>CreateSecret creates a new secret(k8s secret)</p></td>
               </tr>
             
               <tr>
                 <td>UpdateSecret</td>
                 <td><a href="#meshpaas.SecretInput">SecretInput</a></td>
                 <td><a href="#meshpaas.Secret">Secret</a></td>
-                <td><p>UpdateSecret replaces an existing secret(k8s secret) within an existing project(k8s namespace)</p></td>
+                <td><p>UpdateSecret replaces an existing secret(k8s secret)</p></td>
               </tr>
             
               <tr>
                 <td>DeleteSecret</td>
                 <td><a href="#meshpaas.Ref">Ref</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>DeleteSecret deletes a single secret(k8s secret) within an existing project</p></td>
+                <td><p>DeleteSecret deletes a single secret(k8s secret)</p></td>
               </tr>
             
               <tr>
                 <td>GetSecret</td>
                 <td><a href="#meshpaas.Ref">Ref</a></td>
                 <td><a href="#meshpaas.Secret">Secret</a></td>
-                <td><p>GetSecret gets a secret(k8s secret) by name within an existing project</p></td>
+                <td><p>GetSecret gets a secret(k8s secret) by name</p></td>
               </tr>
             
               <tr>
                 <td>StreamLogs</td>
                 <td><a href="#meshpaas.Ref">Ref</a></td>
                 <td><a href="#meshpaas.Log">Log</a> stream</td>
-                <td><p>StreamLogs streams logs from an app/task within an existing project.
+                <td><p>StreamLogs streams logs from an app/task.
 Streams are opened to all replicas &amp; converted into a single stream</p></td>
               </tr>
             

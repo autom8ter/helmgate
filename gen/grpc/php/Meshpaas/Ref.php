@@ -21,12 +21,6 @@ class Ref extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      */
     private $name = '';
-    /**
-     * resource's project
-     *
-     * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
-     */
-    private $project = '';
 
     /**
      * Constructor.
@@ -36,8 +30,6 @@ class Ref extends \Google\Protobuf\Internal\Message
      *
      *     @type string $name
      *           name of the resource
-     *     @type string $project
-     *           resource's project
      * }
      */
     public function __construct($data = NULL) {
@@ -67,32 +59,6 @@ class Ref extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->name = $var;
-
-        return $this;
-    }
-
-    /**
-     * resource's project
-     *
-     * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
-     * @return string
-     */
-    public function getProject()
-    {
-        return $this->project;
-    }
-
-    /**
-     * resource's project
-     *
-     * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setProject($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->project = $var;
 
         return $this;
     }

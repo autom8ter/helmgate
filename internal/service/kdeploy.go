@@ -18,18 +18,6 @@ func NewMeshPaasService(client *client.Manager) *MeshPaasService {
 	return &MeshPaasService{client: client}
 }
 
-func (k MeshPaasService) CreateProject(ctx context.Context, input *meshpaaspb.ProjectInput) (*meshpaaspb.Project, error) {
-	return k.client.CreateProject(ctx, input)
-}
-
-func (k MeshPaasService) GetProject(ctx context.Context, ref *meshpaaspb.ProjectRef) (*meshpaaspb.Project, error) {
-	return k.client.GetProject(ctx, ref)
-}
-
-func (k MeshPaasService) UpdateProject(ctx context.Context, input *meshpaaspb.ProjectInput) (*meshpaaspb.Project, error) {
-	return k.client.UpdateProject(ctx, input)
-}
-
 func (k MeshPaasService) CreateApp(ctx context.Context, constructor *meshpaaspb.AppInput) (*meshpaaspb.App, error) {
 	return k.client.CreateApp(ctx, constructor)
 }
@@ -50,19 +38,8 @@ func (k MeshPaasService) GetApp(ctx context.Context, ref *meshpaaspb.Ref) (*mesh
 	return k.client.GetApp(ctx, ref)
 }
 
-func (k MeshPaasService) ListProjects(ctx context.Context, _ *empty.Empty) (*meshpaaspb.Projects, error) {
-	return k.client.ListProjects(ctx)
-}
-
-func (k MeshPaasService) DeleteProject(ctx context.Context, ns *meshpaaspb.ProjectRef) (*empty.Empty, error) {
-	if err := k.client.DeleteProject(ctx, ns); err != nil {
-		return nil, err
-	}
-	return &empty.Empty{}, nil
-}
-
-func (k MeshPaasService) ListApps(ctx context.Context, ns *meshpaaspb.ProjectRef) (*meshpaaspb.Apps, error) {
-	return k.client.ListApps(ctx, ns)
+func (k MeshPaasService) ListApps(ctx context.Context, e *empty.Empty) (*meshpaaspb.Apps, error) {
+	return k.client.ListApps(ctx)
 }
 
 func (k MeshPaasService) StreamLogs(ref *meshpaaspb.Ref, server meshpaaspb.MeshPaasService_StreamLogsServer) error {
@@ -101,8 +78,8 @@ func (k MeshPaasService) GetTask(ctx context.Context, ref *meshpaaspb.Ref) (*mes
 	return k.client.GetTask(ctx, ref)
 }
 
-func (k MeshPaasService) ListTasks(ctx context.Context, ns *meshpaaspb.ProjectRef) (*meshpaaspb.Tasks, error) {
-	return k.client.ListTasks(ctx, ns)
+func (k MeshPaasService) ListTasks(ctx context.Context, _ *empty.Empty) (*meshpaaspb.Tasks, error) {
+	return k.client.ListTasks(ctx)
 }
 
 func (k MeshPaasService) CreateGateway(ctx context.Context, gateway *meshpaaspb.GatewayInput) (*meshpaaspb.Gateway, error) {

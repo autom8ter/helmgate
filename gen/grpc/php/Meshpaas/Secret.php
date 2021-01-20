@@ -9,6 +9,8 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
+ * Secret is a secret/credential used by various components of the service mesh
+ *
  * Generated from protobuf message <code>meshpaas.Secret</code>
  */
 class Secret extends \Google\Protobuf\Internal\Message
@@ -19,12 +21,6 @@ class Secret extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      */
     private $name = '';
-    /**
-     * secret project
-     *
-     * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
-     */
-    private $project = '';
     /**
      * Generated from protobuf field <code>.meshpaas.SecretType type = 3;</code>
      */
@@ -50,8 +46,6 @@ class Secret extends \Google\Protobuf\Internal\Message
      *
      *     @type string $name
      *           name of the secret
-     *     @type string $project
-     *           secret project
      *     @type int $type
      *     @type bool $immutable
      *           prevent changes to the secret after it is created
@@ -86,32 +80,6 @@ class Secret extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->name = $var;
-
-        return $this;
-    }
-
-    /**
-     * secret project
-     *
-     * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
-     * @return string
-     */
-    public function getProject()
-    {
-        return $this->project;
-    }
-
-    /**
-     * secret project
-     *
-     * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setProject($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->project = $var;
 
         return $this;
     }

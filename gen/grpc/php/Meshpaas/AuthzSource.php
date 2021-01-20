@@ -9,7 +9,7 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * the source of an authorization decision
+ * AuthzSource is the source of a request
  *
  * Generated from protobuf message <code>meshpaas.AuthzSource</code>
  */

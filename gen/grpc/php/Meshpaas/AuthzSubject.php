@@ -9,7 +9,7 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * the subject of an authorization decision
+ * AuthzSubject is a set of attributes derived from the jwt of on an inbound request
  *
  * Generated from protobuf message <code>meshpaas.AuthzSubject</code>
  */

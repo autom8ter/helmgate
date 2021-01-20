@@ -3,7 +3,6 @@ package client_test
 import (
 	"context"
 	"github.com/autom8ter/kubego"
-	meshpaaspb "github.com/autom8ter/meshpaas/gen/grpc/go"
 	"github.com/autom8ter/meshpaas/internal/client"
 	"github.com/autom8ter/meshpaas/internal/logger"
 	"testing"
@@ -24,28 +23,28 @@ func TestTasks(t *testing.T) {
 		iclient,
 		lgger,
 	)
-	namespaces, err := cli.ListProjects(context.Background())
+	cli.CreateSecret(context.Background(), nil)
 	if err != nil {
 		t.Fatal(err.Error())
 	}
-	for _, n := range namespaces.GetProjects() {
-		t.Log(n)
-	}
-	tsk, err := cli.CreateTask(context.Background(), &meshpaaspb.TaskInput{
-		Name:    "echo-date",
-		Project: "colemanw",
-		Containers: []*meshpaaspb.Container{
-			{
-				Image: "busybox",
-				Args:  []string{"/bin/sh", "-c", "date; echo Hello from the Kubernetes cluster"},
-				Env:   nil,
-			},
-		},
-		Schedule:    "*/1 * * * *",
-		Completions: 0,
-	})
-	if err != nil {
-		t.Fatal(err.Error())
-	}
-	t.Logf("created task: %s", tsk.String())
+	//for _, n := range namespaces.GetProjects() {
+	//	t.Log(n)
+	//}
+	//tsk, err := cli.CreateTask(context.Background(), &meshpaaspb.TaskInput{
+	//	Name:    "echo-date",
+	//	Project: "colemanw",
+	//	Containers: []*meshpaaspb.Container{
+	//		{
+	//			Image: "busybox",
+	//			Args:  []string{"/bin/sh", "-c", "date; echo Hello from the Kubernetes cluster"},
+	//			Env:   nil,
+	//		},
+	//	},
+	//	Schedule:    "*/1 * * * *",
+	//	Completions: 0,
+	//})
+	//if err != nil {
+	//	t.Fatal(err.Error())
+	//}
+	//t.Logf("created task: %s", tsk.String())
 }

@@ -170,12 +170,6 @@ func (c *Client) GetApp(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb.A
 	return c.client.GetApp(ctx, ref)
 }
 
-// DeleteProject deletes all resources in the project
-func (c *Client) DeleteProject(ctx context.Context, namespace *meshpaaspb.ProjectRef) error {
-	_, err := c.client.DeleteProject(ctx, namespace)
-	return err
-}
-
 // CreateTask creates a new task
 func (c *Client) CreateTask(ctx context.Context, app *meshpaaspb.TaskInput) (*meshpaaspb.Task, error) {
 	return c.client.CreateTask(ctx, app)

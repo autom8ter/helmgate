@@ -5,8 +5,12 @@ import (
 	"context"
 	"fmt"
 	meshpaaspb "github.com/autom8ter/meshpaas/gen/grpc/go"
+	"github.com/autom8ter/meshpaas/internal/auth"
 	"github.com/pkg/errors"
+	"github.com/spf13/cast"
 	"go.uber.org/zap"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 	"io"
 	securityv1beta1 "istio.io/api/security/v1beta1"
 	corev1 "k8s.io/api/core/v1"
@@ -15,53 +19,64 @@ import (
 )
 
 func (m *Manager) CreateApp(ctx context.Context, app *meshpaaspb.AppInput) (*meshpaaspb.App, error) {
+	usr, ok := auth.UserContext(ctx)
+	if !ok {
+		return nil, status.Error(codes.Unauthenticated, "failed to get logged in user")
+	}
 	kapp := &k8sApp{}
-	namespace, err := m.kclient.Namespaces().Get(ctx, app.Project, v1.GetOptions{})
+	namespace, err := m.kclient.Namespaces().Get(ctx, cast.ToString(usr["aud"]), v1.GetOptions{})
 	if err != nil {
-		return nil, err
+		namespace, err = m.kclient.Namespaces().Create(ctx, toNamespace(usr), v1.CreateOptions{})
+		if err != nil {
+			return nil, err
+		}
 	}
 	kapp.namespace = namespace
-	dep, err := toDeployment(app)
+	dep, err := toDeployment(usr, app)
 	if err != nil {
 		return nil, err
 	}
-	deployment, err := m.kclient.Deployments(app.Project).Create(ctx, dep, v1.CreateOptions{})
+	deployment, err := m.kclient.Deployments(cast.ToString(usr["aud"])).Create(ctx, dep, v1.CreateOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.deployment = deployment
-	svc, err := m.iclient.VirtualServices(app.Project).Create(ctx, toService(app), v1.CreateOptions{})
+	svc, err := m.iclient.VirtualServices(cast.ToString(usr["aud"])).Create(ctx, toService(usr, app), v1.CreateOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.service = svc
-	auth, err := m.iclient.RequestAuthentications(app.Project).Create(ctx, toRequestAuthentication(app), v1.CreateOptions{})
+	a, err := m.iclient.RequestAuthentications(cast.ToString(usr["aud"])).Create(ctx, toRequestAuthentication(usr, app), v1.CreateOptions{})
 	if err != nil {
 		return nil, err
 	}
-	kapp.authentication = auth
-	authz, err := m.iclient.AuthorizationPolicies(app.Project).Create(ctx, toAuthorizationPolicy(app), v1.CreateOptions{})
+	kapp.authentication = a
+	authz, err := m.iclient.AuthorizationPolicies(cast.ToString(usr["aud"])).Create(ctx, toAuthorizationPolicy(usr, app), v1.CreateOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.authorization = authz
-	status, err := m.getStatus(ctx, app.Project, app.Name)
+	s, err := m.getStatus(ctx, cast.ToString(usr["aud"]), app.Name)
 	if err != nil {
 		return nil, err
 	}
-	a := kapp.toApp()
-	a.Status = status
-	return a, nil
+	ap := kapp.toApp()
+	ap.Status = s
+	return ap, nil
 }
 
 func (m *Manager) UpdateApp(ctx context.Context, app *meshpaaspb.AppInput) (*meshpaaspb.App, error) {
+	usr, ok := auth.UserContext(ctx)
+	if !ok {
+		return nil, status.Error(codes.Unauthenticated, "failed to get logged in user")
+	}
 	kapp := &k8sApp{}
-	namespace, err := m.kclient.Namespaces().Get(ctx, app.Project, v1.GetOptions{})
+	namespace, err := m.kclient.Namespaces().Get(ctx, cast.ToString(usr["aud"]), v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.namespace = namespace
-	deployment, err := m.kclient.Deployments(app.Project).Get(ctx, app.Name, v1.GetOptions{})
+	deployment, err := m.kclient.Deployments(cast.ToString(usr["aud"])).Get(ctx, app.Name, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
@@ -69,27 +84,24 @@ func (m *Manager) UpdateApp(ctx context.Context, app *meshpaaspb.AppInput) (*mes
 	if err != nil {
 		return nil, err
 	}
-	deployment, err = m.kclient.Deployments(app.Project).Update(ctx, deployment, v1.UpdateOptions{})
+	deployment, err = m.kclient.Deployments(cast.ToString(usr["aud"])).Update(ctx, deployment, v1.UpdateOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.deployment = deployment
-	svc, err := m.iclient.VirtualServices(app.Project).Get(ctx, app.Name, v1.GetOptions{})
+	svc, err := m.iclient.VirtualServices(cast.ToString(usr["aud"])).Get(ctx, app.Name, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
-	svc = overwriteService(svc, app)
-	svc, err = m.iclient.VirtualServices(app.Project).Update(ctx, svc, v1.UpdateOptions{})
+	svc = overwriteService(usr, svc, app)
+	svc, err = m.iclient.VirtualServices(cast.ToString(usr["aud"])).Update(ctx, svc, v1.UpdateOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.service = svc
-	auth, err := m.iclient.RequestAuthentications(app.Project).Get(ctx, app.Name, v1.GetOptions{})
+	ath, err := m.iclient.RequestAuthentications(cast.ToString(usr["aud"])).Get(ctx, app.Name, v1.GetOptions{})
 	if err != nil {
-		auth, err = m.iclient.RequestAuthentications(app.Project).Create(ctx, toRequestAuthentication(app), v1.CreateOptions{})
-		if err != nil {
-			return nil, err
-		}
+		return nil, err
 	}
 	var rules []*securityv1beta1.JWTRule
 	for _, r := range app.Authentication.Rules {
@@ -101,92 +113,113 @@ func (m *Manager) UpdateApp(ctx context.Context, app *meshpaaspb.AppInput) (*mes
 			ForwardOriginalToken:  false,
 		})
 	}
-	auth.Spec.JwtRules = rules
-	auth, err = m.iclient.RequestAuthentications(app.Project).Update(ctx, auth, v1.UpdateOptions{})
+	ath.Spec.JwtRules = rules
+	ath, err = m.iclient.RequestAuthentications(cast.ToString(usr["aud"])).Update(ctx, ath, v1.UpdateOptions{})
 	if err != nil {
 		return nil, err
 	}
-	kapp.authentication = auth
-	_, err = m.iclient.AuthorizationPolicies(app.Project).Get(ctx, app.Name, v1.GetOptions{})
+	kapp.authentication = ath
+	_, err = m.iclient.AuthorizationPolicies(cast.ToString(usr["aud"])).Get(ctx, app.Name, v1.GetOptions{})
 	if err != nil {
-		_, err = m.iclient.AuthorizationPolicies(app.Project).Create(ctx, toAuthorizationPolicy(app), v1.CreateOptions{})
+		_, err = m.iclient.AuthorizationPolicies(cast.ToString(usr["aud"])).Create(ctx, toAuthorizationPolicy(usr, app), v1.CreateOptions{})
 		if err != nil {
 			return nil, err
 		}
 	}
-	authz, err := m.iclient.AuthorizationPolicies(app.Project).Update(ctx, toAuthorizationPolicy(app), v1.UpdateOptions{})
+	authz, err := m.iclient.AuthorizationPolicies(cast.ToString(usr["aud"])).Update(ctx, toAuthorizationPolicy(usr, app), v1.UpdateOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.authorization = authz
-	status, err := m.getStatus(ctx, app.Project, app.Name)
+	stat, err := m.getStatus(ctx, cast.ToString(usr["aud"]), app.Name)
 	if err != nil {
 		return nil, err
 	}
 	a := kapp.toApp()
-	a.Status = status
+	a.Status = stat
 	return a, nil
 }
 
 func (m *Manager) GetApp(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb.App, error) {
-	kapp := &k8sApp{}
-
-	ns, err := m.kclient.Namespaces().Get(ctx, ref.Project, v1.GetOptions{})
-	if err != nil {
-		return nil, err
+	usr, ok := auth.UserContext(ctx)
+	if !ok {
+		return nil, status.Error(codes.Unauthenticated, "failed to get logged in user")
 	}
-	kapp.namespace = ns
-	deployment, err := m.kclient.Deployments(ref.Project).Get(ctx, ref.Name, v1.GetOptions{})
+	kapp := &k8sApp{}
+	namespace, err := m.kclient.Namespaces().Get(ctx, cast.ToString(usr["aud"]), v1.GetOptions{})
+	if err != nil {
+		namespace, err = m.kclient.Namespaces().Create(ctx, toNamespace(usr), v1.CreateOptions{})
+		if err != nil {
+			return nil, err
+		}
+	}
+	kapp.namespace = namespace
+	deployment, err := m.kclient.Deployments(cast.ToString(usr["aud"])).Get(ctx, ref.Name, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.deployment = deployment
-	svc, err := m.iclient.VirtualServices(ref.Project).Get(ctx, ref.Name, v1.GetOptions{})
+	svc, err := m.iclient.VirtualServices(cast.ToString(usr["aud"])).Get(ctx, ref.Name, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
-	auth, _ := m.iclient.RequestAuthentications(ref.Project).Get(ctx, ref.Name, v1.GetOptions{})
-	kapp.authentication = auth
-	authz, _ := m.iclient.AuthorizationPolicies(ref.Project).Get(ctx, ref.Name, v1.GetOptions{})
+	ath, _ := m.iclient.RequestAuthentications(cast.ToString(usr["aud"])).Get(ctx, ref.Name, v1.GetOptions{})
+	kapp.authentication = ath
+	authz, _ := m.iclient.AuthorizationPolicies(cast.ToString(usr["aud"])).Get(ctx, ref.Name, v1.GetOptions{})
 	kapp.authorization = authz
 	kapp.service = svc
-	status, err := m.getStatus(ctx, ref.Project, ref.Name)
+	stat, err := m.getStatus(ctx, cast.ToString(usr["aud"]), ref.Name)
 	if err != nil {
 		return nil, err
 	}
 	a := kapp.toApp()
-	a.Status = status
+	a.Status = stat
 	return a, nil
 }
 
 func (m *Manager) DeleteApp(ctx context.Context, ref *meshpaaspb.Ref) error {
-	m.iclient.RequestAuthentications(ref.Project).Delete(ctx, ref.Name, v1.DeleteOptions{})
-	m.iclient.AuthorizationPolicies(ref.Project).Delete(ctx, ref.Name, v1.DeleteOptions{})
-	if err := m.kclient.Services(ref.Project).Delete(ctx, ref.Name, v1.DeleteOptions{}); err != nil {
+	usr, ok := auth.UserContext(ctx)
+	if !ok {
+		return status.Error(codes.Unauthenticated, "failed to get logged in user")
+	}
+	_, err := m.kclient.Namespaces().Get(ctx, cast.ToString(usr["aud"]), v1.GetOptions{})
+	if err != nil {
+		return err
+	}
+	m.iclient.RequestAuthentications(cast.ToString(usr["aud"])).Delete(ctx, ref.Name, v1.DeleteOptions{})
+	m.iclient.AuthorizationPolicies(cast.ToString(usr["aud"])).Delete(ctx, ref.Name, v1.DeleteOptions{})
+	if err := m.kclient.Services(cast.ToString(usr["aud"])).Delete(ctx, ref.Name, v1.DeleteOptions{}); err != nil {
 		m.logger.Error("failed to delete service",
 			zap.Error(err),
 			zap.String("name", ref.Name),
-			zap.String("namespace", ref.Project),
+			zap.String("namespace", cast.ToString(usr["aud"])),
 		)
 	}
-	if err := m.kclient.Deployments(ref.Project).Delete(ctx, ref.Name, v1.DeleteOptions{}); err != nil {
+	if err := m.kclient.Deployments(cast.ToString(usr["aud"])).Delete(ctx, ref.Name, v1.DeleteOptions{}); err != nil {
 		m.logger.Error("failed to delete deployment",
 			zap.Error(err),
 			zap.String("name", ref.Name),
-			zap.String("namespace", ref.Project),
+			zap.String("namespace", cast.ToString(usr["aud"])),
 		)
 	}
 	return nil
 }
 
-func (m *Manager) ListApps(ctx context.Context, namespace *meshpaaspb.ProjectRef) (*meshpaaspb.Apps, error) {
+func (m *Manager) ListApps(ctx context.Context) (*meshpaaspb.Apps, error) {
+	usr, ok := auth.UserContext(ctx)
+	if !ok {
+		return nil, status.Error(codes.Unauthenticated, "failed to get logged in user")
+	}
 	var kapps = &meshpaaspb.Apps{}
 
-	ns, err := m.kclient.Namespaces().Get(ctx, namespace.GetName(), v1.GetOptions{})
+	namespace, err := m.kclient.Namespaces().Get(ctx, cast.ToString(usr["aud"]), v1.GetOptions{})
 	if err != nil {
-		return nil, err
+		namespace, err = m.kclient.Namespaces().Create(ctx, toNamespace(usr), v1.CreateOptions{})
+		if err != nil {
+			return nil, err
+		}
 	}
-	deployments, err := m.kclient.Deployments(namespace.GetName()).List(ctx, v1.ListOptions{
+	deployments, err := m.kclient.Deployments(cast.ToString(usr["aud"])).List(ctx, v1.ListOptions{
 		TypeMeta:      v1.TypeMeta{},
 		LabelSelector: labelSelector,
 	})
@@ -194,30 +227,42 @@ func (m *Manager) ListApps(ctx context.Context, namespace *meshpaaspb.ProjectRef
 		return nil, err
 	}
 	for _, deployment := range deployments.Items {
-		svc, err := m.iclient.VirtualServices(namespace.GetName()).Get(ctx, deployment.Name, v1.GetOptions{})
+		svc, err := m.iclient.VirtualServices(cast.ToString(usr["aud"])).Get(ctx, deployment.Name, v1.GetOptions{})
 		if err != nil {
 			return nil, err
 		}
 		kapp := &k8sApp{
-			namespace:  ns,
+			namespace:  namespace,
 			deployment: &deployment,
 			service:    svc,
 		}
-		auth, _ := m.iclient.RequestAuthentications(namespace.GetName()).Get(ctx, deployment.Name, v1.GetOptions{})
-		kapp.authentication = auth
+		ath, _ := m.iclient.RequestAuthentications(cast.ToString(usr["aud"])).Get(ctx, deployment.Name, v1.GetOptions{})
+		kapp.authentication = ath
 		a := kapp.toApp()
-		status, err := m.getStatus(ctx, namespace.GetName(), deployment.Name)
+		stat, err := m.getStatus(ctx, cast.ToString(usr["aud"]), deployment.Name)
 		if err != nil {
 			return nil, err
 		}
-		a.Status = status
+		a.Status = stat
 		kapps.Applications = append(kapps.Applications, a)
 	}
 	return kapps, nil
 }
 
 func (m *Manager) StreamLogs(ctx context.Context, ref *meshpaaspb.Ref) (chan string, error) {
-	pods, err := m.kclient.Pods(ref.Project).List(ctx, v1.ListOptions{
+	usr, ok := auth.UserContext(ctx)
+	if !ok {
+		return nil, status.Error(codes.Unauthenticated, "failed to get logged in user")
+	}
+	_, err := m.kclient.Namespaces().Get(ctx, cast.ToString(usr["aud"]), v1.GetOptions{})
+	if err != nil {
+		_, err = m.kclient.Namespaces().Create(ctx, toNamespace(usr), v1.CreateOptions{})
+		if err != nil {
+			return nil, err
+		}
+	}
+
+	pods, err := m.kclient.Pods(cast.ToString(usr["aud"])).List(ctx, v1.ListOptions{
 		TypeMeta:      v1.TypeMeta{},
 		Watch:         false,
 		LabelSelector: fmt.Sprintf("app = %s", ref.Name),
@@ -246,7 +291,7 @@ func (m *Manager) StreamLogs(ctx context.Context, ref *meshpaaspb.Ref) (chan str
 				m.logger.Error("failed to stream pod logs",
 					zap.Error(err),
 					zap.String("name", ref.Name),
-					zap.String("namespace", ref.Project),
+					zap.String("namespace", cast.ToString(usr["aud"])),
 					zap.String("pod", p.Name),
 				)
 				return

@@ -33,13 +33,9 @@ goog.exportSymbol('proto.meshpaas.GatewayInput', null, global);
 goog.exportSymbol('proto.meshpaas.GatewayListener', null, global);
 goog.exportSymbol('proto.meshpaas.HTTPRoute', null, global);
 goog.exportSymbol('proto.meshpaas.Log', null, global);
-goog.exportSymbol('proto.meshpaas.Networking', null, global);
-goog.exportSymbol('proto.meshpaas.Project', null, global);
-goog.exportSymbol('proto.meshpaas.ProjectInput', null, global);
-goog.exportSymbol('proto.meshpaas.ProjectRef', null, global);
-goog.exportSymbol('proto.meshpaas.Projects', null, global);
 goog.exportSymbol('proto.meshpaas.Ref', null, global);
 goog.exportSymbol('proto.meshpaas.Replica', null, global);
+goog.exportSymbol('proto.meshpaas.Routing', null, global);
 goog.exportSymbol('proto.meshpaas.Secret', null, global);
 goog.exportSymbol('proto.meshpaas.SecretInput', null, global);
 goog.exportSymbol('proto.meshpaas.SecretType', null, global);
@@ -1618,7 +1614,6 @@ proto.meshpaas.SecretInput.prototype.toObject = function(opt_includeInstance) {
 proto.meshpaas.SecretInput.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    project: jspb.Message.getFieldWithDefault(msg, 2, ""),
     type: jspb.Message.getFieldWithDefault(msg, 3, 0),
     immutable: jspb.Message.getFieldWithDefault(msg, 4, false),
     dataMap: (f = msg.getDataMap()) ? f.toObject(includeInstance, undefined) : []
@@ -1661,10 +1656,6 @@ proto.meshpaas.SecretInput.deserializeBinaryFromReader = function(msg, reader) {
     case 1:
       var value = /** @type {string} */ (reader.readString());
       msg.setName(value);
-      break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setProject(value);
       break;
     case 3:
       var value = /** @type {!proto.meshpaas.SecretType} */ (reader.readEnum());
@@ -1716,13 +1707,6 @@ proto.meshpaas.SecretInput.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getProject();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
-  }
   f = message.getType();
   if (f !== 0.0) {
     writer.writeEnum(
@@ -1756,21 +1740,6 @@ proto.meshpaas.SecretInput.prototype.getName = function() {
 /** @param {string} value */
 proto.meshpaas.SecretInput.prototype.setName = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
-};
-
-
-/**
- * optional string project = 2;
- * @return {string}
- */
-proto.meshpaas.SecretInput.prototype.getProject = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/** @param {string} value */
-proto.meshpaas.SecretInput.prototype.setProject = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -1872,7 +1841,6 @@ proto.meshpaas.Secret.prototype.toObject = function(opt_includeInstance) {
 proto.meshpaas.Secret.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    project: jspb.Message.getFieldWithDefault(msg, 2, ""),
     type: jspb.Message.getFieldWithDefault(msg, 3, 0),
     immutable: jspb.Message.getFieldWithDefault(msg, 4, false),
     dataMap: (f = msg.getDataMap()) ? f.toObject(includeInstance, undefined) : []
@@ -1915,10 +1883,6 @@ proto.meshpaas.Secret.deserializeBinaryFromReader = function(msg, reader) {
     case 1:
       var value = /** @type {string} */ (reader.readString());
       msg.setName(value);
-      break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setProject(value);
       break;
     case 3:
       var value = /** @type {!proto.meshpaas.SecretType} */ (reader.readEnum());
@@ -1970,13 +1934,6 @@ proto.meshpaas.Secret.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getProject();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
-  }
   f = message.getType();
   if (f !== 0.0) {
     writer.writeEnum(
@@ -2010,21 +1967,6 @@ proto.meshpaas.Secret.prototype.getName = function() {
 /** @param {string} value */
 proto.meshpaas.Secret.prototype.setName = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
-};
-
-
-/**
- * optional string project = 2;
- * @return {string}
- */
-proto.meshpaas.Secret.prototype.getProject = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/** @param {string} value */
-proto.meshpaas.Secret.prototype.setProject = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -2134,7 +2076,7 @@ proto.meshpaas.ServerTLSSettings.toObject = function(includeInstance, msg) {
   var f, obj = {
     httpsRedirect: jspb.Message.getFieldWithDefault(msg, 1, false),
     mode: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    credentialName: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    secretName: jspb.Message.getFieldWithDefault(msg, 3, ""),
     subjectAltNamesList: jspb.Message.getRepeatedField(msg, 4),
     verifyCertificateSpkiList: jspb.Message.getRepeatedField(msg, 5),
     verifyCertificateHashList: jspb.Message.getRepeatedField(msg, 6),
@@ -2185,7 +2127,7 @@ proto.meshpaas.ServerTLSSettings.deserializeBinaryFromReader = function(msg, rea
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
-      msg.setCredentialName(value);
+      msg.setSecretName(value);
       break;
     case 4:
       var value = /** @type {string} */ (reader.readString());
@@ -2246,7 +2188,7 @@ proto.meshpaas.ServerTLSSettings.serializeBinaryToWriter = function(message, wri
       f
     );
   }
-  f = message.getCredentialName();
+  f = message.getSecretName();
   if (f.length > 0) {
     writer.writeString(
       3,
@@ -2317,16 +2259,16 @@ proto.meshpaas.ServerTLSSettings.prototype.setMode = function(value) {
 
 
 /**
- * optional string credential_name = 3;
+ * optional string secret_name = 3;
  * @return {string}
  */
-proto.meshpaas.ServerTLSSettings.prototype.getCredentialName = function() {
+proto.meshpaas.ServerTLSSettings.prototype.getSecretName = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
 /** @param {string} value */
-proto.meshpaas.ServerTLSSettings.prototype.setCredentialName = function(value) {
+proto.meshpaas.ServerTLSSettings.prototype.setSecretName = function(value) {
   jspb.Message.setProto3StringField(this, 3, value);
 };
 
@@ -2790,7 +2732,6 @@ proto.meshpaas.Gateway.prototype.toObject = function(opt_includeInstance) {
 proto.meshpaas.Gateway.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    project: jspb.Message.getFieldWithDefault(msg, 2, ""),
     listenersList: jspb.Message.toObjectList(msg.getListenersList(),
     proto.meshpaas.GatewayListener.toObject, includeInstance)
   };
@@ -2833,10 +2774,6 @@ proto.meshpaas.Gateway.deserializeBinaryFromReader = function(msg, reader) {
       var value = /** @type {string} */ (reader.readString());
       msg.setName(value);
       break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setProject(value);
-      break;
     case 3:
       var value = new proto.meshpaas.GatewayListener;
       reader.readMessage(value,proto.meshpaas.GatewayListener.deserializeBinaryFromReader);
@@ -2878,13 +2815,6 @@ proto.meshpaas.Gateway.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getProject();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
-  }
   f = message.getListenersList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
@@ -2908,21 +2838,6 @@ proto.meshpaas.Gateway.prototype.getName = function() {
 /** @param {string} value */
 proto.meshpaas.Gateway.prototype.setName = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
-};
-
-
-/**
- * optional string project = 2;
- * @return {string}
- */
-proto.meshpaas.Gateway.prototype.getProject = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/** @param {string} value */
-proto.meshpaas.Gateway.prototype.setProject = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -3012,7 +2927,6 @@ proto.meshpaas.GatewayInput.prototype.toObject = function(opt_includeInstance) {
 proto.meshpaas.GatewayInput.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    project: jspb.Message.getFieldWithDefault(msg, 2, ""),
     listenersList: jspb.Message.toObjectList(msg.getListenersList(),
     proto.meshpaas.GatewayListener.toObject, includeInstance)
   };
@@ -3055,10 +2969,6 @@ proto.meshpaas.GatewayInput.deserializeBinaryFromReader = function(msg, reader) 
       var value = /** @type {string} */ (reader.readString());
       msg.setName(value);
       break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setProject(value);
-      break;
     case 3:
       var value = new proto.meshpaas.GatewayListener;
       reader.readMessage(value,proto.meshpaas.GatewayListener.deserializeBinaryFromReader);
@@ -3100,13 +3010,6 @@ proto.meshpaas.GatewayInput.serializeBinaryToWriter = function(message, writer) 
       f
     );
   }
-  f = message.getProject();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
-  }
   f = message.getListenersList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
@@ -3130,21 +3033,6 @@ proto.meshpaas.GatewayInput.prototype.getName = function() {
 /** @param {string} value */
 proto.meshpaas.GatewayInput.prototype.setName = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
-};
-
-
-/**
- * optional string project = 2;
- * @return {string}
- */
-proto.meshpaas.GatewayInput.prototype.getProject = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/** @param {string} value */
-proto.meshpaas.GatewayInput.prototype.setProject = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -3613,19 +3501,19 @@ proto.meshpaas.HTTPRoute.prototype.setAllowCredentials = function(value) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.meshpaas.Networking = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.meshpaas.Networking.repeatedFields_, null);
+proto.meshpaas.Routing = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.meshpaas.Routing.repeatedFields_, null);
 };
-goog.inherits(proto.meshpaas.Networking, jspb.Message);
+goog.inherits(proto.meshpaas.Routing, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.meshpaas.Networking.displayName = 'proto.meshpaas.Networking';
+  proto.meshpaas.Routing.displayName = 'proto.meshpaas.Routing';
 }
 /**
  * List of repeated fields within this message type.
  * @private {!Array<number>}
  * @const
  */
-proto.meshpaas.Networking.repeatedFields_ = [1,2,4];
+proto.meshpaas.Routing.repeatedFields_ = [1,2,4];
 
 
 
@@ -3640,8 +3528,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.meshpaas.Networking.prototype.toObject = function(opt_includeInstance) {
-  return proto.meshpaas.Networking.toObject(opt_includeInstance, this);
+proto.meshpaas.Routing.prototype.toObject = function(opt_includeInstance) {
+  return proto.meshpaas.Routing.toObject(opt_includeInstance, this);
 };
 
 
@@ -3650,11 +3538,11 @@ proto.meshpaas.Networking.prototype.toObject = function(opt_includeInstance) {
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.meshpaas.Networking} msg The msg instance to transform.
+ * @param {!proto.meshpaas.Routing} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.meshpaas.Networking.toObject = function(includeInstance, msg) {
+proto.meshpaas.Routing.toObject = function(includeInstance, msg) {
   var f, obj = {
     gatewaysList: jspb.Message.getRepeatedField(msg, 1),
     hostsList: jspb.Message.getRepeatedField(msg, 2),
@@ -3674,23 +3562,23 @@ proto.meshpaas.Networking.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.meshpaas.Networking}
+ * @return {!proto.meshpaas.Routing}
  */
-proto.meshpaas.Networking.deserializeBinary = function(bytes) {
+proto.meshpaas.Routing.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.meshpaas.Networking;
-  return proto.meshpaas.Networking.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.meshpaas.Routing;
+  return proto.meshpaas.Routing.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.meshpaas.Networking} msg The message object to deserialize into.
+ * @param {!proto.meshpaas.Routing} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.meshpaas.Networking}
+ * @return {!proto.meshpaas.Routing}
  */
-proto.meshpaas.Networking.deserializeBinaryFromReader = function(msg, reader) {
+proto.meshpaas.Routing.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -3727,9 +3615,9 @@ proto.meshpaas.Networking.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.meshpaas.Networking.prototype.serializeBinary = function() {
+proto.meshpaas.Routing.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.meshpaas.Networking.serializeBinaryToWriter(this, writer);
+  proto.meshpaas.Routing.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -3737,11 +3625,11 @@ proto.meshpaas.Networking.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.meshpaas.Networking} message
+ * @param {!proto.meshpaas.Routing} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.meshpaas.Networking.serializeBinaryToWriter = function(message, writer) {
+proto.meshpaas.Routing.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getGatewaysList();
   if (f.length > 0) {
@@ -3779,13 +3667,13 @@ proto.meshpaas.Networking.serializeBinaryToWriter = function(message, writer) {
  * repeated string gateways = 1;
  * @return {!Array<string>}
  */
-proto.meshpaas.Networking.prototype.getGatewaysList = function() {
+proto.meshpaas.Routing.prototype.getGatewaysList = function() {
   return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 1));
 };
 
 
 /** @param {!Array<string>} value */
-proto.meshpaas.Networking.prototype.setGatewaysList = function(value) {
+proto.meshpaas.Routing.prototype.setGatewaysList = function(value) {
   jspb.Message.setField(this, 1, value || []);
 };
 
@@ -3794,12 +3682,12 @@ proto.meshpaas.Networking.prototype.setGatewaysList = function(value) {
  * @param {!string} value
  * @param {number=} opt_index
  */
-proto.meshpaas.Networking.prototype.addGateways = function(value, opt_index) {
+proto.meshpaas.Routing.prototype.addGateways = function(value, opt_index) {
   jspb.Message.addToRepeatedField(this, 1, value, opt_index);
 };
 
 
-proto.meshpaas.Networking.prototype.clearGatewaysList = function() {
+proto.meshpaas.Routing.prototype.clearGatewaysList = function() {
   this.setGatewaysList([]);
 };
 
@@ -3808,13 +3696,13 @@ proto.meshpaas.Networking.prototype.clearGatewaysList = function() {
  * repeated string hosts = 2;
  * @return {!Array<string>}
  */
-proto.meshpaas.Networking.prototype.getHostsList = function() {
+proto.meshpaas.Routing.prototype.getHostsList = function() {
   return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 2));
 };
 
 
 /** @param {!Array<string>} value */
-proto.meshpaas.Networking.prototype.setHostsList = function(value) {
+proto.meshpaas.Routing.prototype.setHostsList = function(value) {
   jspb.Message.setField(this, 2, value || []);
 };
 
@@ -3823,12 +3711,12 @@ proto.meshpaas.Networking.prototype.setHostsList = function(value) {
  * @param {!string} value
  * @param {number=} opt_index
  */
-proto.meshpaas.Networking.prototype.addHosts = function(value, opt_index) {
+proto.meshpaas.Routing.prototype.addHosts = function(value, opt_index) {
   jspb.Message.addToRepeatedField(this, 2, value, opt_index);
 };
 
 
-proto.meshpaas.Networking.prototype.clearHostsList = function() {
+proto.meshpaas.Routing.prototype.clearHostsList = function() {
   this.setHostsList([]);
 };
 
@@ -3839,13 +3727,13 @@ proto.meshpaas.Networking.prototype.clearHostsList = function() {
  * You should avoid comparisons like {@code val === true/false} in those cases.
  * @return {boolean}
  */
-proto.meshpaas.Networking.prototype.getExport = function() {
+proto.meshpaas.Routing.prototype.getExport = function() {
   return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 3, false));
 };
 
 
 /** @param {boolean} value */
-proto.meshpaas.Networking.prototype.setExport = function(value) {
+proto.meshpaas.Routing.prototype.setExport = function(value) {
   jspb.Message.setProto3BooleanField(this, 3, value);
 };
 
@@ -3854,14 +3742,14 @@ proto.meshpaas.Networking.prototype.setExport = function(value) {
  * repeated HTTPRoute http_routes = 4;
  * @return {!Array<!proto.meshpaas.HTTPRoute>}
  */
-proto.meshpaas.Networking.prototype.getHttpRoutesList = function() {
+proto.meshpaas.Routing.prototype.getHttpRoutesList = function() {
   return /** @type{!Array<!proto.meshpaas.HTTPRoute>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.meshpaas.HTTPRoute, 4));
 };
 
 
 /** @param {!Array<!proto.meshpaas.HTTPRoute>} value */
-proto.meshpaas.Networking.prototype.setHttpRoutesList = function(value) {
+proto.meshpaas.Routing.prototype.setHttpRoutesList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 4, value);
 };
 
@@ -3871,12 +3759,12 @@ proto.meshpaas.Networking.prototype.setHttpRoutesList = function(value) {
  * @param {number=} opt_index
  * @return {!proto.meshpaas.HTTPRoute}
  */
-proto.meshpaas.Networking.prototype.addHttpRoutes = function(opt_value, opt_index) {
+proto.meshpaas.Routing.prototype.addHttpRoutes = function(opt_value, opt_index) {
   return jspb.Message.addToRepeatedWrapperField(this, 4, opt_value, proto.meshpaas.HTTPRoute, opt_index);
 };
 
 
-proto.meshpaas.Networking.prototype.clearHttpRoutesList = function() {
+proto.meshpaas.Routing.prototype.clearHttpRoutesList = function() {
   this.setHttpRoutesList([]);
 };
 
@@ -4211,11 +4099,10 @@ proto.meshpaas.App.prototype.toObject = function(opt_includeInstance) {
 proto.meshpaas.App.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    project: jspb.Message.getFieldWithDefault(msg, 2, ""),
     containersList: jspb.Message.toObjectList(msg.getContainersList(),
     proto.meshpaas.Container.toObject, includeInstance),
     replicas: jspb.Message.getFieldWithDefault(msg, 8, 0),
-    networking: (f = msg.getNetworking()) && proto.meshpaas.Networking.toObject(includeInstance, f),
+    routing: (f = msg.getRouting()) && proto.meshpaas.Routing.toObject(includeInstance, f),
     authentication: (f = msg.getAuthentication()) && proto.meshpaas.Authn.toObject(includeInstance, f),
     authorization: (f = msg.getAuthorization()) && proto.meshpaas.Authz.toObject(includeInstance, f),
     imagePullSecret: jspb.Message.getFieldWithDefault(msg, 14, ""),
@@ -4260,10 +4147,6 @@ proto.meshpaas.App.deserializeBinaryFromReader = function(msg, reader) {
       var value = /** @type {string} */ (reader.readString());
       msg.setName(value);
       break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setProject(value);
-      break;
     case 3:
       var value = new proto.meshpaas.Container;
       reader.readMessage(value,proto.meshpaas.Container.deserializeBinaryFromReader);
@@ -4274,9 +4157,9 @@ proto.meshpaas.App.deserializeBinaryFromReader = function(msg, reader) {
       msg.setReplicas(value);
       break;
     case 11:
-      var value = new proto.meshpaas.Networking;
-      reader.readMessage(value,proto.meshpaas.Networking.deserializeBinaryFromReader);
-      msg.setNetworking(value);
+      var value = new proto.meshpaas.Routing;
+      reader.readMessage(value,proto.meshpaas.Routing.deserializeBinaryFromReader);
+      msg.setRouting(value);
       break;
     case 12:
       var value = new proto.meshpaas.Authn;
@@ -4333,13 +4216,6 @@ proto.meshpaas.App.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getProject();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
-  }
   f = message.getContainersList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
@@ -4355,12 +4231,12 @@ proto.meshpaas.App.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getNetworking();
+  f = message.getRouting();
   if (f != null) {
     writer.writeMessage(
       11,
       f,
-      proto.meshpaas.Networking.serializeBinaryToWriter
+      proto.meshpaas.Routing.serializeBinaryToWriter
     );
   }
   f = message.getAuthentication();
@@ -4413,21 +4289,6 @@ proto.meshpaas.App.prototype.setName = function(value) {
 
 
 /**
- * optional string project = 2;
- * @return {string}
- */
-proto.meshpaas.App.prototype.getProject = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/** @param {string} value */
-proto.meshpaas.App.prototype.setProject = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
-};
-
-
-/**
  * repeated Container containers = 3;
  * @return {!Array<!proto.meshpaas.Container>}
  */
@@ -4474,23 +4335,23 @@ proto.meshpaas.App.prototype.setReplicas = function(value) {
 
 
 /**
- * optional Networking networking = 11;
- * @return {?proto.meshpaas.Networking}
+ * optional Routing routing = 11;
+ * @return {?proto.meshpaas.Routing}
  */
-proto.meshpaas.App.prototype.getNetworking = function() {
-  return /** @type{?proto.meshpaas.Networking} */ (
-    jspb.Message.getWrapperField(this, proto.meshpaas.Networking, 11));
+proto.meshpaas.App.prototype.getRouting = function() {
+  return /** @type{?proto.meshpaas.Routing} */ (
+    jspb.Message.getWrapperField(this, proto.meshpaas.Routing, 11));
 };
 
 
-/** @param {?proto.meshpaas.Networking|undefined} value */
-proto.meshpaas.App.prototype.setNetworking = function(value) {
+/** @param {?proto.meshpaas.Routing|undefined} value */
+proto.meshpaas.App.prototype.setRouting = function(value) {
   jspb.Message.setWrapperField(this, 11, value);
 };
 
 
-proto.meshpaas.App.prototype.clearNetworking = function() {
-  this.setNetworking(undefined);
+proto.meshpaas.App.prototype.clearRouting = function() {
+  this.setRouting(undefined);
 };
 
 
@@ -4498,7 +4359,7 @@ proto.meshpaas.App.prototype.clearNetworking = function() {
  * Returns whether this field is set.
  * @return {!boolean}
  */
-proto.meshpaas.App.prototype.hasNetworking = function() {
+proto.meshpaas.App.prototype.hasRouting = function() {
   return jspb.Message.getField(this, 11) != null;
 };
 
@@ -4663,7 +4524,6 @@ proto.meshpaas.Task.prototype.toObject = function(opt_includeInstance) {
 proto.meshpaas.Task.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    project: jspb.Message.getFieldWithDefault(msg, 2, ""),
     imagePullSecret: jspb.Message.getFieldWithDefault(msg, 3, ""),
     containersList: jspb.Message.toObjectList(msg.getContainersList(),
     proto.meshpaas.Container.toObject, includeInstance),
@@ -4708,10 +4568,6 @@ proto.meshpaas.Task.deserializeBinaryFromReader = function(msg, reader) {
     case 1:
       var value = /** @type {string} */ (reader.readString());
       msg.setName(value);
-      break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setProject(value);
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
@@ -4766,13 +4622,6 @@ proto.meshpaas.Task.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getProject();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
-  }
   f = message.getImagePullSecret();
   if (f.length > 0) {
     writer.writeString(
@@ -4817,21 +4666,6 @@ proto.meshpaas.Task.prototype.getName = function() {
 /** @param {string} value */
 proto.meshpaas.Task.prototype.setName = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
-};
-
-
-/**
- * optional string project = 2;
- * @return {string}
- */
-proto.meshpaas.Task.prototype.getProject = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/** @param {string} value */
-proto.meshpaas.Task.prototype.setProject = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -4966,7 +4800,6 @@ proto.meshpaas.TaskInput.prototype.toObject = function(opt_includeInstance) {
 proto.meshpaas.TaskInput.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    project: jspb.Message.getFieldWithDefault(msg, 2, ""),
     imagePullSecret: jspb.Message.getFieldWithDefault(msg, 3, ""),
     containersList: jspb.Message.toObjectList(msg.getContainersList(),
     proto.meshpaas.Container.toObject, includeInstance),
@@ -5011,10 +4844,6 @@ proto.meshpaas.TaskInput.deserializeBinaryFromReader = function(msg, reader) {
     case 1:
       var value = /** @type {string} */ (reader.readString());
       msg.setName(value);
-      break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setProject(value);
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
@@ -5069,13 +4898,6 @@ proto.meshpaas.TaskInput.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getProject();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
-  }
   f = message.getImagePullSecret();
   if (f.length > 0) {
     writer.writeString(
@@ -5120,21 +4942,6 @@ proto.meshpaas.TaskInput.prototype.getName = function() {
 /** @param {string} value */
 proto.meshpaas.TaskInput.prototype.setName = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
-};
-
-
-/**
- * optional string project = 2;
- * @return {string}
- */
-proto.meshpaas.TaskInput.prototype.getProject = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/** @param {string} value */
-proto.meshpaas.TaskInput.prototype.setProject = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -5269,11 +5076,10 @@ proto.meshpaas.AppInput.prototype.toObject = function(opt_includeInstance) {
 proto.meshpaas.AppInput.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    project: jspb.Message.getFieldWithDefault(msg, 2, ""),
     containersList: jspb.Message.toObjectList(msg.getContainersList(),
     proto.meshpaas.Container.toObject, includeInstance),
     replicas: jspb.Message.getFieldWithDefault(msg, 7, 0),
-    networking: (f = msg.getNetworking()) && proto.meshpaas.Networking.toObject(includeInstance, f),
+    routing: (f = msg.getRouting()) && proto.meshpaas.Routing.toObject(includeInstance, f),
     authentication: (f = msg.getAuthentication()) && proto.meshpaas.Authn.toObject(includeInstance, f),
     authorization: (f = msg.getAuthorization()) && proto.meshpaas.Authz.toObject(includeInstance, f),
     imagePullSecret: jspb.Message.getFieldWithDefault(msg, 14, "")
@@ -5317,10 +5123,6 @@ proto.meshpaas.AppInput.deserializeBinaryFromReader = function(msg, reader) {
       var value = /** @type {string} */ (reader.readString());
       msg.setName(value);
       break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setProject(value);
-      break;
     case 3:
       var value = new proto.meshpaas.Container;
       reader.readMessage(value,proto.meshpaas.Container.deserializeBinaryFromReader);
@@ -5331,9 +5133,9 @@ proto.meshpaas.AppInput.deserializeBinaryFromReader = function(msg, reader) {
       msg.setReplicas(value);
       break;
     case 10:
-      var value = new proto.meshpaas.Networking;
-      reader.readMessage(value,proto.meshpaas.Networking.deserializeBinaryFromReader);
-      msg.setNetworking(value);
+      var value = new proto.meshpaas.Routing;
+      reader.readMessage(value,proto.meshpaas.Routing.deserializeBinaryFromReader);
+      msg.setRouting(value);
       break;
     case 12:
       var value = new proto.meshpaas.Authn;
@@ -5385,13 +5187,6 @@ proto.meshpaas.AppInput.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getProject();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
-  }
   f = message.getContainersList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
@@ -5407,12 +5202,12 @@ proto.meshpaas.AppInput.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getNetworking();
+  f = message.getRouting();
   if (f != null) {
     writer.writeMessage(
       10,
       f,
-      proto.meshpaas.Networking.serializeBinaryToWriter
+      proto.meshpaas.Routing.serializeBinaryToWriter
     );
   }
   f = message.getAuthentication();
@@ -5453,21 +5248,6 @@ proto.meshpaas.AppInput.prototype.getName = function() {
 /** @param {string} value */
 proto.meshpaas.AppInput.prototype.setName = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
-};
-
-
-/**
- * optional string project = 2;
- * @return {string}
- */
-proto.meshpaas.AppInput.prototype.getProject = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/** @param {string} value */
-proto.meshpaas.AppInput.prototype.setProject = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -5518,23 +5298,23 @@ proto.meshpaas.AppInput.prototype.setReplicas = function(value) {
 
 
 /**
- * optional Networking networking = 10;
- * @return {?proto.meshpaas.Networking}
+ * optional Routing routing = 10;
+ * @return {?proto.meshpaas.Routing}
  */
-proto.meshpaas.AppInput.prototype.getNetworking = function() {
-  return /** @type{?proto.meshpaas.Networking} */ (
-    jspb.Message.getWrapperField(this, proto.meshpaas.Networking, 10));
+proto.meshpaas.AppInput.prototype.getRouting = function() {
+  return /** @type{?proto.meshpaas.Routing} */ (
+    jspb.Message.getWrapperField(this, proto.meshpaas.Routing, 10));
 };
 
 
-/** @param {?proto.meshpaas.Networking|undefined} value */
-proto.meshpaas.AppInput.prototype.setNetworking = function(value) {
+/** @param {?proto.meshpaas.Routing|undefined} value */
+proto.meshpaas.AppInput.prototype.setRouting = function(value) {
   jspb.Message.setWrapperField(this, 10, value);
 };
 
 
-proto.meshpaas.AppInput.prototype.clearNetworking = function() {
-  this.setNetworking(undefined);
+proto.meshpaas.AppInput.prototype.clearRouting = function() {
+  this.setRouting(undefined);
 };
 
 
@@ -5542,7 +5322,7 @@ proto.meshpaas.AppInput.prototype.clearNetworking = function() {
  * Returns whether this field is set.
  * @return {!boolean}
  */
-proto.meshpaas.AppInput.prototype.hasNetworking = function() {
+proto.meshpaas.AppInput.prototype.hasRouting = function() {
   return jspb.Message.getField(this, 10) != null;
 };
 
@@ -5669,8 +5449,7 @@ proto.meshpaas.Ref.prototype.toObject = function(opt_includeInstance) {
  */
 proto.meshpaas.Ref.toObject = function(includeInstance, msg) {
   var f, obj = {
-    name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    project: jspb.Message.getFieldWithDefault(msg, 2, "")
+    name: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -5711,10 +5490,6 @@ proto.meshpaas.Ref.deserializeBinaryFromReader = function(msg, reader) {
       var value = /** @type {string} */ (reader.readString());
       msg.setName(value);
       break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setProject(value);
-      break;
     default:
       reader.skipField();
       break;
@@ -5751,13 +5526,6 @@ proto.meshpaas.Ref.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getProject();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
-  }
 };
 
 
@@ -5773,21 +5541,6 @@ proto.meshpaas.Ref.prototype.getName = function() {
 /** @param {string} value */
 proto.meshpaas.Ref.prototype.setName = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
-};
-
-
-/**
- * optional string project = 2;
- * @return {string}
- */
-proto.meshpaas.Ref.prototype.getProject = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/** @param {string} value */
-proto.meshpaas.Ref.prototype.setProject = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -6630,595 +6383,6 @@ proto.meshpaas.Tasks.prototype.addTasks = function(opt_value, opt_index) {
 
 proto.meshpaas.Tasks.prototype.clearTasksList = function() {
   this.setTasksList([]);
-};
-
-
-
-/**
- * Generated by JsPbCodeGenerator.
- * @param {Array=} opt_data Optional initial data array, typically from a
- * server response, or constructed directly in Javascript. The array is used
- * in place and becomes part of the constructed object. It is not cloned.
- * If no data is provided, the constructed object will be empty, but still
- * valid.
- * @extends {jspb.Message}
- * @constructor
- */
-proto.meshpaas.ProjectInput = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
-};
-goog.inherits(proto.meshpaas.ProjectInput, jspb.Message);
-if (goog.DEBUG && !COMPILED) {
-  proto.meshpaas.ProjectInput.displayName = 'proto.meshpaas.ProjectInput';
-}
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto suitable for use in Soy templates.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
- * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
- *     for transitional soy proto support: http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.meshpaas.ProjectInput.prototype.toObject = function(opt_includeInstance) {
-  return proto.meshpaas.ProjectInput.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Whether to include the JSPB
- *     instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.meshpaas.ProjectInput} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.meshpaas.ProjectInput.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    name: jspb.Message.getFieldWithDefault(msg, 1, "")
-  };
-
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
-
-
-/**
- * Deserializes binary data (in protobuf wire format).
- * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.meshpaas.ProjectInput}
- */
-proto.meshpaas.ProjectInput.deserializeBinary = function(bytes) {
-  var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.meshpaas.ProjectInput;
-  return proto.meshpaas.ProjectInput.deserializeBinaryFromReader(msg, reader);
-};
-
-
-/**
- * Deserializes binary data (in protobuf wire format) from the
- * given reader into the given message object.
- * @param {!proto.meshpaas.ProjectInput} msg The message object to deserialize into.
- * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.meshpaas.ProjectInput}
- */
-proto.meshpaas.ProjectInput.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
-    }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setName(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
-
-/**
- * Serializes the message to binary data (in protobuf wire format).
- * @return {!Uint8Array}
- */
-proto.meshpaas.ProjectInput.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.meshpaas.ProjectInput.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
-
-/**
- * Serializes the given message to binary data (in protobuf wire
- * format), writing to the given BinaryWriter.
- * @param {!proto.meshpaas.ProjectInput} message
- * @param {!jspb.BinaryWriter} writer
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.meshpaas.ProjectInput.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getName();
-  if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
-  }
-};
-
-
-/**
- * optional string name = 1;
- * @return {string}
- */
-proto.meshpaas.ProjectInput.prototype.getName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
-};
-
-
-/** @param {string} value */
-proto.meshpaas.ProjectInput.prototype.setName = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
-};
-
-
-
-/**
- * Generated by JsPbCodeGenerator.
- * @param {Array=} opt_data Optional initial data array, typically from a
- * server response, or constructed directly in Javascript. The array is used
- * in place and becomes part of the constructed object. It is not cloned.
- * If no data is provided, the constructed object will be empty, but still
- * valid.
- * @extends {jspb.Message}
- * @constructor
- */
-proto.meshpaas.Project = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
-};
-goog.inherits(proto.meshpaas.Project, jspb.Message);
-if (goog.DEBUG && !COMPILED) {
-  proto.meshpaas.Project.displayName = 'proto.meshpaas.Project';
-}
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto suitable for use in Soy templates.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
- * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
- *     for transitional soy proto support: http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.meshpaas.Project.prototype.toObject = function(opt_includeInstance) {
-  return proto.meshpaas.Project.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Whether to include the JSPB
- *     instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.meshpaas.Project} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.meshpaas.Project.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    name: jspb.Message.getFieldWithDefault(msg, 1, "")
-  };
-
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
-
-
-/**
- * Deserializes binary data (in protobuf wire format).
- * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.meshpaas.Project}
- */
-proto.meshpaas.Project.deserializeBinary = function(bytes) {
-  var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.meshpaas.Project;
-  return proto.meshpaas.Project.deserializeBinaryFromReader(msg, reader);
-};
-
-
-/**
- * Deserializes binary data (in protobuf wire format) from the
- * given reader into the given message object.
- * @param {!proto.meshpaas.Project} msg The message object to deserialize into.
- * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.meshpaas.Project}
- */
-proto.meshpaas.Project.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
-    }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setName(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
-
-/**
- * Serializes the message to binary data (in protobuf wire format).
- * @return {!Uint8Array}
- */
-proto.meshpaas.Project.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.meshpaas.Project.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
-
-/**
- * Serializes the given message to binary data (in protobuf wire
- * format), writing to the given BinaryWriter.
- * @param {!proto.meshpaas.Project} message
- * @param {!jspb.BinaryWriter} writer
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.meshpaas.Project.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getName();
-  if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
-  }
-};
-
-
-/**
- * optional string name = 1;
- * @return {string}
- */
-proto.meshpaas.Project.prototype.getName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
-};
-
-
-/** @param {string} value */
-proto.meshpaas.Project.prototype.setName = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
-};
-
-
-
-/**
- * Generated by JsPbCodeGenerator.
- * @param {Array=} opt_data Optional initial data array, typically from a
- * server response, or constructed directly in Javascript. The array is used
- * in place and becomes part of the constructed object. It is not cloned.
- * If no data is provided, the constructed object will be empty, but still
- * valid.
- * @extends {jspb.Message}
- * @constructor
- */
-proto.meshpaas.ProjectRef = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
-};
-goog.inherits(proto.meshpaas.ProjectRef, jspb.Message);
-if (goog.DEBUG && !COMPILED) {
-  proto.meshpaas.ProjectRef.displayName = 'proto.meshpaas.ProjectRef';
-}
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto suitable for use in Soy templates.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
- * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
- *     for transitional soy proto support: http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.meshpaas.ProjectRef.prototype.toObject = function(opt_includeInstance) {
-  return proto.meshpaas.ProjectRef.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Whether to include the JSPB
- *     instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.meshpaas.ProjectRef} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.meshpaas.ProjectRef.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    name: jspb.Message.getFieldWithDefault(msg, 1, "")
-  };
-
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
-
-
-/**
- * Deserializes binary data (in protobuf wire format).
- * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.meshpaas.ProjectRef}
- */
-proto.meshpaas.ProjectRef.deserializeBinary = function(bytes) {
-  var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.meshpaas.ProjectRef;
-  return proto.meshpaas.ProjectRef.deserializeBinaryFromReader(msg, reader);
-};
-
-
-/**
- * Deserializes binary data (in protobuf wire format) from the
- * given reader into the given message object.
- * @param {!proto.meshpaas.ProjectRef} msg The message object to deserialize into.
- * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.meshpaas.ProjectRef}
- */
-proto.meshpaas.ProjectRef.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
-    }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setName(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
-
-/**
- * Serializes the message to binary data (in protobuf wire format).
- * @return {!Uint8Array}
- */
-proto.meshpaas.ProjectRef.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.meshpaas.ProjectRef.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
-
-/**
- * Serializes the given message to binary data (in protobuf wire
- * format), writing to the given BinaryWriter.
- * @param {!proto.meshpaas.ProjectRef} message
- * @param {!jspb.BinaryWriter} writer
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.meshpaas.ProjectRef.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getName();
-  if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
-  }
-};
-
-
-/**
- * optional string name = 1;
- * @return {string}
- */
-proto.meshpaas.ProjectRef.prototype.getName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
-};
-
-
-/** @param {string} value */
-proto.meshpaas.ProjectRef.prototype.setName = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
-};
-
-
-
-/**
- * Generated by JsPbCodeGenerator.
- * @param {Array=} opt_data Optional initial data array, typically from a
- * server response, or constructed directly in Javascript. The array is used
- * in place and becomes part of the constructed object. It is not cloned.
- * If no data is provided, the constructed object will be empty, but still
- * valid.
- * @extends {jspb.Message}
- * @constructor
- */
-proto.meshpaas.Projects = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.meshpaas.Projects.repeatedFields_, null);
-};
-goog.inherits(proto.meshpaas.Projects, jspb.Message);
-if (goog.DEBUG && !COMPILED) {
-  proto.meshpaas.Projects.displayName = 'proto.meshpaas.Projects';
-}
-/**
- * List of repeated fields within this message type.
- * @private {!Array<number>}
- * @const
- */
-proto.meshpaas.Projects.repeatedFields_ = [1];
-
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto suitable for use in Soy templates.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
- * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
- *     for transitional soy proto support: http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.meshpaas.Projects.prototype.toObject = function(opt_includeInstance) {
-  return proto.meshpaas.Projects.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Whether to include the JSPB
- *     instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.meshpaas.Projects} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.meshpaas.Projects.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    projectsList: jspb.Message.getRepeatedField(msg, 1)
-  };
-
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
-
-
-/**
- * Deserializes binary data (in protobuf wire format).
- * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.meshpaas.Projects}
- */
-proto.meshpaas.Projects.deserializeBinary = function(bytes) {
-  var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.meshpaas.Projects;
-  return proto.meshpaas.Projects.deserializeBinaryFromReader(msg, reader);
-};
-
-
-/**
- * Deserializes binary data (in protobuf wire format) from the
- * given reader into the given message object.
- * @param {!proto.meshpaas.Projects} msg The message object to deserialize into.
- * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.meshpaas.Projects}
- */
-proto.meshpaas.Projects.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
-    }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.addProjects(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
-
-/**
- * Serializes the message to binary data (in protobuf wire format).
- * @return {!Uint8Array}
- */
-proto.meshpaas.Projects.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.meshpaas.Projects.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
-
-/**
- * Serializes the given message to binary data (in protobuf wire
- * format), writing to the given BinaryWriter.
- * @param {!proto.meshpaas.Projects} message
- * @param {!jspb.BinaryWriter} writer
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.meshpaas.Projects.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getProjectsList();
-  if (f.length > 0) {
-    writer.writeRepeatedString(
-      1,
-      f
-    );
-  }
-};
-
-
-/**
- * repeated string projects = 1;
- * @return {!Array<string>}
- */
-proto.meshpaas.Projects.prototype.getProjectsList = function() {
-  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 1));
-};
-
-
-/** @param {!Array<string>} value */
-proto.meshpaas.Projects.prototype.setProjectsList = function(value) {
-  jspb.Message.setField(this, 1, value || []);
-};
-
-
-/**
- * @param {!string} value
- * @param {number=} opt_index
- */
-proto.meshpaas.Projects.prototype.addProjects = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 1, value, opt_index);
-};
-
-
-proto.meshpaas.Projects.prototype.clearProjectsList = function() {
-  this.setProjectsList([]);
 };
 
 

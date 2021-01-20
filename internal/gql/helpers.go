@@ -8,7 +8,7 @@ import (
 )
 
 func toApp(input model.AppInput) *meshpaaspb.AppInput {
-	var networking = &meshpaaspb.Networking{}
+	var networking = &meshpaaspb.Routing{}
 	var containers []*meshpaaspb.Container
 	for _, c := range input.Containers {
 		ports := map[string]uint32{}
@@ -23,7 +23,7 @@ func toApp(input model.AppInput) *meshpaaspb.AppInput {
 			Ports: ports,
 		})
 	}
-	for _, r := range input.Networking.HTTPRoutes {
+	for _, r := range input.Routing.HTTPRoutes {
 		var (
 			pathPrefix       string
 			rewriteUri       string
@@ -44,10 +44,9 @@ func toApp(input model.AppInput) *meshpaaspb.AppInput {
 	}
 	return &meshpaaspb.AppInput{
 		Name:       input.Name,
-		Project:    input.Project,
 		Containers: containers,
 		Replicas:   uint32(input.Replicas),
-		Networking: networking,
+		Routing:    networking,
 	}
 }
 
@@ -72,7 +71,6 @@ func toTask(input model.TaskInput) *meshpaaspb.TaskInput {
 	}
 	return &meshpaaspb.TaskInput{
 		Name:        input.Name,
-		Project:     input.Project,
 		Containers:  containers,
 		Schedule:    input.Schedule,
 		Completions: completions,
@@ -119,15 +117,14 @@ func fromApp(app *meshpaaspb.App) *model.App {
 	}
 	return &model.App{
 		Name:       app.Name,
-		Project:    app.Project,
 		Containers: containers,
 		Replicas:   int(app.Replicas),
-		Networking: fromNetworking(app.GetNetworking()),
+		Routing:    fromRouting(app.GetRouting()),
 		Status:     status,
 	}
 }
 
-func fromNetworking(networking *meshpaaspb.Networking) *model.Networking {
+func fromRouting(networking *meshpaaspb.Routing) *model.Routing {
 	var routes []*model.HTTPRoute
 	for _, r := range networking.GetHttpRoutes() {
 		route := &model.HTTPRoute{
@@ -149,7 +146,7 @@ func fromNetworking(networking *meshpaaspb.Networking) *model.Networking {
 		}
 		routes = append(routes, route)
 	}
-	return &model.Networking{
+	return &model.Routing{
 		Gateways:   networking.GetGateways(),
 		Hosts:      networking.GetHosts(),
 		Export:     &networking.Export,
@@ -191,7 +188,6 @@ func fromTask(app *meshpaaspb.Task) *model.Task {
 
 	return &model.Task{
 		Name:        app.Name,
-		Project:     app.Project,
 		Containers:  containers,
 		Schedule:    app.Schedule,
 		Completions: &completions,

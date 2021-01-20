@@ -22,16 +22,14 @@ class TaskInput extends \Google\Protobuf\Internal\Message
      */
     private $name = '';
     /**
-     * task project
+     * image_pull_secret is the secret used to pull images from docker registry
      *
-     * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
-     */
-    private $project = '';
-    /**
      * Generated from protobuf field <code>string image_pull_secret = 3;</code>
      */
     private $image_pull_secret = '';
     /**
+     * containers are docker containers that run the task's business logic
+     *
      * Generated from protobuf field <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = {</code>
      */
     private $containers;
@@ -56,10 +54,10 @@ class TaskInput extends \Google\Protobuf\Internal\Message
      *
      *     @type string $name
      *           name of the task
-     *     @type string $project
-     *           task project
      *     @type string $image_pull_secret
+     *           image_pull_secret is the secret used to pull images from docker registry
      *     @type \Meshpaas\Container[]|\Google\Protobuf\Internal\RepeatedField $containers
+     *           containers are docker containers that run the task's business logic
      *     @type string $schedule
      *           schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
      *     @type int $completions
@@ -98,32 +96,8 @@ class TaskInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * task project
+     * image_pull_secret is the secret used to pull images from docker registry
      *
-     * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
-     * @return string
-     */
-    public function getProject()
-    {
-        return $this->project;
-    }
-
-    /**
-     * task project
-     *
-     * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setProject($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->project = $var;
-
-        return $this;
-    }
-
-    /**
      * Generated from protobuf field <code>string image_pull_secret = 3;</code>
      * @return string
      */
@@ -133,6 +107,8 @@ class TaskInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * image_pull_secret is the secret used to pull images from docker registry
+     *
      * Generated from protobuf field <code>string image_pull_secret = 3;</code>
      * @param string $var
      * @return $this
@@ -146,6 +122,8 @@ class TaskInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * containers are docker containers that run the task's business logic
+     *
      * Generated from protobuf field <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = {</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
@@ -155,6 +133,8 @@ class TaskInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * containers are docker containers that run the task's business logic
+     *
      * Generated from protobuf field <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = {</code>
      * @param \Meshpaas\Container[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this

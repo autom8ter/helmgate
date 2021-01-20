@@ -9,27 +9,39 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
+ * GatewayListener is a single, public tcp listener served by a gateway
+ *
  * Generated from protobuf message <code>meshpaas.GatewayListener</code>
  */
 class GatewayListener extends \Google\Protobuf\Internal\Message
 {
     /**
+     * port the gateway listener will listen on ex: 80
+     *
      * Generated from protobuf field <code>uint32 port = 1 [(.validator.field) = {</code>
      */
     private $port = 0;
     /**
+     * name of the gateway listener ex: http
+     *
      * Generated from protobuf field <code>string name = 2 [(.validator.field) = {</code>
      */
     private $name = '';
     /**
+     * protocol describes the transport protocol served by this listener
+     *
      * Generated from protobuf field <code>.meshpaas.TransportProtocol protocol = 3 [(.validator.field) = {</code>
      */
     private $protocol = 0;
     /**
+     * hosts describes hostnames that may route to this listener
+     *
      * Generated from protobuf field <code>repeated string hosts = 4 [(.validator.field) = {</code>
      */
     private $hosts;
     /**
+     * tls_config provides tls/ssl encryption options
+     *
      * Generated from protobuf field <code>.meshpaas.ServerTLSSettings tls_config = 5;</code>
      */
     private $tls_config = null;
@@ -41,10 +53,15 @@ class GatewayListener extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type int $port
+     *           port the gateway listener will listen on ex: 80
      *     @type string $name
+     *           name of the gateway listener ex: http
      *     @type int $protocol
+     *           protocol describes the transport protocol served by this listener
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $hosts
+     *           hosts describes hostnames that may route to this listener
      *     @type \Meshpaas\ServerTLSSettings $tls_config
+     *           tls_config provides tls/ssl encryption options
      * }
      */
     public function __construct($data = NULL) {
@@ -53,6 +70,8 @@ class GatewayListener extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * port the gateway listener will listen on ex: 80
+     *
      * Generated from protobuf field <code>uint32 port = 1 [(.validator.field) = {</code>
      * @return int
      */
@@ -62,6 +81,8 @@ class GatewayListener extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * port the gateway listener will listen on ex: 80
+     *
      * Generated from protobuf field <code>uint32 port = 1 [(.validator.field) = {</code>
      * @param int $var
      * @return $this
@@ -75,6 +96,8 @@ class GatewayListener extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * name of the gateway listener ex: http
+     *
      * Generated from protobuf field <code>string name = 2 [(.validator.field) = {</code>
      * @return string
      */
@@ -84,6 +107,8 @@ class GatewayListener extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * name of the gateway listener ex: http
+     *
      * Generated from protobuf field <code>string name = 2 [(.validator.field) = {</code>
      * @param string $var
      * @return $this
@@ -97,6 +122,8 @@ class GatewayListener extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * protocol describes the transport protocol served by this listener
+     *
      * Generated from protobuf field <code>.meshpaas.TransportProtocol protocol = 3 [(.validator.field) = {</code>
      * @return int
      */
@@ -106,6 +133,8 @@ class GatewayListener extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * protocol describes the transport protocol served by this listener
+     *
      * Generated from protobuf field <code>.meshpaas.TransportProtocol protocol = 3 [(.validator.field) = {</code>
      * @param int $var
      * @return $this
@@ -119,6 +148,8 @@ class GatewayListener extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * hosts describes hostnames that may route to this listener
+     *
      * Generated from protobuf field <code>repeated string hosts = 4 [(.validator.field) = {</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
@@ -128,6 +159,8 @@ class GatewayListener extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * hosts describes hostnames that may route to this listener
+     *
      * Generated from protobuf field <code>repeated string hosts = 4 [(.validator.field) = {</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
@@ -141,6 +174,8 @@ class GatewayListener extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * tls_config provides tls/ssl encryption options
+     *
      * Generated from protobuf field <code>.meshpaas.ServerTLSSettings tls_config = 5;</code>
      * @return \Meshpaas\ServerTLSSettings
      */
@@ -150,6 +185,8 @@ class GatewayListener extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * tls_config provides tls/ssl encryption options
+     *
      * Generated from protobuf field <code>.meshpaas.ServerTLSSettings tls_config = 5;</code>
      * @param \Meshpaas\ServerTLSSettings $var
      * @return $this
