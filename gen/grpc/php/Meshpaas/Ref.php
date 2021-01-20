@@ -9,6 +9,8 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
+ * Ref is a pointer to a resource
+ *
  * Generated from protobuf message <code>meshpaas.Ref</code>
  */
 class Ref extends \Google\Protobuf\Internal\Message

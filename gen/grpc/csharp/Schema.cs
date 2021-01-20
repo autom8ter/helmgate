@@ -259,6 +259,9 @@ namespace Meshpaas {
     /// <summary>Field number for the "jwks_uri" field.</summary>
     public const int JwksUriFieldNumber = 1;
     private string jwksUri_ = "";
+    /// <summary>
+    /// json web keys uri ref: https://tools.ietf.org/html/rfc7517
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string JwksUri {
       get { return jwksUri_; }
@@ -270,6 +273,9 @@ namespace Meshpaas {
     /// <summary>Field number for the "issuer" field.</summary>
     public const int IssuerFieldNumber = 2;
     private string issuer_ = "";
+    /// <summary>
+    /// issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Issuer {
       get { return issuer_; }
@@ -283,6 +289,9 @@ namespace Meshpaas {
     private static readonly pb::FieldCodec<string> _repeated_audience_codec
         = pb::FieldCodec.ForString(26);
     private readonly pbc::RepeatedField<string> audience_ = new pbc::RepeatedField<string>();
+    /// <summary>
+    /// issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<string> Audience {
       get { return audience_; }
@@ -291,6 +300,9 @@ namespace Meshpaas {
     /// <summary>Field number for the "ouput_payload_header" field.</summary>
     public const int OuputPayloadHeaderFieldNumber = 4;
     private string ouputPayloadHeader_ = "";
+    /// <summary>
+    /// serialize jwt payload &amp; write to this header
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string OuputPayloadHeader {
       get { return ouputPayloadHeader_; }
@@ -466,6 +478,9 @@ namespace Meshpaas {
     private static readonly pb::FieldCodec<string> _repeated_allowNamespaces_codec
         = pb::FieldCodec.ForString(10);
     private readonly pbc::RepeatedField<string> allowNamespaces_ = new pbc::RepeatedField<string>();
+    /// <summary>
+    /// allow_namespaces restricts access to traffic coming from a particular namespace
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<string> AllowNamespaces {
       get { return allowNamespaces_; }
@@ -592,6 +607,9 @@ namespace Meshpaas {
     private static readonly pb::FieldCodec<string> _repeated_allowIssuers_codec
         = pb::FieldCodec.ForString(50);
     private readonly pbc::RepeatedField<string> allowIssuers_ = new pbc::RepeatedField<string>();
+    /// <summary>
+    /// allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<string> AllowIssuers {
       get { return allowIssuers_; }
@@ -602,6 +620,9 @@ namespace Meshpaas {
     private static readonly pb::FieldCodec<string> _repeated_allowRoles_codec
         = pb::FieldCodec.ForString(58);
     private readonly pbc::RepeatedField<string> allowRoles_ = new pbc::RepeatedField<string>();
+    /// <summary>
+    /// allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<string> AllowRoles {
       get { return allowRoles_; }
@@ -612,6 +633,9 @@ namespace Meshpaas {
     private static readonly pb::FieldCodec<string> _repeated_allowAudience_codec
         = pb::FieldCodec.ForString(66);
     private readonly pbc::RepeatedField<string> allowAudience_ = new pbc::RepeatedField<string>();
+    /// <summary>
+    /// allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<string> AllowAudience {
       get { return allowAudience_; }
@@ -757,6 +781,9 @@ namespace Meshpaas {
     private static readonly pb::FieldCodec<string> _repeated_allowPaths_codec
         = pb::FieldCodec.ForString(18);
     private readonly pbc::RepeatedField<string> allowPaths_ = new pbc::RepeatedField<string>();
+    /// <summary>
+    /// restricts access to one of many paths
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<string> AllowPaths {
       get { return allowPaths_; }
@@ -767,6 +794,9 @@ namespace Meshpaas {
     private static readonly pb::FieldCodec<string> _repeated_allowHosts_codec
         = pb::FieldCodec.ForString(26);
     private readonly pbc::RepeatedField<string> allowHosts_ = new pbc::RepeatedField<string>();
+    /// <summary>
+    /// restricts access to one of many hosts
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<string> AllowHosts {
       get { return allowHosts_; }
@@ -777,6 +807,9 @@ namespace Meshpaas {
     private static readonly pb::FieldCodec<string> _repeated_allowMethods_codec
         = pb::FieldCodec.ForString(34);
     private readonly pbc::RepeatedField<string> allowMethods_ = new pbc::RepeatedField<string>();
+    /// <summary>
+    /// restricts access to one of many methods
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<string> AllowMethods {
       get { return allowMethods_; }
@@ -787,6 +820,9 @@ namespace Meshpaas {
     private static readonly pb::FieldCodec<string> _repeated_allowPorts_codec
         = pb::FieldCodec.ForString(42);
     private readonly pbc::RepeatedField<string> allowPorts_ = new pbc::RepeatedField<string>();
+    /// <summary>
+    /// restricts access to one of many ports
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<string> AllowPorts {
       get { return allowPorts_; }
@@ -938,6 +974,9 @@ namespace Meshpaas {
     /// <summary>Field number for the "source" field.</summary>
     public const int SourceFieldNumber = 1;
     private global::Meshpaas.AuthzSource source_;
+    /// <summary>
+    /// source restricts access based on the source of a request in the service mesh
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Meshpaas.AuthzSource Source {
       get { return source_; }
@@ -949,6 +988,9 @@ namespace Meshpaas {
     /// <summary>Field number for the "destination" field.</summary>
     public const int DestinationFieldNumber = 2;
     private global::Meshpaas.AuthzDestination destination_;
+    /// <summary>
+    /// source restricts access based on the destination of a request in the service mesh
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Meshpaas.AuthzDestination Destination {
       get { return destination_; }
@@ -960,6 +1002,9 @@ namespace Meshpaas {
     /// <summary>Field number for the "subject" field.</summary>
     public const int SubjectFieldNumber = 3;
     private global::Meshpaas.AuthzSubject subject_;
+    /// <summary>
+    /// source restricts access based on the subject of a request in the service mesh
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Meshpaas.AuthzSubject Subject {
       get { return subject_; }
@@ -1433,6 +1478,9 @@ namespace Meshpaas {
     /// <summary>Field number for the "immutable" field.</summary>
     public const int ImmutableFieldNumber = 4;
     private bool immutable_;
+    /// <summary>
+    /// prevent changes to the secret after it is created
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Immutable {
       get { return immutable_; }
@@ -1446,6 +1494,9 @@ namespace Meshpaas {
     private static readonly pbc::MapField<string, string>.Codec _map_data_codec
         = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForString(18), 42);
     private readonly pbc::MapField<string, string> data_ = new pbc::MapField<string, string>();
+    /// <summary>
+    /// k/v map of base64 encoded data
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::MapField<string, string> Data {
       get { return data_; }
@@ -1672,6 +1723,9 @@ namespace Meshpaas {
     /// <summary>Field number for the "immutable" field.</summary>
     public const int ImmutableFieldNumber = 4;
     private bool immutable_;
+    /// <summary>
+    /// prevent changes to the secret after it is created
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Immutable {
       get { return immutable_; }
@@ -1685,6 +1739,9 @@ namespace Meshpaas {
     private static readonly pbc::MapField<string, string>.Codec _map_data_codec
         = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForString(18), 42);
     private readonly pbc::MapField<string, string> data_ = new pbc::MapField<string, string>();
+    /// <summary>
+    /// k/v map of base64 encoded data
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::MapField<string, string> Data {
       get { return data_; }
@@ -3082,6 +3139,9 @@ namespace Meshpaas {
     private static readonly pb::FieldCodec<string> _repeated_gateways_codec
         = pb::FieldCodec.ForString(10);
     private readonly pbc::RepeatedField<string> gateways_ = new pbc::RepeatedField<string>();
+    /// <summary>
+    /// gateways to bind to
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<string> Gateways {
       get { return gateways_; }
@@ -3092,6 +3152,9 @@ namespace Meshpaas {
     private static readonly pb::FieldCodec<string> _repeated_hosts_codec
         = pb::FieldCodec.ForString(18);
     private readonly pbc::RepeatedField<string> hosts_ = new pbc::RepeatedField<string>();
+    /// <summary>
+    /// host names to bind to
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<string> Hosts {
       get { return hosts_; }
@@ -3100,6 +3163,9 @@ namespace Meshpaas {
     /// <summary>Field number for the "export" field.</summary>
     public const int ExportFieldNumber = 3;
     private bool export_;
+    /// <summary>
+    /// export service to other applications in other projects
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Export {
       get { return export_; }
@@ -3113,6 +3179,9 @@ namespace Meshpaas {
     private static readonly pb::FieldCodec<global::Meshpaas.HTTPRoute> _repeated_httpRoutes_codec
         = pb::FieldCodec.ForMessage(34, global::Meshpaas.HTTPRoute.Parser);
     private readonly pbc::RepeatedField<global::Meshpaas.HTTPRoute> httpRoutes_ = new pbc::RepeatedField<global::Meshpaas.HTTPRoute>();
+    /// <summary>
+    /// http route matchers/configurations
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::Meshpaas.HTTPRoute> HttpRoutes {
       get { return httpRoutes_; }
@@ -4650,6 +4719,9 @@ namespace Meshpaas {
 
   }
 
+  /// <summary>
+  /// Ref is a pointer to a resource
+  /// </summary>
   public sealed partial class Ref : pb::IMessage<Ref> {
     private static readonly pb::MessageParser<Ref> _parser = new pb::MessageParser<Ref>(() => new Ref());
     private pb::UnknownFieldSet _unknownFields;
@@ -4813,6 +4885,9 @@ namespace Meshpaas {
 
   }
 
+  /// <summary>
+  /// Replica tracks the state/status of an individual replica of an application
+  /// </summary>
   public sealed partial class Replica : pb::IMessage<Replica> {
     private static readonly pb::MessageParser<Replica> _parser = new pb::MessageParser<Replica>(() => new Replica());
     private pb::UnknownFieldSet _unknownFields;
@@ -4998,6 +5073,9 @@ namespace Meshpaas {
 
   }
 
+  /// <summary>
+  /// AppStatus tracks the status of an application
+  /// </summary>
   public sealed partial class AppStatus : pb::IMessage<AppStatus> {
     private static readonly pb::MessageParser<AppStatus> _parser = new pb::MessageParser<AppStatus>(() => new AppStatus());
     private pb::UnknownFieldSet _unknownFields;
@@ -5490,6 +5568,9 @@ namespace Meshpaas {
 
   }
 
+  /// <summary>
+  /// Project creates/replaces a project(k8s namespace)
+  /// </summary>
   public sealed partial class ProjectInput : pb::IMessage<ProjectInput> {
     private static readonly pb::MessageParser<ProjectInput> _parser = new pb::MessageParser<ProjectInput>(() => new ProjectInput());
     private pb::UnknownFieldSet _unknownFields;
@@ -5619,6 +5700,9 @@ namespace Meshpaas {
 
   }
 
+  /// <summary>
+  /// Project is a reference to a project(k8s namespace)
+  /// </summary>
   public sealed partial class Project : pb::IMessage<Project> {
     private static readonly pb::MessageParser<Project> _parser = new pb::MessageParser<Project>(() => new Project());
     private pb::UnknownFieldSet _unknownFields;
@@ -5748,6 +5832,9 @@ namespace Meshpaas {
 
   }
 
+  /// <summary>
+  /// ProjectRef is a reference to an existing project(k8s namespace)
+  /// </summary>
   public sealed partial class ProjectRef : pb::IMessage<ProjectRef> {
     private static readonly pb::MessageParser<ProjectRef> _parser = new pb::MessageParser<ProjectRef>(() => new ProjectRef());
     private pb::UnknownFieldSet _unknownFields;

@@ -203,10 +203,14 @@ type AuthnRule struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	JwksUri            string   `protobuf:"bytes,1,opt,name=jwks_uri,json=jwksUri,proto3" json:"jwks_uri,omitempty"`
-	Issuer             string   `protobuf:"bytes,2,opt,name=issuer,proto3" json:"issuer,omitempty"`
-	Audience           []string `protobuf:"bytes,3,rep,name=audience,proto3" json:"audience,omitempty"`
-	OuputPayloadHeader string   `protobuf:"bytes,4,opt,name=ouput_payload_header,json=ouputPayloadHeader,proto3" json:"ouput_payload_header,omitempty"`
+	// json web keys uri ref: https://tools.ietf.org/html/rfc7517
+	JwksUri string `protobuf:"bytes,1,opt,name=jwks_uri,json=jwksUri,proto3" json:"jwks_uri,omitempty"`
+	// issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+	Issuer string `protobuf:"bytes,2,opt,name=issuer,proto3" json:"issuer,omitempty"`
+	// issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+	Audience []string `protobuf:"bytes,3,rep,name=audience,proto3" json:"audience,omitempty"`
+	// serialize jwt payload & write to this header
+	OuputPayloadHeader string `protobuf:"bytes,4,opt,name=ouput_payload_header,json=ouputPayloadHeader,proto3" json:"ouput_payload_header,omitempty"`
 }
 
 func (x *AuthnRule) Reset() {
@@ -275,6 +279,7 @@ type AuthzSource struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// allow_namespaces restricts access to traffic coming from a particular namespace
 	AllowNamespaces []string `protobuf:"bytes,1,rep,name=allow_namespaces,json=allowNamespaces,proto3" json:"allow_namespaces,omitempty"`
 }
 
@@ -323,8 +328,11 @@ type AuthzSubject struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	AllowIssuers  []string `protobuf:"bytes,6,rep,name=allow_issuers,json=allowIssuers,proto3" json:"allow_issuers,omitempty"`
-	AllowRoles    []string `protobuf:"bytes,7,rep,name=allow_roles,json=allowRoles,proto3" json:"allow_roles,omitempty"`
+	// allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
+	AllowIssuers []string `protobuf:"bytes,6,rep,name=allow_issuers,json=allowIssuers,proto3" json:"allow_issuers,omitempty"`
+	// allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
+	AllowRoles []string `protobuf:"bytes,7,rep,name=allow_roles,json=allowRoles,proto3" json:"allow_roles,omitempty"`
+	// allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
 	AllowAudience []string `protobuf:"bytes,8,rep,name=allow_audience,json=allowAudience,proto3" json:"allow_audience,omitempty"`
 }
 
@@ -387,10 +395,14 @@ type AuthzDestination struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	AllowPaths   []string `protobuf:"bytes,2,rep,name=allow_paths,json=allowPaths,proto3" json:"allow_paths,omitempty"`
-	AllowHosts   []string `protobuf:"bytes,3,rep,name=allow_hosts,json=allowHosts,proto3" json:"allow_hosts,omitempty"`
+	// restricts access to one of many paths
+	AllowPaths []string `protobuf:"bytes,2,rep,name=allow_paths,json=allowPaths,proto3" json:"allow_paths,omitempty"`
+	// restricts access to one of many hosts
+	AllowHosts []string `protobuf:"bytes,3,rep,name=allow_hosts,json=allowHosts,proto3" json:"allow_hosts,omitempty"`
+	// restricts access to one of many methods
 	AllowMethods []string `protobuf:"bytes,4,rep,name=allow_methods,json=allowMethods,proto3" json:"allow_methods,omitempty"`
-	AllowPorts   []string `protobuf:"bytes,5,rep,name=allow_ports,json=allowPorts,proto3" json:"allow_ports,omitempty"`
+	// restricts access to one of many ports
+	AllowPorts []string `protobuf:"bytes,5,rep,name=allow_ports,json=allowPorts,proto3" json:"allow_ports,omitempty"`
 }
 
 func (x *AuthzDestination) Reset() {
@@ -459,9 +471,12 @@ type AuthzRule struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Source      *AuthzSource      `protobuf:"bytes,1,opt,name=source,proto3" json:"source,omitempty"`
+	// source restricts access based on the source of a request in the service mesh
+	Source *AuthzSource `protobuf:"bytes,1,opt,name=source,proto3" json:"source,omitempty"`
+	// source restricts access based on the destination of a request in the service mesh
 	Destination *AuthzDestination `protobuf:"bytes,2,opt,name=destination,proto3" json:"destination,omitempty"`
-	Subject     *AuthzSubject     `protobuf:"bytes,3,opt,name=subject,proto3" json:"subject,omitempty"`
+	// source restricts access based on the subject of a request in the service mesh
+	Subject *AuthzSubject `protobuf:"bytes,3,opt,name=subject,proto3" json:"subject,omitempty"`
 }
 
 func (x *AuthzRule) Reset() {
@@ -622,10 +637,12 @@ type SecretInput struct {
 	// name of the secret
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	// secret project
-	Project   string            `protobuf:"bytes,2,opt,name=project,proto3" json:"project,omitempty"`
-	Type      SecretType        `protobuf:"varint,3,opt,name=type,proto3,enum=meshpaas.SecretType" json:"type,omitempty"`
-	Immutable bool              `protobuf:"varint,4,opt,name=immutable,proto3" json:"immutable,omitempty"`
-	Data      map[string]string `protobuf:"bytes,5,rep,name=data,proto3" json:"data,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Project string     `protobuf:"bytes,2,opt,name=project,proto3" json:"project,omitempty"`
+	Type    SecretType `protobuf:"varint,3,opt,name=type,proto3,enum=meshpaas.SecretType" json:"type,omitempty"`
+	// prevent changes to the secret after it is created
+	Immutable bool `protobuf:"varint,4,opt,name=immutable,proto3" json:"immutable,omitempty"`
+	// k/v map of base64 encoded data
+	Data map[string]string `protobuf:"bytes,5,rep,name=data,proto3" json:"data,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 }
 
 func (x *SecretInput) Reset() {
@@ -703,10 +720,12 @@ type Secret struct {
 	// name of the secret
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	// secret project
-	Project   string            `protobuf:"bytes,2,opt,name=project,proto3" json:"project,omitempty"`
-	Type      SecretType        `protobuf:"varint,3,opt,name=type,proto3,enum=meshpaas.SecretType" json:"type,omitempty"`
-	Immutable bool              `protobuf:"varint,4,opt,name=immutable,proto3" json:"immutable,omitempty"`
-	Data      map[string]string `protobuf:"bytes,5,rep,name=data,proto3" json:"data,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Project string     `protobuf:"bytes,2,opt,name=project,proto3" json:"project,omitempty"`
+	Type    SecretType `protobuf:"varint,3,opt,name=type,proto3,enum=meshpaas.SecretType" json:"type,omitempty"`
+	// prevent changes to the secret after it is created
+	Immutable bool `protobuf:"varint,4,opt,name=immutable,proto3" json:"immutable,omitempty"`
+	// k/v map of base64 encoded data
+	Data map[string]string `protobuf:"bytes,5,rep,name=data,proto3" json:"data,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 }
 
 func (x *Secret) Reset() {
@@ -1202,9 +1221,13 @@ type Networking struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Gateways   []string     `protobuf:"bytes,1,rep,name=gateways,proto3" json:"gateways,omitempty"`
-	Hosts      []string     `protobuf:"bytes,2,rep,name=hosts,proto3" json:"hosts,omitempty"`
-	Export     bool         `protobuf:"varint,3,opt,name=export,proto3" json:"export,omitempty"`
+	// gateways to bind to
+	Gateways []string `protobuf:"bytes,1,rep,name=gateways,proto3" json:"gateways,omitempty"`
+	// host names to bind to
+	Hosts []string `protobuf:"bytes,2,rep,name=hosts,proto3" json:"hosts,omitempty"`
+	// export service to other applications in other projects
+	Export bool `protobuf:"varint,3,opt,name=export,proto3" json:"export,omitempty"`
+	// http route matchers/configurations
 	HttpRoutes []*HTTPRoute `protobuf:"bytes,4,rep,name=http_routes,json=httpRoutes,proto3" json:"http_routes,omitempty"`
 }
 
@@ -1733,6 +1756,7 @@ func (x *AppInput) GetAuthorization() *Authz {
 	return nil
 }
 
+// Ref is a pointer to a resource
 type Ref struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -1790,6 +1814,7 @@ func (x *Ref) GetProject() string {
 	return ""
 }
 
+// Replica tracks the state/status of an individual replica of an application
 type Replica struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -1853,6 +1878,7 @@ func (x *Replica) GetReason() string {
 	return ""
 }
 
+// AppStatus tracks the status of an application
 type AppStatus struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -2041,6 +2067,7 @@ func (x *Tasks) GetTasks() []*Task {
 	return nil
 }
 
+// Project creates/replaces a project(k8s namespace)
 type ProjectInput struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -2088,6 +2115,7 @@ func (x *ProjectInput) GetName() string {
 	return ""
 }
 
+// Project is a reference to a project(k8s namespace)
 type Project struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -2135,6 +2163,7 @@ func (x *Project) GetName() string {
 	return ""
 }
 
+// ProjectRef is a reference to an existing project(k8s namespace)
 type ProjectRef struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -3194,11 +3223,13 @@ const _ = grpc.SupportPackageIsVersion6
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type MeshPaasServiceClient interface {
 	CreateProject(ctx context.Context, in *ProjectInput, opts ...grpc.CallOption) (*Project, error)
-	// ListProjects lists all projects created by meshpaas
+	// ListProjects lists all projects(k8s namespace) created by meshpaas
 	ListProjects(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*Projects, error)
-	// DeleteProject deletes a project & all its resources
+	// DeleteProject deletes a project(k8s namespace) & all its resources
 	DeleteProject(ctx context.Context, in *ProjectRef, opts ...grpc.CallOption) (*empty.Empty, error)
+	// GetProject gets an existing project(k8s namespace)
 	GetProject(ctx context.Context, in *ProjectRef, opts ...grpc.CallOption) (*Project, error)
+	// UpdateProject updates an existing project(k8s namespace)
 	UpdateProject(ctx context.Context, in *ProjectInput, opts ...grpc.CallOption) (*Project, error)
 	// CreateApp creates a new stateless application(k8s deployment & service) within a single project(k8s namespace)
 	// the project will automatically be created if one does not already exist
@@ -3495,11 +3526,13 @@ func (x *meshPaasServiceStreamLogsClient) Recv() (*Log, error) {
 // MeshPaasServiceServer is the server API for MeshPaasService service.
 type MeshPaasServiceServer interface {
 	CreateProject(context.Context, *ProjectInput) (*Project, error)
-	// ListProjects lists all projects created by meshpaas
+	// ListProjects lists all projects(k8s namespace) created by meshpaas
 	ListProjects(context.Context, *empty.Empty) (*Projects, error)
-	// DeleteProject deletes a project & all its resources
+	// DeleteProject deletes a project(k8s namespace) & all its resources
 	DeleteProject(context.Context, *ProjectRef) (*empty.Empty, error)
+	// GetProject gets an existing project(k8s namespace)
 	GetProject(context.Context, *ProjectRef) (*Project, error)
+	// UpdateProject updates an existing project(k8s namespace)
 	UpdateProject(context.Context, *ProjectInput) (*Project, error)
 	// CreateApp creates a new stateless application(k8s deployment & service) within a single project(k8s namespace)
 	// the project will automatically be created if one does not already exist

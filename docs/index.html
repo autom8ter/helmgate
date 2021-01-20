@@ -652,7 +652,7 @@
         
       
         <h3 id="meshpaas.AppStatus">AppStatus</h3>
-        <p></p>
+        <p>AppStatus tracks the status of an application</p>
 
         
           <table class="field-table">
@@ -737,28 +737,28 @@
                   <td>jwks_uri</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>json web keys uri ref: https://tools.ietf.org/html/rfc7517 </p></td>
                 </tr>
               
                 <tr>
                   <td>issuer</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1 </p></td>
                 </tr>
               
                 <tr>
                   <td>audience</td>
                   <td><a href="#string">string</a></td>
                   <td>repeated</td>
-                  <td><p> </p></td>
+                  <td><p>issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1 </p></td>
                 </tr>
               
                 <tr>
                   <td>ouput_payload_header</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>serialize jwt payload &amp; write to this header </p></td>
                 </tr>
               
             </tbody>
@@ -855,28 +855,28 @@
                   <td>allow_paths</td>
                   <td><a href="#string">string</a></td>
                   <td>repeated</td>
-                  <td><p> </p></td>
+                  <td><p>restricts access to one of many paths </p></td>
                 </tr>
               
                 <tr>
                   <td>allow_hosts</td>
                   <td><a href="#string">string</a></td>
                   <td>repeated</td>
-                  <td><p> </p></td>
+                  <td><p>restricts access to one of many hosts </p></td>
                 </tr>
               
                 <tr>
                   <td>allow_methods</td>
                   <td><a href="#string">string</a></td>
                   <td>repeated</td>
-                  <td><p> </p></td>
+                  <td><p>restricts access to one of many methods </p></td>
                 </tr>
               
                 <tr>
                   <td>allow_ports</td>
                   <td><a href="#string">string</a></td>
                   <td>repeated</td>
-                  <td><p> </p></td>
+                  <td><p>restricts access to one of many ports </p></td>
                 </tr>
               
             </tbody>
@@ -900,21 +900,21 @@
                   <td>source</td>
                   <td><a href="#meshpaas.AuthzSource">AuthzSource</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>source restricts access based on the source of a request in the service mesh </p></td>
                 </tr>
               
                 <tr>
                   <td>destination</td>
                   <td><a href="#meshpaas.AuthzDestination">AuthzDestination</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>source restricts access based on the destination of a request in the service mesh </p></td>
                 </tr>
               
                 <tr>
                   <td>subject</td>
                   <td><a href="#meshpaas.AuthzSubject">AuthzSubject</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>source restricts access based on the subject of a request in the service mesh </p></td>
                 </tr>
               
             </tbody>
@@ -938,7 +938,7 @@
                   <td>allow_namespaces</td>
                   <td><a href="#string">string</a></td>
                   <td>repeated</td>
-                  <td><p> </p></td>
+                  <td><p>allow_namespaces restricts access to traffic coming from a particular namespace </p></td>
                 </tr>
               
             </tbody>
@@ -962,21 +962,21 @@
                   <td>allow_issuers</td>
                   <td><a href="#string">string</a></td>
                   <td>repeated</td>
-                  <td><p> </p></td>
+                  <td><p>allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim </p></td>
                 </tr>
               
                 <tr>
                   <td>allow_roles</td>
                   <td><a href="#string">string</a></td>
                   <td>repeated</td>
-                  <td><p> </p></td>
+                  <td><p>allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim </p></td>
                 </tr>
               
                 <tr>
                   <td>allow_audience</td>
                   <td><a href="#string">string</a></td>
                   <td>repeated</td>
-                  <td><p> </p></td>
+                  <td><p>allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim </p></td>
                 </tr>
               
             </tbody>
@@ -1531,28 +1531,28 @@
                   <td>gateways</td>
                   <td><a href="#string">string</a></td>
                   <td>repeated</td>
-                  <td><p> </p></td>
+                  <td><p>gateways to bind to </p></td>
                 </tr>
               
                 <tr>
                   <td>hosts</td>
                   <td><a href="#string">string</a></td>
                   <td>repeated</td>
-                  <td><p> </p></td>
+                  <td><p>host names to bind to </p></td>
                 </tr>
               
                 <tr>
                   <td>export</td>
                   <td><a href="#bool">bool</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>export service to other applications in other projects </p></td>
                 </tr>
               
                 <tr>
                   <td>http_routes</td>
                   <td><a href="#meshpaas.HTTPRoute">HTTPRoute</a></td>
                   <td>repeated</td>
-                  <td><p> </p></td>
+                  <td><p>http route matchers/configurations </p></td>
                 </tr>
               
             </tbody>
@@ -1563,7 +1563,7 @@
         
       
         <h3 id="meshpaas.Project">Project</h3>
-        <p></p>
+        <p>Project is a reference to a project(k8s namespace)</p>
 
         
           <table class="field-table">
@@ -1587,7 +1587,7 @@
         
       
         <h3 id="meshpaas.ProjectInput">ProjectInput</h3>
-        <p></p>
+        <p>Project creates/replaces a project(k8s namespace)</p>
 
         
           <table class="field-table">
@@ -1638,7 +1638,7 @@
         
       
         <h3 id="meshpaas.ProjectRef">ProjectRef</h3>
-        <p></p>
+        <p>ProjectRef is a reference to an existing project(k8s namespace)</p>
 
         
           <table class="field-table">
@@ -1713,7 +1713,7 @@
         
       
         <h3 id="meshpaas.Ref">Ref</h3>
-        <p></p>
+        <p>Ref is a pointer to a resource</p>
 
         
           <table class="field-table">
@@ -1782,7 +1782,7 @@
         
       
         <h3 id="meshpaas.Replica">Replica</h3>
-        <p></p>
+        <p>Replica tracks the state/status of an individual replica of an application</p>
 
         
           <table class="field-table">
@@ -1854,14 +1854,14 @@
                   <td>immutable</td>
                   <td><a href="#bool">bool</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>prevent changes to the secret after it is created </p></td>
                 </tr>
               
                 <tr>
                   <td>data</td>
                   <td><a href="#meshpaas.Secret.DataEntry">Secret.DataEntry</a></td>
                   <td>repeated</td>
-                  <td><p> </p></td>
+                  <td><p>k/v map of base64 encoded data </p></td>
                 </tr>
               
             </tbody>
@@ -1986,14 +1986,14 @@
                   <td>immutable</td>
                   <td><a href="#bool">bool</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>prevent changes to the secret after it is created </p></td>
                 </tr>
               
                 <tr>
                   <td>data</td>
                   <td><a href="#meshpaas.SecretInput.DataEntry">SecretInput.DataEntry</a></td>
                   <td>repeated</td>
-                  <td><p> </p></td>
+                  <td><p>k/v map of base64 encoded data </p></td>
                 </tr>
               
             </tbody>
@@ -2551,28 +2551,28 @@
                 <td>ListProjects</td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><a href="#meshpaas.Projects">Projects</a></td>
-                <td><p>ListProjects lists all projects created by meshpaas</p></td>
+                <td><p>ListProjects lists all projects(k8s namespace) created by meshpaas</p></td>
               </tr>
             
               <tr>
                 <td>DeleteProject</td>
                 <td><a href="#meshpaas.ProjectRef">ProjectRef</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>DeleteProject deletes a project &amp; all its resources</p></td>
+                <td><p>DeleteProject deletes a project(k8s namespace) &amp; all its resources</p></td>
               </tr>
             
               <tr>
                 <td>GetProject</td>
                 <td><a href="#meshpaas.ProjectRef">ProjectRef</a></td>
                 <td><a href="#meshpaas.Project">Project</a></td>
-                <td><p></p></td>
+                <td><p>GetProject gets an existing project(k8s namespace)</p></td>
               </tr>
             
               <tr>
                 <td>UpdateProject</td>
                 <td><a href="#meshpaas.ProjectInput">ProjectInput</a></td>
                 <td><a href="#meshpaas.Project">Project</a></td>
-                <td><p></p></td>
+                <td><p>UpdateProject updates an existing project(k8s namespace)</p></td>
               </tr>
             
               <tr>

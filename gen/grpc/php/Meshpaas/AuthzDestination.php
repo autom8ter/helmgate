@@ -16,18 +16,26 @@ use Google\Protobuf\Internal\GPBUtil;
 class AuthzDestination extends \Google\Protobuf\Internal\Message
 {
     /**
+     * restricts access to one of many paths
+     *
      * Generated from protobuf field <code>repeated string allow_paths = 2;</code>
      */
     private $allow_paths;
     /**
+     * restricts access to one of many hosts
+     *
      * Generated from protobuf field <code>repeated string allow_hosts = 3;</code>
      */
     private $allow_hosts;
     /**
+     * restricts access to one of many methods
+     *
      * Generated from protobuf field <code>repeated string allow_methods = 4;</code>
      */
     private $allow_methods;
     /**
+     * restricts access to one of many ports
+     *
      * Generated from protobuf field <code>repeated string allow_ports = 5;</code>
      */
     private $allow_ports;
@@ -39,9 +47,13 @@ class AuthzDestination extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $allow_paths
+     *           restricts access to one of many paths
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $allow_hosts
+     *           restricts access to one of many hosts
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $allow_methods
+     *           restricts access to one of many methods
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $allow_ports
+     *           restricts access to one of many ports
      * }
      */
     public function __construct($data = NULL) {
@@ -50,6 +62,8 @@ class AuthzDestination extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * restricts access to one of many paths
+     *
      * Generated from protobuf field <code>repeated string allow_paths = 2;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
@@ -59,6 +73,8 @@ class AuthzDestination extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * restricts access to one of many paths
+     *
      * Generated from protobuf field <code>repeated string allow_paths = 2;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
@@ -72,6 +88,8 @@ class AuthzDestination extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * restricts access to one of many hosts
+     *
      * Generated from protobuf field <code>repeated string allow_hosts = 3;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
@@ -81,6 +99,8 @@ class AuthzDestination extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * restricts access to one of many hosts
+     *
      * Generated from protobuf field <code>repeated string allow_hosts = 3;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
@@ -94,6 +114,8 @@ class AuthzDestination extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * restricts access to one of many methods
+     *
      * Generated from protobuf field <code>repeated string allow_methods = 4;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
@@ -103,6 +125,8 @@ class AuthzDestination extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * restricts access to one of many methods
+     *
      * Generated from protobuf field <code>repeated string allow_methods = 4;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
@@ -116,6 +140,8 @@ class AuthzDestination extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * restricts access to one of many ports
+     *
      * Generated from protobuf field <code>repeated string allow_ports = 5;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
@@ -125,6 +151,8 @@ class AuthzDestination extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * restricts access to one of many ports
+     *
      * Generated from protobuf field <code>repeated string allow_ports = 5;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this

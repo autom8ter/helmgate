@@ -16,14 +16,20 @@ use Google\Protobuf\Internal\GPBUtil;
 class AuthzRule extends \Google\Protobuf\Internal\Message
 {
     /**
+     * source restricts access based on the source of a request in the service mesh
+     *
      * Generated from protobuf field <code>.meshpaas.AuthzSource source = 1;</code>
      */
     private $source = null;
     /**
+     * source restricts access based on the destination of a request in the service mesh
+     *
      * Generated from protobuf field <code>.meshpaas.AuthzDestination destination = 2;</code>
      */
     private $destination = null;
     /**
+     * source restricts access based on the subject of a request in the service mesh
+     *
      * Generated from protobuf field <code>.meshpaas.AuthzSubject subject = 3;</code>
      */
     private $subject = null;
@@ -35,8 +41,11 @@ class AuthzRule extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type \Meshpaas\AuthzSource $source
+     *           source restricts access based on the source of a request in the service mesh
      *     @type \Meshpaas\AuthzDestination $destination
+     *           source restricts access based on the destination of a request in the service mesh
      *     @type \Meshpaas\AuthzSubject $subject
+     *           source restricts access based on the subject of a request in the service mesh
      * }
      */
     public function __construct($data = NULL) {
@@ -45,6 +54,8 @@ class AuthzRule extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * source restricts access based on the source of a request in the service mesh
+     *
      * Generated from protobuf field <code>.meshpaas.AuthzSource source = 1;</code>
      * @return \Meshpaas\AuthzSource
      */
@@ -54,6 +65,8 @@ class AuthzRule extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * source restricts access based on the source of a request in the service mesh
+     *
      * Generated from protobuf field <code>.meshpaas.AuthzSource source = 1;</code>
      * @param \Meshpaas\AuthzSource $var
      * @return $this
@@ -67,6 +80,8 @@ class AuthzRule extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * source restricts access based on the destination of a request in the service mesh
+     *
      * Generated from protobuf field <code>.meshpaas.AuthzDestination destination = 2;</code>
      * @return \Meshpaas\AuthzDestination
      */
@@ -76,6 +91,8 @@ class AuthzRule extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * source restricts access based on the destination of a request in the service mesh
+     *
      * Generated from protobuf field <code>.meshpaas.AuthzDestination destination = 2;</code>
      * @param \Meshpaas\AuthzDestination $var
      * @return $this
@@ -89,6 +106,8 @@ class AuthzRule extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * source restricts access based on the subject of a request in the service mesh
+     *
      * Generated from protobuf field <code>.meshpaas.AuthzSubject subject = 3;</code>
      * @return \Meshpaas\AuthzSubject
      */
@@ -98,6 +117,8 @@ class AuthzRule extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * source restricts access based on the subject of a request in the service mesh
+     *
      * Generated from protobuf field <code>.meshpaas.AuthzSubject subject = 3;</code>
      * @param \Meshpaas\AuthzSubject $var
      * @return $this

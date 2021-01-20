@@ -14,18 +14,26 @@ use Google\Protobuf\Internal\GPBUtil;
 class AuthnRule extends \Google\Protobuf\Internal\Message
 {
     /**
+     * json web keys uri ref: https://tools.ietf.org/html/rfc7517
+     *
      * Generated from protobuf field <code>string jwks_uri = 1 [(.validator.field) = {</code>
      */
     private $jwks_uri = '';
     /**
+     * issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+     *
      * Generated from protobuf field <code>string issuer = 2 [(.validator.field) = {</code>
      */
     private $issuer = '';
     /**
+     * issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+     *
      * Generated from protobuf field <code>repeated string audience = 3;</code>
      */
     private $audience;
     /**
+     * serialize jwt payload & write to this header
+     *
      * Generated from protobuf field <code>string ouput_payload_header = 4 [(.validator.field) = {</code>
      */
     private $ouput_payload_header = '';
@@ -37,9 +45,13 @@ class AuthnRule extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $jwks_uri
+     *           json web keys uri ref: https://tools.ietf.org/html/rfc7517
      *     @type string $issuer
+     *           issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $audience
+     *           issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
      *     @type string $ouput_payload_header
+     *           serialize jwt payload & write to this header
      * }
      */
     public function __construct($data = NULL) {
@@ -48,6 +60,8 @@ class AuthnRule extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * json web keys uri ref: https://tools.ietf.org/html/rfc7517
+     *
      * Generated from protobuf field <code>string jwks_uri = 1 [(.validator.field) = {</code>
      * @return string
      */
@@ -57,6 +71,8 @@ class AuthnRule extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * json web keys uri ref: https://tools.ietf.org/html/rfc7517
+     *
      * Generated from protobuf field <code>string jwks_uri = 1 [(.validator.field) = {</code>
      * @param string $var
      * @return $this
@@ -70,6 +86,8 @@ class AuthnRule extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+     *
      * Generated from protobuf field <code>string issuer = 2 [(.validator.field) = {</code>
      * @return string
      */
@@ -79,6 +97,8 @@ class AuthnRule extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+     *
      * Generated from protobuf field <code>string issuer = 2 [(.validator.field) = {</code>
      * @param string $var
      * @return $this
@@ -92,6 +112,8 @@ class AuthnRule extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+     *
      * Generated from protobuf field <code>repeated string audience = 3;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
@@ -101,6 +123,8 @@ class AuthnRule extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+     *
      * Generated from protobuf field <code>repeated string audience = 3;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
@@ -114,6 +138,8 @@ class AuthnRule extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * serialize jwt payload & write to this header
+     *
      * Generated from protobuf field <code>string ouput_payload_header = 4 [(.validator.field) = {</code>
      * @return string
      */
@@ -123,6 +149,8 @@ class AuthnRule extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * serialize jwt payload & write to this header
+     *
      * Generated from protobuf field <code>string ouput_payload_header = 4 [(.validator.field) = {</code>
      * @param string $var
      * @return $this

@@ -14,18 +14,26 @@ use Google\Protobuf\Internal\GPBUtil;
 class Networking extends \Google\Protobuf\Internal\Message
 {
     /**
+     * gateways to bind to
+     *
      * Generated from protobuf field <code>repeated string gateways = 1;</code>
      */
     private $gateways;
     /**
+     * host names to bind to
+     *
      * Generated from protobuf field <code>repeated string hosts = 2;</code>
      */
     private $hosts;
     /**
+     * export service to other applications in other projects
+     *
      * Generated from protobuf field <code>bool export = 3;</code>
      */
     private $export = false;
     /**
+     * http route matchers/configurations
+     *
      * Generated from protobuf field <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
      */
     private $http_routes;
@@ -37,9 +45,13 @@ class Networking extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $gateways
+     *           gateways to bind to
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $hosts
+     *           host names to bind to
      *     @type bool $export
+     *           export service to other applications in other projects
      *     @type \Meshpaas\HTTPRoute[]|\Google\Protobuf\Internal\RepeatedField $http_routes
+     *           http route matchers/configurations
      * }
      */
     public function __construct($data = NULL) {
@@ -48,6 +60,8 @@ class Networking extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * gateways to bind to
+     *
      * Generated from protobuf field <code>repeated string gateways = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
@@ -57,6 +71,8 @@ class Networking extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * gateways to bind to
+     *
      * Generated from protobuf field <code>repeated string gateways = 1;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
@@ -70,6 +86,8 @@ class Networking extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * host names to bind to
+     *
      * Generated from protobuf field <code>repeated string hosts = 2;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
@@ -79,6 +97,8 @@ class Networking extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * host names to bind to
+     *
      * Generated from protobuf field <code>repeated string hosts = 2;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
@@ -92,6 +112,8 @@ class Networking extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * export service to other applications in other projects
+     *
      * Generated from protobuf field <code>bool export = 3;</code>
      * @return bool
      */
@@ -101,6 +123,8 @@ class Networking extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * export service to other applications in other projects
+     *
      * Generated from protobuf field <code>bool export = 3;</code>
      * @param bool $var
      * @return $this
@@ -114,6 +138,8 @@ class Networking extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * http route matchers/configurations
+     *
      * Generated from protobuf field <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
@@ -123,6 +149,8 @@ class Networking extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * http route matchers/configurations
+     *
      * Generated from protobuf field <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
      * @param \Meshpaas\HTTPRoute[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this

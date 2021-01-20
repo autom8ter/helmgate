@@ -9,6 +9,8 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
+ * AppStatus tracks the status of an application
+ *
  * Generated from protobuf message <code>meshpaas.AppStatus</code>
  */
 class AppStatus extends \Google\Protobuf\Internal\Message

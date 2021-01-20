@@ -16,6 +16,8 @@ use Google\Protobuf\Internal\GPBUtil;
 class AuthzSource extends \Google\Protobuf\Internal\Message
 {
     /**
+     * allow_namespaces restricts access to traffic coming from a particular namespace
+     *
      * Generated from protobuf field <code>repeated string allow_namespaces = 1;</code>
      */
     private $allow_namespaces;
@@ -27,6 +29,7 @@ class AuthzSource extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $allow_namespaces
+     *           allow_namespaces restricts access to traffic coming from a particular namespace
      * }
      */
     public function __construct($data = NULL) {
@@ -35,6 +38,8 @@ class AuthzSource extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * allow_namespaces restricts access to traffic coming from a particular namespace
+     *
      * Generated from protobuf field <code>repeated string allow_namespaces = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
@@ -44,6 +49,8 @@ class AuthzSource extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * allow_namespaces restricts access to traffic coming from a particular namespace
+     *
      * Generated from protobuf field <code>repeated string allow_namespaces = 1;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this

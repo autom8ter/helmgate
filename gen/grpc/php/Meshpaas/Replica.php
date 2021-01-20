@@ -9,6 +9,8 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
+ * Replica tracks the state/status of an individual replica of an application
+ *
  * Generated from protobuf message <code>meshpaas.Replica</code>
  */
 class Replica extends \Google\Protobuf\Internal\Message

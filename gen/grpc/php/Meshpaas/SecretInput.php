@@ -32,10 +32,14 @@ class SecretInput extends \Google\Protobuf\Internal\Message
      */
     private $type = 0;
     /**
+     * prevent changes to the secret after it is created
+     *
      * Generated from protobuf field <code>bool immutable = 4;</code>
      */
     private $immutable = false;
     /**
+     * k/v map of base64 encoded data
+     *
      * Generated from protobuf field <code>map<string, string> data = 5 [(.validator.field) = {</code>
      */
     private $data;
@@ -52,7 +56,9 @@ class SecretInput extends \Google\Protobuf\Internal\Message
      *           secret project
      *     @type int $type
      *     @type bool $immutable
+     *           prevent changes to the secret after it is created
      *     @type array|\Google\Protobuf\Internal\MapField $data
+     *           k/v map of base64 encoded data
      * }
      */
     public function __construct($data = NULL) {
@@ -135,6 +141,8 @@ class SecretInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * prevent changes to the secret after it is created
+     *
      * Generated from protobuf field <code>bool immutable = 4;</code>
      * @return bool
      */
@@ -144,6 +152,8 @@ class SecretInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * prevent changes to the secret after it is created
+     *
      * Generated from protobuf field <code>bool immutable = 4;</code>
      * @param bool $var
      * @return $this
@@ -157,6 +167,8 @@ class SecretInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * k/v map of base64 encoded data
+     *
      * Generated from protobuf field <code>map<string, string> data = 5 [(.validator.field) = {</code>
      * @return \Google\Protobuf\Internal\MapField
      */
@@ -166,6 +178,8 @@ class SecretInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * k/v map of base64 encoded data
+     *
      * Generated from protobuf field <code>map<string, string> data = 5 [(.validator.field) = {</code>
      * @param array|\Google\Protobuf\Internal\MapField $var
      * @return $this

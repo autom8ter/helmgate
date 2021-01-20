@@ -9,6 +9,8 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
+ * Project creates/replaces a project(k8s namespace)
+ *
  * Generated from protobuf message <code>meshpaas.ProjectInput</code>
  */
 class ProjectInput extends \Google\Protobuf\Internal\Message

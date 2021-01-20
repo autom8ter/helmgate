@@ -407,49 +407,89 @@ public final class Schema {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * json web keys uri ref: https://tools.ietf.org/html/rfc7517
+     * </pre>
+     *
      * <code>string jwks_uri = 1 [(.validator.field) = { ... }</code>
      */
     java.lang.String getJwksUri();
     /**
+     * <pre>
+     * json web keys uri ref: https://tools.ietf.org/html/rfc7517
+     * </pre>
+     *
      * <code>string jwks_uri = 1 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
         getJwksUriBytes();
 
     /**
+     * <pre>
+     * issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+     * </pre>
+     *
      * <code>string issuer = 2 [(.validator.field) = { ... }</code>
      */
     java.lang.String getIssuer();
     /**
+     * <pre>
+     * issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+     * </pre>
+     *
      * <code>string issuer = 2 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
         getIssuerBytes();
 
     /**
+     * <pre>
+     * issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+     * </pre>
+     *
      * <code>repeated string audience = 3;</code>
      */
     java.util.List<java.lang.String>
         getAudienceList();
     /**
+     * <pre>
+     * issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+     * </pre>
+     *
      * <code>repeated string audience = 3;</code>
      */
     int getAudienceCount();
     /**
+     * <pre>
+     * issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+     * </pre>
+     *
      * <code>repeated string audience = 3;</code>
      */
     java.lang.String getAudience(int index);
     /**
+     * <pre>
+     * issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+     * </pre>
+     *
      * <code>repeated string audience = 3;</code>
      */
     com.google.protobuf.ByteString
         getAudienceBytes(int index);
 
     /**
+     * <pre>
+     * serialize jwt payload &amp; write to this header
+     * </pre>
+     *
      * <code>string ouput_payload_header = 4 [(.validator.field) = { ... }</code>
      */
     java.lang.String getOuputPayloadHeader();
     /**
+     * <pre>
+     * serialize jwt payload &amp; write to this header
+     * </pre>
+     *
      * <code>string ouput_payload_header = 4 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
@@ -564,6 +604,10 @@ public final class Schema {
     public static final int JWKS_URI_FIELD_NUMBER = 1;
     private volatile java.lang.Object jwksUri_;
     /**
+     * <pre>
+     * json web keys uri ref: https://tools.ietf.org/html/rfc7517
+     * </pre>
+     *
      * <code>string jwks_uri = 1 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getJwksUri() {
@@ -579,6 +623,10 @@ public final class Schema {
       }
     }
     /**
+     * <pre>
+     * json web keys uri ref: https://tools.ietf.org/html/rfc7517
+     * </pre>
+     *
      * <code>string jwks_uri = 1 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
@@ -598,6 +646,10 @@ public final class Schema {
     public static final int ISSUER_FIELD_NUMBER = 2;
     private volatile java.lang.Object issuer_;
     /**
+     * <pre>
+     * issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+     * </pre>
+     *
      * <code>string issuer = 2 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getIssuer() {
@@ -613,6 +665,10 @@ public final class Schema {
       }
     }
     /**
+     * <pre>
+     * issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+     * </pre>
+     *
      * <code>string issuer = 2 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
@@ -632,6 +688,10 @@ public final class Schema {
     public static final int AUDIENCE_FIELD_NUMBER = 3;
     private com.google.protobuf.LazyStringList audience_;
     /**
+     * <pre>
+     * issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+     * </pre>
+     *
      * <code>repeated string audience = 3;</code>
      */
     public com.google.protobuf.ProtocolStringList
@@ -639,18 +699,30 @@ public final class Schema {
       return audience_;
     }
     /**
+     * <pre>
+     * issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+     * </pre>
+     *
      * <code>repeated string audience = 3;</code>
      */
     public int getAudienceCount() {
       return audience_.size();
     }
     /**
+     * <pre>
+     * issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+     * </pre>
+     *
      * <code>repeated string audience = 3;</code>
      */
     public java.lang.String getAudience(int index) {
       return audience_.get(index);
     }
     /**
+     * <pre>
+     * issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+     * </pre>
+     *
      * <code>repeated string audience = 3;</code>
      */
     public com.google.protobuf.ByteString
@@ -661,6 +733,10 @@ public final class Schema {
     public static final int OUPUT_PAYLOAD_HEADER_FIELD_NUMBER = 4;
     private volatile java.lang.Object ouputPayloadHeader_;
     /**
+     * <pre>
+     * serialize jwt payload &amp; write to this header
+     * </pre>
+     *
      * <code>string ouput_payload_header = 4 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getOuputPayloadHeader() {
@@ -676,6 +752,10 @@ public final class Schema {
       }
     }
     /**
+     * <pre>
+     * serialize jwt payload &amp; write to this header
+     * </pre>
+     *
      * <code>string ouput_payload_header = 4 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
@@ -1069,6 +1149,10 @@ public final class Schema {
 
       private java.lang.Object jwksUri_ = "";
       /**
+       * <pre>
+       * json web keys uri ref: https://tools.ietf.org/html/rfc7517
+       * </pre>
+       *
        * <code>string jwks_uri = 1 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getJwksUri() {
@@ -1084,6 +1168,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * json web keys uri ref: https://tools.ietf.org/html/rfc7517
+       * </pre>
+       *
        * <code>string jwks_uri = 1 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
@@ -1100,6 +1188,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * json web keys uri ref: https://tools.ietf.org/html/rfc7517
+       * </pre>
+       *
        * <code>string jwks_uri = 1 [(.validator.field) = { ... }</code>
        */
       public Builder setJwksUri(
@@ -1113,6 +1205,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * json web keys uri ref: https://tools.ietf.org/html/rfc7517
+       * </pre>
+       *
        * <code>string jwks_uri = 1 [(.validator.field) = { ... }</code>
        */
       public Builder clearJwksUri() {
@@ -1122,6 +1218,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * json web keys uri ref: https://tools.ietf.org/html/rfc7517
+       * </pre>
+       *
        * <code>string jwks_uri = 1 [(.validator.field) = { ... }</code>
        */
       public Builder setJwksUriBytes(
@@ -1138,6 +1238,10 @@ public final class Schema {
 
       private java.lang.Object issuer_ = "";
       /**
+       * <pre>
+       * issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+       * </pre>
+       *
        * <code>string issuer = 2 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getIssuer() {
@@ -1153,6 +1257,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+       * </pre>
+       *
        * <code>string issuer = 2 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
@@ -1169,6 +1277,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+       * </pre>
+       *
        * <code>string issuer = 2 [(.validator.field) = { ... }</code>
        */
       public Builder setIssuer(
@@ -1182,6 +1294,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+       * </pre>
+       *
        * <code>string issuer = 2 [(.validator.field) = { ... }</code>
        */
       public Builder clearIssuer() {
@@ -1191,6 +1307,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+       * </pre>
+       *
        * <code>string issuer = 2 [(.validator.field) = { ... }</code>
        */
       public Builder setIssuerBytes(
@@ -1213,6 +1333,10 @@ public final class Schema {
          }
       }
       /**
+       * <pre>
+       * issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+       * </pre>
+       *
        * <code>repeated string audience = 3;</code>
        */
       public com.google.protobuf.ProtocolStringList
@@ -1220,18 +1344,30 @@ public final class Schema {
         return audience_.getUnmodifiableView();
       }
       /**
+       * <pre>
+       * issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+       * </pre>
+       *
        * <code>repeated string audience = 3;</code>
        */
       public int getAudienceCount() {
         return audience_.size();
       }
       /**
+       * <pre>
+       * issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+       * </pre>
+       *
        * <code>repeated string audience = 3;</code>
        */
       public java.lang.String getAudience(int index) {
         return audience_.get(index);
       }
       /**
+       * <pre>
+       * issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+       * </pre>
+       *
        * <code>repeated string audience = 3;</code>
        */
       public com.google.protobuf.ByteString
@@ -1239,6 +1375,10 @@ public final class Schema {
         return audience_.getByteString(index);
       }
       /**
+       * <pre>
+       * issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+       * </pre>
+       *
        * <code>repeated string audience = 3;</code>
        */
       public Builder setAudience(
@@ -1252,6 +1392,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+       * </pre>
+       *
        * <code>repeated string audience = 3;</code>
        */
       public Builder addAudience(
@@ -1265,6 +1409,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+       * </pre>
+       *
        * <code>repeated string audience = 3;</code>
        */
       public Builder addAllAudience(
@@ -1276,6 +1424,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+       * </pre>
+       *
        * <code>repeated string audience = 3;</code>
        */
       public Builder clearAudience() {
@@ -1285,6 +1437,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
+       * </pre>
+       *
        * <code>repeated string audience = 3;</code>
        */
       public Builder addAudienceBytes(
@@ -1301,6 +1457,10 @@ public final class Schema {
 
       private java.lang.Object ouputPayloadHeader_ = "";
       /**
+       * <pre>
+       * serialize jwt payload &amp; write to this header
+       * </pre>
+       *
        * <code>string ouput_payload_header = 4 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getOuputPayloadHeader() {
@@ -1316,6 +1476,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * serialize jwt payload &amp; write to this header
+       * </pre>
+       *
        * <code>string ouput_payload_header = 4 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
@@ -1332,6 +1496,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * serialize jwt payload &amp; write to this header
+       * </pre>
+       *
        * <code>string ouput_payload_header = 4 [(.validator.field) = { ... }</code>
        */
       public Builder setOuputPayloadHeader(
@@ -1345,6 +1513,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * serialize jwt payload &amp; write to this header
+       * </pre>
+       *
        * <code>string ouput_payload_header = 4 [(.validator.field) = { ... }</code>
        */
       public Builder clearOuputPayloadHeader() {
@@ -1354,6 +1526,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * serialize jwt payload &amp; write to this header
+       * </pre>
+       *
        * <code>string ouput_payload_header = 4 [(.validator.field) = { ... }</code>
        */
       public Builder setOuputPayloadHeaderBytes(
@@ -1425,19 +1601,35 @@ public final class Schema {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * allow_namespaces restricts access to traffic coming from a particular namespace
+     * </pre>
+     *
      * <code>repeated string allow_namespaces = 1;</code>
      */
     java.util.List<java.lang.String>
         getAllowNamespacesList();
     /**
+     * <pre>
+     * allow_namespaces restricts access to traffic coming from a particular namespace
+     * </pre>
+     *
      * <code>repeated string allow_namespaces = 1;</code>
      */
     int getAllowNamespacesCount();
     /**
+     * <pre>
+     * allow_namespaces restricts access to traffic coming from a particular namespace
+     * </pre>
+     *
      * <code>repeated string allow_namespaces = 1;</code>
      */
     java.lang.String getAllowNamespaces(int index);
     /**
+     * <pre>
+     * allow_namespaces restricts access to traffic coming from a particular namespace
+     * </pre>
+     *
      * <code>repeated string allow_namespaces = 1;</code>
      */
     com.google.protobuf.ByteString
@@ -1534,6 +1726,10 @@ public final class Schema {
     public static final int ALLOW_NAMESPACES_FIELD_NUMBER = 1;
     private com.google.protobuf.LazyStringList allowNamespaces_;
     /**
+     * <pre>
+     * allow_namespaces restricts access to traffic coming from a particular namespace
+     * </pre>
+     *
      * <code>repeated string allow_namespaces = 1;</code>
      */
     public com.google.protobuf.ProtocolStringList
@@ -1541,18 +1737,30 @@ public final class Schema {
       return allowNamespaces_;
     }
     /**
+     * <pre>
+     * allow_namespaces restricts access to traffic coming from a particular namespace
+     * </pre>
+     *
      * <code>repeated string allow_namespaces = 1;</code>
      */
     public int getAllowNamespacesCount() {
       return allowNamespaces_.size();
     }
     /**
+     * <pre>
+     * allow_namespaces restricts access to traffic coming from a particular namespace
+     * </pre>
+     *
      * <code>repeated string allow_namespaces = 1;</code>
      */
     public java.lang.String getAllowNamespaces(int index) {
       return allowNamespaces_.get(index);
     }
     /**
+     * <pre>
+     * allow_namespaces restricts access to traffic coming from a particular namespace
+     * </pre>
+     *
      * <code>repeated string allow_namespaces = 1;</code>
      */
     public com.google.protobuf.ByteString
@@ -1894,6 +2102,10 @@ public final class Schema {
          }
       }
       /**
+       * <pre>
+       * allow_namespaces restricts access to traffic coming from a particular namespace
+       * </pre>
+       *
        * <code>repeated string allow_namespaces = 1;</code>
        */
       public com.google.protobuf.ProtocolStringList
@@ -1901,18 +2113,30 @@ public final class Schema {
         return allowNamespaces_.getUnmodifiableView();
       }
       /**
+       * <pre>
+       * allow_namespaces restricts access to traffic coming from a particular namespace
+       * </pre>
+       *
        * <code>repeated string allow_namespaces = 1;</code>
        */
       public int getAllowNamespacesCount() {
         return allowNamespaces_.size();
       }
       /**
+       * <pre>
+       * allow_namespaces restricts access to traffic coming from a particular namespace
+       * </pre>
+       *
        * <code>repeated string allow_namespaces = 1;</code>
        */
       public java.lang.String getAllowNamespaces(int index) {
         return allowNamespaces_.get(index);
       }
       /**
+       * <pre>
+       * allow_namespaces restricts access to traffic coming from a particular namespace
+       * </pre>
+       *
        * <code>repeated string allow_namespaces = 1;</code>
        */
       public com.google.protobuf.ByteString
@@ -1920,6 +2144,10 @@ public final class Schema {
         return allowNamespaces_.getByteString(index);
       }
       /**
+       * <pre>
+       * allow_namespaces restricts access to traffic coming from a particular namespace
+       * </pre>
+       *
        * <code>repeated string allow_namespaces = 1;</code>
        */
       public Builder setAllowNamespaces(
@@ -1933,6 +2161,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * allow_namespaces restricts access to traffic coming from a particular namespace
+       * </pre>
+       *
        * <code>repeated string allow_namespaces = 1;</code>
        */
       public Builder addAllowNamespaces(
@@ -1946,6 +2178,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * allow_namespaces restricts access to traffic coming from a particular namespace
+       * </pre>
+       *
        * <code>repeated string allow_namespaces = 1;</code>
        */
       public Builder addAllAllowNamespaces(
@@ -1957,6 +2193,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * allow_namespaces restricts access to traffic coming from a particular namespace
+       * </pre>
+       *
        * <code>repeated string allow_namespaces = 1;</code>
        */
       public Builder clearAllowNamespaces() {
@@ -1966,6 +2206,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * allow_namespaces restricts access to traffic coming from a particular namespace
+       * </pre>
+       *
        * <code>repeated string allow_namespaces = 1;</code>
        */
       public Builder addAllowNamespacesBytes(
@@ -2037,57 +2281,105 @@ public final class Schema {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
+     * </pre>
+     *
      * <code>repeated string allow_issuers = 6;</code>
      */
     java.util.List<java.lang.String>
         getAllowIssuersList();
     /**
+     * <pre>
+     * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
+     * </pre>
+     *
      * <code>repeated string allow_issuers = 6;</code>
      */
     int getAllowIssuersCount();
     /**
+     * <pre>
+     * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
+     * </pre>
+     *
      * <code>repeated string allow_issuers = 6;</code>
      */
     java.lang.String getAllowIssuers(int index);
     /**
+     * <pre>
+     * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
+     * </pre>
+     *
      * <code>repeated string allow_issuers = 6;</code>
      */
     com.google.protobuf.ByteString
         getAllowIssuersBytes(int index);
 
     /**
+     * <pre>
+     * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
+     * </pre>
+     *
      * <code>repeated string allow_roles = 7;</code>
      */
     java.util.List<java.lang.String>
         getAllowRolesList();
     /**
+     * <pre>
+     * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
+     * </pre>
+     *
      * <code>repeated string allow_roles = 7;</code>
      */
     int getAllowRolesCount();
     /**
+     * <pre>
+     * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
+     * </pre>
+     *
      * <code>repeated string allow_roles = 7;</code>
      */
     java.lang.String getAllowRoles(int index);
     /**
+     * <pre>
+     * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
+     * </pre>
+     *
      * <code>repeated string allow_roles = 7;</code>
      */
     com.google.protobuf.ByteString
         getAllowRolesBytes(int index);
 
     /**
+     * <pre>
+     * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
+     * </pre>
+     *
      * <code>repeated string allow_audience = 8;</code>
      */
     java.util.List<java.lang.String>
         getAllowAudienceList();
     /**
+     * <pre>
+     * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
+     * </pre>
+     *
      * <code>repeated string allow_audience = 8;</code>
      */
     int getAllowAudienceCount();
     /**
+     * <pre>
+     * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
+     * </pre>
+     *
      * <code>repeated string allow_audience = 8;</code>
      */
     java.lang.String getAllowAudience(int index);
     /**
+     * <pre>
+     * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
+     * </pre>
+     *
      * <code>repeated string allow_audience = 8;</code>
      */
     com.google.protobuf.ByteString
@@ -2210,6 +2502,10 @@ public final class Schema {
     public static final int ALLOW_ISSUERS_FIELD_NUMBER = 6;
     private com.google.protobuf.LazyStringList allowIssuers_;
     /**
+     * <pre>
+     * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
+     * </pre>
+     *
      * <code>repeated string allow_issuers = 6;</code>
      */
     public com.google.protobuf.ProtocolStringList
@@ -2217,18 +2513,30 @@ public final class Schema {
       return allowIssuers_;
     }
     /**
+     * <pre>
+     * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
+     * </pre>
+     *
      * <code>repeated string allow_issuers = 6;</code>
      */
     public int getAllowIssuersCount() {
       return allowIssuers_.size();
     }
     /**
+     * <pre>
+     * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
+     * </pre>
+     *
      * <code>repeated string allow_issuers = 6;</code>
      */
     public java.lang.String getAllowIssuers(int index) {
       return allowIssuers_.get(index);
     }
     /**
+     * <pre>
+     * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
+     * </pre>
+     *
      * <code>repeated string allow_issuers = 6;</code>
      */
     public com.google.protobuf.ByteString
@@ -2239,6 +2547,10 @@ public final class Schema {
     public static final int ALLOW_ROLES_FIELD_NUMBER = 7;
     private com.google.protobuf.LazyStringList allowRoles_;
     /**
+     * <pre>
+     * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
+     * </pre>
+     *
      * <code>repeated string allow_roles = 7;</code>
      */
     public com.google.protobuf.ProtocolStringList
@@ -2246,18 +2558,30 @@ public final class Schema {
       return allowRoles_;
     }
     /**
+     * <pre>
+     * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
+     * </pre>
+     *
      * <code>repeated string allow_roles = 7;</code>
      */
     public int getAllowRolesCount() {
       return allowRoles_.size();
     }
     /**
+     * <pre>
+     * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
+     * </pre>
+     *
      * <code>repeated string allow_roles = 7;</code>
      */
     public java.lang.String getAllowRoles(int index) {
       return allowRoles_.get(index);
     }
     /**
+     * <pre>
+     * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
+     * </pre>
+     *
      * <code>repeated string allow_roles = 7;</code>
      */
     public com.google.protobuf.ByteString
@@ -2268,6 +2592,10 @@ public final class Schema {
     public static final int ALLOW_AUDIENCE_FIELD_NUMBER = 8;
     private com.google.protobuf.LazyStringList allowAudience_;
     /**
+     * <pre>
+     * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
+     * </pre>
+     *
      * <code>repeated string allow_audience = 8;</code>
      */
     public com.google.protobuf.ProtocolStringList
@@ -2275,18 +2603,30 @@ public final class Schema {
       return allowAudience_;
     }
     /**
+     * <pre>
+     * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
+     * </pre>
+     *
      * <code>repeated string allow_audience = 8;</code>
      */
     public int getAllowAudienceCount() {
       return allowAudience_.size();
     }
     /**
+     * <pre>
+     * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
+     * </pre>
+     *
      * <code>repeated string allow_audience = 8;</code>
      */
     public java.lang.String getAllowAudience(int index) {
       return allowAudience_.get(index);
     }
     /**
+     * <pre>
+     * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
+     * </pre>
+     *
      * <code>repeated string allow_audience = 8;</code>
      */
     public com.google.protobuf.ByteString
@@ -2696,6 +3036,10 @@ public final class Schema {
          }
       }
       /**
+       * <pre>
+       * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
+       * </pre>
+       *
        * <code>repeated string allow_issuers = 6;</code>
        */
       public com.google.protobuf.ProtocolStringList
@@ -2703,18 +3047,30 @@ public final class Schema {
         return allowIssuers_.getUnmodifiableView();
       }
       /**
+       * <pre>
+       * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
+       * </pre>
+       *
        * <code>repeated string allow_issuers = 6;</code>
        */
       public int getAllowIssuersCount() {
         return allowIssuers_.size();
       }
       /**
+       * <pre>
+       * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
+       * </pre>
+       *
        * <code>repeated string allow_issuers = 6;</code>
        */
       public java.lang.String getAllowIssuers(int index) {
         return allowIssuers_.get(index);
       }
       /**
+       * <pre>
+       * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
+       * </pre>
+       *
        * <code>repeated string allow_issuers = 6;</code>
        */
       public com.google.protobuf.ByteString
@@ -2722,6 +3078,10 @@ public final class Schema {
         return allowIssuers_.getByteString(index);
       }
       /**
+       * <pre>
+       * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
+       * </pre>
+       *
        * <code>repeated string allow_issuers = 6;</code>
        */
       public Builder setAllowIssuers(
@@ -2735,6 +3095,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
+       * </pre>
+       *
        * <code>repeated string allow_issuers = 6;</code>
        */
       public Builder addAllowIssuers(
@@ -2748,6 +3112,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
+       * </pre>
+       *
        * <code>repeated string allow_issuers = 6;</code>
        */
       public Builder addAllAllowIssuers(
@@ -2759,6 +3127,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
+       * </pre>
+       *
        * <code>repeated string allow_issuers = 6;</code>
        */
       public Builder clearAllowIssuers() {
@@ -2768,6 +3140,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
+       * </pre>
+       *
        * <code>repeated string allow_issuers = 6;</code>
        */
       public Builder addAllowIssuersBytes(
@@ -2790,6 +3166,10 @@ public final class Schema {
          }
       }
       /**
+       * <pre>
+       * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
+       * </pre>
+       *
        * <code>repeated string allow_roles = 7;</code>
        */
       public com.google.protobuf.ProtocolStringList
@@ -2797,18 +3177,30 @@ public final class Schema {
         return allowRoles_.getUnmodifiableView();
       }
       /**
+       * <pre>
+       * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
+       * </pre>
+       *
        * <code>repeated string allow_roles = 7;</code>
        */
       public int getAllowRolesCount() {
         return allowRoles_.size();
       }
       /**
+       * <pre>
+       * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
+       * </pre>
+       *
        * <code>repeated string allow_roles = 7;</code>
        */
       public java.lang.String getAllowRoles(int index) {
         return allowRoles_.get(index);
       }
       /**
+       * <pre>
+       * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
+       * </pre>
+       *
        * <code>repeated string allow_roles = 7;</code>
        */
       public com.google.protobuf.ByteString
@@ -2816,6 +3208,10 @@ public final class Schema {
         return allowRoles_.getByteString(index);
       }
       /**
+       * <pre>
+       * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
+       * </pre>
+       *
        * <code>repeated string allow_roles = 7;</code>
        */
       public Builder setAllowRoles(
@@ -2829,6 +3225,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
+       * </pre>
+       *
        * <code>repeated string allow_roles = 7;</code>
        */
       public Builder addAllowRoles(
@@ -2842,6 +3242,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
+       * </pre>
+       *
        * <code>repeated string allow_roles = 7;</code>
        */
       public Builder addAllAllowRoles(
@@ -2853,6 +3257,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
+       * </pre>
+       *
        * <code>repeated string allow_roles = 7;</code>
        */
       public Builder clearAllowRoles() {
@@ -2862,6 +3270,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
+       * </pre>
+       *
        * <code>repeated string allow_roles = 7;</code>
        */
       public Builder addAllowRolesBytes(
@@ -2884,6 +3296,10 @@ public final class Schema {
          }
       }
       /**
+       * <pre>
+       * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
+       * </pre>
+       *
        * <code>repeated string allow_audience = 8;</code>
        */
       public com.google.protobuf.ProtocolStringList
@@ -2891,18 +3307,30 @@ public final class Schema {
         return allowAudience_.getUnmodifiableView();
       }
       /**
+       * <pre>
+       * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
+       * </pre>
+       *
        * <code>repeated string allow_audience = 8;</code>
        */
       public int getAllowAudienceCount() {
         return allowAudience_.size();
       }
       /**
+       * <pre>
+       * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
+       * </pre>
+       *
        * <code>repeated string allow_audience = 8;</code>
        */
       public java.lang.String getAllowAudience(int index) {
         return allowAudience_.get(index);
       }
       /**
+       * <pre>
+       * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
+       * </pre>
+       *
        * <code>repeated string allow_audience = 8;</code>
        */
       public com.google.protobuf.ByteString
@@ -2910,6 +3338,10 @@ public final class Schema {
         return allowAudience_.getByteString(index);
       }
       /**
+       * <pre>
+       * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
+       * </pre>
+       *
        * <code>repeated string allow_audience = 8;</code>
        */
       public Builder setAllowAudience(
@@ -2923,6 +3355,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
+       * </pre>
+       *
        * <code>repeated string allow_audience = 8;</code>
        */
       public Builder addAllowAudience(
@@ -2936,6 +3372,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
+       * </pre>
+       *
        * <code>repeated string allow_audience = 8;</code>
        */
       public Builder addAllAllowAudience(
@@ -2947,6 +3387,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
+       * </pre>
+       *
        * <code>repeated string allow_audience = 8;</code>
        */
       public Builder clearAllowAudience() {
@@ -2956,6 +3400,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
+       * </pre>
+       *
        * <code>repeated string allow_audience = 8;</code>
        */
       public Builder addAllowAudienceBytes(
@@ -3027,76 +3475,140 @@ public final class Schema {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * restricts access to one of many paths
+     * </pre>
+     *
      * <code>repeated string allow_paths = 2;</code>
      */
     java.util.List<java.lang.String>
         getAllowPathsList();
     /**
+     * <pre>
+     * restricts access to one of many paths
+     * </pre>
+     *
      * <code>repeated string allow_paths = 2;</code>
      */
     int getAllowPathsCount();
     /**
+     * <pre>
+     * restricts access to one of many paths
+     * </pre>
+     *
      * <code>repeated string allow_paths = 2;</code>
      */
     java.lang.String getAllowPaths(int index);
     /**
+     * <pre>
+     * restricts access to one of many paths
+     * </pre>
+     *
      * <code>repeated string allow_paths = 2;</code>
      */
     com.google.protobuf.ByteString
         getAllowPathsBytes(int index);
 
     /**
+     * <pre>
+     * restricts access to one of many hosts
+     * </pre>
+     *
      * <code>repeated string allow_hosts = 3;</code>
      */
     java.util.List<java.lang.String>
         getAllowHostsList();
     /**
+     * <pre>
+     * restricts access to one of many hosts
+     * </pre>
+     *
      * <code>repeated string allow_hosts = 3;</code>
      */
     int getAllowHostsCount();
     /**
+     * <pre>
+     * restricts access to one of many hosts
+     * </pre>
+     *
      * <code>repeated string allow_hosts = 3;</code>
      */
     java.lang.String getAllowHosts(int index);
     /**
+     * <pre>
+     * restricts access to one of many hosts
+     * </pre>
+     *
      * <code>repeated string allow_hosts = 3;</code>
      */
     com.google.protobuf.ByteString
         getAllowHostsBytes(int index);
 
     /**
+     * <pre>
+     * restricts access to one of many methods
+     * </pre>
+     *
      * <code>repeated string allow_methods = 4;</code>
      */
     java.util.List<java.lang.String>
         getAllowMethodsList();
     /**
+     * <pre>
+     * restricts access to one of many methods
+     * </pre>
+     *
      * <code>repeated string allow_methods = 4;</code>
      */
     int getAllowMethodsCount();
     /**
+     * <pre>
+     * restricts access to one of many methods
+     * </pre>
+     *
      * <code>repeated string allow_methods = 4;</code>
      */
     java.lang.String getAllowMethods(int index);
     /**
+     * <pre>
+     * restricts access to one of many methods
+     * </pre>
+     *
      * <code>repeated string allow_methods = 4;</code>
      */
     com.google.protobuf.ByteString
         getAllowMethodsBytes(int index);
 
     /**
+     * <pre>
+     * restricts access to one of many ports
+     * </pre>
+     *
      * <code>repeated string allow_ports = 5;</code>
      */
     java.util.List<java.lang.String>
         getAllowPortsList();
     /**
+     * <pre>
+     * restricts access to one of many ports
+     * </pre>
+     *
      * <code>repeated string allow_ports = 5;</code>
      */
     int getAllowPortsCount();
     /**
+     * <pre>
+     * restricts access to one of many ports
+     * </pre>
+     *
      * <code>repeated string allow_ports = 5;</code>
      */
     java.lang.String getAllowPorts(int index);
     /**
+     * <pre>
+     * restricts access to one of many ports
+     * </pre>
+     *
      * <code>repeated string allow_ports = 5;</code>
      */
     com.google.protobuf.ByteString
@@ -3232,6 +3744,10 @@ public final class Schema {
     public static final int ALLOW_PATHS_FIELD_NUMBER = 2;
     private com.google.protobuf.LazyStringList allowPaths_;
     /**
+     * <pre>
+     * restricts access to one of many paths
+     * </pre>
+     *
      * <code>repeated string allow_paths = 2;</code>
      */
     public com.google.protobuf.ProtocolStringList
@@ -3239,18 +3755,30 @@ public final class Schema {
       return allowPaths_;
     }
     /**
+     * <pre>
+     * restricts access to one of many paths
+     * </pre>
+     *
      * <code>repeated string allow_paths = 2;</code>
      */
     public int getAllowPathsCount() {
       return allowPaths_.size();
     }
     /**
+     * <pre>
+     * restricts access to one of many paths
+     * </pre>
+     *
      * <code>repeated string allow_paths = 2;</code>
      */
     public java.lang.String getAllowPaths(int index) {
       return allowPaths_.get(index);
     }
     /**
+     * <pre>
+     * restricts access to one of many paths
+     * </pre>
+     *
      * <code>repeated string allow_paths = 2;</code>
      */
     public com.google.protobuf.ByteString
@@ -3261,6 +3789,10 @@ public final class Schema {
     public static final int ALLOW_HOSTS_FIELD_NUMBER = 3;
     private com.google.protobuf.LazyStringList allowHosts_;
     /**
+     * <pre>
+     * restricts access to one of many hosts
+     * </pre>
+     *
      * <code>repeated string allow_hosts = 3;</code>
      */
     public com.google.protobuf.ProtocolStringList
@@ -3268,18 +3800,30 @@ public final class Schema {
       return allowHosts_;
     }
     /**
+     * <pre>
+     * restricts access to one of many hosts
+     * </pre>
+     *
      * <code>repeated string allow_hosts = 3;</code>
      */
     public int getAllowHostsCount() {
       return allowHosts_.size();
     }
     /**
+     * <pre>
+     * restricts access to one of many hosts
+     * </pre>
+     *
      * <code>repeated string allow_hosts = 3;</code>
      */
     public java.lang.String getAllowHosts(int index) {
       return allowHosts_.get(index);
     }
     /**
+     * <pre>
+     * restricts access to one of many hosts
+     * </pre>
+     *
      * <code>repeated string allow_hosts = 3;</code>
      */
     public com.google.protobuf.ByteString
@@ -3290,6 +3834,10 @@ public final class Schema {
     public static final int ALLOW_METHODS_FIELD_NUMBER = 4;
     private com.google.protobuf.LazyStringList allowMethods_;
     /**
+     * <pre>
+     * restricts access to one of many methods
+     * </pre>
+     *
      * <code>repeated string allow_methods = 4;</code>
      */
     public com.google.protobuf.ProtocolStringList
@@ -3297,18 +3845,30 @@ public final class Schema {
       return allowMethods_;
     }
     /**
+     * <pre>
+     * restricts access to one of many methods
+     * </pre>
+     *
      * <code>repeated string allow_methods = 4;</code>
      */
     public int getAllowMethodsCount() {
       return allowMethods_.size();
     }
     /**
+     * <pre>
+     * restricts access to one of many methods
+     * </pre>
+     *
      * <code>repeated string allow_methods = 4;</code>
      */
     public java.lang.String getAllowMethods(int index) {
       return allowMethods_.get(index);
     }
     /**
+     * <pre>
+     * restricts access to one of many methods
+     * </pre>
+     *
      * <code>repeated string allow_methods = 4;</code>
      */
     public com.google.protobuf.ByteString
@@ -3319,6 +3879,10 @@ public final class Schema {
     public static final int ALLOW_PORTS_FIELD_NUMBER = 5;
     private com.google.protobuf.LazyStringList allowPorts_;
     /**
+     * <pre>
+     * restricts access to one of many ports
+     * </pre>
+     *
      * <code>repeated string allow_ports = 5;</code>
      */
     public com.google.protobuf.ProtocolStringList
@@ -3326,18 +3890,30 @@ public final class Schema {
       return allowPorts_;
     }
     /**
+     * <pre>
+     * restricts access to one of many ports
+     * </pre>
+     *
      * <code>repeated string allow_ports = 5;</code>
      */
     public int getAllowPortsCount() {
       return allowPorts_.size();
     }
     /**
+     * <pre>
+     * restricts access to one of many ports
+     * </pre>
+     *
      * <code>repeated string allow_ports = 5;</code>
      */
     public java.lang.String getAllowPorts(int index) {
       return allowPorts_.get(index);
     }
     /**
+     * <pre>
+     * restricts access to one of many ports
+     * </pre>
+     *
      * <code>repeated string allow_ports = 5;</code>
      */
     public com.google.protobuf.ByteString
@@ -3781,6 +4357,10 @@ public final class Schema {
          }
       }
       /**
+       * <pre>
+       * restricts access to one of many paths
+       * </pre>
+       *
        * <code>repeated string allow_paths = 2;</code>
        */
       public com.google.protobuf.ProtocolStringList
@@ -3788,18 +4368,30 @@ public final class Schema {
         return allowPaths_.getUnmodifiableView();
       }
       /**
+       * <pre>
+       * restricts access to one of many paths
+       * </pre>
+       *
        * <code>repeated string allow_paths = 2;</code>
        */
       public int getAllowPathsCount() {
         return allowPaths_.size();
       }
       /**
+       * <pre>
+       * restricts access to one of many paths
+       * </pre>
+       *
        * <code>repeated string allow_paths = 2;</code>
        */
       public java.lang.String getAllowPaths(int index) {
         return allowPaths_.get(index);
       }
       /**
+       * <pre>
+       * restricts access to one of many paths
+       * </pre>
+       *
        * <code>repeated string allow_paths = 2;</code>
        */
       public com.google.protobuf.ByteString
@@ -3807,6 +4399,10 @@ public final class Schema {
         return allowPaths_.getByteString(index);
       }
       /**
+       * <pre>
+       * restricts access to one of many paths
+       * </pre>
+       *
        * <code>repeated string allow_paths = 2;</code>
        */
       public Builder setAllowPaths(
@@ -3820,6 +4416,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * restricts access to one of many paths
+       * </pre>
+       *
        * <code>repeated string allow_paths = 2;</code>
        */
       public Builder addAllowPaths(
@@ -3833,6 +4433,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * restricts access to one of many paths
+       * </pre>
+       *
        * <code>repeated string allow_paths = 2;</code>
        */
       public Builder addAllAllowPaths(
@@ -3844,6 +4448,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * restricts access to one of many paths
+       * </pre>
+       *
        * <code>repeated string allow_paths = 2;</code>
        */
       public Builder clearAllowPaths() {
@@ -3853,6 +4461,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * restricts access to one of many paths
+       * </pre>
+       *
        * <code>repeated string allow_paths = 2;</code>
        */
       public Builder addAllowPathsBytes(
@@ -3875,6 +4487,10 @@ public final class Schema {
          }
       }
       /**
+       * <pre>
+       * restricts access to one of many hosts
+       * </pre>
+       *
        * <code>repeated string allow_hosts = 3;</code>
        */
       public com.google.protobuf.ProtocolStringList
@@ -3882,18 +4498,30 @@ public final class Schema {
         return allowHosts_.getUnmodifiableView();
       }
       /**
+       * <pre>
+       * restricts access to one of many hosts
+       * </pre>
+       *
        * <code>repeated string allow_hosts = 3;</code>
        */
       public int getAllowHostsCount() {
         return allowHosts_.size();
       }
       /**
+       * <pre>
+       * restricts access to one of many hosts
+       * </pre>
+       *
        * <code>repeated string allow_hosts = 3;</code>
        */
       public java.lang.String getAllowHosts(int index) {
         return allowHosts_.get(index);
       }
       /**
+       * <pre>
+       * restricts access to one of many hosts
+       * </pre>
+       *
        * <code>repeated string allow_hosts = 3;</code>
        */
       public com.google.protobuf.ByteString
@@ -3901,6 +4529,10 @@ public final class Schema {
         return allowHosts_.getByteString(index);
       }
       /**
+       * <pre>
+       * restricts access to one of many hosts
+       * </pre>
+       *
        * <code>repeated string allow_hosts = 3;</code>
        */
       public Builder setAllowHosts(
@@ -3914,6 +4546,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * restricts access to one of many hosts
+       * </pre>
+       *
        * <code>repeated string allow_hosts = 3;</code>
        */
       public Builder addAllowHosts(
@@ -3927,6 +4563,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * restricts access to one of many hosts
+       * </pre>
+       *
        * <code>repeated string allow_hosts = 3;</code>
        */
       public Builder addAllAllowHosts(
@@ -3938,6 +4578,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * restricts access to one of many hosts
+       * </pre>
+       *
        * <code>repeated string allow_hosts = 3;</code>
        */
       public Builder clearAllowHosts() {
@@ -3947,6 +4591,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * restricts access to one of many hosts
+       * </pre>
+       *
        * <code>repeated string allow_hosts = 3;</code>
        */
       public Builder addAllowHostsBytes(
@@ -3969,6 +4617,10 @@ public final class Schema {
          }
       }
       /**
+       * <pre>
+       * restricts access to one of many methods
+       * </pre>
+       *
        * <code>repeated string allow_methods = 4;</code>
        */
       public com.google.protobuf.ProtocolStringList
@@ -3976,18 +4628,30 @@ public final class Schema {
         return allowMethods_.getUnmodifiableView();
       }
       /**
+       * <pre>
+       * restricts access to one of many methods
+       * </pre>
+       *
        * <code>repeated string allow_methods = 4;</code>
        */
       public int getAllowMethodsCount() {
         return allowMethods_.size();
       }
       /**
+       * <pre>
+       * restricts access to one of many methods
+       * </pre>
+       *
        * <code>repeated string allow_methods = 4;</code>
        */
       public java.lang.String getAllowMethods(int index) {
         return allowMethods_.get(index);
       }
       /**
+       * <pre>
+       * restricts access to one of many methods
+       * </pre>
+       *
        * <code>repeated string allow_methods = 4;</code>
        */
       public com.google.protobuf.ByteString
@@ -3995,6 +4659,10 @@ public final class Schema {
         return allowMethods_.getByteString(index);
       }
       /**
+       * <pre>
+       * restricts access to one of many methods
+       * </pre>
+       *
        * <code>repeated string allow_methods = 4;</code>
        */
       public Builder setAllowMethods(
@@ -4008,6 +4676,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * restricts access to one of many methods
+       * </pre>
+       *
        * <code>repeated string allow_methods = 4;</code>
        */
       public Builder addAllowMethods(
@@ -4021,6 +4693,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * restricts access to one of many methods
+       * </pre>
+       *
        * <code>repeated string allow_methods = 4;</code>
        */
       public Builder addAllAllowMethods(
@@ -4032,6 +4708,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * restricts access to one of many methods
+       * </pre>
+       *
        * <code>repeated string allow_methods = 4;</code>
        */
       public Builder clearAllowMethods() {
@@ -4041,6 +4721,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * restricts access to one of many methods
+       * </pre>
+       *
        * <code>repeated string allow_methods = 4;</code>
        */
       public Builder addAllowMethodsBytes(
@@ -4063,6 +4747,10 @@ public final class Schema {
          }
       }
       /**
+       * <pre>
+       * restricts access to one of many ports
+       * </pre>
+       *
        * <code>repeated string allow_ports = 5;</code>
        */
       public com.google.protobuf.ProtocolStringList
@@ -4070,18 +4758,30 @@ public final class Schema {
         return allowPorts_.getUnmodifiableView();
       }
       /**
+       * <pre>
+       * restricts access to one of many ports
+       * </pre>
+       *
        * <code>repeated string allow_ports = 5;</code>
        */
       public int getAllowPortsCount() {
         return allowPorts_.size();
       }
       /**
+       * <pre>
+       * restricts access to one of many ports
+       * </pre>
+       *
        * <code>repeated string allow_ports = 5;</code>
        */
       public java.lang.String getAllowPorts(int index) {
         return allowPorts_.get(index);
       }
       /**
+       * <pre>
+       * restricts access to one of many ports
+       * </pre>
+       *
        * <code>repeated string allow_ports = 5;</code>
        */
       public com.google.protobuf.ByteString
@@ -4089,6 +4789,10 @@ public final class Schema {
         return allowPorts_.getByteString(index);
       }
       /**
+       * <pre>
+       * restricts access to one of many ports
+       * </pre>
+       *
        * <code>repeated string allow_ports = 5;</code>
        */
       public Builder setAllowPorts(
@@ -4102,6 +4806,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * restricts access to one of many ports
+       * </pre>
+       *
        * <code>repeated string allow_ports = 5;</code>
        */
       public Builder addAllowPorts(
@@ -4115,6 +4823,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * restricts access to one of many ports
+       * </pre>
+       *
        * <code>repeated string allow_ports = 5;</code>
        */
       public Builder addAllAllowPorts(
@@ -4126,6 +4838,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * restricts access to one of many ports
+       * </pre>
+       *
        * <code>repeated string allow_ports = 5;</code>
        */
       public Builder clearAllowPorts() {
@@ -4135,6 +4851,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * restricts access to one of many ports
+       * </pre>
+       *
        * <code>repeated string allow_ports = 5;</code>
        */
       public Builder addAllowPortsBytes(
@@ -4206,40 +4926,76 @@ public final class Schema {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * source restricts access based on the source of a request in the service mesh
+     * </pre>
+     *
      * <code>.meshpaas.AuthzSource source = 1;</code>
      */
     boolean hasSource();
     /**
+     * <pre>
+     * source restricts access based on the source of a request in the service mesh
+     * </pre>
+     *
      * <code>.meshpaas.AuthzSource source = 1;</code>
      */
     meshpaas.Schema.AuthzSource getSource();
     /**
+     * <pre>
+     * source restricts access based on the source of a request in the service mesh
+     * </pre>
+     *
      * <code>.meshpaas.AuthzSource source = 1;</code>
      */
     meshpaas.Schema.AuthzSourceOrBuilder getSourceOrBuilder();
 
     /**
+     * <pre>
+     * source restricts access based on the destination of a request in the service mesh
+     * </pre>
+     *
      * <code>.meshpaas.AuthzDestination destination = 2;</code>
      */
     boolean hasDestination();
     /**
+     * <pre>
+     * source restricts access based on the destination of a request in the service mesh
+     * </pre>
+     *
      * <code>.meshpaas.AuthzDestination destination = 2;</code>
      */
     meshpaas.Schema.AuthzDestination getDestination();
     /**
+     * <pre>
+     * source restricts access based on the destination of a request in the service mesh
+     * </pre>
+     *
      * <code>.meshpaas.AuthzDestination destination = 2;</code>
      */
     meshpaas.Schema.AuthzDestinationOrBuilder getDestinationOrBuilder();
 
     /**
+     * <pre>
+     * source restricts access based on the subject of a request in the service mesh
+     * </pre>
+     *
      * <code>.meshpaas.AuthzSubject subject = 3;</code>
      */
     boolean hasSubject();
     /**
+     * <pre>
+     * source restricts access based on the subject of a request in the service mesh
+     * </pre>
+     *
      * <code>.meshpaas.AuthzSubject subject = 3;</code>
      */
     meshpaas.Schema.AuthzSubject getSubject();
     /**
+     * <pre>
+     * source restricts access based on the subject of a request in the service mesh
+     * </pre>
+     *
      * <code>.meshpaas.AuthzSubject subject = 3;</code>
      */
     meshpaas.Schema.AuthzSubjectOrBuilder getSubjectOrBuilder();
@@ -4361,18 +5117,30 @@ public final class Schema {
     public static final int SOURCE_FIELD_NUMBER = 1;
     private meshpaas.Schema.AuthzSource source_;
     /**
+     * <pre>
+     * source restricts access based on the source of a request in the service mesh
+     * </pre>
+     *
      * <code>.meshpaas.AuthzSource source = 1;</code>
      */
     public boolean hasSource() {
       return source_ != null;
     }
     /**
+     * <pre>
+     * source restricts access based on the source of a request in the service mesh
+     * </pre>
+     *
      * <code>.meshpaas.AuthzSource source = 1;</code>
      */
     public meshpaas.Schema.AuthzSource getSource() {
       return source_ == null ? meshpaas.Schema.AuthzSource.getDefaultInstance() : source_;
     }
     /**
+     * <pre>
+     * source restricts access based on the source of a request in the service mesh
+     * </pre>
+     *
      * <code>.meshpaas.AuthzSource source = 1;</code>
      */
     public meshpaas.Schema.AuthzSourceOrBuilder getSourceOrBuilder() {
@@ -4382,18 +5150,30 @@ public final class Schema {
     public static final int DESTINATION_FIELD_NUMBER = 2;
     private meshpaas.Schema.AuthzDestination destination_;
     /**
+     * <pre>
+     * source restricts access based on the destination of a request in the service mesh
+     * </pre>
+     *
      * <code>.meshpaas.AuthzDestination destination = 2;</code>
      */
     public boolean hasDestination() {
       return destination_ != null;
     }
     /**
+     * <pre>
+     * source restricts access based on the destination of a request in the service mesh
+     * </pre>
+     *
      * <code>.meshpaas.AuthzDestination destination = 2;</code>
      */
     public meshpaas.Schema.AuthzDestination getDestination() {
       return destination_ == null ? meshpaas.Schema.AuthzDestination.getDefaultInstance() : destination_;
     }
     /**
+     * <pre>
+     * source restricts access based on the destination of a request in the service mesh
+     * </pre>
+     *
      * <code>.meshpaas.AuthzDestination destination = 2;</code>
      */
     public meshpaas.Schema.AuthzDestinationOrBuilder getDestinationOrBuilder() {
@@ -4403,18 +5183,30 @@ public final class Schema {
     public static final int SUBJECT_FIELD_NUMBER = 3;
     private meshpaas.Schema.AuthzSubject subject_;
     /**
+     * <pre>
+     * source restricts access based on the subject of a request in the service mesh
+     * </pre>
+     *
      * <code>.meshpaas.AuthzSubject subject = 3;</code>
      */
     public boolean hasSubject() {
       return subject_ != null;
     }
     /**
+     * <pre>
+     * source restricts access based on the subject of a request in the service mesh
+     * </pre>
+     *
      * <code>.meshpaas.AuthzSubject subject = 3;</code>
      */
     public meshpaas.Schema.AuthzSubject getSubject() {
       return subject_ == null ? meshpaas.Schema.AuthzSubject.getDefaultInstance() : subject_;
     }
     /**
+     * <pre>
+     * source restricts access based on the subject of a request in the service mesh
+     * </pre>
+     *
      * <code>.meshpaas.AuthzSubject subject = 3;</code>
      */
     public meshpaas.Schema.AuthzSubjectOrBuilder getSubjectOrBuilder() {
@@ -4805,12 +5597,20 @@ public final class Schema {
       private com.google.protobuf.SingleFieldBuilderV3<
           meshpaas.Schema.AuthzSource, meshpaas.Schema.AuthzSource.Builder, meshpaas.Schema.AuthzSourceOrBuilder> sourceBuilder_;
       /**
+       * <pre>
+       * source restricts access based on the source of a request in the service mesh
+       * </pre>
+       *
        * <code>.meshpaas.AuthzSource source = 1;</code>
        */
       public boolean hasSource() {
         return sourceBuilder_ != null || source_ != null;
       }
       /**
+       * <pre>
+       * source restricts access based on the source of a request in the service mesh
+       * </pre>
+       *
        * <code>.meshpaas.AuthzSource source = 1;</code>
        */
       public meshpaas.Schema.AuthzSource getSource() {
@@ -4821,6 +5621,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * source restricts access based on the source of a request in the service mesh
+       * </pre>
+       *
        * <code>.meshpaas.AuthzSource source = 1;</code>
        */
       public Builder setSource(meshpaas.Schema.AuthzSource value) {
@@ -4837,6 +5641,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * source restricts access based on the source of a request in the service mesh
+       * </pre>
+       *
        * <code>.meshpaas.AuthzSource source = 1;</code>
        */
       public Builder setSource(
@@ -4851,6 +5659,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * source restricts access based on the source of a request in the service mesh
+       * </pre>
+       *
        * <code>.meshpaas.AuthzSource source = 1;</code>
        */
       public Builder mergeSource(meshpaas.Schema.AuthzSource value) {
@@ -4869,6 +5681,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * source restricts access based on the source of a request in the service mesh
+       * </pre>
+       *
        * <code>.meshpaas.AuthzSource source = 1;</code>
        */
       public Builder clearSource() {
@@ -4883,6 +5699,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * source restricts access based on the source of a request in the service mesh
+       * </pre>
+       *
        * <code>.meshpaas.AuthzSource source = 1;</code>
        */
       public meshpaas.Schema.AuthzSource.Builder getSourceBuilder() {
@@ -4891,6 +5711,10 @@ public final class Schema {
         return getSourceFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * source restricts access based on the source of a request in the service mesh
+       * </pre>
+       *
        * <code>.meshpaas.AuthzSource source = 1;</code>
        */
       public meshpaas.Schema.AuthzSourceOrBuilder getSourceOrBuilder() {
@@ -4902,6 +5726,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * source restricts access based on the source of a request in the service mesh
+       * </pre>
+       *
        * <code>.meshpaas.AuthzSource source = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -4922,12 +5750,20 @@ public final class Schema {
       private com.google.protobuf.SingleFieldBuilderV3<
           meshpaas.Schema.AuthzDestination, meshpaas.Schema.AuthzDestination.Builder, meshpaas.Schema.AuthzDestinationOrBuilder> destinationBuilder_;
       /**
+       * <pre>
+       * source restricts access based on the destination of a request in the service mesh
+       * </pre>
+       *
        * <code>.meshpaas.AuthzDestination destination = 2;</code>
        */
       public boolean hasDestination() {
         return destinationBuilder_ != null || destination_ != null;
       }
       /**
+       * <pre>
+       * source restricts access based on the destination of a request in the service mesh
+       * </pre>
+       *
        * <code>.meshpaas.AuthzDestination destination = 2;</code>
        */
       public meshpaas.Schema.AuthzDestination getDestination() {
@@ -4938,6 +5774,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * source restricts access based on the destination of a request in the service mesh
+       * </pre>
+       *
        * <code>.meshpaas.AuthzDestination destination = 2;</code>
        */
       public Builder setDestination(meshpaas.Schema.AuthzDestination value) {
@@ -4954,6 +5794,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * source restricts access based on the destination of a request in the service mesh
+       * </pre>
+       *
        * <code>.meshpaas.AuthzDestination destination = 2;</code>
        */
       public Builder setDestination(
@@ -4968,6 +5812,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * source restricts access based on the destination of a request in the service mesh
+       * </pre>
+       *
        * <code>.meshpaas.AuthzDestination destination = 2;</code>
        */
       public Builder mergeDestination(meshpaas.Schema.AuthzDestination value) {
@@ -4986,6 +5834,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * source restricts access based on the destination of a request in the service mesh
+       * </pre>
+       *
        * <code>.meshpaas.AuthzDestination destination = 2;</code>
        */
       public Builder clearDestination() {
@@ -5000,6 +5852,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * source restricts access based on the destination of a request in the service mesh
+       * </pre>
+       *
        * <code>.meshpaas.AuthzDestination destination = 2;</code>
        */
       public meshpaas.Schema.AuthzDestination.Builder getDestinationBuilder() {
@@ -5008,6 +5864,10 @@ public final class Schema {
         return getDestinationFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * source restricts access based on the destination of a request in the service mesh
+       * </pre>
+       *
        * <code>.meshpaas.AuthzDestination destination = 2;</code>
        */
       public meshpaas.Schema.AuthzDestinationOrBuilder getDestinationOrBuilder() {
@@ -5019,6 +5879,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * source restricts access based on the destination of a request in the service mesh
+       * </pre>
+       *
        * <code>.meshpaas.AuthzDestination destination = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -5039,12 +5903,20 @@ public final class Schema {
       private com.google.protobuf.SingleFieldBuilderV3<
           meshpaas.Schema.AuthzSubject, meshpaas.Schema.AuthzSubject.Builder, meshpaas.Schema.AuthzSubjectOrBuilder> subjectBuilder_;
       /**
+       * <pre>
+       * source restricts access based on the subject of a request in the service mesh
+       * </pre>
+       *
        * <code>.meshpaas.AuthzSubject subject = 3;</code>
        */
       public boolean hasSubject() {
         return subjectBuilder_ != null || subject_ != null;
       }
       /**
+       * <pre>
+       * source restricts access based on the subject of a request in the service mesh
+       * </pre>
+       *
        * <code>.meshpaas.AuthzSubject subject = 3;</code>
        */
       public meshpaas.Schema.AuthzSubject getSubject() {
@@ -5055,6 +5927,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * source restricts access based on the subject of a request in the service mesh
+       * </pre>
+       *
        * <code>.meshpaas.AuthzSubject subject = 3;</code>
        */
       public Builder setSubject(meshpaas.Schema.AuthzSubject value) {
@@ -5071,6 +5947,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * source restricts access based on the subject of a request in the service mesh
+       * </pre>
+       *
        * <code>.meshpaas.AuthzSubject subject = 3;</code>
        */
       public Builder setSubject(
@@ -5085,6 +5965,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * source restricts access based on the subject of a request in the service mesh
+       * </pre>
+       *
        * <code>.meshpaas.AuthzSubject subject = 3;</code>
        */
       public Builder mergeSubject(meshpaas.Schema.AuthzSubject value) {
@@ -5103,6 +5987,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * source restricts access based on the subject of a request in the service mesh
+       * </pre>
+       *
        * <code>.meshpaas.AuthzSubject subject = 3;</code>
        */
       public Builder clearSubject() {
@@ -5117,6 +6005,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * source restricts access based on the subject of a request in the service mesh
+       * </pre>
+       *
        * <code>.meshpaas.AuthzSubject subject = 3;</code>
        */
       public meshpaas.Schema.AuthzSubject.Builder getSubjectBuilder() {
@@ -5125,6 +6017,10 @@ public final class Schema {
         return getSubjectFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * source restricts access based on the subject of a request in the service mesh
+       * </pre>
+       *
        * <code>.meshpaas.AuthzSubject subject = 3;</code>
        */
       public meshpaas.Schema.AuthzSubjectOrBuilder getSubjectOrBuilder() {
@@ -5136,6 +6032,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * source restricts access based on the subject of a request in the service mesh
+       * </pre>
+       *
        * <code>.meshpaas.AuthzSubject subject = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -6834,15 +7734,27 @@ public final class Schema {
     meshpaas.Schema.SecretType getType();
 
     /**
+     * <pre>
+     * prevent changes to the secret after it is created
+     * </pre>
+     *
      * <code>bool immutable = 4;</code>
      */
     boolean getImmutable();
 
     /**
+     * <pre>
+     * k/v map of base64 encoded data
+     * </pre>
+     *
      * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
      */
     int getDataCount();
     /**
+     * <pre>
+     * k/v map of base64 encoded data
+     * </pre>
+     *
      * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
      */
     boolean containsData(
@@ -6854,11 +7766,19 @@ public final class Schema {
     java.util.Map<java.lang.String, java.lang.String>
     getData();
     /**
+     * <pre>
+     * k/v map of base64 encoded data
+     * </pre>
+     *
      * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
      */
     java.util.Map<java.lang.String, java.lang.String>
     getDataMap();
     /**
+     * <pre>
+     * k/v map of base64 encoded data
+     * </pre>
+     *
      * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
      */
 
@@ -6866,6 +7786,10 @@ public final class Schema {
         java.lang.String key,
         java.lang.String defaultValue);
     /**
+     * <pre>
+     * k/v map of base64 encoded data
+     * </pre>
+     *
      * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
      */
 
@@ -7104,6 +8028,10 @@ public final class Schema {
     public static final int IMMUTABLE_FIELD_NUMBER = 4;
     private boolean immutable_;
     /**
+     * <pre>
+     * prevent changes to the secret after it is created
+     * </pre>
+     *
      * <code>bool immutable = 4;</code>
      */
     public boolean getImmutable() {
@@ -7137,6 +8065,10 @@ public final class Schema {
       return internalGetData().getMap().size();
     }
     /**
+     * <pre>
+     * k/v map of base64 encoded data
+     * </pre>
+     *
      * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
      */
 
@@ -7153,6 +8085,10 @@ public final class Schema {
       return getDataMap();
     }
     /**
+     * <pre>
+     * k/v map of base64 encoded data
+     * </pre>
+     *
      * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
      */
 
@@ -7160,6 +8096,10 @@ public final class Schema {
       return internalGetData().getMap();
     }
     /**
+     * <pre>
+     * k/v map of base64 encoded data
+     * </pre>
+     *
      * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
      */
 
@@ -7172,6 +8112,10 @@ public final class Schema {
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
+     * <pre>
+     * k/v map of base64 encoded data
+     * </pre>
+     *
      * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
      */
 
@@ -7822,12 +8766,20 @@ public final class Schema {
 
       private boolean immutable_ ;
       /**
+       * <pre>
+       * prevent changes to the secret after it is created
+       * </pre>
+       *
        * <code>bool immutable = 4;</code>
        */
       public boolean getImmutable() {
         return immutable_;
       }
       /**
+       * <pre>
+       * prevent changes to the secret after it is created
+       * </pre>
+       *
        * <code>bool immutable = 4;</code>
        */
       public Builder setImmutable(boolean value) {
@@ -7837,6 +8789,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * prevent changes to the secret after it is created
+       * </pre>
+       *
        * <code>bool immutable = 4;</code>
        */
       public Builder clearImmutable() {
@@ -7873,6 +8829,10 @@ public final class Schema {
         return internalGetData().getMap().size();
       }
       /**
+       * <pre>
+       * k/v map of base64 encoded data
+       * </pre>
+       *
        * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
        */
 
@@ -7889,6 +8849,10 @@ public final class Schema {
         return getDataMap();
       }
       /**
+       * <pre>
+       * k/v map of base64 encoded data
+       * </pre>
+       *
        * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
        */
 
@@ -7896,6 +8860,10 @@ public final class Schema {
         return internalGetData().getMap();
       }
       /**
+       * <pre>
+       * k/v map of base64 encoded data
+       * </pre>
+       *
        * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
        */
 
@@ -7908,6 +8876,10 @@ public final class Schema {
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
       /**
+       * <pre>
+       * k/v map of base64 encoded data
+       * </pre>
+       *
        * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
        */
 
@@ -7928,6 +8900,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * k/v map of base64 encoded data
+       * </pre>
+       *
        * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
        */
 
@@ -7947,6 +8923,10 @@ public final class Schema {
         return internalGetMutableData().getMutableMap();
       }
       /**
+       * <pre>
+       * k/v map of base64 encoded data
+       * </pre>
+       *
        * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
        */
       public Builder putData(
@@ -7959,6 +8939,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * k/v map of base64 encoded data
+       * </pre>
+       *
        * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
        */
 
@@ -8071,15 +9055,27 @@ public final class Schema {
     meshpaas.Schema.SecretType getType();
 
     /**
+     * <pre>
+     * prevent changes to the secret after it is created
+     * </pre>
+     *
      * <code>bool immutable = 4;</code>
      */
     boolean getImmutable();
 
     /**
+     * <pre>
+     * k/v map of base64 encoded data
+     * </pre>
+     *
      * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
      */
     int getDataCount();
     /**
+     * <pre>
+     * k/v map of base64 encoded data
+     * </pre>
+     *
      * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
      */
     boolean containsData(
@@ -8091,11 +9087,19 @@ public final class Schema {
     java.util.Map<java.lang.String, java.lang.String>
     getData();
     /**
+     * <pre>
+     * k/v map of base64 encoded data
+     * </pre>
+     *
      * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
      */
     java.util.Map<java.lang.String, java.lang.String>
     getDataMap();
     /**
+     * <pre>
+     * k/v map of base64 encoded data
+     * </pre>
+     *
      * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
      */
 
@@ -8103,6 +9107,10 @@ public final class Schema {
         java.lang.String key,
         java.lang.String defaultValue);
     /**
+     * <pre>
+     * k/v map of base64 encoded data
+     * </pre>
+     *
      * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
      */
 
@@ -8337,6 +9345,10 @@ public final class Schema {
     public static final int IMMUTABLE_FIELD_NUMBER = 4;
     private boolean immutable_;
     /**
+     * <pre>
+     * prevent changes to the secret after it is created
+     * </pre>
+     *
      * <code>bool immutable = 4;</code>
      */
     public boolean getImmutable() {
@@ -8370,6 +9382,10 @@ public final class Schema {
       return internalGetData().getMap().size();
     }
     /**
+     * <pre>
+     * k/v map of base64 encoded data
+     * </pre>
+     *
      * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
      */
 
@@ -8386,6 +9402,10 @@ public final class Schema {
       return getDataMap();
     }
     /**
+     * <pre>
+     * k/v map of base64 encoded data
+     * </pre>
+     *
      * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
      */
 
@@ -8393,6 +9413,10 @@ public final class Schema {
       return internalGetData().getMap();
     }
     /**
+     * <pre>
+     * k/v map of base64 encoded data
+     * </pre>
+     *
      * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
      */
 
@@ -8405,6 +9429,10 @@ public final class Schema {
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
+     * <pre>
+     * k/v map of base64 encoded data
+     * </pre>
+     *
      * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
      */
 
@@ -9051,12 +10079,20 @@ public final class Schema {
 
       private boolean immutable_ ;
       /**
+       * <pre>
+       * prevent changes to the secret after it is created
+       * </pre>
+       *
        * <code>bool immutable = 4;</code>
        */
       public boolean getImmutable() {
         return immutable_;
       }
       /**
+       * <pre>
+       * prevent changes to the secret after it is created
+       * </pre>
+       *
        * <code>bool immutable = 4;</code>
        */
       public Builder setImmutable(boolean value) {
@@ -9066,6 +10102,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * prevent changes to the secret after it is created
+       * </pre>
+       *
        * <code>bool immutable = 4;</code>
        */
       public Builder clearImmutable() {
@@ -9102,6 +10142,10 @@ public final class Schema {
         return internalGetData().getMap().size();
       }
       /**
+       * <pre>
+       * k/v map of base64 encoded data
+       * </pre>
+       *
        * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
        */
 
@@ -9118,6 +10162,10 @@ public final class Schema {
         return getDataMap();
       }
       /**
+       * <pre>
+       * k/v map of base64 encoded data
+       * </pre>
+       *
        * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
        */
 
@@ -9125,6 +10173,10 @@ public final class Schema {
         return internalGetData().getMap();
       }
       /**
+       * <pre>
+       * k/v map of base64 encoded data
+       * </pre>
+       *
        * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
        */
 
@@ -9137,6 +10189,10 @@ public final class Schema {
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
       /**
+       * <pre>
+       * k/v map of base64 encoded data
+       * </pre>
+       *
        * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
        */
 
@@ -9157,6 +10213,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * k/v map of base64 encoded data
+       * </pre>
+       *
        * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
        */
 
@@ -9176,6 +10236,10 @@ public final class Schema {
         return internalGetMutableData().getMutableMap();
       }
       /**
+       * <pre>
+       * k/v map of base64 encoded data
+       * </pre>
+       *
        * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
        */
       public Builder putData(
@@ -9188,6 +10252,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * k/v map of base64 encoded data
+       * </pre>
+       *
        * <code>map&lt;string, string&gt; data = 5 [(.validator.field) = { ... }</code>
        */
 
@@ -16093,67 +17161,123 @@ public final class Schema {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * gateways to bind to
+     * </pre>
+     *
      * <code>repeated string gateways = 1;</code>
      */
     java.util.List<java.lang.String>
         getGatewaysList();
     /**
+     * <pre>
+     * gateways to bind to
+     * </pre>
+     *
      * <code>repeated string gateways = 1;</code>
      */
     int getGatewaysCount();
     /**
+     * <pre>
+     * gateways to bind to
+     * </pre>
+     *
      * <code>repeated string gateways = 1;</code>
      */
     java.lang.String getGateways(int index);
     /**
+     * <pre>
+     * gateways to bind to
+     * </pre>
+     *
      * <code>repeated string gateways = 1;</code>
      */
     com.google.protobuf.ByteString
         getGatewaysBytes(int index);
 
     /**
+     * <pre>
+     * host names to bind to
+     * </pre>
+     *
      * <code>repeated string hosts = 2;</code>
      */
     java.util.List<java.lang.String>
         getHostsList();
     /**
+     * <pre>
+     * host names to bind to
+     * </pre>
+     *
      * <code>repeated string hosts = 2;</code>
      */
     int getHostsCount();
     /**
+     * <pre>
+     * host names to bind to
+     * </pre>
+     *
      * <code>repeated string hosts = 2;</code>
      */
     java.lang.String getHosts(int index);
     /**
+     * <pre>
+     * host names to bind to
+     * </pre>
+     *
      * <code>repeated string hosts = 2;</code>
      */
     com.google.protobuf.ByteString
         getHostsBytes(int index);
 
     /**
+     * <pre>
+     * export service to other applications in other projects
+     * </pre>
+     *
      * <code>bool export = 3;</code>
      */
     boolean getExport();
 
     /**
+     * <pre>
+     * http route matchers/configurations
+     * </pre>
+     *
      * <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
      */
     java.util.List<meshpaas.Schema.HTTPRoute> 
         getHttpRoutesList();
     /**
+     * <pre>
+     * http route matchers/configurations
+     * </pre>
+     *
      * <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
      */
     meshpaas.Schema.HTTPRoute getHttpRoutes(int index);
     /**
+     * <pre>
+     * http route matchers/configurations
+     * </pre>
+     *
      * <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
      */
     int getHttpRoutesCount();
     /**
+     * <pre>
+     * http route matchers/configurations
+     * </pre>
+     *
      * <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
      */
     java.util.List<? extends meshpaas.Schema.HTTPRouteOrBuilder> 
         getHttpRoutesOrBuilderList();
     /**
+     * <pre>
+     * http route matchers/configurations
+     * </pre>
+     *
      * <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
      */
     meshpaas.Schema.HTTPRouteOrBuilder getHttpRoutesOrBuilder(
@@ -16279,6 +17403,10 @@ public final class Schema {
     public static final int GATEWAYS_FIELD_NUMBER = 1;
     private com.google.protobuf.LazyStringList gateways_;
     /**
+     * <pre>
+     * gateways to bind to
+     * </pre>
+     *
      * <code>repeated string gateways = 1;</code>
      */
     public com.google.protobuf.ProtocolStringList
@@ -16286,18 +17414,30 @@ public final class Schema {
       return gateways_;
     }
     /**
+     * <pre>
+     * gateways to bind to
+     * </pre>
+     *
      * <code>repeated string gateways = 1;</code>
      */
     public int getGatewaysCount() {
       return gateways_.size();
     }
     /**
+     * <pre>
+     * gateways to bind to
+     * </pre>
+     *
      * <code>repeated string gateways = 1;</code>
      */
     public java.lang.String getGateways(int index) {
       return gateways_.get(index);
     }
     /**
+     * <pre>
+     * gateways to bind to
+     * </pre>
+     *
      * <code>repeated string gateways = 1;</code>
      */
     public com.google.protobuf.ByteString
@@ -16308,6 +17448,10 @@ public final class Schema {
     public static final int HOSTS_FIELD_NUMBER = 2;
     private com.google.protobuf.LazyStringList hosts_;
     /**
+     * <pre>
+     * host names to bind to
+     * </pre>
+     *
      * <code>repeated string hosts = 2;</code>
      */
     public com.google.protobuf.ProtocolStringList
@@ -16315,18 +17459,30 @@ public final class Schema {
       return hosts_;
     }
     /**
+     * <pre>
+     * host names to bind to
+     * </pre>
+     *
      * <code>repeated string hosts = 2;</code>
      */
     public int getHostsCount() {
       return hosts_.size();
     }
     /**
+     * <pre>
+     * host names to bind to
+     * </pre>
+     *
      * <code>repeated string hosts = 2;</code>
      */
     public java.lang.String getHosts(int index) {
       return hosts_.get(index);
     }
     /**
+     * <pre>
+     * host names to bind to
+     * </pre>
+     *
      * <code>repeated string hosts = 2;</code>
      */
     public com.google.protobuf.ByteString
@@ -16337,6 +17493,10 @@ public final class Schema {
     public static final int EXPORT_FIELD_NUMBER = 3;
     private boolean export_;
     /**
+     * <pre>
+     * export service to other applications in other projects
+     * </pre>
+     *
      * <code>bool export = 3;</code>
      */
     public boolean getExport() {
@@ -16346,12 +17506,20 @@ public final class Schema {
     public static final int HTTP_ROUTES_FIELD_NUMBER = 4;
     private java.util.List<meshpaas.Schema.HTTPRoute> httpRoutes_;
     /**
+     * <pre>
+     * http route matchers/configurations
+     * </pre>
+     *
      * <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
      */
     public java.util.List<meshpaas.Schema.HTTPRoute> getHttpRoutesList() {
       return httpRoutes_;
     }
     /**
+     * <pre>
+     * http route matchers/configurations
+     * </pre>
+     *
      * <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
      */
     public java.util.List<? extends meshpaas.Schema.HTTPRouteOrBuilder> 
@@ -16359,18 +17527,30 @@ public final class Schema {
       return httpRoutes_;
     }
     /**
+     * <pre>
+     * http route matchers/configurations
+     * </pre>
+     *
      * <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
      */
     public int getHttpRoutesCount() {
       return httpRoutes_.size();
     }
     /**
+     * <pre>
+     * http route matchers/configurations
+     * </pre>
+     *
      * <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
      */
     public meshpaas.Schema.HTTPRoute getHttpRoutes(int index) {
       return httpRoutes_.get(index);
     }
     /**
+     * <pre>
+     * http route matchers/configurations
+     * </pre>
+     *
      * <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
      */
     public meshpaas.Schema.HTTPRouteOrBuilder getHttpRoutesOrBuilder(
@@ -16817,6 +17997,10 @@ public final class Schema {
          }
       }
       /**
+       * <pre>
+       * gateways to bind to
+       * </pre>
+       *
        * <code>repeated string gateways = 1;</code>
        */
       public com.google.protobuf.ProtocolStringList
@@ -16824,18 +18008,30 @@ public final class Schema {
         return gateways_.getUnmodifiableView();
       }
       /**
+       * <pre>
+       * gateways to bind to
+       * </pre>
+       *
        * <code>repeated string gateways = 1;</code>
        */
       public int getGatewaysCount() {
         return gateways_.size();
       }
       /**
+       * <pre>
+       * gateways to bind to
+       * </pre>
+       *
        * <code>repeated string gateways = 1;</code>
        */
       public java.lang.String getGateways(int index) {
         return gateways_.get(index);
       }
       /**
+       * <pre>
+       * gateways to bind to
+       * </pre>
+       *
        * <code>repeated string gateways = 1;</code>
        */
       public com.google.protobuf.ByteString
@@ -16843,6 +18039,10 @@ public final class Schema {
         return gateways_.getByteString(index);
       }
       /**
+       * <pre>
+       * gateways to bind to
+       * </pre>
+       *
        * <code>repeated string gateways = 1;</code>
        */
       public Builder setGateways(
@@ -16856,6 +18056,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * gateways to bind to
+       * </pre>
+       *
        * <code>repeated string gateways = 1;</code>
        */
       public Builder addGateways(
@@ -16869,6 +18073,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * gateways to bind to
+       * </pre>
+       *
        * <code>repeated string gateways = 1;</code>
        */
       public Builder addAllGateways(
@@ -16880,6 +18088,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * gateways to bind to
+       * </pre>
+       *
        * <code>repeated string gateways = 1;</code>
        */
       public Builder clearGateways() {
@@ -16889,6 +18101,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * gateways to bind to
+       * </pre>
+       *
        * <code>repeated string gateways = 1;</code>
        */
       public Builder addGatewaysBytes(
@@ -16911,6 +18127,10 @@ public final class Schema {
          }
       }
       /**
+       * <pre>
+       * host names to bind to
+       * </pre>
+       *
        * <code>repeated string hosts = 2;</code>
        */
       public com.google.protobuf.ProtocolStringList
@@ -16918,18 +18138,30 @@ public final class Schema {
         return hosts_.getUnmodifiableView();
       }
       /**
+       * <pre>
+       * host names to bind to
+       * </pre>
+       *
        * <code>repeated string hosts = 2;</code>
        */
       public int getHostsCount() {
         return hosts_.size();
       }
       /**
+       * <pre>
+       * host names to bind to
+       * </pre>
+       *
        * <code>repeated string hosts = 2;</code>
        */
       public java.lang.String getHosts(int index) {
         return hosts_.get(index);
       }
       /**
+       * <pre>
+       * host names to bind to
+       * </pre>
+       *
        * <code>repeated string hosts = 2;</code>
        */
       public com.google.protobuf.ByteString
@@ -16937,6 +18169,10 @@ public final class Schema {
         return hosts_.getByteString(index);
       }
       /**
+       * <pre>
+       * host names to bind to
+       * </pre>
+       *
        * <code>repeated string hosts = 2;</code>
        */
       public Builder setHosts(
@@ -16950,6 +18186,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * host names to bind to
+       * </pre>
+       *
        * <code>repeated string hosts = 2;</code>
        */
       public Builder addHosts(
@@ -16963,6 +18203,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * host names to bind to
+       * </pre>
+       *
        * <code>repeated string hosts = 2;</code>
        */
       public Builder addAllHosts(
@@ -16974,6 +18218,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * host names to bind to
+       * </pre>
+       *
        * <code>repeated string hosts = 2;</code>
        */
       public Builder clearHosts() {
@@ -16983,6 +18231,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * host names to bind to
+       * </pre>
+       *
        * <code>repeated string hosts = 2;</code>
        */
       public Builder addHostsBytes(
@@ -16999,12 +18251,20 @@ public final class Schema {
 
       private boolean export_ ;
       /**
+       * <pre>
+       * export service to other applications in other projects
+       * </pre>
+       *
        * <code>bool export = 3;</code>
        */
       public boolean getExport() {
         return export_;
       }
       /**
+       * <pre>
+       * export service to other applications in other projects
+       * </pre>
+       *
        * <code>bool export = 3;</code>
        */
       public Builder setExport(boolean value) {
@@ -17014,6 +18274,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * export service to other applications in other projects
+       * </pre>
+       *
        * <code>bool export = 3;</code>
        */
       public Builder clearExport() {
@@ -17036,6 +18300,10 @@ public final class Schema {
           meshpaas.Schema.HTTPRoute, meshpaas.Schema.HTTPRoute.Builder, meshpaas.Schema.HTTPRouteOrBuilder> httpRoutesBuilder_;
 
       /**
+       * <pre>
+       * http route matchers/configurations
+       * </pre>
+       *
        * <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
        */
       public java.util.List<meshpaas.Schema.HTTPRoute> getHttpRoutesList() {
@@ -17046,6 +18314,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * http route matchers/configurations
+       * </pre>
+       *
        * <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
        */
       public int getHttpRoutesCount() {
@@ -17056,6 +18328,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * http route matchers/configurations
+       * </pre>
+       *
        * <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
        */
       public meshpaas.Schema.HTTPRoute getHttpRoutes(int index) {
@@ -17066,6 +18342,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * http route matchers/configurations
+       * </pre>
+       *
        * <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
        */
       public Builder setHttpRoutes(
@@ -17083,6 +18363,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * http route matchers/configurations
+       * </pre>
+       *
        * <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
        */
       public Builder setHttpRoutes(
@@ -17097,6 +18381,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * http route matchers/configurations
+       * </pre>
+       *
        * <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
        */
       public Builder addHttpRoutes(meshpaas.Schema.HTTPRoute value) {
@@ -17113,6 +18401,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * http route matchers/configurations
+       * </pre>
+       *
        * <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
        */
       public Builder addHttpRoutes(
@@ -17130,6 +18422,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * http route matchers/configurations
+       * </pre>
+       *
        * <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
        */
       public Builder addHttpRoutes(
@@ -17144,6 +18440,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * http route matchers/configurations
+       * </pre>
+       *
        * <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
        */
       public Builder addHttpRoutes(
@@ -17158,6 +18458,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * http route matchers/configurations
+       * </pre>
+       *
        * <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
        */
       public Builder addAllHttpRoutes(
@@ -17173,6 +18477,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * http route matchers/configurations
+       * </pre>
+       *
        * <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
        */
       public Builder clearHttpRoutes() {
@@ -17186,6 +18494,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * http route matchers/configurations
+       * </pre>
+       *
        * <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
        */
       public Builder removeHttpRoutes(int index) {
@@ -17199,6 +18511,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * http route matchers/configurations
+       * </pre>
+       *
        * <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
        */
       public meshpaas.Schema.HTTPRoute.Builder getHttpRoutesBuilder(
@@ -17206,6 +18522,10 @@ public final class Schema {
         return getHttpRoutesFieldBuilder().getBuilder(index);
       }
       /**
+       * <pre>
+       * http route matchers/configurations
+       * </pre>
+       *
        * <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
        */
       public meshpaas.Schema.HTTPRouteOrBuilder getHttpRoutesOrBuilder(
@@ -17216,6 +18536,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * http route matchers/configurations
+       * </pre>
+       *
        * <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
        */
       public java.util.List<? extends meshpaas.Schema.HTTPRouteOrBuilder> 
@@ -17227,6 +18551,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * http route matchers/configurations
+       * </pre>
+       *
        * <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
        */
       public meshpaas.Schema.HTTPRoute.Builder addHttpRoutesBuilder() {
@@ -17234,6 +18562,10 @@ public final class Schema {
             meshpaas.Schema.HTTPRoute.getDefaultInstance());
       }
       /**
+       * <pre>
+       * http route matchers/configurations
+       * </pre>
+       *
        * <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
        */
       public meshpaas.Schema.HTTPRoute.Builder addHttpRoutesBuilder(
@@ -17242,6 +18574,10 @@ public final class Schema {
             index, meshpaas.Schema.HTTPRoute.getDefaultInstance());
       }
       /**
+       * <pre>
+       * http route matchers/configurations
+       * </pre>
+       *
        * <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
        */
       public java.util.List<meshpaas.Schema.HTTPRoute.Builder> 
@@ -26051,6 +27387,10 @@ public final class Schema {
         getProjectBytes();
   }
   /**
+   * <pre>
+   * Ref is a pointer to a resource
+   * </pre>
+   *
    * Protobuf type {@code meshpaas.Ref}
    */
   public  static final class Ref extends
@@ -26385,6 +27725,10 @@ public final class Schema {
       return builder;
     }
     /**
+     * <pre>
+     * Ref is a pointer to a resource
+     * </pre>
+     *
      * Protobuf type {@code meshpaas.Ref}
      */
     public static final class Builder extends
@@ -26804,6 +28148,10 @@ public final class Schema {
         getReasonBytes();
   }
   /**
+   * <pre>
+   * Replica tracks the state/status of an individual replica of an application
+   * </pre>
+   *
    * Protobuf type {@code meshpaas.Replica}
    */
   public  static final class Replica extends
@@ -27173,6 +28521,10 @@ public final class Schema {
       return builder;
     }
     /**
+     * <pre>
+     * Replica tracks the state/status of an individual replica of an application
+     * </pre>
+     *
      * Protobuf type {@code meshpaas.Replica}
      */
     public static final class Builder extends
@@ -27622,6 +28974,10 @@ public final class Schema {
         int index);
   }
   /**
+   * <pre>
+   * AppStatus tracks the status of an application
+   * </pre>
+   *
    * Protobuf type {@code meshpaas.AppStatus}
    */
   public  static final class AppStatus extends
@@ -27899,6 +29255,10 @@ public final class Schema {
       return builder;
     }
     /**
+     * <pre>
+     * AppStatus tracks the status of an application
+     * </pre>
+     *
      * Protobuf type {@code meshpaas.AppStatus}
      */
     public static final class Builder extends
@@ -30504,6 +31864,10 @@ public final class Schema {
         getNameBytes();
   }
   /**
+   * <pre>
+   * Project creates/replaces a project(k8s namespace)
+   * </pre>
+   *
    * Protobuf type {@code meshpaas.ProjectInput}
    */
   public  static final class ProjectInput extends
@@ -30771,6 +32135,10 @@ public final class Schema {
       return builder;
     }
     /**
+     * <pre>
+     * Project creates/replaces a project(k8s namespace)
+     * </pre>
+     *
      * Protobuf type {@code meshpaas.ProjectInput}
      */
     public static final class Builder extends
@@ -31054,6 +32422,10 @@ public final class Schema {
         getNameBytes();
   }
   /**
+   * <pre>
+   * Project is a reference to a project(k8s namespace)
+   * </pre>
+   *
    * Protobuf type {@code meshpaas.Project}
    */
   public  static final class Project extends
@@ -31321,6 +32693,10 @@ public final class Schema {
       return builder;
     }
     /**
+     * <pre>
+     * Project is a reference to a project(k8s namespace)
+     * </pre>
+     *
      * Protobuf type {@code meshpaas.Project}
      */
     public static final class Builder extends
@@ -31604,6 +32980,10 @@ public final class Schema {
         getNameBytes();
   }
   /**
+   * <pre>
+   * ProjectRef is a reference to an existing project(k8s namespace)
+   * </pre>
+   *
    * Protobuf type {@code meshpaas.ProjectRef}
    */
   public  static final class ProjectRef extends
@@ -31871,6 +33251,10 @@ public final class Schema {
       return builder;
     }
     /**
+     * <pre>
+     * ProjectRef is a reference to an existing project(k8s namespace)
+     * </pre>
+     *
      * Protobuf type {@code meshpaas.ProjectRef}
      */
     public static final class Builder extends

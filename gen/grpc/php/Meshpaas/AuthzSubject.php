@@ -16,14 +16,20 @@ use Google\Protobuf\Internal\GPBUtil;
 class AuthzSubject extends \Google\Protobuf\Internal\Message
 {
     /**
+     * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
+     *
      * Generated from protobuf field <code>repeated string allow_issuers = 6;</code>
      */
     private $allow_issuers;
     /**
+     * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
+     *
      * Generated from protobuf field <code>repeated string allow_roles = 7;</code>
      */
     private $allow_roles;
     /**
+     * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
+     *
      * Generated from protobuf field <code>repeated string allow_audience = 8;</code>
      */
     private $allow_audience;
@@ -35,8 +41,11 @@ class AuthzSubject extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $allow_issuers
+     *           allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $allow_roles
+     *           allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $allow_audience
+     *           allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
      * }
      */
     public function __construct($data = NULL) {
@@ -45,6 +54,8 @@ class AuthzSubject extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
+     *
      * Generated from protobuf field <code>repeated string allow_issuers = 6;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
@@ -54,6 +65,8 @@ class AuthzSubject extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
+     *
      * Generated from protobuf field <code>repeated string allow_issuers = 6;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
@@ -67,6 +80,8 @@ class AuthzSubject extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
+     *
      * Generated from protobuf field <code>repeated string allow_roles = 7;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
@@ -76,6 +91,8 @@ class AuthzSubject extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
+     *
      * Generated from protobuf field <code>repeated string allow_roles = 7;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
@@ -89,6 +106,8 @@ class AuthzSubject extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
+     *
      * Generated from protobuf field <code>repeated string allow_audience = 8;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
@@ -98,6 +117,8 @@ class AuthzSubject extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
+     *
      * Generated from protobuf field <code>repeated string allow_audience = 8;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this

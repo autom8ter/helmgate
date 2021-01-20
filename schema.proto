@@ -11,36 +11,51 @@ import "google/protobuf/empty.proto";
 import "github.com/mwitkow/go-proto-validators/validator.proto";
 
 message AuthnRule {
+  // json web keys uri ref: https://tools.ietf.org/html/rfc7517
   string jwks_uri =1[(validator.field) = {regex : "^.{1,225}$"}];
+  // issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
   string issuer =2[(validator.field) = {regex : "^.{1,225}$"}];
+  // issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
   repeated string audience =3;
+  // serialize jwt payload & write to this header
   string ouput_payload_header =4[(validator.field) = {regex : "^.{1,225}$"}];
 }
 
 // the source of an authorization decision
 message AuthzSource {
+  // allow_namespaces restricts access to traffic coming from a particular namespace
   repeated string allow_namespaces =1;
 }
 
 // the subject of an authorization decision
 message AuthzSubject {
+  // allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
   repeated string allow_issuers =6;
+  // allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
   repeated string allow_roles =7;
+  // allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
   repeated string allow_audience =8;
 }
 
 // the destination of an authorization decision
 message AuthzDestination {
+  // restricts access to one of many paths
   repeated string allow_paths =2;
+  // restricts access to one of many hosts
   repeated string allow_hosts =3;
+  // restricts access to one of many methods
   repeated string allow_methods =4;
+  // restricts access to one of many ports
   repeated string allow_ports =5;
 }
 
 // At least on AuthzRule rule must pass for a request to reach its final destination(an application) in the service mesh
 message AuthzRule {
+  // source restricts access based on the source of a request in the service mesh
   AuthzSource source =1;
+  // source restricts access based on the destination of a request in the service mesh
   AuthzDestination destination =2;
+  // source restricts access based on the subject of a request in the service mesh
   AuthzSubject subject =3;
 }
 
@@ -68,7 +83,9 @@ message SecretInput {
   // secret project
   string project =2[(validator.field) = {regex : "^.{1,225}$"}];
   SecretType type =3;
+  // prevent changes to the secret after it is created
   bool immutable =4;
+  // k/v map of base64 encoded data
   map<string, string> data =5[(validator.field) = {msg_exists : true}];
 }
 
@@ -78,7 +95,9 @@ message Secret {
   // secret project
   string project =2[(validator.field) = {regex : "^.{1,225}$"}];
   SecretType type =3;
+  // prevent changes to the secret after it is created
   bool immutable =4;
+  // k/v map of base64 encoded data
   map<string, string> data =5[(validator.field) = {msg_exists : true}];
 }
 
@@ -154,9 +173,13 @@ message HTTPRoute {
 }
 
 message Networking {
+  // gateways to bind to
   repeated string gateways =1;
+  // host names to bind to
   repeated string hosts =2;
+  // export service to other applications in other projects
   bool export =3;
+  // http route matchers/configurations
   repeated HTTPRoute http_routes =4;
 }
 
@@ -236,20 +259,22 @@ message AppInput {
   Authz authorization =13[(validator.field) = {msg_exists : true}];
 }
 
+// Ref is a pointer to a resource
 message Ref {
   // name of the resource
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
   // resource's project
   string project =2[(validator.field) = {regex : "^.{1,225}$"}];
 }
-//repeated_count_min
 
+// Replica tracks the state/status of an individual replica of an application
 message Replica {
   string phase =1;
   string condition =2;
   string reason =3;
 }
 
+// AppStatus tracks the status of an application
 message AppStatus {
   repeated Replica replicas =1;
 }
@@ -266,14 +291,17 @@ message Tasks {
   repeated Task tasks =1;
 }
 
+// Project creates/replaces a project(k8s namespace)
 message ProjectInput {
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
 }
 
+// Project is a reference to a project(k8s namespace)
 message Project {
   string name =1;
 }
 
+// ProjectRef is a reference to an existing project(k8s namespace)
 message ProjectRef {
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
 }
@@ -286,11 +314,13 @@ message Projects {
 // MeshPaasService is a platform as a service backed by Istio service mesh
 service MeshPaasService {
   rpc CreateProject(ProjectInput) returns(Project){}
-  // ListProjects lists all projects created by meshpaas
+  // ListProjects lists all projects(k8s namespace) created by meshpaas
   rpc ListProjects(google.protobuf.Empty) returns(Projects){}
-  // DeleteProject deletes a project & all its resources
+  // DeleteProject deletes a project(k8s namespace) & all its resources
   rpc DeleteProject(ProjectRef) returns(google.protobuf.Empty){}
+  // GetProject gets an existing project(k8s namespace)
   rpc GetProject(ProjectRef) returns(Project){}
+  // UpdateProject updates an existing project(k8s namespace)
   rpc UpdateProject(ProjectInput) returns(Project){}
 
   // CreateApp creates a new stateless application(k8s deployment & service) within a single project(k8s namespace)
