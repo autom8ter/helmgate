@@ -43,12 +43,13 @@ func appContainers(app *meshpaaspb.AppInput) ([]v12.Container, error) {
 			})
 		}
 		containers = append(containers, v12.Container{
-			Name:      c.Name,
-			Image:     c.Image,
-			Args:      c.Args,
-			Ports:     ports,
-			Env:       env,
-			Resources: v12.ResourceRequirements{},
+			Name:            c.Name,
+			Image:           c.Image,
+			Args:            c.Args,
+			Ports:           ports,
+			Env:             env,
+			ImagePullPolicy: Always,
+			Resources:       v12.ResourceRequirements{},
 		})
 	}
 
@@ -424,14 +425,21 @@ func toDeployment(app *meshpaaspb.AppInput) (*apps.Deployment, error) {
 	var (
 		replicas        = int32(app.Replicas)
 		containers, err = appContainers(app)
+		imagePullSecret []v12.LocalObjectReference
 	)
 	if err != nil {
 		return nil, err
+	}
+	if app.ImagePullSecret != "" {
+		imagePullSecret = append(imagePullSecret, v12.LocalObjectReference{
+			Name: app.ImagePullSecret,
+		})
 	}
 	var labels = map[string]string{
 		"project": app.Project,
 		"app":     app.Name,
 	}
+
 	return &apps.Deployment{
 		TypeMeta: metav1.TypeMeta{
 			Kind:       "",
@@ -454,8 +462,9 @@ func toDeployment(app *meshpaaspb.AppInput) (*apps.Deployment, error) {
 					Labels:    labels,
 				},
 				Spec: v12.PodSpec{
-					Containers:    containers,
-					RestartPolicy: Always,
+					ImagePullSecrets: imagePullSecret,
+					Containers:       containers,
+					RestartPolicy:    Always,
 				},
 			},
 			Strategy:                apps.DeploymentStrategy{},
@@ -524,6 +533,13 @@ func overwriteDeployment(deployment *apps.Deployment, app *meshpaaspb.AppInput) 
 	containers, err := appContainers(app)
 	if err != nil {
 		return nil, err
+	}
+	if app.ImagePullSecret != "" {
+		deployment.Spec.Template.Spec.ImagePullSecrets = []v12.LocalObjectReference{
+			{
+				Name: app.ImagePullSecret,
+			},
+		}
 	}
 	deployment.Spec.Template.Spec.Containers = containers
 	return deployment, nil
@@ -609,6 +625,13 @@ func overwriteTask(cronJob *v1beta1.CronJob, task *meshpaaspb.TaskInput) (*v1bet
 	}
 	if task.Completions != 0 {
 		cronJob.Spec.JobTemplate.Spec.Completions = helpers.Int32Pointer(task.Completions)
+	}
+	if task.ImagePullSecret != "" {
+		cronJob.Spec.JobTemplate.Spec.Template.Spec.ImagePullSecrets = []v12.LocalObjectReference{
+			{
+				Name: task.ImagePullSecret,
+			},
+		}
 	}
 	cronJob.Spec.JobTemplate.Spec.Template.Spec.Containers = containers
 	return cronJob, nil
@@ -731,7 +754,9 @@ func (k *k8sTask) toTask() *meshpaaspb.Task {
 		Project: k.cronJob.Namespace,
 	}
 	a.Schedule = k.cronJob.Spec.Schedule
-
+	if len(k.cronJob.Spec.JobTemplate.Spec.Template.Spec.ImagePullSecrets) > 0 {
+		a.ImagePullSecret = k.cronJob.Spec.JobTemplate.Spec.Template.Spec.ImagePullSecrets[0].Name
+	}
 	for _, c := range k.cronJob.Spec.JobTemplate.Spec.Template.Spec.Containers {
 		var env = map[string]string{}
 		for _, e := range c.Env {

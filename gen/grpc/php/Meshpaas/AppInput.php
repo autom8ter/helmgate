@@ -53,6 +53,10 @@ class AppInput extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.meshpaas.Authz authorization = 13 [(.validator.field) = {</code>
      */
     private $authorization = null;
+    /**
+     * Generated from protobuf field <code>string image_pull_secret = 14;</code>
+     */
+    private $image_pull_secret = '';
 
     /**
      * Constructor.
@@ -72,6 +76,7 @@ class AppInput extends \Google\Protobuf\Internal\Message
      *           application authentication options
      *     @type \Meshpaas\Authz $authorization
      *           application authorization options
+     *     @type string $image_pull_secret
      * }
      */
     public function __construct($data = NULL) {
@@ -249,6 +254,28 @@ class AppInput extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Meshpaas\Authz::class);
         $this->authorization = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string image_pull_secret = 14;</code>
+     * @return string
+     */
+    public function getImagePullSecret()
+    {
+        return $this->image_pull_secret;
+    }
+
+    /**
+     * Generated from protobuf field <code>string image_pull_secret = 14;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setImagePullSecret($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->image_pull_secret = $var;
 
         return $this;
     }

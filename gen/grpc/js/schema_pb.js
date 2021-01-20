@@ -4218,6 +4218,7 @@ proto.meshpaas.App.toObject = function(includeInstance, msg) {
     networking: (f = msg.getNetworking()) && proto.meshpaas.Networking.toObject(includeInstance, f),
     authentication: (f = msg.getAuthentication()) && proto.meshpaas.Authn.toObject(includeInstance, f),
     authorization: (f = msg.getAuthorization()) && proto.meshpaas.Authz.toObject(includeInstance, f),
+    imagePullSecret: jspb.Message.getFieldWithDefault(msg, 14, ""),
     status: (f = msg.getStatus()) && proto.meshpaas.AppStatus.toObject(includeInstance, f)
   };
 
@@ -4286,6 +4287,10 @@ proto.meshpaas.App.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.meshpaas.Authz;
       reader.readMessage(value,proto.meshpaas.Authz.deserializeBinaryFromReader);
       msg.setAuthorization(value);
+      break;
+    case 14:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setImagePullSecret(value);
       break;
     case 20:
       var value = new proto.meshpaas.AppStatus;
@@ -4372,6 +4377,13 @@ proto.meshpaas.App.serializeBinaryToWriter = function(message, writer) {
       13,
       f,
       proto.meshpaas.Authz.serializeBinaryToWriter
+    );
+  }
+  f = message.getImagePullSecret();
+  if (f.length > 0) {
+    writer.writeString(
+      14,
+      f
     );
   }
   f = message.getStatus();
@@ -4552,6 +4564,21 @@ proto.meshpaas.App.prototype.hasAuthorization = function() {
 
 
 /**
+ * optional string image_pull_secret = 14;
+ * @return {string}
+ */
+proto.meshpaas.App.prototype.getImagePullSecret = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 14, ""));
+};
+
+
+/** @param {string} value */
+proto.meshpaas.App.prototype.setImagePullSecret = function(value) {
+  jspb.Message.setProto3StringField(this, 14, value);
+};
+
+
+/**
  * optional AppStatus status = 20;
  * @return {?proto.meshpaas.AppStatus}
  */
@@ -4604,7 +4631,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.meshpaas.Task.repeatedFields_ = [3];
+proto.meshpaas.Task.repeatedFields_ = [4];
 
 
 
@@ -4637,6 +4664,7 @@ proto.meshpaas.Task.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
     project: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    imagePullSecret: jspb.Message.getFieldWithDefault(msg, 3, ""),
     containersList: jspb.Message.toObjectList(msg.getContainersList(),
     proto.meshpaas.Container.toObject, includeInstance),
     schedule: jspb.Message.getFieldWithDefault(msg, 7, ""),
@@ -4686,6 +4714,10 @@ proto.meshpaas.Task.deserializeBinaryFromReader = function(msg, reader) {
       msg.setProject(value);
       break;
     case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setImagePullSecret(value);
+      break;
+    case 4:
       var value = new proto.meshpaas.Container;
       reader.readMessage(value,proto.meshpaas.Container.deserializeBinaryFromReader);
       msg.addContainers(value);
@@ -4741,10 +4773,17 @@ proto.meshpaas.Task.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
+  f = message.getImagePullSecret();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
   f = message.getContainersList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
-      3,
+      4,
       f,
       proto.meshpaas.Container.serializeBinaryToWriter
     );
@@ -4797,18 +4836,33 @@ proto.meshpaas.Task.prototype.setProject = function(value) {
 
 
 /**
- * repeated Container containers = 3;
+ * optional string image_pull_secret = 3;
+ * @return {string}
+ */
+proto.meshpaas.Task.prototype.getImagePullSecret = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/** @param {string} value */
+proto.meshpaas.Task.prototype.setImagePullSecret = function(value) {
+  jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * repeated Container containers = 4;
  * @return {!Array<!proto.meshpaas.Container>}
  */
 proto.meshpaas.Task.prototype.getContainersList = function() {
   return /** @type{!Array<!proto.meshpaas.Container>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.meshpaas.Container, 3));
+    jspb.Message.getRepeatedWrapperField(this, proto.meshpaas.Container, 4));
 };
 
 
 /** @param {!Array<!proto.meshpaas.Container>} value */
 proto.meshpaas.Task.prototype.setContainersList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 3, value);
+  jspb.Message.setRepeatedWrapperField(this, 4, value);
 };
 
 
@@ -4818,7 +4872,7 @@ proto.meshpaas.Task.prototype.setContainersList = function(value) {
  * @return {!proto.meshpaas.Container}
  */
 proto.meshpaas.Task.prototype.addContainers = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 3, opt_value, proto.meshpaas.Container, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 4, opt_value, proto.meshpaas.Container, opt_index);
 };
 
 
@@ -4880,7 +4934,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.meshpaas.TaskInput.repeatedFields_ = [3];
+proto.meshpaas.TaskInput.repeatedFields_ = [4];
 
 
 
@@ -4913,6 +4967,7 @@ proto.meshpaas.TaskInput.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
     project: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    imagePullSecret: jspb.Message.getFieldWithDefault(msg, 3, ""),
     containersList: jspb.Message.toObjectList(msg.getContainersList(),
     proto.meshpaas.Container.toObject, includeInstance),
     schedule: jspb.Message.getFieldWithDefault(msg, 7, ""),
@@ -4962,6 +5017,10 @@ proto.meshpaas.TaskInput.deserializeBinaryFromReader = function(msg, reader) {
       msg.setProject(value);
       break;
     case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setImagePullSecret(value);
+      break;
+    case 4:
       var value = new proto.meshpaas.Container;
       reader.readMessage(value,proto.meshpaas.Container.deserializeBinaryFromReader);
       msg.addContainers(value);
@@ -5017,10 +5076,17 @@ proto.meshpaas.TaskInput.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
+  f = message.getImagePullSecret();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
   f = message.getContainersList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
-      3,
+      4,
       f,
       proto.meshpaas.Container.serializeBinaryToWriter
     );
@@ -5073,18 +5139,33 @@ proto.meshpaas.TaskInput.prototype.setProject = function(value) {
 
 
 /**
- * repeated Container containers = 3;
+ * optional string image_pull_secret = 3;
+ * @return {string}
+ */
+proto.meshpaas.TaskInput.prototype.getImagePullSecret = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/** @param {string} value */
+proto.meshpaas.TaskInput.prototype.setImagePullSecret = function(value) {
+  jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * repeated Container containers = 4;
  * @return {!Array<!proto.meshpaas.Container>}
  */
 proto.meshpaas.TaskInput.prototype.getContainersList = function() {
   return /** @type{!Array<!proto.meshpaas.Container>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.meshpaas.Container, 3));
+    jspb.Message.getRepeatedWrapperField(this, proto.meshpaas.Container, 4));
 };
 
 
 /** @param {!Array<!proto.meshpaas.Container>} value */
 proto.meshpaas.TaskInput.prototype.setContainersList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 3, value);
+  jspb.Message.setRepeatedWrapperField(this, 4, value);
 };
 
 
@@ -5094,7 +5175,7 @@ proto.meshpaas.TaskInput.prototype.setContainersList = function(value) {
  * @return {!proto.meshpaas.Container}
  */
 proto.meshpaas.TaskInput.prototype.addContainers = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 3, opt_value, proto.meshpaas.Container, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 4, opt_value, proto.meshpaas.Container, opt_index);
 };
 
 
@@ -5194,7 +5275,8 @@ proto.meshpaas.AppInput.toObject = function(includeInstance, msg) {
     replicas: jspb.Message.getFieldWithDefault(msg, 7, 0),
     networking: (f = msg.getNetworking()) && proto.meshpaas.Networking.toObject(includeInstance, f),
     authentication: (f = msg.getAuthentication()) && proto.meshpaas.Authn.toObject(includeInstance, f),
-    authorization: (f = msg.getAuthorization()) && proto.meshpaas.Authz.toObject(includeInstance, f)
+    authorization: (f = msg.getAuthorization()) && proto.meshpaas.Authz.toObject(includeInstance, f),
+    imagePullSecret: jspb.Message.getFieldWithDefault(msg, 14, "")
   };
 
   if (includeInstance) {
@@ -5262,6 +5344,10 @@ proto.meshpaas.AppInput.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.meshpaas.Authz;
       reader.readMessage(value,proto.meshpaas.Authz.deserializeBinaryFromReader);
       msg.setAuthorization(value);
+      break;
+    case 14:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setImagePullSecret(value);
       break;
     default:
       reader.skipField();
@@ -5343,6 +5429,13 @@ proto.meshpaas.AppInput.serializeBinaryToWriter = function(message, writer) {
       13,
       f,
       proto.meshpaas.Authz.serializeBinaryToWriter
+    );
+  }
+  f = message.getImagePullSecret();
+  if (f.length > 0) {
+    writer.writeString(
+      14,
+      f
     );
   }
 };
@@ -5511,6 +5604,21 @@ proto.meshpaas.AppInput.prototype.clearAuthorization = function() {
  */
 proto.meshpaas.AppInput.prototype.hasAuthorization = function() {
   return jspb.Message.getField(this, 13) != null;
+};
+
+
+/**
+ * optional string image_pull_secret = 14;
+ * @return {string}
+ */
+proto.meshpaas.AppInput.prototype.getImagePullSecret = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 14, ""));
+};
+
+
+/** @param {string} value */
+proto.meshpaas.AppInput.prototype.setImagePullSecret = function(value) {
+  jspb.Message.setProto3StringField(this, 14, value);
 };
 
 

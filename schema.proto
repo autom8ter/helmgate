@@ -212,6 +212,7 @@ message App {
   Authn authentication =12[(validator.field) = {msg_exists : true}];
   // application authorization options
   Authz authorization =13[(validator.field) = {msg_exists : true}];
+  string image_pull_secret =14;
   // status tracks the state of the application during it's lifecycle
   AppStatus status =20[(validator.field) = {msg_exists : true}];
 }
@@ -223,7 +224,8 @@ message Task {
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
   // task project
   string project =2[(validator.field) = {regex : "^.{1,225}$"}];
-  repeated Container containers =3[(validator.field) = {msg_exists : true}];
+  string image_pull_secret =3;
+  repeated Container containers =4[(validator.field) = {msg_exists : true}];
   // schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
   string schedule = 7[(validator.field) = {regex : "^.{1,225}$"}];
   // completions is the number of times to execute the task. If completions = 0, the task will run forever
@@ -236,7 +238,8 @@ message TaskInput {
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
   // task project
   string project =2[(validator.field) = {regex : "^.{1,225}$"}];
-  repeated Container containers =3[(validator.field) = {msg_exists : true}];
+  string image_pull_secret =3;
+  repeated Container containers =4[(validator.field) = {msg_exists : true}];
   // schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
   string schedule = 7[(validator.field) = {regex : "^.{1,225}$"}];
   // completions is the number of times to execute the task. If completions = 0, the task will run forever
@@ -257,6 +260,7 @@ message AppInput {
   Authn authentication =12;
   // application authorization options
   Authz authorization =13[(validator.field) = {msg_exists : true}];
+  string image_pull_secret =14;
 }
 
 // Ref is a pointer to a resource

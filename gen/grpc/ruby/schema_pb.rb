@@ -111,19 +111,22 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     optional :networking, :message, 11, "meshpaas.Networking"
     optional :authentication, :message, 12, "meshpaas.Authn"
     optional :authorization, :message, 13, "meshpaas.Authz"
+    optional :image_pull_secret, :string, 14
     optional :status, :message, 20, "meshpaas.AppStatus"
   end
   add_message "meshpaas.Task" do
     optional :name, :string, 1
     optional :project, :string, 2
-    repeated :containers, :message, 3, "meshpaas.Container"
+    optional :image_pull_secret, :string, 3
+    repeated :containers, :message, 4, "meshpaas.Container"
     optional :schedule, :string, 7
     optional :completions, :uint32, 8
   end
   add_message "meshpaas.TaskInput" do
     optional :name, :string, 1
     optional :project, :string, 2
-    repeated :containers, :message, 3, "meshpaas.Container"
+    optional :image_pull_secret, :string, 3
+    repeated :containers, :message, 4, "meshpaas.Container"
     optional :schedule, :string, 7
     optional :completions, :uint32, 8
   end
@@ -135,6 +138,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     optional :networking, :message, 10, "meshpaas.Networking"
     optional :authentication, :message, 12, "meshpaas.Authn"
     optional :authorization, :message, 13, "meshpaas.Authz"
+    optional :image_pull_secret, :string, 14
   end
   add_message "meshpaas.Ref" do
     optional :name, :string, 1

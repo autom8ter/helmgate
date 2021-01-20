@@ -28,7 +28,11 @@ class TaskInput extends \Google\Protobuf\Internal\Message
      */
     private $project = '';
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string image_pull_secret = 3;</code>
+     */
+    private $image_pull_secret = '';
+    /**
+     * Generated from protobuf field <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = {</code>
      */
     private $containers;
     /**
@@ -54,6 +58,7 @@ class TaskInput extends \Google\Protobuf\Internal\Message
      *           name of the task
      *     @type string $project
      *           task project
+     *     @type string $image_pull_secret
      *     @type \Meshpaas\Container[]|\Google\Protobuf\Internal\RepeatedField $containers
      *     @type string $schedule
      *           schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
@@ -119,7 +124,29 @@ class TaskInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string image_pull_secret = 3;</code>
+     * @return string
+     */
+    public function getImagePullSecret()
+    {
+        return $this->image_pull_secret;
+    }
+
+    /**
+     * Generated from protobuf field <code>string image_pull_secret = 3;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setImagePullSecret($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->image_pull_secret = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = {</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getContainers()
@@ -128,7 +155,7 @@ class TaskInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = {</code>
      * @param \Meshpaas\Container[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */

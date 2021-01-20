@@ -20543,6 +20543,16 @@ public final class Schema {
     meshpaas.Schema.AuthzOrBuilder getAuthorizationOrBuilder();
 
     /**
+     * <code>string image_pull_secret = 14;</code>
+     */
+    java.lang.String getImagePullSecret();
+    /**
+     * <code>string image_pull_secret = 14;</code>
+     */
+    com.google.protobuf.ByteString
+        getImagePullSecretBytes();
+
+    /**
      * <pre>
      * status tracks the state of the application during it's lifecycle
      * </pre>
@@ -20588,6 +20598,7 @@ public final class Schema {
       project_ = "";
       containers_ = java.util.Collections.emptyList();
       replicas_ = 0;
+      imagePullSecret_ = "";
     }
 
     @java.lang.Override
@@ -20677,6 +20688,12 @@ public final class Schema {
                 authorization_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 114: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              imagePullSecret_ = s;
               break;
             }
             case 162: {
@@ -20959,6 +20976,40 @@ public final class Schema {
       return getAuthorization();
     }
 
+    public static final int IMAGE_PULL_SECRET_FIELD_NUMBER = 14;
+    private volatile java.lang.Object imagePullSecret_;
+    /**
+     * <code>string image_pull_secret = 14;</code>
+     */
+    public java.lang.String getImagePullSecret() {
+      java.lang.Object ref = imagePullSecret_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        imagePullSecret_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string image_pull_secret = 14;</code>
+     */
+    public com.google.protobuf.ByteString
+        getImagePullSecretBytes() {
+      java.lang.Object ref = imagePullSecret_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        imagePullSecret_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     public static final int STATUS_FIELD_NUMBER = 20;
     private meshpaas.Schema.AppStatus status_;
     /**
@@ -21027,6 +21078,9 @@ public final class Schema {
       if (authorization_ != null) {
         output.writeMessage(13, getAuthorization());
       }
+      if (!getImagePullSecretBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 14, imagePullSecret_);
+      }
       if (status_ != null) {
         output.writeMessage(20, getStatus());
       }
@@ -21064,6 +21118,9 @@ public final class Schema {
       if (authorization_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(13, getAuthorization());
+      }
+      if (!getImagePullSecretBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, imagePullSecret_);
       }
       if (status_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -21108,6 +21165,8 @@ public final class Schema {
         result = result && getAuthorization()
             .equals(other.getAuthorization());
       }
+      result = result && getImagePullSecret()
+          .equals(other.getImagePullSecret());
       result = result && (hasStatus() == other.hasStatus());
       if (hasStatus()) {
         result = result && getStatus()
@@ -21146,6 +21205,8 @@ public final class Schema {
         hash = (37 * hash) + AUTHORIZATION_FIELD_NUMBER;
         hash = (53 * hash) + getAuthorization().hashCode();
       }
+      hash = (37 * hash) + IMAGE_PULL_SECRET_FIELD_NUMBER;
+      hash = (53 * hash) + getImagePullSecret().hashCode();
       if (hasStatus()) {
         hash = (37 * hash) + STATUS_FIELD_NUMBER;
         hash = (53 * hash) + getStatus().hashCode();
@@ -21318,6 +21379,8 @@ public final class Schema {
           authorization_ = null;
           authorizationBuilder_ = null;
         }
+        imagePullSecret_ = "";
+
         if (statusBuilder_ == null) {
           status_ = null;
         } else {
@@ -21379,6 +21442,7 @@ public final class Schema {
         } else {
           result.authorization_ = authorizationBuilder_.build();
         }
+        result.imagePullSecret_ = imagePullSecret_;
         if (statusBuilder_ == null) {
           result.status_ = status_;
         } else {
@@ -21478,6 +21542,10 @@ public final class Schema {
         }
         if (other.hasAuthorization()) {
           mergeAuthorization(other.getAuthorization());
+        }
+        if (!other.getImagePullSecret().isEmpty()) {
+          imagePullSecret_ = other.imagePullSecret_;
+          onChanged();
         }
         if (other.hasStatus()) {
           mergeStatus(other.getStatus());
@@ -22427,6 +22495,75 @@ public final class Schema {
         return authorizationBuilder_;
       }
 
+      private java.lang.Object imagePullSecret_ = "";
+      /**
+       * <code>string image_pull_secret = 14;</code>
+       */
+      public java.lang.String getImagePullSecret() {
+        java.lang.Object ref = imagePullSecret_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          imagePullSecret_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string image_pull_secret = 14;</code>
+       */
+      public com.google.protobuf.ByteString
+          getImagePullSecretBytes() {
+        java.lang.Object ref = imagePullSecret_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          imagePullSecret_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string image_pull_secret = 14;</code>
+       */
+      public Builder setImagePullSecret(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        imagePullSecret_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string image_pull_secret = 14;</code>
+       */
+      public Builder clearImagePullSecret() {
+        
+        imagePullSecret_ = getDefaultInstance().getImagePullSecret();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string image_pull_secret = 14;</code>
+       */
+      public Builder setImagePullSecretBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        imagePullSecret_ = value;
+        onChanged();
+        return this;
+      }
+
       private meshpaas.Schema.AppStatus status_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
           meshpaas.Schema.AppStatus, meshpaas.Schema.AppStatus.Builder, meshpaas.Schema.AppStatusOrBuilder> statusBuilder_;
@@ -22673,25 +22810,35 @@ public final class Schema {
         getProjectBytes();
 
     /**
-     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+     * <code>string image_pull_secret = 3;</code>
+     */
+    java.lang.String getImagePullSecret();
+    /**
+     * <code>string image_pull_secret = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getImagePullSecretBytes();
+
+    /**
+     * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
      */
     java.util.List<meshpaas.Schema.Container> 
         getContainersList();
     /**
-     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
      */
     meshpaas.Schema.Container getContainers(int index);
     /**
-     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
      */
     int getContainersCount();
     /**
-     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
      */
     java.util.List<? extends meshpaas.Schema.ContainerOrBuilder> 
         getContainersOrBuilderList();
     /**
-     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
      */
     meshpaas.Schema.ContainerOrBuilder getContainersOrBuilder(
         int index);
@@ -22742,6 +22889,7 @@ public final class Schema {
     private Task() {
       name_ = "";
       project_ = "";
+      imagePullSecret_ = "";
       containers_ = java.util.Collections.emptyList();
       schedule_ = "";
       completions_ = 0;
@@ -22784,9 +22932,15 @@ public final class Schema {
               break;
             }
             case 26: {
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              imagePullSecret_ = s;
+              break;
+            }
+            case 34: {
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
                 containers_ = new java.util.ArrayList<meshpaas.Schema.Container>();
-                mutable_bitField0_ |= 0x00000004;
+                mutable_bitField0_ |= 0x00000008;
               }
               containers_.add(
                   input.readMessage(meshpaas.Schema.Container.parser(), extensionRegistry));
@@ -22818,7 +22972,7 @@ public final class Schema {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
           containers_ = java.util.Collections.unmodifiableList(containers_);
         }
         this.unknownFields = unknownFields.build();
@@ -22923,35 +23077,69 @@ public final class Schema {
       }
     }
 
-    public static final int CONTAINERS_FIELD_NUMBER = 3;
+    public static final int IMAGE_PULL_SECRET_FIELD_NUMBER = 3;
+    private volatile java.lang.Object imagePullSecret_;
+    /**
+     * <code>string image_pull_secret = 3;</code>
+     */
+    public java.lang.String getImagePullSecret() {
+      java.lang.Object ref = imagePullSecret_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        imagePullSecret_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string image_pull_secret = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getImagePullSecretBytes() {
+      java.lang.Object ref = imagePullSecret_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        imagePullSecret_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CONTAINERS_FIELD_NUMBER = 4;
     private java.util.List<meshpaas.Schema.Container> containers_;
     /**
-     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
      */
     public java.util.List<meshpaas.Schema.Container> getContainersList() {
       return containers_;
     }
     /**
-     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
      */
     public java.util.List<? extends meshpaas.Schema.ContainerOrBuilder> 
         getContainersOrBuilderList() {
       return containers_;
     }
     /**
-     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
      */
     public int getContainersCount() {
       return containers_.size();
     }
     /**
-     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
      */
     public meshpaas.Schema.Container getContainers(int index) {
       return containers_.get(index);
     }
     /**
-     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
      */
     public meshpaas.Schema.ContainerOrBuilder getContainersOrBuilder(
         int index) {
@@ -23033,8 +23221,11 @@ public final class Schema {
       if (!getProjectBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, project_);
       }
+      if (!getImagePullSecretBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, imagePullSecret_);
+      }
       for (int i = 0; i < containers_.size(); i++) {
-        output.writeMessage(3, containers_.get(i));
+        output.writeMessage(4, containers_.get(i));
       }
       if (!getScheduleBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, schedule_);
@@ -23057,9 +23248,12 @@ public final class Schema {
       if (!getProjectBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, project_);
       }
+      if (!getImagePullSecretBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, imagePullSecret_);
+      }
       for (int i = 0; i < containers_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, containers_.get(i));
+          .computeMessageSize(4, containers_.get(i));
       }
       if (!getScheduleBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, schedule_);
@@ -23088,6 +23282,8 @@ public final class Schema {
           .equals(other.getName());
       result = result && getProject()
           .equals(other.getProject());
+      result = result && getImagePullSecret()
+          .equals(other.getImagePullSecret());
       result = result && getContainersList()
           .equals(other.getContainersList());
       result = result && getSchedule()
@@ -23109,6 +23305,8 @@ public final class Schema {
       hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + PROJECT_FIELD_NUMBER;
       hash = (53 * hash) + getProject().hashCode();
+      hash = (37 * hash) + IMAGE_PULL_SECRET_FIELD_NUMBER;
+      hash = (53 * hash) + getImagePullSecret().hashCode();
       if (getContainersCount() > 0) {
         hash = (37 * hash) + CONTAINERS_FIELD_NUMBER;
         hash = (53 * hash) + getContainersList().hashCode();
@@ -23259,9 +23457,11 @@ public final class Schema {
 
         project_ = "";
 
+        imagePullSecret_ = "";
+
         if (containersBuilder_ == null) {
           containers_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           containersBuilder_.clear();
         }
@@ -23299,10 +23499,11 @@ public final class Schema {
         int to_bitField0_ = 0;
         result.name_ = name_;
         result.project_ = project_;
+        result.imagePullSecret_ = imagePullSecret_;
         if (containersBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          if (((bitField0_ & 0x00000008) == 0x00000008)) {
             containers_ = java.util.Collections.unmodifiableList(containers_);
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
           }
           result.containers_ = containers_;
         } else {
@@ -23367,11 +23568,15 @@ public final class Schema {
           project_ = other.project_;
           onChanged();
         }
+        if (!other.getImagePullSecret().isEmpty()) {
+          imagePullSecret_ = other.imagePullSecret_;
+          onChanged();
+        }
         if (containersBuilder_ == null) {
           if (!other.containers_.isEmpty()) {
             if (containers_.isEmpty()) {
               containers_ = other.containers_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000008);
             } else {
               ensureContainersIsMutable();
               containers_.addAll(other.containers_);
@@ -23384,7 +23589,7 @@ public final class Schema {
               containersBuilder_.dispose();
               containersBuilder_ = null;
               containers_ = other.containers_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000008);
               containersBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getContainersFieldBuilder() : null;
@@ -23608,12 +23813,81 @@ public final class Schema {
         return this;
       }
 
+      private java.lang.Object imagePullSecret_ = "";
+      /**
+       * <code>string image_pull_secret = 3;</code>
+       */
+      public java.lang.String getImagePullSecret() {
+        java.lang.Object ref = imagePullSecret_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          imagePullSecret_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string image_pull_secret = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getImagePullSecretBytes() {
+        java.lang.Object ref = imagePullSecret_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          imagePullSecret_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string image_pull_secret = 3;</code>
+       */
+      public Builder setImagePullSecret(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        imagePullSecret_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string image_pull_secret = 3;</code>
+       */
+      public Builder clearImagePullSecret() {
+        
+        imagePullSecret_ = getDefaultInstance().getImagePullSecret();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string image_pull_secret = 3;</code>
+       */
+      public Builder setImagePullSecretBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        imagePullSecret_ = value;
+        onChanged();
+        return this;
+      }
+
       private java.util.List<meshpaas.Schema.Container> containers_ =
         java.util.Collections.emptyList();
       private void ensureContainersIsMutable() {
-        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
           containers_ = new java.util.ArrayList<meshpaas.Schema.Container>(containers_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000008;
          }
       }
 
@@ -23621,7 +23895,7 @@ public final class Schema {
           meshpaas.Schema.Container, meshpaas.Schema.Container.Builder, meshpaas.Schema.ContainerOrBuilder> containersBuilder_;
 
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public java.util.List<meshpaas.Schema.Container> getContainersList() {
         if (containersBuilder_ == null) {
@@ -23631,7 +23905,7 @@ public final class Schema {
         }
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public int getContainersCount() {
         if (containersBuilder_ == null) {
@@ -23641,7 +23915,7 @@ public final class Schema {
         }
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public meshpaas.Schema.Container getContainers(int index) {
         if (containersBuilder_ == null) {
@@ -23651,7 +23925,7 @@ public final class Schema {
         }
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public Builder setContainers(
           int index, meshpaas.Schema.Container value) {
@@ -23668,7 +23942,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public Builder setContainers(
           int index, meshpaas.Schema.Container.Builder builderForValue) {
@@ -23682,7 +23956,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public Builder addContainers(meshpaas.Schema.Container value) {
         if (containersBuilder_ == null) {
@@ -23698,7 +23972,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public Builder addContainers(
           int index, meshpaas.Schema.Container value) {
@@ -23715,7 +23989,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public Builder addContainers(
           meshpaas.Schema.Container.Builder builderForValue) {
@@ -23729,7 +24003,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public Builder addContainers(
           int index, meshpaas.Schema.Container.Builder builderForValue) {
@@ -23743,7 +24017,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public Builder addAllContainers(
           java.lang.Iterable<? extends meshpaas.Schema.Container> values) {
@@ -23758,12 +24032,12 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public Builder clearContainers() {
         if (containersBuilder_ == null) {
           containers_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
           onChanged();
         } else {
           containersBuilder_.clear();
@@ -23771,7 +24045,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public Builder removeContainers(int index) {
         if (containersBuilder_ == null) {
@@ -23784,14 +24058,14 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public meshpaas.Schema.Container.Builder getContainersBuilder(
           int index) {
         return getContainersFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public meshpaas.Schema.ContainerOrBuilder getContainersOrBuilder(
           int index) {
@@ -23801,7 +24075,7 @@ public final class Schema {
         }
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public java.util.List<? extends meshpaas.Schema.ContainerOrBuilder> 
            getContainersOrBuilderList() {
@@ -23812,14 +24086,14 @@ public final class Schema {
         }
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public meshpaas.Schema.Container.Builder addContainersBuilder() {
         return getContainersFieldBuilder().addBuilder(
             meshpaas.Schema.Container.getDefaultInstance());
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public meshpaas.Schema.Container.Builder addContainersBuilder(
           int index) {
@@ -23827,7 +24101,7 @@ public final class Schema {
             index, meshpaas.Schema.Container.getDefaultInstance());
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public java.util.List<meshpaas.Schema.Container.Builder> 
            getContainersBuilderList() {
@@ -23840,7 +24114,7 @@ public final class Schema {
           containersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               meshpaas.Schema.Container, meshpaas.Schema.Container.Builder, meshpaas.Schema.ContainerOrBuilder>(
                   containers_,
-                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  ((bitField0_ & 0x00000008) == 0x00000008),
                   getParentForChildren(),
                   isClean());
           containers_ = null;
@@ -24068,25 +24342,35 @@ public final class Schema {
         getProjectBytes();
 
     /**
-     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+     * <code>string image_pull_secret = 3;</code>
+     */
+    java.lang.String getImagePullSecret();
+    /**
+     * <code>string image_pull_secret = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getImagePullSecretBytes();
+
+    /**
+     * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
      */
     java.util.List<meshpaas.Schema.Container> 
         getContainersList();
     /**
-     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
      */
     meshpaas.Schema.Container getContainers(int index);
     /**
-     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
      */
     int getContainersCount();
     /**
-     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
      */
     java.util.List<? extends meshpaas.Schema.ContainerOrBuilder> 
         getContainersOrBuilderList();
     /**
-     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
      */
     meshpaas.Schema.ContainerOrBuilder getContainersOrBuilder(
         int index);
@@ -24137,6 +24421,7 @@ public final class Schema {
     private TaskInput() {
       name_ = "";
       project_ = "";
+      imagePullSecret_ = "";
       containers_ = java.util.Collections.emptyList();
       schedule_ = "";
       completions_ = 0;
@@ -24179,9 +24464,15 @@ public final class Schema {
               break;
             }
             case 26: {
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              imagePullSecret_ = s;
+              break;
+            }
+            case 34: {
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
                 containers_ = new java.util.ArrayList<meshpaas.Schema.Container>();
-                mutable_bitField0_ |= 0x00000004;
+                mutable_bitField0_ |= 0x00000008;
               }
               containers_.add(
                   input.readMessage(meshpaas.Schema.Container.parser(), extensionRegistry));
@@ -24213,7 +24504,7 @@ public final class Schema {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
           containers_ = java.util.Collections.unmodifiableList(containers_);
         }
         this.unknownFields = unknownFields.build();
@@ -24318,35 +24609,69 @@ public final class Schema {
       }
     }
 
-    public static final int CONTAINERS_FIELD_NUMBER = 3;
+    public static final int IMAGE_PULL_SECRET_FIELD_NUMBER = 3;
+    private volatile java.lang.Object imagePullSecret_;
+    /**
+     * <code>string image_pull_secret = 3;</code>
+     */
+    public java.lang.String getImagePullSecret() {
+      java.lang.Object ref = imagePullSecret_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        imagePullSecret_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string image_pull_secret = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getImagePullSecretBytes() {
+      java.lang.Object ref = imagePullSecret_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        imagePullSecret_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CONTAINERS_FIELD_NUMBER = 4;
     private java.util.List<meshpaas.Schema.Container> containers_;
     /**
-     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
      */
     public java.util.List<meshpaas.Schema.Container> getContainersList() {
       return containers_;
     }
     /**
-     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
      */
     public java.util.List<? extends meshpaas.Schema.ContainerOrBuilder> 
         getContainersOrBuilderList() {
       return containers_;
     }
     /**
-     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
      */
     public int getContainersCount() {
       return containers_.size();
     }
     /**
-     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
      */
     public meshpaas.Schema.Container getContainers(int index) {
       return containers_.get(index);
     }
     /**
-     * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
      */
     public meshpaas.Schema.ContainerOrBuilder getContainersOrBuilder(
         int index) {
@@ -24428,8 +24753,11 @@ public final class Schema {
       if (!getProjectBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, project_);
       }
+      if (!getImagePullSecretBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, imagePullSecret_);
+      }
       for (int i = 0; i < containers_.size(); i++) {
-        output.writeMessage(3, containers_.get(i));
+        output.writeMessage(4, containers_.get(i));
       }
       if (!getScheduleBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, schedule_);
@@ -24452,9 +24780,12 @@ public final class Schema {
       if (!getProjectBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, project_);
       }
+      if (!getImagePullSecretBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, imagePullSecret_);
+      }
       for (int i = 0; i < containers_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, containers_.get(i));
+          .computeMessageSize(4, containers_.get(i));
       }
       if (!getScheduleBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, schedule_);
@@ -24483,6 +24814,8 @@ public final class Schema {
           .equals(other.getName());
       result = result && getProject()
           .equals(other.getProject());
+      result = result && getImagePullSecret()
+          .equals(other.getImagePullSecret());
       result = result && getContainersList()
           .equals(other.getContainersList());
       result = result && getSchedule()
@@ -24504,6 +24837,8 @@ public final class Schema {
       hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + PROJECT_FIELD_NUMBER;
       hash = (53 * hash) + getProject().hashCode();
+      hash = (37 * hash) + IMAGE_PULL_SECRET_FIELD_NUMBER;
+      hash = (53 * hash) + getImagePullSecret().hashCode();
       if (getContainersCount() > 0) {
         hash = (37 * hash) + CONTAINERS_FIELD_NUMBER;
         hash = (53 * hash) + getContainersList().hashCode();
@@ -24654,9 +24989,11 @@ public final class Schema {
 
         project_ = "";
 
+        imagePullSecret_ = "";
+
         if (containersBuilder_ == null) {
           containers_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           containersBuilder_.clear();
         }
@@ -24694,10 +25031,11 @@ public final class Schema {
         int to_bitField0_ = 0;
         result.name_ = name_;
         result.project_ = project_;
+        result.imagePullSecret_ = imagePullSecret_;
         if (containersBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          if (((bitField0_ & 0x00000008) == 0x00000008)) {
             containers_ = java.util.Collections.unmodifiableList(containers_);
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
           }
           result.containers_ = containers_;
         } else {
@@ -24762,11 +25100,15 @@ public final class Schema {
           project_ = other.project_;
           onChanged();
         }
+        if (!other.getImagePullSecret().isEmpty()) {
+          imagePullSecret_ = other.imagePullSecret_;
+          onChanged();
+        }
         if (containersBuilder_ == null) {
           if (!other.containers_.isEmpty()) {
             if (containers_.isEmpty()) {
               containers_ = other.containers_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000008);
             } else {
               ensureContainersIsMutable();
               containers_.addAll(other.containers_);
@@ -24779,7 +25121,7 @@ public final class Schema {
               containersBuilder_.dispose();
               containersBuilder_ = null;
               containers_ = other.containers_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000008);
               containersBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getContainersFieldBuilder() : null;
@@ -25003,12 +25345,81 @@ public final class Schema {
         return this;
       }
 
+      private java.lang.Object imagePullSecret_ = "";
+      /**
+       * <code>string image_pull_secret = 3;</code>
+       */
+      public java.lang.String getImagePullSecret() {
+        java.lang.Object ref = imagePullSecret_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          imagePullSecret_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string image_pull_secret = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getImagePullSecretBytes() {
+        java.lang.Object ref = imagePullSecret_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          imagePullSecret_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string image_pull_secret = 3;</code>
+       */
+      public Builder setImagePullSecret(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        imagePullSecret_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string image_pull_secret = 3;</code>
+       */
+      public Builder clearImagePullSecret() {
+        
+        imagePullSecret_ = getDefaultInstance().getImagePullSecret();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string image_pull_secret = 3;</code>
+       */
+      public Builder setImagePullSecretBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        imagePullSecret_ = value;
+        onChanged();
+        return this;
+      }
+
       private java.util.List<meshpaas.Schema.Container> containers_ =
         java.util.Collections.emptyList();
       private void ensureContainersIsMutable() {
-        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
           containers_ = new java.util.ArrayList<meshpaas.Schema.Container>(containers_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000008;
          }
       }
 
@@ -25016,7 +25427,7 @@ public final class Schema {
           meshpaas.Schema.Container, meshpaas.Schema.Container.Builder, meshpaas.Schema.ContainerOrBuilder> containersBuilder_;
 
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public java.util.List<meshpaas.Schema.Container> getContainersList() {
         if (containersBuilder_ == null) {
@@ -25026,7 +25437,7 @@ public final class Schema {
         }
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public int getContainersCount() {
         if (containersBuilder_ == null) {
@@ -25036,7 +25447,7 @@ public final class Schema {
         }
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public meshpaas.Schema.Container getContainers(int index) {
         if (containersBuilder_ == null) {
@@ -25046,7 +25457,7 @@ public final class Schema {
         }
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public Builder setContainers(
           int index, meshpaas.Schema.Container value) {
@@ -25063,7 +25474,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public Builder setContainers(
           int index, meshpaas.Schema.Container.Builder builderForValue) {
@@ -25077,7 +25488,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public Builder addContainers(meshpaas.Schema.Container value) {
         if (containersBuilder_ == null) {
@@ -25093,7 +25504,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public Builder addContainers(
           int index, meshpaas.Schema.Container value) {
@@ -25110,7 +25521,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public Builder addContainers(
           meshpaas.Schema.Container.Builder builderForValue) {
@@ -25124,7 +25535,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public Builder addContainers(
           int index, meshpaas.Schema.Container.Builder builderForValue) {
@@ -25138,7 +25549,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public Builder addAllContainers(
           java.lang.Iterable<? extends meshpaas.Schema.Container> values) {
@@ -25153,12 +25564,12 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public Builder clearContainers() {
         if (containersBuilder_ == null) {
           containers_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
           onChanged();
         } else {
           containersBuilder_.clear();
@@ -25166,7 +25577,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public Builder removeContainers(int index) {
         if (containersBuilder_ == null) {
@@ -25179,14 +25590,14 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public meshpaas.Schema.Container.Builder getContainersBuilder(
           int index) {
         return getContainersFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public meshpaas.Schema.ContainerOrBuilder getContainersOrBuilder(
           int index) {
@@ -25196,7 +25607,7 @@ public final class Schema {
         }
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public java.util.List<? extends meshpaas.Schema.ContainerOrBuilder> 
            getContainersOrBuilderList() {
@@ -25207,14 +25618,14 @@ public final class Schema {
         }
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public meshpaas.Schema.Container.Builder addContainersBuilder() {
         return getContainersFieldBuilder().addBuilder(
             meshpaas.Schema.Container.getDefaultInstance());
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public meshpaas.Schema.Container.Builder addContainersBuilder(
           int index) {
@@ -25222,7 +25633,7 @@ public final class Schema {
             index, meshpaas.Schema.Container.getDefaultInstance());
       }
       /**
-       * <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = { ... }</code>
        */
       public java.util.List<meshpaas.Schema.Container.Builder> 
            getContainersBuilderList() {
@@ -25235,7 +25646,7 @@ public final class Schema {
           containersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               meshpaas.Schema.Container, meshpaas.Schema.Container.Builder, meshpaas.Schema.ContainerOrBuilder>(
                   containers_,
-                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  ((bitField0_ & 0x00000008) == 0x00000008),
                   getParentForChildren(),
                   isClean());
           containers_ = null;
@@ -25557,6 +25968,16 @@ public final class Schema {
      * <code>.meshpaas.Authz authorization = 13 [(.validator.field) = { ... }</code>
      */
     meshpaas.Schema.AuthzOrBuilder getAuthorizationOrBuilder();
+
+    /**
+     * <code>string image_pull_secret = 14;</code>
+     */
+    java.lang.String getImagePullSecret();
+    /**
+     * <code>string image_pull_secret = 14;</code>
+     */
+    com.google.protobuf.ByteString
+        getImagePullSecretBytes();
   }
   /**
    * <pre>
@@ -25579,6 +26000,7 @@ public final class Schema {
       project_ = "";
       containers_ = java.util.Collections.emptyList();
       replicas_ = 0;
+      imagePullSecret_ = "";
     }
 
     @java.lang.Override
@@ -25668,6 +26090,12 @@ public final class Schema {
                 authorization_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 114: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              imagePullSecret_ = s;
               break;
             }
             default: {
@@ -25925,6 +26353,40 @@ public final class Schema {
       return getAuthorization();
     }
 
+    public static final int IMAGE_PULL_SECRET_FIELD_NUMBER = 14;
+    private volatile java.lang.Object imagePullSecret_;
+    /**
+     * <code>string image_pull_secret = 14;</code>
+     */
+    public java.lang.String getImagePullSecret() {
+      java.lang.Object ref = imagePullSecret_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        imagePullSecret_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string image_pull_secret = 14;</code>
+     */
+    public com.google.protobuf.ByteString
+        getImagePullSecretBytes() {
+      java.lang.Object ref = imagePullSecret_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        imagePullSecret_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -25960,6 +26422,9 @@ public final class Schema {
       if (authorization_ != null) {
         output.writeMessage(13, getAuthorization());
       }
+      if (!getImagePullSecretBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 14, imagePullSecret_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -25994,6 +26459,9 @@ public final class Schema {
       if (authorization_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(13, getAuthorization());
+      }
+      if (!getImagePullSecretBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, imagePullSecret_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -26034,6 +26502,8 @@ public final class Schema {
         result = result && getAuthorization()
             .equals(other.getAuthorization());
       }
+      result = result && getImagePullSecret()
+          .equals(other.getImagePullSecret());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -26067,6 +26537,8 @@ public final class Schema {
         hash = (37 * hash) + AUTHORIZATION_FIELD_NUMBER;
         hash = (53 * hash) + getAuthorization().hashCode();
       }
+      hash = (37 * hash) + IMAGE_PULL_SECRET_FIELD_NUMBER;
+      hash = (53 * hash) + getImagePullSecret().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -26235,6 +26707,8 @@ public final class Schema {
           authorization_ = null;
           authorizationBuilder_ = null;
         }
+        imagePullSecret_ = "";
+
         return this;
       }
 
@@ -26290,6 +26764,7 @@ public final class Schema {
         } else {
           result.authorization_ = authorizationBuilder_.build();
         }
+        result.imagePullSecret_ = imagePullSecret_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -26384,6 +26859,10 @@ public final class Schema {
         }
         if (other.hasAuthorization()) {
           mergeAuthorization(other.getAuthorization());
+        }
+        if (!other.getImagePullSecret().isEmpty()) {
+          imagePullSecret_ = other.imagePullSecret_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -27292,6 +27771,75 @@ public final class Schema {
           authorization_ = null;
         }
         return authorizationBuilder_;
+      }
+
+      private java.lang.Object imagePullSecret_ = "";
+      /**
+       * <code>string image_pull_secret = 14;</code>
+       */
+      public java.lang.String getImagePullSecret() {
+        java.lang.Object ref = imagePullSecret_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          imagePullSecret_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string image_pull_secret = 14;</code>
+       */
+      public com.google.protobuf.ByteString
+          getImagePullSecretBytes() {
+        java.lang.Object ref = imagePullSecret_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          imagePullSecret_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string image_pull_secret = 14;</code>
+       */
+      public Builder setImagePullSecret(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        imagePullSecret_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string image_pull_secret = 14;</code>
+       */
+      public Builder clearImagePullSecret() {
+        
+        imagePullSecret_ = getDefaultInstance().getImagePullSecret();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string image_pull_secret = 14;</code>
+       */
+      public Builder setImagePullSecretBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        imagePullSecret_ = value;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -34369,83 +34917,86 @@ public final class Schema {
       "\003(\0132\036.meshpaas.Container.PortsEntryB\006\342\337\037" +
       "\002 \001\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 " +
       "\001(\t:\0028\001\032,\n\nPortsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
-      "lue\030\002 \001(\r:\0028\001\"\313\002\n\003App\022\036\n\004name\030\001 \001(\tB\020\342\337\037" +
+      "lue\030\002 \001(\r:\0028\001\"\346\002\n\003App\022\036\n\004name\030\001 \001(\tB\020\342\337\037" +
       "\014\n\n^.{1,225}$\022!\n\007project\030\002 \001(\tB\020\342\337\037\014\n\n^." +
       "{1,225}$\022/\n\ncontainers\030\003 \003(\0132\023.meshpaas." +
       "ContainerB\006\342\337\037\002 \001\022\020\n\010replicas\030\010 \001(\r\0220\n\nn" +
       "etworking\030\013 \001(\0132\024.meshpaas.NetworkingB\006\342" +
       "\337\037\002 \001\022/\n\016authentication\030\014 \001(\0132\017.meshpaas" +
       ".AuthnB\006\342\337\037\002 \001\022.\n\rauthorization\030\r \001(\0132\017." +
-      "meshpaas.AuthzB\006\342\337\037\002 \001\022+\n\006status\030\024 \001(\0132\023" +
-      ".meshpaas.AppStatusB\006\342\337\037\002 \001\"\263\001\n\004Task\022\036\n\004" +
-      "name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022!\n\007project\030" +
-      "\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022/\n\ncontainers\030\003 " +
-      "\003(\0132\023.meshpaas.ContainerB\006\342\337\037\002 \001\022\"\n\010sche" +
-      "dule\030\007 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\023\n\013completi" +
-      "ons\030\010 \001(\r\"\270\001\n\tTaskInput\022\036\n\004name\030\001 \001(\tB\020\342" +
+      "meshpaas.AuthzB\006\342\337\037\002 \001\022\031\n\021image_pull_sec" +
+      "ret\030\016 \001(\t\022+\n\006status\030\024 \001(\0132\023.meshpaas.App" +
+      "StatusB\006\342\337\037\002 \001\"\316\001\n\004Task\022\036\n\004name\030\001 \001(\tB\020\342" +
       "\337\037\014\n\n^.{1,225}$\022!\n\007project\030\002 \001(\tB\020\342\337\037\014\n\n" +
-      "^.{1,225}$\022/\n\ncontainers\030\003 \003(\0132\023.meshpaa" +
-      "s.ContainerB\006\342\337\037\002 \001\022\"\n\010schedule\030\007 \001(\tB\020\342" +
-      "\337\037\014\n\n^.{1,225}$\022\023\n\013completions\030\010 \001(\r\"\233\002\n" +
-      "\010AppInput\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}" +
-      "$\022!\n\007project\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022/\n\n" +
-      "containers\030\003 \003(\0132\023.meshpaas.ContainerB\006\342" +
-      "\337\037\002 \001\022\020\n\010replicas\030\007 \001(\r\0220\n\nnetworking\030\n " +
-      "\001(\0132\024.meshpaas.NetworkingB\006\342\337\037\002 \001\022\'\n\016aut" +
-      "hentication\030\014 \001(\0132\017.meshpaas.Authn\022.\n\rau" +
-      "thorization\030\r \001(\0132\017.meshpaas.AuthzB\006\342\337\037\002" +
-      " \001\"H\n\003Ref\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}" +
-      "$\022!\n\007project\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\";\n\007" +
-      "Replica\022\r\n\005phase\030\001 \001(\t\022\021\n\tcondition\030\002 \001(" +
-      "\t\022\016\n\006reason\030\003 \001(\t\"0\n\tAppStatus\022#\n\010replic" +
-      "as\030\001 \003(\0132\021.meshpaas.Replica\"\026\n\003Log\022\017\n\007me" +
-      "ssage\030\001 \001(\t\"+\n\004Apps\022#\n\014applications\030\001 \003(" +
-      "\0132\r.meshpaas.App\"&\n\005Tasks\022\035\n\005tasks\030\001 \003(\013" +
-      "2\016.meshpaas.Task\".\n\014ProjectInput\022\036\n\004name" +
-      "\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\"\027\n\007Project\022\014\n\004n" +
-      "ame\030\001 \001(\t\",\n\nProjectRef\022\036\n\004name\030\001 \001(\tB\020\342" +
-      "\337\037\014\n\n^.{1,225}$\"\034\n\010Projects\022\020\n\010projects\030" +
-      "\001 \003(\t*=\n\nSecretType\022\n\n\006OPAQUE\020\000\022\020\n\014TLS_C" +
-      "ERT_KEY\020\001\022\021\n\rDOCKER_CONFIG\020\002*p\n\021Transpor" +
-      "tProtocol\022\024\n\020INVALID_PROTOCOL\020\000\022\010\n\004HTTP\020" +
-      "\001\022\t\n\005HTTPS\020\002\022\010\n\004GRPC\020\003\022\t\n\005HTTP2\020\004\022\t\n\005MON" +
-      "GO\020\005\022\007\n\003TCP\020\006\022\007\n\003TLS\020\007*Z\n\007TLSmode\022\017\n\013PAS" +
-      "STHROUGH\020\000\022\n\n\006SIMPLE\020\001\022\n\n\006MUTUAL\020\002\022\024\n\020AU" +
-      "TO_PASSTHROUGH\020\003\022\020\n\014ISTIO_MUTUAL\020\0042\267\n\n\017M" +
-      "eshPaasService\022<\n\rCreateProject\022\026.meshpa" +
-      "as.ProjectInput\032\021.meshpaas.Project\"\000\022<\n\014" +
-      "ListProjects\022\026.google.protobuf.Empty\032\022.m" +
-      "eshpaas.Projects\"\000\022?\n\rDeleteProject\022\024.me" +
-      "shpaas.ProjectRef\032\026.google.protobuf.Empt" +
-      "y\"\000\0227\n\nGetProject\022\024.meshpaas.ProjectRef\032" +
-      "\021.meshpaas.Project\"\000\022<\n\rUpdateProject\022\026." +
-      "meshpaas.ProjectInput\032\021.meshpaas.Project" +
-      "\"\000\0220\n\tCreateApp\022\022.meshpaas.AppInput\032\r.me" +
-      "shpaas.App\"\000\0220\n\tUpdateApp\022\022.meshpaas.App" +
-      "Input\032\r.meshpaas.App\"\000\0224\n\tDeleteApp\022\r.me" +
-      "shpaas.Ref\032\026.google.protobuf.Empty\"\000\022(\n\006" +
-      "GetApp\022\r.meshpaas.Ref\032\r.meshpaas.App\"\000\0222" +
-      "\n\010ListApps\022\024.meshpaas.ProjectRef\032\016.meshp" +
-      "aas.Apps\"\000\0223\n\nCreateTask\022\023.meshpaas.Task" +
-      "Input\032\016.meshpaas.Task\"\000\0223\n\nUpdateTask\022\023." +
-      "meshpaas.TaskInput\032\016.meshpaas.Task\"\000\0225\n\n" +
-      "DeleteTask\022\r.meshpaas.Ref\032\026.google.proto" +
-      "buf.Empty\"\000\022*\n\007GetTask\022\r.meshpaas.Ref\032\016." +
-      "meshpaas.Task\"\000\0224\n\tListTasks\022\024.meshpaas." +
-      "ProjectRef\032\017.meshpaas.Tasks\"\000\022<\n\rCreateG" +
-      "ateway\022\026.meshpaas.GatewayInput\032\021.meshpaa" +
-      "s.Gateway\"\000\022<\n\rUpdateGateway\022\026.meshpaas." +
-      "GatewayInput\032\021.meshpaas.Gateway\"\000\0228\n\rDel" +
-      "eteGateway\022\r.meshpaas.Ref\032\026.google.proto" +
-      "buf.Empty\"\000\0220\n\nGetGateway\022\r.meshpaas.Ref" +
-      "\032\021.meshpaas.Gateway\"\000\0229\n\014CreateSecret\022\025." +
-      "meshpaas.SecretInput\032\020.meshpaas.Secret\"\000" +
-      "\0229\n\014UpdateSecret\022\025.meshpaas.SecretInput\032" +
-      "\020.meshpaas.Secret\"\000\0227\n\014DeleteSecret\022\r.me" +
-      "shpaas.Ref\032\026.google.protobuf.Empty\"\000\022.\n\t" +
-      "GetSecret\022\r.meshpaas.Ref\032\020.meshpaas.Secr" +
-      "et\"\000\022.\n\nStreamLogs\022\r.meshpaas.Ref\032\r.mesh" +
-      "paas.Log\"\0000\001B\014Z\nmeshpaaspbb\006proto3"
+      "^.{1,225}$\022\031\n\021image_pull_secret\030\003 \001(\t\022/\n" +
+      "\ncontainers\030\004 \003(\0132\023.meshpaas.ContainerB\006" +
+      "\342\337\037\002 \001\022\"\n\010schedule\030\007 \001(\tB\020\342\337\037\014\n\n^.{1,225" +
+      "}$\022\023\n\013completions\030\010 \001(\r\"\323\001\n\tTaskInput\022\036\n" +
+      "\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022!\n\007project" +
+      "\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\031\n\021image_pull_s" +
+      "ecret\030\003 \001(\t\022/\n\ncontainers\030\004 \003(\0132\023.meshpa" +
+      "as.ContainerB\006\342\337\037\002 \001\022\"\n\010schedule\030\007 \001(\tB\020" +
+      "\342\337\037\014\n\n^.{1,225}$\022\023\n\013completions\030\010 \001(\r\"\266\002" +
+      "\n\010AppInput\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225" +
+      "}$\022!\n\007project\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022/\n" +
+      "\ncontainers\030\003 \003(\0132\023.meshpaas.ContainerB\006" +
+      "\342\337\037\002 \001\022\020\n\010replicas\030\007 \001(\r\0220\n\nnetworking\030\n" +
+      " \001(\0132\024.meshpaas.NetworkingB\006\342\337\037\002 \001\022\'\n\016au" +
+      "thentication\030\014 \001(\0132\017.meshpaas.Authn\022.\n\ra" +
+      "uthorization\030\r \001(\0132\017.meshpaas.AuthzB\006\342\337\037" +
+      "\002 \001\022\031\n\021image_pull_secret\030\016 \001(\t\"H\n\003Ref\022\036\n" +
+      "\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022!\n\007project" +
+      "\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\";\n\007Replica\022\r\n\005p" +
+      "hase\030\001 \001(\t\022\021\n\tcondition\030\002 \001(\t\022\016\n\006reason\030" +
+      "\003 \001(\t\"0\n\tAppStatus\022#\n\010replicas\030\001 \003(\0132\021.m" +
+      "eshpaas.Replica\"\026\n\003Log\022\017\n\007message\030\001 \001(\t\"" +
+      "+\n\004Apps\022#\n\014applications\030\001 \003(\0132\r.meshpaas" +
+      ".App\"&\n\005Tasks\022\035\n\005tasks\030\001 \003(\0132\016.meshpaas." +
+      "Task\".\n\014ProjectInput\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014" +
+      "\n\n^.{1,225}$\"\027\n\007Project\022\014\n\004name\030\001 \001(\t\",\n" +
+      "\nProjectRef\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,22" +
+      "5}$\"\034\n\010Projects\022\020\n\010projects\030\001 \003(\t*=\n\nSec" +
+      "retType\022\n\n\006OPAQUE\020\000\022\020\n\014TLS_CERT_KEY\020\001\022\021\n" +
+      "\rDOCKER_CONFIG\020\002*p\n\021TransportProtocol\022\024\n" +
+      "\020INVALID_PROTOCOL\020\000\022\010\n\004HTTP\020\001\022\t\n\005HTTPS\020\002" +
+      "\022\010\n\004GRPC\020\003\022\t\n\005HTTP2\020\004\022\t\n\005MONGO\020\005\022\007\n\003TCP\020" +
+      "\006\022\007\n\003TLS\020\007*Z\n\007TLSmode\022\017\n\013PASSTHROUGH\020\000\022\n" +
+      "\n\006SIMPLE\020\001\022\n\n\006MUTUAL\020\002\022\024\n\020AUTO_PASSTHROU" +
+      "GH\020\003\022\020\n\014ISTIO_MUTUAL\020\0042\267\n\n\017MeshPaasServi" +
+      "ce\022<\n\rCreateProject\022\026.meshpaas.ProjectIn" +
+      "put\032\021.meshpaas.Project\"\000\022<\n\014ListProjects" +
+      "\022\026.google.protobuf.Empty\032\022.meshpaas.Proj" +
+      "ects\"\000\022?\n\rDeleteProject\022\024.meshpaas.Proje" +
+      "ctRef\032\026.google.protobuf.Empty\"\000\0227\n\nGetPr" +
+      "oject\022\024.meshpaas.ProjectRef\032\021.meshpaas.P" +
+      "roject\"\000\022<\n\rUpdateProject\022\026.meshpaas.Pro" +
+      "jectInput\032\021.meshpaas.Project\"\000\0220\n\tCreate" +
+      "App\022\022.meshpaas.AppInput\032\r.meshpaas.App\"\000" +
+      "\0220\n\tUpdateApp\022\022.meshpaas.AppInput\032\r.mesh" +
+      "paas.App\"\000\0224\n\tDeleteApp\022\r.meshpaas.Ref\032\026" +
+      ".google.protobuf.Empty\"\000\022(\n\006GetApp\022\r.mes" +
+      "hpaas.Ref\032\r.meshpaas.App\"\000\0222\n\010ListApps\022\024" +
+      ".meshpaas.ProjectRef\032\016.meshpaas.Apps\"\000\0223" +
+      "\n\nCreateTask\022\023.meshpaas.TaskInput\032\016.mesh" +
+      "paas.Task\"\000\0223\n\nUpdateTask\022\023.meshpaas.Tas" +
+      "kInput\032\016.meshpaas.Task\"\000\0225\n\nDeleteTask\022\r" +
+      ".meshpaas.Ref\032\026.google.protobuf.Empty\"\000\022" +
+      "*\n\007GetTask\022\r.meshpaas.Ref\032\016.meshpaas.Tas" +
+      "k\"\000\0224\n\tListTasks\022\024.meshpaas.ProjectRef\032\017" +
+      ".meshpaas.Tasks\"\000\022<\n\rCreateGateway\022\026.mes" +
+      "hpaas.GatewayInput\032\021.meshpaas.Gateway\"\000\022" +
+      "<\n\rUpdateGateway\022\026.meshpaas.GatewayInput" +
+      "\032\021.meshpaas.Gateway\"\000\0228\n\rDeleteGateway\022\r" +
+      ".meshpaas.Ref\032\026.google.protobuf.Empty\"\000\022" +
+      "0\n\nGetGateway\022\r.meshpaas.Ref\032\021.meshpaas." +
+      "Gateway\"\000\0229\n\014CreateSecret\022\025.meshpaas.Sec" +
+      "retInput\032\020.meshpaas.Secret\"\000\0229\n\014UpdateSe" +
+      "cret\022\025.meshpaas.SecretInput\032\020.meshpaas.S" +
+      "ecret\"\000\0227\n\014DeleteSecret\022\r.meshpaas.Ref\032\026" +
+      ".google.protobuf.Empty\"\000\022.\n\tGetSecret\022\r." +
+      "meshpaas.Ref\032\020.meshpaas.Secret\"\000\022.\n\nStre" +
+      "amLogs\022\r.meshpaas.Ref\032\r.meshpaas.Log\"\0000\001" +
+      "B\014Z\nmeshpaaspbb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -34589,25 +35140,25 @@ public final class Schema {
     internal_static_meshpaas_App_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_App_descriptor,
-        new java.lang.String[] { "Name", "Project", "Containers", "Replicas", "Networking", "Authentication", "Authorization", "Status", });
+        new java.lang.String[] { "Name", "Project", "Containers", "Replicas", "Networking", "Authentication", "Authorization", "ImagePullSecret", "Status", });
     internal_static_meshpaas_Task_descriptor =
       getDescriptor().getMessageTypes().get(17);
     internal_static_meshpaas_Task_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Task_descriptor,
-        new java.lang.String[] { "Name", "Project", "Containers", "Schedule", "Completions", });
+        new java.lang.String[] { "Name", "Project", "ImagePullSecret", "Containers", "Schedule", "Completions", });
     internal_static_meshpaas_TaskInput_descriptor =
       getDescriptor().getMessageTypes().get(18);
     internal_static_meshpaas_TaskInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_TaskInput_descriptor,
-        new java.lang.String[] { "Name", "Project", "Containers", "Schedule", "Completions", });
+        new java.lang.String[] { "Name", "Project", "ImagePullSecret", "Containers", "Schedule", "Completions", });
     internal_static_meshpaas_AppInput_descriptor =
       getDescriptor().getMessageTypes().get(19);
     internal_static_meshpaas_AppInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_AppInput_descriptor,
-        new java.lang.String[] { "Name", "Project", "Containers", "Replicas", "Networking", "Authentication", "Authorization", });
+        new java.lang.String[] { "Name", "Project", "Containers", "Replicas", "Networking", "Authentication", "Authorization", "ImagePullSecret", });
     internal_static_meshpaas_Ref_descriptor =
       getDescriptor().getMessageTypes().get(20);
     internal_static_meshpaas_Ref_fieldAccessorTable = new

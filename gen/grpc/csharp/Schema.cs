@@ -80,75 +80,77 @@ namespace Meshpaas {
             "dHJ5EjUKBXBvcnRzGAUgAygLMh4ubWVzaHBhYXMuQ29udGFpbmVyLlBvcnRz",
             "RW50cnlCBuLfHwIgARoqCghFbnZFbnRyeRILCgNrZXkYASABKAkSDQoFdmFs",
             "dWUYAiABKAk6AjgBGiwKClBvcnRzRW50cnkSCwoDa2V5GAEgASgJEg0KBXZh",
-            "bHVlGAIgASgNOgI4ASLLAgoDQXBwEh4KBG5hbWUYASABKAlCEOLfHwwKCl4u",
+            "bHVlGAIgASgNOgI4ASLmAgoDQXBwEh4KBG5hbWUYASABKAlCEOLfHwwKCl4u",
             "ezEsMjI1fSQSIQoHcHJvamVjdBgCIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIv",
             "Cgpjb250YWluZXJzGAMgAygLMhMubWVzaHBhYXMuQ29udGFpbmVyQgbi3x8C",
             "IAESEAoIcmVwbGljYXMYCCABKA0SMAoKbmV0d29ya2luZxgLIAEoCzIULm1l",
             "c2hwYWFzLk5ldHdvcmtpbmdCBuLfHwIgARIvCg5hdXRoZW50aWNhdGlvbhgM",
             "IAEoCzIPLm1lc2hwYWFzLkF1dGhuQgbi3x8CIAESLgoNYXV0aG9yaXphdGlv",
-            "bhgNIAEoCzIPLm1lc2hwYWFzLkF1dGh6Qgbi3x8CIAESKwoGc3RhdHVzGBQg",
-            "ASgLMhMubWVzaHBhYXMuQXBwU3RhdHVzQgbi3x8CIAEiswEKBFRhc2sSHgoE",
-            "bmFtZRgBIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIhCgdwcm9qZWN0GAIgASgJ",
-            "QhDi3x8MCgpeLnsxLDIyNX0kEi8KCmNvbnRhaW5lcnMYAyADKAsyEy5tZXNo",
-            "cGFhcy5Db250YWluZXJCBuLfHwIgARIiCghzY2hlZHVsZRgHIAEoCUIQ4t8f",
-            "DAoKXi57MSwyMjV9JBITCgtjb21wbGV0aW9ucxgIIAEoDSK4AQoJVGFza0lu",
-            "cHV0Eh4KBG5hbWUYASABKAlCEOLfHwwKCl4uezEsMjI1fSQSIQoHcHJvamVj",
-            "dBgCIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIvCgpjb250YWluZXJzGAMgAygL",
-            "MhMubWVzaHBhYXMuQ29udGFpbmVyQgbi3x8CIAESIgoIc2NoZWR1bGUYByAB",
-            "KAlCEOLfHwwKCl4uezEsMjI1fSQSEwoLY29tcGxldGlvbnMYCCABKA0imwIK",
-            "CEFwcElucHV0Eh4KBG5hbWUYASABKAlCEOLfHwwKCl4uezEsMjI1fSQSIQoH",
-            "cHJvamVjdBgCIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIvCgpjb250YWluZXJz",
-            "GAMgAygLMhMubWVzaHBhYXMuQ29udGFpbmVyQgbi3x8CIAESEAoIcmVwbGlj",
-            "YXMYByABKA0SMAoKbmV0d29ya2luZxgKIAEoCzIULm1lc2hwYWFzLk5ldHdv",
-            "cmtpbmdCBuLfHwIgARInCg5hdXRoZW50aWNhdGlvbhgMIAEoCzIPLm1lc2hw",
-            "YWFzLkF1dGhuEi4KDWF1dGhvcml6YXRpb24YDSABKAsyDy5tZXNocGFhcy5B",
-            "dXRoekIG4t8fAiABIkgKA1JlZhIeCgRuYW1lGAEgASgJQhDi3x8MCgpeLnsx",
-            "LDIyNX0kEiEKB3Byb2plY3QYAiABKAlCEOLfHwwKCl4uezEsMjI1fSQiOwoH",
-            "UmVwbGljYRINCgVwaGFzZRgBIAEoCRIRCgljb25kaXRpb24YAiABKAkSDgoG",
-            "cmVhc29uGAMgASgJIjAKCUFwcFN0YXR1cxIjCghyZXBsaWNhcxgBIAMoCzIR",
-            "Lm1lc2hwYWFzLlJlcGxpY2EiFgoDTG9nEg8KB21lc3NhZ2UYASABKAkiKwoE",
-            "QXBwcxIjCgxhcHBsaWNhdGlvbnMYASADKAsyDS5tZXNocGFhcy5BcHAiJgoF",
-            "VGFza3MSHQoFdGFza3MYASADKAsyDi5tZXNocGFhcy5UYXNrIi4KDFByb2pl",
-            "Y3RJbnB1dBIeCgRuYW1lGAEgASgJQhDi3x8MCgpeLnsxLDIyNX0kIhcKB1By",
-            "b2plY3QSDAoEbmFtZRgBIAEoCSIsCgpQcm9qZWN0UmVmEh4KBG5hbWUYASAB",
-            "KAlCEOLfHwwKCl4uezEsMjI1fSQiHAoIUHJvamVjdHMSEAoIcHJvamVjdHMY",
-            "ASADKAkqPQoKU2VjcmV0VHlwZRIKCgZPUEFRVUUQABIQCgxUTFNfQ0VSVF9L",
-            "RVkQARIRCg1ET0NLRVJfQ09ORklHEAIqcAoRVHJhbnNwb3J0UHJvdG9jb2wS",
-            "FAoQSU5WQUxJRF9QUk9UT0NPTBAAEggKBEhUVFAQARIJCgVIVFRQUxACEggK",
-            "BEdSUEMQAxIJCgVIVFRQMhAEEgkKBU1PTkdPEAUSBwoDVENQEAYSBwoDVExT",
-            "EAcqWgoHVExTbW9kZRIPCgtQQVNTVEhST1VHSBAAEgoKBlNJTVBMRRABEgoK",
-            "Bk1VVFVBTBACEhQKEEFVVE9fUEFTU1RIUk9VR0gQAxIQCgxJU1RJT19NVVRV",
-            "QUwQBDK3CgoPTWVzaFBhYXNTZXJ2aWNlEjwKDUNyZWF0ZVByb2plY3QSFi5t",
-            "ZXNocGFhcy5Qcm9qZWN0SW5wdXQaES5tZXNocGFhcy5Qcm9qZWN0IgASPAoM",
-            "TGlzdFByb2plY3RzEhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5GhIubWVzaHBh",
-            "YXMuUHJvamVjdHMiABI/Cg1EZWxldGVQcm9qZWN0EhQubWVzaHBhYXMuUHJv",
-            "amVjdFJlZhoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAEjcKCkdldFByb2pl",
-            "Y3QSFC5tZXNocGFhcy5Qcm9qZWN0UmVmGhEubWVzaHBhYXMuUHJvamVjdCIA",
-            "EjwKDVVwZGF0ZVByb2plY3QSFi5tZXNocGFhcy5Qcm9qZWN0SW5wdXQaES5t",
-            "ZXNocGFhcy5Qcm9qZWN0IgASMAoJQ3JlYXRlQXBwEhIubWVzaHBhYXMuQXBw",
-            "SW5wdXQaDS5tZXNocGFhcy5BcHAiABIwCglVcGRhdGVBcHASEi5tZXNocGFh",
-            "cy5BcHBJbnB1dBoNLm1lc2hwYWFzLkFwcCIAEjQKCURlbGV0ZUFwcBINLm1l",
-            "c2hwYWFzLlJlZhoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAEigKBkdldEFw",
-            "cBINLm1lc2hwYWFzLlJlZhoNLm1lc2hwYWFzLkFwcCIAEjIKCExpc3RBcHBz",
-            "EhQubWVzaHBhYXMuUHJvamVjdFJlZhoOLm1lc2hwYWFzLkFwcHMiABIzCgpD",
-            "cmVhdGVUYXNrEhMubWVzaHBhYXMuVGFza0lucHV0Gg4ubWVzaHBhYXMuVGFz",
-            "ayIAEjMKClVwZGF0ZVRhc2sSEy5tZXNocGFhcy5UYXNrSW5wdXQaDi5tZXNo",
-            "cGFhcy5UYXNrIgASNQoKRGVsZXRlVGFzaxINLm1lc2hwYWFzLlJlZhoWLmdv",
-            "b2dsZS5wcm90b2J1Zi5FbXB0eSIAEioKB0dldFRhc2sSDS5tZXNocGFhcy5S",
-            "ZWYaDi5tZXNocGFhcy5UYXNrIgASNAoJTGlzdFRhc2tzEhQubWVzaHBhYXMu",
-            "UHJvamVjdFJlZhoPLm1lc2hwYWFzLlRhc2tzIgASPAoNQ3JlYXRlR2F0ZXdh",
-            "eRIWLm1lc2hwYWFzLkdhdGV3YXlJbnB1dBoRLm1lc2hwYWFzLkdhdGV3YXki",
-            "ABI8Cg1VcGRhdGVHYXRld2F5EhYubWVzaHBhYXMuR2F0ZXdheUlucHV0GhEu",
-            "bWVzaHBhYXMuR2F0ZXdheSIAEjgKDURlbGV0ZUdhdGV3YXkSDS5tZXNocGFh",
-            "cy5SZWYaFi5nb29nbGUucHJvdG9idWYuRW1wdHkiABIwCgpHZXRHYXRld2F5",
-            "Eg0ubWVzaHBhYXMuUmVmGhEubWVzaHBhYXMuR2F0ZXdheSIAEjkKDENyZWF0",
-            "ZVNlY3JldBIVLm1lc2hwYWFzLlNlY3JldElucHV0GhAubWVzaHBhYXMuU2Vj",
-            "cmV0IgASOQoMVXBkYXRlU2VjcmV0EhUubWVzaHBhYXMuU2VjcmV0SW5wdXQa",
-            "EC5tZXNocGFhcy5TZWNyZXQiABI3CgxEZWxldGVTZWNyZXQSDS5tZXNocGFh",
-            "cy5SZWYaFi5nb29nbGUucHJvdG9idWYuRW1wdHkiABIuCglHZXRTZWNyZXQS",
-            "DS5tZXNocGFhcy5SZWYaEC5tZXNocGFhcy5TZWNyZXQiABIuCgpTdHJlYW1M",
-            "b2dzEg0ubWVzaHBhYXMuUmVmGg0ubWVzaHBhYXMuTG9nIgAwAUIMWgptZXNo",
-            "cGFhc3BiYgZwcm90bzM="));
+            "bhgNIAEoCzIPLm1lc2hwYWFzLkF1dGh6Qgbi3x8CIAESGQoRaW1hZ2VfcHVs",
+            "bF9zZWNyZXQYDiABKAkSKwoGc3RhdHVzGBQgASgLMhMubWVzaHBhYXMuQXBw",
+            "U3RhdHVzQgbi3x8CIAEizgEKBFRhc2sSHgoEbmFtZRgBIAEoCUIQ4t8fDAoK",
+            "Xi57MSwyMjV9JBIhCgdwcm9qZWN0GAIgASgJQhDi3x8MCgpeLnsxLDIyNX0k",
+            "EhkKEWltYWdlX3B1bGxfc2VjcmV0GAMgASgJEi8KCmNvbnRhaW5lcnMYBCAD",
+            "KAsyEy5tZXNocGFhcy5Db250YWluZXJCBuLfHwIgARIiCghzY2hlZHVsZRgH",
+            "IAEoCUIQ4t8fDAoKXi57MSwyMjV9JBITCgtjb21wbGV0aW9ucxgIIAEoDSLT",
+            "AQoJVGFza0lucHV0Eh4KBG5hbWUYASABKAlCEOLfHwwKCl4uezEsMjI1fSQS",
+            "IQoHcHJvamVjdBgCIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIZChFpbWFnZV9w",
+            "dWxsX3NlY3JldBgDIAEoCRIvCgpjb250YWluZXJzGAQgAygLMhMubWVzaHBh",
+            "YXMuQ29udGFpbmVyQgbi3x8CIAESIgoIc2NoZWR1bGUYByABKAlCEOLfHwwK",
+            "Cl4uezEsMjI1fSQSEwoLY29tcGxldGlvbnMYCCABKA0itgIKCEFwcElucHV0",
+            "Eh4KBG5hbWUYASABKAlCEOLfHwwKCl4uezEsMjI1fSQSIQoHcHJvamVjdBgC",
+            "IAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIvCgpjb250YWluZXJzGAMgAygLMhMu",
+            "bWVzaHBhYXMuQ29udGFpbmVyQgbi3x8CIAESEAoIcmVwbGljYXMYByABKA0S",
+            "MAoKbmV0d29ya2luZxgKIAEoCzIULm1lc2hwYWFzLk5ldHdvcmtpbmdCBuLf",
+            "HwIgARInCg5hdXRoZW50aWNhdGlvbhgMIAEoCzIPLm1lc2hwYWFzLkF1dGhu",
+            "Ei4KDWF1dGhvcml6YXRpb24YDSABKAsyDy5tZXNocGFhcy5BdXRoekIG4t8f",
+            "AiABEhkKEWltYWdlX3B1bGxfc2VjcmV0GA4gASgJIkgKA1JlZhIeCgRuYW1l",
+            "GAEgASgJQhDi3x8MCgpeLnsxLDIyNX0kEiEKB3Byb2plY3QYAiABKAlCEOLf",
+            "HwwKCl4uezEsMjI1fSQiOwoHUmVwbGljYRINCgVwaGFzZRgBIAEoCRIRCglj",
+            "b25kaXRpb24YAiABKAkSDgoGcmVhc29uGAMgASgJIjAKCUFwcFN0YXR1cxIj",
+            "CghyZXBsaWNhcxgBIAMoCzIRLm1lc2hwYWFzLlJlcGxpY2EiFgoDTG9nEg8K",
+            "B21lc3NhZ2UYASABKAkiKwoEQXBwcxIjCgxhcHBsaWNhdGlvbnMYASADKAsy",
+            "DS5tZXNocGFhcy5BcHAiJgoFVGFza3MSHQoFdGFza3MYASADKAsyDi5tZXNo",
+            "cGFhcy5UYXNrIi4KDFByb2plY3RJbnB1dBIeCgRuYW1lGAEgASgJQhDi3x8M",
+            "CgpeLnsxLDIyNX0kIhcKB1Byb2plY3QSDAoEbmFtZRgBIAEoCSIsCgpQcm9q",
+            "ZWN0UmVmEh4KBG5hbWUYASABKAlCEOLfHwwKCl4uezEsMjI1fSQiHAoIUHJv",
+            "amVjdHMSEAoIcHJvamVjdHMYASADKAkqPQoKU2VjcmV0VHlwZRIKCgZPUEFR",
+            "VUUQABIQCgxUTFNfQ0VSVF9LRVkQARIRCg1ET0NLRVJfQ09ORklHEAIqcAoR",
+            "VHJhbnNwb3J0UHJvdG9jb2wSFAoQSU5WQUxJRF9QUk9UT0NPTBAAEggKBEhU",
+            "VFAQARIJCgVIVFRQUxACEggKBEdSUEMQAxIJCgVIVFRQMhAEEgkKBU1PTkdP",
+            "EAUSBwoDVENQEAYSBwoDVExTEAcqWgoHVExTbW9kZRIPCgtQQVNTVEhST1VH",
+            "SBAAEgoKBlNJTVBMRRABEgoKBk1VVFVBTBACEhQKEEFVVE9fUEFTU1RIUk9V",
+            "R0gQAxIQCgxJU1RJT19NVVRVQUwQBDK3CgoPTWVzaFBhYXNTZXJ2aWNlEjwK",
+            "DUNyZWF0ZVByb2plY3QSFi5tZXNocGFhcy5Qcm9qZWN0SW5wdXQaES5tZXNo",
+            "cGFhcy5Qcm9qZWN0IgASPAoMTGlzdFByb2plY3RzEhYuZ29vZ2xlLnByb3Rv",
+            "YnVmLkVtcHR5GhIubWVzaHBhYXMuUHJvamVjdHMiABI/Cg1EZWxldGVQcm9q",
+            "ZWN0EhQubWVzaHBhYXMuUHJvamVjdFJlZhoWLmdvb2dsZS5wcm90b2J1Zi5F",
+            "bXB0eSIAEjcKCkdldFByb2plY3QSFC5tZXNocGFhcy5Qcm9qZWN0UmVmGhEu",
+            "bWVzaHBhYXMuUHJvamVjdCIAEjwKDVVwZGF0ZVByb2plY3QSFi5tZXNocGFh",
+            "cy5Qcm9qZWN0SW5wdXQaES5tZXNocGFhcy5Qcm9qZWN0IgASMAoJQ3JlYXRl",
+            "QXBwEhIubWVzaHBhYXMuQXBwSW5wdXQaDS5tZXNocGFhcy5BcHAiABIwCglV",
+            "cGRhdGVBcHASEi5tZXNocGFhcy5BcHBJbnB1dBoNLm1lc2hwYWFzLkFwcCIA",
+            "EjQKCURlbGV0ZUFwcBINLm1lc2hwYWFzLlJlZhoWLmdvb2dsZS5wcm90b2J1",
+            "Zi5FbXB0eSIAEigKBkdldEFwcBINLm1lc2hwYWFzLlJlZhoNLm1lc2hwYWFz",
+            "LkFwcCIAEjIKCExpc3RBcHBzEhQubWVzaHBhYXMuUHJvamVjdFJlZhoOLm1l",
+            "c2hwYWFzLkFwcHMiABIzCgpDcmVhdGVUYXNrEhMubWVzaHBhYXMuVGFza0lu",
+            "cHV0Gg4ubWVzaHBhYXMuVGFzayIAEjMKClVwZGF0ZVRhc2sSEy5tZXNocGFh",
+            "cy5UYXNrSW5wdXQaDi5tZXNocGFhcy5UYXNrIgASNQoKRGVsZXRlVGFzaxIN",
+            "Lm1lc2hwYWFzLlJlZhoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAEioKB0dl",
+            "dFRhc2sSDS5tZXNocGFhcy5SZWYaDi5tZXNocGFhcy5UYXNrIgASNAoJTGlz",
+            "dFRhc2tzEhQubWVzaHBhYXMuUHJvamVjdFJlZhoPLm1lc2hwYWFzLlRhc2tz",
+            "IgASPAoNQ3JlYXRlR2F0ZXdheRIWLm1lc2hwYWFzLkdhdGV3YXlJbnB1dBoR",
+            "Lm1lc2hwYWFzLkdhdGV3YXkiABI8Cg1VcGRhdGVHYXRld2F5EhYubWVzaHBh",
+            "YXMuR2F0ZXdheUlucHV0GhEubWVzaHBhYXMuR2F0ZXdheSIAEjgKDURlbGV0",
+            "ZUdhdGV3YXkSDS5tZXNocGFhcy5SZWYaFi5nb29nbGUucHJvdG9idWYuRW1w",
+            "dHkiABIwCgpHZXRHYXRld2F5Eg0ubWVzaHBhYXMuUmVmGhEubWVzaHBhYXMu",
+            "R2F0ZXdheSIAEjkKDENyZWF0ZVNlY3JldBIVLm1lc2hwYWFzLlNlY3JldElu",
+            "cHV0GhAubWVzaHBhYXMuU2VjcmV0IgASOQoMVXBkYXRlU2VjcmV0EhUubWVz",
+            "aHBhYXMuU2VjcmV0SW5wdXQaEC5tZXNocGFhcy5TZWNyZXQiABI3CgxEZWxl",
+            "dGVTZWNyZXQSDS5tZXNocGFhcy5SZWYaFi5nb29nbGUucHJvdG9idWYuRW1w",
+            "dHkiABIuCglHZXRTZWNyZXQSDS5tZXNocGFhcy5SZWYaEC5tZXNocGFhcy5T",
+            "ZWNyZXQiABIuCgpTdHJlYW1Mb2dzEg0ubWVzaHBhYXMuUmVmGg0ubWVzaHBh",
+            "YXMuTG9nIgAwAUIMWgptZXNocGFhc3BiYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Validator.ValidatorReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Meshpaas.SecretType), typeof(global::Meshpaas.TransportProtocol), typeof(global::Meshpaas.TLSmode), }, new pbr::GeneratedClrTypeInfo[] {
@@ -168,10 +170,10 @@ namespace Meshpaas {
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.HTTPRoute), global::Meshpaas.HTTPRoute.Parser, new[]{ "Name", "Port", "PathPrefix", "RewriteUri", "AllowOrigins", "AllowMethods", "AllowHeaders", "ExposeHeaders", "AllowCredentials" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Networking), global::Meshpaas.Networking.Parser, new[]{ "Gateways", "Hosts", "Export", "HttpRoutes" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Container), global::Meshpaas.Container.Parser, new[]{ "Name", "Image", "Args", "Env", "Ports" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.App), global::Meshpaas.App.Parser, new[]{ "Name", "Project", "Containers", "Replicas", "Networking", "Authentication", "Authorization", "Status" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Task), global::Meshpaas.Task.Parser, new[]{ "Name", "Project", "Containers", "Schedule", "Completions" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.TaskInput), global::Meshpaas.TaskInput.Parser, new[]{ "Name", "Project", "Containers", "Schedule", "Completions" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.AppInput), global::Meshpaas.AppInput.Parser, new[]{ "Name", "Project", "Containers", "Replicas", "Networking", "Authentication", "Authorization" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.App), global::Meshpaas.App.Parser, new[]{ "Name", "Project", "Containers", "Replicas", "Networking", "Authentication", "Authorization", "ImagePullSecret", "Status" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Task), global::Meshpaas.Task.Parser, new[]{ "Name", "Project", "ImagePullSecret", "Containers", "Schedule", "Completions" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.TaskInput), global::Meshpaas.TaskInput.Parser, new[]{ "Name", "Project", "ImagePullSecret", "Containers", "Schedule", "Completions" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.AppInput), global::Meshpaas.AppInput.Parser, new[]{ "Name", "Project", "Containers", "Replicas", "Networking", "Authentication", "Authorization", "ImagePullSecret" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Ref), global::Meshpaas.Ref.Parser, new[]{ "Name", "Project" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Replica), global::Meshpaas.Replica.Parser, new[]{ "Phase", "Condition", "Reason" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.AppStatus), global::Meshpaas.AppStatus.Parser, new[]{ "Replicas" }, null, null, null),
@@ -3568,6 +3570,7 @@ namespace Meshpaas {
       networking_ = other.networking_ != null ? other.networking_.Clone() : null;
       authentication_ = other.authentication_ != null ? other.authentication_.Clone() : null;
       authorization_ = other.authorization_ != null ? other.authorization_.Clone() : null;
+      imagePullSecret_ = other.imagePullSecret_;
       status_ = other.status_ != null ? other.status_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -3671,6 +3674,17 @@ namespace Meshpaas {
       }
     }
 
+    /// <summary>Field number for the "image_pull_secret" field.</summary>
+    public const int ImagePullSecretFieldNumber = 14;
+    private string imagePullSecret_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ImagePullSecret {
+      get { return imagePullSecret_; }
+      set {
+        imagePullSecret_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     /// <summary>Field number for the "status" field.</summary>
     public const int StatusFieldNumber = 20;
     private global::Meshpaas.AppStatus status_;
@@ -3705,6 +3719,7 @@ namespace Meshpaas {
       if (!object.Equals(Networking, other.Networking)) return false;
       if (!object.Equals(Authentication, other.Authentication)) return false;
       if (!object.Equals(Authorization, other.Authorization)) return false;
+      if (ImagePullSecret != other.ImagePullSecret) return false;
       if (!object.Equals(Status, other.Status)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -3719,6 +3734,7 @@ namespace Meshpaas {
       if (networking_ != null) hash ^= Networking.GetHashCode();
       if (authentication_ != null) hash ^= Authentication.GetHashCode();
       if (authorization_ != null) hash ^= Authorization.GetHashCode();
+      if (ImagePullSecret.Length != 0) hash ^= ImagePullSecret.GetHashCode();
       if (status_ != null) hash ^= Status.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -3758,6 +3774,10 @@ namespace Meshpaas {
         output.WriteRawTag(106);
         output.WriteMessage(Authorization);
       }
+      if (ImagePullSecret.Length != 0) {
+        output.WriteRawTag(114);
+        output.WriteString(ImagePullSecret);
+      }
       if (status_ != null) {
         output.WriteRawTag(162, 1);
         output.WriteMessage(Status);
@@ -3788,6 +3808,9 @@ namespace Meshpaas {
       }
       if (authorization_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Authorization);
+      }
+      if (ImagePullSecret.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ImagePullSecret);
       }
       if (status_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(Status);
@@ -3830,6 +3853,9 @@ namespace Meshpaas {
           authorization_ = new global::Meshpaas.Authz();
         }
         Authorization.MergeFrom(other.Authorization);
+      }
+      if (other.ImagePullSecret.Length != 0) {
+        ImagePullSecret = other.ImagePullSecret;
       }
       if (other.status_ != null) {
         if (status_ == null) {
@@ -3885,6 +3911,10 @@ namespace Meshpaas {
             input.ReadMessage(authorization_);
             break;
           }
+          case 114: {
+            ImagePullSecret = input.ReadString();
+            break;
+          }
           case 162: {
             if (status_ == null) {
               status_ = new global::Meshpaas.AppStatus();
@@ -3928,6 +3958,7 @@ namespace Meshpaas {
     public Task(Task other) : this() {
       name_ = other.name_;
       project_ = other.project_;
+      imagePullSecret_ = other.imagePullSecret_;
       containers_ = other.containers_.Clone();
       schedule_ = other.schedule_;
       completions_ = other.completions_;
@@ -3967,10 +3998,21 @@ namespace Meshpaas {
       }
     }
 
+    /// <summary>Field number for the "image_pull_secret" field.</summary>
+    public const int ImagePullSecretFieldNumber = 3;
+    private string imagePullSecret_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ImagePullSecret {
+      get { return imagePullSecret_; }
+      set {
+        imagePullSecret_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     /// <summary>Field number for the "containers" field.</summary>
-    public const int ContainersFieldNumber = 3;
+    public const int ContainersFieldNumber = 4;
     private static readonly pb::FieldCodec<global::Meshpaas.Container> _repeated_containers_codec
-        = pb::FieldCodec.ForMessage(26, global::Meshpaas.Container.Parser);
+        = pb::FieldCodec.ForMessage(34, global::Meshpaas.Container.Parser);
     private readonly pbc::RepeatedField<global::Meshpaas.Container> containers_ = new pbc::RepeatedField<global::Meshpaas.Container>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::Meshpaas.Container> Containers {
@@ -4020,6 +4062,7 @@ namespace Meshpaas {
       }
       if (Name != other.Name) return false;
       if (Project != other.Project) return false;
+      if (ImagePullSecret != other.ImagePullSecret) return false;
       if(!containers_.Equals(other.containers_)) return false;
       if (Schedule != other.Schedule) return false;
       if (Completions != other.Completions) return false;
@@ -4031,6 +4074,7 @@ namespace Meshpaas {
       int hash = 1;
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (Project.Length != 0) hash ^= Project.GetHashCode();
+      if (ImagePullSecret.Length != 0) hash ^= ImagePullSecret.GetHashCode();
       hash ^= containers_.GetHashCode();
       if (Schedule.Length != 0) hash ^= Schedule.GetHashCode();
       if (Completions != 0) hash ^= Completions.GetHashCode();
@@ -4055,6 +4099,10 @@ namespace Meshpaas {
         output.WriteRawTag(18);
         output.WriteString(Project);
       }
+      if (ImagePullSecret.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(ImagePullSecret);
+      }
       containers_.WriteTo(output, _repeated_containers_codec);
       if (Schedule.Length != 0) {
         output.WriteRawTag(58);
@@ -4077,6 +4125,9 @@ namespace Meshpaas {
       }
       if (Project.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Project);
+      }
+      if (ImagePullSecret.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ImagePullSecret);
       }
       size += containers_.CalculateSize(_repeated_containers_codec);
       if (Schedule.Length != 0) {
@@ -4101,6 +4152,9 @@ namespace Meshpaas {
       }
       if (other.Project.Length != 0) {
         Project = other.Project;
+      }
+      if (other.ImagePullSecret.Length != 0) {
+        ImagePullSecret = other.ImagePullSecret;
       }
       containers_.Add(other.containers_);
       if (other.Schedule.Length != 0) {
@@ -4129,6 +4183,10 @@ namespace Meshpaas {
             break;
           }
           case 26: {
+            ImagePullSecret = input.ReadString();
+            break;
+          }
+          case 34: {
             containers_.AddEntriesFrom(input, _repeated_containers_codec);
             break;
           }
@@ -4176,6 +4234,7 @@ namespace Meshpaas {
     public TaskInput(TaskInput other) : this() {
       name_ = other.name_;
       project_ = other.project_;
+      imagePullSecret_ = other.imagePullSecret_;
       containers_ = other.containers_.Clone();
       schedule_ = other.schedule_;
       completions_ = other.completions_;
@@ -4215,10 +4274,21 @@ namespace Meshpaas {
       }
     }
 
+    /// <summary>Field number for the "image_pull_secret" field.</summary>
+    public const int ImagePullSecretFieldNumber = 3;
+    private string imagePullSecret_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ImagePullSecret {
+      get { return imagePullSecret_; }
+      set {
+        imagePullSecret_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     /// <summary>Field number for the "containers" field.</summary>
-    public const int ContainersFieldNumber = 3;
+    public const int ContainersFieldNumber = 4;
     private static readonly pb::FieldCodec<global::Meshpaas.Container> _repeated_containers_codec
-        = pb::FieldCodec.ForMessage(26, global::Meshpaas.Container.Parser);
+        = pb::FieldCodec.ForMessage(34, global::Meshpaas.Container.Parser);
     private readonly pbc::RepeatedField<global::Meshpaas.Container> containers_ = new pbc::RepeatedField<global::Meshpaas.Container>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::Meshpaas.Container> Containers {
@@ -4268,6 +4338,7 @@ namespace Meshpaas {
       }
       if (Name != other.Name) return false;
       if (Project != other.Project) return false;
+      if (ImagePullSecret != other.ImagePullSecret) return false;
       if(!containers_.Equals(other.containers_)) return false;
       if (Schedule != other.Schedule) return false;
       if (Completions != other.Completions) return false;
@@ -4279,6 +4350,7 @@ namespace Meshpaas {
       int hash = 1;
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (Project.Length != 0) hash ^= Project.GetHashCode();
+      if (ImagePullSecret.Length != 0) hash ^= ImagePullSecret.GetHashCode();
       hash ^= containers_.GetHashCode();
       if (Schedule.Length != 0) hash ^= Schedule.GetHashCode();
       if (Completions != 0) hash ^= Completions.GetHashCode();
@@ -4303,6 +4375,10 @@ namespace Meshpaas {
         output.WriteRawTag(18);
         output.WriteString(Project);
       }
+      if (ImagePullSecret.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(ImagePullSecret);
+      }
       containers_.WriteTo(output, _repeated_containers_codec);
       if (Schedule.Length != 0) {
         output.WriteRawTag(58);
@@ -4325,6 +4401,9 @@ namespace Meshpaas {
       }
       if (Project.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Project);
+      }
+      if (ImagePullSecret.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ImagePullSecret);
       }
       size += containers_.CalculateSize(_repeated_containers_codec);
       if (Schedule.Length != 0) {
@@ -4349,6 +4428,9 @@ namespace Meshpaas {
       }
       if (other.Project.Length != 0) {
         Project = other.Project;
+      }
+      if (other.ImagePullSecret.Length != 0) {
+        ImagePullSecret = other.ImagePullSecret;
       }
       containers_.Add(other.containers_);
       if (other.Schedule.Length != 0) {
@@ -4377,6 +4459,10 @@ namespace Meshpaas {
             break;
           }
           case 26: {
+            ImagePullSecret = input.ReadString();
+            break;
+          }
+          case 34: {
             containers_.AddEntriesFrom(input, _repeated_containers_codec);
             break;
           }
@@ -4429,6 +4515,7 @@ namespace Meshpaas {
       networking_ = other.networking_ != null ? other.networking_.Clone() : null;
       authentication_ = other.authentication_ != null ? other.authentication_.Clone() : null;
       authorization_ = other.authorization_ != null ? other.authorization_.Clone() : null;
+      imagePullSecret_ = other.imagePullSecret_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -4528,6 +4615,17 @@ namespace Meshpaas {
       }
     }
 
+    /// <summary>Field number for the "image_pull_secret" field.</summary>
+    public const int ImagePullSecretFieldNumber = 14;
+    private string imagePullSecret_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ImagePullSecret {
+      get { return imagePullSecret_; }
+      set {
+        imagePullSecret_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as AppInput);
@@ -4548,6 +4646,7 @@ namespace Meshpaas {
       if (!object.Equals(Networking, other.Networking)) return false;
       if (!object.Equals(Authentication, other.Authentication)) return false;
       if (!object.Equals(Authorization, other.Authorization)) return false;
+      if (ImagePullSecret != other.ImagePullSecret) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -4561,6 +4660,7 @@ namespace Meshpaas {
       if (networking_ != null) hash ^= Networking.GetHashCode();
       if (authentication_ != null) hash ^= Authentication.GetHashCode();
       if (authorization_ != null) hash ^= Authorization.GetHashCode();
+      if (ImagePullSecret.Length != 0) hash ^= ImagePullSecret.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4599,6 +4699,10 @@ namespace Meshpaas {
         output.WriteRawTag(106);
         output.WriteMessage(Authorization);
       }
+      if (ImagePullSecret.Length != 0) {
+        output.WriteRawTag(114);
+        output.WriteString(ImagePullSecret);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -4625,6 +4729,9 @@ namespace Meshpaas {
       }
       if (authorization_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Authorization);
+      }
+      if (ImagePullSecret.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ImagePullSecret);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -4664,6 +4771,9 @@ namespace Meshpaas {
           authorization_ = new global::Meshpaas.Authz();
         }
         Authorization.MergeFrom(other.Authorization);
+      }
+      if (other.ImagePullSecret.Length != 0) {
+        ImagePullSecret = other.ImagePullSecret;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -4711,6 +4821,10 @@ namespace Meshpaas {
               authorization_ = new global::Meshpaas.Authz();
             }
             input.ReadMessage(authorization_);
+            break;
+          }
+          case 114: {
+            ImagePullSecret = input.ReadString();
             break;
           }
         }
