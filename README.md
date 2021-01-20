@@ -1,6 +1,6 @@
 # meshpaas
 
-an opinionated, OAuth-protected graphQL/gRPC API for easily deploying applications & jobs on Istio service mesh
+an opinionated graphQL/gRPC API for easily deploying applications & jobs on Istio service mesh
 
 [API Documentation](https://autom8ter.github.io/meshpaas/)
 
@@ -16,21 +16,4 @@ Usage of meshpaas:
       --out-of-cluster                enable out of cluster k8s config discovery (env: KDEPLOY_OUT_OF_CLUSTER)
 ```
 
-## Installation
-
-Given a running Kubernetes cluster, run:
-
-```yaml
-curl https://raw.githubusercontent.com/autom8ter/meshpaas/master/k8s.yaml >> k8s.yaml
-```
-
-inspect the manifest and add/adjust environmental variables in the deployment spec(see flags for supported environmental variables)
-
-then run:
-
-    kubectl apply -f k8s.yaml
-
-to view pods as they spin up, run:
-
-    kubectl get pods -n meshpaas -w
 
