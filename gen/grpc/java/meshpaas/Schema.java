@@ -7226,7 +7226,7 @@ public final class Schema {
 
     /**
      * <pre>
-     * name of the application
+     * name of the gateway
      * </pre>
      *
      * <code>string name = 1;</code>
@@ -7234,7 +7234,7 @@ public final class Schema {
     java.lang.String getName();
     /**
      * <pre>
-     * name of the application
+     * name of the gateway
      * </pre>
      *
      * <code>string name = 1;</code>
@@ -7244,7 +7244,7 @@ public final class Schema {
 
     /**
      * <pre>
-     * application project
+     * gateway's project
      * </pre>
      *
      * <code>string project = 2;</code>
@@ -7252,7 +7252,7 @@ public final class Schema {
     java.lang.String getProject();
     /**
      * <pre>
-     * application project
+     * gateway's project
      * </pre>
      *
      * <code>string project = 2;</code>
@@ -7387,7 +7387,7 @@ public final class Schema {
     private volatile java.lang.Object name_;
     /**
      * <pre>
-     * name of the application
+     * name of the gateway
      * </pre>
      *
      * <code>string name = 1;</code>
@@ -7406,7 +7406,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * name of the application
+     * name of the gateway
      * </pre>
      *
      * <code>string name = 1;</code>
@@ -7429,7 +7429,7 @@ public final class Schema {
     private volatile java.lang.Object project_;
     /**
      * <pre>
-     * application project
+     * gateway's project
      * </pre>
      *
      * <code>string project = 2;</code>
@@ -7448,7 +7448,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * application project
+     * gateway's project
      * </pre>
      *
      * <code>string project = 2;</code>
@@ -7884,7 +7884,7 @@ public final class Schema {
       private java.lang.Object name_ = "";
       /**
        * <pre>
-       * name of the application
+       * name of the gateway
        * </pre>
        *
        * <code>string name = 1;</code>
@@ -7903,7 +7903,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the application
+       * name of the gateway
        * </pre>
        *
        * <code>string name = 1;</code>
@@ -7923,7 +7923,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the application
+       * name of the gateway
        * </pre>
        *
        * <code>string name = 1;</code>
@@ -7940,7 +7940,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the application
+       * name of the gateway
        * </pre>
        *
        * <code>string name = 1;</code>
@@ -7953,7 +7953,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the application
+       * name of the gateway
        * </pre>
        *
        * <code>string name = 1;</code>
@@ -7973,7 +7973,7 @@ public final class Schema {
       private java.lang.Object project_ = "";
       /**
        * <pre>
-       * application project
+       * gateway's project
        * </pre>
        *
        * <code>string project = 2;</code>
@@ -7992,7 +7992,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * application project
+       * gateway's project
        * </pre>
        *
        * <code>string project = 2;</code>
@@ -8012,7 +8012,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * application project
+       * gateway's project
        * </pre>
        *
        * <code>string project = 2;</code>
@@ -8029,7 +8029,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * application project
+       * gateway's project
        * </pre>
        *
        * <code>string project = 2;</code>
@@ -8042,7 +8042,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * application project
+       * gateway's project
        * </pre>
        *
        * <code>string project = 2;</code>
@@ -8357,7 +8357,7 @@ public final class Schema {
 
     /**
      * <pre>
-     * name of the application
+     * name of the gateway
      * </pre>
      *
      * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -8365,7 +8365,7 @@ public final class Schema {
     java.lang.String getName();
     /**
      * <pre>
-     * name of the application
+     * name of the gateway
      * </pre>
      *
      * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -8375,7 +8375,7 @@ public final class Schema {
 
     /**
      * <pre>
-     * application project
+     * gateway's project
      * </pre>
      *
      * <code>string project = 2 [(.validator.field) = { ... }</code>
@@ -8383,7 +8383,7 @@ public final class Schema {
     java.lang.String getProject();
     /**
      * <pre>
-     * application project
+     * gateway's project
      * </pre>
      *
      * <code>string project = 2 [(.validator.field) = { ... }</code>
@@ -8518,7 +8518,7 @@ public final class Schema {
     private volatile java.lang.Object name_;
     /**
      * <pre>
-     * name of the application
+     * name of the gateway
      * </pre>
      *
      * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -8537,7 +8537,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * name of the application
+     * name of the gateway
      * </pre>
      *
      * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -8560,7 +8560,7 @@ public final class Schema {
     private volatile java.lang.Object project_;
     /**
      * <pre>
-     * application project
+     * gateway's project
      * </pre>
      *
      * <code>string project = 2 [(.validator.field) = { ... }</code>
@@ -8579,7 +8579,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * application project
+     * gateway's project
      * </pre>
      *
      * <code>string project = 2 [(.validator.field) = { ... }</code>
@@ -9015,7 +9015,7 @@ public final class Schema {
       private java.lang.Object name_ = "";
       /**
        * <pre>
-       * name of the application
+       * name of the gateway
        * </pre>
        *
        * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -9034,7 +9034,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the application
+       * name of the gateway
        * </pre>
        *
        * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -9054,7 +9054,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the application
+       * name of the gateway
        * </pre>
        *
        * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -9071,7 +9071,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the application
+       * name of the gateway
        * </pre>
        *
        * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -9084,7 +9084,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the application
+       * name of the gateway
        * </pre>
        *
        * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -9104,7 +9104,7 @@ public final class Schema {
       private java.lang.Object project_ = "";
       /**
        * <pre>
-       * application project
+       * gateway's project
        * </pre>
        *
        * <code>string project = 2 [(.validator.field) = { ... }</code>
@@ -9123,7 +9123,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * application project
+       * gateway's project
        * </pre>
        *
        * <code>string project = 2 [(.validator.field) = { ... }</code>
@@ -9143,7 +9143,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * application project
+       * gateway's project
        * </pre>
        *
        * <code>string project = 2 [(.validator.field) = { ... }</code>
@@ -9160,7 +9160,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * application project
+       * gateway's project
        * </pre>
        *
        * <code>string project = 2 [(.validator.field) = { ... }</code>
@@ -9173,7 +9173,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * application project
+       * gateway's project
        * </pre>
        *
        * <code>string project = 2 [(.validator.field) = { ... }</code>
@@ -12727,7 +12727,7 @@ public final class Schema {
 
     /**
      * <pre>
-     * name of the application
+     * name of the container
      * </pre>
      *
      * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -12735,7 +12735,7 @@ public final class Schema {
     java.lang.String getName();
     /**
      * <pre>
-     * name of the application
+     * name of the container
      * </pre>
      *
      * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -12745,7 +12745,7 @@ public final class Schema {
 
     /**
      * <pre>
-     * docker image of application
+     * docker image of container
      * </pre>
      *
      * <code>string image = 2 [(.validator.field) = { ... }</code>
@@ -12753,7 +12753,7 @@ public final class Schema {
     java.lang.String getImage();
     /**
      * <pre>
-     * docker image of application
+     * docker image of container
      * </pre>
      *
      * <code>string image = 2 [(.validator.field) = { ... }</code>
@@ -13051,7 +13051,7 @@ public final class Schema {
     private volatile java.lang.Object name_;
     /**
      * <pre>
-     * name of the application
+     * name of the container
      * </pre>
      *
      * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -13070,7 +13070,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * name of the application
+     * name of the container
      * </pre>
      *
      * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -13093,7 +13093,7 @@ public final class Schema {
     private volatile java.lang.Object image_;
     /**
      * <pre>
-     * docker image of application
+     * docker image of container
      * </pre>
      *
      * <code>string image = 2 [(.validator.field) = { ... }</code>
@@ -13112,7 +13112,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * docker image of application
+     * docker image of container
      * </pre>
      *
      * <code>string image = 2 [(.validator.field) = { ... }</code>
@@ -13805,7 +13805,7 @@ public final class Schema {
       private java.lang.Object name_ = "";
       /**
        * <pre>
-       * name of the application
+       * name of the container
        * </pre>
        *
        * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -13824,7 +13824,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the application
+       * name of the container
        * </pre>
        *
        * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -13844,7 +13844,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the application
+       * name of the container
        * </pre>
        *
        * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -13861,7 +13861,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the application
+       * name of the container
        * </pre>
        *
        * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -13874,7 +13874,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the application
+       * name of the container
        * </pre>
        *
        * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -13894,7 +13894,7 @@ public final class Schema {
       private java.lang.Object image_ = "";
       /**
        * <pre>
-       * docker image of application
+       * docker image of container
        * </pre>
        *
        * <code>string image = 2 [(.validator.field) = { ... }</code>
@@ -13913,7 +13913,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * docker image of application
+       * docker image of container
        * </pre>
        *
        * <code>string image = 2 [(.validator.field) = { ... }</code>
@@ -13933,7 +13933,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * docker image of application
+       * docker image of container
        * </pre>
        *
        * <code>string image = 2 [(.validator.field) = { ... }</code>
@@ -13950,7 +13950,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * docker image of application
+       * docker image of container
        * </pre>
        *
        * <code>string image = 2 [(.validator.field) = { ... }</code>
@@ -13963,7 +13963,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * docker image of application
+       * docker image of container
        * </pre>
        *
        * <code>string image = 2 [(.validator.field) = { ... }</code>
@@ -20914,7 +20914,7 @@ public final class Schema {
 
     /**
      * <pre>
-     * name of the application
+     * name of the resource
      * </pre>
      *
      * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -20922,7 +20922,7 @@ public final class Schema {
     java.lang.String getName();
     /**
      * <pre>
-     * name of the application
+     * name of the resource
      * </pre>
      *
      * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -20932,7 +20932,7 @@ public final class Schema {
 
     /**
      * <pre>
-     * application project
+     * resource's project
      * </pre>
      *
      * <code>string project = 2 [(.validator.field) = { ... }</code>
@@ -20940,7 +20940,7 @@ public final class Schema {
     java.lang.String getProject();
     /**
      * <pre>
-     * application project
+     * resource's project
      * </pre>
      *
      * <code>string project = 2 [(.validator.field) = { ... }</code>
@@ -21037,7 +21037,7 @@ public final class Schema {
     private volatile java.lang.Object name_;
     /**
      * <pre>
-     * name of the application
+     * name of the resource
      * </pre>
      *
      * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -21056,7 +21056,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * name of the application
+     * name of the resource
      * </pre>
      *
      * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -21079,7 +21079,7 @@ public final class Schema {
     private volatile java.lang.Object project_;
     /**
      * <pre>
-     * application project
+     * resource's project
      * </pre>
      *
      * <code>string project = 2 [(.validator.field) = { ... }</code>
@@ -21098,7 +21098,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * application project
+     * resource's project
      * </pre>
      *
      * <code>string project = 2 [(.validator.field) = { ... }</code>
@@ -21440,7 +21440,7 @@ public final class Schema {
       private java.lang.Object name_ = "";
       /**
        * <pre>
-       * name of the application
+       * name of the resource
        * </pre>
        *
        * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -21459,7 +21459,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the application
+       * name of the resource
        * </pre>
        *
        * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -21479,7 +21479,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the application
+       * name of the resource
        * </pre>
        *
        * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -21496,7 +21496,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the application
+       * name of the resource
        * </pre>
        *
        * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -21509,7 +21509,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the application
+       * name of the resource
        * </pre>
        *
        * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -21529,7 +21529,7 @@ public final class Schema {
       private java.lang.Object project_ = "";
       /**
        * <pre>
-       * application project
+       * resource's project
        * </pre>
        *
        * <code>string project = 2 [(.validator.field) = { ... }</code>
@@ -21548,7 +21548,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * application project
+       * resource's project
        * </pre>
        *
        * <code>string project = 2 [(.validator.field) = { ... }</code>
@@ -21568,7 +21568,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * application project
+       * resource's project
        * </pre>
        *
        * <code>string project = 2 [(.validator.field) = { ... }</code>
@@ -21585,7 +21585,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * application project
+       * resource's project
        * </pre>
        *
        * <code>string project = 2 [(.validator.field) = { ... }</code>
@@ -21598,7 +21598,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * application project
+       * resource's project
        * </pre>
        *
        * <code>string project = 2 [(.validator.field) = { ... }</code>

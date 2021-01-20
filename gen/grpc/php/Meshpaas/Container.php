@@ -16,13 +16,13 @@ use Google\Protobuf\Internal\GPBUtil;
 class Container extends \Google\Protobuf\Internal\Message
 {
     /**
-     * name of the application
+     * name of the container
      *
      * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      */
     private $name = '';
     /**
-     * docker image of application
+     * docker image of container
      *
      * Generated from protobuf field <code>string image = 2 [(.validator.field) = {</code>
      */
@@ -53,9 +53,9 @@ class Container extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $name
-     *           name of the application
+     *           name of the container
      *     @type string $image
-     *           docker image of application
+     *           docker image of container
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $args
      *           args are arguments given to the docker image at startup
      *     @type array|\Google\Protobuf\Internal\MapField $env
@@ -70,7 +70,7 @@ class Container extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * name of the application
+     * name of the container
      *
      * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      * @return string
@@ -81,7 +81,7 @@ class Container extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * name of the application
+     * name of the container
      *
      * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      * @param string $var
@@ -96,7 +96,7 @@ class Container extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * docker image of application
+     * docker image of container
      *
      * Generated from protobuf field <code>string image = 2 [(.validator.field) = {</code>
      * @return string
@@ -107,7 +107,7 @@ class Container extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * docker image of application
+     * docker image of container
      *
      * Generated from protobuf field <code>string image = 2 [(.validator.field) = {</code>
      * @param string $var

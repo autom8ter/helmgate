@@ -656,9 +656,9 @@ type Gateway struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// name of the application
+	// name of the gateway
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	// application project
+	// gateway's project
 	Project   string             `protobuf:"bytes,2,opt,name=project,proto3" json:"project,omitempty"`
 	Listeners []*GatewayListener `protobuf:"bytes,3,rep,name=listeners,proto3" json:"listeners,omitempty"`
 }
@@ -721,9 +721,9 @@ type GatewayInput struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// name of the application
+	// name of the gateway
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	// application project
+	// gateway's project
 	Project   string             `protobuf:"bytes,2,opt,name=project,proto3" json:"project,omitempty"`
 	Listeners []*GatewayListener `protobuf:"bytes,3,rep,name=listeners,proto3" json:"listeners,omitempty"`
 }
@@ -975,9 +975,9 @@ type Container struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// name of the application
+	// name of the container
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	// docker image of application
+	// docker image of container
 	Image string `protobuf:"bytes,2,opt,name=image,proto3" json:"image,omitempty"`
 	// args are arguments given to the docker image at startup
 	Args []string `protobuf:"bytes,3,rep,name=args,proto3" json:"args,omitempty"`
@@ -1421,9 +1421,9 @@ type Ref struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// name of the application
+	// name of the resource
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	// application project
+	// resource's project
 	Project string `protobuf:"bytes,2,opt,name=project,proto3" json:"project,omitempty"`
 }
 

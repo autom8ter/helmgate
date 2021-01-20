@@ -85,17 +85,17 @@ message GatewayListener {
 }
 
 message Gateway {
-  // name of the application
+  // name of the gateway
   string name =1;
-  // application project
+  // gateway's project
   string project =2;
   repeated GatewayListener listeners = 3;
 }
 
 message GatewayInput {
-  // name of the application
+  // name of the gateway
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // application project
+  // gateway's project
   string project =2[(validator.field) = {regex : "^.{1,225}$"}];
   repeated GatewayListener listeners = 3;
 }
@@ -127,9 +127,9 @@ message Networking {
 
 // Container is a single docker container
 message Container {
-  // name of the application
+  // name of the container
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // docker image of application
+  // docker image of container
   string image =2[(validator.field) = {regex : "^.{1,225}$"}];
   // args are arguments given to the docker image at startup
   repeated string args =3;
@@ -198,9 +198,9 @@ message AppInput {
 }
 
 message Ref {
-  // name of the application
+  // name of the resource
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // application project
+  // resource's project
   string project =2[(validator.field) = {regex : "^.{1,225}$"}];
 }
 //repeated_count_min

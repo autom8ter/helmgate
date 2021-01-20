@@ -14,13 +14,13 @@ use Google\Protobuf\Internal\GPBUtil;
 class GatewayInput extends \Google\Protobuf\Internal\Message
 {
     /**
-     * name of the application
+     * name of the gateway
      *
      * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      */
     private $name = '';
     /**
-     * application project
+     * gateway's project
      *
      * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
      */
@@ -37,9 +37,9 @@ class GatewayInput extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $name
-     *           name of the application
+     *           name of the gateway
      *     @type string $project
-     *           application project
+     *           gateway's project
      *     @type \Meshpaas\GatewayListener[]|\Google\Protobuf\Internal\RepeatedField $listeners
      * }
      */
@@ -49,7 +49,7 @@ class GatewayInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * name of the application
+     * name of the gateway
      *
      * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      * @return string
@@ -60,7 +60,7 @@ class GatewayInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * name of the application
+     * name of the gateway
      *
      * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      * @param string $var
@@ -75,7 +75,7 @@ class GatewayInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * application project
+     * gateway's project
      *
      * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
      * @return string
@@ -86,7 +86,7 @@ class GatewayInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * application project
+     * gateway's project
      *
      * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
      * @param string $var

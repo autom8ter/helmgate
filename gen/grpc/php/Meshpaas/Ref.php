@@ -14,13 +14,13 @@ use Google\Protobuf\Internal\GPBUtil;
 class Ref extends \Google\Protobuf\Internal\Message
 {
     /**
-     * name of the application
+     * name of the resource
      *
      * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      */
     private $name = '';
     /**
-     * application project
+     * resource's project
      *
      * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
      */
@@ -33,9 +33,9 @@ class Ref extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $name
-     *           name of the application
+     *           name of the resource
      *     @type string $project
-     *           application project
+     *           resource's project
      * }
      */
     public function __construct($data = NULL) {
@@ -44,7 +44,7 @@ class Ref extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * name of the application
+     * name of the resource
      *
      * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      * @return string
@@ -55,7 +55,7 @@ class Ref extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * name of the application
+     * name of the resource
      *
      * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      * @param string $var
@@ -70,7 +70,7 @@ class Ref extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * application project
+     * resource's project
      *
      * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
      * @return string
@@ -81,7 +81,7 @@ class Ref extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * application project
+     * resource's project
      *
      * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
      * @param string $var

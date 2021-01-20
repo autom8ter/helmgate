@@ -1547,7 +1547,7 @@ namespace Meshpaas {
     public const int NameFieldNumber = 1;
     private string name_ = "";
     /// <summary>
-    /// name of the application
+    /// name of the gateway
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Name {
@@ -1561,7 +1561,7 @@ namespace Meshpaas {
     public const int ProjectFieldNumber = 2;
     private string project_ = "";
     /// <summary>
-    /// application project
+    /// gateway's project
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Project {
@@ -1730,7 +1730,7 @@ namespace Meshpaas {
     public const int NameFieldNumber = 1;
     private string name_ = "";
     /// <summary>
-    /// name of the application
+    /// name of the gateway
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Name {
@@ -1744,7 +1744,7 @@ namespace Meshpaas {
     public const int ProjectFieldNumber = 2;
     private string project_ = "";
     /// <summary>
-    /// application project
+    /// gateway's project
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Project {
@@ -2446,7 +2446,7 @@ namespace Meshpaas {
     public const int NameFieldNumber = 1;
     private string name_ = "";
     /// <summary>
-    /// name of the application
+    /// name of the container
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Name {
@@ -2460,7 +2460,7 @@ namespace Meshpaas {
     public const int ImageFieldNumber = 2;
     private string image_ = "";
     /// <summary>
-    /// docker image of application
+    /// docker image of container
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Image {
@@ -3787,7 +3787,7 @@ namespace Meshpaas {
     public const int NameFieldNumber = 1;
     private string name_ = "";
     /// <summary>
-    /// name of the application
+    /// name of the resource
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Name {
@@ -3801,7 +3801,7 @@ namespace Meshpaas {
     public const int ProjectFieldNumber = 2;
     private string project_ = "";
     /// <summary>
-    /// application project
+    /// resource's project
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Project {
