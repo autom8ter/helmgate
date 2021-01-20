@@ -203,6 +203,26 @@
                 </li>
               
                 <li>
+                  <a href="#meshpaas.Authz"><span class="badge">M</span>Authz</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.AuthzDestination"><span class="badge">M</span>AuthzDestination</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.AuthzRule"><span class="badge">M</span>AuthzRule</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.AuthzSource"><span class="badge">M</span>AuthzSource</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.AuthzSubject"><span class="badge">M</span>AuthzSubject</a>
+                </li>
+              
+                <li>
                   <a href="#meshpaas.Container"><span class="badge">M</span>Container</a>
                 </li>
               
@@ -296,15 +316,15 @@
               
               
                 <li>
-                  <a href="#meshpaas.Protocol"><span class="badge">E</span>Protocol</a>
-                </li>
-              
-                <li>
                   <a href="#meshpaas.SecretType"><span class="badge">E</span>SecretType</a>
                 </li>
               
                 <li>
                   <a href="#meshpaas.TLSmode"><span class="badge">E</span>TLSmode</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.TransportProtocol"><span class="badge">E</span>TransportProtocol</a>
                 </li>
               
               
@@ -378,6 +398,13 @@
                   <td><a href="#meshpaas.Authn">Authn</a></td>
                   <td></td>
                   <td><p>application authentication options </p></td>
+                </tr>
+              
+                <tr>
+                  <td>authorization</td>
+                  <td><a href="#meshpaas.Authz">Authz</a></td>
+                  <td></td>
+                  <td><p>application authorization options </p></td>
                 </tr>
               
                 <tr>
@@ -459,6 +486,17 @@
                 </tr>
               
                 <tr>
+                  <td>authorization</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
                   <td>status</td>
                   <td>
                     <ul>
@@ -528,6 +566,13 @@
                   <td><p>application authentication options </p></td>
                 </tr>
               
+                <tr>
+                  <td>authorization</td>
+                  <td><a href="#meshpaas.Authz">Authz</a></td>
+                  <td></td>
+                  <td><p>application authorization options </p></td>
+                </tr>
+              
             </tbody>
           </table>
 
@@ -579,6 +624,17 @@
               
                 <tr>
                   <td>networking</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>authorization</td>
                   <td>
                     <ul>
                     
@@ -644,7 +700,7 @@
         
       
         <h3 id="meshpaas.Authn">Authn</h3>
-        <p></p>
+        <p>Authn holds authentication options for an application</p>
 
         
           <table class="field-table">
@@ -757,6 +813,175 @@
               </tbody>
             </table>
             
+          
+
+        
+      
+        <h3 id="meshpaas.Authz">Authz</h3>
+        <p>Authz holds authorization options for an application</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>rules</td>
+                  <td><a href="#meshpaas.AuthzRule">AuthzRule</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.AuthzDestination">AuthzDestination</h3>
+        <p>the destination of an authorization decision</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>allow_paths</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>allow_hosts</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>allow_methods</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>allow_ports</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.AuthzRule">AuthzRule</h3>
+        <p>At least on AuthzRule rule must pass for a request to reach its final destination(an application) in the service mesh</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>source</td>
+                  <td><a href="#meshpaas.AuthzSource">AuthzSource</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>destination</td>
+                  <td><a href="#meshpaas.AuthzDestination">AuthzDestination</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>subject</td>
+                  <td><a href="#meshpaas.AuthzSubject">AuthzSubject</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.AuthzSource">AuthzSource</h3>
+        <p>the source of an authorization decision</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>allow_namespaces</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.AuthzSubject">AuthzSubject</h3>
+        <p>the subject of an authorization decision</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>allow_issuers</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>allow_roles</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>allow_audience</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
           
 
         
@@ -1064,7 +1289,7 @@
               
                 <tr>
                   <td>protocol</td>
-                  <td><a href="#meshpaas.Protocol">Protocol</a></td>
+                  <td><a href="#meshpaas.TransportProtocol">TransportProtocol</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -1727,7 +1952,7 @@
         
       
         <h3 id="meshpaas.SecretInput">SecretInput</h3>
-        <p></p>
+        <p>SecretInput creates/replaces a secret</p>
 
         
           <table class="field-table">
@@ -2174,67 +2399,8 @@
       
 
       
-        <h3 id="meshpaas.Protocol">Protocol</h3>
-        <p></p>
-        <table class="enum-table">
-          <thead>
-            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
-          </thead>
-          <tbody>
-            
-              <tr>
-                <td>INVALID_PROTOCOL</td>
-                <td>0</td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>HTTP</td>
-                <td>1</td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>HTTPS</td>
-                <td>2</td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>GRPC</td>
-                <td>3</td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>HTTP2</td>
-                <td>4</td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>MONGO</td>
-                <td>5</td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>TCP</td>
-                <td>6</td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>TLS</td>
-                <td>7</td>
-                <td><p></p></td>
-              </tr>
-            
-          </tbody>
-        </table>
-      
         <h3 id="meshpaas.SecretType">SecretType</h3>
-        <p></p>
+        <p>SecretType is a secret scoped to a project</p>
         <table class="enum-table">
           <thead>
             <tr><td>Name</td><td>Number</td><td>Description</td></tr>
@@ -2297,6 +2463,65 @@
               <tr>
                 <td>ISTIO_MUTUAL</td>
                 <td>4</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="meshpaas.TransportProtocol">TransportProtocol</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>INVALID_PROTOCOL</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>HTTP</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>HTTPS</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>GRPC</td>
+                <td>3</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>HTTP2</td>
+                <td>4</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>MONGO</td>
+                <td>5</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>TCP</td>
+                <td>6</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>TLS</td>
+                <td>7</td>
                 <td><p></p></td>
               </tr>
             

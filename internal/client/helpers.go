@@ -361,6 +361,65 @@ func toRequestAuthentication(input *meshpaaspb.AppInput) *security.RequestAuthen
 	return auth
 }
 
+func toAuthorizationPolicy(input *meshpaaspb.AppInput) *security.AuthorizationPolicy {
+	if input.Authorization == nil {
+		return nil
+	}
+	var auth = &security.AuthorizationPolicy{
+		ObjectMeta: metav1.ObjectMeta{
+			Name:      input.Name,
+			Namespace: input.Project,
+			Labels: map[string]string{
+				"project": input.Project,
+			},
+		},
+	}
+	auth.Spec.Selector.MatchLabels = map[string]string{
+		"project": input.Project,
+		"app":     input.Name,
+	}
+	auth.Spec.Action = securityv1beta1.AuthorizationPolicy_ALLOW
+	for _, r := range input.Authorization.Rules {
+		rule := &securityv1beta1.Rule{
+			From: nil,
+			To:   nil,
+			When: []*securityv1beta1.Condition{},
+		}
+		if len(r.GetDestination().GetAllowHosts()) > 0 || len(r.GetDestination().GetAllowMethods()) > 0 || len(r.GetDestination().GetAllowPorts()) > 0 || len(r.GetDestination().GetAllowPaths()) > 0 {
+			rule.To = append(rule.To, &securityv1beta1.Rule_To{
+				Operation: &securityv1beta1.Operation{
+					Hosts:   r.GetDestination().GetAllowHosts(),
+					Ports:   r.GetDestination().GetAllowPorts(),
+					Methods: r.GetDestination().GetAllowMethods(),
+					Paths:   r.GetDestination().GetAllowPaths(),
+				},
+			})
+		}
+		if len(r.GetSubject().GetAllowRoles()) > 0 || len(r.GetSubject().GetAllowIssuers()) > 0 || len(r.GetSubject().GetAllowAudience()) > 0 {
+			if len(r.GetSubject().GetAllowRoles()) > 0 {
+				rule.When = append(rule.When, &securityv1beta1.Condition{
+					Key:    "request.auth.claims[roles]",
+					Values: r.GetSubject().GetAllowRoles(),
+				})
+			}
+			if len(r.GetSubject().GetAllowAudience()) > 0 {
+				rule.When = append(rule.When, &securityv1beta1.Condition{
+					Key:    "request.auth.claims[aud]",
+					Values: r.GetSubject().GetAllowAudience(),
+				})
+			}
+			if len(r.GetSubject().GetAllowIssuers()) > 0 {
+				rule.When = append(rule.When, &securityv1beta1.Condition{
+					Key:    "request.auth.claims[iss]",
+					Values: r.GetSubject().GetAllowIssuers(),
+				})
+			}
+		}
+		auth.Spec.Rules = append(auth.Spec.Rules, rule)
+	}
+	return auth
+}
+
 func toDeployment(app *meshpaaspb.AppInput) (*apps.Deployment, error) {
 	var (
 		replicas        = int32(app.Replicas)
@@ -560,7 +619,7 @@ type k8sApp struct {
 	deployment     *apps.Deployment
 	service        *networking.VirtualService
 	authentication *security.RequestAuthentication
-	authorization  []*security.AuthorizationPolicy
+	authorization  *security.AuthorizationPolicy
 }
 
 func (k *k8sApp) toApp() *meshpaaspb.App {
@@ -621,6 +680,43 @@ func (k *k8sApp) toApp() *meshpaaspb.App {
 			OuputPayloadHeader: r.OutputPayloadToHeader,
 		})
 	}
+
+	for _, r := range k.authorization.Spec.Rules {
+		var (
+			issuer   []string
+			roles    []string
+			audience []string
+		)
+		for _, i := range r.When {
+			switch i.Key {
+			case "request.auth.claims.roles":
+				roles = i.Values
+			case "request.auth.claims.iss":
+				issuer = i.Values
+			case "request.auth.claims.aud":
+				audience = i.Values
+			}
+		}
+		rule := &meshpaaspb.AuthzRule{
+			Subject: &meshpaaspb.AuthzSubject{
+				AllowIssuers:  issuer,
+				AllowRoles:    roles,
+				AllowAudience: audience,
+			},
+			Destination: &meshpaaspb.AuthzDestination{},
+			Source:      &meshpaaspb.AuthzSource{},
+		}
+		if len(r.To) > 0 {
+			rule.Destination.AllowPaths = r.To[0].Operation.Paths
+			rule.Destination.AllowHosts = r.To[0].Operation.Hosts
+			rule.Destination.AllowMethods = r.To[0].Operation.Methods
+			rule.Destination.AllowPorts = r.To[0].Operation.Ports
+		}
+		if len(r.From) > 0 {
+			rule.Source.AllowNamespaces = r.From[0].Source.Namespaces
+		}
+		a.Authorization.Rules = append(a.Authorization.Rules, rule)
+	}
 	return a
 }
 
@@ -670,22 +766,22 @@ func (k *k8sGateway) toGateway() *meshpaaspb.Gateway {
 		listeners = append(listeners, &meshpaaspb.GatewayListener{
 			Port: l.GetPort().GetNumber(),
 			Name: l.GetName(),
-			Protocol: func() meshpaaspb.Protocol {
+			Protocol: func() meshpaaspb.TransportProtocol {
 				switch l.GetPort().GetProtocol() {
 				case "GRPC":
-					return meshpaaspb.Protocol_GRPC
+					return meshpaaspb.TransportProtocol_GRPC
 				case "HTTP":
-					return meshpaaspb.Protocol_HTTP
+					return meshpaaspb.TransportProtocol_HTTP
 				case "HTTP2":
-					return meshpaaspb.Protocol_HTTP2
+					return meshpaaspb.TransportProtocol_HTTP2
 				case "HTTPS":
-					return meshpaaspb.Protocol_HTTPS
+					return meshpaaspb.TransportProtocol_HTTPS
 				case "MONGO":
-					return meshpaaspb.Protocol_MONGO
+					return meshpaaspb.TransportProtocol_MONGO
 				case "TLS":
-					return meshpaaspb.Protocol_TLS
+					return meshpaaspb.TransportProtocol_TLS
 				default:
-					return meshpaaspb.Protocol_TCP
+					return meshpaaspb.TransportProtocol_TCP
 				}
 			}(),
 			Hosts: l.GetHosts(),

@@ -9,6 +9,8 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
+ * SecretInput creates/replaces a secret
+ *
  * Generated from protobuf message <code>meshpaas.SecretInput</code>
  */
 class SecretInput extends \Google\Protobuf\Internal\Message

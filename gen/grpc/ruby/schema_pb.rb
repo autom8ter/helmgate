@@ -14,6 +14,28 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     repeated :audience, :string, 3
     optional :ouput_payload_header, :string, 4
   end
+  add_message "meshpaas.AuthzSource" do
+    repeated :allow_namespaces, :string, 1
+  end
+  add_message "meshpaas.AuthzSubject" do
+    repeated :allow_issuers, :string, 6
+    repeated :allow_roles, :string, 7
+    repeated :allow_audience, :string, 8
+  end
+  add_message "meshpaas.AuthzDestination" do
+    repeated :allow_paths, :string, 2
+    repeated :allow_hosts, :string, 3
+    repeated :allow_methods, :string, 4
+    repeated :allow_ports, :string, 5
+  end
+  add_message "meshpaas.AuthzRule" do
+    optional :source, :message, 1, "meshpaas.AuthzSource"
+    optional :destination, :message, 2, "meshpaas.AuthzDestination"
+    optional :subject, :message, 3, "meshpaas.AuthzSubject"
+  end
+  add_message "meshpaas.Authz" do
+    repeated :rules, :message, 1, "meshpaas.AuthzRule"
+  end
   add_message "meshpaas.Authn" do
     repeated :rules, :message, 1, "meshpaas.AuthnRule"
   end
@@ -43,7 +65,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   add_message "meshpaas.GatewayListener" do
     optional :port, :uint32, 1
     optional :name, :string, 2
-    optional :protocol, :enum, 3, "meshpaas.Protocol"
+    optional :protocol, :enum, 3, "meshpaas.TransportProtocol"
     repeated :hosts, :string, 4
     optional :tls_config, :message, 5, "meshpaas.ServerTLSSettings"
   end
@@ -88,6 +110,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     optional :replicas, :uint32, 8
     optional :networking, :message, 11, "meshpaas.Networking"
     optional :authentication, :message, 12, "meshpaas.Authn"
+    optional :authorization, :message, 13, "meshpaas.Authz"
     optional :status, :message, 20, "meshpaas.AppStatus"
   end
   add_message "meshpaas.Task" do
@@ -111,6 +134,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     optional :replicas, :uint32, 7
     optional :networking, :message, 10, "meshpaas.Networking"
     optional :authentication, :message, 12, "meshpaas.Authn"
+    optional :authorization, :message, 13, "meshpaas.Authz"
   end
   add_message "meshpaas.Ref" do
     optional :name, :string, 1
@@ -150,7 +174,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     value :TLS_CERT_KEY, 1
     value :DOCKER_CONFIG, 2
   end
-  add_enum "meshpaas.Protocol" do
+  add_enum "meshpaas.TransportProtocol" do
     value :INVALID_PROTOCOL, 0
     value :HTTP, 1
     value :HTTPS, 2
@@ -171,6 +195,11 @@ end
 
 module Meshpaas
   AuthnRule = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.AuthnRule").msgclass
+  AuthzSource = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.AuthzSource").msgclass
+  AuthzSubject = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.AuthzSubject").msgclass
+  AuthzDestination = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.AuthzDestination").msgclass
+  AuthzRule = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.AuthzRule").msgclass
+  Authz = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Authz").msgclass
   Authn = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Authn").msgclass
   SecretInput = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.SecretInput").msgclass
   Secret = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Secret").msgclass
@@ -196,6 +225,6 @@ module Meshpaas
   ProjectRef = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.ProjectRef").msgclass
   Projects = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Projects").msgclass
   SecretType = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.SecretType").enummodule
-  Protocol = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Protocol").enummodule
+  TransportProtocol = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.TransportProtocol").enummodule
   TLSmode = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.TLSmode").enummodule
 end

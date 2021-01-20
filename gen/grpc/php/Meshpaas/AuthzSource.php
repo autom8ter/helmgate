@@ -9,22 +9,16 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
+ * the source of an authorization decision
+ *
  * Generated from protobuf message <code>meshpaas.AuthzSource</code>
  */
 class AuthzSource extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>repeated string principals = 1;</code>
+     * Generated from protobuf field <code>repeated string allow_namespaces = 1;</code>
      */
-    private $principals;
-    /**
-     * Generated from protobuf field <code>repeated string request_principals = 2;</code>
-     */
-    private $request_principals;
-    /**
-     * Generated from protobuf field <code>repeated string namespaces = 3;</code>
-     */
-    private $namespaces;
+    private $allow_namespaces;
 
     /**
      * Constructor.
@@ -32,9 +26,7 @@ class AuthzSource extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $principals
-     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $request_principals
-     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $namespaces
+     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $allow_namespaces
      * }
      */
     public function __construct($data = NULL) {
@@ -43,67 +35,23 @@ class AuthzSource extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated string principals = 1;</code>
+     * Generated from protobuf field <code>repeated string allow_namespaces = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
-    public function getPrincipals()
+    public function getAllowNamespaces()
     {
-        return $this->principals;
+        return $this->allow_namespaces;
     }
 
     /**
-     * Generated from protobuf field <code>repeated string principals = 1;</code>
+     * Generated from protobuf field <code>repeated string allow_namespaces = 1;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
-    public function setPrincipals($var)
+    public function setAllowNamespaces($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->principals = $arr;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>repeated string request_principals = 2;</code>
-     * @return \Google\Protobuf\Internal\RepeatedField
-     */
-    public function getRequestPrincipals()
-    {
-        return $this->request_principals;
-    }
-
-    /**
-     * Generated from protobuf field <code>repeated string request_principals = 2;</code>
-     * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
-     * @return $this
-     */
-    public function setRequestPrincipals($var)
-    {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->request_principals = $arr;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>repeated string namespaces = 3;</code>
-     * @return \Google\Protobuf\Internal\RepeatedField
-     */
-    public function getNamespaces()
-    {
-        return $this->namespaces;
-    }
-
-    /**
-     * Generated from protobuf field <code>repeated string namespaces = 3;</code>
-     * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
-     * @return $this
-     */
-    public function setNamespaces($var)
-    {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->namespaces = $arr;
+        $this->allow_namespaces = $arr;
 
         return $this;
     }

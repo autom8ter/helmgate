@@ -35,13 +35,16 @@ func (m *Manager) CreateApp(ctx context.Context, app *meshpaaspb.AppInput) (*mes
 		return nil, err
 	}
 	kapp.service = svc
-	if app.Authentication != nil {
-		auth, err := m.iclient.RequestAuthentications(app.Project).Create(ctx, toRequestAuthentication(app), v1.CreateOptions{})
-		if err != nil {
-			return nil, err
-		}
-		kapp.authentication = auth
+	auth, err := m.iclient.RequestAuthentications(app.Project).Create(ctx, toRequestAuthentication(app), v1.CreateOptions{})
+	if err != nil {
+		return nil, err
 	}
+	kapp.authentication = auth
+	authz, err := m.iclient.AuthorizationPolicies(app.Project).Create(ctx, toAuthorizationPolicy(app), v1.CreateOptions{})
+	if err != nil {
+		return nil, err
+	}
+	kapp.authorization = authz
 	status, err := m.getStatus(ctx, app.Project, app.Name)
 	if err != nil {
 		return nil, err
@@ -81,31 +84,41 @@ func (m *Manager) UpdateApp(ctx context.Context, app *meshpaaspb.AppInput) (*mes
 		return nil, err
 	}
 	kapp.service = svc
-	if app.Authentication != nil {
-		auth, err := m.iclient.RequestAuthentications(app.Project).Get(ctx, app.Name, v1.GetOptions{})
-		if err != nil {
-			auth, err = m.iclient.RequestAuthentications(app.Project).Create(ctx, toRequestAuthentication(app), v1.CreateOptions{})
-			if err != nil {
-				return nil, err
-			}
-		}
-		var rules []*securityv1beta1.JWTRule
-		for _, r := range app.Authentication.Rules {
-			rules = append(rules, &securityv1beta1.JWTRule{
-				Issuer:                r.Issuer,
-				Audiences:             r.Audience,
-				JwksUri:               r.JwksUri,
-				OutputPayloadToHeader: r.OuputPayloadHeader,
-				ForwardOriginalToken:  false,
-			})
-		}
-		auth.Spec.JwtRules = rules
-		auth, err = m.iclient.RequestAuthentications(app.Project).Update(ctx, auth, v1.UpdateOptions{})
+	auth, err := m.iclient.RequestAuthentications(app.Project).Get(ctx, app.Name, v1.GetOptions{})
+	if err != nil {
+		auth, err = m.iclient.RequestAuthentications(app.Project).Create(ctx, toRequestAuthentication(app), v1.CreateOptions{})
 		if err != nil {
 			return nil, err
 		}
-		kapp.authentication = auth
 	}
+	var rules []*securityv1beta1.JWTRule
+	for _, r := range app.Authentication.Rules {
+		rules = append(rules, &securityv1beta1.JWTRule{
+			Issuer:                r.Issuer,
+			Audiences:             r.Audience,
+			JwksUri:               r.JwksUri,
+			OutputPayloadToHeader: r.OuputPayloadHeader,
+			ForwardOriginalToken:  false,
+		})
+	}
+	auth.Spec.JwtRules = rules
+	auth, err = m.iclient.RequestAuthentications(app.Project).Update(ctx, auth, v1.UpdateOptions{})
+	if err != nil {
+		return nil, err
+	}
+	kapp.authentication = auth
+	_, err = m.iclient.AuthorizationPolicies(app.Project).Get(ctx, app.Name, v1.GetOptions{})
+	if err != nil {
+		_, err = m.iclient.AuthorizationPolicies(app.Project).Create(ctx, toAuthorizationPolicy(app), v1.CreateOptions{})
+		if err != nil {
+			return nil, err
+		}
+	}
+	authz, err := m.iclient.AuthorizationPolicies(app.Project).Update(ctx, toAuthorizationPolicy(app), v1.UpdateOptions{})
+	if err != nil {
+		return nil, err
+	}
+	kapp.authorization = authz
 	status, err := m.getStatus(ctx, app.Project, app.Name)
 	if err != nil {
 		return nil, err
@@ -134,6 +147,8 @@ func (m *Manager) GetApp(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb.
 	}
 	auth, _ := m.iclient.RequestAuthentications(ref.Project).Get(ctx, ref.Name, v1.GetOptions{})
 	kapp.authentication = auth
+	authz, _ := m.iclient.AuthorizationPolicies(ref.Project).Get(ctx, ref.Name, v1.GetOptions{})
+	kapp.authorization = authz
 	kapp.service = svc
 	status, err := m.getStatus(ctx, ref.Project, ref.Name)
 	if err != nil {
@@ -146,6 +161,7 @@ func (m *Manager) GetApp(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb.
 
 func (m *Manager) DeleteApp(ctx context.Context, ref *meshpaaspb.Ref) error {
 	m.iclient.RequestAuthentications(ref.Project).Delete(ctx, ref.Name, v1.DeleteOptions{})
+	m.iclient.AuthorizationPolicies(ref.Project).Delete(ctx, ref.Name, v1.DeleteOptions{})
 	if err := m.kclient.Services(ref.Project).Delete(ctx, ref.Name, v1.DeleteOptions{}); err != nil {
 		m.logger.Error("failed to delete service",
 			zap.Error(err),

@@ -22,7 +22,7 @@ class GatewayListener extends \Google\Protobuf\Internal\Message
      */
     private $name = '';
     /**
-     * Generated from protobuf field <code>.meshpaas.Protocol protocol = 3 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>.meshpaas.TransportProtocol protocol = 3 [(.validator.field) = {</code>
      */
     private $protocol = 0;
     /**
@@ -97,7 +97,7 @@ class GatewayListener extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.meshpaas.Protocol protocol = 3 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>.meshpaas.TransportProtocol protocol = 3 [(.validator.field) = {</code>
      * @return int
      */
     public function getProtocol()
@@ -106,13 +106,13 @@ class GatewayListener extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.meshpaas.Protocol protocol = 3 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>.meshpaas.TransportProtocol protocol = 3 [(.validator.field) = {</code>
      * @param int $var
      * @return $this
      */
     public function setProtocol($var)
     {
-        GPBUtil::checkEnum($var, \Meshpaas\Protocol::class);
+        GPBUtil::checkEnum($var, \Meshpaas\TransportProtocol::class);
         $this->protocol = $var;
 
         return $this;

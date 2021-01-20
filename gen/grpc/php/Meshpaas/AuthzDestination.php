@@ -9,26 +9,28 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
+ * the destination of an authorization decision
+ *
  * Generated from protobuf message <code>meshpaas.AuthzDestination</code>
  */
 class AuthzDestination extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>repeated string hosts = 1;</code>
+     * Generated from protobuf field <code>repeated string allow_paths = 2;</code>
      */
-    private $hosts;
+    private $allow_paths;
     /**
-     * Generated from protobuf field <code>repeated string ports = 2;</code>
+     * Generated from protobuf field <code>repeated string allow_hosts = 3;</code>
      */
-    private $ports;
+    private $allow_hosts;
     /**
-     * Generated from protobuf field <code>repeated string methods = 3;</code>
+     * Generated from protobuf field <code>repeated string allow_methods = 4;</code>
      */
-    private $methods;
+    private $allow_methods;
     /**
-     * Generated from protobuf field <code>repeated string paths = 4;</code>
+     * Generated from protobuf field <code>repeated string allow_ports = 5;</code>
      */
-    private $paths;
+    private $allow_ports;
 
     /**
      * Constructor.
@@ -36,10 +38,10 @@ class AuthzDestination extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $hosts
-     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $ports
-     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $methods
-     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $paths
+     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $allow_paths
+     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $allow_hosts
+     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $allow_methods
+     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $allow_ports
      * }
      */
     public function __construct($data = NULL) {
@@ -48,89 +50,89 @@ class AuthzDestination extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated string hosts = 1;</code>
+     * Generated from protobuf field <code>repeated string allow_paths = 2;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
-    public function getHosts()
+    public function getAllowPaths()
     {
-        return $this->hosts;
+        return $this->allow_paths;
     }
 
     /**
-     * Generated from protobuf field <code>repeated string hosts = 1;</code>
+     * Generated from protobuf field <code>repeated string allow_paths = 2;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
-    public function setHosts($var)
+    public function setAllowPaths($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->hosts = $arr;
+        $this->allow_paths = $arr;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>repeated string ports = 2;</code>
+     * Generated from protobuf field <code>repeated string allow_hosts = 3;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
-    public function getPorts()
+    public function getAllowHosts()
     {
-        return $this->ports;
+        return $this->allow_hosts;
     }
 
     /**
-     * Generated from protobuf field <code>repeated string ports = 2;</code>
+     * Generated from protobuf field <code>repeated string allow_hosts = 3;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
-    public function setPorts($var)
+    public function setAllowHosts($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->ports = $arr;
+        $this->allow_hosts = $arr;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>repeated string methods = 3;</code>
+     * Generated from protobuf field <code>repeated string allow_methods = 4;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
-    public function getMethods()
+    public function getAllowMethods()
     {
-        return $this->methods;
+        return $this->allow_methods;
     }
 
     /**
-     * Generated from protobuf field <code>repeated string methods = 3;</code>
+     * Generated from protobuf field <code>repeated string allow_methods = 4;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
-    public function setMethods($var)
+    public function setAllowMethods($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->methods = $arr;
+        $this->allow_methods = $arr;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>repeated string paths = 4;</code>
+     * Generated from protobuf field <code>repeated string allow_ports = 5;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
-    public function getPaths()
+    public function getAllowPorts()
     {
-        return $this->paths;
+        return $this->allow_ports;
     }
 
     /**
-     * Generated from protobuf field <code>repeated string paths = 4;</code>
+     * Generated from protobuf field <code>repeated string allow_ports = 5;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
-    public function setPaths($var)
+    public function setAllowPorts($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->paths = $arr;
+        $this->allow_ports = $arr;
 
         return $this;
     }

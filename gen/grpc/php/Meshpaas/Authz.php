@@ -9,14 +9,16 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
+ * Authz holds authorization options for an application
+ *
  * Generated from protobuf message <code>meshpaas.Authz</code>
  */
 class Authz extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.AuthzPolicy policies = 1;</code>
+     * Generated from protobuf field <code>repeated .meshpaas.AuthzRule rules = 1;</code>
      */
-    private $policies;
+    private $rules;
 
     /**
      * Constructor.
@@ -24,7 +26,7 @@ class Authz extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type \Meshpaas\AuthzPolicy[]|\Google\Protobuf\Internal\RepeatedField $policies
+     *     @type \Meshpaas\AuthzRule[]|\Google\Protobuf\Internal\RepeatedField $rules
      * }
      */
     public function __construct($data = NULL) {
@@ -33,23 +35,23 @@ class Authz extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.AuthzPolicy policies = 1;</code>
+     * Generated from protobuf field <code>repeated .meshpaas.AuthzRule rules = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
-    public function getPolicies()
+    public function getRules()
     {
-        return $this->policies;
+        return $this->rules;
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.AuthzPolicy policies = 1;</code>
-     * @param \Meshpaas\AuthzPolicy[]|\Google\Protobuf\Internal\RepeatedField $var
+     * Generated from protobuf field <code>repeated .meshpaas.AuthzRule rules = 1;</code>
+     * @param \Meshpaas\AuthzRule[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
-    public function setPolicies($var)
+    public function setRules($var)
     {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Meshpaas\AuthzPolicy::class);
-        $this->policies = $arr;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Meshpaas\AuthzRule::class);
+        $this->rules = $arr;
 
         return $this;
     }

@@ -17,16 +17,51 @@ message AuthnRule {
   string ouput_payload_header =4[(validator.field) = {regex : "^.{1,225}$"}];
 }
 
+// the source of an authorization decision
+message AuthzSource {
+  repeated string allow_namespaces =1;
+}
+
+// the subject of an authorization decision
+message AuthzSubject {
+  repeated string allow_issuers =6;
+  repeated string allow_roles =7;
+  repeated string allow_audience =8;
+}
+
+// the destination of an authorization decision
+message AuthzDestination {
+  repeated string allow_paths =2;
+  repeated string allow_hosts =3;
+  repeated string allow_methods =4;
+  repeated string allow_ports =5;
+}
+
+// At least on AuthzRule rule must pass for a request to reach its final destination(an application) in the service mesh
+message AuthzRule {
+  AuthzSource source =1;
+  AuthzDestination destination =2;
+  AuthzSubject subject =3;
+}
+
+// Authz holds authorization options for an application
+message Authz {
+  repeated AuthzRule rules =1;
+}
+
+// Authn holds authentication options for an application
 message Authn {
   repeated AuthnRule rules =1;
 }
 
+// SecretType is a secret scoped to a project
 enum SecretType {
   OPAQUE =0;
   TLS_CERT_KEY =1;
   DOCKER_CONFIG =2;
 }
 
+// SecretInput creates/replaces a secret
 message SecretInput {
   // name of the secret
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
@@ -47,7 +82,7 @@ message Secret {
   map<string, string> data =5[(validator.field) = {msg_exists : true}];
 }
 
-enum Protocol {
+enum TransportProtocol {
   INVALID_PROTOCOL =0;
   HTTP =1;
   HTTPS =2;
@@ -79,7 +114,7 @@ message ServerTLSSettings {
 message GatewayListener {
   uint32 port =1[(validator.field) = {int_gt : 0}];
   string name =2[(validator.field) = {regex : "^.{1,225}$"}];
-  Protocol protocol =3[(validator.field) = {int_gt : 0}];
+  TransportProtocol protocol =3[(validator.field) = {int_gt : 0}];
   repeated string hosts =4[(validator.field) = {repeated_count_min : 0}];
   ServerTLSSettings tls_config =5;
 }
@@ -152,6 +187,8 @@ message App {
   Networking networking =11[(validator.field) = {msg_exists : true}];
   // application authentication options
   Authn authentication =12[(validator.field) = {msg_exists : true}];
+  // application authorization options
+  Authz authorization =13[(validator.field) = {msg_exists : true}];
   // status tracks the state of the application during it's lifecycle
   AppStatus status =20[(validator.field) = {msg_exists : true}];
 }
@@ -195,6 +232,8 @@ message AppInput {
   Networking networking =10[(validator.field) = {msg_exists : true}];
   // application authentication options
   Authn authentication =12;
+  // application authorization options
+  Authz authorization =13[(validator.field) = {msg_exists : true}];
 }
 
 message Ref {

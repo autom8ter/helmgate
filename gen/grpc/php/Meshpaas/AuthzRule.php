@@ -9,22 +9,24 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
+ * At least on AuthzRule rule must pass for a request to reach its final destination(an application) in the service mesh
+ *
  * Generated from protobuf message <code>meshpaas.AuthzRule</code>
  */
 class AuthzRule extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.AuthzSource sources = 1;</code>
+     * Generated from protobuf field <code>.meshpaas.AuthzSource source = 1;</code>
      */
-    private $sources;
+    private $source = null;
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.AuthzCondition conditions = 2;</code>
+     * Generated from protobuf field <code>.meshpaas.AuthzDestination destination = 2;</code>
      */
-    private $conditions;
+    private $destination = null;
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.AuthzDestination destinations = 3;</code>
+     * Generated from protobuf field <code>.meshpaas.AuthzSubject subject = 3;</code>
      */
-    private $destinations;
+    private $subject = null;
 
     /**
      * Constructor.
@@ -32,9 +34,9 @@ class AuthzRule extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type \Meshpaas\AuthzSource[]|\Google\Protobuf\Internal\RepeatedField $sources
-     *     @type \Meshpaas\AuthzCondition[]|\Google\Protobuf\Internal\RepeatedField $conditions
-     *     @type \Meshpaas\AuthzDestination[]|\Google\Protobuf\Internal\RepeatedField $destinations
+     *     @type \Meshpaas\AuthzSource $source
+     *     @type \Meshpaas\AuthzDestination $destination
+     *     @type \Meshpaas\AuthzSubject $subject
      * }
      */
     public function __construct($data = NULL) {
@@ -43,67 +45,67 @@ class AuthzRule extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.AuthzSource sources = 1;</code>
-     * @return \Google\Protobuf\Internal\RepeatedField
+     * Generated from protobuf field <code>.meshpaas.AuthzSource source = 1;</code>
+     * @return \Meshpaas\AuthzSource
      */
-    public function getSources()
+    public function getSource()
     {
-        return $this->sources;
+        return $this->source;
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.AuthzSource sources = 1;</code>
-     * @param \Meshpaas\AuthzSource[]|\Google\Protobuf\Internal\RepeatedField $var
+     * Generated from protobuf field <code>.meshpaas.AuthzSource source = 1;</code>
+     * @param \Meshpaas\AuthzSource $var
      * @return $this
      */
-    public function setSources($var)
+    public function setSource($var)
     {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Meshpaas\AuthzSource::class);
-        $this->sources = $arr;
+        GPBUtil::checkMessage($var, \Meshpaas\AuthzSource::class);
+        $this->source = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.AuthzCondition conditions = 2;</code>
-     * @return \Google\Protobuf\Internal\RepeatedField
+     * Generated from protobuf field <code>.meshpaas.AuthzDestination destination = 2;</code>
+     * @return \Meshpaas\AuthzDestination
      */
-    public function getConditions()
+    public function getDestination()
     {
-        return $this->conditions;
+        return $this->destination;
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.AuthzCondition conditions = 2;</code>
-     * @param \Meshpaas\AuthzCondition[]|\Google\Protobuf\Internal\RepeatedField $var
+     * Generated from protobuf field <code>.meshpaas.AuthzDestination destination = 2;</code>
+     * @param \Meshpaas\AuthzDestination $var
      * @return $this
      */
-    public function setConditions($var)
+    public function setDestination($var)
     {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Meshpaas\AuthzCondition::class);
-        $this->conditions = $arr;
+        GPBUtil::checkMessage($var, \Meshpaas\AuthzDestination::class);
+        $this->destination = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.AuthzDestination destinations = 3;</code>
-     * @return \Google\Protobuf\Internal\RepeatedField
+     * Generated from protobuf field <code>.meshpaas.AuthzSubject subject = 3;</code>
+     * @return \Meshpaas\AuthzSubject
      */
-    public function getDestinations()
+    public function getSubject()
     {
-        return $this->destinations;
+        return $this->subject;
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.AuthzDestination destinations = 3;</code>
-     * @param \Meshpaas\AuthzDestination[]|\Google\Protobuf\Internal\RepeatedField $var
+     * Generated from protobuf field <code>.meshpaas.AuthzSubject subject = 3;</code>
+     * @param \Meshpaas\AuthzSubject $var
      * @return $this
      */
-    public function setDestinations($var)
+    public function setSubject($var)
     {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Meshpaas\AuthzDestination::class);
-        $this->destinations = $arr;
+        GPBUtil::checkMessage($var, \Meshpaas\AuthzSubject::class);
+        $this->subject = $var;
 
         return $this;
     }

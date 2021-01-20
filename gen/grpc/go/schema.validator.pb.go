@@ -37,6 +37,43 @@ func (this *AuthnRule) Validate() error {
 	}
 	return nil
 }
+func (this *AuthzSource) Validate() error {
+	return nil
+}
+func (this *AuthzSubject) Validate() error {
+	return nil
+}
+func (this *AuthzDestination) Validate() error {
+	return nil
+}
+func (this *AuthzRule) Validate() error {
+	if this.Source != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Source); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Source", err)
+		}
+	}
+	if this.Destination != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Destination); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Destination", err)
+		}
+	}
+	if this.Subject != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Subject); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Subject", err)
+		}
+	}
+	return nil
+}
+func (this *Authz) Validate() error {
+	for _, item := range this.Rules {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Rules", err)
+			}
+		}
+	}
+	return nil
+}
 func (this *Authn) Validate() error {
 	for _, item := range this.Rules {
 		if item != nil {
@@ -199,6 +236,14 @@ func (this *App) Validate() error {
 			return github_com_mwitkow_go_proto_validators.FieldError("Authentication", err)
 		}
 	}
+	if nil == this.Authorization {
+		return github_com_mwitkow_go_proto_validators.FieldError("Authorization", fmt.Errorf("message must exist"))
+	}
+	if this.Authorization != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Authorization); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Authorization", err)
+		}
+	}
 	if nil == this.Status {
 		return github_com_mwitkow_go_proto_validators.FieldError("Status", fmt.Errorf("message must exist"))
 	}
@@ -286,6 +331,14 @@ func (this *AppInput) Validate() error {
 	if this.Authentication != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Authentication); err != nil {
 			return github_com_mwitkow_go_proto_validators.FieldError("Authentication", err)
+		}
+	}
+	if nil == this.Authorization {
+		return github_com_mwitkow_go_proto_validators.FieldError("Authorization", fmt.Errorf("message must exist"))
+	}
+	if this.Authorization != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Authorization); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Authorization", err)
 		}
 	}
 	return nil
