@@ -46,15 +46,9 @@ class App extends \Google\Protobuf\Internal\Message
     /**
      * application authentication options
      *
-     * Generated from protobuf field <code>.meshpaas.Authn authentication = 12;</code>
+     * Generated from protobuf field <code>.meshpaas.Authn authentication = 12 [(.validator.field) = {</code>
      */
     private $authentication = null;
-    /**
-     * application authorization options
-     *
-     * Generated from protobuf field <code>.meshpaas.Authz authorization = 13;</code>
-     */
-    private $authorization = null;
     /**
      * status tracks the state of the application during it's lifecycle
      *
@@ -79,8 +73,6 @@ class App extends \Google\Protobuf\Internal\Message
      *           gateway/service-mesh networking
      *     @type \Meshpaas\Authn $authentication
      *           application authentication options
-     *     @type \Meshpaas\Authz $authorization
-     *           application authorization options
      *     @type \Meshpaas\AppStatus $status
      *           status tracks the state of the application during it's lifecycle
      * }
@@ -219,7 +211,7 @@ class App extends \Google\Protobuf\Internal\Message
     /**
      * application authentication options
      *
-     * Generated from protobuf field <code>.meshpaas.Authn authentication = 12;</code>
+     * Generated from protobuf field <code>.meshpaas.Authn authentication = 12 [(.validator.field) = {</code>
      * @return \Meshpaas\Authn
      */
     public function getAuthentication()
@@ -230,7 +222,7 @@ class App extends \Google\Protobuf\Internal\Message
     /**
      * application authentication options
      *
-     * Generated from protobuf field <code>.meshpaas.Authn authentication = 12;</code>
+     * Generated from protobuf field <code>.meshpaas.Authn authentication = 12 [(.validator.field) = {</code>
      * @param \Meshpaas\Authn $var
      * @return $this
      */
@@ -238,32 +230,6 @@ class App extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Meshpaas\Authn::class);
         $this->authentication = $var;
-
-        return $this;
-    }
-
-    /**
-     * application authorization options
-     *
-     * Generated from protobuf field <code>.meshpaas.Authz authorization = 13;</code>
-     * @return \Meshpaas\Authz
-     */
-    public function getAuthorization()
-    {
-        return $this->authorization;
-    }
-
-    /**
-     * application authorization options
-     *
-     * Generated from protobuf field <code>.meshpaas.Authz authorization = 13;</code>
-     * @param \Meshpaas\Authz $var
-     * @return $this
-     */
-    public function setAuthorization($var)
-    {
-        GPBUtil::checkMessage($var, \Meshpaas\Authz::class);
-        $this->authorization = $var;
 
         return $this;
     }

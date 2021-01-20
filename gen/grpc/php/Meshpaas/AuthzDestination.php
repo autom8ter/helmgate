@@ -14,37 +14,21 @@ use Google\Protobuf\Internal\GPBUtil;
 class AuthzDestination extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>repeated string hosts_whitelist = 1;</code>
+     * Generated from protobuf field <code>repeated string hosts = 1;</code>
      */
-    private $hosts_whitelist;
+    private $hosts;
     /**
-     * Generated from protobuf field <code>repeated string hosts_blacklist = 5;</code>
+     * Generated from protobuf field <code>repeated string ports = 2;</code>
      */
-    private $hosts_blacklist;
+    private $ports;
     /**
-     * Generated from protobuf field <code>repeated string ports_whitelist = 2;</code>
+     * Generated from protobuf field <code>repeated string methods = 3;</code>
      */
-    private $ports_whitelist;
+    private $methods;
     /**
-     * Generated from protobuf field <code>repeated string ports_blacklist = 6;</code>
+     * Generated from protobuf field <code>repeated string paths = 4;</code>
      */
-    private $ports_blacklist;
-    /**
-     * Generated from protobuf field <code>repeated string methods_whitelist = 3;</code>
-     */
-    private $methods_whitelist;
-    /**
-     * Generated from protobuf field <code>repeated string methods_blacklist = 7;</code>
-     */
-    private $methods_blacklist;
-    /**
-     * Generated from protobuf field <code>repeated string paths_whitelist = 4;</code>
-     */
-    private $paths_whitelist;
-    /**
-     * Generated from protobuf field <code>repeated string paths_blacklist = 8;</code>
-     */
-    private $paths_blacklist;
+    private $paths;
 
     /**
      * Constructor.
@@ -52,14 +36,10 @@ class AuthzDestination extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $hosts_whitelist
-     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $hosts_blacklist
-     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $ports_whitelist
-     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $ports_blacklist
-     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $methods_whitelist
-     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $methods_blacklist
-     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $paths_whitelist
-     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $paths_blacklist
+     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $hosts
+     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $ports
+     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $methods
+     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $paths
      * }
      */
     public function __construct($data = NULL) {
@@ -68,177 +48,89 @@ class AuthzDestination extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated string hosts_whitelist = 1;</code>
+     * Generated from protobuf field <code>repeated string hosts = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
-    public function getHostsWhitelist()
+    public function getHosts()
     {
-        return $this->hosts_whitelist;
+        return $this->hosts;
     }
 
     /**
-     * Generated from protobuf field <code>repeated string hosts_whitelist = 1;</code>
+     * Generated from protobuf field <code>repeated string hosts = 1;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
-    public function setHostsWhitelist($var)
+    public function setHosts($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->hosts_whitelist = $arr;
+        $this->hosts = $arr;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>repeated string hosts_blacklist = 5;</code>
+     * Generated from protobuf field <code>repeated string ports = 2;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
-    public function getHostsBlacklist()
+    public function getPorts()
     {
-        return $this->hosts_blacklist;
+        return $this->ports;
     }
 
     /**
-     * Generated from protobuf field <code>repeated string hosts_blacklist = 5;</code>
+     * Generated from protobuf field <code>repeated string ports = 2;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
-    public function setHostsBlacklist($var)
+    public function setPorts($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->hosts_blacklist = $arr;
+        $this->ports = $arr;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>repeated string ports_whitelist = 2;</code>
+     * Generated from protobuf field <code>repeated string methods = 3;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
-    public function getPortsWhitelist()
+    public function getMethods()
     {
-        return $this->ports_whitelist;
+        return $this->methods;
     }
 
     /**
-     * Generated from protobuf field <code>repeated string ports_whitelist = 2;</code>
+     * Generated from protobuf field <code>repeated string methods = 3;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
-    public function setPortsWhitelist($var)
+    public function setMethods($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->ports_whitelist = $arr;
+        $this->methods = $arr;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>repeated string ports_blacklist = 6;</code>
+     * Generated from protobuf field <code>repeated string paths = 4;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
-    public function getPortsBlacklist()
+    public function getPaths()
     {
-        return $this->ports_blacklist;
+        return $this->paths;
     }
 
     /**
-     * Generated from protobuf field <code>repeated string ports_blacklist = 6;</code>
+     * Generated from protobuf field <code>repeated string paths = 4;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
-    public function setPortsBlacklist($var)
+    public function setPaths($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->ports_blacklist = $arr;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>repeated string methods_whitelist = 3;</code>
-     * @return \Google\Protobuf\Internal\RepeatedField
-     */
-    public function getMethodsWhitelist()
-    {
-        return $this->methods_whitelist;
-    }
-
-    /**
-     * Generated from protobuf field <code>repeated string methods_whitelist = 3;</code>
-     * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
-     * @return $this
-     */
-    public function setMethodsWhitelist($var)
-    {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->methods_whitelist = $arr;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>repeated string methods_blacklist = 7;</code>
-     * @return \Google\Protobuf\Internal\RepeatedField
-     */
-    public function getMethodsBlacklist()
-    {
-        return $this->methods_blacklist;
-    }
-
-    /**
-     * Generated from protobuf field <code>repeated string methods_blacklist = 7;</code>
-     * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
-     * @return $this
-     */
-    public function setMethodsBlacklist($var)
-    {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->methods_blacklist = $arr;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>repeated string paths_whitelist = 4;</code>
-     * @return \Google\Protobuf\Internal\RepeatedField
-     */
-    public function getPathsWhitelist()
-    {
-        return $this->paths_whitelist;
-    }
-
-    /**
-     * Generated from protobuf field <code>repeated string paths_whitelist = 4;</code>
-     * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
-     * @return $this
-     */
-    public function setPathsWhitelist($var)
-    {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->paths_whitelist = $arr;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>repeated string paths_blacklist = 8;</code>
-     * @return \Google\Protobuf\Internal\RepeatedField
-     */
-    public function getPathsBlacklist()
-    {
-        return $this->paths_blacklist;
-    }
-
-    /**
-     * Generated from protobuf field <code>repeated string paths_blacklist = 8;</code>
-     * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
-     * @return $this
-     */
-    public function setPathsBlacklist($var)
-    {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->paths_blacklist = $arr;
+        $this->paths = $arr;
 
         return $this;
     }

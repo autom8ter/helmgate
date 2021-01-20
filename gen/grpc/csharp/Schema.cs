@@ -28,144 +28,118 @@ namespace Meshpaas {
             "dWN0LnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvGhln",
             "b29nbGUvcHJvdG9idWYvYW55LnByb3RvGhtnb29nbGUvcHJvdG9idWYvZW1w",
             "dHkucHJvdG8aNmdpdGh1Yi5jb20vbXdpdGtvdy9nby1wcm90by12YWxpZGF0",
-            "b3JzL3ZhbGlkYXRvci5wcm90byLeAQoQQXV0aHpEZXN0aW5hdGlvbhIXCg9o",
-            "b3N0c193aGl0ZWxpc3QYASADKAkSFwoPaG9zdHNfYmxhY2tsaXN0GAUgAygJ",
-            "EhcKD3BvcnRzX3doaXRlbGlzdBgCIAMoCRIXCg9wb3J0c19ibGFja2xpc3QY",
-            "BiADKAkSGQoRbWV0aG9kc193aGl0ZWxpc3QYAyADKAkSGQoRbWV0aG9kc19i",
-            "bGFja2xpc3QYByADKAkSFwoPcGF0aHNfd2hpdGVsaXN0GAQgAygJEhcKD3Bh",
-            "dGhzX2JsYWNrbGlzdBgIIAMoCSLRAQoLQXV0aHpTb3VyY2USHAoUcHJpbmNp",
-            "cGFsc193aGl0ZWxpc3QYASADKAkSHAoUcHJpbmNpcGFsc19ibGFja2xpc3QY",
-            "BSADKAkSJAoccmVxdWVzdF9wcmluY2lwYWxzX3doaXRlbGlzdBgCIAMoCRIk",
-            "ChxyZXF1ZXN0X3ByaW5jaXBhbHNfYmxhY2tsaXN0GAYgAygJEhwKFG5hbWVz",
-            "cGFjZXNfd2hpdGVsaXN0GAMgAygJEhwKFG5hbWVzcGFjZXNfYmxhY2tsaXN0",
-            "GAcgAygJIlMKDkF1dGh6Q29uZGl0aW9uEh0KA2tleRgBIAEoCUIQ4t8fDAoK",
-            "Xi57MSwyMjV9JBIOCgZlcXVhbHMYAiADKAkSEgoKbm90X2VxdWFscxgDIAMo",
-            "CSKTAQoJQXV0aHpSdWxlEiYKB3NvdXJjZXMYASADKAsyFS5tZXNocGFhcy5B",
-            "dXRoelNvdXJjZRIsCgpjb25kaXRpb25zGAIgAygLMhgubWVzaHBhYXMuQXV0",
-            "aHpDb25kaXRpb24SMAoMZGVzdGluYXRpb25zGAMgAygLMhoubWVzaHBhYXMu",
-            "QXV0aHpEZXN0aW5hdGlvbiJYCgtBdXRoelBvbGljeRIlCgZhY3Rpb24YASAB",
-            "KA4yFS5tZXNocGFhcy5BdXRoekFjdGlvbhIiCgVydWxlcxgCIAMoCzITLm1l",
-            "c2hwYWFzLkF1dGh6UnVsZSIwCgVBdXRoehInCghwb2xpY2llcxgBIAMoCzIV",
-            "Lm1lc2hwYWFzLkF1dGh6UG9saWN5IpMBCglBdXRoblJ1bGUSIgoIandrc191",
-            "cmkYASABKAlCEOLfHwwKCl4uezEsMjI1fSQSIAoGaXNzdWVyGAIgASgJQhDi",
-            "3x8MCgpeLnsxLDIyNX0kEhAKCGF1ZGllbmNlGAMgAygJEi4KFG91cHV0X3Bh",
-            "eWxvYWRfaGVhZGVyGAQgASgJQhDi3x8MCgpeLnsxLDIyNX0kIisKBUF1dGhu",
-            "EiIKBXJ1bGVzGAEgAygLMhMubWVzaHBhYXMuQXV0aG5SdWxlIusBCgtTZWNy",
-            "ZXRJbnB1dBIeCgRuYW1lGAEgASgJQhDi3x8MCgpeLnsxLDIyNX0kEiEKB3By",
-            "b2plY3QYAiABKAlCEOLfHwwKCl4uezEsMjI1fSQSIgoEdHlwZRgDIAEoDjIU",
-            "Lm1lc2hwYWFzLlNlY3JldFR5cGUSEQoJaW1tdXRhYmxlGAQgASgIEjUKBGRh",
-            "dGEYBSADKAsyHy5tZXNocGFhcy5TZWNyZXRJbnB1dC5EYXRhRW50cnlCBuLf",
-            "HwIgARorCglEYXRhRW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJ",
-            "OgI4ASLhAQoGU2VjcmV0Eh4KBG5hbWUYASABKAlCEOLfHwwKCl4uezEsMjI1",
-            "fSQSIQoHcHJvamVjdBgCIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIiCgR0eXBl",
-            "GAMgASgOMhQubWVzaHBhYXMuU2VjcmV0VHlwZRIRCglpbW11dGFibGUYBCAB",
-            "KAgSMAoEZGF0YRgFIAMoCzIaLm1lc2hwYWFzLlNlY3JldC5EYXRhRW50cnlC",
-            "BuLfHwIgARorCglEYXRhRW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIg",
-            "ASgJOgI4ASLZAQoRU2VydmVyVExTU2V0dGluZ3MSFgoOaHR0cHNfcmVkaXJl",
-            "Y3QYASABKAgSHwoEbW9kZRgCIAEoDjIRLm1lc2hwYWFzLlRMU21vZGUSFwoP",
-            "Y3JlZGVudGlhbF9uYW1lGAMgASgJEhkKEXN1YmplY3RfYWx0X25hbWVzGAQg",
-            "AygJEh8KF3ZlcmlmeV9jZXJ0aWZpY2F0ZV9zcGtpGAUgAygJEh8KF3Zlcmlm",
-            "eV9jZXJ0aWZpY2F0ZV9oYXNoGAYgAygJEhUKDWNpcGhlcl9zdWl0ZXMYByAD",
-            "KAkivQEKD0dhdGV3YXlMaXN0ZW5lchIUCgRwb3J0GAEgASgNQgbi3x8CEAAS",
-            "HgoEbmFtZRgCIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIsCghwcm90b2NvbBgD",
-            "IAEoDjISLm1lc2hwYWFzLlByb3RvY29sQgbi3x8CEAASFQoFaG9zdHMYBCAD",
-            "KAlCBuLfHwJgABIvCgp0bHNfY29uZmlnGAUgASgLMhsubWVzaHBhYXMuU2Vy",
-            "dmVyVExTU2V0dGluZ3MiVgoHR2F0ZXdheRIMCgRuYW1lGAEgASgJEg8KB3By",
-            "b2plY3QYAiABKAkSLAoJbGlzdGVuZXJzGAMgAygLMhkubWVzaHBhYXMuR2F0",
-            "ZXdheUxpc3RlbmVyIn8KDEdhdGV3YXlJbnB1dBIeCgRuYW1lGAEgASgJQhDi",
+            "b3JzL3ZhbGlkYXRvci5wcm90byKTAQoJQXV0aG5SdWxlEiIKCGp3a3NfdXJp",
+            "GAEgASgJQhDi3x8MCgpeLnsxLDIyNX0kEiAKBmlzc3VlchgCIAEoCUIQ4t8f",
+            "DAoKXi57MSwyMjV9JBIQCghhdWRpZW5jZRgDIAMoCRIuChRvdXB1dF9wYXls",
+            "b2FkX2hlYWRlchgEIAEoCUIQ4t8fDAoKXi57MSwyMjV9JCIrCgVBdXRobhIi",
+            "CgVydWxlcxgBIAMoCzITLm1lc2hwYWFzLkF1dGhuUnVsZSLrAQoLU2VjcmV0",
+            "SW5wdXQSHgoEbmFtZRgBIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIhCgdwcm9q",
+            "ZWN0GAIgASgJQhDi3x8MCgpeLnsxLDIyNX0kEiIKBHR5cGUYAyABKA4yFC5t",
+            "ZXNocGFhcy5TZWNyZXRUeXBlEhEKCWltbXV0YWJsZRgEIAEoCBI1CgRkYXRh",
+            "GAUgAygLMh8ubWVzaHBhYXMuU2VjcmV0SW5wdXQuRGF0YUVudHJ5Qgbi3x8C",
+            "IAEaKwoJRGF0YUVudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToC",
+            "OAEi4QEKBlNlY3JldBIeCgRuYW1lGAEgASgJQhDi3x8MCgpeLnsxLDIyNX0k",
+            "EiEKB3Byb2plY3QYAiABKAlCEOLfHwwKCl4uezEsMjI1fSQSIgoEdHlwZRgD",
+            "IAEoDjIULm1lc2hwYWFzLlNlY3JldFR5cGUSEQoJaW1tdXRhYmxlGAQgASgI",
+            "EjAKBGRhdGEYBSADKAsyGi5tZXNocGFhcy5TZWNyZXQuRGF0YUVudHJ5Qgbi",
+            "3x8CIAEaKwoJRGF0YUVudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEo",
+            "CToCOAEi2QEKEVNlcnZlclRMU1NldHRpbmdzEhYKDmh0dHBzX3JlZGlyZWN0",
+            "GAEgASgIEh8KBG1vZGUYAiABKA4yES5tZXNocGFhcy5UTFNtb2RlEhcKD2Ny",
+            "ZWRlbnRpYWxfbmFtZRgDIAEoCRIZChFzdWJqZWN0X2FsdF9uYW1lcxgEIAMo",
+            "CRIfChd2ZXJpZnlfY2VydGlmaWNhdGVfc3BraRgFIAMoCRIfChd2ZXJpZnlf",
+            "Y2VydGlmaWNhdGVfaGFzaBgGIAMoCRIVCg1jaXBoZXJfc3VpdGVzGAcgAygJ",
+            "Ir0BCg9HYXRld2F5TGlzdGVuZXISFAoEcG9ydBgBIAEoDUIG4t8fAhAAEh4K",
+            "BG5hbWUYAiABKAlCEOLfHwwKCl4uezEsMjI1fSQSLAoIcHJvdG9jb2wYAyAB",
+            "KA4yEi5tZXNocGFhcy5Qcm90b2NvbEIG4t8fAhAAEhUKBWhvc3RzGAQgAygJ",
+            "Qgbi3x8CYAASLwoKdGxzX2NvbmZpZxgFIAEoCzIbLm1lc2hwYWFzLlNlcnZl",
+            "clRMU1NldHRpbmdzIlYKB0dhdGV3YXkSDAoEbmFtZRgBIAEoCRIPCgdwcm9q",
+            "ZWN0GAIgASgJEiwKCWxpc3RlbmVycxgDIAMoCzIZLm1lc2hwYWFzLkdhdGV3",
+            "YXlMaXN0ZW5lciJ/CgxHYXRld2F5SW5wdXQSHgoEbmFtZRgBIAEoCUIQ4t8f",
+            "DAoKXi57MSwyMjV9JBIhCgdwcm9qZWN0GAIgASgJQhDi3x8MCgpeLnsxLDIy",
+            "NX0kEiwKCWxpc3RlbmVycxgDIAMoCzIZLm1lc2hwYWFzLkdhdGV3YXlMaXN0",
+            "ZW5lciLjAQoJSFRUUFJvdXRlEh4KBG5hbWUYASABKAlCEOLfHwwKCl4uezEs",
+            "MjI1fSQSFAoEcG9ydBgCIAEoDUIG4t8fAhAAEhMKC3BhdGhfcHJlZml4GAMg",
+            "ASgJEhMKC3Jld3JpdGVfdXJpGAUgASgJEhUKDWFsbG93X29yaWdpbnMYBiAD",
+            "KAkSFQoNYWxsb3dfbWV0aG9kcxgHIAMoCRIVCg1hbGxvd19oZWFkZXJzGAgg",
+            "AygJEhYKDmV4cG9zZV9oZWFkZXJzGAkgAygJEhkKEWFsbG93X2NyZWRlbnRp",
+            "YWxzGAogASgIImcKCk5ldHdvcmtpbmcSEAoIZ2F0ZXdheXMYASADKAkSDQoF",
+            "aG9zdHMYAiADKAkSDgoGZXhwb3J0GAMgASgIEigKC2h0dHBfcm91dGVzGAQg",
+            "AygLMhMubWVzaHBhYXMuSFRUUFJvdXRlIpYCCglDb250YWluZXISHgoEbmFt",
+            "ZRgBIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIfCgVpbWFnZRgCIAEoCUIQ4t8f",
+            "DAoKXi57MSwyMjV9JBIMCgRhcmdzGAMgAygJEikKA2VudhgEIAMoCzIcLm1l",
+            "c2hwYWFzLkNvbnRhaW5lci5FbnZFbnRyeRI1CgVwb3J0cxgFIAMoCzIeLm1l",
+            "c2hwYWFzLkNvbnRhaW5lci5Qb3J0c0VudHJ5Qgbi3x8CIAEaKgoIRW52RW50",
+            "cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ARosCgpQb3J0c0Vu",
+            "dHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoDToCOAEimwIKA0FwcBIe",
+            "CgRuYW1lGAEgASgJQhDi3x8MCgpeLnsxLDIyNX0kEiEKB3Byb2plY3QYAiAB",
+            "KAlCEOLfHwwKCl4uezEsMjI1fSQSLwoKY29udGFpbmVycxgDIAMoCzITLm1l",
+            "c2hwYWFzLkNvbnRhaW5lckIG4t8fAiABEhAKCHJlcGxpY2FzGAggASgNEjAK",
+            "Cm5ldHdvcmtpbmcYCyABKAsyFC5tZXNocGFhcy5OZXR3b3JraW5nQgbi3x8C",
+            "IAESLwoOYXV0aGVudGljYXRpb24YDCABKAsyDy5tZXNocGFhcy5BdXRobkIG",
+            "4t8fAiABEisKBnN0YXR1cxgUIAEoCzITLm1lc2hwYWFzLkFwcFN0YXR1c0IG",
+            "4t8fAiABIrMBCgRUYXNrEh4KBG5hbWUYASABKAlCEOLfHwwKCl4uezEsMjI1",
+            "fSQSIQoHcHJvamVjdBgCIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIvCgpjb250",
+            "YWluZXJzGAMgAygLMhMubWVzaHBhYXMuQ29udGFpbmVyQgbi3x8CIAESIgoI",
+            "c2NoZWR1bGUYByABKAlCEOLfHwwKCl4uezEsMjI1fSQSEwoLY29tcGxldGlv",
+            "bnMYCCABKA0iuAEKCVRhc2tJbnB1dBIeCgRuYW1lGAEgASgJQhDi3x8MCgpe",
+            "LnsxLDIyNX0kEiEKB3Byb2plY3QYAiABKAlCEOLfHwwKCl4uezEsMjI1fSQS",
+            "LwoKY29udGFpbmVycxgDIAMoCzITLm1lc2hwYWFzLkNvbnRhaW5lckIG4t8f",
+            "AiABEiIKCHNjaGVkdWxlGAcgASgJQhDi3x8MCgpeLnsxLDIyNX0kEhMKC2Nv",
+            "bXBsZXRpb25zGAggASgNIusBCghBcHBJbnB1dBIeCgRuYW1lGAEgASgJQhDi",
             "3x8MCgpeLnsxLDIyNX0kEiEKB3Byb2plY3QYAiABKAlCEOLfHwwKCl4uezEs",
-            "MjI1fSQSLAoJbGlzdGVuZXJzGAMgAygLMhkubWVzaHBhYXMuR2F0ZXdheUxp",
-            "c3RlbmVyIuMBCglIVFRQUm91dGUSHgoEbmFtZRgBIAEoCUIQ4t8fDAoKXi57",
-            "MSwyMjV9JBIUCgRwb3J0GAIgASgNQgbi3x8CEAASEwoLcGF0aF9wcmVmaXgY",
-            "AyABKAkSEwoLcmV3cml0ZV91cmkYBSABKAkSFQoNYWxsb3dfb3JpZ2lucxgG",
-            "IAMoCRIVCg1hbGxvd19tZXRob2RzGAcgAygJEhUKDWFsbG93X2hlYWRlcnMY",
-            "CCADKAkSFgoOZXhwb3NlX2hlYWRlcnMYCSADKAkSGQoRYWxsb3dfY3JlZGVu",
-            "dGlhbHMYCiABKAgiZwoKTmV0d29ya2luZxIQCghnYXRld2F5cxgBIAMoCRIN",
-            "CgVob3N0cxgCIAMoCRIOCgZleHBvcnQYAyABKAgSKAoLaHR0cF9yb3V0ZXMY",
-            "BCADKAsyEy5tZXNocGFhcy5IVFRQUm91dGUilgIKCUNvbnRhaW5lchIeCgRu",
-            "YW1lGAEgASgJQhDi3x8MCgpeLnsxLDIyNX0kEh8KBWltYWdlGAIgASgJQhDi",
-            "3x8MCgpeLnsxLDIyNX0kEgwKBGFyZ3MYAyADKAkSKQoDZW52GAQgAygLMhwu",
-            "bWVzaHBhYXMuQ29udGFpbmVyLkVudkVudHJ5EjUKBXBvcnRzGAUgAygLMh4u",
-            "bWVzaHBhYXMuQ29udGFpbmVyLlBvcnRzRW50cnlCBuLfHwIgARoqCghFbnZF",
-            "bnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBGiwKClBvcnRz",
-            "RW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgNOgI4ASK7AgoDQXBw",
-            "Eh4KBG5hbWUYASABKAlCEOLfHwwKCl4uezEsMjI1fSQSIQoHcHJvamVjdBgC",
-            "IAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIvCgpjb250YWluZXJzGAMgAygLMhMu",
-            "bWVzaHBhYXMuQ29udGFpbmVyQgbi3x8CIAESEAoIcmVwbGljYXMYCCABKA0S",
-            "MAoKbmV0d29ya2luZxgLIAEoCzIULm1lc2hwYWFzLk5ldHdvcmtpbmdCBuLf",
-            "HwIgARInCg5hdXRoZW50aWNhdGlvbhgMIAEoCzIPLm1lc2hwYWFzLkF1dGhu",
-            "EiYKDWF1dGhvcml6YXRpb24YDSABKAsyDy5tZXNocGFhcy5BdXRoehIrCgZz",
-            "dGF0dXMYFCABKAsyEy5tZXNocGFhcy5BcHBTdGF0dXNCBuLfHwIgASKzAQoE",
-            "VGFzaxIeCgRuYW1lGAEgASgJQhDi3x8MCgpeLnsxLDIyNX0kEiEKB3Byb2pl",
-            "Y3QYAiABKAlCEOLfHwwKCl4uezEsMjI1fSQSLwoKY29udGFpbmVycxgDIAMo",
-            "CzITLm1lc2hwYWFzLkNvbnRhaW5lckIG4t8fAiABEiIKCHNjaGVkdWxlGAcg",
-            "ASgJQhDi3x8MCgpeLnsxLDIyNX0kEhMKC2NvbXBsZXRpb25zGAggASgNIrgB",
-            "CglUYXNrSW5wdXQSHgoEbmFtZRgBIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIh",
-            "Cgdwcm9qZWN0GAIgASgJQhDi3x8MCgpeLnsxLDIyNX0kEi8KCmNvbnRhaW5l",
-            "cnMYAyADKAsyEy5tZXNocGFhcy5Db250YWluZXJCBuLfHwIgARIiCghzY2hl",
-            "ZHVsZRgHIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBITCgtjb21wbGV0aW9ucxgI",
-            "IAEoDSKTAgoIQXBwSW5wdXQSHgoEbmFtZRgBIAEoCUIQ4t8fDAoKXi57MSwy",
-            "MjV9JBIhCgdwcm9qZWN0GAIgASgJQhDi3x8MCgpeLnsxLDIyNX0kEi8KCmNv",
-            "bnRhaW5lcnMYAyADKAsyEy5tZXNocGFhcy5Db250YWluZXJCBuLfHwIgARIQ",
-            "CghyZXBsaWNhcxgHIAEoDRIwCgpuZXR3b3JraW5nGAogASgLMhQubWVzaHBh",
-            "YXMuTmV0d29ya2luZ0IG4t8fAiABEicKDmF1dGhlbnRpY2F0aW9uGAwgASgL",
-            "Mg8ubWVzaHBhYXMuQXV0aG4SJgoNYXV0aG9yaXphdGlvbhgNIAEoCzIPLm1l",
-            "c2hwYWFzLkF1dGh6IkgKA1JlZhIeCgRuYW1lGAEgASgJQhDi3x8MCgpeLnsx",
-            "LDIyNX0kEiEKB3Byb2plY3QYAiABKAlCEOLfHwwKCl4uezEsMjI1fSQiOwoH",
-            "UmVwbGljYRINCgVwaGFzZRgBIAEoCRIRCgljb25kaXRpb24YAiABKAkSDgoG",
-            "cmVhc29uGAMgASgJIjAKCUFwcFN0YXR1cxIjCghyZXBsaWNhcxgBIAMoCzIR",
-            "Lm1lc2hwYWFzLlJlcGxpY2EiFgoDTG9nEg8KB21lc3NhZ2UYASABKAkiKwoE",
-            "QXBwcxIjCgxhcHBsaWNhdGlvbnMYASADKAsyDS5tZXNocGFhcy5BcHAiJgoF",
-            "VGFza3MSHQoFdGFza3MYASADKAsyDi5tZXNocGFhcy5UYXNrIi4KDFByb2pl",
-            "Y3RJbnB1dBIeCgRuYW1lGAEgASgJQhDi3x8MCgpeLnsxLDIyNX0kIhcKB1By",
-            "b2plY3QSDAoEbmFtZRgBIAEoCSIsCgpQcm9qZWN0UmVmEh4KBG5hbWUYASAB",
-            "KAlCEOLfHwwKCl4uezEsMjI1fSQiHAoIUHJvamVjdHMSEAoIcHJvamVjdHMY",
-            "ASADKAkqIgoLQXV0aHpBY3Rpb24SCQoFQUxMT1cQABIICgRERU5ZEAEqPQoK",
-            "U2VjcmV0VHlwZRIKCgZPUEFRVUUQABIQCgxUTFNfQ0VSVF9LRVkQARIRCg1E",
-            "T0NLRVJfQ09ORklHEAIqZwoIUHJvdG9jb2wSFAoQSU5WQUxJRF9QUk9UT0NP",
-            "TBAAEggKBEhUVFAQARIJCgVIVFRQUxACEggKBEdSUEMQAxIJCgVIVFRQMhAE",
-            "EgkKBU1PTkdPEAUSBwoDVENQEAYSBwoDVExTEAcqWgoHVExTbW9kZRIPCgtQ",
-            "QVNTVEhST1VHSBAAEgoKBlNJTVBMRRABEgoKBk1VVFVBTBACEhQKEEFVVE9f",
-            "UEFTU1RIUk9VR0gQAxIQCgxJU1RJT19NVVRVQUwQBDK3CgoPTWVzaFBhYXNT",
-            "ZXJ2aWNlEjwKDUNyZWF0ZVByb2plY3QSFi5tZXNocGFhcy5Qcm9qZWN0SW5w",
-            "dXQaES5tZXNocGFhcy5Qcm9qZWN0IgASPAoMTGlzdFByb2plY3RzEhYuZ29v",
-            "Z2xlLnByb3RvYnVmLkVtcHR5GhIubWVzaHBhYXMuUHJvamVjdHMiABI/Cg1E",
-            "ZWxldGVQcm9qZWN0EhQubWVzaHBhYXMuUHJvamVjdFJlZhoWLmdvb2dsZS5w",
-            "cm90b2J1Zi5FbXB0eSIAEjcKCkdldFByb2plY3QSFC5tZXNocGFhcy5Qcm9q",
-            "ZWN0UmVmGhEubWVzaHBhYXMuUHJvamVjdCIAEjwKDVVwZGF0ZVByb2plY3QS",
-            "Fi5tZXNocGFhcy5Qcm9qZWN0SW5wdXQaES5tZXNocGFhcy5Qcm9qZWN0IgAS",
-            "MAoJQ3JlYXRlQXBwEhIubWVzaHBhYXMuQXBwSW5wdXQaDS5tZXNocGFhcy5B",
-            "cHAiABIwCglVcGRhdGVBcHASEi5tZXNocGFhcy5BcHBJbnB1dBoNLm1lc2hw",
-            "YWFzLkFwcCIAEjQKCURlbGV0ZUFwcBINLm1lc2hwYWFzLlJlZhoWLmdvb2ds",
-            "ZS5wcm90b2J1Zi5FbXB0eSIAEigKBkdldEFwcBINLm1lc2hwYWFzLlJlZhoN",
-            "Lm1lc2hwYWFzLkFwcCIAEjIKCExpc3RBcHBzEhQubWVzaHBhYXMuUHJvamVj",
-            "dFJlZhoOLm1lc2hwYWFzLkFwcHMiABIzCgpDcmVhdGVUYXNrEhMubWVzaHBh",
-            "YXMuVGFza0lucHV0Gg4ubWVzaHBhYXMuVGFzayIAEjMKClVwZGF0ZVRhc2sS",
-            "Ey5tZXNocGFhcy5UYXNrSW5wdXQaDi5tZXNocGFhcy5UYXNrIgASNQoKRGVs",
-            "ZXRlVGFzaxINLm1lc2hwYWFzLlJlZhoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0",
-            "eSIAEioKB0dldFRhc2sSDS5tZXNocGFhcy5SZWYaDi5tZXNocGFhcy5UYXNr",
-            "IgASNAoJTGlzdFRhc2tzEhQubWVzaHBhYXMuUHJvamVjdFJlZhoPLm1lc2hw",
-            "YWFzLlRhc2tzIgASPAoNQ3JlYXRlR2F0ZXdheRIWLm1lc2hwYWFzLkdhdGV3",
-            "YXlJbnB1dBoRLm1lc2hwYWFzLkdhdGV3YXkiABI8Cg1VcGRhdGVHYXRld2F5",
-            "EhYubWVzaHBhYXMuR2F0ZXdheUlucHV0GhEubWVzaHBhYXMuR2F0ZXdheSIA",
-            "EjgKDURlbGV0ZUdhdGV3YXkSDS5tZXNocGFhcy5SZWYaFi5nb29nbGUucHJv",
-            "dG9idWYuRW1wdHkiABIwCgpHZXRHYXRld2F5Eg0ubWVzaHBhYXMuUmVmGhEu",
-            "bWVzaHBhYXMuR2F0ZXdheSIAEjkKDENyZWF0ZVNlY3JldBIVLm1lc2hwYWFz",
-            "LlNlY3JldElucHV0GhAubWVzaHBhYXMuU2VjcmV0IgASOQoMVXBkYXRlU2Vj",
-            "cmV0EhUubWVzaHBhYXMuU2VjcmV0SW5wdXQaEC5tZXNocGFhcy5TZWNyZXQi",
-            "ABI3CgxEZWxldGVTZWNyZXQSDS5tZXNocGFhcy5SZWYaFi5nb29nbGUucHJv",
-            "dG9idWYuRW1wdHkiABIuCglHZXRTZWNyZXQSDS5tZXNocGFhcy5SZWYaEC5t",
-            "ZXNocGFhcy5TZWNyZXQiABIuCgpTdHJlYW1Mb2dzEg0ubWVzaHBhYXMuUmVm",
-            "Gg0ubWVzaHBhYXMuTG9nIgAwAUIMWgptZXNocGFhc3BiYgZwcm90bzM="));
+            "MjI1fSQSLwoKY29udGFpbmVycxgDIAMoCzITLm1lc2hwYWFzLkNvbnRhaW5l",
+            "ckIG4t8fAiABEhAKCHJlcGxpY2FzGAcgASgNEjAKCm5ldHdvcmtpbmcYCiAB",
+            "KAsyFC5tZXNocGFhcy5OZXR3b3JraW5nQgbi3x8CIAESJwoOYXV0aGVudGlj",
+            "YXRpb24YDCABKAsyDy5tZXNocGFhcy5BdXRobiJICgNSZWYSHgoEbmFtZRgB",
+            "IAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIhCgdwcm9qZWN0GAIgASgJQhDi3x8M",
+            "CgpeLnsxLDIyNX0kIjsKB1JlcGxpY2ESDQoFcGhhc2UYASABKAkSEQoJY29u",
+            "ZGl0aW9uGAIgASgJEg4KBnJlYXNvbhgDIAEoCSIwCglBcHBTdGF0dXMSIwoI",
+            "cmVwbGljYXMYASADKAsyES5tZXNocGFhcy5SZXBsaWNhIhYKA0xvZxIPCgdt",
+            "ZXNzYWdlGAEgASgJIisKBEFwcHMSIwoMYXBwbGljYXRpb25zGAEgAygLMg0u",
+            "bWVzaHBhYXMuQXBwIiYKBVRhc2tzEh0KBXRhc2tzGAEgAygLMg4ubWVzaHBh",
+            "YXMuVGFzayIuCgxQcm9qZWN0SW5wdXQSHgoEbmFtZRgBIAEoCUIQ4t8fDAoK",
+            "Xi57MSwyMjV9JCIXCgdQcm9qZWN0EgwKBG5hbWUYASABKAkiLAoKUHJvamVj",
+            "dFJlZhIeCgRuYW1lGAEgASgJQhDi3x8MCgpeLnsxLDIyNX0kIhwKCFByb2pl",
+            "Y3RzEhAKCHByb2plY3RzGAEgAygJKj0KClNlY3JldFR5cGUSCgoGT1BBUVVF",
+            "EAASEAoMVExTX0NFUlRfS0VZEAESEQoNRE9DS0VSX0NPTkZJRxACKmcKCFBy",
+            "b3RvY29sEhQKEElOVkFMSURfUFJPVE9DT0wQABIICgRIVFRQEAESCQoFSFRU",
+            "UFMQAhIICgRHUlBDEAMSCQoFSFRUUDIQBBIJCgVNT05HTxAFEgcKA1RDUBAG",
+            "EgcKA1RMUxAHKloKB1RMU21vZGUSDwoLUEFTU1RIUk9VR0gQABIKCgZTSU1Q",
+            "TEUQARIKCgZNVVRVQUwQAhIUChBBVVRPX1BBU1NUSFJPVUdIEAMSEAoMSVNU",
+            "SU9fTVVUVUFMEAQytwoKD01lc2hQYWFzU2VydmljZRI8Cg1DcmVhdGVQcm9q",
+            "ZWN0EhYubWVzaHBhYXMuUHJvamVjdElucHV0GhEubWVzaHBhYXMuUHJvamVj",
+            "dCIAEjwKDExpc3RQcm9qZWN0cxIWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRoS",
+            "Lm1lc2hwYWFzLlByb2plY3RzIgASPwoNRGVsZXRlUHJvamVjdBIULm1lc2hw",
+            "YWFzLlByb2plY3RSZWYaFi5nb29nbGUucHJvdG9idWYuRW1wdHkiABI3CgpH",
+            "ZXRQcm9qZWN0EhQubWVzaHBhYXMuUHJvamVjdFJlZhoRLm1lc2hwYWFzLlBy",
+            "b2plY3QiABI8Cg1VcGRhdGVQcm9qZWN0EhYubWVzaHBhYXMuUHJvamVjdElu",
+            "cHV0GhEubWVzaHBhYXMuUHJvamVjdCIAEjAKCUNyZWF0ZUFwcBISLm1lc2hw",
+            "YWFzLkFwcElucHV0Gg0ubWVzaHBhYXMuQXBwIgASMAoJVXBkYXRlQXBwEhIu",
+            "bWVzaHBhYXMuQXBwSW5wdXQaDS5tZXNocGFhcy5BcHAiABI0CglEZWxldGVB",
+            "cHASDS5tZXNocGFhcy5SZWYaFi5nb29nbGUucHJvdG9idWYuRW1wdHkiABIo",
+            "CgZHZXRBcHASDS5tZXNocGFhcy5SZWYaDS5tZXNocGFhcy5BcHAiABIyCghM",
+            "aXN0QXBwcxIULm1lc2hwYWFzLlByb2plY3RSZWYaDi5tZXNocGFhcy5BcHBz",
+            "IgASMwoKQ3JlYXRlVGFzaxITLm1lc2hwYWFzLlRhc2tJbnB1dBoOLm1lc2hw",
+            "YWFzLlRhc2siABIzCgpVcGRhdGVUYXNrEhMubWVzaHBhYXMuVGFza0lucHV0",
+            "Gg4ubWVzaHBhYXMuVGFzayIAEjUKCkRlbGV0ZVRhc2sSDS5tZXNocGFhcy5S",
+            "ZWYaFi5nb29nbGUucHJvdG9idWYuRW1wdHkiABIqCgdHZXRUYXNrEg0ubWVz",
+            "aHBhYXMuUmVmGg4ubWVzaHBhYXMuVGFzayIAEjQKCUxpc3RUYXNrcxIULm1l",
+            "c2hwYWFzLlByb2plY3RSZWYaDy5tZXNocGFhcy5UYXNrcyIAEjwKDUNyZWF0",
+            "ZUdhdGV3YXkSFi5tZXNocGFhcy5HYXRld2F5SW5wdXQaES5tZXNocGFhcy5H",
+            "YXRld2F5IgASPAoNVXBkYXRlR2F0ZXdheRIWLm1lc2hwYWFzLkdhdGV3YXlJ",
+            "bnB1dBoRLm1lc2hwYWFzLkdhdGV3YXkiABI4Cg1EZWxldGVHYXRld2F5Eg0u",
+            "bWVzaHBhYXMuUmVmGhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgASMAoKR2V0",
+            "R2F0ZXdheRINLm1lc2hwYWFzLlJlZhoRLm1lc2hwYWFzLkdhdGV3YXkiABI5",
+            "CgxDcmVhdGVTZWNyZXQSFS5tZXNocGFhcy5TZWNyZXRJbnB1dBoQLm1lc2hw",
+            "YWFzLlNlY3JldCIAEjkKDFVwZGF0ZVNlY3JldBIVLm1lc2hwYWFzLlNlY3Jl",
+            "dElucHV0GhAubWVzaHBhYXMuU2VjcmV0IgASNwoMRGVsZXRlU2VjcmV0Eg0u",
+            "bWVzaHBhYXMuUmVmGhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgASLgoJR2V0",
+            "U2VjcmV0Eg0ubWVzaHBhYXMuUmVmGhAubWVzaHBhYXMuU2VjcmV0IgASLgoK",
+            "U3RyZWFtTG9ncxINLm1lc2hwYWFzLlJlZhoNLm1lc2hwYWFzLkxvZyIAMAFC",
+            "DFoKbWVzaHBhYXNwYmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Validator.ValidatorReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Meshpaas.AuthzAction), typeof(global::Meshpaas.SecretType), typeof(global::Meshpaas.Protocol), typeof(global::Meshpaas.TLSmode), }, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.AuthzDestination), global::Meshpaas.AuthzDestination.Parser, new[]{ "HostsWhitelist", "HostsBlacklist", "PortsWhitelist", "PortsBlacklist", "MethodsWhitelist", "MethodsBlacklist", "PathsWhitelist", "PathsBlacklist" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.AuthzSource), global::Meshpaas.AuthzSource.Parser, new[]{ "PrincipalsWhitelist", "PrincipalsBlacklist", "RequestPrincipalsWhitelist", "RequestPrincipalsBlacklist", "NamespacesWhitelist", "NamespacesBlacklist" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.AuthzCondition), global::Meshpaas.AuthzCondition.Parser, new[]{ "Key", "Equals", "NotEquals" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.AuthzRule), global::Meshpaas.AuthzRule.Parser, new[]{ "Sources", "Conditions", "Destinations" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.AuthzPolicy), global::Meshpaas.AuthzPolicy.Parser, new[]{ "Action", "Rules" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Authz), global::Meshpaas.Authz.Parser, new[]{ "Policies" }, null, null, null),
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Meshpaas.SecretType), typeof(global::Meshpaas.Protocol), typeof(global::Meshpaas.TLSmode), }, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.AuthnRule), global::Meshpaas.AuthnRule.Parser, new[]{ "JwksUri", "Issuer", "Audience", "OuputPayloadHeader" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Authn), global::Meshpaas.Authn.Parser, new[]{ "Rules" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.SecretInput), global::Meshpaas.SecretInput.Parser, new[]{ "Name", "Project", "Type", "Immutable", "Data" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
@@ -177,10 +151,10 @@ namespace Meshpaas {
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.HTTPRoute), global::Meshpaas.HTTPRoute.Parser, new[]{ "Name", "Port", "PathPrefix", "RewriteUri", "AllowOrigins", "AllowMethods", "AllowHeaders", "ExposeHeaders", "AllowCredentials" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Networking), global::Meshpaas.Networking.Parser, new[]{ "Gateways", "Hosts", "Export", "HttpRoutes" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Container), global::Meshpaas.Container.Parser, new[]{ "Name", "Image", "Args", "Env", "Ports" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.App), global::Meshpaas.App.Parser, new[]{ "Name", "Project", "Containers", "Replicas", "Networking", "Authentication", "Authorization", "Status" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.App), global::Meshpaas.App.Parser, new[]{ "Name", "Project", "Containers", "Replicas", "Networking", "Authentication", "Status" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Task), global::Meshpaas.Task.Parser, new[]{ "Name", "Project", "Containers", "Schedule", "Completions" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.TaskInput), global::Meshpaas.TaskInput.Parser, new[]{ "Name", "Project", "Containers", "Schedule", "Completions" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.AppInput), global::Meshpaas.AppInput.Parser, new[]{ "Name", "Project", "Containers", "Replicas", "Networking", "Authentication", "Authorization" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.AppInput), global::Meshpaas.AppInput.Parser, new[]{ "Name", "Project", "Containers", "Replicas", "Networking", "Authentication" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Ref), global::Meshpaas.Ref.Parser, new[]{ "Name", "Project" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Replica), global::Meshpaas.Replica.Parser, new[]{ "Phase", "Condition", "Reason" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.AppStatus), global::Meshpaas.AppStatus.Parser, new[]{ "Replicas" }, null, null, null),
@@ -197,14 +171,6 @@ namespace Meshpaas {
 
   }
   #region Enums
-  /// <summary>
-  /// AuthzAction is the result of an Authorization Decision
-  /// </summary>
-  public enum AuthzAction {
-    [pbr::OriginalName("ALLOW")] Allow = 0,
-    [pbr::OriginalName("DENY")] Deny = 1,
-  }
-
   public enum SecretType {
     [pbr::OriginalName("OPAQUE")] Opaque = 0,
     [pbr::OriginalName("TLS_CERT_KEY")] TlsCertKey = 1,
@@ -233,1088 +199,6 @@ namespace Meshpaas {
   #endregion
 
   #region Messages
-  public sealed partial class AuthzDestination : pb::IMessage<AuthzDestination> {
-    private static readonly pb::MessageParser<AuthzDestination> _parser = new pb::MessageParser<AuthzDestination>(() => new AuthzDestination());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<AuthzDestination> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[0]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public AuthzDestination() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public AuthzDestination(AuthzDestination other) : this() {
-      hostsWhitelist_ = other.hostsWhitelist_.Clone();
-      hostsBlacklist_ = other.hostsBlacklist_.Clone();
-      portsWhitelist_ = other.portsWhitelist_.Clone();
-      portsBlacklist_ = other.portsBlacklist_.Clone();
-      methodsWhitelist_ = other.methodsWhitelist_.Clone();
-      methodsBlacklist_ = other.methodsBlacklist_.Clone();
-      pathsWhitelist_ = other.pathsWhitelist_.Clone();
-      pathsBlacklist_ = other.pathsBlacklist_.Clone();
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public AuthzDestination Clone() {
-      return new AuthzDestination(this);
-    }
-
-    /// <summary>Field number for the "hosts_whitelist" field.</summary>
-    public const int HostsWhitelistFieldNumber = 1;
-    private static readonly pb::FieldCodec<string> _repeated_hostsWhitelist_codec
-        = pb::FieldCodec.ForString(10);
-    private readonly pbc::RepeatedField<string> hostsWhitelist_ = new pbc::RepeatedField<string>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<string> HostsWhitelist {
-      get { return hostsWhitelist_; }
-    }
-
-    /// <summary>Field number for the "hosts_blacklist" field.</summary>
-    public const int HostsBlacklistFieldNumber = 5;
-    private static readonly pb::FieldCodec<string> _repeated_hostsBlacklist_codec
-        = pb::FieldCodec.ForString(42);
-    private readonly pbc::RepeatedField<string> hostsBlacklist_ = new pbc::RepeatedField<string>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<string> HostsBlacklist {
-      get { return hostsBlacklist_; }
-    }
-
-    /// <summary>Field number for the "ports_whitelist" field.</summary>
-    public const int PortsWhitelistFieldNumber = 2;
-    private static readonly pb::FieldCodec<string> _repeated_portsWhitelist_codec
-        = pb::FieldCodec.ForString(18);
-    private readonly pbc::RepeatedField<string> portsWhitelist_ = new pbc::RepeatedField<string>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<string> PortsWhitelist {
-      get { return portsWhitelist_; }
-    }
-
-    /// <summary>Field number for the "ports_blacklist" field.</summary>
-    public const int PortsBlacklistFieldNumber = 6;
-    private static readonly pb::FieldCodec<string> _repeated_portsBlacklist_codec
-        = pb::FieldCodec.ForString(50);
-    private readonly pbc::RepeatedField<string> portsBlacklist_ = new pbc::RepeatedField<string>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<string> PortsBlacklist {
-      get { return portsBlacklist_; }
-    }
-
-    /// <summary>Field number for the "methods_whitelist" field.</summary>
-    public const int MethodsWhitelistFieldNumber = 3;
-    private static readonly pb::FieldCodec<string> _repeated_methodsWhitelist_codec
-        = pb::FieldCodec.ForString(26);
-    private readonly pbc::RepeatedField<string> methodsWhitelist_ = new pbc::RepeatedField<string>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<string> MethodsWhitelist {
-      get { return methodsWhitelist_; }
-    }
-
-    /// <summary>Field number for the "methods_blacklist" field.</summary>
-    public const int MethodsBlacklistFieldNumber = 7;
-    private static readonly pb::FieldCodec<string> _repeated_methodsBlacklist_codec
-        = pb::FieldCodec.ForString(58);
-    private readonly pbc::RepeatedField<string> methodsBlacklist_ = new pbc::RepeatedField<string>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<string> MethodsBlacklist {
-      get { return methodsBlacklist_; }
-    }
-
-    /// <summary>Field number for the "paths_whitelist" field.</summary>
-    public const int PathsWhitelistFieldNumber = 4;
-    private static readonly pb::FieldCodec<string> _repeated_pathsWhitelist_codec
-        = pb::FieldCodec.ForString(34);
-    private readonly pbc::RepeatedField<string> pathsWhitelist_ = new pbc::RepeatedField<string>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<string> PathsWhitelist {
-      get { return pathsWhitelist_; }
-    }
-
-    /// <summary>Field number for the "paths_blacklist" field.</summary>
-    public const int PathsBlacklistFieldNumber = 8;
-    private static readonly pb::FieldCodec<string> _repeated_pathsBlacklist_codec
-        = pb::FieldCodec.ForString(66);
-    private readonly pbc::RepeatedField<string> pathsBlacklist_ = new pbc::RepeatedField<string>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<string> PathsBlacklist {
-      get { return pathsBlacklist_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as AuthzDestination);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(AuthzDestination other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if(!hostsWhitelist_.Equals(other.hostsWhitelist_)) return false;
-      if(!hostsBlacklist_.Equals(other.hostsBlacklist_)) return false;
-      if(!portsWhitelist_.Equals(other.portsWhitelist_)) return false;
-      if(!portsBlacklist_.Equals(other.portsBlacklist_)) return false;
-      if(!methodsWhitelist_.Equals(other.methodsWhitelist_)) return false;
-      if(!methodsBlacklist_.Equals(other.methodsBlacklist_)) return false;
-      if(!pathsWhitelist_.Equals(other.pathsWhitelist_)) return false;
-      if(!pathsBlacklist_.Equals(other.pathsBlacklist_)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      hash ^= hostsWhitelist_.GetHashCode();
-      hash ^= hostsBlacklist_.GetHashCode();
-      hash ^= portsWhitelist_.GetHashCode();
-      hash ^= portsBlacklist_.GetHashCode();
-      hash ^= methodsWhitelist_.GetHashCode();
-      hash ^= methodsBlacklist_.GetHashCode();
-      hash ^= pathsWhitelist_.GetHashCode();
-      hash ^= pathsBlacklist_.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      hostsWhitelist_.WriteTo(output, _repeated_hostsWhitelist_codec);
-      portsWhitelist_.WriteTo(output, _repeated_portsWhitelist_codec);
-      methodsWhitelist_.WriteTo(output, _repeated_methodsWhitelist_codec);
-      pathsWhitelist_.WriteTo(output, _repeated_pathsWhitelist_codec);
-      hostsBlacklist_.WriteTo(output, _repeated_hostsBlacklist_codec);
-      portsBlacklist_.WriteTo(output, _repeated_portsBlacklist_codec);
-      methodsBlacklist_.WriteTo(output, _repeated_methodsBlacklist_codec);
-      pathsBlacklist_.WriteTo(output, _repeated_pathsBlacklist_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      size += hostsWhitelist_.CalculateSize(_repeated_hostsWhitelist_codec);
-      size += hostsBlacklist_.CalculateSize(_repeated_hostsBlacklist_codec);
-      size += portsWhitelist_.CalculateSize(_repeated_portsWhitelist_codec);
-      size += portsBlacklist_.CalculateSize(_repeated_portsBlacklist_codec);
-      size += methodsWhitelist_.CalculateSize(_repeated_methodsWhitelist_codec);
-      size += methodsBlacklist_.CalculateSize(_repeated_methodsBlacklist_codec);
-      size += pathsWhitelist_.CalculateSize(_repeated_pathsWhitelist_codec);
-      size += pathsBlacklist_.CalculateSize(_repeated_pathsBlacklist_codec);
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(AuthzDestination other) {
-      if (other == null) {
-        return;
-      }
-      hostsWhitelist_.Add(other.hostsWhitelist_);
-      hostsBlacklist_.Add(other.hostsBlacklist_);
-      portsWhitelist_.Add(other.portsWhitelist_);
-      portsBlacklist_.Add(other.portsBlacklist_);
-      methodsWhitelist_.Add(other.methodsWhitelist_);
-      methodsBlacklist_.Add(other.methodsBlacklist_);
-      pathsWhitelist_.Add(other.pathsWhitelist_);
-      pathsBlacklist_.Add(other.pathsBlacklist_);
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            hostsWhitelist_.AddEntriesFrom(input, _repeated_hostsWhitelist_codec);
-            break;
-          }
-          case 18: {
-            portsWhitelist_.AddEntriesFrom(input, _repeated_portsWhitelist_codec);
-            break;
-          }
-          case 26: {
-            methodsWhitelist_.AddEntriesFrom(input, _repeated_methodsWhitelist_codec);
-            break;
-          }
-          case 34: {
-            pathsWhitelist_.AddEntriesFrom(input, _repeated_pathsWhitelist_codec);
-            break;
-          }
-          case 42: {
-            hostsBlacklist_.AddEntriesFrom(input, _repeated_hostsBlacklist_codec);
-            break;
-          }
-          case 50: {
-            portsBlacklist_.AddEntriesFrom(input, _repeated_portsBlacklist_codec);
-            break;
-          }
-          case 58: {
-            methodsBlacklist_.AddEntriesFrom(input, _repeated_methodsBlacklist_codec);
-            break;
-          }
-          case 66: {
-            pathsBlacklist_.AddEntriesFrom(input, _repeated_pathsBlacklist_codec);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class AuthzSource : pb::IMessage<AuthzSource> {
-    private static readonly pb::MessageParser<AuthzSource> _parser = new pb::MessageParser<AuthzSource>(() => new AuthzSource());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<AuthzSource> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[1]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public AuthzSource() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public AuthzSource(AuthzSource other) : this() {
-      principalsWhitelist_ = other.principalsWhitelist_.Clone();
-      principalsBlacklist_ = other.principalsBlacklist_.Clone();
-      requestPrincipalsWhitelist_ = other.requestPrincipalsWhitelist_.Clone();
-      requestPrincipalsBlacklist_ = other.requestPrincipalsBlacklist_.Clone();
-      namespacesWhitelist_ = other.namespacesWhitelist_.Clone();
-      namespacesBlacklist_ = other.namespacesBlacklist_.Clone();
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public AuthzSource Clone() {
-      return new AuthzSource(this);
-    }
-
-    /// <summary>Field number for the "principals_whitelist" field.</summary>
-    public const int PrincipalsWhitelistFieldNumber = 1;
-    private static readonly pb::FieldCodec<string> _repeated_principalsWhitelist_codec
-        = pb::FieldCodec.ForString(10);
-    private readonly pbc::RepeatedField<string> principalsWhitelist_ = new pbc::RepeatedField<string>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<string> PrincipalsWhitelist {
-      get { return principalsWhitelist_; }
-    }
-
-    /// <summary>Field number for the "principals_blacklist" field.</summary>
-    public const int PrincipalsBlacklistFieldNumber = 5;
-    private static readonly pb::FieldCodec<string> _repeated_principalsBlacklist_codec
-        = pb::FieldCodec.ForString(42);
-    private readonly pbc::RepeatedField<string> principalsBlacklist_ = new pbc::RepeatedField<string>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<string> PrincipalsBlacklist {
-      get { return principalsBlacklist_; }
-    }
-
-    /// <summary>Field number for the "request_principals_whitelist" field.</summary>
-    public const int RequestPrincipalsWhitelistFieldNumber = 2;
-    private static readonly pb::FieldCodec<string> _repeated_requestPrincipalsWhitelist_codec
-        = pb::FieldCodec.ForString(18);
-    private readonly pbc::RepeatedField<string> requestPrincipalsWhitelist_ = new pbc::RepeatedField<string>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<string> RequestPrincipalsWhitelist {
-      get { return requestPrincipalsWhitelist_; }
-    }
-
-    /// <summary>Field number for the "request_principals_blacklist" field.</summary>
-    public const int RequestPrincipalsBlacklistFieldNumber = 6;
-    private static readonly pb::FieldCodec<string> _repeated_requestPrincipalsBlacklist_codec
-        = pb::FieldCodec.ForString(50);
-    private readonly pbc::RepeatedField<string> requestPrincipalsBlacklist_ = new pbc::RepeatedField<string>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<string> RequestPrincipalsBlacklist {
-      get { return requestPrincipalsBlacklist_; }
-    }
-
-    /// <summary>Field number for the "namespaces_whitelist" field.</summary>
-    public const int NamespacesWhitelistFieldNumber = 3;
-    private static readonly pb::FieldCodec<string> _repeated_namespacesWhitelist_codec
-        = pb::FieldCodec.ForString(26);
-    private readonly pbc::RepeatedField<string> namespacesWhitelist_ = new pbc::RepeatedField<string>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<string> NamespacesWhitelist {
-      get { return namespacesWhitelist_; }
-    }
-
-    /// <summary>Field number for the "namespaces_blacklist" field.</summary>
-    public const int NamespacesBlacklistFieldNumber = 7;
-    private static readonly pb::FieldCodec<string> _repeated_namespacesBlacklist_codec
-        = pb::FieldCodec.ForString(58);
-    private readonly pbc::RepeatedField<string> namespacesBlacklist_ = new pbc::RepeatedField<string>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<string> NamespacesBlacklist {
-      get { return namespacesBlacklist_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as AuthzSource);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(AuthzSource other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if(!principalsWhitelist_.Equals(other.principalsWhitelist_)) return false;
-      if(!principalsBlacklist_.Equals(other.principalsBlacklist_)) return false;
-      if(!requestPrincipalsWhitelist_.Equals(other.requestPrincipalsWhitelist_)) return false;
-      if(!requestPrincipalsBlacklist_.Equals(other.requestPrincipalsBlacklist_)) return false;
-      if(!namespacesWhitelist_.Equals(other.namespacesWhitelist_)) return false;
-      if(!namespacesBlacklist_.Equals(other.namespacesBlacklist_)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      hash ^= principalsWhitelist_.GetHashCode();
-      hash ^= principalsBlacklist_.GetHashCode();
-      hash ^= requestPrincipalsWhitelist_.GetHashCode();
-      hash ^= requestPrincipalsBlacklist_.GetHashCode();
-      hash ^= namespacesWhitelist_.GetHashCode();
-      hash ^= namespacesBlacklist_.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      principalsWhitelist_.WriteTo(output, _repeated_principalsWhitelist_codec);
-      requestPrincipalsWhitelist_.WriteTo(output, _repeated_requestPrincipalsWhitelist_codec);
-      namespacesWhitelist_.WriteTo(output, _repeated_namespacesWhitelist_codec);
-      principalsBlacklist_.WriteTo(output, _repeated_principalsBlacklist_codec);
-      requestPrincipalsBlacklist_.WriteTo(output, _repeated_requestPrincipalsBlacklist_codec);
-      namespacesBlacklist_.WriteTo(output, _repeated_namespacesBlacklist_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      size += principalsWhitelist_.CalculateSize(_repeated_principalsWhitelist_codec);
-      size += principalsBlacklist_.CalculateSize(_repeated_principalsBlacklist_codec);
-      size += requestPrincipalsWhitelist_.CalculateSize(_repeated_requestPrincipalsWhitelist_codec);
-      size += requestPrincipalsBlacklist_.CalculateSize(_repeated_requestPrincipalsBlacklist_codec);
-      size += namespacesWhitelist_.CalculateSize(_repeated_namespacesWhitelist_codec);
-      size += namespacesBlacklist_.CalculateSize(_repeated_namespacesBlacklist_codec);
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(AuthzSource other) {
-      if (other == null) {
-        return;
-      }
-      principalsWhitelist_.Add(other.principalsWhitelist_);
-      principalsBlacklist_.Add(other.principalsBlacklist_);
-      requestPrincipalsWhitelist_.Add(other.requestPrincipalsWhitelist_);
-      requestPrincipalsBlacklist_.Add(other.requestPrincipalsBlacklist_);
-      namespacesWhitelist_.Add(other.namespacesWhitelist_);
-      namespacesBlacklist_.Add(other.namespacesBlacklist_);
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            principalsWhitelist_.AddEntriesFrom(input, _repeated_principalsWhitelist_codec);
-            break;
-          }
-          case 18: {
-            requestPrincipalsWhitelist_.AddEntriesFrom(input, _repeated_requestPrincipalsWhitelist_codec);
-            break;
-          }
-          case 26: {
-            namespacesWhitelist_.AddEntriesFrom(input, _repeated_namespacesWhitelist_codec);
-            break;
-          }
-          case 42: {
-            principalsBlacklist_.AddEntriesFrom(input, _repeated_principalsBlacklist_codec);
-            break;
-          }
-          case 50: {
-            requestPrincipalsBlacklist_.AddEntriesFrom(input, _repeated_requestPrincipalsBlacklist_codec);
-            break;
-          }
-          case 58: {
-            namespacesBlacklist_.AddEntriesFrom(input, _repeated_namespacesBlacklist_codec);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class AuthzCondition : pb::IMessage<AuthzCondition> {
-    private static readonly pb::MessageParser<AuthzCondition> _parser = new pb::MessageParser<AuthzCondition>(() => new AuthzCondition());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<AuthzCondition> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[2]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public AuthzCondition() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public AuthzCondition(AuthzCondition other) : this() {
-      key_ = other.key_;
-      equals_ = other.equals_.Clone();
-      notEquals_ = other.notEquals_.Clone();
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public AuthzCondition Clone() {
-      return new AuthzCondition(this);
-    }
-
-    /// <summary>Field number for the "key" field.</summary>
-    public const int KeyFieldNumber = 1;
-    private string key_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Key {
-      get { return key_; }
-      set {
-        key_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "equals" field.</summary>
-    public const int EqualsFieldNumber = 2;
-    private static readonly pb::FieldCodec<string> _repeated_equals_codec
-        = pb::FieldCodec.ForString(18);
-    private readonly pbc::RepeatedField<string> equals_ = new pbc::RepeatedField<string>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<string> Equals {
-      get { return equals_; }
-    }
-
-    /// <summary>Field number for the "not_equals" field.</summary>
-    public const int NotEqualsFieldNumber = 3;
-    private static readonly pb::FieldCodec<string> _repeated_notEquals_codec
-        = pb::FieldCodec.ForString(26);
-    private readonly pbc::RepeatedField<string> notEquals_ = new pbc::RepeatedField<string>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<string> NotEquals {
-      get { return notEquals_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as AuthzCondition);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(AuthzCondition other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Key != other.Key) return false;
-      if(!equals_.Equals(other.equals_)) return false;
-      if(!notEquals_.Equals(other.notEquals_)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Key.Length != 0) hash ^= Key.GetHashCode();
-      hash ^= equals_.GetHashCode();
-      hash ^= notEquals_.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (Key.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Key);
-      }
-      equals_.WriteTo(output, _repeated_equals_codec);
-      notEquals_.WriteTo(output, _repeated_notEquals_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Key.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Key);
-      }
-      size += equals_.CalculateSize(_repeated_equals_codec);
-      size += notEquals_.CalculateSize(_repeated_notEquals_codec);
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(AuthzCondition other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Key.Length != 0) {
-        Key = other.Key;
-      }
-      equals_.Add(other.equals_);
-      notEquals_.Add(other.notEquals_);
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            Key = input.ReadString();
-            break;
-          }
-          case 18: {
-            equals_.AddEntriesFrom(input, _repeated_equals_codec);
-            break;
-          }
-          case 26: {
-            notEquals_.AddEntriesFrom(input, _repeated_notEquals_codec);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class AuthzRule : pb::IMessage<AuthzRule> {
-    private static readonly pb::MessageParser<AuthzRule> _parser = new pb::MessageParser<AuthzRule>(() => new AuthzRule());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<AuthzRule> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[3]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public AuthzRule() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public AuthzRule(AuthzRule other) : this() {
-      sources_ = other.sources_.Clone();
-      conditions_ = other.conditions_.Clone();
-      destinations_ = other.destinations_.Clone();
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public AuthzRule Clone() {
-      return new AuthzRule(this);
-    }
-
-    /// <summary>Field number for the "sources" field.</summary>
-    public const int SourcesFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Meshpaas.AuthzSource> _repeated_sources_codec
-        = pb::FieldCodec.ForMessage(10, global::Meshpaas.AuthzSource.Parser);
-    private readonly pbc::RepeatedField<global::Meshpaas.AuthzSource> sources_ = new pbc::RepeatedField<global::Meshpaas.AuthzSource>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Meshpaas.AuthzSource> Sources {
-      get { return sources_; }
-    }
-
-    /// <summary>Field number for the "conditions" field.</summary>
-    public const int ConditionsFieldNumber = 2;
-    private static readonly pb::FieldCodec<global::Meshpaas.AuthzCondition> _repeated_conditions_codec
-        = pb::FieldCodec.ForMessage(18, global::Meshpaas.AuthzCondition.Parser);
-    private readonly pbc::RepeatedField<global::Meshpaas.AuthzCondition> conditions_ = new pbc::RepeatedField<global::Meshpaas.AuthzCondition>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Meshpaas.AuthzCondition> Conditions {
-      get { return conditions_; }
-    }
-
-    /// <summary>Field number for the "destinations" field.</summary>
-    public const int DestinationsFieldNumber = 3;
-    private static readonly pb::FieldCodec<global::Meshpaas.AuthzDestination> _repeated_destinations_codec
-        = pb::FieldCodec.ForMessage(26, global::Meshpaas.AuthzDestination.Parser);
-    private readonly pbc::RepeatedField<global::Meshpaas.AuthzDestination> destinations_ = new pbc::RepeatedField<global::Meshpaas.AuthzDestination>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Meshpaas.AuthzDestination> Destinations {
-      get { return destinations_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as AuthzRule);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(AuthzRule other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if(!sources_.Equals(other.sources_)) return false;
-      if(!conditions_.Equals(other.conditions_)) return false;
-      if(!destinations_.Equals(other.destinations_)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      hash ^= sources_.GetHashCode();
-      hash ^= conditions_.GetHashCode();
-      hash ^= destinations_.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      sources_.WriteTo(output, _repeated_sources_codec);
-      conditions_.WriteTo(output, _repeated_conditions_codec);
-      destinations_.WriteTo(output, _repeated_destinations_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      size += sources_.CalculateSize(_repeated_sources_codec);
-      size += conditions_.CalculateSize(_repeated_conditions_codec);
-      size += destinations_.CalculateSize(_repeated_destinations_codec);
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(AuthzRule other) {
-      if (other == null) {
-        return;
-      }
-      sources_.Add(other.sources_);
-      conditions_.Add(other.conditions_);
-      destinations_.Add(other.destinations_);
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            sources_.AddEntriesFrom(input, _repeated_sources_codec);
-            break;
-          }
-          case 18: {
-            conditions_.AddEntriesFrom(input, _repeated_conditions_codec);
-            break;
-          }
-          case 26: {
-            destinations_.AddEntriesFrom(input, _repeated_destinations_codec);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class AuthzPolicy : pb::IMessage<AuthzPolicy> {
-    private static readonly pb::MessageParser<AuthzPolicy> _parser = new pb::MessageParser<AuthzPolicy>(() => new AuthzPolicy());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<AuthzPolicy> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[4]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public AuthzPolicy() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public AuthzPolicy(AuthzPolicy other) : this() {
-      action_ = other.action_;
-      rules_ = other.rules_.Clone();
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public AuthzPolicy Clone() {
-      return new AuthzPolicy(this);
-    }
-
-    /// <summary>Field number for the "action" field.</summary>
-    public const int ActionFieldNumber = 1;
-    private global::Meshpaas.AuthzAction action_ = 0;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Meshpaas.AuthzAction Action {
-      get { return action_; }
-      set {
-        action_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "rules" field.</summary>
-    public const int RulesFieldNumber = 2;
-    private static readonly pb::FieldCodec<global::Meshpaas.AuthzRule> _repeated_rules_codec
-        = pb::FieldCodec.ForMessage(18, global::Meshpaas.AuthzRule.Parser);
-    private readonly pbc::RepeatedField<global::Meshpaas.AuthzRule> rules_ = new pbc::RepeatedField<global::Meshpaas.AuthzRule>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Meshpaas.AuthzRule> Rules {
-      get { return rules_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as AuthzPolicy);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(AuthzPolicy other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Action != other.Action) return false;
-      if(!rules_.Equals(other.rules_)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Action != 0) hash ^= Action.GetHashCode();
-      hash ^= rules_.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (Action != 0) {
-        output.WriteRawTag(8);
-        output.WriteEnum((int) Action);
-      }
-      rules_.WriteTo(output, _repeated_rules_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Action != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Action);
-      }
-      size += rules_.CalculateSize(_repeated_rules_codec);
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(AuthzPolicy other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Action != 0) {
-        Action = other.Action;
-      }
-      rules_.Add(other.rules_);
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            action_ = (global::Meshpaas.AuthzAction) input.ReadEnum();
-            break;
-          }
-          case 18: {
-            rules_.AddEntriesFrom(input, _repeated_rules_codec);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class Authz : pb::IMessage<Authz> {
-    private static readonly pb::MessageParser<Authz> _parser = new pb::MessageParser<Authz>(() => new Authz());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<Authz> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[5]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Authz() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Authz(Authz other) : this() {
-      policies_ = other.policies_.Clone();
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Authz Clone() {
-      return new Authz(this);
-    }
-
-    /// <summary>Field number for the "policies" field.</summary>
-    public const int PoliciesFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Meshpaas.AuthzPolicy> _repeated_policies_codec
-        = pb::FieldCodec.ForMessage(10, global::Meshpaas.AuthzPolicy.Parser);
-    private readonly pbc::RepeatedField<global::Meshpaas.AuthzPolicy> policies_ = new pbc::RepeatedField<global::Meshpaas.AuthzPolicy>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Meshpaas.AuthzPolicy> Policies {
-      get { return policies_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as Authz);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(Authz other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if(!policies_.Equals(other.policies_)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      hash ^= policies_.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      policies_.WriteTo(output, _repeated_policies_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      size += policies_.CalculateSize(_repeated_policies_codec);
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(Authz other) {
-      if (other == null) {
-        return;
-      }
-      policies_.Add(other.policies_);
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            policies_.AddEntriesFrom(input, _repeated_policies_codec);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
   public sealed partial class AuthnRule : pb::IMessage<AuthnRule> {
     private static readonly pb::MessageParser<AuthnRule> _parser = new pb::MessageParser<AuthnRule>(() => new AuthnRule());
     private pb::UnknownFieldSet _unknownFields;
@@ -1323,7 +207,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1528,7 +412,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[7]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1649,7 +533,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[8]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1888,7 +772,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[9]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2127,7 +1011,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[10]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2392,7 +1276,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[11]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2631,7 +1515,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[12]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2814,7 +1698,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[13]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3000,7 +1884,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[14]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3336,7 +2220,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[15]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3528,7 +2412,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[16]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3763,7 +2647,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[17]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3786,7 +2670,6 @@ namespace Meshpaas {
       replicas_ = other.replicas_;
       networking_ = other.networking_ != null ? other.networking_.Clone() : null;
       authentication_ = other.authentication_ != null ? other.authentication_.Clone() : null;
-      authorization_ = other.authorization_ != null ? other.authorization_.Clone() : null;
       status_ = other.status_ != null ? other.status_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -3876,20 +2759,6 @@ namespace Meshpaas {
       }
     }
 
-    /// <summary>Field number for the "authorization" field.</summary>
-    public const int AuthorizationFieldNumber = 13;
-    private global::Meshpaas.Authz authorization_;
-    /// <summary>
-    /// application authorization options
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Meshpaas.Authz Authorization {
-      get { return authorization_; }
-      set {
-        authorization_ = value;
-      }
-    }
-
     /// <summary>Field number for the "status" field.</summary>
     public const int StatusFieldNumber = 20;
     private global::Meshpaas.AppStatus status_;
@@ -3923,7 +2792,6 @@ namespace Meshpaas {
       if (Replicas != other.Replicas) return false;
       if (!object.Equals(Networking, other.Networking)) return false;
       if (!object.Equals(Authentication, other.Authentication)) return false;
-      if (!object.Equals(Authorization, other.Authorization)) return false;
       if (!object.Equals(Status, other.Status)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -3937,7 +2805,6 @@ namespace Meshpaas {
       if (Replicas != 0) hash ^= Replicas.GetHashCode();
       if (networking_ != null) hash ^= Networking.GetHashCode();
       if (authentication_ != null) hash ^= Authentication.GetHashCode();
-      if (authorization_ != null) hash ^= Authorization.GetHashCode();
       if (status_ != null) hash ^= Status.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -3973,10 +2840,6 @@ namespace Meshpaas {
         output.WriteRawTag(98);
         output.WriteMessage(Authentication);
       }
-      if (authorization_ != null) {
-        output.WriteRawTag(106);
-        output.WriteMessage(Authorization);
-      }
       if (status_ != null) {
         output.WriteRawTag(162, 1);
         output.WriteMessage(Status);
@@ -4004,9 +2867,6 @@ namespace Meshpaas {
       }
       if (authentication_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Authentication);
-      }
-      if (authorization_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Authorization);
       }
       if (status_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(Status);
@@ -4043,12 +2903,6 @@ namespace Meshpaas {
           authentication_ = new global::Meshpaas.Authn();
         }
         Authentication.MergeFrom(other.Authentication);
-      }
-      if (other.authorization_ != null) {
-        if (authorization_ == null) {
-          authorization_ = new global::Meshpaas.Authz();
-        }
-        Authorization.MergeFrom(other.Authorization);
       }
       if (other.status_ != null) {
         if (status_ == null) {
@@ -4097,13 +2951,6 @@ namespace Meshpaas {
             input.ReadMessage(authentication_);
             break;
           }
-          case 106: {
-            if (authorization_ == null) {
-              authorization_ = new global::Meshpaas.Authz();
-            }
-            input.ReadMessage(authorization_);
-            break;
-          }
           case 162: {
             if (status_ == null) {
               status_ = new global::Meshpaas.AppStatus();
@@ -4128,7 +2975,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[18]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4376,7 +3223,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[19]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4624,7 +3471,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[20]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4647,7 +3494,6 @@ namespace Meshpaas {
       replicas_ = other.replicas_;
       networking_ = other.networking_ != null ? other.networking_.Clone() : null;
       authentication_ = other.authentication_ != null ? other.authentication_.Clone() : null;
-      authorization_ = other.authorization_ != null ? other.authorization_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -4733,20 +3579,6 @@ namespace Meshpaas {
       }
     }
 
-    /// <summary>Field number for the "authorization" field.</summary>
-    public const int AuthorizationFieldNumber = 13;
-    private global::Meshpaas.Authz authorization_;
-    /// <summary>
-    /// application authorization options
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Meshpaas.Authz Authorization {
-      get { return authorization_; }
-      set {
-        authorization_ = value;
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as AppInput);
@@ -4766,7 +3598,6 @@ namespace Meshpaas {
       if (Replicas != other.Replicas) return false;
       if (!object.Equals(Networking, other.Networking)) return false;
       if (!object.Equals(Authentication, other.Authentication)) return false;
-      if (!object.Equals(Authorization, other.Authorization)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -4779,7 +3610,6 @@ namespace Meshpaas {
       if (Replicas != 0) hash ^= Replicas.GetHashCode();
       if (networking_ != null) hash ^= Networking.GetHashCode();
       if (authentication_ != null) hash ^= Authentication.GetHashCode();
-      if (authorization_ != null) hash ^= Authorization.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4814,10 +3644,6 @@ namespace Meshpaas {
         output.WriteRawTag(98);
         output.WriteMessage(Authentication);
       }
-      if (authorization_ != null) {
-        output.WriteRawTag(106);
-        output.WriteMessage(Authorization);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -4841,9 +3667,6 @@ namespace Meshpaas {
       }
       if (authentication_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Authentication);
-      }
-      if (authorization_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Authorization);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -4877,12 +3700,6 @@ namespace Meshpaas {
           authentication_ = new global::Meshpaas.Authn();
         }
         Authentication.MergeFrom(other.Authentication);
-      }
-      if (other.authorization_ != null) {
-        if (authorization_ == null) {
-          authorization_ = new global::Meshpaas.Authz();
-        }
-        Authorization.MergeFrom(other.Authorization);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -4925,13 +3742,6 @@ namespace Meshpaas {
             input.ReadMessage(authentication_);
             break;
           }
-          case 106: {
-            if (authorization_ == null) {
-              authorization_ = new global::Meshpaas.Authz();
-            }
-            input.ReadMessage(authorization_);
-            break;
-          }
         }
       }
     }
@@ -4946,7 +3756,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[21]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5109,7 +3919,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[22]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5294,7 +4104,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[23]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5415,7 +4225,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[24]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[18]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5544,7 +4354,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[25]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[19]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5665,7 +4475,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[26]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[20]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5786,7 +4596,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[27]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[21]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5915,7 +4725,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[28]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[22]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6044,7 +4854,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[29]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[23]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6173,7 +4983,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[30]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[24]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

@@ -14,29 +14,17 @@ use Google\Protobuf\Internal\GPBUtil;
 class AuthzSource extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>repeated string principals_whitelist = 1;</code>
+     * Generated from protobuf field <code>repeated string principals = 1;</code>
      */
-    private $principals_whitelist;
+    private $principals;
     /**
-     * Generated from protobuf field <code>repeated string principals_blacklist = 5;</code>
+     * Generated from protobuf field <code>repeated string request_principals = 2;</code>
      */
-    private $principals_blacklist;
+    private $request_principals;
     /**
-     * Generated from protobuf field <code>repeated string request_principals_whitelist = 2;</code>
+     * Generated from protobuf field <code>repeated string namespaces = 3;</code>
      */
-    private $request_principals_whitelist;
-    /**
-     * Generated from protobuf field <code>repeated string request_principals_blacklist = 6;</code>
-     */
-    private $request_principals_blacklist;
-    /**
-     * Generated from protobuf field <code>repeated string namespaces_whitelist = 3;</code>
-     */
-    private $namespaces_whitelist;
-    /**
-     * Generated from protobuf field <code>repeated string namespaces_blacklist = 7;</code>
-     */
-    private $namespaces_blacklist;
+    private $namespaces;
 
     /**
      * Constructor.
@@ -44,12 +32,9 @@ class AuthzSource extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $principals_whitelist
-     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $principals_blacklist
-     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $request_principals_whitelist
-     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $request_principals_blacklist
-     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $namespaces_whitelist
-     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $namespaces_blacklist
+     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $principals
+     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $request_principals
+     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $namespaces
      * }
      */
     public function __construct($data = NULL) {
@@ -58,133 +43,67 @@ class AuthzSource extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated string principals_whitelist = 1;</code>
+     * Generated from protobuf field <code>repeated string principals = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
-    public function getPrincipalsWhitelist()
+    public function getPrincipals()
     {
-        return $this->principals_whitelist;
+        return $this->principals;
     }
 
     /**
-     * Generated from protobuf field <code>repeated string principals_whitelist = 1;</code>
+     * Generated from protobuf field <code>repeated string principals = 1;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
-    public function setPrincipalsWhitelist($var)
+    public function setPrincipals($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->principals_whitelist = $arr;
+        $this->principals = $arr;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>repeated string principals_blacklist = 5;</code>
+     * Generated from protobuf field <code>repeated string request_principals = 2;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
-    public function getPrincipalsBlacklist()
+    public function getRequestPrincipals()
     {
-        return $this->principals_blacklist;
+        return $this->request_principals;
     }
 
     /**
-     * Generated from protobuf field <code>repeated string principals_blacklist = 5;</code>
+     * Generated from protobuf field <code>repeated string request_principals = 2;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
-    public function setPrincipalsBlacklist($var)
+    public function setRequestPrincipals($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->principals_blacklist = $arr;
+        $this->request_principals = $arr;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>repeated string request_principals_whitelist = 2;</code>
+     * Generated from protobuf field <code>repeated string namespaces = 3;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
-    public function getRequestPrincipalsWhitelist()
+    public function getNamespaces()
     {
-        return $this->request_principals_whitelist;
+        return $this->namespaces;
     }
 
     /**
-     * Generated from protobuf field <code>repeated string request_principals_whitelist = 2;</code>
+     * Generated from protobuf field <code>repeated string namespaces = 3;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
-    public function setRequestPrincipalsWhitelist($var)
+    public function setNamespaces($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->request_principals_whitelist = $arr;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>repeated string request_principals_blacklist = 6;</code>
-     * @return \Google\Protobuf\Internal\RepeatedField
-     */
-    public function getRequestPrincipalsBlacklist()
-    {
-        return $this->request_principals_blacklist;
-    }
-
-    /**
-     * Generated from protobuf field <code>repeated string request_principals_blacklist = 6;</code>
-     * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
-     * @return $this
-     */
-    public function setRequestPrincipalsBlacklist($var)
-    {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->request_principals_blacklist = $arr;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>repeated string namespaces_whitelist = 3;</code>
-     * @return \Google\Protobuf\Internal\RepeatedField
-     */
-    public function getNamespacesWhitelist()
-    {
-        return $this->namespaces_whitelist;
-    }
-
-    /**
-     * Generated from protobuf field <code>repeated string namespaces_whitelist = 3;</code>
-     * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
-     * @return $this
-     */
-    public function setNamespacesWhitelist($var)
-    {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->namespaces_whitelist = $arr;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>repeated string namespaces_blacklist = 7;</code>
-     * @return \Google\Protobuf\Internal\RepeatedField
-     */
-    public function getNamespacesBlacklist()
-    {
-        return $this->namespaces_blacklist;
-    }
-
-    /**
-     * Generated from protobuf field <code>repeated string namespaces_blacklist = 7;</code>
-     * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
-     * @return $this
-     */
-    public function setNamespacesBlacklist($var)
-    {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->namespaces_blacklist = $arr;
+        $this->namespaces = $arr;
 
         return $this;
     }
