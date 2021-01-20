@@ -14,7 +14,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: meshpaas
 rules:
-  - apiGroups: ["", "extensions", "apps",  "batch", "networking.k8s.io", "networking.istio.io", "authentication.istio.io""rbac.istio.io", "config.istio.io", "security.istio.io"]
+  - apiGroups: ["", "extensions", "apps",  "batch", "networking.k8s.io", "networking.istio.io", "authentication.istio.io", "rbac.istio.io", "config.istio.io", "security.istio.io"]
     resources: ["*"]
     verbs: ["*"]
 
@@ -27,8 +27,9 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: meshpaas
+    namespace: meshpaas
 roleRef:
-  kind: Role
+  kind: ClusterRole
   name: meshpaas
   apiGroup: rbac.authorization.k8s.io
 ---
@@ -55,8 +56,6 @@ metadata:
   name: meshpaas
   namespace: meshpaas
 spec:
-  serviceName: meshpaas
-  serviceAccountName: meshpaas
   replicas: 1
   selector:
     matchLabels:
@@ -66,6 +65,7 @@ spec:
       labels:
         app: meshpaas
     spec:
+      serviceAccountName: meshpaas
       containers:
         - name: meshpaas
           env:
