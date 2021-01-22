@@ -1296,7 +1296,7 @@ type App struct {
 	unknownFields protoimpl.UnknownFields
 
 	// name of the application
-	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"` // application project
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	// containers are docker containers that run the application's business logic
 	Containers []*Container `protobuf:"bytes,3,rep,name=containers,proto3" json:"containers,omitempty"`
 	// number of deployment replicas
@@ -1408,7 +1408,7 @@ type Task struct {
 	unknownFields protoimpl.UnknownFields
 
 	// name of the task
-	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"` // task project
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	// image_pull_secret is the secret used to pull images from docker registry
 	ImagePullSecret string `protobuf:"bytes,3,opt,name=image_pull_secret,json=imagePullSecret,proto3" json:"image_pull_secret,omitempty"`
 	// containers are docker containers that run the task's business logic
@@ -1493,7 +1493,7 @@ type TaskInput struct {
 	unknownFields protoimpl.UnknownFields
 
 	// name of the task
-	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"` // task project
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	// image_pull_secret is the secret used to pull images from docker registry
 	ImagePullSecret string `protobuf:"bytes,3,opt,name=image_pull_secret,json=imagePullSecret,proto3" json:"image_pull_secret,omitempty"`
 	// containers are docker containers that run the task's business logic
@@ -1578,7 +1578,7 @@ type AppInput struct {
 	unknownFields protoimpl.UnknownFields
 
 	// name of the application
-	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"` // application project
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	// containers are docker containers that run the application's business logic
 	Containers []*Container `protobuf:"bytes,3,rep,name=containers,proto3" json:"containers,omitempty"`
 	// number of deployment replicas
@@ -2822,6 +2822,7 @@ type MeshPaasServiceClient interface {
 	GetApp(ctx context.Context, in *Ref, opts ...grpc.CallOption) (*App, error)
 	// ListApps lists all apps
 	ListApps(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*Apps, error)
+	// CreateTask creates a new task(k8s cron job)
 	CreateTask(ctx context.Context, in *TaskInput, opts ...grpc.CallOption) (*Task, error)
 	// UpdateTask replaces an existing task(k8s cron job)
 	UpdateTask(ctx context.Context, in *TaskInput, opts ...grpc.CallOption) (*Task, error)
@@ -2831,6 +2832,7 @@ type MeshPaasServiceClient interface {
 	GetTask(ctx context.Context, in *Ref, opts ...grpc.CallOption) (*Task, error)
 	// ListTasks lists all tasks(k8s cron jobs)
 	ListTasks(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*Tasks, error)
+	// CreateGateway creates a new gateway(istio gateway)
 	CreateGateway(ctx context.Context, in *GatewayInput, opts ...grpc.CallOption) (*Gateway, error)
 	// UpdateGateway replaces an existing gateway(istio gateway)
 	UpdateGateway(ctx context.Context, in *GatewayInput, opts ...grpc.CallOption) (*Gateway, error)
@@ -3065,6 +3067,7 @@ type MeshPaasServiceServer interface {
 	GetApp(context.Context, *Ref) (*App, error)
 	// ListApps lists all apps
 	ListApps(context.Context, *empty.Empty) (*Apps, error)
+	// CreateTask creates a new task(k8s cron job)
 	CreateTask(context.Context, *TaskInput) (*Task, error)
 	// UpdateTask replaces an existing task(k8s cron job)
 	UpdateTask(context.Context, *TaskInput) (*Task, error)
@@ -3074,6 +3077,7 @@ type MeshPaasServiceServer interface {
 	GetTask(context.Context, *Ref) (*Task, error)
 	// ListTasks lists all tasks(k8s cron jobs)
 	ListTasks(context.Context, *empty.Empty) (*Tasks, error)
+	// CreateGateway creates a new gateway(istio gateway)
 	CreateGateway(context.Context, *GatewayInput) (*Gateway, error)
 	// UpdateGateway replaces an existing gateway(istio gateway)
 	UpdateGateway(context.Context, *GatewayInput) (*Gateway, error)

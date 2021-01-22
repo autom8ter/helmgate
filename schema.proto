@@ -199,8 +199,6 @@ message Container {
 message App {
   // name of the application
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // application project
-  
   // containers are docker containers that run the application's business logic
   repeated Container containers =3 [(validator.field) = {repeated_count_min : 1}];
   // number of deployment replicas
@@ -222,8 +220,6 @@ message App {
 message Task {
   // name of the task
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // task project
-  
   // image_pull_secret is the secret used to pull images from docker registry
   string image_pull_secret =3;
   // containers are docker containers that run the task's business logic
@@ -238,8 +234,6 @@ message Task {
 message TaskInput {
   // name of the task
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // task project
-  
   // image_pull_secret is the secret used to pull images from docker registry
   string image_pull_secret =3;
   // containers are docker containers that run the task's business logic
@@ -254,8 +248,6 @@ message TaskInput {
 message AppInput {
   // name of the application
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // application project
-  
   // containers are docker containers that run the application's business logic
   repeated Container containers =3 [(validator.field) = {repeated_count_min : 1}];
   // number of deployment replicas
@@ -312,9 +304,7 @@ service MeshPaasService {
   rpc GetApp(Ref) returns(App){}
   // ListApps lists all apps
   rpc ListApps(google.protobuf.Empty) returns(Apps){}
-
   // CreateTask creates a new task(k8s cron job)
-  
   rpc CreateTask(TaskInput) returns(Task){}
   // UpdateTask replaces an existing task(k8s cron job)
   rpc UpdateTask(TaskInput) returns(Task){}
@@ -324,10 +314,7 @@ service MeshPaasService {
   rpc GetTask(Ref) returns(Task){}
   // ListTasks lists all tasks(k8s cron jobs)
   rpc ListTasks(google.protobuf.Empty) returns(Tasks){}
-
-
   // CreateGateway creates a new gateway(istio gateway)
-  
   rpc CreateGateway(GatewayInput) returns(Gateway){}
   // UpdateGateway replaces an existing gateway(istio gateway)
   rpc UpdateGateway(GatewayInput) returns(Gateway){}
@@ -345,7 +332,6 @@ service MeshPaasService {
   rpc DeleteSecret(Ref) returns(google.protobuf.Empty){}
   // GetSecret gets a secret(k8s secret) by name
   rpc GetSecret(Ref) returns(Secret){}
-
   // StreamLogs streams logs from an app/task.
   // Streams are opened to all replicas & converted into a single stream
   rpc StreamLogs(Ref) returns (stream Log){}
