@@ -146,12 +146,14 @@ func fromRouting(networking *meshpaaspb.Routing) *model.Routing {
 		}
 		routes = append(routes, route)
 	}
-	return &model.Routing{
-		Gateways:   networking.GetGateways(),
+	r := &model.Routing{
 		Hosts:      networking.GetHosts(),
-		Export:     &networking.Export,
 		HTTPRoutes: routes,
 	}
+	if networking.Gateway != "" {
+		r.Gateway = &networking.Gateway
+	}
+	return r
 }
 
 func fromTask(app *meshpaaspb.Task) *model.Task {

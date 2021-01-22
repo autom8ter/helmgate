@@ -1,4 +1,4 @@
-package client
+package core
 
 import (
 	"context"
@@ -16,16 +16,16 @@ func (m *Manager) CreateTask(ctx context.Context, task *meshpaaspb.TaskInput) (*
 		return nil, status.Error(codes.Unauthenticated, "failed to get logged in user")
 	}
 	kapp := &k8sTask{}
-	namespace, err := m.kclient.Namespaces().Get(ctx, cast.ToString(usr["aud"]), v1.GetOptions{})
+	namespace, err := m.kclient.Namespaces().Get(ctx, cast.ToString(usr[m.namespaceClaim]), v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.namespace = namespace
-	tsk, err := toTask(usr, task)
+	tsk, err := m.toTask(usr, task)
 	if err != nil {
 		return nil, err
 	}
-	cronJob, err := m.kclient.CronJobs(cast.ToString(usr["aud"])).Create(ctx, tsk, v1.CreateOptions{})
+	cronJob, err := m.kclient.CronJobs(cast.ToString(usr[m.namespaceClaim])).Create(ctx, tsk, v1.CreateOptions{})
 	if err != nil {
 		return nil, err
 	}
@@ -39,12 +39,12 @@ func (m *Manager) UpdateTask(ctx context.Context, task *meshpaaspb.TaskInput) (*
 		return nil, status.Error(codes.Unauthenticated, "failed to get logged in user")
 	}
 	kapp := &k8sTask{}
-	namespace, err := m.kclient.Namespaces().Get(ctx, cast.ToString(usr["aud"]), v1.GetOptions{})
+	namespace, err := m.kclient.Namespaces().Get(ctx, cast.ToString(usr[m.namespaceClaim]), v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.namespace = namespace
-	cronJob, err := m.kclient.CronJobs(cast.ToString(usr["aud"])).Get(ctx, task.Name, v1.GetOptions{})
+	cronJob, err := m.kclient.CronJobs(cast.ToString(usr[m.namespaceClaim])).Get(ctx, task.Name, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
@@ -52,7 +52,7 @@ func (m *Manager) UpdateTask(ctx context.Context, task *meshpaaspb.TaskInput) (*
 	if err != nil {
 		return nil, err
 	}
-	cronJob, err = m.kclient.CronJobs(cast.ToString(usr["aud"])).Update(ctx, cronJob, v1.UpdateOptions{})
+	cronJob, err = m.kclient.CronJobs(cast.ToString(usr[m.namespaceClaim])).Update(ctx, cronJob, v1.UpdateOptions{})
 	if err != nil {
 		return nil, err
 	}
@@ -66,12 +66,12 @@ func (m *Manager) GetTask(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb
 		return nil, status.Error(codes.Unauthenticated, "failed to get logged in user")
 	}
 	kapp := &k8sTask{}
-	ns, err := m.kclient.Namespaces().Get(ctx, cast.ToString(usr["aud"]), v1.GetOptions{})
+	ns, err := m.kclient.Namespaces().Get(ctx, cast.ToString(usr[m.namespaceClaim]), v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.namespace = ns
-	cronJob, err := m.kclient.CronJobs(cast.ToString(usr["aud"])).Get(ctx, ref.Name, v1.GetOptions{})
+	cronJob, err := m.kclient.CronJobs(cast.ToString(usr[m.namespaceClaim])).Get(ctx, ref.Name, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
@@ -84,7 +84,7 @@ func (m *Manager) DeleteTask(ctx context.Context, ref *meshpaaspb.Ref) error {
 	if !ok {
 		return status.Error(codes.Unauthenticated, "failed to get logged in user")
 	}
-	if err := m.kclient.CronJobs(cast.ToString(usr["aud"])).Delete(ctx, ref.Name, v1.DeleteOptions{}); err != nil {
+	if err := m.kclient.CronJobs(cast.ToString(usr[m.namespaceClaim])).Delete(ctx, ref.Name, v1.DeleteOptions{}); err != nil {
 		return err
 	}
 	return nil
@@ -96,11 +96,11 @@ func (m *Manager) ListTasks(ctx context.Context) (*meshpaaspb.Tasks, error) {
 		return nil, status.Error(codes.Unauthenticated, "failed to get logged in user")
 	}
 	var kapps = &meshpaaspb.Tasks{}
-	ns, err := m.kclient.Namespaces().Get(ctx, cast.ToString(usr["aud"]), v1.GetOptions{})
+	ns, err := m.kclient.Namespaces().Get(ctx, cast.ToString(usr[m.namespaceClaim]), v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
-	cronJobs, err := m.kclient.CronJobs(cast.ToString(usr["aud"])).List(ctx, v1.ListOptions{
+	cronJobs, err := m.kclient.CronJobs(cast.ToString(usr[m.namespaceClaim])).List(ctx, v1.ListOptions{
 		TypeMeta:      v1.TypeMeta{},
 		LabelSelector: labelSelector,
 	})

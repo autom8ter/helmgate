@@ -37,9 +37,6 @@ func (this *AuthnRule) Validate() error {
 	}
 	return nil
 }
-func (this *AuthzSource) Validate() error {
-	return nil
-}
 func (this *AuthzSubject) Validate() error {
 	return nil
 }
@@ -47,19 +44,14 @@ func (this *AuthzDestination) Validate() error {
 	return nil
 }
 func (this *AuthzRule) Validate() error {
-	if this.Source != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Source); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("Source", err)
+	if this.Subject != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Subject); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Subject", err)
 		}
 	}
 	if this.Destination != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Destination); err != nil {
 			return github_com_mwitkow_go_proto_validators.FieldError("Destination", err)
-		}
-	}
-	if this.Subject != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Subject); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("Subject", err)
 		}
 	}
 	return nil

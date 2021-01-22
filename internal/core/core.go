@@ -1,4 +1,4 @@
-package client
+package core
 
 import (
 	"context"
@@ -10,16 +10,18 @@ import (
 )
 
 type Manager struct {
-	kclient *kubego.Kube
-	iclient *kubego.Istio
-	logger  *logger.Logger
+	kclient        *kubego.Kube
+	iclient        *kubego.Istio
+	logger         *logger.Logger
+	namespaceClaim string
 }
 
-func New(kclient *kubego.Kube, iclient *kubego.Istio, logger *logger.Logger) *Manager {
+func NewManager(kclient *kubego.Kube, iclient *kubego.Istio, logger *logger.Logger, namespaceClaim string) *Manager {
 	return &Manager{
-		kclient: kclient,
-		iclient: iclient,
-		logger:  logger,
+		kclient:        kclient,
+		iclient:        iclient,
+		logger:         logger,
+		namespaceClaim: namespaceClaim,
 	}
 }
 

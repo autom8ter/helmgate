@@ -16,23 +16,17 @@ use Google\Protobuf\Internal\GPBUtil;
 class Routing extends \Google\Protobuf\Internal\Message
 {
     /**
-     * gateways to bind to
+     * gateway to bind to
      *
-     * Generated from protobuf field <code>repeated string gateways = 1;</code>
+     * Generated from protobuf field <code>string gateway = 1;</code>
      */
-    private $gateways;
+    private $gateway = '';
     /**
      * host names to bind to
      *
      * Generated from protobuf field <code>repeated string hosts = 2;</code>
      */
     private $hosts;
-    /**
-     * export service to other applications in other projects
-     *
-     * Generated from protobuf field <code>bool export = 3;</code>
-     */
-    private $export = false;
     /**
      * http route matchers/configurations
      *
@@ -46,12 +40,10 @@ class Routing extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $gateways
-     *           gateways to bind to
+     *     @type string $gateway
+     *           gateway to bind to
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $hosts
      *           host names to bind to
-     *     @type bool $export
-     *           export service to other applications in other projects
      *     @type \Meshpaas\HTTPRoute[]|\Google\Protobuf\Internal\RepeatedField $http_routes
      *           http route matchers/configurations
      * }
@@ -62,27 +54,27 @@ class Routing extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * gateways to bind to
+     * gateway to bind to
      *
-     * Generated from protobuf field <code>repeated string gateways = 1;</code>
-     * @return \Google\Protobuf\Internal\RepeatedField
+     * Generated from protobuf field <code>string gateway = 1;</code>
+     * @return string
      */
-    public function getGateways()
+    public function getGateway()
     {
-        return $this->gateways;
+        return $this->gateway;
     }
 
     /**
-     * gateways to bind to
+     * gateway to bind to
      *
-     * Generated from protobuf field <code>repeated string gateways = 1;</code>
-     * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
+     * Generated from protobuf field <code>string gateway = 1;</code>
+     * @param string $var
      * @return $this
      */
-    public function setGateways($var)
+    public function setGateway($var)
     {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->gateways = $arr;
+        GPBUtil::checkString($var, True);
+        $this->gateway = $var;
 
         return $this;
     }
@@ -109,32 +101,6 @@ class Routing extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
         $this->hosts = $arr;
-
-        return $this;
-    }
-
-    /**
-     * export service to other applications in other projects
-     *
-     * Generated from protobuf field <code>bool export = 3;</code>
-     * @return bool
-     */
-    public function getExport()
-    {
-        return $this->export;
-    }
-
-    /**
-     * export service to other applications in other projects
-     *
-     * Generated from protobuf field <code>bool export = 3;</code>
-     * @param bool $var
-     * @return $this
-     */
-    public function setExport($var)
-    {
-        GPBUtil::checkBool($var);
-        $this->export = $var;
 
         return $this;
     }

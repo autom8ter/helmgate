@@ -104,8 +104,7 @@ type ComplexityRoot struct {
 	}
 
 	Routing struct {
-		Export     func(childComplexity int) int
-		Gateways   func(childComplexity int) int
+		Gateway    func(childComplexity int) int
 		HTTPRoutes func(childComplexity int) int
 		Hosts      func(childComplexity int) int
 	}
@@ -456,19 +455,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Replica.Reason(childComplexity), true
 
-	case "Routing.export":
-		if e.complexity.Routing.Export == nil {
+	case "Routing.gateway":
+		if e.complexity.Routing.Gateway == nil {
 			break
 		}
 
-		return e.complexity.Routing.Export(childComplexity), true
-
-	case "Routing.gateways":
-		if e.complexity.Routing.Gateways == nil {
-			break
-		}
-
-		return e.complexity.Routing.Gateways(childComplexity), true
+		return e.complexity.Routing.Gateway(childComplexity), true
 
 	case "Routing.http_routes":
 		if e.complexity.Routing.HTTPRoutes == nil {
@@ -632,25 +624,11 @@ type HTTPRoute {
 }
 
 type Routing {
-    #  The names of gateways and sidecars that should apply these routes.
-    # Gateways in other projects may be referred to by
-    # ` + "`" + `<gateway project>/<gateway name>` + "`" + `; specifying a gateway with no
-    # project qualifier is the same as specifying the VirtualService's
-    # project. A single VirtualService is used for sidecars inside the mesh as
-    # well as for one or more gateways. The selection condition imposed by this
-    # field can be overridden using the source field in the match conditions
-    # of protocol-specific routes. The reserved word ` + "`" + `mesh` + "`" + ` is used to imply
-    # all the sidecars in the mesh. When this field is omitted, the default
-    # gateway (` + "`" + `mesh` + "`" + `) will be used, which would apply the rule to all
-    # sidecars in the mesh. If a list of gateway names is provided, the
-    # rules will apply only to the gateways. To apply the rules to both
-    # gateways and sidecars, specify ` + "`" + `mesh` + "`" + ` as one of the gateway names.
-    gateways: [String!]
+    # The gateway to bind to
+    gateway: String
     # The destination hosts to which traffic is being sent. Could
     # be a DNS name with wildcard prefix or an IP address.
     hosts: [String!]
-    # export to all other projects in service mesh
-    export: Boolean
     # An ordered list of route rules for HTTP traffic
     http_routes: [HTTPRoute!]
 }
@@ -677,26 +655,11 @@ input HTTPRouteInput {
 }
 
 input RoutingInput {
-    #  The names of gateways and sidecars that should apply these routes.
-    # Gateways in other projects may be referred to by
-    # ` + "`" + `<gateway project>/<gateway name>` + "`" + `; specifying a gateway with no
-    # project qualifier is the same as specifying the VirtualService's
-    # project. A single VirtualService is used for sidecars inside the mesh as
-    # well as for one or more gateways. The selection condition imposed by this
-    # field can be overridden using the source field in the match conditions
-    # of protocol-specific routes. The reserved word ` + "`" + `mesh` + "`" + ` is used to imply
-    # all the sidecars in the mesh. When this field is omitted, the default
-    # gateway (` + "`" + `mesh` + "`" + `) will be used, which would apply the rule to all
-    # sidecars in the mesh. If a list of gateway names is provided, the
-    # rules will apply only to the gateways. To apply the rules to both
-    # gateways and sidecars, specify ` + "`" + `mesh` + "`" + ` as one of the gateway names.
-    gateways: [String!]
+    # the gateway to bind to
+    gateway: String
     # The destination hosts to which traffic is being sent. Could
     # be a DNS name with wildcard prefix or an IP address.
     hosts: [String!]
-    #
-    export: Boolean
-    #
     http_routes: [HTTPRouteInput!]
 }
 
@@ -2401,7 +2364,7 @@ func (ec *executionContext) _Replica_reason(ctx context.Context, field graphql.C
 	return ec.marshalNString2string(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Routing_gateways(ctx context.Context, field graphql.CollectedField, obj *model.Routing) (ret graphql.Marshaler) {
+func (ec *executionContext) _Routing_gateway(ctx context.Context, field graphql.CollectedField, obj *model.Routing) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -2419,7 +2382,7 @@ func (ec *executionContext) _Routing_gateways(ctx context.Context, field graphql
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Gateways, nil
+		return obj.Gateway, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -2428,9 +2391,9 @@ func (ec *executionContext) _Routing_gateways(ctx context.Context, field graphql
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.([]string)
+	res := resTmp.(*string)
 	fc.Result = res
-	return ec.marshalOString2ᚕstringᚄ(ctx, field.Selections, res)
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Routing_hosts(ctx context.Context, field graphql.CollectedField, obj *model.Routing) (ret graphql.Marshaler) {
@@ -2463,38 +2426,6 @@ func (ec *executionContext) _Routing_hosts(ctx context.Context, field graphql.Co
 	res := resTmp.([]string)
 	fc.Result = res
 	return ec.marshalOString2ᚕstringᚄ(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Routing_export(ctx context.Context, field graphql.CollectedField, obj *model.Routing) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Routing",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Export, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*bool)
-	fc.Result = res
-	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Routing_http_routes(ctx context.Context, field graphql.CollectedField, obj *model.Routing) (ret graphql.Marshaler) {
@@ -4011,11 +3942,11 @@ func (ec *executionContext) unmarshalInputRoutingInput(ctx context.Context, obj 
 
 	for k, v := range asMap {
 		switch k {
-		case "gateways":
+		case "gateway":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("gateways"))
-			it.Gateways, err = ec.unmarshalOString2ᚕstringᚄ(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("gateway"))
+			it.Gateway, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -4024,14 +3955,6 @@ func (ec *executionContext) unmarshalInputRoutingInput(ctx context.Context, obj 
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("hosts"))
 			it.Hosts, err = ec.unmarshalOString2ᚕstringᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "export":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("export"))
-			it.Export, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -4463,12 +4386,10 @@ func (ec *executionContext) _Routing(ctx context.Context, sel ast.SelectionSet, 
 		switch field.Name {
 		case "__typename":
 			out.Values[i] = graphql.MarshalString("Routing")
-		case "gateways":
-			out.Values[i] = ec._Routing_gateways(ctx, field, obj)
+		case "gateway":
+			out.Values[i] = ec._Routing_gateway(ctx, field, obj)
 		case "hosts":
 			out.Values[i] = ec._Routing_hosts(ctx, field, obj)
-		case "export":
-			out.Values[i] = ec._Routing_export(ctx, field, obj)
 		case "http_routes":
 			out.Values[i] = ec._Routing_http_routes(ctx, field, obj)
 		default:

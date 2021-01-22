@@ -1,4 +1,4 @@
-package client
+package core
 
 import (
 	"context"
@@ -16,12 +16,12 @@ func (m *Manager) CreateGateway(ctx context.Context, gateway *meshpaaspb.Gateway
 		return nil, status.Error(codes.Unauthenticated, "failed to get logged in user")
 	}
 	kapp := &k8sGateway{}
-	namespace, err := m.kclient.Namespaces().Get(ctx, cast.ToString(usr["aud"]), v1.GetOptions{})
+	namespace, err := m.kclient.Namespaces().Get(ctx, cast.ToString(usr[m.namespaceClaim]), v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.namespace = namespace
-	resp, err := m.iclient.Gateways(cast.ToString(usr["aud"])).Create(ctx, toGateway(usr, gateway), v1.CreateOptions{})
+	resp, err := m.iclient.Gateways(cast.ToString(usr[m.namespaceClaim])).Create(ctx, m.toGateway(usr, gateway), v1.CreateOptions{})
 	if err != nil {
 		return nil, err
 	}
@@ -36,17 +36,17 @@ func (m *Manager) UpdateGateway(ctx context.Context, gateway *meshpaaspb.Gateway
 		return nil, status.Error(codes.Unauthenticated, "failed to get logged in user")
 	}
 	kapp := &k8sGateway{}
-	namespace, err := m.kclient.Namespaces().Get(ctx, cast.ToString(usr["aud"]), v1.GetOptions{})
+	namespace, err := m.kclient.Namespaces().Get(ctx, cast.ToString(usr[m.namespaceClaim]), v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.namespace = namespace
-	gw, err := m.iclient.Gateways(cast.ToString(usr["aud"])).Get(ctx, gateway.Name, v1.GetOptions{})
+	gw, err := m.iclient.Gateways(cast.ToString(usr[m.namespaceClaim])).Get(ctx, gateway.Name, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
 	gw = overwriteGateway(gw, gateway)
-	gw, err = m.iclient.Gateways(cast.ToString(usr["aud"])).Update(ctx, gw, v1.UpdateOptions{})
+	gw, err = m.iclient.Gateways(cast.ToString(usr[m.namespaceClaim])).Update(ctx, gw, v1.UpdateOptions{})
 	if err != nil {
 		return nil, err
 	}
@@ -59,11 +59,11 @@ func (m *Manager) DeleteGateway(ctx context.Context, ref *meshpaaspb.Ref) error 
 	if !ok {
 		return status.Error(codes.Unauthenticated, "failed to get logged in user")
 	}
-	_, err := m.kclient.Namespaces().Get(ctx, cast.ToString(usr["aud"]), v1.GetOptions{})
+	_, err := m.kclient.Namespaces().Get(ctx, cast.ToString(usr[m.namespaceClaim]), v1.GetOptions{})
 	if err != nil {
 		return err
 	}
-	err = m.iclient.Gateways(cast.ToString(usr["aud"])).Delete(ctx, ref.Name, v1.DeleteOptions{})
+	err = m.iclient.Gateways(cast.ToString(usr[m.namespaceClaim])).Delete(ctx, ref.Name, v1.DeleteOptions{})
 	if err != nil {
 		return err
 	}
@@ -76,12 +76,12 @@ func (m *Manager) GetGateway(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaa
 		return nil, status.Error(codes.Unauthenticated, "failed to get logged in user")
 	}
 	kapp := &k8sGateway{}
-	namespace, err := m.kclient.Namespaces().Get(ctx, cast.ToString(usr["aud"]), v1.GetOptions{})
+	namespace, err := m.kclient.Namespaces().Get(ctx, cast.ToString(usr[m.namespaceClaim]), v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
 	kapp.namespace = namespace
-	gw, err := m.iclient.Gateways(cast.ToString(usr["aud"])).Get(ctx, ref.Name, v1.GetOptions{})
+	gw, err := m.iclient.Gateways(cast.ToString(usr[m.namespaceClaim])).Get(ctx, ref.Name, v1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}

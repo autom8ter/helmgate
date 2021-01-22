@@ -215,10 +215,6 @@
                 </li>
               
                 <li>
-                  <a href="#meshpaas.AuthzSource"><span class="badge">M</span>AuthzSource</a>
-                </li>
-              
-                <li>
                   <a href="#meshpaas.AuthzSubject"><span class="badge">M</span>AuthzSubject</a>
                 </li>
               
@@ -917,10 +913,10 @@ application project </p></td>
             <tbody>
               
                 <tr>
-                  <td>source</td>
-                  <td><a href="#meshpaas.AuthzSource">AuthzSource</a></td>
+                  <td>subject</td>
+                  <td><a href="#meshpaas.AuthzSubject">AuthzSubject</a></td>
                   <td></td>
-                  <td><p>source restricts access based on the source of a request in the service mesh </p></td>
+                  <td><p>subject restricts access based on the subject of a request in the service mesh </p></td>
                 </tr>
               
                 <tr>
@@ -928,37 +924,6 @@ application project </p></td>
                   <td><a href="#meshpaas.AuthzDestination">AuthzDestination</a></td>
                   <td></td>
                   <td><p>source restricts access based on the destination of a request in the service mesh </p></td>
-                </tr>
-              
-                <tr>
-                  <td>subject</td>
-                  <td><a href="#meshpaas.AuthzSubject">AuthzSubject</a></td>
-                  <td></td>
-                  <td><p>source restricts access based on the subject of a request in the service mesh </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="meshpaas.AuthzSource">AuthzSource</h3>
-        <p>AuthzSource is the source of a request</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>allow_namespaces</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p>allow_namespaces restricts access to traffic coming from a particular namespace </p></td>
                 </tr>
               
             </tbody>
@@ -1612,10 +1577,10 @@ application project </p></td>
             <tbody>
               
                 <tr>
-                  <td>gateways</td>
+                  <td>gateway</td>
                   <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p>gateways to bind to </p></td>
+                  <td></td>
+                  <td><p>gateway to bind to </p></td>
                 </tr>
               
                 <tr>
@@ -1623,13 +1588,6 @@ application project </p></td>
                   <td><a href="#string">string</a></td>
                   <td>repeated</td>
                   <td><p>host names to bind to </p></td>
-                </tr>
-              
-                <tr>
-                  <td>export</td>
-                  <td><a href="#bool">bool</a></td>
-                  <td></td>
-                  <td><p>export service to other applications in other projects </p></td>
                 </tr>
               
                 <tr>

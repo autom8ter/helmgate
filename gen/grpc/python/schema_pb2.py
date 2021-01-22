@@ -25,7 +25,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='meshpaas',
   syntax='proto3',
   serialized_options=_b('Z\nmeshpaaspb'),
-  serialized_pb=_b('\n\x0cschema.proto\x12\x08meshpaas\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x19google/protobuf/any.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x36github.com/mwitkow/go-proto-validators/validator.proto\"\x93\x01\n\tAuthnRule\x12\"\n\x08jwks_uri\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12 \n\x06issuer\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x10\n\x08\x61udience\x18\x03 \x03(\t\x12.\n\x14ouput_payload_header\x18\x04 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"\'\n\x0b\x41uthzSource\x12\x18\n\x10\x61llow_namespaces\x18\x01 \x03(\t\"R\n\x0c\x41uthzSubject\x12\x15\n\rallow_issuers\x18\x06 \x03(\t\x12\x13\n\x0b\x61llow_roles\x18\x07 \x03(\t\x12\x16\n\x0e\x61llow_audience\x18\x08 \x03(\t\"h\n\x10\x41uthzDestination\x12\x13\n\x0b\x61llow_paths\x18\x02 \x03(\t\x12\x13\n\x0b\x61llow_hosts\x18\x03 \x03(\t\x12\x15\n\rallow_methods\x18\x04 \x03(\t\x12\x13\n\x0b\x61llow_ports\x18\x05 \x03(\t\"\x8c\x01\n\tAuthzRule\x12%\n\x06source\x18\x01 \x01(\x0b\x32\x15.meshpaas.AuthzSource\x12/\n\x0b\x64\x65stination\x18\x02 \x01(\x0b\x32\x1a.meshpaas.AuthzDestination\x12\'\n\x07subject\x18\x03 \x01(\x0b\x32\x16.meshpaas.AuthzSubject\"3\n\x05\x41uthz\x12*\n\x05rules\x18\x01 \x03(\x0b\x32\x13.meshpaas.AuthzRuleB\x06\xe2\xdf\x1f\x02`\x01\"3\n\x05\x41uthn\x12*\n\x05rules\x18\x01 \x03(\x0b\x32\x13.meshpaas.AuthnRuleB\x06\xe2\xdf\x1f\x02`\x01\"\xc8\x01\n\x0bSecretInput\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\"\n\x04type\x18\x03 \x01(\x0e\x32\x14.meshpaas.SecretType\x12\x11\n\timmutable\x18\x04 \x01(\x08\x12\x35\n\x04\x64\x61ta\x18\x05 \x03(\x0b\x32\x1f.meshpaas.SecretInput.DataEntryB\x06\xe2\xdf\x1f\x02 \x01\x1a+\n\tDataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xbe\x01\n\x06Secret\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\"\n\x04type\x18\x03 \x01(\x0e\x32\x14.meshpaas.SecretType\x12\x11\n\timmutable\x18\x04 \x01(\x08\x12\x30\n\x04\x64\x61ta\x18\x05 \x03(\x0b\x32\x1a.meshpaas.Secret.DataEntryB\x06\xe2\xdf\x1f\x02 \x01\x1a+\n\tDataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xd5\x01\n\x11ServerTLSSettings\x12\x16\n\x0ehttps_redirect\x18\x01 \x01(\x08\x12\x1f\n\x04mode\x18\x02 \x01(\x0e\x32\x11.meshpaas.TLSmode\x12\x13\n\x0bsecret_name\x18\x03 \x01(\t\x12\x19\n\x11subject_alt_names\x18\x04 \x03(\t\x12\x1f\n\x17verify_certificate_spki\x18\x05 \x03(\t\x12\x1f\n\x17verify_certificate_hash\x18\x06 \x03(\t\x12\x15\n\rcipher_suites\x18\x07 \x03(\t\"\xc6\x01\n\x0fGatewayListener\x12\x14\n\x04port\x18\x01 \x01(\rB\x06\xe2\xdf\x1f\x02\x10\x00\x12\x1e\n\x04name\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x35\n\x08protocol\x18\x03 \x01(\x0e\x32\x1b.meshpaas.TransportProtocolB\x06\xe2\xdf\x1f\x02\x10\x00\x12\x15\n\x05hosts\x18\x04 \x03(\tB\x06\xe2\xdf\x1f\x02`\x01\x12/\n\ntls_config\x18\x05 \x01(\x0b\x32\x1b.meshpaas.ServerTLSSettings\"E\n\x07Gateway\x12\x0c\n\x04name\x18\x01 \x01(\t\x12,\n\tlisteners\x18\x03 \x03(\x0b\x32\x19.meshpaas.GatewayListener\"\\\n\x0cGatewayInput\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12,\n\tlisteners\x18\x03 \x03(\x0b\x32\x19.meshpaas.GatewayListener\"\xe3\x01\n\tHTTPRoute\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x14\n\x04port\x18\x02 \x01(\rB\x06\xe2\xdf\x1f\x02\x10\x00\x12\x13\n\x0bpath_prefix\x18\x03 \x01(\t\x12\x13\n\x0brewrite_uri\x18\x05 \x01(\t\x12\x15\n\rallow_origins\x18\x06 \x03(\t\x12\x15\n\rallow_methods\x18\x07 \x03(\t\x12\x15\n\rallow_headers\x18\x08 \x03(\t\x12\x16\n\x0e\x65xpose_headers\x18\t \x03(\t\x12\x19\n\x11\x61llow_credentials\x18\n \x01(\x08\"d\n\x07Routing\x12\x10\n\x08gateways\x18\x01 \x03(\t\x12\r\n\x05hosts\x18\x02 \x03(\t\x12\x0e\n\x06\x65xport\x18\x03 \x01(\x08\x12(\n\x0bhttp_routes\x18\x04 \x03(\x0b\x32\x13.meshpaas.HTTPRoute\"\x96\x02\n\tContainer\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05image\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x0c\n\x04\x61rgs\x18\x03 \x03(\t\x12)\n\x03\x65nv\x18\x04 \x03(\x0b\x32\x1c.meshpaas.Container.EnvEntry\x12\x35\n\x05ports\x18\x05 \x03(\x0b\x32\x1e.meshpaas.Container.PortsEntryB\x06\xe2\xdf\x1f\x02 \x01\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a,\n\nPortsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\r:\x02\x38\x01\"\xbd\x02\n\x03\x41pp\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12/\n\ncontainers\x18\x03 \x03(\x0b\x32\x13.meshpaas.ContainerB\x06\xe2\xdf\x1f\x02`\x01\x12\x10\n\x08replicas\x18\x08 \x01(\r\x12*\n\x07routing\x18\x0b \x01(\x0b\x32\x11.meshpaas.RoutingB\x06\xe2\xdf\x1f\x02 \x01\x12/\n\x0e\x61uthentication\x18\x0c \x01(\x0b\x32\x0f.meshpaas.AuthnB\x06\xe2\xdf\x1f\x02 \x01\x12.\n\rauthorization\x18\r \x01(\x0b\x32\x0f.meshpaas.AuthzB\x06\xe2\xdf\x1f\x02 \x01\x12\x19\n\x11image_pull_secret\x18\x0e \x01(\t\x12+\n\x06status\x18\x14 \x01(\x0b\x32\x13.meshpaas.AppStatusB\x06\xe2\xdf\x1f\x02 \x01\"\xab\x01\n\x04Task\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x19\n\x11image_pull_secret\x18\x03 \x01(\t\x12/\n\ncontainers\x18\x04 \x03(\x0b\x32\x13.meshpaas.ContainerB\x06\xe2\xdf\x1f\x02`\x01\x12\"\n\x08schedule\x18\x07 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x13\n\x0b\x63ompletions\x18\x08 \x01(\r\"\xb0\x01\n\tTaskInput\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x19\n\x11image_pull_secret\x18\x03 \x01(\t\x12/\n\ncontainers\x18\x04 \x03(\x0b\x32\x13.meshpaas.ContainerB\x06\xe2\xdf\x1f\x02`\x01\x12\"\n\x08schedule\x18\x07 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x13\n\x0b\x63ompletions\x18\x08 \x01(\r\"\x8d\x02\n\x08\x41ppInput\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12/\n\ncontainers\x18\x03 \x03(\x0b\x32\x13.meshpaas.ContainerB\x06\xe2\xdf\x1f\x02`\x01\x12\x10\n\x08replicas\x18\x07 \x01(\r\x12*\n\x07routing\x18\n \x01(\x0b\x32\x11.meshpaas.RoutingB\x06\xe2\xdf\x1f\x02 \x01\x12\'\n\x0e\x61uthentication\x18\x0c \x01(\x0b\x32\x0f.meshpaas.Authn\x12.\n\rauthorization\x18\r \x01(\x0b\x32\x0f.meshpaas.AuthzB\x06\xe2\xdf\x1f\x02 \x01\x12\x19\n\x11image_pull_secret\x18\x0e \x01(\t\"%\n\x03Ref\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\";\n\x07Replica\x12\r\n\x05phase\x18\x01 \x01(\t\x12\x11\n\tcondition\x18\x02 \x01(\t\x12\x0e\n\x06reason\x18\x03 \x01(\t\"0\n\tAppStatus\x12#\n\x08replicas\x18\x01 \x03(\x0b\x32\x11.meshpaas.Replica\"\x16\n\x03Log\x12\x0f\n\x07message\x18\x01 \x01(\t\"+\n\x04\x41pps\x12#\n\x0c\x61pplications\x18\x01 \x03(\x0b\x32\r.meshpaas.App\"&\n\x05Tasks\x12\x1d\n\x05tasks\x18\x01 \x03(\x0b\x32\x0e.meshpaas.Task*=\n\nSecretType\x12\n\n\x06OPAQUE\x10\x00\x12\x10\n\x0cTLS_CERT_KEY\x10\x01\x12\x11\n\rDOCKER_CONFIG\x10\x02*p\n\x11TransportProtocol\x12\x14\n\x10INVALID_PROTOCOL\x10\x00\x12\x08\n\x04HTTP\x10\x01\x12\t\n\x05HTTPS\x10\x02\x12\x08\n\x04GRPC\x10\x03\x12\t\n\x05HTTP2\x10\x04\x12\t\n\x05MONGO\x10\x05\x12\x07\n\x03TCP\x10\x06\x12\x07\n\x03TLS\x10\x07*Z\n\x07TLSmode\x12\x0f\n\x0bPASSTHROUGH\x10\x00\x12\n\n\x06SIMPLE\x10\x01\x12\n\n\x06MUTUAL\x10\x02\x12\x14\n\x10\x41UTO_PASSTHROUGH\x10\x03\x12\x10\n\x0cISTIO_MUTUAL\x10\x04\x32\x87\x08\n\x0fMeshPaasService\x12\x30\n\tCreateApp\x12\x12.meshpaas.AppInput\x1a\r.meshpaas.App\"\x00\x12\x30\n\tUpdateApp\x12\x12.meshpaas.AppInput\x1a\r.meshpaas.App\"\x00\x12\x34\n\tDeleteApp\x12\r.meshpaas.Ref\x1a\x16.google.protobuf.Empty\"\x00\x12(\n\x06GetApp\x12\r.meshpaas.Ref\x1a\r.meshpaas.App\"\x00\x12\x34\n\x08ListApps\x12\x16.google.protobuf.Empty\x1a\x0e.meshpaas.Apps\"\x00\x12\x33\n\nCreateTask\x12\x13.meshpaas.TaskInput\x1a\x0e.meshpaas.Task\"\x00\x12\x33\n\nUpdateTask\x12\x13.meshpaas.TaskInput\x1a\x0e.meshpaas.Task\"\x00\x12\x35\n\nDeleteTask\x12\r.meshpaas.Ref\x1a\x16.google.protobuf.Empty\"\x00\x12*\n\x07GetTask\x12\r.meshpaas.Ref\x1a\x0e.meshpaas.Task\"\x00\x12\x36\n\tListTasks\x12\x16.google.protobuf.Empty\x1a\x0f.meshpaas.Tasks\"\x00\x12<\n\rCreateGateway\x12\x16.meshpaas.GatewayInput\x1a\x11.meshpaas.Gateway\"\x00\x12<\n\rUpdateGateway\x12\x16.meshpaas.GatewayInput\x1a\x11.meshpaas.Gateway\"\x00\x12\x38\n\rDeleteGateway\x12\r.meshpaas.Ref\x1a\x16.google.protobuf.Empty\"\x00\x12\x30\n\nGetGateway\x12\r.meshpaas.Ref\x1a\x11.meshpaas.Gateway\"\x00\x12\x39\n\x0c\x43reateSecret\x12\x15.meshpaas.SecretInput\x1a\x10.meshpaas.Secret\"\x00\x12\x39\n\x0cUpdateSecret\x12\x15.meshpaas.SecretInput\x1a\x10.meshpaas.Secret\"\x00\x12\x37\n\x0c\x44\x65leteSecret\x12\r.meshpaas.Ref\x1a\x16.google.protobuf.Empty\"\x00\x12.\n\tGetSecret\x12\r.meshpaas.Ref\x1a\x10.meshpaas.Secret\"\x00\x12.\n\nStreamLogs\x12\r.meshpaas.Ref\x1a\r.meshpaas.Log\"\x00\x30\x01\x42\x0cZ\nmeshpaaspbb\x06proto3')
+  serialized_pb=_b('\n\x0cschema.proto\x12\x08meshpaas\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x19google/protobuf/any.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x36github.com/mwitkow/go-proto-validators/validator.proto\"\x93\x01\n\tAuthnRule\x12\"\n\x08jwks_uri\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12 \n\x06issuer\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x10\n\x08\x61udience\x18\x03 \x03(\t\x12.\n\x14ouput_payload_header\x18\x04 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"R\n\x0c\x41uthzSubject\x12\x15\n\rallow_issuers\x18\x06 \x03(\t\x12\x13\n\x0b\x61llow_roles\x18\x07 \x03(\t\x12\x16\n\x0e\x61llow_audience\x18\x08 \x03(\t\"h\n\x10\x41uthzDestination\x12\x13\n\x0b\x61llow_paths\x18\x02 \x03(\t\x12\x13\n\x0b\x61llow_hosts\x18\x03 \x03(\t\x12\x15\n\rallow_methods\x18\x04 \x03(\t\x12\x13\n\x0b\x61llow_ports\x18\x05 \x03(\t\"e\n\tAuthzRule\x12\'\n\x07subject\x18\x01 \x01(\x0b\x32\x16.meshpaas.AuthzSubject\x12/\n\x0b\x64\x65stination\x18\x02 \x01(\x0b\x32\x1a.meshpaas.AuthzDestination\"3\n\x05\x41uthz\x12*\n\x05rules\x18\x01 \x03(\x0b\x32\x13.meshpaas.AuthzRuleB\x06\xe2\xdf\x1f\x02`\x01\"3\n\x05\x41uthn\x12*\n\x05rules\x18\x01 \x03(\x0b\x32\x13.meshpaas.AuthnRuleB\x06\xe2\xdf\x1f\x02`\x01\"\xc8\x01\n\x0bSecretInput\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\"\n\x04type\x18\x03 \x01(\x0e\x32\x14.meshpaas.SecretType\x12\x11\n\timmutable\x18\x04 \x01(\x08\x12\x35\n\x04\x64\x61ta\x18\x05 \x03(\x0b\x32\x1f.meshpaas.SecretInput.DataEntryB\x06\xe2\xdf\x1f\x02 \x01\x1a+\n\tDataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xbe\x01\n\x06Secret\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\"\n\x04type\x18\x03 \x01(\x0e\x32\x14.meshpaas.SecretType\x12\x11\n\timmutable\x18\x04 \x01(\x08\x12\x30\n\x04\x64\x61ta\x18\x05 \x03(\x0b\x32\x1a.meshpaas.Secret.DataEntryB\x06\xe2\xdf\x1f\x02 \x01\x1a+\n\tDataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xd5\x01\n\x11ServerTLSSettings\x12\x16\n\x0ehttps_redirect\x18\x01 \x01(\x08\x12\x1f\n\x04mode\x18\x02 \x01(\x0e\x32\x11.meshpaas.TLSmode\x12\x13\n\x0bsecret_name\x18\x03 \x01(\t\x12\x19\n\x11subject_alt_names\x18\x04 \x03(\t\x12\x1f\n\x17verify_certificate_spki\x18\x05 \x03(\t\x12\x1f\n\x17verify_certificate_hash\x18\x06 \x03(\t\x12\x15\n\rcipher_suites\x18\x07 \x03(\t\"\xc6\x01\n\x0fGatewayListener\x12\x14\n\x04port\x18\x01 \x01(\rB\x06\xe2\xdf\x1f\x02\x10\x00\x12\x1e\n\x04name\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x35\n\x08protocol\x18\x03 \x01(\x0e\x32\x1b.meshpaas.TransportProtocolB\x06\xe2\xdf\x1f\x02\x10\x00\x12\x15\n\x05hosts\x18\x04 \x03(\tB\x06\xe2\xdf\x1f\x02`\x01\x12/\n\ntls_config\x18\x05 \x01(\x0b\x32\x1b.meshpaas.ServerTLSSettings\"E\n\x07Gateway\x12\x0c\n\x04name\x18\x01 \x01(\t\x12,\n\tlisteners\x18\x03 \x03(\x0b\x32\x19.meshpaas.GatewayListener\"\\\n\x0cGatewayInput\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12,\n\tlisteners\x18\x03 \x03(\x0b\x32\x19.meshpaas.GatewayListener\"\xe3\x01\n\tHTTPRoute\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x14\n\x04port\x18\x02 \x01(\rB\x06\xe2\xdf\x1f\x02\x10\x00\x12\x13\n\x0bpath_prefix\x18\x03 \x01(\t\x12\x13\n\x0brewrite_uri\x18\x05 \x01(\t\x12\x15\n\rallow_origins\x18\x06 \x03(\t\x12\x15\n\rallow_methods\x18\x07 \x03(\t\x12\x15\n\rallow_headers\x18\x08 \x03(\t\x12\x16\n\x0e\x65xpose_headers\x18\t \x03(\t\x12\x19\n\x11\x61llow_credentials\x18\n \x01(\x08\"S\n\x07Routing\x12\x0f\n\x07gateway\x18\x01 \x01(\t\x12\r\n\x05hosts\x18\x02 \x03(\t\x12(\n\x0bhttp_routes\x18\x04 \x03(\x0b\x32\x13.meshpaas.HTTPRoute\"\x96\x02\n\tContainer\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05image\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x0c\n\x04\x61rgs\x18\x03 \x03(\t\x12)\n\x03\x65nv\x18\x04 \x03(\x0b\x32\x1c.meshpaas.Container.EnvEntry\x12\x35\n\x05ports\x18\x05 \x03(\x0b\x32\x1e.meshpaas.Container.PortsEntryB\x06\xe2\xdf\x1f\x02 \x01\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a,\n\nPortsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\r:\x02\x38\x01\"\xbd\x02\n\x03\x41pp\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12/\n\ncontainers\x18\x03 \x03(\x0b\x32\x13.meshpaas.ContainerB\x06\xe2\xdf\x1f\x02`\x01\x12\x10\n\x08replicas\x18\x08 \x01(\r\x12*\n\x07routing\x18\x0b \x01(\x0b\x32\x11.meshpaas.RoutingB\x06\xe2\xdf\x1f\x02 \x01\x12/\n\x0e\x61uthentication\x18\x0c \x01(\x0b\x32\x0f.meshpaas.AuthnB\x06\xe2\xdf\x1f\x02 \x01\x12.\n\rauthorization\x18\r \x01(\x0b\x32\x0f.meshpaas.AuthzB\x06\xe2\xdf\x1f\x02 \x01\x12\x19\n\x11image_pull_secret\x18\x0e \x01(\t\x12+\n\x06status\x18\x14 \x01(\x0b\x32\x13.meshpaas.AppStatusB\x06\xe2\xdf\x1f\x02 \x01\"\xab\x01\n\x04Task\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x19\n\x11image_pull_secret\x18\x03 \x01(\t\x12/\n\ncontainers\x18\x04 \x03(\x0b\x32\x13.meshpaas.ContainerB\x06\xe2\xdf\x1f\x02`\x01\x12\"\n\x08schedule\x18\x07 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x13\n\x0b\x63ompletions\x18\x08 \x01(\r\"\xb0\x01\n\tTaskInput\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x19\n\x11image_pull_secret\x18\x03 \x01(\t\x12/\n\ncontainers\x18\x04 \x03(\x0b\x32\x13.meshpaas.ContainerB\x06\xe2\xdf\x1f\x02`\x01\x12\"\n\x08schedule\x18\x07 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x13\n\x0b\x63ompletions\x18\x08 \x01(\r\"\x8d\x02\n\x08\x41ppInput\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12/\n\ncontainers\x18\x03 \x03(\x0b\x32\x13.meshpaas.ContainerB\x06\xe2\xdf\x1f\x02`\x01\x12\x10\n\x08replicas\x18\x07 \x01(\r\x12*\n\x07routing\x18\n \x01(\x0b\x32\x11.meshpaas.RoutingB\x06\xe2\xdf\x1f\x02 \x01\x12\'\n\x0e\x61uthentication\x18\x0c \x01(\x0b\x32\x0f.meshpaas.Authn\x12.\n\rauthorization\x18\r \x01(\x0b\x32\x0f.meshpaas.AuthzB\x06\xe2\xdf\x1f\x02 \x01\x12\x19\n\x11image_pull_secret\x18\x0e \x01(\t\"%\n\x03Ref\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\";\n\x07Replica\x12\r\n\x05phase\x18\x01 \x01(\t\x12\x11\n\tcondition\x18\x02 \x01(\t\x12\x0e\n\x06reason\x18\x03 \x01(\t\"0\n\tAppStatus\x12#\n\x08replicas\x18\x01 \x03(\x0b\x32\x11.meshpaas.Replica\"\x16\n\x03Log\x12\x0f\n\x07message\x18\x01 \x01(\t\"+\n\x04\x41pps\x12#\n\x0c\x61pplications\x18\x01 \x03(\x0b\x32\r.meshpaas.App\"&\n\x05Tasks\x12\x1d\n\x05tasks\x18\x01 \x03(\x0b\x32\x0e.meshpaas.Task*=\n\nSecretType\x12\n\n\x06OPAQUE\x10\x00\x12\x10\n\x0cTLS_CERT_KEY\x10\x01\x12\x11\n\rDOCKER_CONFIG\x10\x02*p\n\x11TransportProtocol\x12\x14\n\x10INVALID_PROTOCOL\x10\x00\x12\x08\n\x04HTTP\x10\x01\x12\t\n\x05HTTPS\x10\x02\x12\x08\n\x04GRPC\x10\x03\x12\t\n\x05HTTP2\x10\x04\x12\t\n\x05MONGO\x10\x05\x12\x07\n\x03TCP\x10\x06\x12\x07\n\x03TLS\x10\x07*Z\n\x07TLSmode\x12\x0f\n\x0bPASSTHROUGH\x10\x00\x12\n\n\x06SIMPLE\x10\x01\x12\n\n\x06MUTUAL\x10\x02\x12\x14\n\x10\x41UTO_PASSTHROUGH\x10\x03\x12\x10\n\x0cISTIO_MUTUAL\x10\x04\x32\x87\x08\n\x0fMeshPaasService\x12\x30\n\tCreateApp\x12\x12.meshpaas.AppInput\x1a\r.meshpaas.App\"\x00\x12\x30\n\tUpdateApp\x12\x12.meshpaas.AppInput\x1a\r.meshpaas.App\"\x00\x12\x34\n\tDeleteApp\x12\r.meshpaas.Ref\x1a\x16.google.protobuf.Empty\"\x00\x12(\n\x06GetApp\x12\r.meshpaas.Ref\x1a\r.meshpaas.App\"\x00\x12\x34\n\x08ListApps\x12\x16.google.protobuf.Empty\x1a\x0e.meshpaas.Apps\"\x00\x12\x33\n\nCreateTask\x12\x13.meshpaas.TaskInput\x1a\x0e.meshpaas.Task\"\x00\x12\x33\n\nUpdateTask\x12\x13.meshpaas.TaskInput\x1a\x0e.meshpaas.Task\"\x00\x12\x35\n\nDeleteTask\x12\r.meshpaas.Ref\x1a\x16.google.protobuf.Empty\"\x00\x12*\n\x07GetTask\x12\r.meshpaas.Ref\x1a\x0e.meshpaas.Task\"\x00\x12\x36\n\tListTasks\x12\x16.google.protobuf.Empty\x1a\x0f.meshpaas.Tasks\"\x00\x12<\n\rCreateGateway\x12\x16.meshpaas.GatewayInput\x1a\x11.meshpaas.Gateway\"\x00\x12<\n\rUpdateGateway\x12\x16.meshpaas.GatewayInput\x1a\x11.meshpaas.Gateway\"\x00\x12\x38\n\rDeleteGateway\x12\r.meshpaas.Ref\x1a\x16.google.protobuf.Empty\"\x00\x12\x30\n\nGetGateway\x12\r.meshpaas.Ref\x1a\x11.meshpaas.Gateway\"\x00\x12\x39\n\x0c\x43reateSecret\x12\x15.meshpaas.SecretInput\x1a\x10.meshpaas.Secret\"\x00\x12\x39\n\x0cUpdateSecret\x12\x15.meshpaas.SecretInput\x1a\x10.meshpaas.Secret\"\x00\x12\x37\n\x0c\x44\x65leteSecret\x12\r.meshpaas.Ref\x1a\x16.google.protobuf.Empty\"\x00\x12.\n\tGetSecret\x12\r.meshpaas.Ref\x1a\x10.meshpaas.Secret\"\x00\x12.\n\nStreamLogs\x12\r.meshpaas.Ref\x1a\r.meshpaas.Log\"\x00\x30\x01\x42\x0cZ\nmeshpaaspbb\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_any__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,github_dot_com_dot_mwitkow_dot_go__proto__validators_dot_validator__pb2.DESCRIPTOR,])
 
@@ -50,8 +50,8 @@ _SECRETTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3626,
-  serialized_end=3687,
+  serialized_start=3528,
+  serialized_end=3589,
 )
 _sym_db.RegisterEnumDescriptor(_SECRETTYPE)
 
@@ -97,8 +97,8 @@ _TRANSPORTPROTOCOL = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3689,
-  serialized_end=3801,
+  serialized_start=3591,
+  serialized_end=3703,
 )
 _sym_db.RegisterEnumDescriptor(_TRANSPORTPROTOCOL)
 
@@ -132,8 +132,8 @@ _TLSMODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3803,
-  serialized_end=3893,
+  serialized_start=3705,
+  serialized_end=3795,
 )
 _sym_db.RegisterEnumDescriptor(_TLSMODE)
 
@@ -209,37 +209,6 @@ _AUTHNRULE = _descriptor.Descriptor(
 )
 
 
-_AUTHZSOURCE = _descriptor.Descriptor(
-  name='AuthzSource',
-  full_name='meshpaas.AuthzSource',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='allow_namespaces', full_name='meshpaas.AuthzSource.allow_namespaces', index=0,
-      number=1, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=351,
-  serialized_end=390,
-)
-
-
 _AUTHZSUBJECT = _descriptor.Descriptor(
   name='AuthzSubject',
   full_name='meshpaas.AuthzSubject',
@@ -280,8 +249,8 @@ _AUTHZSUBJECT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=392,
-  serialized_end=474,
+  serialized_start=351,
+  serialized_end=433,
 )
 
 
@@ -332,8 +301,8 @@ _AUTHZDESTINATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=476,
-  serialized_end=580,
+  serialized_start=435,
+  serialized_end=539,
 )
 
 
@@ -345,7 +314,7 @@ _AUTHZRULE = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='source', full_name='meshpaas.AuthzRule.source', index=0,
+      name='subject', full_name='meshpaas.AuthzRule.subject', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -354,13 +323,6 @@ _AUTHZRULE = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='destination', full_name='meshpaas.AuthzRule.destination', index=1,
       number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='subject', full_name='meshpaas.AuthzRule.subject', index=2,
-      number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -377,8 +339,8 @@ _AUTHZRULE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=583,
-  serialized_end=723,
+  serialized_start=541,
+  serialized_end=642,
 )
 
 
@@ -408,8 +370,8 @@ _AUTHZ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=725,
-  serialized_end=776,
+  serialized_start=644,
+  serialized_end=695,
 )
 
 
@@ -439,8 +401,8 @@ _AUTHN = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=778,
-  serialized_end=829,
+  serialized_start=697,
+  serialized_end=748,
 )
 
 
@@ -477,8 +439,8 @@ _SECRETINPUT_DATAENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=989,
-  serialized_end=1032,
+  serialized_start=908,
+  serialized_end=951,
 )
 
 _SECRETINPUT = _descriptor.Descriptor(
@@ -528,8 +490,8 @@ _SECRETINPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=832,
-  serialized_end=1032,
+  serialized_start=751,
+  serialized_end=951,
 )
 
 
@@ -566,8 +528,8 @@ _SECRET_DATAENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=989,
-  serialized_end=1032,
+  serialized_start=908,
+  serialized_end=951,
 )
 
 _SECRET = _descriptor.Descriptor(
@@ -617,8 +579,8 @@ _SECRET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1035,
-  serialized_end=1225,
+  serialized_start=954,
+  serialized_end=1144,
 )
 
 
@@ -690,8 +652,8 @@ _SERVERTLSSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1228,
-  serialized_end=1441,
+  serialized_start=1147,
+  serialized_end=1360,
 )
 
 
@@ -749,8 +711,8 @@ _GATEWAYLISTENER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1444,
-  serialized_end=1642,
+  serialized_start=1363,
+  serialized_end=1561,
 )
 
 
@@ -787,8 +749,8 @@ _GATEWAY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1644,
-  serialized_end=1713,
+  serialized_start=1563,
+  serialized_end=1632,
 )
 
 
@@ -825,8 +787,8 @@ _GATEWAYINPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1715,
-  serialized_end=1807,
+  serialized_start=1634,
+  serialized_end=1726,
 )
 
 
@@ -912,8 +874,8 @@ _HTTPROUTE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1810,
-  serialized_end=2037,
+  serialized_start=1729,
+  serialized_end=1956,
 )
 
 
@@ -925,9 +887,9 @@ _ROUTING = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='gateways', full_name='meshpaas.Routing.gateways', index=0,
-      number=1, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
+      name='gateway', full_name='meshpaas.Routing.gateway', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -939,14 +901,7 @@ _ROUTING = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='export', full_name='meshpaas.Routing.export', index=2,
-      number=3, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='http_routes', full_name='meshpaas.Routing.http_routes', index=3,
+      name='http_routes', full_name='meshpaas.Routing.http_routes', index=2,
       number=4, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -964,8 +919,8 @@ _ROUTING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2039,
-  serialized_end=2139,
+  serialized_start=1958,
+  serialized_end=2041,
 )
 
 
@@ -1002,8 +957,8 @@ _CONTAINER_ENVENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2332,
-  serialized_end=2374,
+  serialized_start=2234,
+  serialized_end=2276,
 )
 
 _CONTAINER_PORTSENTRY = _descriptor.Descriptor(
@@ -1039,8 +994,8 @@ _CONTAINER_PORTSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2376,
-  serialized_end=2420,
+  serialized_start=2278,
+  serialized_end=2322,
 )
 
 _CONTAINER = _descriptor.Descriptor(
@@ -1097,8 +1052,8 @@ _CONTAINER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2142,
-  serialized_end=2420,
+  serialized_start=2044,
+  serialized_end=2322,
 )
 
 
@@ -1177,8 +1132,8 @@ _APP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2423,
-  serialized_end=2740,
+  serialized_start=2325,
+  serialized_end=2642,
 )
 
 
@@ -1236,8 +1191,8 @@ _TASK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2743,
-  serialized_end=2914,
+  serialized_start=2645,
+  serialized_end=2816,
 )
 
 
@@ -1295,8 +1250,8 @@ _TASKINPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2917,
-  serialized_end=3093,
+  serialized_start=2819,
+  serialized_end=2995,
 )
 
 
@@ -1368,8 +1323,8 @@ _APPINPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3096,
-  serialized_end=3365,
+  serialized_start=2998,
+  serialized_end=3267,
 )
 
 
@@ -1399,8 +1354,8 @@ _REF = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3367,
-  serialized_end=3404,
+  serialized_start=3269,
+  serialized_end=3306,
 )
 
 
@@ -1444,8 +1399,8 @@ _REPLICA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3406,
-  serialized_end=3465,
+  serialized_start=3308,
+  serialized_end=3367,
 )
 
 
@@ -1475,8 +1430,8 @@ _APPSTATUS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3467,
-  serialized_end=3515,
+  serialized_start=3369,
+  serialized_end=3417,
 )
 
 
@@ -1506,8 +1461,8 @@ _LOG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3517,
-  serialized_end=3539,
+  serialized_start=3419,
+  serialized_end=3441,
 )
 
 
@@ -1537,8 +1492,8 @@ _APPS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3541,
-  serialized_end=3584,
+  serialized_start=3443,
+  serialized_end=3486,
 )
 
 
@@ -1568,13 +1523,12 @@ _TASKS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3586,
-  serialized_end=3624,
+  serialized_start=3488,
+  serialized_end=3526,
 )
 
-_AUTHZRULE.fields_by_name['source'].message_type = _AUTHZSOURCE
-_AUTHZRULE.fields_by_name['destination'].message_type = _AUTHZDESTINATION
 _AUTHZRULE.fields_by_name['subject'].message_type = _AUTHZSUBJECT
+_AUTHZRULE.fields_by_name['destination'].message_type = _AUTHZDESTINATION
 _AUTHZ.fields_by_name['rules'].message_type = _AUTHZRULE
 _AUTHN.fields_by_name['rules'].message_type = _AUTHNRULE
 _SECRETINPUT_DATAENTRY.containing_type = _SECRETINPUT
@@ -1608,7 +1562,6 @@ _APPSTATUS.fields_by_name['replicas'].message_type = _REPLICA
 _APPS.fields_by_name['applications'].message_type = _APP
 _TASKS.fields_by_name['tasks'].message_type = _TASK
 DESCRIPTOR.message_types_by_name['AuthnRule'] = _AUTHNRULE
-DESCRIPTOR.message_types_by_name['AuthzSource'] = _AUTHZSOURCE
 DESCRIPTOR.message_types_by_name['AuthzSubject'] = _AUTHZSUBJECT
 DESCRIPTOR.message_types_by_name['AuthzDestination'] = _AUTHZDESTINATION
 DESCRIPTOR.message_types_by_name['AuthzRule'] = _AUTHZRULE
@@ -1644,13 +1597,6 @@ AuthnRule = _reflection.GeneratedProtocolMessageType('AuthnRule', (_message.Mess
   # @@protoc_insertion_point(class_scope:meshpaas.AuthnRule)
   ))
 _sym_db.RegisterMessage(AuthnRule)
-
-AuthzSource = _reflection.GeneratedProtocolMessageType('AuthzSource', (_message.Message,), dict(
-  DESCRIPTOR = _AUTHZSOURCE,
-  __module__ = 'schema_pb2'
-  # @@protoc_insertion_point(class_scope:meshpaas.AuthzSource)
-  ))
-_sym_db.RegisterMessage(AuthzSource)
 
 AuthzSubject = _reflection.GeneratedProtocolMessageType('AuthzSubject', (_message.Message,), dict(
   DESCRIPTOR = _AUTHZSUBJECT,
@@ -1901,8 +1847,8 @@ _MESHPAASSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=3896,
-  serialized_end=4927,
+  serialized_start=3798,
+  serialized_end=4829,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateApp',

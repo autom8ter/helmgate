@@ -7,7 +7,7 @@ import (
 	"github.com/autom8ter/machine"
 	meshpaaspb "github.com/autom8ter/meshpaas/gen/grpc/go"
 	"github.com/autom8ter/meshpaas/internal/auth"
-	"github.com/autom8ter/meshpaas/internal/client"
+	"github.com/autom8ter/meshpaas/internal/core"
 	"github.com/autom8ter/meshpaas/internal/gql"
 	"github.com/autom8ter/meshpaas/internal/helpers"
 	"github.com/autom8ter/meshpaas/internal/logger"
@@ -44,6 +44,7 @@ var (
 	jwksUri        string
 	jwtIssuer      string
 	outOfCluster   bool
+	namespaceClaim string
 )
 
 func init() {
@@ -56,6 +57,7 @@ func init() {
 	pflag.CommandLine.BoolVar(&outOfCluster, "out-of-cluster", helpers.BoolEnvOr("MESHPAAS_OUT_OF_CLUSTER", false), "enable out of cluster k8s config discovery (env: MESHPAAS_OUT_OF_CLUSTER)")
 	pflag.CommandLine.StringVar(&jwksUri, "jwks-uri", helpers.EnvOr("MESHPAAS_JWKS_URI", ""), "remote json web key set uri for verifying authorization tokens (env: MESHPAAS_JWKS_URI)")
 	pflag.CommandLine.StringVar(&jwtIssuer, "allow-jwt-issuer", helpers.EnvOr("MESHPAAS_ALLOW_ISSUER", ""), "allowed jwt.claim.iss issuer (env: MESHPAAS_ALLOW_ISSUER)")
+	pflag.CommandLine.StringVar(&namespaceClaim, "namespace-claim", helpers.EnvOr("MESHPAAS_NAMESPACE_CLAIM", "aud"), "the jwt attribute on the id token that returns the namespace the user is allowed access to (env: MESHPAAS_NAMESPACE_CLAIM)")
 	pflag.Parse()
 }
 
@@ -131,7 +133,7 @@ func run(ctx context.Context) {
 			lgger.Error("metrics server failure", zap.Error(err))
 		}
 	})
-	var cli *client.Manager
+	var cli *core.Manager
 	if outOfCluster {
 		kclient, err := kubego.NewOutOfClusterKubeClient()
 		if err != nil {
@@ -143,7 +145,7 @@ func run(ctx context.Context) {
 			lgger.Error(err.Error())
 			return
 		}
-		cli = client.New(kclient, iclient, lgger)
+		cli = core.NewManager(kclient, iclient, lgger, namespaceClaim)
 	} else {
 		kclient, err := kubego.NewInClusterKubeClient()
 		if err != nil {
@@ -155,7 +157,7 @@ func run(ctx context.Context) {
 			lgger.Error(err.Error())
 			return
 		}
-		cli = client.New(kclient, iclient, lgger)
+		cli = core.NewManager(kclient, iclient, lgger, namespaceClaim)
 	}
 	a, err := auth.NewAuth(jwksUri, jwtIssuer, lgger)
 	if err != nil {

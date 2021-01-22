@@ -16,23 +16,17 @@ use Google\Protobuf\Internal\GPBUtil;
 class AuthzRule extends \Google\Protobuf\Internal\Message
 {
     /**
-     * source restricts access based on the source of a request in the service mesh
+     * subject restricts access based on the subject of a request in the service mesh
      *
-     * Generated from protobuf field <code>.meshpaas.AuthzSource source = 1;</code>
+     * Generated from protobuf field <code>.meshpaas.AuthzSubject subject = 1;</code>
      */
-    private $source = null;
+    private $subject = null;
     /**
      * source restricts access based on the destination of a request in the service mesh
      *
      * Generated from protobuf field <code>.meshpaas.AuthzDestination destination = 2;</code>
      */
     private $destination = null;
-    /**
-     * source restricts access based on the subject of a request in the service mesh
-     *
-     * Generated from protobuf field <code>.meshpaas.AuthzSubject subject = 3;</code>
-     */
-    private $subject = null;
 
     /**
      * Constructor.
@@ -40,12 +34,10 @@ class AuthzRule extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type \Meshpaas\AuthzSource $source
-     *           source restricts access based on the source of a request in the service mesh
+     *     @type \Meshpaas\AuthzSubject $subject
+     *           subject restricts access based on the subject of a request in the service mesh
      *     @type \Meshpaas\AuthzDestination $destination
      *           source restricts access based on the destination of a request in the service mesh
-     *     @type \Meshpaas\AuthzSubject $subject
-     *           source restricts access based on the subject of a request in the service mesh
      * }
      */
     public function __construct($data = NULL) {
@@ -54,27 +46,27 @@ class AuthzRule extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * source restricts access based on the source of a request in the service mesh
+     * subject restricts access based on the subject of a request in the service mesh
      *
-     * Generated from protobuf field <code>.meshpaas.AuthzSource source = 1;</code>
-     * @return \Meshpaas\AuthzSource
+     * Generated from protobuf field <code>.meshpaas.AuthzSubject subject = 1;</code>
+     * @return \Meshpaas\AuthzSubject
      */
-    public function getSource()
+    public function getSubject()
     {
-        return $this->source;
+        return $this->subject;
     }
 
     /**
-     * source restricts access based on the source of a request in the service mesh
+     * subject restricts access based on the subject of a request in the service mesh
      *
-     * Generated from protobuf field <code>.meshpaas.AuthzSource source = 1;</code>
-     * @param \Meshpaas\AuthzSource $var
+     * Generated from protobuf field <code>.meshpaas.AuthzSubject subject = 1;</code>
+     * @param \Meshpaas\AuthzSubject $var
      * @return $this
      */
-    public function setSource($var)
+    public function setSubject($var)
     {
-        GPBUtil::checkMessage($var, \Meshpaas\AuthzSource::class);
-        $this->source = $var;
+        GPBUtil::checkMessage($var, \Meshpaas\AuthzSubject::class);
+        $this->subject = $var;
 
         return $this;
     }
@@ -101,32 +93,6 @@ class AuthzRule extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Meshpaas\AuthzDestination::class);
         $this->destination = $var;
-
-        return $this;
-    }
-
-    /**
-     * source restricts access based on the subject of a request in the service mesh
-     *
-     * Generated from protobuf field <code>.meshpaas.AuthzSubject subject = 3;</code>
-     * @return \Meshpaas\AuthzSubject
-     */
-    public function getSubject()
-    {
-        return $this->subject;
-    }
-
-    /**
-     * source restricts access based on the subject of a request in the service mesh
-     *
-     * Generated from protobuf field <code>.meshpaas.AuthzSubject subject = 3;</code>
-     * @param \Meshpaas\AuthzSubject $var
-     * @return $this
-     */
-    public function setSubject($var)
-    {
-        GPBUtil::checkMessage($var, \Meshpaas\AuthzSubject::class);
-        $this->subject = $var;
 
         return $this;
     }

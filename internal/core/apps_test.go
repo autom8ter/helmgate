@@ -1,9 +1,9 @@
-package client_test
+package core_test
 
 import (
 	"context"
 	"github.com/autom8ter/kubego"
-	"github.com/autom8ter/meshpaas/internal/client"
+	"github.com/autom8ter/meshpaas/internal/core"
 	"github.com/autom8ter/meshpaas/internal/logger"
 	"testing"
 )
@@ -18,10 +18,11 @@ func TestApps(t *testing.T) {
 		t.Fatal(err.Error())
 	}
 	lgger := logger.New(true)
-	cli := client.New(
+	cli := core.NewManager(
 		kclient,
 		iclient,
 		lgger,
+		"aud",
 	)
 	cli.CreateSecret(context.Background(), nil)
 }

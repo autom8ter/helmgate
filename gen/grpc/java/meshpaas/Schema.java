@@ -1628,686 +1628,6 @@ public final class Schema {
 
   }
 
-  public interface AuthzSourceOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:meshpaas.AuthzSource)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     * allow_namespaces restricts access to traffic coming from a particular namespace
-     * </pre>
-     *
-     * <code>repeated string allow_namespaces = 1;</code>
-     */
-    java.util.List<java.lang.String>
-        getAllowNamespacesList();
-    /**
-     * <pre>
-     * allow_namespaces restricts access to traffic coming from a particular namespace
-     * </pre>
-     *
-     * <code>repeated string allow_namespaces = 1;</code>
-     */
-    int getAllowNamespacesCount();
-    /**
-     * <pre>
-     * allow_namespaces restricts access to traffic coming from a particular namespace
-     * </pre>
-     *
-     * <code>repeated string allow_namespaces = 1;</code>
-     */
-    java.lang.String getAllowNamespaces(int index);
-    /**
-     * <pre>
-     * allow_namespaces restricts access to traffic coming from a particular namespace
-     * </pre>
-     *
-     * <code>repeated string allow_namespaces = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getAllowNamespacesBytes(int index);
-  }
-  /**
-   * <pre>
-   * AuthzSource is the source of a request
-   * </pre>
-   *
-   * Protobuf type {@code meshpaas.AuthzSource}
-   */
-  public  static final class AuthzSource extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:meshpaas.AuthzSource)
-      AuthzSourceOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use AuthzSource.newBuilder() to construct.
-    private AuthzSource(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private AuthzSource() {
-      allowNamespaces_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private AuthzSource(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                allowNamespaces_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              allowNamespaces_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          allowNamespaces_ = allowNamespaces_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return meshpaas.Schema.internal_static_meshpaas_AuthzSource_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return meshpaas.Schema.internal_static_meshpaas_AuthzSource_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              meshpaas.Schema.AuthzSource.class, meshpaas.Schema.AuthzSource.Builder.class);
-    }
-
-    public static final int ALLOW_NAMESPACES_FIELD_NUMBER = 1;
-    private com.google.protobuf.LazyStringList allowNamespaces_;
-    /**
-     * <pre>
-     * allow_namespaces restricts access to traffic coming from a particular namespace
-     * </pre>
-     *
-     * <code>repeated string allow_namespaces = 1;</code>
-     */
-    public com.google.protobuf.ProtocolStringList
-        getAllowNamespacesList() {
-      return allowNamespaces_;
-    }
-    /**
-     * <pre>
-     * allow_namespaces restricts access to traffic coming from a particular namespace
-     * </pre>
-     *
-     * <code>repeated string allow_namespaces = 1;</code>
-     */
-    public int getAllowNamespacesCount() {
-      return allowNamespaces_.size();
-    }
-    /**
-     * <pre>
-     * allow_namespaces restricts access to traffic coming from a particular namespace
-     * </pre>
-     *
-     * <code>repeated string allow_namespaces = 1;</code>
-     */
-    public java.lang.String getAllowNamespaces(int index) {
-      return allowNamespaces_.get(index);
-    }
-    /**
-     * <pre>
-     * allow_namespaces restricts access to traffic coming from a particular namespace
-     * </pre>
-     *
-     * <code>repeated string allow_namespaces = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getAllowNamespacesBytes(int index) {
-      return allowNamespaces_.getByteString(index);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      for (int i = 0; i < allowNamespaces_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, allowNamespaces_.getRaw(i));
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      {
-        int dataSize = 0;
-        for (int i = 0; i < allowNamespaces_.size(); i++) {
-          dataSize += computeStringSizeNoTag(allowNamespaces_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getAllowNamespacesList().size();
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof meshpaas.Schema.AuthzSource)) {
-        return super.equals(obj);
-      }
-      meshpaas.Schema.AuthzSource other = (meshpaas.Schema.AuthzSource) obj;
-
-      boolean result = true;
-      result = result && getAllowNamespacesList()
-          .equals(other.getAllowNamespacesList());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      if (getAllowNamespacesCount() > 0) {
-        hash = (37 * hash) + ALLOW_NAMESPACES_FIELD_NUMBER;
-        hash = (53 * hash) + getAllowNamespacesList().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static meshpaas.Schema.AuthzSource parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static meshpaas.Schema.AuthzSource parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static meshpaas.Schema.AuthzSource parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static meshpaas.Schema.AuthzSource parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static meshpaas.Schema.AuthzSource parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static meshpaas.Schema.AuthzSource parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static meshpaas.Schema.AuthzSource parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static meshpaas.Schema.AuthzSource parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static meshpaas.Schema.AuthzSource parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static meshpaas.Schema.AuthzSource parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static meshpaas.Schema.AuthzSource parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static meshpaas.Schema.AuthzSource parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(meshpaas.Schema.AuthzSource prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     * AuthzSource is the source of a request
-     * </pre>
-     *
-     * Protobuf type {@code meshpaas.AuthzSource}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:meshpaas.AuthzSource)
-        meshpaas.Schema.AuthzSourceOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return meshpaas.Schema.internal_static_meshpaas_AuthzSource_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return meshpaas.Schema.internal_static_meshpaas_AuthzSource_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                meshpaas.Schema.AuthzSource.class, meshpaas.Schema.AuthzSource.Builder.class);
-      }
-
-      // Construct using meshpaas.Schema.AuthzSource.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        allowNamespaces_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return meshpaas.Schema.internal_static_meshpaas_AuthzSource_descriptor;
-      }
-
-      @java.lang.Override
-      public meshpaas.Schema.AuthzSource getDefaultInstanceForType() {
-        return meshpaas.Schema.AuthzSource.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public meshpaas.Schema.AuthzSource build() {
-        meshpaas.Schema.AuthzSource result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public meshpaas.Schema.AuthzSource buildPartial() {
-        meshpaas.Schema.AuthzSource result = new meshpaas.Schema.AuthzSource(this);
-        int from_bitField0_ = bitField0_;
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          allowNamespaces_ = allowNamespaces_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.allowNamespaces_ = allowNamespaces_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof meshpaas.Schema.AuthzSource) {
-          return mergeFrom((meshpaas.Schema.AuthzSource)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(meshpaas.Schema.AuthzSource other) {
-        if (other == meshpaas.Schema.AuthzSource.getDefaultInstance()) return this;
-        if (!other.allowNamespaces_.isEmpty()) {
-          if (allowNamespaces_.isEmpty()) {
-            allowNamespaces_ = other.allowNamespaces_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensureAllowNamespacesIsMutable();
-            allowNamespaces_.addAll(other.allowNamespaces_);
-          }
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        meshpaas.Schema.AuthzSource parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (meshpaas.Schema.AuthzSource) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private com.google.protobuf.LazyStringList allowNamespaces_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureAllowNamespacesIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          allowNamespaces_ = new com.google.protobuf.LazyStringArrayList(allowNamespaces_);
-          bitField0_ |= 0x00000001;
-         }
-      }
-      /**
-       * <pre>
-       * allow_namespaces restricts access to traffic coming from a particular namespace
-       * </pre>
-       *
-       * <code>repeated string allow_namespaces = 1;</code>
-       */
-      public com.google.protobuf.ProtocolStringList
-          getAllowNamespacesList() {
-        return allowNamespaces_.getUnmodifiableView();
-      }
-      /**
-       * <pre>
-       * allow_namespaces restricts access to traffic coming from a particular namespace
-       * </pre>
-       *
-       * <code>repeated string allow_namespaces = 1;</code>
-       */
-      public int getAllowNamespacesCount() {
-        return allowNamespaces_.size();
-      }
-      /**
-       * <pre>
-       * allow_namespaces restricts access to traffic coming from a particular namespace
-       * </pre>
-       *
-       * <code>repeated string allow_namespaces = 1;</code>
-       */
-      public java.lang.String getAllowNamespaces(int index) {
-        return allowNamespaces_.get(index);
-      }
-      /**
-       * <pre>
-       * allow_namespaces restricts access to traffic coming from a particular namespace
-       * </pre>
-       *
-       * <code>repeated string allow_namespaces = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getAllowNamespacesBytes(int index) {
-        return allowNamespaces_.getByteString(index);
-      }
-      /**
-       * <pre>
-       * allow_namespaces restricts access to traffic coming from a particular namespace
-       * </pre>
-       *
-       * <code>repeated string allow_namespaces = 1;</code>
-       */
-      public Builder setAllowNamespaces(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAllowNamespacesIsMutable();
-        allowNamespaces_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * allow_namespaces restricts access to traffic coming from a particular namespace
-       * </pre>
-       *
-       * <code>repeated string allow_namespaces = 1;</code>
-       */
-      public Builder addAllowNamespaces(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAllowNamespacesIsMutable();
-        allowNamespaces_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * allow_namespaces restricts access to traffic coming from a particular namespace
-       * </pre>
-       *
-       * <code>repeated string allow_namespaces = 1;</code>
-       */
-      public Builder addAllAllowNamespaces(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureAllowNamespacesIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, allowNamespaces_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * allow_namespaces restricts access to traffic coming from a particular namespace
-       * </pre>
-       *
-       * <code>repeated string allow_namespaces = 1;</code>
-       */
-      public Builder clearAllowNamespaces() {
-        allowNamespaces_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * allow_namespaces restricts access to traffic coming from a particular namespace
-       * </pre>
-       *
-       * <code>repeated string allow_namespaces = 1;</code>
-       */
-      public Builder addAllowNamespacesBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        ensureAllowNamespacesIsMutable();
-        allowNamespaces_.add(value);
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:meshpaas.AuthzSource)
-    }
-
-    // @@protoc_insertion_point(class_scope:meshpaas.AuthzSource)
-    private static final meshpaas.Schema.AuthzSource DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new meshpaas.Schema.AuthzSource();
-    }
-
-    public static meshpaas.Schema.AuthzSource getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<AuthzSource>
-        PARSER = new com.google.protobuf.AbstractParser<AuthzSource>() {
-      @java.lang.Override
-      public AuthzSource parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AuthzSource(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<AuthzSource> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<AuthzSource> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public meshpaas.Schema.AuthzSource getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   public interface AuthzSubjectOrBuilder extends
       // @@protoc_insertion_point(interface_extends:meshpaas.AuthzSubject)
       com.google.protobuf.MessageOrBuilder {
@@ -4959,28 +4279,28 @@ public final class Schema {
 
     /**
      * <pre>
-     * source restricts access based on the source of a request in the service mesh
+     * subject restricts access based on the subject of a request in the service mesh
      * </pre>
      *
-     * <code>.meshpaas.AuthzSource source = 1;</code>
+     * <code>.meshpaas.AuthzSubject subject = 1;</code>
      */
-    boolean hasSource();
+    boolean hasSubject();
     /**
      * <pre>
-     * source restricts access based on the source of a request in the service mesh
+     * subject restricts access based on the subject of a request in the service mesh
      * </pre>
      *
-     * <code>.meshpaas.AuthzSource source = 1;</code>
+     * <code>.meshpaas.AuthzSubject subject = 1;</code>
      */
-    meshpaas.Schema.AuthzSource getSource();
+    meshpaas.Schema.AuthzSubject getSubject();
     /**
      * <pre>
-     * source restricts access based on the source of a request in the service mesh
+     * subject restricts access based on the subject of a request in the service mesh
      * </pre>
      *
-     * <code>.meshpaas.AuthzSource source = 1;</code>
+     * <code>.meshpaas.AuthzSubject subject = 1;</code>
      */
-    meshpaas.Schema.AuthzSourceOrBuilder getSourceOrBuilder();
+    meshpaas.Schema.AuthzSubjectOrBuilder getSubjectOrBuilder();
 
     /**
      * <pre>
@@ -5006,31 +4326,6 @@ public final class Schema {
      * <code>.meshpaas.AuthzDestination destination = 2;</code>
      */
     meshpaas.Schema.AuthzDestinationOrBuilder getDestinationOrBuilder();
-
-    /**
-     * <pre>
-     * source restricts access based on the subject of a request in the service mesh
-     * </pre>
-     *
-     * <code>.meshpaas.AuthzSubject subject = 3;</code>
-     */
-    boolean hasSubject();
-    /**
-     * <pre>
-     * source restricts access based on the subject of a request in the service mesh
-     * </pre>
-     *
-     * <code>.meshpaas.AuthzSubject subject = 3;</code>
-     */
-    meshpaas.Schema.AuthzSubject getSubject();
-    /**
-     * <pre>
-     * source restricts access based on the subject of a request in the service mesh
-     * </pre>
-     *
-     * <code>.meshpaas.AuthzSubject subject = 3;</code>
-     */
-    meshpaas.Schema.AuthzSubjectOrBuilder getSubjectOrBuilder();
   }
   /**
    * <pre>
@@ -5076,14 +4371,14 @@ public final class Schema {
               done = true;
               break;
             case 10: {
-              meshpaas.Schema.AuthzSource.Builder subBuilder = null;
-              if (source_ != null) {
-                subBuilder = source_.toBuilder();
+              meshpaas.Schema.AuthzSubject.Builder subBuilder = null;
+              if (subject_ != null) {
+                subBuilder = subject_.toBuilder();
               }
-              source_ = input.readMessage(meshpaas.Schema.AuthzSource.parser(), extensionRegistry);
+              subject_ = input.readMessage(meshpaas.Schema.AuthzSubject.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(source_);
-                source_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(subject_);
+                subject_ = subBuilder.buildPartial();
               }
 
               break;
@@ -5097,19 +4392,6 @@ public final class Schema {
               if (subBuilder != null) {
                 subBuilder.mergeFrom(destination_);
                 destination_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              meshpaas.Schema.AuthzSubject.Builder subBuilder = null;
-              if (subject_ != null) {
-                subBuilder = subject_.toBuilder();
-              }
-              subject_ = input.readMessage(meshpaas.Schema.AuthzSubject.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(subject_);
-                subject_ = subBuilder.buildPartial();
               }
 
               break;
@@ -5146,37 +4428,37 @@ public final class Schema {
               meshpaas.Schema.AuthzRule.class, meshpaas.Schema.AuthzRule.Builder.class);
     }
 
-    public static final int SOURCE_FIELD_NUMBER = 1;
-    private meshpaas.Schema.AuthzSource source_;
+    public static final int SUBJECT_FIELD_NUMBER = 1;
+    private meshpaas.Schema.AuthzSubject subject_;
     /**
      * <pre>
-     * source restricts access based on the source of a request in the service mesh
+     * subject restricts access based on the subject of a request in the service mesh
      * </pre>
      *
-     * <code>.meshpaas.AuthzSource source = 1;</code>
+     * <code>.meshpaas.AuthzSubject subject = 1;</code>
      */
-    public boolean hasSource() {
-      return source_ != null;
+    public boolean hasSubject() {
+      return subject_ != null;
     }
     /**
      * <pre>
-     * source restricts access based on the source of a request in the service mesh
+     * subject restricts access based on the subject of a request in the service mesh
      * </pre>
      *
-     * <code>.meshpaas.AuthzSource source = 1;</code>
+     * <code>.meshpaas.AuthzSubject subject = 1;</code>
      */
-    public meshpaas.Schema.AuthzSource getSource() {
-      return source_ == null ? meshpaas.Schema.AuthzSource.getDefaultInstance() : source_;
+    public meshpaas.Schema.AuthzSubject getSubject() {
+      return subject_ == null ? meshpaas.Schema.AuthzSubject.getDefaultInstance() : subject_;
     }
     /**
      * <pre>
-     * source restricts access based on the source of a request in the service mesh
+     * subject restricts access based on the subject of a request in the service mesh
      * </pre>
      *
-     * <code>.meshpaas.AuthzSource source = 1;</code>
+     * <code>.meshpaas.AuthzSubject subject = 1;</code>
      */
-    public meshpaas.Schema.AuthzSourceOrBuilder getSourceOrBuilder() {
-      return getSource();
+    public meshpaas.Schema.AuthzSubjectOrBuilder getSubjectOrBuilder() {
+      return getSubject();
     }
 
     public static final int DESTINATION_FIELD_NUMBER = 2;
@@ -5212,39 +4494,6 @@ public final class Schema {
       return getDestination();
     }
 
-    public static final int SUBJECT_FIELD_NUMBER = 3;
-    private meshpaas.Schema.AuthzSubject subject_;
-    /**
-     * <pre>
-     * source restricts access based on the subject of a request in the service mesh
-     * </pre>
-     *
-     * <code>.meshpaas.AuthzSubject subject = 3;</code>
-     */
-    public boolean hasSubject() {
-      return subject_ != null;
-    }
-    /**
-     * <pre>
-     * source restricts access based on the subject of a request in the service mesh
-     * </pre>
-     *
-     * <code>.meshpaas.AuthzSubject subject = 3;</code>
-     */
-    public meshpaas.Schema.AuthzSubject getSubject() {
-      return subject_ == null ? meshpaas.Schema.AuthzSubject.getDefaultInstance() : subject_;
-    }
-    /**
-     * <pre>
-     * source restricts access based on the subject of a request in the service mesh
-     * </pre>
-     *
-     * <code>.meshpaas.AuthzSubject subject = 3;</code>
-     */
-    public meshpaas.Schema.AuthzSubjectOrBuilder getSubjectOrBuilder() {
-      return getSubject();
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -5259,14 +4508,11 @@ public final class Schema {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (source_ != null) {
-        output.writeMessage(1, getSource());
+      if (subject_ != null) {
+        output.writeMessage(1, getSubject());
       }
       if (destination_ != null) {
         output.writeMessage(2, getDestination());
-      }
-      if (subject_ != null) {
-        output.writeMessage(3, getSubject());
       }
       unknownFields.writeTo(output);
     }
@@ -5277,17 +4523,13 @@ public final class Schema {
       if (size != -1) return size;
 
       size = 0;
-      if (source_ != null) {
+      if (subject_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getSource());
+          .computeMessageSize(1, getSubject());
       }
       if (destination_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getDestination());
-      }
-      if (subject_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getSubject());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5305,20 +4547,15 @@ public final class Schema {
       meshpaas.Schema.AuthzRule other = (meshpaas.Schema.AuthzRule) obj;
 
       boolean result = true;
-      result = result && (hasSource() == other.hasSource());
-      if (hasSource()) {
-        result = result && getSource()
-            .equals(other.getSource());
+      result = result && (hasSubject() == other.hasSubject());
+      if (hasSubject()) {
+        result = result && getSubject()
+            .equals(other.getSubject());
       }
       result = result && (hasDestination() == other.hasDestination());
       if (hasDestination()) {
         result = result && getDestination()
             .equals(other.getDestination());
-      }
-      result = result && (hasSubject() == other.hasSubject());
-      if (hasSubject()) {
-        result = result && getSubject()
-            .equals(other.getSubject());
       }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
@@ -5331,17 +4568,13 @@ public final class Schema {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasSource()) {
-        hash = (37 * hash) + SOURCE_FIELD_NUMBER;
-        hash = (53 * hash) + getSource().hashCode();
+      if (hasSubject()) {
+        hash = (37 * hash) + SUBJECT_FIELD_NUMBER;
+        hash = (53 * hash) + getSubject().hashCode();
       }
       if (hasDestination()) {
         hash = (37 * hash) + DESTINATION_FIELD_NUMBER;
         hash = (53 * hash) + getDestination().hashCode();
-      }
-      if (hasSubject()) {
-        hash = (37 * hash) + SUBJECT_FIELD_NUMBER;
-        hash = (53 * hash) + getSubject().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -5480,23 +4713,17 @@ public final class Schema {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (sourceBuilder_ == null) {
-          source_ = null;
+        if (subjectBuilder_ == null) {
+          subject_ = null;
         } else {
-          source_ = null;
-          sourceBuilder_ = null;
+          subject_ = null;
+          subjectBuilder_ = null;
         }
         if (destinationBuilder_ == null) {
           destination_ = null;
         } else {
           destination_ = null;
           destinationBuilder_ = null;
-        }
-        if (subjectBuilder_ == null) {
-          subject_ = null;
-        } else {
-          subject_ = null;
-          subjectBuilder_ = null;
         }
         return this;
       }
@@ -5524,20 +4751,15 @@ public final class Schema {
       @java.lang.Override
       public meshpaas.Schema.AuthzRule buildPartial() {
         meshpaas.Schema.AuthzRule result = new meshpaas.Schema.AuthzRule(this);
-        if (sourceBuilder_ == null) {
-          result.source_ = source_;
+        if (subjectBuilder_ == null) {
+          result.subject_ = subject_;
         } else {
-          result.source_ = sourceBuilder_.build();
+          result.subject_ = subjectBuilder_.build();
         }
         if (destinationBuilder_ == null) {
           result.destination_ = destination_;
         } else {
           result.destination_ = destinationBuilder_.build();
-        }
-        if (subjectBuilder_ == null) {
-          result.subject_ = subject_;
-        } else {
-          result.subject_ = subjectBuilder_.build();
         }
         onBuilt();
         return result;
@@ -5587,14 +4809,11 @@ public final class Schema {
 
       public Builder mergeFrom(meshpaas.Schema.AuthzRule other) {
         if (other == meshpaas.Schema.AuthzRule.getDefaultInstance()) return this;
-        if (other.hasSource()) {
-          mergeSource(other.getSource());
+        if (other.hasSubject()) {
+          mergeSubject(other.getSubject());
         }
         if (other.hasDestination()) {
           mergeDestination(other.getDestination());
-        }
-        if (other.hasSubject()) {
-          mergeSubject(other.getSubject());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -5625,157 +4844,157 @@ public final class Schema {
         return this;
       }
 
-      private meshpaas.Schema.AuthzSource source_ = null;
+      private meshpaas.Schema.AuthzSubject subject_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          meshpaas.Schema.AuthzSource, meshpaas.Schema.AuthzSource.Builder, meshpaas.Schema.AuthzSourceOrBuilder> sourceBuilder_;
+          meshpaas.Schema.AuthzSubject, meshpaas.Schema.AuthzSubject.Builder, meshpaas.Schema.AuthzSubjectOrBuilder> subjectBuilder_;
       /**
        * <pre>
-       * source restricts access based on the source of a request in the service mesh
+       * subject restricts access based on the subject of a request in the service mesh
        * </pre>
        *
-       * <code>.meshpaas.AuthzSource source = 1;</code>
+       * <code>.meshpaas.AuthzSubject subject = 1;</code>
        */
-      public boolean hasSource() {
-        return sourceBuilder_ != null || source_ != null;
+      public boolean hasSubject() {
+        return subjectBuilder_ != null || subject_ != null;
       }
       /**
        * <pre>
-       * source restricts access based on the source of a request in the service mesh
+       * subject restricts access based on the subject of a request in the service mesh
        * </pre>
        *
-       * <code>.meshpaas.AuthzSource source = 1;</code>
+       * <code>.meshpaas.AuthzSubject subject = 1;</code>
        */
-      public meshpaas.Schema.AuthzSource getSource() {
-        if (sourceBuilder_ == null) {
-          return source_ == null ? meshpaas.Schema.AuthzSource.getDefaultInstance() : source_;
+      public meshpaas.Schema.AuthzSubject getSubject() {
+        if (subjectBuilder_ == null) {
+          return subject_ == null ? meshpaas.Schema.AuthzSubject.getDefaultInstance() : subject_;
         } else {
-          return sourceBuilder_.getMessage();
+          return subjectBuilder_.getMessage();
         }
       }
       /**
        * <pre>
-       * source restricts access based on the source of a request in the service mesh
+       * subject restricts access based on the subject of a request in the service mesh
        * </pre>
        *
-       * <code>.meshpaas.AuthzSource source = 1;</code>
+       * <code>.meshpaas.AuthzSubject subject = 1;</code>
        */
-      public Builder setSource(meshpaas.Schema.AuthzSource value) {
-        if (sourceBuilder_ == null) {
+      public Builder setSubject(meshpaas.Schema.AuthzSubject value) {
+        if (subjectBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          source_ = value;
+          subject_ = value;
           onChanged();
         } else {
-          sourceBuilder_.setMessage(value);
+          subjectBuilder_.setMessage(value);
         }
 
         return this;
       }
       /**
        * <pre>
-       * source restricts access based on the source of a request in the service mesh
+       * subject restricts access based on the subject of a request in the service mesh
        * </pre>
        *
-       * <code>.meshpaas.AuthzSource source = 1;</code>
+       * <code>.meshpaas.AuthzSubject subject = 1;</code>
        */
-      public Builder setSource(
-          meshpaas.Schema.AuthzSource.Builder builderForValue) {
-        if (sourceBuilder_ == null) {
-          source_ = builderForValue.build();
+      public Builder setSubject(
+          meshpaas.Schema.AuthzSubject.Builder builderForValue) {
+        if (subjectBuilder_ == null) {
+          subject_ = builderForValue.build();
           onChanged();
         } else {
-          sourceBuilder_.setMessage(builderForValue.build());
+          subjectBuilder_.setMessage(builderForValue.build());
         }
 
         return this;
       }
       /**
        * <pre>
-       * source restricts access based on the source of a request in the service mesh
+       * subject restricts access based on the subject of a request in the service mesh
        * </pre>
        *
-       * <code>.meshpaas.AuthzSource source = 1;</code>
+       * <code>.meshpaas.AuthzSubject subject = 1;</code>
        */
-      public Builder mergeSource(meshpaas.Schema.AuthzSource value) {
-        if (sourceBuilder_ == null) {
-          if (source_ != null) {
-            source_ =
-              meshpaas.Schema.AuthzSource.newBuilder(source_).mergeFrom(value).buildPartial();
+      public Builder mergeSubject(meshpaas.Schema.AuthzSubject value) {
+        if (subjectBuilder_ == null) {
+          if (subject_ != null) {
+            subject_ =
+              meshpaas.Schema.AuthzSubject.newBuilder(subject_).mergeFrom(value).buildPartial();
           } else {
-            source_ = value;
+            subject_ = value;
           }
           onChanged();
         } else {
-          sourceBuilder_.mergeFrom(value);
+          subjectBuilder_.mergeFrom(value);
         }
 
         return this;
       }
       /**
        * <pre>
-       * source restricts access based on the source of a request in the service mesh
+       * subject restricts access based on the subject of a request in the service mesh
        * </pre>
        *
-       * <code>.meshpaas.AuthzSource source = 1;</code>
+       * <code>.meshpaas.AuthzSubject subject = 1;</code>
        */
-      public Builder clearSource() {
-        if (sourceBuilder_ == null) {
-          source_ = null;
+      public Builder clearSubject() {
+        if (subjectBuilder_ == null) {
+          subject_ = null;
           onChanged();
         } else {
-          source_ = null;
-          sourceBuilder_ = null;
+          subject_ = null;
+          subjectBuilder_ = null;
         }
 
         return this;
       }
       /**
        * <pre>
-       * source restricts access based on the source of a request in the service mesh
+       * subject restricts access based on the subject of a request in the service mesh
        * </pre>
        *
-       * <code>.meshpaas.AuthzSource source = 1;</code>
+       * <code>.meshpaas.AuthzSubject subject = 1;</code>
        */
-      public meshpaas.Schema.AuthzSource.Builder getSourceBuilder() {
+      public meshpaas.Schema.AuthzSubject.Builder getSubjectBuilder() {
         
         onChanged();
-        return getSourceFieldBuilder().getBuilder();
+        return getSubjectFieldBuilder().getBuilder();
       }
       /**
        * <pre>
-       * source restricts access based on the source of a request in the service mesh
+       * subject restricts access based on the subject of a request in the service mesh
        * </pre>
        *
-       * <code>.meshpaas.AuthzSource source = 1;</code>
+       * <code>.meshpaas.AuthzSubject subject = 1;</code>
        */
-      public meshpaas.Schema.AuthzSourceOrBuilder getSourceOrBuilder() {
-        if (sourceBuilder_ != null) {
-          return sourceBuilder_.getMessageOrBuilder();
+      public meshpaas.Schema.AuthzSubjectOrBuilder getSubjectOrBuilder() {
+        if (subjectBuilder_ != null) {
+          return subjectBuilder_.getMessageOrBuilder();
         } else {
-          return source_ == null ?
-              meshpaas.Schema.AuthzSource.getDefaultInstance() : source_;
+          return subject_ == null ?
+              meshpaas.Schema.AuthzSubject.getDefaultInstance() : subject_;
         }
       }
       /**
        * <pre>
-       * source restricts access based on the source of a request in the service mesh
+       * subject restricts access based on the subject of a request in the service mesh
        * </pre>
        *
-       * <code>.meshpaas.AuthzSource source = 1;</code>
+       * <code>.meshpaas.AuthzSubject subject = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          meshpaas.Schema.AuthzSource, meshpaas.Schema.AuthzSource.Builder, meshpaas.Schema.AuthzSourceOrBuilder> 
-          getSourceFieldBuilder() {
-        if (sourceBuilder_ == null) {
-          sourceBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              meshpaas.Schema.AuthzSource, meshpaas.Schema.AuthzSource.Builder, meshpaas.Schema.AuthzSourceOrBuilder>(
-                  getSource(),
+          meshpaas.Schema.AuthzSubject, meshpaas.Schema.AuthzSubject.Builder, meshpaas.Schema.AuthzSubjectOrBuilder> 
+          getSubjectFieldBuilder() {
+        if (subjectBuilder_ == null) {
+          subjectBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              meshpaas.Schema.AuthzSubject, meshpaas.Schema.AuthzSubject.Builder, meshpaas.Schema.AuthzSubjectOrBuilder>(
+                  getSubject(),
                   getParentForChildren(),
                   isClean());
-          source_ = null;
+          subject_ = null;
         }
-        return sourceBuilder_;
+        return subjectBuilder_;
       }
 
       private meshpaas.Schema.AuthzDestination destination_ = null;
@@ -5929,159 +5148,6 @@ public final class Schema {
           destination_ = null;
         }
         return destinationBuilder_;
-      }
-
-      private meshpaas.Schema.AuthzSubject subject_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          meshpaas.Schema.AuthzSubject, meshpaas.Schema.AuthzSubject.Builder, meshpaas.Schema.AuthzSubjectOrBuilder> subjectBuilder_;
-      /**
-       * <pre>
-       * source restricts access based on the subject of a request in the service mesh
-       * </pre>
-       *
-       * <code>.meshpaas.AuthzSubject subject = 3;</code>
-       */
-      public boolean hasSubject() {
-        return subjectBuilder_ != null || subject_ != null;
-      }
-      /**
-       * <pre>
-       * source restricts access based on the subject of a request in the service mesh
-       * </pre>
-       *
-       * <code>.meshpaas.AuthzSubject subject = 3;</code>
-       */
-      public meshpaas.Schema.AuthzSubject getSubject() {
-        if (subjectBuilder_ == null) {
-          return subject_ == null ? meshpaas.Schema.AuthzSubject.getDefaultInstance() : subject_;
-        } else {
-          return subjectBuilder_.getMessage();
-        }
-      }
-      /**
-       * <pre>
-       * source restricts access based on the subject of a request in the service mesh
-       * </pre>
-       *
-       * <code>.meshpaas.AuthzSubject subject = 3;</code>
-       */
-      public Builder setSubject(meshpaas.Schema.AuthzSubject value) {
-        if (subjectBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          subject_ = value;
-          onChanged();
-        } else {
-          subjectBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * source restricts access based on the subject of a request in the service mesh
-       * </pre>
-       *
-       * <code>.meshpaas.AuthzSubject subject = 3;</code>
-       */
-      public Builder setSubject(
-          meshpaas.Schema.AuthzSubject.Builder builderForValue) {
-        if (subjectBuilder_ == null) {
-          subject_ = builderForValue.build();
-          onChanged();
-        } else {
-          subjectBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * source restricts access based on the subject of a request in the service mesh
-       * </pre>
-       *
-       * <code>.meshpaas.AuthzSubject subject = 3;</code>
-       */
-      public Builder mergeSubject(meshpaas.Schema.AuthzSubject value) {
-        if (subjectBuilder_ == null) {
-          if (subject_ != null) {
-            subject_ =
-              meshpaas.Schema.AuthzSubject.newBuilder(subject_).mergeFrom(value).buildPartial();
-          } else {
-            subject_ = value;
-          }
-          onChanged();
-        } else {
-          subjectBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * source restricts access based on the subject of a request in the service mesh
-       * </pre>
-       *
-       * <code>.meshpaas.AuthzSubject subject = 3;</code>
-       */
-      public Builder clearSubject() {
-        if (subjectBuilder_ == null) {
-          subject_ = null;
-          onChanged();
-        } else {
-          subject_ = null;
-          subjectBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * source restricts access based on the subject of a request in the service mesh
-       * </pre>
-       *
-       * <code>.meshpaas.AuthzSubject subject = 3;</code>
-       */
-      public meshpaas.Schema.AuthzSubject.Builder getSubjectBuilder() {
-        
-        onChanged();
-        return getSubjectFieldBuilder().getBuilder();
-      }
-      /**
-       * <pre>
-       * source restricts access based on the subject of a request in the service mesh
-       * </pre>
-       *
-       * <code>.meshpaas.AuthzSubject subject = 3;</code>
-       */
-      public meshpaas.Schema.AuthzSubjectOrBuilder getSubjectOrBuilder() {
-        if (subjectBuilder_ != null) {
-          return subjectBuilder_.getMessageOrBuilder();
-        } else {
-          return subject_ == null ?
-              meshpaas.Schema.AuthzSubject.getDefaultInstance() : subject_;
-        }
-      }
-      /**
-       * <pre>
-       * source restricts access based on the subject of a request in the service mesh
-       * </pre>
-       *
-       * <code>.meshpaas.AuthzSubject subject = 3;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          meshpaas.Schema.AuthzSubject, meshpaas.Schema.AuthzSubject.Builder, meshpaas.Schema.AuthzSubjectOrBuilder> 
-          getSubjectFieldBuilder() {
-        if (subjectBuilder_ == null) {
-          subjectBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              meshpaas.Schema.AuthzSubject, meshpaas.Schema.AuthzSubject.Builder, meshpaas.Schema.AuthzSubjectOrBuilder>(
-                  getSubject(),
-                  getParentForChildren(),
-                  isClean());
-          subject_ = null;
-        }
-        return subjectBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -16838,38 +15904,21 @@ public final class Schema {
 
     /**
      * <pre>
-     * gateways to bind to
+     * gateway to bind to
      * </pre>
      *
-     * <code>repeated string gateways = 1;</code>
+     * <code>string gateway = 1;</code>
      */
-    java.util.List<java.lang.String>
-        getGatewaysList();
+    java.lang.String getGateway();
     /**
      * <pre>
-     * gateways to bind to
+     * gateway to bind to
      * </pre>
      *
-     * <code>repeated string gateways = 1;</code>
-     */
-    int getGatewaysCount();
-    /**
-     * <pre>
-     * gateways to bind to
-     * </pre>
-     *
-     * <code>repeated string gateways = 1;</code>
-     */
-    java.lang.String getGateways(int index);
-    /**
-     * <pre>
-     * gateways to bind to
-     * </pre>
-     *
-     * <code>repeated string gateways = 1;</code>
+     * <code>string gateway = 1;</code>
      */
     com.google.protobuf.ByteString
-        getGatewaysBytes(int index);
+        getGatewayBytes();
 
     /**
      * <pre>
@@ -16905,15 +15954,6 @@ public final class Schema {
      */
     com.google.protobuf.ByteString
         getHostsBytes(int index);
-
-    /**
-     * <pre>
-     * export service to other applications in other projects
-     * </pre>
-     *
-     * <code>bool export = 3;</code>
-     */
-    boolean getExport();
 
     /**
      * <pre>
@@ -16976,9 +16016,8 @@ public final class Schema {
       super(builder);
     }
     private Routing() {
-      gateways_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      gateway_ = "";
       hosts_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      export_ = false;
       httpRoutes_ = java.util.Collections.emptyList();
     }
 
@@ -17008,11 +16047,8 @@ public final class Schema {
               break;
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                gateways_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              gateways_.add(s);
+
+              gateway_ = s;
               break;
             }
             case 18: {
@@ -17024,15 +16060,10 @@ public final class Schema {
               hosts_.add(s);
               break;
             }
-            case 24: {
-
-              export_ = input.readBool();
-              break;
-            }
             case 34: {
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
                 httpRoutes_ = new java.util.ArrayList<meshpaas.Schema.HTTPRoute>();
-                mutable_bitField0_ |= 0x00000008;
+                mutable_bitField0_ |= 0x00000004;
               }
               httpRoutes_.add(
                   input.readMessage(meshpaas.Schema.HTTPRoute.parser(), extensionRegistry));
@@ -17053,13 +16084,10 @@ public final class Schema {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          gateways_ = gateways_.getUnmodifiableView();
-        }
         if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
           hosts_ = hosts_.getUnmodifiableView();
         }
-        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
           httpRoutes_ = java.util.Collections.unmodifiableList(httpRoutes_);
         }
         this.unknownFields = unknownFields.build();
@@ -17080,49 +16108,46 @@ public final class Schema {
     }
 
     private int bitField0_;
-    public static final int GATEWAYS_FIELD_NUMBER = 1;
-    private com.google.protobuf.LazyStringList gateways_;
+    public static final int GATEWAY_FIELD_NUMBER = 1;
+    private volatile java.lang.Object gateway_;
     /**
      * <pre>
-     * gateways to bind to
+     * gateway to bind to
      * </pre>
      *
-     * <code>repeated string gateways = 1;</code>
+     * <code>string gateway = 1;</code>
      */
-    public com.google.protobuf.ProtocolStringList
-        getGatewaysList() {
-      return gateways_;
+    public java.lang.String getGateway() {
+      java.lang.Object ref = gateway_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        gateway_ = s;
+        return s;
+      }
     }
     /**
      * <pre>
-     * gateways to bind to
+     * gateway to bind to
      * </pre>
      *
-     * <code>repeated string gateways = 1;</code>
-     */
-    public int getGatewaysCount() {
-      return gateways_.size();
-    }
-    /**
-     * <pre>
-     * gateways to bind to
-     * </pre>
-     *
-     * <code>repeated string gateways = 1;</code>
-     */
-    public java.lang.String getGateways(int index) {
-      return gateways_.get(index);
-    }
-    /**
-     * <pre>
-     * gateways to bind to
-     * </pre>
-     *
-     * <code>repeated string gateways = 1;</code>
+     * <code>string gateway = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getGatewaysBytes(int index) {
-      return gateways_.getByteString(index);
+        getGatewayBytes() {
+      java.lang.Object ref = gateway_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        gateway_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int HOSTS_FIELD_NUMBER = 2;
@@ -17168,19 +16193,6 @@ public final class Schema {
     public com.google.protobuf.ByteString
         getHostsBytes(int index) {
       return hosts_.getByteString(index);
-    }
-
-    public static final int EXPORT_FIELD_NUMBER = 3;
-    private boolean export_;
-    /**
-     * <pre>
-     * export service to other applications in other projects
-     * </pre>
-     *
-     * <code>bool export = 3;</code>
-     */
-    public boolean getExport() {
-      return export_;
     }
 
     public static final int HTTP_ROUTES_FIELD_NUMBER = 4;
@@ -17252,14 +16264,11 @@ public final class Schema {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      for (int i = 0; i < gateways_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, gateways_.getRaw(i));
+      if (!getGatewayBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, gateway_);
       }
       for (int i = 0; i < hosts_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, hosts_.getRaw(i));
-      }
-      if (export_ != false) {
-        output.writeBool(3, export_);
       }
       for (int i = 0; i < httpRoutes_.size(); i++) {
         output.writeMessage(4, httpRoutes_.get(i));
@@ -17273,13 +16282,8 @@ public final class Schema {
       if (size != -1) return size;
 
       size = 0;
-      {
-        int dataSize = 0;
-        for (int i = 0; i < gateways_.size(); i++) {
-          dataSize += computeStringSizeNoTag(gateways_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getGatewaysList().size();
+      if (!getGatewayBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, gateway_);
       }
       {
         int dataSize = 0;
@@ -17288,10 +16292,6 @@ public final class Schema {
         }
         size += dataSize;
         size += 1 * getHostsList().size();
-      }
-      if (export_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(3, export_);
       }
       for (int i = 0; i < httpRoutes_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
@@ -17313,12 +16313,10 @@ public final class Schema {
       meshpaas.Schema.Routing other = (meshpaas.Schema.Routing) obj;
 
       boolean result = true;
-      result = result && getGatewaysList()
-          .equals(other.getGatewaysList());
+      result = result && getGateway()
+          .equals(other.getGateway());
       result = result && getHostsList()
           .equals(other.getHostsList());
-      result = result && (getExport()
-          == other.getExport());
       result = result && getHttpRoutesList()
           .equals(other.getHttpRoutesList());
       result = result && unknownFields.equals(other.unknownFields);
@@ -17332,17 +16330,12 @@ public final class Schema {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (getGatewaysCount() > 0) {
-        hash = (37 * hash) + GATEWAYS_FIELD_NUMBER;
-        hash = (53 * hash) + getGatewaysList().hashCode();
-      }
+      hash = (37 * hash) + GATEWAY_FIELD_NUMBER;
+      hash = (53 * hash) + getGateway().hashCode();
       if (getHostsCount() > 0) {
         hash = (37 * hash) + HOSTS_FIELD_NUMBER;
         hash = (53 * hash) + getHostsList().hashCode();
       }
-      hash = (37 * hash) + EXPORT_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getExport());
       if (getHttpRoutesCount() > 0) {
         hash = (37 * hash) + HTTP_ROUTES_FIELD_NUMBER;
         hash = (53 * hash) + getHttpRoutesList().hashCode();
@@ -17485,15 +16478,13 @@ public final class Schema {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        gateways_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        gateway_ = "";
+
         hosts_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
-        export_ = false;
-
         if (httpRoutesBuilder_ == null) {
           httpRoutes_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           httpRoutesBuilder_.clear();
         }
@@ -17525,21 +16516,16 @@ public final class Schema {
         meshpaas.Schema.Routing result = new meshpaas.Schema.Routing(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          gateways_ = gateways_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.gateways_ = gateways_;
+        result.gateway_ = gateway_;
         if (((bitField0_ & 0x00000002) == 0x00000002)) {
           hosts_ = hosts_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.hosts_ = hosts_;
-        result.export_ = export_;
         if (httpRoutesBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
             httpRoutes_ = java.util.Collections.unmodifiableList(httpRoutes_);
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000004);
           }
           result.httpRoutes_ = httpRoutes_;
         } else {
@@ -17594,14 +16580,8 @@ public final class Schema {
 
       public Builder mergeFrom(meshpaas.Schema.Routing other) {
         if (other == meshpaas.Schema.Routing.getDefaultInstance()) return this;
-        if (!other.gateways_.isEmpty()) {
-          if (gateways_.isEmpty()) {
-            gateways_ = other.gateways_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensureGatewaysIsMutable();
-            gateways_.addAll(other.gateways_);
-          }
+        if (!other.getGateway().isEmpty()) {
+          gateway_ = other.gateway_;
           onChanged();
         }
         if (!other.hosts_.isEmpty()) {
@@ -17614,14 +16594,11 @@ public final class Schema {
           }
           onChanged();
         }
-        if (other.getExport() != false) {
-          setExport(other.getExport());
-        }
         if (httpRoutesBuilder_ == null) {
           if (!other.httpRoutes_.isEmpty()) {
             if (httpRoutes_.isEmpty()) {
               httpRoutes_ = other.httpRoutes_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000004);
             } else {
               ensureHttpRoutesIsMutable();
               httpRoutes_.addAll(other.httpRoutes_);
@@ -17634,7 +16611,7 @@ public final class Schema {
               httpRoutesBuilder_.dispose();
               httpRoutesBuilder_ = null;
               httpRoutes_ = other.httpRoutes_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000004);
               httpRoutesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getHttpRoutesFieldBuilder() : null;
@@ -17673,132 +16650,91 @@ public final class Schema {
       }
       private int bitField0_;
 
-      private com.google.protobuf.LazyStringList gateways_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureGatewaysIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          gateways_ = new com.google.protobuf.LazyStringArrayList(gateways_);
-          bitField0_ |= 0x00000001;
-         }
-      }
+      private java.lang.Object gateway_ = "";
       /**
        * <pre>
-       * gateways to bind to
+       * gateway to bind to
        * </pre>
        *
-       * <code>repeated string gateways = 1;</code>
+       * <code>string gateway = 1;</code>
        */
-      public com.google.protobuf.ProtocolStringList
-          getGatewaysList() {
-        return gateways_.getUnmodifiableView();
+      public java.lang.String getGateway() {
+        java.lang.Object ref = gateway_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          gateway_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
        * <pre>
-       * gateways to bind to
+       * gateway to bind to
        * </pre>
        *
-       * <code>repeated string gateways = 1;</code>
-       */
-      public int getGatewaysCount() {
-        return gateways_.size();
-      }
-      /**
-       * <pre>
-       * gateways to bind to
-       * </pre>
-       *
-       * <code>repeated string gateways = 1;</code>
-       */
-      public java.lang.String getGateways(int index) {
-        return gateways_.get(index);
-      }
-      /**
-       * <pre>
-       * gateways to bind to
-       * </pre>
-       *
-       * <code>repeated string gateways = 1;</code>
+       * <code>string gateway = 1;</code>
        */
       public com.google.protobuf.ByteString
-          getGatewaysBytes(int index) {
-        return gateways_.getByteString(index);
+          getGatewayBytes() {
+        java.lang.Object ref = gateway_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          gateway_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
       }
       /**
        * <pre>
-       * gateways to bind to
+       * gateway to bind to
        * </pre>
        *
-       * <code>repeated string gateways = 1;</code>
+       * <code>string gateway = 1;</code>
        */
-      public Builder setGateways(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureGatewaysIsMutable();
-        gateways_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * gateways to bind to
-       * </pre>
-       *
-       * <code>repeated string gateways = 1;</code>
-       */
-      public Builder addGateways(
+      public Builder setGateway(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  ensureGatewaysIsMutable();
-        gateways_.add(value);
+  
+        gateway_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * gateways to bind to
+       * gateway to bind to
        * </pre>
        *
-       * <code>repeated string gateways = 1;</code>
+       * <code>string gateway = 1;</code>
        */
-      public Builder addAllGateways(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureGatewaysIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, gateways_);
+      public Builder clearGateway() {
+        
+        gateway_ = getDefaultInstance().getGateway();
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * gateways to bind to
+       * gateway to bind to
        * </pre>
        *
-       * <code>repeated string gateways = 1;</code>
+       * <code>string gateway = 1;</code>
        */
-      public Builder clearGateways() {
-        gateways_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * gateways to bind to
-       * </pre>
-       *
-       * <code>repeated string gateways = 1;</code>
-       */
-      public Builder addGatewaysBytes(
+      public Builder setGatewayBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-        ensureGatewaysIsMutable();
-        gateways_.add(value);
+        
+        gateway_ = value;
         onChanged();
         return this;
       }
@@ -17933,50 +16869,12 @@ public final class Schema {
         return this;
       }
 
-      private boolean export_ ;
-      /**
-       * <pre>
-       * export service to other applications in other projects
-       * </pre>
-       *
-       * <code>bool export = 3;</code>
-       */
-      public boolean getExport() {
-        return export_;
-      }
-      /**
-       * <pre>
-       * export service to other applications in other projects
-       * </pre>
-       *
-       * <code>bool export = 3;</code>
-       */
-      public Builder setExport(boolean value) {
-        
-        export_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * export service to other applications in other projects
-       * </pre>
-       *
-       * <code>bool export = 3;</code>
-       */
-      public Builder clearExport() {
-        
-        export_ = false;
-        onChanged();
-        return this;
-      }
-
       private java.util.List<meshpaas.Schema.HTTPRoute> httpRoutes_ =
         java.util.Collections.emptyList();
       private void ensureHttpRoutesIsMutable() {
-        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
           httpRoutes_ = new java.util.ArrayList<meshpaas.Schema.HTTPRoute>(httpRoutes_);
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000004;
          }
       }
 
@@ -18170,7 +17068,7 @@ public final class Schema {
       public Builder clearHttpRoutes() {
         if (httpRoutesBuilder_ == null) {
           httpRoutes_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000004);
           onChanged();
         } else {
           httpRoutesBuilder_.clear();
@@ -18275,7 +17173,7 @@ public final class Schema {
           httpRoutesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               meshpaas.Schema.HTTPRoute, meshpaas.Schema.HTTPRoute.Builder, meshpaas.Schema.HTTPRouteOrBuilder>(
                   httpRoutes_,
-                  ((bitField0_ & 0x00000008) == 0x00000008),
+                  ((bitField0_ & 0x00000004) == 0x00000004),
                   getParentForChildren(),
                   isClean());
           httpRoutes_ = null;
@@ -31874,11 +30772,6 @@ public final class Schema {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_meshpaas_AuthnRule_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_AuthzSource_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_AuthzSource_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_meshpaas_AuthzSubject_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -32035,122 +30928,120 @@ public final class Schema {
       "\223\001\n\tAuthnRule\022\"\n\010jwks_uri\030\001 \001(\tB\020\342\337\037\014\n\n^" +
       ".{1,225}$\022 \n\006issuer\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,22" +
       "5}$\022\020\n\010audience\030\003 \003(\t\022.\n\024ouput_payload_h" +
-      "eader\030\004 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\"\'\n\013AuthzSo" +
-      "urce\022\030\n\020allow_namespaces\030\001 \003(\t\"R\n\014AuthzS" +
-      "ubject\022\025\n\rallow_issuers\030\006 \003(\t\022\023\n\013allow_r" +
-      "oles\030\007 \003(\t\022\026\n\016allow_audience\030\010 \003(\t\"h\n\020Au" +
-      "thzDestination\022\023\n\013allow_paths\030\002 \003(\t\022\023\n\013a" +
-      "llow_hosts\030\003 \003(\t\022\025\n\rallow_methods\030\004 \003(\t\022" +
-      "\023\n\013allow_ports\030\005 \003(\t\"\214\001\n\tAuthzRule\022%\n\006so" +
-      "urce\030\001 \001(\0132\025.meshpaas.AuthzSource\022/\n\013des" +
+      "eader\030\004 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\"R\n\014AuthzSu" +
+      "bject\022\025\n\rallow_issuers\030\006 \003(\t\022\023\n\013allow_ro" +
+      "les\030\007 \003(\t\022\026\n\016allow_audience\030\010 \003(\t\"h\n\020Aut" +
+      "hzDestination\022\023\n\013allow_paths\030\002 \003(\t\022\023\n\013al" +
+      "low_hosts\030\003 \003(\t\022\025\n\rallow_methods\030\004 \003(\t\022\023" +
+      "\n\013allow_ports\030\005 \003(\t\"e\n\tAuthzRule\022\'\n\007subj" +
+      "ect\030\001 \001(\0132\026.meshpaas.AuthzSubject\022/\n\013des" +
       "tination\030\002 \001(\0132\032.meshpaas.AuthzDestinati" +
-      "on\022\'\n\007subject\030\003 \001(\0132\026.meshpaas.AuthzSubj" +
-      "ect\"3\n\005Authz\022*\n\005rules\030\001 \003(\0132\023.meshpaas.A" +
-      "uthzRuleB\006\342\337\037\002`\001\"3\n\005Authn\022*\n\005rules\030\001 \003(\013" +
-      "2\023.meshpaas.AuthnRuleB\006\342\337\037\002`\001\"\310\001\n\013Secret" +
-      "Input\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\"\n" +
-      "\004type\030\003 \001(\0162\024.meshpaas.SecretType\022\021\n\timm" +
-      "utable\030\004 \001(\010\0225\n\004data\030\005 \003(\0132\037.meshpaas.Se" +
-      "cretInput.DataEntryB\006\342\337\037\002 \001\032+\n\tDataEntry" +
-      "\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\276\001\n\006Sec" +
-      "ret\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\"\n\004t" +
-      "ype\030\003 \001(\0162\024.meshpaas.SecretType\022\021\n\timmut" +
-      "able\030\004 \001(\010\0220\n\004data\030\005 \003(\0132\032.meshpaas.Secr" +
-      "et.DataEntryB\006\342\337\037\002 \001\032+\n\tDataEntry\022\013\n\003key" +
-      "\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\325\001\n\021ServerTLSS" +
-      "ettings\022\026\n\016https_redirect\030\001 \001(\010\022\037\n\004mode\030" +
-      "\002 \001(\0162\021.meshpaas.TLSmode\022\023\n\013secret_name\030" +
-      "\003 \001(\t\022\031\n\021subject_alt_names\030\004 \003(\t\022\037\n\027veri" +
-      "fy_certificate_spki\030\005 \003(\t\022\037\n\027verify_cert" +
-      "ificate_hash\030\006 \003(\t\022\025\n\rcipher_suites\030\007 \003(" +
-      "\t\"\306\001\n\017GatewayListener\022\024\n\004port\030\001 \001(\rB\006\342\337\037" +
-      "\002\020\000\022\036\n\004name\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\0225\n\010p" +
-      "rotocol\030\003 \001(\0162\033.meshpaas.TransportProtoc" +
-      "olB\006\342\337\037\002\020\000\022\025\n\005hosts\030\004 \003(\tB\006\342\337\037\002`\001\022/\n\ntls" +
-      "_config\030\005 \001(\0132\033.meshpaas.ServerTLSSettin" +
-      "gs\"E\n\007Gateway\022\014\n\004name\030\001 \001(\t\022,\n\tlisteners" +
-      "\030\003 \003(\0132\031.meshpaas.GatewayListener\"\\\n\014Gat" +
-      "ewayInput\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}" +
-      "$\022,\n\tlisteners\030\003 \003(\0132\031.meshpaas.GatewayL" +
-      "istener\"\343\001\n\tHTTPRoute\022\036\n\004name\030\001 \001(\tB\020\342\337\037" +
-      "\014\n\n^.{1,225}$\022\024\n\004port\030\002 \001(\rB\006\342\337\037\002\020\000\022\023\n\013p" +
-      "ath_prefix\030\003 \001(\t\022\023\n\013rewrite_uri\030\005 \001(\t\022\025\n" +
-      "\rallow_origins\030\006 \003(\t\022\025\n\rallow_methods\030\007 " +
-      "\003(\t\022\025\n\rallow_headers\030\010 \003(\t\022\026\n\016expose_hea" +
-      "ders\030\t \003(\t\022\031\n\021allow_credentials\030\n \001(\010\"d\n" +
-      "\007Routing\022\020\n\010gateways\030\001 \003(\t\022\r\n\005hosts\030\002 \003(" +
-      "\t\022\016\n\006export\030\003 \001(\010\022(\n\013http_routes\030\004 \003(\0132\023" +
-      ".meshpaas.HTTPRoute\"\226\002\n\tContainer\022\036\n\004nam" +
-      "e\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\037\n\005image\030\002 \001(\t" +
-      "B\020\342\337\037\014\n\n^.{1,225}$\022\014\n\004args\030\003 \003(\t\022)\n\003env\030" +
-      "\004 \003(\0132\034.meshpaas.Container.EnvEntry\0225\n\005p" +
-      "orts\030\005 \003(\0132\036.meshpaas.Container.PortsEnt" +
-      "ryB\006\342\337\037\002 \001\032*\n\010EnvEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005v" +
-      "alue\030\002 \001(\t:\0028\001\032,\n\nPortsEntry\022\013\n\003key\030\001 \001(" +
-      "\t\022\r\n\005value\030\002 \001(\r:\0028\001\"\275\002\n\003App\022\036\n\004name\030\001 \001" +
-      "(\tB\020\342\337\037\014\n\n^.{1,225}$\022/\n\ncontainers\030\003 \003(\013" +
-      "2\023.meshpaas.ContainerB\006\342\337\037\002`\001\022\020\n\010replica" +
-      "s\030\010 \001(\r\022*\n\007routing\030\013 \001(\0132\021.meshpaas.Rout" +
-      "ingB\006\342\337\037\002 \001\022/\n\016authentication\030\014 \001(\0132\017.me" +
-      "shpaas.AuthnB\006\342\337\037\002 \001\022.\n\rauthorization\030\r " +
-      "\001(\0132\017.meshpaas.AuthzB\006\342\337\037\002 \001\022\031\n\021image_pu" +
-      "ll_secret\030\016 \001(\t\022+\n\006status\030\024 \001(\0132\023.meshpa" +
-      "as.AppStatusB\006\342\337\037\002 \001\"\253\001\n\004Task\022\036\n\004name\030\001 " +
-      "\001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\031\n\021image_pull_secr" +
-      "et\030\003 \001(\t\022/\n\ncontainers\030\004 \003(\0132\023.meshpaas." +
-      "ContainerB\006\342\337\037\002`\001\022\"\n\010schedule\030\007 \001(\tB\020\342\337\037" +
-      "\014\n\n^.{1,225}$\022\023\n\013completions\030\010 \001(\r\"\260\001\n\tT" +
-      "askInput\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$" +
-      "\022\031\n\021image_pull_secret\030\003 \001(\t\022/\n\ncontainer" +
-      "s\030\004 \003(\0132\023.meshpaas.ContainerB\006\342\337\037\002`\001\022\"\n\010" +
-      "schedule\030\007 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\023\n\013comp" +
-      "letions\030\010 \001(\r\"\215\002\n\010AppInput\022\036\n\004name\030\001 \001(\t" +
-      "B\020\342\337\037\014\n\n^.{1,225}$\022/\n\ncontainers\030\003 \003(\0132\023" +
-      ".meshpaas.ContainerB\006\342\337\037\002`\001\022\020\n\010replicas\030" +
-      "\007 \001(\r\022*\n\007routing\030\n \001(\0132\021.meshpaas.Routin" +
-      "gB\006\342\337\037\002 \001\022\'\n\016authentication\030\014 \001(\0132\017.mesh" +
-      "paas.Authn\022.\n\rauthorization\030\r \001(\0132\017.mesh" +
-      "paas.AuthzB\006\342\337\037\002 \001\022\031\n\021image_pull_secret\030" +
-      "\016 \001(\t\"%\n\003Ref\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,2" +
-      "25}$\";\n\007Replica\022\r\n\005phase\030\001 \001(\t\022\021\n\tcondit" +
-      "ion\030\002 \001(\t\022\016\n\006reason\030\003 \001(\t\"0\n\tAppStatus\022#" +
-      "\n\010replicas\030\001 \003(\0132\021.meshpaas.Replica\"\026\n\003L" +
-      "og\022\017\n\007message\030\001 \001(\t\"+\n\004Apps\022#\n\014applicati" +
-      "ons\030\001 \003(\0132\r.meshpaas.App\"&\n\005Tasks\022\035\n\005tas" +
-      "ks\030\001 \003(\0132\016.meshpaas.Task*=\n\nSecretType\022\n" +
-      "\n\006OPAQUE\020\000\022\020\n\014TLS_CERT_KEY\020\001\022\021\n\rDOCKER_C" +
-      "ONFIG\020\002*p\n\021TransportProtocol\022\024\n\020INVALID_" +
-      "PROTOCOL\020\000\022\010\n\004HTTP\020\001\022\t\n\005HTTPS\020\002\022\010\n\004GRPC\020" +
-      "\003\022\t\n\005HTTP2\020\004\022\t\n\005MONGO\020\005\022\007\n\003TCP\020\006\022\007\n\003TLS\020" +
-      "\007*Z\n\007TLSmode\022\017\n\013PASSTHROUGH\020\000\022\n\n\006SIMPLE\020" +
-      "\001\022\n\n\006MUTUAL\020\002\022\024\n\020AUTO_PASSTHROUGH\020\003\022\020\n\014I" +
-      "STIO_MUTUAL\020\0042\207\010\n\017MeshPaasService\0220\n\tCre" +
-      "ateApp\022\022.meshpaas.AppInput\032\r.meshpaas.Ap" +
-      "p\"\000\0220\n\tUpdateApp\022\022.meshpaas.AppInput\032\r.m" +
-      "eshpaas.App\"\000\0224\n\tDeleteApp\022\r.meshpaas.Re" +
-      "f\032\026.google.protobuf.Empty\"\000\022(\n\006GetApp\022\r." +
-      "meshpaas.Ref\032\r.meshpaas.App\"\000\0224\n\010ListApp" +
-      "s\022\026.google.protobuf.Empty\032\016.meshpaas.App" +
-      "s\"\000\0223\n\nCreateTask\022\023.meshpaas.TaskInput\032\016" +
-      ".meshpaas.Task\"\000\0223\n\nUpdateTask\022\023.meshpaa" +
-      "s.TaskInput\032\016.meshpaas.Task\"\000\0225\n\nDeleteT" +
-      "ask\022\r.meshpaas.Ref\032\026.google.protobuf.Emp" +
-      "ty\"\000\022*\n\007GetTask\022\r.meshpaas.Ref\032\016.meshpaa" +
-      "s.Task\"\000\0226\n\tListTasks\022\026.google.protobuf." +
-      "Empty\032\017.meshpaas.Tasks\"\000\022<\n\rCreateGatewa" +
-      "y\022\026.meshpaas.GatewayInput\032\021.meshpaas.Gat" +
-      "eway\"\000\022<\n\rUpdateGateway\022\026.meshpaas.Gatew" +
-      "ayInput\032\021.meshpaas.Gateway\"\000\0228\n\rDeleteGa" +
-      "teway\022\r.meshpaas.Ref\032\026.google.protobuf.E" +
-      "mpty\"\000\0220\n\nGetGateway\022\r.meshpaas.Ref\032\021.me" +
-      "shpaas.Gateway\"\000\0229\n\014CreateSecret\022\025.meshp" +
-      "aas.SecretInput\032\020.meshpaas.Secret\"\000\0229\n\014U" +
-      "pdateSecret\022\025.meshpaas.SecretInput\032\020.mes" +
-      "hpaas.Secret\"\000\0227\n\014DeleteSecret\022\r.meshpaa" +
-      "s.Ref\032\026.google.protobuf.Empty\"\000\022.\n\tGetSe" +
-      "cret\022\r.meshpaas.Ref\032\020.meshpaas.Secret\"\000\022" +
-      ".\n\nStreamLogs\022\r.meshpaas.Ref\032\r.meshpaas." +
-      "Log\"\0000\001B\014Z\nmeshpaaspbb\006proto3"
+      "on\"3\n\005Authz\022*\n\005rules\030\001 \003(\0132\023.meshpaas.Au" +
+      "thzRuleB\006\342\337\037\002`\001\"3\n\005Authn\022*\n\005rules\030\001 \003(\0132" +
+      "\023.meshpaas.AuthnRuleB\006\342\337\037\002`\001\"\310\001\n\013SecretI" +
+      "nput\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\"\n\004" +
+      "type\030\003 \001(\0162\024.meshpaas.SecretType\022\021\n\timmu" +
+      "table\030\004 \001(\010\0225\n\004data\030\005 \003(\0132\037.meshpaas.Sec" +
+      "retInput.DataEntryB\006\342\337\037\002 \001\032+\n\tDataEntry\022" +
+      "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\276\001\n\006Secr" +
+      "et\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\"\n\004ty" +
+      "pe\030\003 \001(\0162\024.meshpaas.SecretType\022\021\n\timmuta" +
+      "ble\030\004 \001(\010\0220\n\004data\030\005 \003(\0132\032.meshpaas.Secre" +
+      "t.DataEntryB\006\342\337\037\002 \001\032+\n\tDataEntry\022\013\n\003key\030" +
+      "\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\325\001\n\021ServerTLSSe" +
+      "ttings\022\026\n\016https_redirect\030\001 \001(\010\022\037\n\004mode\030\002" +
+      " \001(\0162\021.meshpaas.TLSmode\022\023\n\013secret_name\030\003" +
+      " \001(\t\022\031\n\021subject_alt_names\030\004 \003(\t\022\037\n\027verif" +
+      "y_certificate_spki\030\005 \003(\t\022\037\n\027verify_certi" +
+      "ficate_hash\030\006 \003(\t\022\025\n\rcipher_suites\030\007 \003(\t" +
+      "\"\306\001\n\017GatewayListener\022\024\n\004port\030\001 \001(\rB\006\342\337\037\002" +
+      "\020\000\022\036\n\004name\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\0225\n\010pr" +
+      "otocol\030\003 \001(\0162\033.meshpaas.TransportProtoco" +
+      "lB\006\342\337\037\002\020\000\022\025\n\005hosts\030\004 \003(\tB\006\342\337\037\002`\001\022/\n\ntls_" +
+      "config\030\005 \001(\0132\033.meshpaas.ServerTLSSetting" +
+      "s\"E\n\007Gateway\022\014\n\004name\030\001 \001(\t\022,\n\tlisteners\030" +
+      "\003 \003(\0132\031.meshpaas.GatewayListener\"\\\n\014Gate" +
+      "wayInput\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$" +
+      "\022,\n\tlisteners\030\003 \003(\0132\031.meshpaas.GatewayLi" +
+      "stener\"\343\001\n\tHTTPRoute\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014" +
+      "\n\n^.{1,225}$\022\024\n\004port\030\002 \001(\rB\006\342\337\037\002\020\000\022\023\n\013pa" +
+      "th_prefix\030\003 \001(\t\022\023\n\013rewrite_uri\030\005 \001(\t\022\025\n\r" +
+      "allow_origins\030\006 \003(\t\022\025\n\rallow_methods\030\007 \003" +
+      "(\t\022\025\n\rallow_headers\030\010 \003(\t\022\026\n\016expose_head" +
+      "ers\030\t \003(\t\022\031\n\021allow_credentials\030\n \001(\010\"S\n\007" +
+      "Routing\022\017\n\007gateway\030\001 \001(\t\022\r\n\005hosts\030\002 \003(\t\022" +
+      "(\n\013http_routes\030\004 \003(\0132\023.meshpaas.HTTPRout" +
+      "e\"\226\002\n\tContainer\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{" +
+      "1,225}$\022\037\n\005image\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$" +
+      "\022\014\n\004args\030\003 \003(\t\022)\n\003env\030\004 \003(\0132\034.meshpaas.C" +
+      "ontainer.EnvEntry\0225\n\005ports\030\005 \003(\0132\036.meshp" +
+      "aas.Container.PortsEntryB\006\342\337\037\002 \001\032*\n\010EnvE" +
+      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032,\n\n" +
+      "PortsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\002" +
+      "8\001\"\275\002\n\003App\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225" +
+      "}$\022/\n\ncontainers\030\003 \003(\0132\023.meshpaas.Contai" +
+      "nerB\006\342\337\037\002`\001\022\020\n\010replicas\030\010 \001(\r\022*\n\007routing" +
+      "\030\013 \001(\0132\021.meshpaas.RoutingB\006\342\337\037\002 \001\022/\n\016aut" +
+      "hentication\030\014 \001(\0132\017.meshpaas.AuthnB\006\342\337\037\002" +
+      " \001\022.\n\rauthorization\030\r \001(\0132\017.meshpaas.Aut" +
+      "hzB\006\342\337\037\002 \001\022\031\n\021image_pull_secret\030\016 \001(\t\022+\n" +
+      "\006status\030\024 \001(\0132\023.meshpaas.AppStatusB\006\342\337\037\002" +
+      " \001\"\253\001\n\004Task\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,22" +
+      "5}$\022\031\n\021image_pull_secret\030\003 \001(\t\022/\n\ncontai" +
+      "ners\030\004 \003(\0132\023.meshpaas.ContainerB\006\342\337\037\002`\001\022" +
+      "\"\n\010schedule\030\007 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\023\n\013c" +
+      "ompletions\030\010 \001(\r\"\260\001\n\tTaskInput\022\036\n\004name\030\001" +
+      " \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\031\n\021image_pull_sec" +
+      "ret\030\003 \001(\t\022/\n\ncontainers\030\004 \003(\0132\023.meshpaas" +
+      ".ContainerB\006\342\337\037\002`\001\022\"\n\010schedule\030\007 \001(\tB\020\342\337" +
+      "\037\014\n\n^.{1,225}$\022\023\n\013completions\030\010 \001(\r\"\215\002\n\010" +
+      "AppInput\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$" +
+      "\022/\n\ncontainers\030\003 \003(\0132\023.meshpaas.Containe" +
+      "rB\006\342\337\037\002`\001\022\020\n\010replicas\030\007 \001(\r\022*\n\007routing\030\n" +
+      " \001(\0132\021.meshpaas.RoutingB\006\342\337\037\002 \001\022\'\n\016authe" +
+      "ntication\030\014 \001(\0132\017.meshpaas.Authn\022.\n\rauth" +
+      "orization\030\r \001(\0132\017.meshpaas.AuthzB\006\342\337\037\002 \001" +
+      "\022\031\n\021image_pull_secret\030\016 \001(\t\"%\n\003Ref\022\036\n\004na" +
+      "me\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\";\n\007Replica\022\r\n" +
+      "\005phase\030\001 \001(\t\022\021\n\tcondition\030\002 \001(\t\022\016\n\006reaso" +
+      "n\030\003 \001(\t\"0\n\tAppStatus\022#\n\010replicas\030\001 \003(\0132\021" +
+      ".meshpaas.Replica\"\026\n\003Log\022\017\n\007message\030\001 \001(" +
+      "\t\"+\n\004Apps\022#\n\014applications\030\001 \003(\0132\r.meshpa" +
+      "as.App\"&\n\005Tasks\022\035\n\005tasks\030\001 \003(\0132\016.meshpaa" +
+      "s.Task*=\n\nSecretType\022\n\n\006OPAQUE\020\000\022\020\n\014TLS_" +
+      "CERT_KEY\020\001\022\021\n\rDOCKER_CONFIG\020\002*p\n\021Transpo" +
+      "rtProtocol\022\024\n\020INVALID_PROTOCOL\020\000\022\010\n\004HTTP" +
+      "\020\001\022\t\n\005HTTPS\020\002\022\010\n\004GRPC\020\003\022\t\n\005HTTP2\020\004\022\t\n\005MO" +
+      "NGO\020\005\022\007\n\003TCP\020\006\022\007\n\003TLS\020\007*Z\n\007TLSmode\022\017\n\013PA" +
+      "SSTHROUGH\020\000\022\n\n\006SIMPLE\020\001\022\n\n\006MUTUAL\020\002\022\024\n\020A" +
+      "UTO_PASSTHROUGH\020\003\022\020\n\014ISTIO_MUTUAL\020\0042\207\010\n\017" +
+      "MeshPaasService\0220\n\tCreateApp\022\022.meshpaas." +
+      "AppInput\032\r.meshpaas.App\"\000\0220\n\tUpdateApp\022\022" +
+      ".meshpaas.AppInput\032\r.meshpaas.App\"\000\0224\n\tD" +
+      "eleteApp\022\r.meshpaas.Ref\032\026.google.protobu" +
+      "f.Empty\"\000\022(\n\006GetApp\022\r.meshpaas.Ref\032\r.mes" +
+      "hpaas.App\"\000\0224\n\010ListApps\022\026.google.protobu" +
+      "f.Empty\032\016.meshpaas.Apps\"\000\0223\n\nCreateTask\022" +
+      "\023.meshpaas.TaskInput\032\016.meshpaas.Task\"\000\0223" +
+      "\n\nUpdateTask\022\023.meshpaas.TaskInput\032\016.mesh" +
+      "paas.Task\"\000\0225\n\nDeleteTask\022\r.meshpaas.Ref" +
+      "\032\026.google.protobuf.Empty\"\000\022*\n\007GetTask\022\r." +
+      "meshpaas.Ref\032\016.meshpaas.Task\"\000\0226\n\tListTa" +
+      "sks\022\026.google.protobuf.Empty\032\017.meshpaas.T" +
+      "asks\"\000\022<\n\rCreateGateway\022\026.meshpaas.Gatew" +
+      "ayInput\032\021.meshpaas.Gateway\"\000\022<\n\rUpdateGa" +
+      "teway\022\026.meshpaas.GatewayInput\032\021.meshpaas" +
+      ".Gateway\"\000\0228\n\rDeleteGateway\022\r.meshpaas.R" +
+      "ef\032\026.google.protobuf.Empty\"\000\0220\n\nGetGatew" +
+      "ay\022\r.meshpaas.Ref\032\021.meshpaas.Gateway\"\000\0229" +
+      "\n\014CreateSecret\022\025.meshpaas.SecretInput\032\020." +
+      "meshpaas.Secret\"\000\0229\n\014UpdateSecret\022\025.mesh" +
+      "paas.SecretInput\032\020.meshpaas.Secret\"\000\0227\n\014" +
+      "DeleteSecret\022\r.meshpaas.Ref\032\026.google.pro" +
+      "tobuf.Empty\"\000\022.\n\tGetSecret\022\r.meshpaas.Re" +
+      "f\032\020.meshpaas.Secret\"\000\022.\n\nStreamLogs\022\r.me" +
+      "shpaas.Ref\032\r.meshpaas.Log\"\0000\001B\014Z\nmeshpaa" +
+      "spbb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -32175,44 +31066,38 @@ public final class Schema {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_AuthnRule_descriptor,
         new java.lang.String[] { "JwksUri", "Issuer", "Audience", "OuputPayloadHeader", });
-    internal_static_meshpaas_AuthzSource_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_meshpaas_AuthzSource_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_AuthzSource_descriptor,
-        new java.lang.String[] { "AllowNamespaces", });
     internal_static_meshpaas_AuthzSubject_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(1);
     internal_static_meshpaas_AuthzSubject_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_AuthzSubject_descriptor,
         new java.lang.String[] { "AllowIssuers", "AllowRoles", "AllowAudience", });
     internal_static_meshpaas_AuthzDestination_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_meshpaas_AuthzDestination_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_AuthzDestination_descriptor,
         new java.lang.String[] { "AllowPaths", "AllowHosts", "AllowMethods", "AllowPorts", });
     internal_static_meshpaas_AuthzRule_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_meshpaas_AuthzRule_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_AuthzRule_descriptor,
-        new java.lang.String[] { "Source", "Destination", "Subject", });
+        new java.lang.String[] { "Subject", "Destination", });
     internal_static_meshpaas_Authz_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_meshpaas_Authz_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Authz_descriptor,
         new java.lang.String[] { "Rules", });
     internal_static_meshpaas_Authn_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_meshpaas_Authn_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Authn_descriptor,
         new java.lang.String[] { "Rules", });
     internal_static_meshpaas_SecretInput_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_meshpaas_SecretInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_SecretInput_descriptor,
@@ -32224,7 +31109,7 @@ public final class Schema {
         internal_static_meshpaas_SecretInput_DataEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_meshpaas_Secret_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_meshpaas_Secret_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Secret_descriptor,
@@ -32236,43 +31121,43 @@ public final class Schema {
         internal_static_meshpaas_Secret_DataEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_meshpaas_ServerTLSSettings_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_meshpaas_ServerTLSSettings_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_ServerTLSSettings_descriptor,
         new java.lang.String[] { "HttpsRedirect", "Mode", "SecretName", "SubjectAltNames", "VerifyCertificateSpki", "VerifyCertificateHash", "CipherSuites", });
     internal_static_meshpaas_GatewayListener_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_meshpaas_GatewayListener_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_GatewayListener_descriptor,
         new java.lang.String[] { "Port", "Name", "Protocol", "Hosts", "TlsConfig", });
     internal_static_meshpaas_Gateway_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_meshpaas_Gateway_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Gateway_descriptor,
         new java.lang.String[] { "Name", "Listeners", });
     internal_static_meshpaas_GatewayInput_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_meshpaas_GatewayInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_GatewayInput_descriptor,
         new java.lang.String[] { "Name", "Listeners", });
     internal_static_meshpaas_HTTPRoute_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_meshpaas_HTTPRoute_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_HTTPRoute_descriptor,
         new java.lang.String[] { "Name", "Port", "PathPrefix", "RewriteUri", "AllowOrigins", "AllowMethods", "AllowHeaders", "ExposeHeaders", "AllowCredentials", });
     internal_static_meshpaas_Routing_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_meshpaas_Routing_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Routing_descriptor,
-        new java.lang.String[] { "Gateways", "Hosts", "Export", "HttpRoutes", });
+        new java.lang.String[] { "Gateway", "Hosts", "HttpRoutes", });
     internal_static_meshpaas_Container_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_meshpaas_Container_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Container_descriptor,
@@ -32290,61 +31175,61 @@ public final class Schema {
         internal_static_meshpaas_Container_PortsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_meshpaas_App_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_meshpaas_App_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_App_descriptor,
         new java.lang.String[] { "Name", "Containers", "Replicas", "Routing", "Authentication", "Authorization", "ImagePullSecret", "Status", });
     internal_static_meshpaas_Task_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_meshpaas_Task_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Task_descriptor,
         new java.lang.String[] { "Name", "ImagePullSecret", "Containers", "Schedule", "Completions", });
     internal_static_meshpaas_TaskInput_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_meshpaas_TaskInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_TaskInput_descriptor,
         new java.lang.String[] { "Name", "ImagePullSecret", "Containers", "Schedule", "Completions", });
     internal_static_meshpaas_AppInput_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_meshpaas_AppInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_AppInput_descriptor,
         new java.lang.String[] { "Name", "Containers", "Replicas", "Routing", "Authentication", "Authorization", "ImagePullSecret", });
     internal_static_meshpaas_Ref_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_meshpaas_Ref_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Ref_descriptor,
         new java.lang.String[] { "Name", });
     internal_static_meshpaas_Replica_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_meshpaas_Replica_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Replica_descriptor,
         new java.lang.String[] { "Phase", "Condition", "Reason", });
     internal_static_meshpaas_AppStatus_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_meshpaas_AppStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_AppStatus_descriptor,
         new java.lang.String[] { "Replicas", });
     internal_static_meshpaas_Log_descriptor =
-      getDescriptor().getMessageTypes().get(23);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_meshpaas_Log_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Log_descriptor,
         new java.lang.String[] { "Message", });
     internal_static_meshpaas_Apps_descriptor =
-      getDescriptor().getMessageTypes().get(24);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_meshpaas_Apps_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Apps_descriptor,
         new java.lang.String[] { "Applications", });
     internal_static_meshpaas_Tasks_descriptor =
-      getDescriptor().getMessageTypes().get(25);
+      getDescriptor().getMessageTypes().get(24);
     internal_static_meshpaas_Tasks_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Tasks_descriptor,

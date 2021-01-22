@@ -3,7 +3,7 @@ package service
 import (
 	"context"
 	meshpaaspb "github.com/autom8ter/meshpaas/gen/grpc/go"
-	"github.com/autom8ter/meshpaas/internal/client"
+	"github.com/autom8ter/meshpaas/internal/core"
 	"github.com/golang/protobuf/ptypes/empty"
 	"go.uber.org/zap"
 	"google.golang.org/grpc/codes"
@@ -11,10 +11,10 @@ import (
 )
 
 type MeshPaasService struct {
-	client *client.Manager
+	client *core.Manager
 }
 
-func NewMeshPaasService(client *client.Manager) *MeshPaasService {
+func NewMeshPaasService(client *core.Manager) *MeshPaasService {
 	return &MeshPaasService{client: client}
 }
 

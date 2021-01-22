@@ -76,16 +76,14 @@ type Replica struct {
 }
 
 type Routing struct {
-	Gateways   []string     `json:"gateways"`
+	Gateway    *string      `json:"gateway"`
 	Hosts      []string     `json:"hosts"`
-	Export     *bool        `json:"export"`
 	HTTPRoutes []*HTTPRoute `json:"http_routes"`
 }
 
 type RoutingInput struct {
-	Gateways   []string          `json:"gateways"`
+	Gateway    *string           `json:"gateway"`
 	Hosts      []string          `json:"hosts"`
-	Export     *bool             `json:"export"`
 	HTTPRoutes []*HTTPRouteInput `json:"http_routes"`
 }
 

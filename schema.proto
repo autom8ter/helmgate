@@ -22,12 +22,6 @@ message AuthnRule {
   string ouput_payload_header =4[(validator.field) = {regex : "^.{1,225}$"}];
 }
 
-// AuthzSource is the source of a request
-message AuthzSource {
-  // allow_namespaces restricts access to traffic coming from a particular namespace
-  repeated string allow_namespaces =1;
-}
-
 // AuthzSubject is a set of attributes derived from the jwt of on an inbound request
 message AuthzSubject {
   // allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
@@ -52,12 +46,10 @@ message AuthzDestination {
 
 // At least on AuthzRule rule must pass for a request to reach its final destination(an application) in the service mesh
 message AuthzRule {
-  // source restricts access based on the source of a request in the service mesh
-  AuthzSource source =1;
+  // subject restricts access based on the subject of a request in the service mesh
+  AuthzSubject subject =1;
   // source restricts access based on the destination of a request in the service mesh
   AuthzDestination destination =2;
-  // source restricts access based on the subject of a request in the service mesh
-  AuthzSubject subject =3;
 }
 
 // Authz holds authorization options for an application
@@ -181,12 +173,10 @@ message HTTPRoute {
 
 // Routing describes service mesh routing options(gateway/host bindings, route rewrites, etc) for an Application
 message Routing {
-  // gateways to bind to
-  repeated string gateways =1;
+  // gateway to bind to
+  string gateway =1;
   // host names to bind to
   repeated string hosts =2;
-  // export service to other applications in other projects
-  bool export =3;
   // http route matchers/configurations
   repeated HTTPRoute http_routes =4;
 }

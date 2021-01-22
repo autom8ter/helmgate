@@ -14,9 +14,6 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     repeated :audience, :string, 3
     optional :ouput_payload_header, :string, 4
   end
-  add_message "meshpaas.AuthzSource" do
-    repeated :allow_namespaces, :string, 1
-  end
   add_message "meshpaas.AuthzSubject" do
     repeated :allow_issuers, :string, 6
     repeated :allow_roles, :string, 7
@@ -29,9 +26,8 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     repeated :allow_ports, :string, 5
   end
   add_message "meshpaas.AuthzRule" do
-    optional :source, :message, 1, "meshpaas.AuthzSource"
+    optional :subject, :message, 1, "meshpaas.AuthzSubject"
     optional :destination, :message, 2, "meshpaas.AuthzDestination"
-    optional :subject, :message, 3, "meshpaas.AuthzSubject"
   end
   add_message "meshpaas.Authz" do
     repeated :rules, :message, 1, "meshpaas.AuthzRule"
@@ -87,9 +83,8 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     optional :allow_credentials, :bool, 10
   end
   add_message "meshpaas.Routing" do
-    repeated :gateways, :string, 1
+    optional :gateway, :string, 1
     repeated :hosts, :string, 2
-    optional :export, :bool, 3
     repeated :http_routes, :message, 4, "meshpaas.HTTPRoute"
   end
   add_message "meshpaas.Container" do
@@ -178,7 +173,6 @@ end
 
 module Meshpaas
   AuthnRule = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.AuthnRule").msgclass
-  AuthzSource = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.AuthzSource").msgclass
   AuthzSubject = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.AuthzSubject").msgclass
   AuthzDestination = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.AuthzDestination").msgclass
   AuthzRule = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.AuthzRule").msgclass

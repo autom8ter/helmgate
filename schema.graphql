@@ -25,25 +25,11 @@ type HTTPRoute {
 }
 
 type Routing {
-    #  The names of gateways and sidecars that should apply these routes.
-    # Gateways in other projects may be referred to by
-    # `<gateway project>/<gateway name>`; specifying a gateway with no
-    # project qualifier is the same as specifying the VirtualService's
-    # project. A single VirtualService is used for sidecars inside the mesh as
-    # well as for one or more gateways. The selection condition imposed by this
-    # field can be overridden using the source field in the match conditions
-    # of protocol-specific routes. The reserved word `mesh` is used to imply
-    # all the sidecars in the mesh. When this field is omitted, the default
-    # gateway (`mesh`) will be used, which would apply the rule to all
-    # sidecars in the mesh. If a list of gateway names is provided, the
-    # rules will apply only to the gateways. To apply the rules to both
-    # gateways and sidecars, specify `mesh` as one of the gateway names.
-    gateways: [String!]
+    # The gateway to bind to
+    gateway: String
     # The destination hosts to which traffic is being sent. Could
     # be a DNS name with wildcard prefix or an IP address.
     hosts: [String!]
-    # export to all other projects in service mesh
-    export: Boolean
     # An ordered list of route rules for HTTP traffic
     http_routes: [HTTPRoute!]
 }
@@ -70,26 +56,11 @@ input HTTPRouteInput {
 }
 
 input RoutingInput {
-    #  The names of gateways and sidecars that should apply these routes.
-    # Gateways in other projects may be referred to by
-    # `<gateway project>/<gateway name>`; specifying a gateway with no
-    # project qualifier is the same as specifying the VirtualService's
-    # project. A single VirtualService is used for sidecars inside the mesh as
-    # well as for one or more gateways. The selection condition imposed by this
-    # field can be overridden using the source field in the match conditions
-    # of protocol-specific routes. The reserved word `mesh` is used to imply
-    # all the sidecars in the mesh. When this field is omitted, the default
-    # gateway (`mesh`) will be used, which would apply the rule to all
-    # sidecars in the mesh. If a list of gateway names is provided, the
-    # rules will apply only to the gateways. To apply the rules to both
-    # gateways and sidecars, specify `mesh` as one of the gateway names.
-    gateways: [String!]
+    # the gateway to bind to
+    gateway: String
     # The destination hosts to which traffic is being sent. Could
     # be a DNS name with wildcard prefix or an IP address.
     hosts: [String!]
-    #
-    export: Boolean
-    #
     http_routes: [HTTPRouteInput!]
 }
 
