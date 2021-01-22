@@ -292,18 +292,35 @@ message Tasks {
   repeated Task tasks =1;
 }
 
+// LogOpts holds options for fetching logs from Tasks & Applications
+message LogOpts {
+  // name is the name of the Application or Task
+  string name =1[(validator.field) = {regex : "^.{1,225}$"}];
+  // container is the container to stream from
+  string container =2[(validator.field) = {regex : "^.{1,225}$"}];
+  // since_seconds streams since a certain unix time(in the past)
+  int64 since_seconds =3;
+  // the number of lines from the end of the logs to show. If not specified, logs are shown from the creation of the container or since_seconds
+  int64 tail_lines =4;
+  // previous retrieves logs from the previous container than the one running(useful for restarts)
+  bool previous =10;
+  // if stream is true, the tcp connection will be left open & logs will continue to be sent to the client
+  bool stream =11;
+}
+
 // MeshPaasService is a platform as a service backed by Istio service mesh
 service MeshPaasService {
-  // CreateApp creates a new stateless application(k8s deployment & service)
+  // CreateApp creates a new stateless application(k8s deployment, istio virtual service, request authenticator, & authorization policy)
   rpc CreateApp(AppInput) returns(App){}
-  // UpdateApp replaces an existing stateless application(k8s deployment & service)
+  // UpdateApp replaces an existing stateless application(k8s deployment, istio virtual service, request authenticator, & authorization policy)
   rpc UpdateApp(AppInput) returns(App){}
-  // DeleteApp deletes a single stateless application(k8s deployment & service)
+  // DeleteApp deletes a single stateless application(k8s deployment, istio virtual service, request authenticator, & authorization policy)
   rpc DeleteApp(Ref) returns(google.protobuf.Empty){}
   // GetApp gets an app by name
   rpc GetApp(Ref) returns(App){}
   // ListApps lists all apps
   rpc ListApps(google.protobuf.Empty) returns(Apps){}
+
   // CreateTask creates a new task(k8s cron job)
   rpc CreateTask(TaskInput) returns(Task){}
   // UpdateTask replaces an existing task(k8s cron job)
@@ -314,6 +331,7 @@ service MeshPaasService {
   rpc GetTask(Ref) returns(Task){}
   // ListTasks lists all tasks(k8s cron jobs)
   rpc ListTasks(google.protobuf.Empty) returns(Tasks){}
+
   // CreateGateway creates a new gateway(istio gateway)
   rpc CreateGateway(GatewayInput) returns(Gateway){}
   // UpdateGateway replaces an existing gateway(istio gateway)
@@ -323,7 +341,6 @@ service MeshPaasService {
   // GetGateway gets a gateway(istio gateway) by name
   rpc GetGateway(Ref) returns(Gateway){}
 
-
   // CreateSecret creates a new secret(k8s secret)
   rpc CreateSecret(SecretInput) returns(Secret){}
   // UpdateSecret replaces an existing secret(k8s secret)
@@ -332,7 +349,9 @@ service MeshPaasService {
   rpc DeleteSecret(Ref) returns(google.protobuf.Empty){}
   // GetSecret gets a secret(k8s secret) by name
   rpc GetSecret(Ref) returns(Secret){}
+
+
   // StreamLogs streams logs from an app/task.
   // Streams are opened to all replicas & converted into a single stream
-  rpc StreamLogs(Ref) returns (stream Log){}
+  rpc StreamLogs(LogOpts) returns (stream Log){}
 }

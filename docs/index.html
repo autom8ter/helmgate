@@ -251,6 +251,10 @@
                 </li>
               
                 <li>
+                  <a href="#meshpaas.LogOpts"><span class="badge">M</span>LogOpts</a>
+                </li>
+              
+                <li>
                   <a href="#meshpaas.Ref"><span class="badge">M</span>Ref</a>
                 </li>
               
@@ -1473,6 +1477,103 @@
 
         
       
+        <h3 id="meshpaas.LogOpts">LogOpts</h3>
+        <p>LogOpts holds options for fetching logs from Tasks & Applications</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>name is the name of the Application or Task </p></td>
+                </tr>
+              
+                <tr>
+                  <td>container</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>container is the container to stream from </p></td>
+                </tr>
+              
+                <tr>
+                  <td>since_seconds</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>since_seconds streams since a certain unix time(in the past) </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tail_lines</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>the number of lines from the end of the logs to show. If not specified, logs are shown from the creation of the container or since_seconds </p></td>
+                </tr>
+              
+                <tr>
+                  <td>previous</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>previous retrieves logs from the previous container than the one running(useful for restarts) </p></td>
+                </tr>
+              
+                <tr>
+                  <td>stream</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>if stream is true, the tcp connection will be left open &amp; logs will continue to be sent to the client </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>container</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
+          
+
+        
+      
         <h3 id="meshpaas.Ref">Ref</h3>
         <p>Ref is a pointer to a resource</p>
 
@@ -2267,21 +2368,21 @@
                 <td>CreateApp</td>
                 <td><a href="#meshpaas.AppInput">AppInput</a></td>
                 <td><a href="#meshpaas.App">App</a></td>
-                <td><p>CreateApp creates a new stateless application(k8s deployment &amp; service)</p></td>
+                <td><p>CreateApp creates a new stateless application(k8s deployment, istio virtual service, request authenticator, &amp; authorization policy)</p></td>
               </tr>
             
               <tr>
                 <td>UpdateApp</td>
                 <td><a href="#meshpaas.AppInput">AppInput</a></td>
                 <td><a href="#meshpaas.App">App</a></td>
-                <td><p>UpdateApp replaces an existing stateless application(k8s deployment &amp; service)</p></td>
+                <td><p>UpdateApp replaces an existing stateless application(k8s deployment, istio virtual service, request authenticator, &amp; authorization policy)</p></td>
               </tr>
             
               <tr>
                 <td>DeleteApp</td>
                 <td><a href="#meshpaas.Ref">Ref</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>DeleteApp deletes a single stateless application(k8s deployment &amp; service)</p></td>
+                <td><p>DeleteApp deletes a single stateless application(k8s deployment, istio virtual service, request authenticator, &amp; authorization policy)</p></td>
               </tr>
             
               <tr>
@@ -2391,7 +2492,7 @@
             
               <tr>
                 <td>StreamLogs</td>
-                <td><a href="#meshpaas.Ref">Ref</a></td>
+                <td><a href="#meshpaas.LogOpts">LogOpts</a></td>
                 <td><a href="#meshpaas.Log">Log</a> stream</td>
                 <td><p>StreamLogs streams logs from an app/task.
 Streams are opened to all replicas &amp; converted into a single stream</p></td>

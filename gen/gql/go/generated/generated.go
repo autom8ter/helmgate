@@ -110,7 +110,7 @@ type ComplexityRoot struct {
 	}
 
 	Subscription struct {
-		StreamLogs func(childComplexity int, input model.Ref) int
+		StreamLogs func(childComplexity int, input model.LogOpts) int
 	}
 
 	Task struct {
@@ -137,7 +137,7 @@ type QueryResolver interface {
 	ListTasks(ctx context.Context, input *string) ([]*model.Task, error)
 }
 type SubscriptionResolver interface {
-	StreamLogs(ctx context.Context, input model.Ref) (<-chan string, error)
+	StreamLogs(ctx context.Context, input model.LogOpts) (<-chan string, error)
 }
 
 type executableSchema struct {
@@ -486,7 +486,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Subscription.StreamLogs(childComplexity, args["input"].(model.Ref)), true
+		return e.complexity.Subscription.StreamLogs(childComplexity, args["input"].(model.LogOpts)), true
 
 	case "Task.completions":
 		if e.complexity.Task.Completions == nil {
@@ -762,6 +762,21 @@ input Ref {
     name: String!
 }
 
+input LogOpts {
+    # name of the resource
+    name: String!
+    # container name
+    container: String!
+    # previous retrieves logs from the previous container than the one running(useful for restarts)
+    previous: Boolean
+    # the number of lines from the end of the logs to show. If not specified, logs are shown from the creation of the container or since_seconds
+    tail_lines: Int
+    # since_seconds streams since a certain unix time(in the past)
+    since_seconds: Int
+    # if stream is true, the tcp connection will be left open & logs will continue to be sent to the client
+    stream: Boolean
+}
+
 type Mutation {
     # delProject deletes all resources within an existing project
     delProject(input: String): String
@@ -795,8 +810,8 @@ type Query {
 }
 
 type Subscription {
-    # logs streams logs from an an existing stateless application(k8s deployment) within an existing project. Streams are opened to all replicas & converted into a single stream
-    streamLogs(input: Ref!): String!
+    # logs streams logs from an an existing application/cronjob
+    streamLogs(input: LogOpts!): String!
 }
 `, BuiltIn: false},
 }
@@ -989,10 +1004,10 @@ func (ec *executionContext) field_Query_listTasks_args(ctx context.Context, rawA
 func (ec *executionContext) field_Subscription_streamLogs_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 model.Ref
+	var arg0 model.LogOpts
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNRef2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐRef(ctx, tmp)
+		arg0, err = ec.unmarshalNLogOpts2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐLogOpts(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -2485,7 +2500,7 @@ func (ec *executionContext) _Subscription_streamLogs(ctx context.Context, field 
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Subscription().StreamLogs(rctx, args["input"].(model.Ref))
+		return ec.resolvers.Subscription().StreamLogs(rctx, args["input"].(model.LogOpts))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -3916,6 +3931,66 @@ func (ec *executionContext) unmarshalInputHTTPRouteInput(ctx context.Context, ob
 	return it, nil
 }
 
+func (ec *executionContext) unmarshalInputLogOpts(ctx context.Context, obj interface{}) (model.LogOpts, error) {
+	var it model.LogOpts
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "container":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("container"))
+			it.Container, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "previous":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("previous"))
+			it.Previous, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "tail_lines":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("tail_lines"))
+			it.TailLines, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "since_seconds":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("since_seconds"))
+			it.SinceSeconds, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "stream":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("stream"))
+			it.Stream, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
 func (ec *executionContext) unmarshalInputRef(ctx context.Context, obj interface{}) (model.Ref, error) {
 	var it model.Ref
 	var asMap = obj.(map[string]interface{})
@@ -4852,6 +4927,11 @@ func (ec *executionContext) marshalNInt2int(ctx context.Context, sel ast.Selecti
 		}
 	}
 	return res
+}
+
+func (ec *executionContext) unmarshalNLogOpts2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐLogOpts(ctx context.Context, v interface{}) (model.LogOpts, error) {
+	res, err := ec.unmarshalInputLogOpts(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalNMap2map(ctx context.Context, v interface{}) (map[string]interface{}, error) {

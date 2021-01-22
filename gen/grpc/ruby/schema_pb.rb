@@ -147,6 +147,14 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   add_message "meshpaas.Tasks" do
     repeated :tasks, :message, 1, "meshpaas.Task"
   end
+  add_message "meshpaas.LogOpts" do
+    optional :name, :string, 1
+    optional :container, :string, 2
+    optional :since_seconds, :int64, 3
+    optional :tail_lines, :int64, 4
+    optional :previous, :bool, 10
+    optional :stream, :bool, 11
+  end
   add_enum "meshpaas.SecretType" do
     value :OPAQUE, 0
     value :TLS_CERT_KEY, 1
@@ -197,6 +205,7 @@ module Meshpaas
   Log = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Log").msgclass
   Apps = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Apps").msgclass
   Tasks = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Tasks").msgclass
+  LogOpts = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.LogOpts").msgclass
   SecretType = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.SecretType").enummodule
   TransportProtocol = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.TransportProtocol").enummodule
   TLSmode = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.TLSmode").enummodule

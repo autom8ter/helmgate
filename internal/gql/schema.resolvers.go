@@ -145,9 +145,32 @@ func (r *queryResolver) ListTasks(ctx context.Context, input *string) ([]*model.
 	return toReturn, nil
 }
 
-func (r *subscriptionResolver) StreamLogs(ctx context.Context, input model.Ref) (<-chan string, error) {
-	stream, err := r.client.StreamLogs(ctx, &meshpaaspb.Ref{
-		Name: input.Name,
+func (r *subscriptionResolver) StreamLogs(ctx context.Context, input model.LogOpts) (<-chan string, error) {
+	var (
+		since        int64
+		tail         int64
+		previous     bool
+		shouldStream bool
+	)
+	if input.SinceSeconds != nil {
+		since = int64(*input.SinceSeconds)
+	}
+	if input.TailLines != nil {
+		tail = int64(*input.TailLines)
+	}
+	if input.Previous != nil {
+		previous = *input.Previous
+	}
+	if input.Stream != nil {
+		shouldStream = *input.Stream
+	}
+	stream, err := r.client.StreamLogs(ctx, &meshpaaspb.LogOpts{
+		Name:         input.Name,
+		Container:    input.Container,
+		SinceSeconds: since,
+		TailLines:    tail,
+		Previous:     previous,
+		Stream:       shouldStream,
 	})
 	if err != nil {
 		return nil, &gqlerror.Error{

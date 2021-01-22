@@ -42,8 +42,8 @@ func (k MeshPaasService) ListApps(ctx context.Context, e *empty.Empty) (*meshpaa
 	return k.client.ListApps(ctx)
 }
 
-func (k MeshPaasService) StreamLogs(ref *meshpaaspb.Ref, server meshpaaspb.MeshPaasService_StreamLogsServer) error {
-	stream, err := k.client.StreamLogs(server.Context(), ref)
+func (k MeshPaasService) StreamLogs(opts *meshpaaspb.LogOpts, server meshpaaspb.MeshPaasService_StreamLogsServer) error {
+	stream, err := k.client.StreamLogs(server.Context(), opts)
 	if err != nil {
 		k.client.L().Error("failed to stream logs", zap.Error(err))
 		return status.Error(codes.Internal, "failed to stream logs")

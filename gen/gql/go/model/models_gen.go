@@ -65,6 +65,15 @@ type Log struct {
 	Message string `json:"message"`
 }
 
+type LogOpts struct {
+	Name         string `json:"name"`
+	Container    string `json:"container"`
+	Previous     *bool  `json:"previous"`
+	TailLines    *int   `json:"tail_lines"`
+	SinceSeconds *int   `json:"since_seconds"`
+	Stream       *bool  `json:"stream"`
+}
+
 type Ref struct {
 	Name string `json:"name"`
 }

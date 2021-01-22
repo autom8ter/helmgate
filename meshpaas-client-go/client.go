@@ -192,7 +192,7 @@ func (c *Client) GetTask(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb.
 }
 
 // StreamLogs streams logs from an application until the context cancelled or the function(fn) return false
-func (c *Client) StreamLogs(ctx context.Context, ref *meshpaaspb.Ref, fn func(l *meshpaaspb.Log) bool) error {
+func (c *Client) StreamLogs(ctx context.Context, ref *meshpaaspb.LogOpts, fn func(l *meshpaaspb.Log) bool) error {
 	stream, err := c.client.StreamLogs(ctx, ref)
 	if err != nil {
 		return err

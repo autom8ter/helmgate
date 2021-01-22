@@ -5,15 +5,15 @@ package meshpaaspb
 
 import (
 	fmt "fmt"
-	math "math"
 	proto "github.com/golang/protobuf/proto"
-	_ "github.com/golang/protobuf/ptypes/struct"
-	_ "github.com/golang/protobuf/ptypes/timestamp"
 	_ "github.com/golang/protobuf/ptypes/any"
 	_ "github.com/golang/protobuf/ptypes/empty"
+	_ "github.com/golang/protobuf/ptypes/struct"
+	_ "github.com/golang/protobuf/ptypes/timestamp"
 	_ "github.com/mwitkow/go-proto-validators"
-	regexp "regexp"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
+	math "math"
+	regexp "regexp"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -367,6 +367,19 @@ func (this *Tasks) Validate() error {
 				return github_com_mwitkow_go_proto_validators.FieldError("Tasks", err)
 			}
 		}
+	}
+	return nil
+}
+
+var _regex_LogOpts_Name = regexp.MustCompile(`^.{1,225}$`)
+var _regex_LogOpts_Container = regexp.MustCompile(`^.{1,225}$`)
+
+func (this *LogOpts) Validate() error {
+	if !_regex_LogOpts_Name.MatchString(this.Name) {
+		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
+	}
+	if !_regex_LogOpts_Container.MatchString(this.Container) {
+		return github_com_mwitkow_go_proto_validators.FieldError("Container", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Container))
 	}
 	return nil
 }

@@ -163,6 +163,21 @@ input Ref {
     name: String!
 }
 
+input LogOpts {
+    # name of the resource
+    name: String!
+    # container name
+    container: String!
+    # previous retrieves logs from the previous container than the one running(useful for restarts)
+    previous: Boolean
+    # the number of lines from the end of the logs to show. If not specified, logs are shown from the creation of the container or since_seconds
+    tail_lines: Int
+    # since_seconds streams since a certain unix time(in the past)
+    since_seconds: Int
+    # if stream is true, the tcp connection will be left open & logs will continue to be sent to the client
+    stream: Boolean
+}
+
 type Mutation {
     # delProject deletes all resources within an existing project
     delProject(input: String): String
@@ -196,6 +211,6 @@ type Query {
 }
 
 type Subscription {
-    # logs streams logs from an an existing stateless application(k8s deployment) within an existing project. Streams are opened to all replicas & converted into a single stream
-    streamLogs(input: Ref!): String!
+    # logs streams logs from an an existing application/cronjob
+    streamLogs(input: LogOpts!): String!
 }

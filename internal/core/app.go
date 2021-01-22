@@ -1,21 +1,15 @@
 package core
 
 import (
-	"bytes"
 	"context"
-	"fmt"
 	meshpaaspb "github.com/autom8ter/meshpaas/gen/grpc/go"
 	"github.com/autom8ter/meshpaas/internal/auth"
-	"github.com/pkg/errors"
 	"github.com/spf13/cast"
 	"go.uber.org/zap"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-	"io"
 	securityv1beta1 "istio.io/api/security/v1beta1"
-	corev1 "k8s.io/api/core/v1"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
-	"sync"
 )
 
 func (m *Manager) CreateApp(ctx context.Context, app *meshpaaspb.AppInput) (*meshpaaspb.App, error) {
@@ -247,68 +241,4 @@ func (m *Manager) ListApps(ctx context.Context) (*meshpaaspb.Apps, error) {
 		kapps.Applications = append(kapps.Applications, a)
 	}
 	return kapps, nil
-}
-
-func (m *Manager) StreamLogs(ctx context.Context, ref *meshpaaspb.Ref) (chan string, error) {
-	usr, ok := auth.UserContext(ctx)
-	if !ok {
-		return nil, status.Error(codes.Unauthenticated, "failed to get logged in user")
-	}
-	_, err := m.kclient.Namespaces().Get(ctx, cast.ToString(usr[m.namespaceClaim]), v1.GetOptions{})
-	if err != nil {
-		_, err = m.kclient.Namespaces().Create(ctx, m.toNamespace(usr), v1.CreateOptions{})
-		if err != nil {
-			return nil, err
-		}
-	}
-
-	pods, err := m.kclient.Pods(cast.ToString(usr[m.namespaceClaim])).List(ctx, v1.ListOptions{
-		TypeMeta:      v1.TypeMeta{},
-		Watch:         false,
-		LabelSelector: fmt.Sprintf("app = %s", ref.Name),
-	})
-	if err != nil {
-		return nil, err
-	}
-	if len(pods.Items) == 0 {
-		return nil, errors.New("zero pods")
-	}
-	logChan := make(chan string)
-	var streamMu = sync.RWMutex{}
-	for _, pod := range pods.Items {
-		go func(p corev1.Pod) {
-			closer, err := m.kclient.GetLogs(context.Background(), p.Name, p.Namespace, &corev1.PodLogOptions{
-				TypeMeta:  v1.TypeMeta{},
-				Container: ref.Name,
-				//Container: name,
-				Follow:                       true,
-				Previous:                     false,
-				Timestamps:                   true,
-				InsecureSkipTLSVerifyBackend: true,
-			})
-			defer closer.Close()
-			if err != nil {
-				m.logger.Error("failed to stream pod logs",
-					zap.Error(err),
-					zap.String("name", ref.Name),
-					zap.String("namespace", cast.ToString(usr[m.namespaceClaim])),
-					zap.String("pod", p.Name),
-				)
-				return
-			}
-			for {
-				buf := make([]byte, 1024)
-				_, err := closer.Read(buf)
-				if err != nil {
-					if err == io.EOF {
-						return
-					}
-				}
-				streamMu.Lock()
-				logChan <- string(bytes.Trim(buf, "\x00"))
-				streamMu.Unlock()
-			}
-		}(pod)
-	}
-	return logChan, nil
 }

@@ -8,8 +8,8 @@ require (
 	github.com/autom8ter/machine v1.1.2
 	github.com/golang/protobuf v1.4.3
 	github.com/gorilla/websocket v1.4.2
-	github.com/graphikDB/generic v0.1.0
-	github.com/graphikDB/trigger v0.0.19
+	github.com/graphikDB/generic v0.1.0 // indirect
+	github.com/graphikDB/trigger v0.0.19 // indirect
 	github.com/grpc-ecosystem/go-grpc-middleware v1.2.2
 	github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0
 	github.com/joho/godotenv v1.3.0
@@ -24,6 +24,7 @@ require (
 	github.com/vektah/gqlparser/v2 v2.1.0
 	go.uber.org/zap v1.16.0
 	golang.org/x/oauth2 v0.0.0-20210112200429-01de73cf58bd
+	golang.org/x/sync v0.0.0-20201020160332-67f06af15bc9
 	google.golang.org/grpc v1.33.2
 	google.golang.org/protobuf v1.25.0
 	istio.io/api v0.0.0-20210115162953-da389fc06d2c

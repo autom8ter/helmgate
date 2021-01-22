@@ -30766,6 +30766,1109 @@ public final class Schema {
 
   }
 
+  public interface LogOptsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:meshpaas.LogOpts)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * name is the name of the Application or Task
+     * </pre>
+     *
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     */
+    java.lang.String getName();
+    /**
+     * <pre>
+     * name is the name of the Application or Task
+     * </pre>
+     *
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <pre>
+     * container is the container to stream from
+     * </pre>
+     *
+     * <code>string container = 2 [(.validator.field) = { ... }</code>
+     */
+    java.lang.String getContainer();
+    /**
+     * <pre>
+     * container is the container to stream from
+     * </pre>
+     *
+     * <code>string container = 2 [(.validator.field) = { ... }</code>
+     */
+    com.google.protobuf.ByteString
+        getContainerBytes();
+
+    /**
+     * <pre>
+     * since_seconds streams since a certain unix time(in the past)
+     * </pre>
+     *
+     * <code>int64 since_seconds = 3;</code>
+     */
+    long getSinceSeconds();
+
+    /**
+     * <pre>
+     * the number of lines from the end of the logs to show. If not specified, logs are shown from the creation of the container or since_seconds
+     * </pre>
+     *
+     * <code>int64 tail_lines = 4;</code>
+     */
+    long getTailLines();
+
+    /**
+     * <pre>
+     * previous retrieves logs from the previous container than the one running(useful for restarts)
+     * </pre>
+     *
+     * <code>bool previous = 10;</code>
+     */
+    boolean getPrevious();
+
+    /**
+     * <pre>
+     * if stream is true, the tcp connection will be left open &amp; logs will continue to be sent to the client
+     * </pre>
+     *
+     * <code>bool stream = 11;</code>
+     */
+    boolean getStream();
+  }
+  /**
+   * <pre>
+   * LogOpts holds options for fetching logs from Tasks &amp; Applications
+   * </pre>
+   *
+   * Protobuf type {@code meshpaas.LogOpts}
+   */
+  public  static final class LogOpts extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:meshpaas.LogOpts)
+      LogOptsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use LogOpts.newBuilder() to construct.
+    private LogOpts(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private LogOpts() {
+      name_ = "";
+      container_ = "";
+      sinceSeconds_ = 0L;
+      tailLines_ = 0L;
+      previous_ = false;
+      stream_ = false;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private LogOpts(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              name_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              container_ = s;
+              break;
+            }
+            case 24: {
+
+              sinceSeconds_ = input.readInt64();
+              break;
+            }
+            case 32: {
+
+              tailLines_ = input.readInt64();
+              break;
+            }
+            case 80: {
+
+              previous_ = input.readBool();
+              break;
+            }
+            case 88: {
+
+              stream_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return meshpaas.Schema.internal_static_meshpaas_LogOpts_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return meshpaas.Schema.internal_static_meshpaas_LogOpts_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              meshpaas.Schema.LogOpts.class, meshpaas.Schema.LogOpts.Builder.class);
+    }
+
+    public static final int NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object name_;
+    /**
+     * <pre>
+     * name is the name of the Application or Task
+     * </pre>
+     *
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * name is the name of the Application or Task
+     * </pre>
+     *
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CONTAINER_FIELD_NUMBER = 2;
+    private volatile java.lang.Object container_;
+    /**
+     * <pre>
+     * container is the container to stream from
+     * </pre>
+     *
+     * <code>string container = 2 [(.validator.field) = { ... }</code>
+     */
+    public java.lang.String getContainer() {
+      java.lang.Object ref = container_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        container_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * container is the container to stream from
+     * </pre>
+     *
+     * <code>string container = 2 [(.validator.field) = { ... }</code>
+     */
+    public com.google.protobuf.ByteString
+        getContainerBytes() {
+      java.lang.Object ref = container_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        container_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SINCE_SECONDS_FIELD_NUMBER = 3;
+    private long sinceSeconds_;
+    /**
+     * <pre>
+     * since_seconds streams since a certain unix time(in the past)
+     * </pre>
+     *
+     * <code>int64 since_seconds = 3;</code>
+     */
+    public long getSinceSeconds() {
+      return sinceSeconds_;
+    }
+
+    public static final int TAIL_LINES_FIELD_NUMBER = 4;
+    private long tailLines_;
+    /**
+     * <pre>
+     * the number of lines from the end of the logs to show. If not specified, logs are shown from the creation of the container or since_seconds
+     * </pre>
+     *
+     * <code>int64 tail_lines = 4;</code>
+     */
+    public long getTailLines() {
+      return tailLines_;
+    }
+
+    public static final int PREVIOUS_FIELD_NUMBER = 10;
+    private boolean previous_;
+    /**
+     * <pre>
+     * previous retrieves logs from the previous container than the one running(useful for restarts)
+     * </pre>
+     *
+     * <code>bool previous = 10;</code>
+     */
+    public boolean getPrevious() {
+      return previous_;
+    }
+
+    public static final int STREAM_FIELD_NUMBER = 11;
+    private boolean stream_;
+    /**
+     * <pre>
+     * if stream is true, the tcp connection will be left open &amp; logs will continue to be sent to the client
+     * </pre>
+     *
+     * <code>bool stream = 11;</code>
+     */
+    public boolean getStream() {
+      return stream_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      }
+      if (!getContainerBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, container_);
+      }
+      if (sinceSeconds_ != 0L) {
+        output.writeInt64(3, sinceSeconds_);
+      }
+      if (tailLines_ != 0L) {
+        output.writeInt64(4, tailLines_);
+      }
+      if (previous_ != false) {
+        output.writeBool(10, previous_);
+      }
+      if (stream_ != false) {
+        output.writeBool(11, stream_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      if (!getContainerBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, container_);
+      }
+      if (sinceSeconds_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, sinceSeconds_);
+      }
+      if (tailLines_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(4, tailLines_);
+      }
+      if (previous_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(10, previous_);
+      }
+      if (stream_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(11, stream_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof meshpaas.Schema.LogOpts)) {
+        return super.equals(obj);
+      }
+      meshpaas.Schema.LogOpts other = (meshpaas.Schema.LogOpts) obj;
+
+      boolean result = true;
+      result = result && getName()
+          .equals(other.getName());
+      result = result && getContainer()
+          .equals(other.getContainer());
+      result = result && (getSinceSeconds()
+          == other.getSinceSeconds());
+      result = result && (getTailLines()
+          == other.getTailLines());
+      result = result && (getPrevious()
+          == other.getPrevious());
+      result = result && (getStream()
+          == other.getStream());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
+      hash = (37 * hash) + CONTAINER_FIELD_NUMBER;
+      hash = (53 * hash) + getContainer().hashCode();
+      hash = (37 * hash) + SINCE_SECONDS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getSinceSeconds());
+      hash = (37 * hash) + TAIL_LINES_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTailLines());
+      hash = (37 * hash) + PREVIOUS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getPrevious());
+      hash = (37 * hash) + STREAM_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getStream());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static meshpaas.Schema.LogOpts parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.LogOpts parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.LogOpts parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.LogOpts parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.LogOpts parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.LogOpts parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.LogOpts parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.LogOpts parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static meshpaas.Schema.LogOpts parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.LogOpts parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static meshpaas.Schema.LogOpts parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.LogOpts parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(meshpaas.Schema.LogOpts prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * LogOpts holds options for fetching logs from Tasks &amp; Applications
+     * </pre>
+     *
+     * Protobuf type {@code meshpaas.LogOpts}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:meshpaas.LogOpts)
+        meshpaas.Schema.LogOptsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return meshpaas.Schema.internal_static_meshpaas_LogOpts_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return meshpaas.Schema.internal_static_meshpaas_LogOpts_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                meshpaas.Schema.LogOpts.class, meshpaas.Schema.LogOpts.Builder.class);
+      }
+
+      // Construct using meshpaas.Schema.LogOpts.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+
+        container_ = "";
+
+        sinceSeconds_ = 0L;
+
+        tailLines_ = 0L;
+
+        previous_ = false;
+
+        stream_ = false;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return meshpaas.Schema.internal_static_meshpaas_LogOpts_descriptor;
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.LogOpts getDefaultInstanceForType() {
+        return meshpaas.Schema.LogOpts.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.LogOpts build() {
+        meshpaas.Schema.LogOpts result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.LogOpts buildPartial() {
+        meshpaas.Schema.LogOpts result = new meshpaas.Schema.LogOpts(this);
+        result.name_ = name_;
+        result.container_ = container_;
+        result.sinceSeconds_ = sinceSeconds_;
+        result.tailLines_ = tailLines_;
+        result.previous_ = previous_;
+        result.stream_ = stream_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof meshpaas.Schema.LogOpts) {
+          return mergeFrom((meshpaas.Schema.LogOpts)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(meshpaas.Schema.LogOpts other) {
+        if (other == meshpaas.Schema.LogOpts.getDefaultInstance()) return this;
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
+          onChanged();
+        }
+        if (!other.getContainer().isEmpty()) {
+          container_ = other.container_;
+          onChanged();
+        }
+        if (other.getSinceSeconds() != 0L) {
+          setSinceSeconds(other.getSinceSeconds());
+        }
+        if (other.getTailLines() != 0L) {
+          setTailLines(other.getTailLines());
+        }
+        if (other.getPrevious() != false) {
+          setPrevious(other.getPrevious());
+        }
+        if (other.getStream() != false) {
+          setStream(other.getStream());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        meshpaas.Schema.LogOpts parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (meshpaas.Schema.LogOpts) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object name_ = "";
+      /**
+       * <pre>
+       * name is the name of the Application or Task
+       * </pre>
+       *
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * name is the name of the Application or Task
+       * </pre>
+       *
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * name is the name of the Application or Task
+       * </pre>
+       *
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * name is the name of the Application or Task
+       * </pre>
+       *
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder clearName() {
+        
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * name is the name of the Application or Task
+       * </pre>
+       *
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object container_ = "";
+      /**
+       * <pre>
+       * container is the container to stream from
+       * </pre>
+       *
+       * <code>string container = 2 [(.validator.field) = { ... }</code>
+       */
+      public java.lang.String getContainer() {
+        java.lang.Object ref = container_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          container_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * container is the container to stream from
+       * </pre>
+       *
+       * <code>string container = 2 [(.validator.field) = { ... }</code>
+       */
+      public com.google.protobuf.ByteString
+          getContainerBytes() {
+        java.lang.Object ref = container_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          container_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * container is the container to stream from
+       * </pre>
+       *
+       * <code>string container = 2 [(.validator.field) = { ... }</code>
+       */
+      public Builder setContainer(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        container_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * container is the container to stream from
+       * </pre>
+       *
+       * <code>string container = 2 [(.validator.field) = { ... }</code>
+       */
+      public Builder clearContainer() {
+        
+        container_ = getDefaultInstance().getContainer();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * container is the container to stream from
+       * </pre>
+       *
+       * <code>string container = 2 [(.validator.field) = { ... }</code>
+       */
+      public Builder setContainerBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        container_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long sinceSeconds_ ;
+      /**
+       * <pre>
+       * since_seconds streams since a certain unix time(in the past)
+       * </pre>
+       *
+       * <code>int64 since_seconds = 3;</code>
+       */
+      public long getSinceSeconds() {
+        return sinceSeconds_;
+      }
+      /**
+       * <pre>
+       * since_seconds streams since a certain unix time(in the past)
+       * </pre>
+       *
+       * <code>int64 since_seconds = 3;</code>
+       */
+      public Builder setSinceSeconds(long value) {
+        
+        sinceSeconds_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * since_seconds streams since a certain unix time(in the past)
+       * </pre>
+       *
+       * <code>int64 since_seconds = 3;</code>
+       */
+      public Builder clearSinceSeconds() {
+        
+        sinceSeconds_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long tailLines_ ;
+      /**
+       * <pre>
+       * the number of lines from the end of the logs to show. If not specified, logs are shown from the creation of the container or since_seconds
+       * </pre>
+       *
+       * <code>int64 tail_lines = 4;</code>
+       */
+      public long getTailLines() {
+        return tailLines_;
+      }
+      /**
+       * <pre>
+       * the number of lines from the end of the logs to show. If not specified, logs are shown from the creation of the container or since_seconds
+       * </pre>
+       *
+       * <code>int64 tail_lines = 4;</code>
+       */
+      public Builder setTailLines(long value) {
+        
+        tailLines_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * the number of lines from the end of the logs to show. If not specified, logs are shown from the creation of the container or since_seconds
+       * </pre>
+       *
+       * <code>int64 tail_lines = 4;</code>
+       */
+      public Builder clearTailLines() {
+        
+        tailLines_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private boolean previous_ ;
+      /**
+       * <pre>
+       * previous retrieves logs from the previous container than the one running(useful for restarts)
+       * </pre>
+       *
+       * <code>bool previous = 10;</code>
+       */
+      public boolean getPrevious() {
+        return previous_;
+      }
+      /**
+       * <pre>
+       * previous retrieves logs from the previous container than the one running(useful for restarts)
+       * </pre>
+       *
+       * <code>bool previous = 10;</code>
+       */
+      public Builder setPrevious(boolean value) {
+        
+        previous_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * previous retrieves logs from the previous container than the one running(useful for restarts)
+       * </pre>
+       *
+       * <code>bool previous = 10;</code>
+       */
+      public Builder clearPrevious() {
+        
+        previous_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean stream_ ;
+      /**
+       * <pre>
+       * if stream is true, the tcp connection will be left open &amp; logs will continue to be sent to the client
+       * </pre>
+       *
+       * <code>bool stream = 11;</code>
+       */
+      public boolean getStream() {
+        return stream_;
+      }
+      /**
+       * <pre>
+       * if stream is true, the tcp connection will be left open &amp; logs will continue to be sent to the client
+       * </pre>
+       *
+       * <code>bool stream = 11;</code>
+       */
+      public Builder setStream(boolean value) {
+        
+        stream_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * if stream is true, the tcp connection will be left open &amp; logs will continue to be sent to the client
+       * </pre>
+       *
+       * <code>bool stream = 11;</code>
+       */
+      public Builder clearStream() {
+        
+        stream_ = false;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:meshpaas.LogOpts)
+    }
+
+    // @@protoc_insertion_point(class_scope:meshpaas.LogOpts)
+    private static final meshpaas.Schema.LogOpts DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new meshpaas.Schema.LogOpts();
+    }
+
+    public static meshpaas.Schema.LogOpts getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<LogOpts>
+        PARSER = new com.google.protobuf.AbstractParser<LogOpts>() {
+      @java.lang.Override
+      public LogOpts parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new LogOpts(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<LogOpts> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<LogOpts> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public meshpaas.Schema.LogOpts getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_meshpaas_AuthnRule_descriptor;
   private static final 
@@ -30911,6 +32014,11 @@ public final class Schema {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_meshpaas_Tasks_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_meshpaas_LogOpts_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_meshpaas_LogOpts_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -31008,40 +32116,44 @@ public final class Schema {
       ".meshpaas.Replica\"\026\n\003Log\022\017\n\007message\030\001 \001(" +
       "\t\"+\n\004Apps\022#\n\014applications\030\001 \003(\0132\r.meshpa" +
       "as.App\"&\n\005Tasks\022\035\n\005tasks\030\001 \003(\0132\016.meshpaa" +
-      "s.Task*=\n\nSecretType\022\n\n\006OPAQUE\020\000\022\020\n\014TLS_" +
-      "CERT_KEY\020\001\022\021\n\rDOCKER_CONFIG\020\002*p\n\021Transpo" +
-      "rtProtocol\022\024\n\020INVALID_PROTOCOL\020\000\022\010\n\004HTTP" +
-      "\020\001\022\t\n\005HTTPS\020\002\022\010\n\004GRPC\020\003\022\t\n\005HTTP2\020\004\022\t\n\005MO" +
-      "NGO\020\005\022\007\n\003TCP\020\006\022\007\n\003TLS\020\007*Z\n\007TLSmode\022\017\n\013PA" +
-      "SSTHROUGH\020\000\022\n\n\006SIMPLE\020\001\022\n\n\006MUTUAL\020\002\022\024\n\020A" +
-      "UTO_PASSTHROUGH\020\003\022\020\n\014ISTIO_MUTUAL\020\0042\207\010\n\017" +
-      "MeshPaasService\0220\n\tCreateApp\022\022.meshpaas." +
-      "AppInput\032\r.meshpaas.App\"\000\0220\n\tUpdateApp\022\022" +
-      ".meshpaas.AppInput\032\r.meshpaas.App\"\000\0224\n\tD" +
-      "eleteApp\022\r.meshpaas.Ref\032\026.google.protobu" +
-      "f.Empty\"\000\022(\n\006GetApp\022\r.meshpaas.Ref\032\r.mes" +
-      "hpaas.App\"\000\0224\n\010ListApps\022\026.google.protobu" +
-      "f.Empty\032\016.meshpaas.Apps\"\000\0223\n\nCreateTask\022" +
-      "\023.meshpaas.TaskInput\032\016.meshpaas.Task\"\000\0223" +
-      "\n\nUpdateTask\022\023.meshpaas.TaskInput\032\016.mesh" +
-      "paas.Task\"\000\0225\n\nDeleteTask\022\r.meshpaas.Ref" +
-      "\032\026.google.protobuf.Empty\"\000\022*\n\007GetTask\022\r." +
-      "meshpaas.Ref\032\016.meshpaas.Task\"\000\0226\n\tListTa" +
-      "sks\022\026.google.protobuf.Empty\032\017.meshpaas.T" +
-      "asks\"\000\022<\n\rCreateGateway\022\026.meshpaas.Gatew" +
-      "ayInput\032\021.meshpaas.Gateway\"\000\022<\n\rUpdateGa" +
-      "teway\022\026.meshpaas.GatewayInput\032\021.meshpaas" +
-      ".Gateway\"\000\0228\n\rDeleteGateway\022\r.meshpaas.R" +
-      "ef\032\026.google.protobuf.Empty\"\000\0220\n\nGetGatew" +
-      "ay\022\r.meshpaas.Ref\032\021.meshpaas.Gateway\"\000\0229" +
-      "\n\014CreateSecret\022\025.meshpaas.SecretInput\032\020." +
-      "meshpaas.Secret\"\000\0229\n\014UpdateSecret\022\025.mesh" +
-      "paas.SecretInput\032\020.meshpaas.Secret\"\000\0227\n\014" +
-      "DeleteSecret\022\r.meshpaas.Ref\032\026.google.pro" +
-      "tobuf.Empty\"\000\022.\n\tGetSecret\022\r.meshpaas.Re" +
-      "f\032\020.meshpaas.Secret\"\000\022.\n\nStreamLogs\022\r.me" +
-      "shpaas.Ref\032\r.meshpaas.Log\"\0000\001B\014Z\nmeshpaa" +
-      "spbb\006proto3"
+      "s.Task\"\233\001\n\007LogOpts\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n" +
+      "^.{1,225}$\022#\n\tcontainer\030\002 \001(\tB\020\342\337\037\014\n\n^.{" +
+      "1,225}$\022\025\n\rsince_seconds\030\003 \001(\003\022\022\n\ntail_l" +
+      "ines\030\004 \001(\003\022\020\n\010previous\030\n \001(\010\022\016\n\006stream\030\013" +
+      " \001(\010*=\n\nSecretType\022\n\n\006OPAQUE\020\000\022\020\n\014TLS_CE" +
+      "RT_KEY\020\001\022\021\n\rDOCKER_CONFIG\020\002*p\n\021Transport" +
+      "Protocol\022\024\n\020INVALID_PROTOCOL\020\000\022\010\n\004HTTP\020\001" +
+      "\022\t\n\005HTTPS\020\002\022\010\n\004GRPC\020\003\022\t\n\005HTTP2\020\004\022\t\n\005MONG" +
+      "O\020\005\022\007\n\003TCP\020\006\022\007\n\003TLS\020\007*Z\n\007TLSmode\022\017\n\013PASS" +
+      "THROUGH\020\000\022\n\n\006SIMPLE\020\001\022\n\n\006MUTUAL\020\002\022\024\n\020AUT" +
+      "O_PASSTHROUGH\020\003\022\020\n\014ISTIO_MUTUAL\020\0042\213\010\n\017Me" +
+      "shPaasService\0220\n\tCreateApp\022\022.meshpaas.Ap" +
+      "pInput\032\r.meshpaas.App\"\000\0220\n\tUpdateApp\022\022.m" +
+      "eshpaas.AppInput\032\r.meshpaas.App\"\000\0224\n\tDel" +
+      "eteApp\022\r.meshpaas.Ref\032\026.google.protobuf." +
+      "Empty\"\000\022(\n\006GetApp\022\r.meshpaas.Ref\032\r.meshp" +
+      "aas.App\"\000\0224\n\010ListApps\022\026.google.protobuf." +
+      "Empty\032\016.meshpaas.Apps\"\000\0223\n\nCreateTask\022\023." +
+      "meshpaas.TaskInput\032\016.meshpaas.Task\"\000\0223\n\n" +
+      "UpdateTask\022\023.meshpaas.TaskInput\032\016.meshpa" +
+      "as.Task\"\000\0225\n\nDeleteTask\022\r.meshpaas.Ref\032\026" +
+      ".google.protobuf.Empty\"\000\022*\n\007GetTask\022\r.me" +
+      "shpaas.Ref\032\016.meshpaas.Task\"\000\0226\n\tListTask" +
+      "s\022\026.google.protobuf.Empty\032\017.meshpaas.Tas" +
+      "ks\"\000\022<\n\rCreateGateway\022\026.meshpaas.Gateway" +
+      "Input\032\021.meshpaas.Gateway\"\000\022<\n\rUpdateGate" +
+      "way\022\026.meshpaas.GatewayInput\032\021.meshpaas.G" +
+      "ateway\"\000\0228\n\rDeleteGateway\022\r.meshpaas.Ref" +
+      "\032\026.google.protobuf.Empty\"\000\0220\n\nGetGateway" +
+      "\022\r.meshpaas.Ref\032\021.meshpaas.Gateway\"\000\0229\n\014" +
+      "CreateSecret\022\025.meshpaas.SecretInput\032\020.me" +
+      "shpaas.Secret\"\000\0229\n\014UpdateSecret\022\025.meshpa" +
+      "as.SecretInput\032\020.meshpaas.Secret\"\000\0227\n\014De" +
+      "leteSecret\022\r.meshpaas.Ref\032\026.google.proto" +
+      "buf.Empty\"\000\022.\n\tGetSecret\022\r.meshpaas.Ref\032" +
+      "\020.meshpaas.Secret\"\000\0222\n\nStreamLogs\022\021.mesh" +
+      "paas.LogOpts\032\r.meshpaas.Log\"\0000\001B\014Z\nmeshp" +
+      "aaspbb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -31234,6 +32346,12 @@ public final class Schema {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Tasks_descriptor,
         new java.lang.String[] { "Tasks", });
+    internal_static_meshpaas_LogOpts_descriptor =
+      getDescriptor().getMessageTypes().get(25);
+    internal_static_meshpaas_LogOpts_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_meshpaas_LogOpts_descriptor,
+        new java.lang.String[] { "Name", "Container", "SinceSeconds", "TailLines", "Previous", "Stream", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(validator.Validator.field);

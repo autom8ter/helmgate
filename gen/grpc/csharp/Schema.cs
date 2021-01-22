@@ -102,36 +102,40 @@ namespace Meshpaas {
             "dGF0dXMSIwoIcmVwbGljYXMYASADKAsyES5tZXNocGFhcy5SZXBsaWNhIhYK",
             "A0xvZxIPCgdtZXNzYWdlGAEgASgJIisKBEFwcHMSIwoMYXBwbGljYXRpb25z",
             "GAEgAygLMg0ubWVzaHBhYXMuQXBwIiYKBVRhc2tzEh0KBXRhc2tzGAEgAygL",
-            "Mg4ubWVzaHBhYXMuVGFzayo9CgpTZWNyZXRUeXBlEgoKBk9QQVFVRRAAEhAK",
-            "DFRMU19DRVJUX0tFWRABEhEKDURPQ0tFUl9DT05GSUcQAipwChFUcmFuc3Bv",
-            "cnRQcm90b2NvbBIUChBJTlZBTElEX1BST1RPQ09MEAASCAoESFRUUBABEgkK",
-            "BUhUVFBTEAISCAoER1JQQxADEgkKBUhUVFAyEAQSCQoFTU9OR08QBRIHCgNU",
-            "Q1AQBhIHCgNUTFMQBypaCgdUTFNtb2RlEg8KC1BBU1NUSFJPVUdIEAASCgoG",
-            "U0lNUExFEAESCgoGTVVUVUFMEAISFAoQQVVUT19QQVNTVEhST1VHSBADEhAK",
-            "DElTVElPX01VVFVBTBAEMocICg9NZXNoUGFhc1NlcnZpY2USMAoJQ3JlYXRl",
-            "QXBwEhIubWVzaHBhYXMuQXBwSW5wdXQaDS5tZXNocGFhcy5BcHAiABIwCglV",
-            "cGRhdGVBcHASEi5tZXNocGFhcy5BcHBJbnB1dBoNLm1lc2hwYWFzLkFwcCIA",
-            "EjQKCURlbGV0ZUFwcBINLm1lc2hwYWFzLlJlZhoWLmdvb2dsZS5wcm90b2J1",
-            "Zi5FbXB0eSIAEigKBkdldEFwcBINLm1lc2hwYWFzLlJlZhoNLm1lc2hwYWFz",
-            "LkFwcCIAEjQKCExpc3RBcHBzEhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5Gg4u",
-            "bWVzaHBhYXMuQXBwcyIAEjMKCkNyZWF0ZVRhc2sSEy5tZXNocGFhcy5UYXNr",
-            "SW5wdXQaDi5tZXNocGFhcy5UYXNrIgASMwoKVXBkYXRlVGFzaxITLm1lc2hw",
-            "YWFzLlRhc2tJbnB1dBoOLm1lc2hwYWFzLlRhc2siABI1CgpEZWxldGVUYXNr",
-            "Eg0ubWVzaHBhYXMuUmVmGhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgASKgoH",
-            "R2V0VGFzaxINLm1lc2hwYWFzLlJlZhoOLm1lc2hwYWFzLlRhc2siABI2CglM",
-            "aXN0VGFza3MSFi5nb29nbGUucHJvdG9idWYuRW1wdHkaDy5tZXNocGFhcy5U",
-            "YXNrcyIAEjwKDUNyZWF0ZUdhdGV3YXkSFi5tZXNocGFhcy5HYXRld2F5SW5w",
-            "dXQaES5tZXNocGFhcy5HYXRld2F5IgASPAoNVXBkYXRlR2F0ZXdheRIWLm1l",
-            "c2hwYWFzLkdhdGV3YXlJbnB1dBoRLm1lc2hwYWFzLkdhdGV3YXkiABI4Cg1E",
-            "ZWxldGVHYXRld2F5Eg0ubWVzaHBhYXMuUmVmGhYuZ29vZ2xlLnByb3RvYnVm",
-            "LkVtcHR5IgASMAoKR2V0R2F0ZXdheRINLm1lc2hwYWFzLlJlZhoRLm1lc2hw",
-            "YWFzLkdhdGV3YXkiABI5CgxDcmVhdGVTZWNyZXQSFS5tZXNocGFhcy5TZWNy",
-            "ZXRJbnB1dBoQLm1lc2hwYWFzLlNlY3JldCIAEjkKDFVwZGF0ZVNlY3JldBIV",
-            "Lm1lc2hwYWFzLlNlY3JldElucHV0GhAubWVzaHBhYXMuU2VjcmV0IgASNwoM",
-            "RGVsZXRlU2VjcmV0Eg0ubWVzaHBhYXMuUmVmGhYuZ29vZ2xlLnByb3RvYnVm",
-            "LkVtcHR5IgASLgoJR2V0U2VjcmV0Eg0ubWVzaHBhYXMuUmVmGhAubWVzaHBh",
-            "YXMuU2VjcmV0IgASLgoKU3RyZWFtTG9ncxINLm1lc2hwYWFzLlJlZhoNLm1l",
-            "c2hwYWFzLkxvZyIAMAFCDFoKbWVzaHBhYXNwYmIGcHJvdG8z"));
+            "Mg4ubWVzaHBhYXMuVGFzayKbAQoHTG9nT3B0cxIeCgRuYW1lGAEgASgJQhDi",
+            "3x8MCgpeLnsxLDIyNX0kEiMKCWNvbnRhaW5lchgCIAEoCUIQ4t8fDAoKXi57",
+            "MSwyMjV9JBIVCg1zaW5jZV9zZWNvbmRzGAMgASgDEhIKCnRhaWxfbGluZXMY",
+            "BCABKAMSEAoIcHJldmlvdXMYCiABKAgSDgoGc3RyZWFtGAsgASgIKj0KClNl",
+            "Y3JldFR5cGUSCgoGT1BBUVVFEAASEAoMVExTX0NFUlRfS0VZEAESEQoNRE9D",
+            "S0VSX0NPTkZJRxACKnAKEVRyYW5zcG9ydFByb3RvY29sEhQKEElOVkFMSURf",
+            "UFJPVE9DT0wQABIICgRIVFRQEAESCQoFSFRUUFMQAhIICgRHUlBDEAMSCQoF",
+            "SFRUUDIQBBIJCgVNT05HTxAFEgcKA1RDUBAGEgcKA1RMUxAHKloKB1RMU21v",
+            "ZGUSDwoLUEFTU1RIUk9VR0gQABIKCgZTSU1QTEUQARIKCgZNVVRVQUwQAhIU",
+            "ChBBVVRPX1BBU1NUSFJPVUdIEAMSEAoMSVNUSU9fTVVUVUFMEAQyiwgKD01l",
+            "c2hQYWFzU2VydmljZRIwCglDcmVhdGVBcHASEi5tZXNocGFhcy5BcHBJbnB1",
+            "dBoNLm1lc2hwYWFzLkFwcCIAEjAKCVVwZGF0ZUFwcBISLm1lc2hwYWFzLkFw",
+            "cElucHV0Gg0ubWVzaHBhYXMuQXBwIgASNAoJRGVsZXRlQXBwEg0ubWVzaHBh",
+            "YXMuUmVmGhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgASKAoGR2V0QXBwEg0u",
+            "bWVzaHBhYXMuUmVmGg0ubWVzaHBhYXMuQXBwIgASNAoITGlzdEFwcHMSFi5n",
+            "b29nbGUucHJvdG9idWYuRW1wdHkaDi5tZXNocGFhcy5BcHBzIgASMwoKQ3Jl",
+            "YXRlVGFzaxITLm1lc2hwYWFzLlRhc2tJbnB1dBoOLm1lc2hwYWFzLlRhc2si",
+            "ABIzCgpVcGRhdGVUYXNrEhMubWVzaHBhYXMuVGFza0lucHV0Gg4ubWVzaHBh",
+            "YXMuVGFzayIAEjUKCkRlbGV0ZVRhc2sSDS5tZXNocGFhcy5SZWYaFi5nb29n",
+            "bGUucHJvdG9idWYuRW1wdHkiABIqCgdHZXRUYXNrEg0ubWVzaHBhYXMuUmVm",
+            "Gg4ubWVzaHBhYXMuVGFzayIAEjYKCUxpc3RUYXNrcxIWLmdvb2dsZS5wcm90",
+            "b2J1Zi5FbXB0eRoPLm1lc2hwYWFzLlRhc2tzIgASPAoNQ3JlYXRlR2F0ZXdh",
+            "eRIWLm1lc2hwYWFzLkdhdGV3YXlJbnB1dBoRLm1lc2hwYWFzLkdhdGV3YXki",
+            "ABI8Cg1VcGRhdGVHYXRld2F5EhYubWVzaHBhYXMuR2F0ZXdheUlucHV0GhEu",
+            "bWVzaHBhYXMuR2F0ZXdheSIAEjgKDURlbGV0ZUdhdGV3YXkSDS5tZXNocGFh",
+            "cy5SZWYaFi5nb29nbGUucHJvdG9idWYuRW1wdHkiABIwCgpHZXRHYXRld2F5",
+            "Eg0ubWVzaHBhYXMuUmVmGhEubWVzaHBhYXMuR2F0ZXdheSIAEjkKDENyZWF0",
+            "ZVNlY3JldBIVLm1lc2hwYWFzLlNlY3JldElucHV0GhAubWVzaHBhYXMuU2Vj",
+            "cmV0IgASOQoMVXBkYXRlU2VjcmV0EhUubWVzaHBhYXMuU2VjcmV0SW5wdXQa",
+            "EC5tZXNocGFhcy5TZWNyZXQiABI3CgxEZWxldGVTZWNyZXQSDS5tZXNocGFh",
+            "cy5SZWYaFi5nb29nbGUucHJvdG9idWYuRW1wdHkiABIuCglHZXRTZWNyZXQS",
+            "DS5tZXNocGFhcy5SZWYaEC5tZXNocGFhcy5TZWNyZXQiABIyCgpTdHJlYW1M",
+            "b2dzEhEubWVzaHBhYXMuTG9nT3B0cxoNLm1lc2hwYWFzLkxvZyIAMAFCDFoK",
+            "bWVzaHBhYXNwYmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Validator.ValidatorReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Meshpaas.SecretType), typeof(global::Meshpaas.TransportProtocol), typeof(global::Meshpaas.TLSmode), }, new pbr::GeneratedClrTypeInfo[] {
@@ -159,7 +163,8 @@ namespace Meshpaas {
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.AppStatus), global::Meshpaas.AppStatus.Parser, new[]{ "Replicas" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Log), global::Meshpaas.Log.Parser, new[]{ "Message" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Apps), global::Meshpaas.Apps.Parser, new[]{ "Applications" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Tasks), global::Meshpaas.Tasks.Parser, new[]{ "Tasks_" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Tasks), global::Meshpaas.Tasks.Parser, new[]{ "Tasks_" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.LogOpts), global::Meshpaas.LogOpts.Parser, new[]{ "Name", "Container", "SinceSeconds", "TailLines", "Previous", "Stream" }, null, null, null)
           }));
     }
     #endregion
@@ -5259,6 +5264,296 @@ namespace Meshpaas {
             break;
           case 10: {
             tasks_.AddEntriesFrom(input, _repeated_tasks_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  /// LogOpts holds options for fetching logs from Tasks &amp; Applications
+  /// </summary>
+  public sealed partial class LogOpts : pb::IMessage<LogOpts> {
+    private static readonly pb::MessageParser<LogOpts> _parser = new pb::MessageParser<LogOpts>(() => new LogOpts());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<LogOpts> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[25]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public LogOpts() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public LogOpts(LogOpts other) : this() {
+      name_ = other.name_;
+      container_ = other.container_;
+      sinceSeconds_ = other.sinceSeconds_;
+      tailLines_ = other.tailLines_;
+      previous_ = other.previous_;
+      stream_ = other.stream_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public LogOpts Clone() {
+      return new LogOpts(this);
+    }
+
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 1;
+    private string name_ = "";
+    /// <summary>
+    /// name is the name of the Application or Task
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "container" field.</summary>
+    public const int ContainerFieldNumber = 2;
+    private string container_ = "";
+    /// <summary>
+    /// container is the container to stream from
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Container {
+      get { return container_; }
+      set {
+        container_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "since_seconds" field.</summary>
+    public const int SinceSecondsFieldNumber = 3;
+    private long sinceSeconds_;
+    /// <summary>
+    /// since_seconds streams since a certain unix time(in the past)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long SinceSeconds {
+      get { return sinceSeconds_; }
+      set {
+        sinceSeconds_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "tail_lines" field.</summary>
+    public const int TailLinesFieldNumber = 4;
+    private long tailLines_;
+    /// <summary>
+    /// the number of lines from the end of the logs to show. If not specified, logs are shown from the creation of the container or since_seconds
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long TailLines {
+      get { return tailLines_; }
+      set {
+        tailLines_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "previous" field.</summary>
+    public const int PreviousFieldNumber = 10;
+    private bool previous_;
+    /// <summary>
+    /// previous retrieves logs from the previous container than the one running(useful for restarts)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Previous {
+      get { return previous_; }
+      set {
+        previous_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "stream" field.</summary>
+    public const int StreamFieldNumber = 11;
+    private bool stream_;
+    /// <summary>
+    /// if stream is true, the tcp connection will be left open &amp; logs will continue to be sent to the client
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Stream {
+      get { return stream_; }
+      set {
+        stream_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as LogOpts);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(LogOpts other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Name != other.Name) return false;
+      if (Container != other.Container) return false;
+      if (SinceSeconds != other.SinceSeconds) return false;
+      if (TailLines != other.TailLines) return false;
+      if (Previous != other.Previous) return false;
+      if (Stream != other.Stream) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (Container.Length != 0) hash ^= Container.GetHashCode();
+      if (SinceSeconds != 0L) hash ^= SinceSeconds.GetHashCode();
+      if (TailLines != 0L) hash ^= TailLines.GetHashCode();
+      if (Previous != false) hash ^= Previous.GetHashCode();
+      if (Stream != false) hash ^= Stream.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Name.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Name);
+      }
+      if (Container.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Container);
+      }
+      if (SinceSeconds != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(SinceSeconds);
+      }
+      if (TailLines != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(TailLines);
+      }
+      if (Previous != false) {
+        output.WriteRawTag(80);
+        output.WriteBool(Previous);
+      }
+      if (Stream != false) {
+        output.WriteRawTag(88);
+        output.WriteBool(Stream);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (Container.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Container);
+      }
+      if (SinceSeconds != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(SinceSeconds);
+      }
+      if (TailLines != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(TailLines);
+      }
+      if (Previous != false) {
+        size += 1 + 1;
+      }
+      if (Stream != false) {
+        size += 1 + 1;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(LogOpts other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+      if (other.Container.Length != 0) {
+        Container = other.Container;
+      }
+      if (other.SinceSeconds != 0L) {
+        SinceSeconds = other.SinceSeconds;
+      }
+      if (other.TailLines != 0L) {
+        TailLines = other.TailLines;
+      }
+      if (other.Previous != false) {
+        Previous = other.Previous;
+      }
+      if (other.Stream != false) {
+        Stream = other.Stream;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Name = input.ReadString();
+            break;
+          }
+          case 18: {
+            Container = input.ReadString();
+            break;
+          }
+          case 24: {
+            SinceSeconds = input.ReadInt64();
+            break;
+          }
+          case 32: {
+            TailLines = input.ReadInt64();
+            break;
+          }
+          case 80: {
+            Previous = input.ReadBool();
+            break;
+          }
+          case 88: {
+            Stream = input.ReadBool();
             break;
           }
         }
