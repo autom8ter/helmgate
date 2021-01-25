@@ -77,7 +77,6 @@ func (r *Resolver) authMiddleware(handler http.Handler) http.HandlerFunc {
 	}
 }
 
-
 func (r *Resolver) Playground() http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
 		w.Header().Add("Content-Type", "text/html")

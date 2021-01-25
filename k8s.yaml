@@ -1,18 +1,46 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: meshpaas
+  name: meshpaas-system
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: meshpaas-gateway
+  namespace: meshpaas-system
+spec:
+  selector:
+    app: meshpaas-admin
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - "*"
+      tls:
+        httpsRedirect: true # sends 301 redirect for http requests
+    - port:
+        number: 443
+        name: https-443
+        protocol: HTTPS
+      hosts:
+        - "*"
+      tls:
+        mode: SIMPLE # enables HTTPS on this port
+        credentialName: meshpaas-certs
+
 ---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: meshpaas
+  name: meshpaas-admin-sa
 automountServiceAccountToken: true
 ---
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: meshpaas
+  name: meshpaas-admin-cluster-role
 rules:
   - apiGroups: ["", "extensions", "apps",  "batch", "networking.k8s.io", "networking.istio.io", "authentication.istio.io", "rbac.istio.io", "config.istio.io", "security.istio.io"]
     resources: ["*"]
@@ -22,24 +50,24 @@ rules:
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: meshpaas-binding
-  namespace: meshpaas
+  name: meshpaas-admin-cluster-role-binding
+  namespace: meshpaas-system
 subjects:
   - kind: ServiceAccount
-    name: meshpaas
-    namespace: meshpaas
+    name: meshpaas-admin-sa
+    namespace: meshpaas-system
 roleRef:
   kind: ClusterRole
-  name: meshpaas
+  name: meshpaas-admin-cluster-role
   apiGroup: rbac.authorization.k8s.io
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: meshpaas
-  namespace: meshpaas
+  name: meshpaas-admin-service
+  namespace: meshpaas-system
   labels:
-    app: meshpaas
+    app: meshpaas-admin
 spec:
   ports:
   - port: 8820
@@ -48,13 +76,13 @@ spec:
     name: admin
   clusterIP: None
   selector:
-    app: meshpaas
+    app: meshpaas-admin
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: meshpaas
-  namespace: meshpaas
+  name: meshpaas-admin
+  namespace: meshpaas-system
 spec:
   replicas: 1
   selector:
@@ -63,7 +91,7 @@ spec:
   template:
     metadata:
       labels:
-        app: meshpaas
+        app: meshpaas-admin
     spec:
       serviceAccountName: meshpaas
       containers:
@@ -81,9 +109,59 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.podIP
-          image: colemanword/meshpaas:v0.0.22
+          image: colemanword/meshpaas:v0.0.23
           imagePullPolicy: Always
           ports:
           - containerPort: 8821
           - containerPort: 8820
 
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: reviews-route
+spec:
+  hosts:
+    - meshpaas.meshpaas.svc.cluster.local
+  gateways:
+    - "meshpaas-gateway"
+  http:
+    - name: "meshpaas-routes"
+      match:
+        - uri:
+            prefix: "/"
+        - uri:
+            prefix: "/"
+      route:
+        - destination:
+            host: meshpaas.meshpaas.svc.cluster.local
+
+---
+apiVersion: security.istio.io/v1beta1
+kind: RequestAuthentication
+metadata:
+  name: meshpaas
+  namespace: meshpaas-system
+spec:
+  selector:
+    matchLabels:
+      app: httpbin
+  jwtRules:
+    - issuer: "issuer-foo"
+      jwksUri: https://changeme.com
+---
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: meshpaas
+  namespace: meshpaas-system
+spec:
+  selector:
+    matchLabels:
+      app: meshpaas-admin
+  rules:
+    - from:
+        - source:
+            requestPrincipals: ["*"]
+
+---
