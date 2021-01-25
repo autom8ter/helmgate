@@ -17,7 +17,7 @@ spec:
         name: http
         protocol: HTTP
       hosts:
-        - "*"
+        - {{ .Values.hostname }}
       tls:
         httpsRedirect: true # sends 301 redirect for http requests
     - port:
@@ -25,10 +25,10 @@ spec:
         name: https-443
         protocol: HTTPS
       hosts:
-        - "*"
+        - {{ .Values.hostname }}
       tls:
         mode: SIMPLE # enables HTTPS on this port
-        credentialName: meshpaas-certs
+        credentialName: {{ .Values.ingress.certificate_secret }}
 
 ---
 apiVersion: v1
@@ -84,7 +84,7 @@ metadata:
   name: meshpaas-admin
   namespace: meshpaas-system
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
       app: meshpaas
@@ -109,7 +109,7 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.podIP
-          image: colemanword/meshpaas:v0.0.23
+          image: {{ .Values.image }}
           imagePullPolicy: Always
           ports:
           - containerPort: 8821
@@ -119,7 +119,7 @@ spec:
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: reviews-route
+  name: meshpaas-route
 spec:
   hosts:
     - meshpaas.meshpaas.svc.cluster.local
@@ -140,20 +140,20 @@ spec:
 apiVersion: security.istio.io/v1beta1
 kind: RequestAuthentication
 metadata:
-  name: meshpaas
+  name: meshpaas-authenticator
   namespace: meshpaas-system
 spec:
   selector:
     matchLabels:
-      app: httpbin
+      app: meshpaas-admin
   jwtRules:
-    - issuer: "issuer-foo"
-      jwksUri: https://changeme.com
+    - issuer: {{ .Values.auth.issuer }}
+      jwksUri: {{ .Values.auth.jwks_uri }}
 ---
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
 metadata:
-  name: meshpaas
+  name: meshpaas-authorizer
   namespace: meshpaas-system
 spec:
   selector:
