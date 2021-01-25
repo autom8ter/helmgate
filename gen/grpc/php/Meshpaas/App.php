@@ -46,12 +46,6 @@ class App extends \Google\Protobuf\Internal\Message
      */
     private $authentication = null;
     /**
-     * application authorization options
-     *
-     * Generated from protobuf field <code>.meshpaas.Authz authorization = 13 [(.validator.field) = {</code>
-     */
-    private $authorization = null;
-    /**
      * image_pull_secret is the secret used to pull images from docker registry
      *
      * Generated from protobuf field <code>string image_pull_secret = 14;</code>
@@ -80,8 +74,6 @@ class App extends \Google\Protobuf\Internal\Message
      *           gateway/service-mesh routing
      *     @type \Meshpaas\Authn $authentication
      *           application authentication options
-     *     @type \Meshpaas\Authz $authorization
-     *           application authorization options
      *     @type string $image_pull_secret
      *           image_pull_secret is the secret used to pull images from docker registry
      *     @type \Meshpaas\AppStatus $status
@@ -219,32 +211,6 @@ class App extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Meshpaas\Authn::class);
         $this->authentication = $var;
-
-        return $this;
-    }
-
-    /**
-     * application authorization options
-     *
-     * Generated from protobuf field <code>.meshpaas.Authz authorization = 13 [(.validator.field) = {</code>
-     * @return \Meshpaas\Authz
-     */
-    public function getAuthorization()
-    {
-        return $this->authorization;
-    }
-
-    /**
-     * application authorization options
-     *
-     * Generated from protobuf field <code>.meshpaas.Authz authorization = 13 [(.validator.field) = {</code>
-     * @param \Meshpaas\Authz $var
-     * @return $this
-     */
-    public function setAuthorization($var)
-    {
-        GPBUtil::checkMessage($var, \Meshpaas\Authz::class);
-        $this->authorization = $var;
 
         return $this;
     }

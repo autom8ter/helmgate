@@ -26,7 +26,7 @@ type Container struct {
 	Image string                 `json:"image"`
 	Args  []string               `json:"args"`
 	Env   map[string]interface{} `json:"env"`
-	Ports map[string]interface{} `json:"ports"`
+	Ports []*ContainerPort       `json:"ports"`
 }
 
 type ContainerInput struct {
@@ -34,7 +34,19 @@ type ContainerInput struct {
 	Image string                 `json:"image"`
 	Args  []string               `json:"args"`
 	Env   map[string]interface{} `json:"env"`
-	Ports map[string]interface{} `json:"ports"`
+	Ports []*ContainerPortInput  `json:"ports"`
+}
+
+type ContainerPort struct {
+	Name   string `json:"name"`
+	Number int    `json:"number"`
+	Expose bool   `json:"expose"`
+}
+
+type ContainerPortInput struct {
+	Name   string `json:"name"`
+	Number int    `json:"number"`
+	Expose bool   `json:"expose"`
 }
 
 type HTTPRoute struct {

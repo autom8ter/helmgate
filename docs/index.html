@@ -203,22 +203,6 @@
                 </li>
               
                 <li>
-                  <a href="#meshpaas.Authz"><span class="badge">M</span>Authz</a>
-                </li>
-              
-                <li>
-                  <a href="#meshpaas.AuthzDestination"><span class="badge">M</span>AuthzDestination</a>
-                </li>
-              
-                <li>
-                  <a href="#meshpaas.AuthzRule"><span class="badge">M</span>AuthzRule</a>
-                </li>
-              
-                <li>
-                  <a href="#meshpaas.AuthzSubject"><span class="badge">M</span>AuthzSubject</a>
-                </li>
-              
-                <li>
                   <a href="#meshpaas.Container"><span class="badge">M</span>Container</a>
                 </li>
               
@@ -227,7 +211,7 @@
                 </li>
               
                 <li>
-                  <a href="#meshpaas.Container.PortsEntry"><span class="badge">M</span>Container.PortsEntry</a>
+                  <a href="#meshpaas.ContainerPort"><span class="badge">M</span>ContainerPort</a>
                 </li>
               
                 <li>
@@ -378,13 +362,6 @@
                 </tr>
               
                 <tr>
-                  <td>authorization</td>
-                  <td><a href="#meshpaas.Authz">Authz</a></td>
-                  <td></td>
-                  <td><p>application authorization options </p></td>
-                </tr>
-              
-                <tr>
                   <td>image_pull_secret</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
@@ -459,17 +436,6 @@
                 </tr>
               
                 <tr>
-                  <td>authorization</td>
-                  <td>
-                    <ul>
-                    
-                      <li>msg_exists: true</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
                   <td>status</td>
                   <td>
                     <ul>
@@ -533,13 +499,6 @@
                 </tr>
               
                 <tr>
-                  <td>authorization</td>
-                  <td><a href="#meshpaas.Authz">Authz</a></td>
-                  <td></td>
-                  <td><p>application authorization options </p></td>
-                </tr>
-              
-                <tr>
                   <td>image_pull_secret</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
@@ -586,17 +545,6 @@
               
                 <tr>
                   <td>routing</td>
-                  <td>
-                    <ul>
-                    
-                      <li>msg_exists: true</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
-                  <td>authorization</td>
                   <td>
                     <ul>
                     
@@ -743,13 +691,6 @@
                   <td><p>issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1 </p></td>
                 </tr>
               
-                <tr>
-                  <td>ouput_payload_header</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>serialize jwt payload &amp; write to this header </p></td>
-                </tr>
-              
             </tbody>
           </table>
 
@@ -788,185 +729,9 @@
                   </td>
                 </tr>
               
-                <tr>
-                  <td>ouput_payload_header</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
               </tbody>
             </table>
             
-          
-
-        
-      
-        <h3 id="meshpaas.Authz">Authz</h3>
-        <p>Authz holds authorization options for an application</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>rules</td>
-                  <td><a href="#meshpaas.AuthzRule">AuthzRule</a></td>
-                  <td>repeated</td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-            
-            
-            <h4>Validated Fields</h4>
-            <table>
-              <thead>
-                <tr>
-                  <td>Field</td>
-                  <td>Validations</td>
-                </tr>
-              </thead>
-              <tbody>
-              
-                <tr>
-                  <td>rules</td>
-                  <td>
-                    <ul>
-                    
-                      <li>repeated_count_min: 1</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-              </tbody>
-            </table>
-            
-          
-
-        
-      
-        <h3 id="meshpaas.AuthzDestination">AuthzDestination</h3>
-        <p>the destination of an authorization decision</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>allow_paths</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p>restricts access to one of many paths </p></td>
-                </tr>
-              
-                <tr>
-                  <td>allow_hosts</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p>restricts access to one of many hosts </p></td>
-                </tr>
-              
-                <tr>
-                  <td>allow_methods</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p>restricts access to one of many methods </p></td>
-                </tr>
-              
-                <tr>
-                  <td>allow_ports</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p>restricts access to one of many ports </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="meshpaas.AuthzRule">AuthzRule</h3>
-        <p>At least on AuthzRule rule must pass for a request to reach its final destination(an application) in the service mesh</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>subject</td>
-                  <td><a href="#meshpaas.AuthzSubject">AuthzSubject</a></td>
-                  <td></td>
-                  <td><p>subject restricts access based on the subject of a request in the service mesh </p></td>
-                </tr>
-              
-                <tr>
-                  <td>destination</td>
-                  <td><a href="#meshpaas.AuthzDestination">AuthzDestination</a></td>
-                  <td></td>
-                  <td><p>source restricts access based on the destination of a request in the service mesh </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="meshpaas.AuthzSubject">AuthzSubject</h3>
-        <p>AuthzSubject is a set of attributes derived from the jwt of on an inbound request</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>allow_issuers</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p>allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim </p></td>
-                </tr>
-              
-                <tr>
-                  <td>allow_roles</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p>allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim </p></td>
-                </tr>
-              
-                <tr>
-                  <td>allow_audience</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p>allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
           
 
         
@@ -1011,9 +776,9 @@
               
                 <tr>
                   <td>ports</td>
-                  <td><a href="#meshpaas.Container.PortsEntry">Container.PortsEntry</a></td>
+                  <td><a href="#meshpaas.ContainerPort">ContainerPort</a></td>
                   <td>repeated</td>
-                  <td><p>k/v map of ports to expose ex: http: 80 https: 443 </p></td>
+                  <td><p>list of ports </p></td>
                 </tr>
               
             </tbody>
@@ -1049,17 +814,6 @@
                     <ul>
                     
                       <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
-                  <td>ports</td>
-                  <td>
-                    <ul>
-                    
-                      <li>msg_exists: true</li>
                     
                     </ul>
                   </td>
@@ -1103,7 +857,7 @@
 
         
       
-        <h3 id="meshpaas.Container.PortsEntry">Container.PortsEntry</h3>
+        <h3 id="meshpaas.ContainerPort">ContainerPort</h3>
         <p></p>
 
         
@@ -1114,17 +868,24 @@
             <tbody>
               
                 <tr>
-                  <td>key</td>
+                  <td>name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>port name </p></td>
                 </tr>
               
                 <tr>
-                  <td>value</td>
+                  <td>number</td>
                   <td><a href="#uint32">uint32</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>port number </p></td>
+                </tr>
+              
+                <tr>
+                  <td>expose</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>expose to service mesh(outside of localhost) </p></td>
                 </tr>
               
             </tbody>

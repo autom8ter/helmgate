@@ -4,16 +4,19 @@ import (
 	"github.com/autom8ter/meshpaas/gen/gql/go/model"
 	meshpaaspb "github.com/autom8ter/meshpaas/gen/grpc/go"
 	"github.com/autom8ter/meshpaas/internal/helpers"
-	"github.com/spf13/cast"
 )
 
 func toApp(input model.AppInput) *meshpaaspb.AppInput {
 	var networking = &meshpaaspb.Routing{}
 	var containers []*meshpaaspb.Container
 	for _, c := range input.Containers {
-		ports := map[string]uint32{}
-		for k, v := range c.Ports {
-			ports[k] = cast.ToUint32(v)
+		ports := []*meshpaaspb.ContainerPort{}
+		for _, v := range c.Ports {
+			ports = append(ports, &meshpaaspb.ContainerPort{
+				Name:   v.Name,
+				Number: uint32(v.Number),
+				Expose: v.Expose,
+			})
 		}
 		containers = append(containers, &meshpaaspb.Container{
 			Name:  c.Name,
@@ -54,9 +57,13 @@ func toTask(input model.TaskInput) *meshpaaspb.TaskInput {
 	var completions uint32
 	var containers []*meshpaaspb.Container
 	for _, c := range input.Containers {
-		ports := map[string]uint32{}
-		for k, v := range c.Ports {
-			ports[k] = cast.ToUint32(v)
+		var ports []*meshpaaspb.ContainerPort
+		for _, v := range c.Ports {
+			ports = append(ports, &meshpaaspb.ContainerPort{
+				Name:   v.Name,
+				Number: uint32(v.Number),
+				Expose: v.Expose,
+			})
 		}
 		containers = append(containers, &meshpaaspb.Container{
 			Name:  c.Name,
@@ -85,7 +92,7 @@ func fromApp(app *meshpaaspb.App) *model.App {
 	for _, c := range app.Containers {
 		var (
 			env   map[string]interface{}
-			ports map[string]interface{}
+			ports []*model.ContainerPort
 		)
 		if c.Env != nil {
 			env = map[string]interface{}{}
@@ -94,9 +101,12 @@ func fromApp(app *meshpaaspb.App) *model.App {
 			}
 		}
 		if c.Ports != nil {
-			ports = map[string]interface{}{}
-			for k, v := range c.Ports {
-				ports[k] = v
+			for _, v := range c.Ports {
+				ports = append(ports, &model.ContainerPort{
+					Name:   v.Name,
+					Number: int(v.Number),
+					Expose: v.Expose,
+				})
 			}
 		}
 		containers = append(containers, &model.Container{
@@ -165,7 +175,7 @@ func fromTask(app *meshpaaspb.Task) *model.Task {
 	for _, c := range app.Containers {
 		var (
 			env   map[string]interface{}
-			ports map[string]interface{}
+			ports []*model.ContainerPort
 		)
 		if c.Env != nil {
 			env = map[string]interface{}{}
@@ -174,9 +184,13 @@ func fromTask(app *meshpaaspb.Task) *model.Task {
 			}
 		}
 		if c.Ports != nil {
-			ports = map[string]interface{}{}
-			for k, v := range c.Ports {
-				ports[k] = v
+			var ports []*model.ContainerPort
+			for _, v := range c.Ports {
+				ports = append(ports, &model.ContainerPort{
+					Name:   v.Name,
+					Number: int(v.Number),
+					Expose: v.Expose,
+				})
 			}
 		}
 		containers = append(containers, &model.Container{

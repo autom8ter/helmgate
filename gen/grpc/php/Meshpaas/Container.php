@@ -40,9 +40,9 @@ class Container extends \Google\Protobuf\Internal\Message
      */
     private $env;
     /**
-     * k/v map of ports to expose ex: http: 80 https: 443
+     * list of ports
      *
-     * Generated from protobuf field <code>map<string, uint32> ports = 5 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>repeated .meshpaas.ContainerPort ports = 5;</code>
      */
     private $ports;
 
@@ -60,8 +60,8 @@ class Container extends \Google\Protobuf\Internal\Message
      *           args are arguments given to the docker image at startup
      *     @type array|\Google\Protobuf\Internal\MapField $env
      *           k/v map of environmental variables
-     *     @type array|\Google\Protobuf\Internal\MapField $ports
-     *           k/v map of ports to expose ex: http: 80 https: 443
+     *     @type \Meshpaas\ContainerPort[]|\Google\Protobuf\Internal\RepeatedField $ports
+     *           list of ports
      * }
      */
     public function __construct($data = NULL) {
@@ -174,10 +174,10 @@ class Container extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * k/v map of ports to expose ex: http: 80 https: 443
+     * list of ports
      *
-     * Generated from protobuf field <code>map<string, uint32> ports = 5 [(.validator.field) = {</code>
-     * @return \Google\Protobuf\Internal\MapField
+     * Generated from protobuf field <code>repeated .meshpaas.ContainerPort ports = 5;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getPorts()
     {
@@ -185,15 +185,15 @@ class Container extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * k/v map of ports to expose ex: http: 80 https: 443
+     * list of ports
      *
-     * Generated from protobuf field <code>map<string, uint32> ports = 5 [(.validator.field) = {</code>
-     * @param array|\Google\Protobuf\Internal\MapField $var
+     * Generated from protobuf field <code>repeated .meshpaas.ContainerPort ports = 5;</code>
+     * @param \Meshpaas\ContainerPort[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
     public function setPorts($var)
     {
-        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::UINT32);
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Meshpaas\ContainerPort::class);
         $this->ports = $arr;
 
         return $this;

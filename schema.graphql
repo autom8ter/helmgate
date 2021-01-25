@@ -64,6 +64,17 @@ input RoutingInput {
     http_routes: [HTTPRouteInput!]
 }
 
+type ContainerPort {
+    name: String!
+    number: Int!
+    expose: Boolean!
+}
+
+input ContainerPortInput {
+    name: String!
+    number: Int!
+    expose: Boolean!
+}
 
 type Container {
     name: String!
@@ -73,8 +84,7 @@ type Container {
     args: [String!]
     # k/v map of environmental variables
     env: Map
-    # k/v map of ports to expose ex: http-1: 80 https-1: 443
-    ports: Map!
+    ports: [ContainerPort]
 }
 
 input ContainerInput {
@@ -85,8 +95,7 @@ input ContainerInput {
     args: [String!]
     # k/v map of environmental variables
     env: Map
-    # k/v map of ports to expose ex: http-1: 80 https-1: 443
-    ports: Map!
+    ports: [ContainerPortInput]
 }
 
 # App is a stateless application

@@ -23,7 +23,6 @@ var _ = math.Inf
 
 var _regex_AuthnRule_JwksUri = regexp.MustCompile(`^.{1,225}$`)
 var _regex_AuthnRule_Issuer = regexp.MustCompile(`^.{1,225}$`)
-var _regex_AuthnRule_OuputPayloadHeader = regexp.MustCompile(`^.{1,225}$`)
 
 func (this *AuthnRule) Validate() error {
 	if !_regex_AuthnRule_JwksUri.MatchString(this.JwksUri) {
@@ -31,41 +30,6 @@ func (this *AuthnRule) Validate() error {
 	}
 	if !_regex_AuthnRule_Issuer.MatchString(this.Issuer) {
 		return github_com_mwitkow_go_proto_validators.FieldError("Issuer", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Issuer))
-	}
-	if !_regex_AuthnRule_OuputPayloadHeader.MatchString(this.OuputPayloadHeader) {
-		return github_com_mwitkow_go_proto_validators.FieldError("OuputPayloadHeader", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.OuputPayloadHeader))
-	}
-	return nil
-}
-func (this *AuthzSubject) Validate() error {
-	return nil
-}
-func (this *AuthzDestination) Validate() error {
-	return nil
-}
-func (this *AuthzRule) Validate() error {
-	if this.Subject != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Subject); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("Subject", err)
-		}
-	}
-	if this.Destination != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Destination); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("Destination", err)
-		}
-	}
-	return nil
-}
-func (this *Authz) Validate() error {
-	if len(this.Rules) < 1 {
-		return github_com_mwitkow_go_proto_validators.FieldError("Rules", fmt.Errorf(`value '%v' must contain at least 1 elements`, this.Rules))
-	}
-	for _, item := range this.Rules {
-		if item != nil {
-			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
-				return github_com_mwitkow_go_proto_validators.FieldError("Rules", err)
-			}
-		}
 	}
 	return nil
 }
@@ -185,7 +149,13 @@ func (this *Container) Validate() error {
 		return github_com_mwitkow_go_proto_validators.FieldError("Image", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Image))
 	}
 	// Validation of proto3 map<> fields is unsupported.
-	// Validation of proto3 map<> fields is unsupported.
+	for _, item := range this.Ports {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Ports", err)
+			}
+		}
+	}
 	return nil
 }
 
@@ -219,14 +189,6 @@ func (this *App) Validate() error {
 	if this.Authentication != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Authentication); err != nil {
 			return github_com_mwitkow_go_proto_validators.FieldError("Authentication", err)
-		}
-	}
-	if nil == this.Authorization {
-		return github_com_mwitkow_go_proto_validators.FieldError("Authorization", fmt.Errorf("message must exist"))
-	}
-	if this.Authorization != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Authorization); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("Authorization", err)
 		}
 	}
 	if nil == this.Status {
@@ -285,6 +247,9 @@ func (this *TaskInput) Validate() error {
 	}
 	return nil
 }
+func (this *ContainerPort) Validate() error {
+	return nil
+}
 
 var _regex_AppInput_Name = regexp.MustCompile(`^.{1,225}$`)
 
@@ -313,14 +278,6 @@ func (this *AppInput) Validate() error {
 	if this.Authentication != nil {
 		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Authentication); err != nil {
 			return github_com_mwitkow_go_proto_validators.FieldError("Authentication", err)
-		}
-	}
-	if nil == this.Authorization {
-		return github_com_mwitkow_go_proto_validators.FieldError("Authorization", fmt.Errorf("message must exist"))
-	}
-	if this.Authorization != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Authorization); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("Authorization", err)
 		}
 	}
 	return nil

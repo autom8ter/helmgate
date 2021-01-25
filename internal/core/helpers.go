@@ -30,9 +30,9 @@ func appContainers(app *meshpaaspb.AppInput) ([]v12.Container, error) {
 	var containers []v12.Container
 	for _, c := range app.Containers {
 		ports := []v12.ContainerPort{}
-		for name, p := range c.Ports {
+		for _, p := range c.Ports {
 			ports = append(ports, v12.ContainerPort{
-				Name:          name,
+				Name:          p.Name,
 				ContainerPort: cast.ToInt32(p),
 			})
 		}
@@ -68,9 +68,9 @@ func taskContainers(app *meshpaaspb.TaskInput) ([]v12.Container, error) {
 			})
 		}
 		ports := []v12.ContainerPort{}
-		for name, p := range c.Ports {
+		for _, p := range c.Ports {
 			ports = append(ports, v12.ContainerPort{
-				Name:          name,
+				Name:          p.Name,
 				ContainerPort: cast.ToInt32(p),
 			})
 		}
@@ -101,7 +101,22 @@ func (m *Manager) toNamespace(usr map[string]interface{}) *v12.Namespace {
 	}
 }
 
-func (m *Manager) overwriteService(usr map[string]interface{}, svc *networking.VirtualService, app *meshpaaspb.AppInput) *networking.VirtualService {
+func (m *Manager) overwriteService(svc *v1.Service, app *meshpaaspb.AppInput) *v1.Service {
+	var ports []v1.ServicePort
+
+	for _, c := range app.Containers {
+		for _, p := range c.Ports {
+			ports = append(ports, v1.ServicePort{
+				Name: p.Name,
+				Port: int32(p.GetNumber()),
+			})
+		}
+	}
+	svc.Spec.Ports = ports
+	return svc
+}
+
+func (m *Manager) overwriteVirtualService(usr map[string]interface{}, svc *networking.VirtualService, app *meshpaaspb.AppInput) *networking.VirtualService {
 	if svc.Name != "" {
 		svc.Name = app.Name
 	}
@@ -180,14 +195,14 @@ func (m *Manager) overwriteService(usr map[string]interface{}, svc *networking.V
 		Labels:    app.Labels,
 	},
 	Spec: v1.ServiceSpec{
-		Ports:    toServicePorts(app),
+		Ports:    toVirtualServicePorts(app),
 		Selector: app.Labels,
 		Type:     "",
 	},
 	Status: v1.ServiceStatus{},
 */
 
-func (m *Manager) toService(usr map[string]interface{}, app *meshpaaspb.AppInput) *networking.VirtualService {
+func (m *Manager) toVirtualService(usr map[string]interface{}, app *meshpaaspb.AppInput) *networking.VirtualService {
 	svc := &networking.VirtualService{
 		TypeMeta: metav1.TypeMeta{},
 		ObjectMeta: metav1.ObjectMeta{
@@ -292,20 +307,16 @@ func (m *Manager) toRequestAuthentication(usr map[string]interface{}, input *mes
 	}
 	for _, r := range input.Authentication.Rules {
 		auth.Spec.JwtRules = append(auth.Spec.JwtRules, &securityv1beta1.JWTRule{
-			Issuer:                r.Issuer,
-			Audiences:             r.Audience,
-			JwksUri:               r.JwksUri,
-			OutputPayloadToHeader: r.OuputPayloadHeader,
-			ForwardOriginalToken:  false,
+			Issuer:               r.Issuer,
+			Audiences:            r.Audience,
+			JwksUri:              r.JwksUri,
+			ForwardOriginalToken: true,
 		})
 	}
 	return auth
 }
 
 func (m *Manager) toAuthorizationPolicy(usr map[string]interface{}, input *meshpaaspb.AppInput) *security.AuthorizationPolicy {
-	if input.Authorization == nil {
-		return nil
-	}
 	var auth = &security.AuthorizationPolicy{
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      input.Name,
@@ -316,44 +327,6 @@ func (m *Manager) toAuthorizationPolicy(usr map[string]interface{}, input *meshp
 		meshpaasApp: input.Name,
 	}
 	auth.Spec.Action = securityv1beta1.AuthorizationPolicy_ALLOW
-	for _, r := range input.Authorization.Rules {
-		rule := &securityv1beta1.Rule{
-			From: nil,
-			To:   nil,
-			When: []*securityv1beta1.Condition{},
-		}
-		if len(r.GetDestination().GetAllowHosts()) > 0 || len(r.GetDestination().GetAllowMethods()) > 0 || len(r.GetDestination().GetAllowPorts()) > 0 || len(r.GetDestination().GetAllowPaths()) > 0 {
-			rule.To = append(rule.To, &securityv1beta1.Rule_To{
-				Operation: &securityv1beta1.Operation{
-					Hosts:   r.GetDestination().GetAllowHosts(),
-					Ports:   r.GetDestination().GetAllowPorts(),
-					Methods: r.GetDestination().GetAllowMethods(),
-					Paths:   r.GetDestination().GetAllowPaths(),
-				},
-			})
-		}
-		if len(r.GetSubject().GetAllowRoles()) > 0 || len(r.GetSubject().GetAllowIssuers()) > 0 || len(r.GetSubject().GetAllowAudience()) > 0 {
-			if len(r.GetSubject().GetAllowRoles()) > 0 {
-				rule.When = append(rule.When, &securityv1beta1.Condition{
-					Key:    "request.auth.claims[roles]",
-					Values: r.GetSubject().GetAllowRoles(),
-				})
-			}
-			if len(r.GetSubject().GetAllowAudience()) > 0 {
-				rule.When = append(rule.When, &securityv1beta1.Condition{
-					Key:    "request.auth.claims[aud]",
-					Values: r.GetSubject().GetAllowAudience(),
-				})
-			}
-			if len(r.GetSubject().GetAllowIssuers()) > 0 {
-				rule.When = append(rule.When, &securityv1beta1.Condition{
-					Key:    "request.auth.claims[iss]",
-					Values: r.GetSubject().GetAllowIssuers(),
-				})
-			}
-		}
-		auth.Spec.Rules = append(auth.Spec.Rules, rule)
-	}
 	return auth
 }
 
@@ -567,10 +540,34 @@ func overwriteTask(cronJob *v1beta1.CronJob, task *meshpaaspb.TaskInput) (*v1bet
 	return cronJob, nil
 }
 
+func (m *Manager) toService(usr map[string]interface{}, input *meshpaaspb.AppInput) *v1.Service {
+	svc := &v1.Service{
+		ObjectMeta: metav1.ObjectMeta{
+			Name:      input.Name,
+			Namespace: cast.ToString(usr[m.namespaceClaim]),
+			Labels: map[string]string{
+				meshpaasApp: input.Name,
+			},
+		},
+	}
+	for _, c := range input.Containers {
+		for _, p := range c.GetPorts() {
+			if p.Expose {
+				svc.Spec.Ports = append(svc.Spec.Ports, v1.ServicePort{
+					Name: p.Name,
+					Port: int32(p.GetNumber()),
+				})
+			}
+		}
+	}
+	return svc
+}
+
 type k8sApp struct {
 	namespace      *v12.Namespace
 	deployment     *apps.Deployment
-	service        *networking.VirtualService
+	svc            *v1.Service
+	vsvc           *networking.VirtualService
 	authentication *security.RequestAuthentication
 	authorization  *security.AuthorizationPolicy
 }
@@ -581,15 +578,14 @@ func (k *k8sApp) toApp() *meshpaaspb.App {
 		Containers:     nil,
 		Replicas:       uint32(*k.deployment.Spec.Replicas),
 		Routing:        &meshpaaspb.Routing{},
-		Status:         nil,
 		Authentication: &meshpaaspb.Authn{},
+		Status:         nil,
 	}
-	if len(k.service.Spec.Gateways) > 0 {
-		a.Routing.Gateway = k.service.Spec.Gateways[0]
+	if len(k.vsvc.Spec.Gateways) > 0 {
+		a.Routing.Gateway = k.vsvc.Spec.Gateways[0]
 	}
-
-	a.Routing.Hosts = k.service.Spec.Hosts
-	for _, r := range k.service.Spec.Http {
+	a.Routing.Hosts = k.vsvc.Spec.Hosts
+	for _, r := range k.vsvc.Spec.Http {
 		var origins []string
 		var prefix string
 		if len(r.Match) > 0 {
@@ -607,14 +603,27 @@ func (k *k8sApp) toApp() *meshpaaspb.App {
 			AllowCredentials: r.CorsPolicy.AllowCredentials != nil && r.CorsPolicy.AllowCredentials.Value,
 		})
 	}
+	if len(k.deployment.Spec.Template.Spec.ImagePullSecrets) > 0 {
+		a.ImagePullSecret = k.deployment.Spec.Template.Spec.ImagePullSecrets[0].Name
+	}
 	for _, c := range k.deployment.Spec.Template.Spec.Containers {
 		var env = map[string]string{}
 		for _, e := range c.Env {
 			env[e.Name] = e.Value
 		}
-		var ports = map[string]uint32{}
+		var ports = []*meshpaaspb.ContainerPort{}
 		for _, p := range c.Ports {
-			ports[p.Name] = cast.ToUint32(p.ContainerPort)
+			port := &meshpaaspb.ContainerPort{
+				Name:   p.Name,
+				Number: uint32(p.ContainerPort),
+				Expose: false,
+			}
+			for _, svcP := range k.svc.Spec.Ports {
+				if svcP.Name == p.Name && svcP.Port == p.ContainerPort {
+					port.Expose = true
+				}
+			}
+			ports = append(ports, port)
 		}
 		a.Containers = append(a.Containers, &meshpaaspb.Container{
 			Name:  c.Name,
@@ -626,45 +635,12 @@ func (k *k8sApp) toApp() *meshpaaspb.App {
 	}
 	for _, r := range k.authentication.Spec.JwtRules {
 		a.Authentication.Rules = append(a.Authentication.Rules, &meshpaaspb.AuthnRule{
-			JwksUri:            r.JwksUri,
-			Issuer:             r.Issuer,
-			Audience:           r.Audiences,
-			OuputPayloadHeader: r.OutputPayloadToHeader,
+			JwksUri:  r.JwksUri,
+			Issuer:   r.Issuer,
+			Audience: r.Audiences,
 		})
 	}
 
-	for _, r := range k.authorization.Spec.Rules {
-		var (
-			issuer   []string
-			roles    []string
-			audience []string
-		)
-		for _, i := range r.When {
-			switch i.Key {
-			case "request.auth.claims.roles":
-				roles = i.Values
-			case "request.auth.claims.iss":
-				issuer = i.Values
-			case "request.auth.claims.aud":
-				audience = i.Values
-			}
-		}
-		rule := &meshpaaspb.AuthzRule{
-			Subject: &meshpaaspb.AuthzSubject{
-				AllowIssuers:  issuer,
-				AllowRoles:    roles,
-				AllowAudience: audience,
-			},
-			Destination: &meshpaaspb.AuthzDestination{},
-		}
-		if len(r.To) > 0 {
-			rule.Destination.AllowPaths = r.To[0].Operation.Paths
-			rule.Destination.AllowHosts = r.To[0].Operation.Hosts
-			rule.Destination.AllowMethods = r.To[0].Operation.Methods
-			rule.Destination.AllowPorts = r.To[0].Operation.Ports
-		}
-		a.Authorization.Rules = append(a.Authorization.Rules, rule)
-	}
 	return a
 }
 
@@ -689,9 +665,13 @@ func (k *k8sTask) toTask() *meshpaaspb.Task {
 		if k.cronJob.Spec.JobTemplate.Spec.Completions != nil {
 			a.Completions = uint32(*k.cronJob.Spec.JobTemplate.Spec.Completions)
 		}
-		var ports = map[string]uint32{}
+		var ports []*meshpaaspb.ContainerPort
 		for _, p := range c.Ports {
-			ports[p.Name] = cast.ToUint32(p.ContainerPort)
+			ports = append(ports, &meshpaaspb.ContainerPort{
+				Name:   p.Name,
+				Number: uint32(p.ContainerPort),
+				Expose: false,
+			})
 		}
 		a.Containers = append(a.Containers, &meshpaaspb.Container{
 			Name:  c.Name,

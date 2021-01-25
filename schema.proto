@@ -18,43 +18,6 @@ message AuthnRule {
   string issuer =2[(validator.field) = {regex : "^.{1,225}$"}];
   // issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
   repeated string audience =3;
-  // serialize jwt payload & write to this header
-  string ouput_payload_header =4[(validator.field) = {regex : "^.{1,225}$"}];
-}
-
-// AuthzSubject is a set of attributes derived from the jwt of on an inbound request
-message AuthzSubject {
-  // allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
-  repeated string allow_issuers =6;
-  // allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
-  repeated string allow_roles =7;
-  // allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
-  repeated string allow_audience =8;
-}
-
-// the destination of an authorization decision
-message AuthzDestination {
-  // restricts access to one of many paths
-  repeated string allow_paths =2;
-  // restricts access to one of many hosts
-  repeated string allow_hosts =3;
-  // restricts access to one of many methods
-  repeated string allow_methods =4;
-  // restricts access to one of many ports
-  repeated string allow_ports =5;
-}
-
-// At least on AuthzRule rule must pass for a request to reach its final destination(an application) in the service mesh
-message AuthzRule {
-  // subject restricts access based on the subject of a request in the service mesh
-  AuthzSubject subject =1;
-  // source restricts access based on the destination of a request in the service mesh
-  AuthzDestination destination =2;
-}
-
-// Authz holds authorization options for an application
-message Authz {
-  repeated AuthzRule rules =1[(validator.field) = {repeated_count_min : 1}];
 }
 
 // Authn holds authentication options for an application
@@ -191,8 +154,8 @@ message Container {
   repeated string args =3;
   // k/v map of environmental variables
   map<string, string> env =4;
-  // k/v map of ports to expose ex: http: 80 https: 443
-  map<string, uint32> ports =5[(validator.field) = {msg_exists : true}];
+  // list of ports
+  repeated ContainerPort ports =5;
 }
 
 // App is a stateless application
@@ -207,8 +170,6 @@ message App {
   Routing routing =11[(validator.field) = {msg_exists : true}];
   // application authentication options
   Authn authentication =12[(validator.field) = {msg_exists : true}];
-  // application authorization options
-  Authz authorization =13[(validator.field) = {msg_exists : true}];
   // image_pull_secret is the secret used to pull images from docker registry
   string image_pull_secret =14;
   // status tracks the state of the application during it's lifecycle
@@ -244,6 +205,15 @@ message TaskInput {
   uint32 completions = 8;
 }
 
+message ContainerPort {
+  // port name
+  string name = 1;
+  // port number
+  uint32 number =2;
+  // expose to service mesh(outside of localhost)
+  bool expose =3;
+}
+
 // AppInput creates/replaces an app
 message AppInput {
   // name of the application
@@ -256,8 +226,6 @@ message AppInput {
   Routing routing =10[(validator.field) = {msg_exists : true}];
   // application authentication options
   Authn authentication =12;
-  // application authorization options
-  Authz authorization =13[(validator.field) = {msg_exists : true}];
   // image_pull_secret is the secret used to pull images from docker registry
   string image_pull_secret =14;
 }

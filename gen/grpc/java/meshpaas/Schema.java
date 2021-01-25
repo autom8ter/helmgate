@@ -500,24 +500,6 @@ public final class Schema {
      */
     com.google.protobuf.ByteString
         getAudienceBytes(int index);
-
-    /**
-     * <pre>
-     * serialize jwt payload &amp; write to this header
-     * </pre>
-     *
-     * <code>string ouput_payload_header = 4 [(.validator.field) = { ... }</code>
-     */
-    java.lang.String getOuputPayloadHeader();
-    /**
-     * <pre>
-     * serialize jwt payload &amp; write to this header
-     * </pre>
-     *
-     * <code>string ouput_payload_header = 4 [(.validator.field) = { ... }</code>
-     */
-    com.google.protobuf.ByteString
-        getOuputPayloadHeaderBytes();
   }
   /**
    * <pre>
@@ -539,7 +521,6 @@ public final class Schema {
       jwksUri_ = "";
       issuer_ = "";
       audience_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      ouputPayloadHeader_ = "";
     }
 
     @java.lang.Override
@@ -585,12 +566,6 @@ public final class Schema {
                 mutable_bitField0_ |= 0x00000004;
               }
               audience_.add(s);
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              ouputPayloadHeader_ = s;
               break;
             }
             default: {
@@ -758,48 +733,6 @@ public final class Schema {
       return audience_.getByteString(index);
     }
 
-    public static final int OUPUT_PAYLOAD_HEADER_FIELD_NUMBER = 4;
-    private volatile java.lang.Object ouputPayloadHeader_;
-    /**
-     * <pre>
-     * serialize jwt payload &amp; write to this header
-     * </pre>
-     *
-     * <code>string ouput_payload_header = 4 [(.validator.field) = { ... }</code>
-     */
-    public java.lang.String getOuputPayloadHeader() {
-      java.lang.Object ref = ouputPayloadHeader_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        ouputPayloadHeader_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * serialize jwt payload &amp; write to this header
-     * </pre>
-     *
-     * <code>string ouput_payload_header = 4 [(.validator.field) = { ... }</code>
-     */
-    public com.google.protobuf.ByteString
-        getOuputPayloadHeaderBytes() {
-      java.lang.Object ref = ouputPayloadHeader_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        ouputPayloadHeader_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -822,9 +755,6 @@ public final class Schema {
       }
       for (int i = 0; i < audience_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, audience_.getRaw(i));
-      }
-      if (!getOuputPayloadHeaderBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, ouputPayloadHeader_);
       }
       unknownFields.writeTo(output);
     }
@@ -849,9 +779,6 @@ public final class Schema {
         size += dataSize;
         size += 1 * getAudienceList().size();
       }
-      if (!getOuputPayloadHeaderBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, ouputPayloadHeader_);
-      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -874,8 +801,6 @@ public final class Schema {
           .equals(other.getIssuer());
       result = result && getAudienceList()
           .equals(other.getAudienceList());
-      result = result && getOuputPayloadHeader()
-          .equals(other.getOuputPayloadHeader());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -895,8 +820,6 @@ public final class Schema {
         hash = (37 * hash) + AUDIENCE_FIELD_NUMBER;
         hash = (53 * hash) + getAudienceList().hashCode();
       }
-      hash = (37 * hash) + OUPUT_PAYLOAD_HEADER_FIELD_NUMBER;
-      hash = (53 * hash) + getOuputPayloadHeader().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1040,8 +963,6 @@ public final class Schema {
 
         audience_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
-        ouputPayloadHeader_ = "";
-
         return this;
       }
 
@@ -1077,7 +998,6 @@ public final class Schema {
           bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.audience_ = audience_;
-        result.ouputPayloadHeader_ = ouputPayloadHeader_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1143,10 +1063,6 @@ public final class Schema {
             ensureAudienceIsMutable();
             audience_.addAll(other.audience_);
           }
-          onChanged();
-        }
-        if (!other.getOuputPayloadHeader().isEmpty()) {
-          ouputPayloadHeader_ = other.ouputPayloadHeader_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -1486,95 +1402,6 @@ public final class Schema {
         onChanged();
         return this;
       }
-
-      private java.lang.Object ouputPayloadHeader_ = "";
-      /**
-       * <pre>
-       * serialize jwt payload &amp; write to this header
-       * </pre>
-       *
-       * <code>string ouput_payload_header = 4 [(.validator.field) = { ... }</code>
-       */
-      public java.lang.String getOuputPayloadHeader() {
-        java.lang.Object ref = ouputPayloadHeader_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          ouputPayloadHeader_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * serialize jwt payload &amp; write to this header
-       * </pre>
-       *
-       * <code>string ouput_payload_header = 4 [(.validator.field) = { ... }</code>
-       */
-      public com.google.protobuf.ByteString
-          getOuputPayloadHeaderBytes() {
-        java.lang.Object ref = ouputPayloadHeader_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          ouputPayloadHeader_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * serialize jwt payload &amp; write to this header
-       * </pre>
-       *
-       * <code>string ouput_payload_header = 4 [(.validator.field) = { ... }</code>
-       */
-      public Builder setOuputPayloadHeader(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        ouputPayloadHeader_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * serialize jwt payload &amp; write to this header
-       * </pre>
-       *
-       * <code>string ouput_payload_header = 4 [(.validator.field) = { ... }</code>
-       */
-      public Builder clearOuputPayloadHeader() {
-        
-        ouputPayloadHeader_ = getDefaultInstance().getOuputPayloadHeader();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * serialize jwt payload &amp; write to this header
-       * </pre>
-       *
-       * <code>string ouput_payload_header = 4 [(.validator.field) = { ... }</code>
-       */
-      public Builder setOuputPayloadHeaderBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        ouputPayloadHeader_ = value;
-        onChanged();
-        return this;
-      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1623,4370 +1450,6 @@ public final class Schema {
 
     @java.lang.Override
     public meshpaas.Schema.AuthnRule getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface AuthzSubjectOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:meshpaas.AuthzSubject)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
-     * </pre>
-     *
-     * <code>repeated string allow_issuers = 6;</code>
-     */
-    java.util.List<java.lang.String>
-        getAllowIssuersList();
-    /**
-     * <pre>
-     * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
-     * </pre>
-     *
-     * <code>repeated string allow_issuers = 6;</code>
-     */
-    int getAllowIssuersCount();
-    /**
-     * <pre>
-     * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
-     * </pre>
-     *
-     * <code>repeated string allow_issuers = 6;</code>
-     */
-    java.lang.String getAllowIssuers(int index);
-    /**
-     * <pre>
-     * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
-     * </pre>
-     *
-     * <code>repeated string allow_issuers = 6;</code>
-     */
-    com.google.protobuf.ByteString
-        getAllowIssuersBytes(int index);
-
-    /**
-     * <pre>
-     * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
-     * </pre>
-     *
-     * <code>repeated string allow_roles = 7;</code>
-     */
-    java.util.List<java.lang.String>
-        getAllowRolesList();
-    /**
-     * <pre>
-     * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
-     * </pre>
-     *
-     * <code>repeated string allow_roles = 7;</code>
-     */
-    int getAllowRolesCount();
-    /**
-     * <pre>
-     * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
-     * </pre>
-     *
-     * <code>repeated string allow_roles = 7;</code>
-     */
-    java.lang.String getAllowRoles(int index);
-    /**
-     * <pre>
-     * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
-     * </pre>
-     *
-     * <code>repeated string allow_roles = 7;</code>
-     */
-    com.google.protobuf.ByteString
-        getAllowRolesBytes(int index);
-
-    /**
-     * <pre>
-     * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
-     * </pre>
-     *
-     * <code>repeated string allow_audience = 8;</code>
-     */
-    java.util.List<java.lang.String>
-        getAllowAudienceList();
-    /**
-     * <pre>
-     * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
-     * </pre>
-     *
-     * <code>repeated string allow_audience = 8;</code>
-     */
-    int getAllowAudienceCount();
-    /**
-     * <pre>
-     * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
-     * </pre>
-     *
-     * <code>repeated string allow_audience = 8;</code>
-     */
-    java.lang.String getAllowAudience(int index);
-    /**
-     * <pre>
-     * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
-     * </pre>
-     *
-     * <code>repeated string allow_audience = 8;</code>
-     */
-    com.google.protobuf.ByteString
-        getAllowAudienceBytes(int index);
-  }
-  /**
-   * <pre>
-   * AuthzSubject is a set of attributes derived from the jwt of on an inbound request
-   * </pre>
-   *
-   * Protobuf type {@code meshpaas.AuthzSubject}
-   */
-  public  static final class AuthzSubject extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:meshpaas.AuthzSubject)
-      AuthzSubjectOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use AuthzSubject.newBuilder() to construct.
-    private AuthzSubject(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private AuthzSubject() {
-      allowIssuers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      allowRoles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      allowAudience_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private AuthzSubject(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 50: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                allowIssuers_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              allowIssuers_.add(s);
-              break;
-            }
-            case 58: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                allowRoles_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              allowRoles_.add(s);
-              break;
-            }
-            case 66: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                allowAudience_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              allowAudience_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          allowIssuers_ = allowIssuers_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-          allowRoles_ = allowRoles_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-          allowAudience_ = allowAudience_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return meshpaas.Schema.internal_static_meshpaas_AuthzSubject_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return meshpaas.Schema.internal_static_meshpaas_AuthzSubject_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              meshpaas.Schema.AuthzSubject.class, meshpaas.Schema.AuthzSubject.Builder.class);
-    }
-
-    public static final int ALLOW_ISSUERS_FIELD_NUMBER = 6;
-    private com.google.protobuf.LazyStringList allowIssuers_;
-    /**
-     * <pre>
-     * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
-     * </pre>
-     *
-     * <code>repeated string allow_issuers = 6;</code>
-     */
-    public com.google.protobuf.ProtocolStringList
-        getAllowIssuersList() {
-      return allowIssuers_;
-    }
-    /**
-     * <pre>
-     * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
-     * </pre>
-     *
-     * <code>repeated string allow_issuers = 6;</code>
-     */
-    public int getAllowIssuersCount() {
-      return allowIssuers_.size();
-    }
-    /**
-     * <pre>
-     * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
-     * </pre>
-     *
-     * <code>repeated string allow_issuers = 6;</code>
-     */
-    public java.lang.String getAllowIssuers(int index) {
-      return allowIssuers_.get(index);
-    }
-    /**
-     * <pre>
-     * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
-     * </pre>
-     *
-     * <code>repeated string allow_issuers = 6;</code>
-     */
-    public com.google.protobuf.ByteString
-        getAllowIssuersBytes(int index) {
-      return allowIssuers_.getByteString(index);
-    }
-
-    public static final int ALLOW_ROLES_FIELD_NUMBER = 7;
-    private com.google.protobuf.LazyStringList allowRoles_;
-    /**
-     * <pre>
-     * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
-     * </pre>
-     *
-     * <code>repeated string allow_roles = 7;</code>
-     */
-    public com.google.protobuf.ProtocolStringList
-        getAllowRolesList() {
-      return allowRoles_;
-    }
-    /**
-     * <pre>
-     * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
-     * </pre>
-     *
-     * <code>repeated string allow_roles = 7;</code>
-     */
-    public int getAllowRolesCount() {
-      return allowRoles_.size();
-    }
-    /**
-     * <pre>
-     * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
-     * </pre>
-     *
-     * <code>repeated string allow_roles = 7;</code>
-     */
-    public java.lang.String getAllowRoles(int index) {
-      return allowRoles_.get(index);
-    }
-    /**
-     * <pre>
-     * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
-     * </pre>
-     *
-     * <code>repeated string allow_roles = 7;</code>
-     */
-    public com.google.protobuf.ByteString
-        getAllowRolesBytes(int index) {
-      return allowRoles_.getByteString(index);
-    }
-
-    public static final int ALLOW_AUDIENCE_FIELD_NUMBER = 8;
-    private com.google.protobuf.LazyStringList allowAudience_;
-    /**
-     * <pre>
-     * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
-     * </pre>
-     *
-     * <code>repeated string allow_audience = 8;</code>
-     */
-    public com.google.protobuf.ProtocolStringList
-        getAllowAudienceList() {
-      return allowAudience_;
-    }
-    /**
-     * <pre>
-     * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
-     * </pre>
-     *
-     * <code>repeated string allow_audience = 8;</code>
-     */
-    public int getAllowAudienceCount() {
-      return allowAudience_.size();
-    }
-    /**
-     * <pre>
-     * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
-     * </pre>
-     *
-     * <code>repeated string allow_audience = 8;</code>
-     */
-    public java.lang.String getAllowAudience(int index) {
-      return allowAudience_.get(index);
-    }
-    /**
-     * <pre>
-     * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
-     * </pre>
-     *
-     * <code>repeated string allow_audience = 8;</code>
-     */
-    public com.google.protobuf.ByteString
-        getAllowAudienceBytes(int index) {
-      return allowAudience_.getByteString(index);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      for (int i = 0; i < allowIssuers_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, allowIssuers_.getRaw(i));
-      }
-      for (int i = 0; i < allowRoles_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, allowRoles_.getRaw(i));
-      }
-      for (int i = 0; i < allowAudience_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, allowAudience_.getRaw(i));
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      {
-        int dataSize = 0;
-        for (int i = 0; i < allowIssuers_.size(); i++) {
-          dataSize += computeStringSizeNoTag(allowIssuers_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getAllowIssuersList().size();
-      }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < allowRoles_.size(); i++) {
-          dataSize += computeStringSizeNoTag(allowRoles_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getAllowRolesList().size();
-      }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < allowAudience_.size(); i++) {
-          dataSize += computeStringSizeNoTag(allowAudience_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getAllowAudienceList().size();
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof meshpaas.Schema.AuthzSubject)) {
-        return super.equals(obj);
-      }
-      meshpaas.Schema.AuthzSubject other = (meshpaas.Schema.AuthzSubject) obj;
-
-      boolean result = true;
-      result = result && getAllowIssuersList()
-          .equals(other.getAllowIssuersList());
-      result = result && getAllowRolesList()
-          .equals(other.getAllowRolesList());
-      result = result && getAllowAudienceList()
-          .equals(other.getAllowAudienceList());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      if (getAllowIssuersCount() > 0) {
-        hash = (37 * hash) + ALLOW_ISSUERS_FIELD_NUMBER;
-        hash = (53 * hash) + getAllowIssuersList().hashCode();
-      }
-      if (getAllowRolesCount() > 0) {
-        hash = (37 * hash) + ALLOW_ROLES_FIELD_NUMBER;
-        hash = (53 * hash) + getAllowRolesList().hashCode();
-      }
-      if (getAllowAudienceCount() > 0) {
-        hash = (37 * hash) + ALLOW_AUDIENCE_FIELD_NUMBER;
-        hash = (53 * hash) + getAllowAudienceList().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static meshpaas.Schema.AuthzSubject parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static meshpaas.Schema.AuthzSubject parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static meshpaas.Schema.AuthzSubject parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static meshpaas.Schema.AuthzSubject parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static meshpaas.Schema.AuthzSubject parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static meshpaas.Schema.AuthzSubject parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static meshpaas.Schema.AuthzSubject parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static meshpaas.Schema.AuthzSubject parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static meshpaas.Schema.AuthzSubject parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static meshpaas.Schema.AuthzSubject parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static meshpaas.Schema.AuthzSubject parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static meshpaas.Schema.AuthzSubject parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(meshpaas.Schema.AuthzSubject prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     * AuthzSubject is a set of attributes derived from the jwt of on an inbound request
-     * </pre>
-     *
-     * Protobuf type {@code meshpaas.AuthzSubject}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:meshpaas.AuthzSubject)
-        meshpaas.Schema.AuthzSubjectOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return meshpaas.Schema.internal_static_meshpaas_AuthzSubject_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return meshpaas.Schema.internal_static_meshpaas_AuthzSubject_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                meshpaas.Schema.AuthzSubject.class, meshpaas.Schema.AuthzSubject.Builder.class);
-      }
-
-      // Construct using meshpaas.Schema.AuthzSubject.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        allowIssuers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        allowRoles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        allowAudience_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000004);
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return meshpaas.Schema.internal_static_meshpaas_AuthzSubject_descriptor;
-      }
-
-      @java.lang.Override
-      public meshpaas.Schema.AuthzSubject getDefaultInstanceForType() {
-        return meshpaas.Schema.AuthzSubject.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public meshpaas.Schema.AuthzSubject build() {
-        meshpaas.Schema.AuthzSubject result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public meshpaas.Schema.AuthzSubject buildPartial() {
-        meshpaas.Schema.AuthzSubject result = new meshpaas.Schema.AuthzSubject(this);
-        int from_bitField0_ = bitField0_;
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          allowIssuers_ = allowIssuers_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.allowIssuers_ = allowIssuers_;
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          allowRoles_ = allowRoles_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000002);
-        }
-        result.allowRoles_ = allowRoles_;
-        if (((bitField0_ & 0x00000004) == 0x00000004)) {
-          allowAudience_ = allowAudience_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000004);
-        }
-        result.allowAudience_ = allowAudience_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof meshpaas.Schema.AuthzSubject) {
-          return mergeFrom((meshpaas.Schema.AuthzSubject)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(meshpaas.Schema.AuthzSubject other) {
-        if (other == meshpaas.Schema.AuthzSubject.getDefaultInstance()) return this;
-        if (!other.allowIssuers_.isEmpty()) {
-          if (allowIssuers_.isEmpty()) {
-            allowIssuers_ = other.allowIssuers_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensureAllowIssuersIsMutable();
-            allowIssuers_.addAll(other.allowIssuers_);
-          }
-          onChanged();
-        }
-        if (!other.allowRoles_.isEmpty()) {
-          if (allowRoles_.isEmpty()) {
-            allowRoles_ = other.allowRoles_;
-            bitField0_ = (bitField0_ & ~0x00000002);
-          } else {
-            ensureAllowRolesIsMutable();
-            allowRoles_.addAll(other.allowRoles_);
-          }
-          onChanged();
-        }
-        if (!other.allowAudience_.isEmpty()) {
-          if (allowAudience_.isEmpty()) {
-            allowAudience_ = other.allowAudience_;
-            bitField0_ = (bitField0_ & ~0x00000004);
-          } else {
-            ensureAllowAudienceIsMutable();
-            allowAudience_.addAll(other.allowAudience_);
-          }
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        meshpaas.Schema.AuthzSubject parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (meshpaas.Schema.AuthzSubject) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private com.google.protobuf.LazyStringList allowIssuers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureAllowIssuersIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          allowIssuers_ = new com.google.protobuf.LazyStringArrayList(allowIssuers_);
-          bitField0_ |= 0x00000001;
-         }
-      }
-      /**
-       * <pre>
-       * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
-       * </pre>
-       *
-       * <code>repeated string allow_issuers = 6;</code>
-       */
-      public com.google.protobuf.ProtocolStringList
-          getAllowIssuersList() {
-        return allowIssuers_.getUnmodifiableView();
-      }
-      /**
-       * <pre>
-       * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
-       * </pre>
-       *
-       * <code>repeated string allow_issuers = 6;</code>
-       */
-      public int getAllowIssuersCount() {
-        return allowIssuers_.size();
-      }
-      /**
-       * <pre>
-       * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
-       * </pre>
-       *
-       * <code>repeated string allow_issuers = 6;</code>
-       */
-      public java.lang.String getAllowIssuers(int index) {
-        return allowIssuers_.get(index);
-      }
-      /**
-       * <pre>
-       * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
-       * </pre>
-       *
-       * <code>repeated string allow_issuers = 6;</code>
-       */
-      public com.google.protobuf.ByteString
-          getAllowIssuersBytes(int index) {
-        return allowIssuers_.getByteString(index);
-      }
-      /**
-       * <pre>
-       * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
-       * </pre>
-       *
-       * <code>repeated string allow_issuers = 6;</code>
-       */
-      public Builder setAllowIssuers(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAllowIssuersIsMutable();
-        allowIssuers_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
-       * </pre>
-       *
-       * <code>repeated string allow_issuers = 6;</code>
-       */
-      public Builder addAllowIssuers(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAllowIssuersIsMutable();
-        allowIssuers_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
-       * </pre>
-       *
-       * <code>repeated string allow_issuers = 6;</code>
-       */
-      public Builder addAllAllowIssuers(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureAllowIssuersIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, allowIssuers_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
-       * </pre>
-       *
-       * <code>repeated string allow_issuers = 6;</code>
-       */
-      public Builder clearAllowIssuers() {
-        allowIssuers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * allow_issuers allows one of many issuers sourced from the incoming jwt.claims.iss claim
-       * </pre>
-       *
-       * <code>repeated string allow_issuers = 6;</code>
-       */
-      public Builder addAllowIssuersBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        ensureAllowIssuersIsMutable();
-        allowIssuers_.add(value);
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.LazyStringList allowRoles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureAllowRolesIsMutable() {
-        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-          allowRoles_ = new com.google.protobuf.LazyStringArrayList(allowRoles_);
-          bitField0_ |= 0x00000002;
-         }
-      }
-      /**
-       * <pre>
-       * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
-       * </pre>
-       *
-       * <code>repeated string allow_roles = 7;</code>
-       */
-      public com.google.protobuf.ProtocolStringList
-          getAllowRolesList() {
-        return allowRoles_.getUnmodifiableView();
-      }
-      /**
-       * <pre>
-       * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
-       * </pre>
-       *
-       * <code>repeated string allow_roles = 7;</code>
-       */
-      public int getAllowRolesCount() {
-        return allowRoles_.size();
-      }
-      /**
-       * <pre>
-       * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
-       * </pre>
-       *
-       * <code>repeated string allow_roles = 7;</code>
-       */
-      public java.lang.String getAllowRoles(int index) {
-        return allowRoles_.get(index);
-      }
-      /**
-       * <pre>
-       * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
-       * </pre>
-       *
-       * <code>repeated string allow_roles = 7;</code>
-       */
-      public com.google.protobuf.ByteString
-          getAllowRolesBytes(int index) {
-        return allowRoles_.getByteString(index);
-      }
-      /**
-       * <pre>
-       * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
-       * </pre>
-       *
-       * <code>repeated string allow_roles = 7;</code>
-       */
-      public Builder setAllowRoles(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAllowRolesIsMutable();
-        allowRoles_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
-       * </pre>
-       *
-       * <code>repeated string allow_roles = 7;</code>
-       */
-      public Builder addAllowRoles(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAllowRolesIsMutable();
-        allowRoles_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
-       * </pre>
-       *
-       * <code>repeated string allow_roles = 7;</code>
-       */
-      public Builder addAllAllowRoles(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureAllowRolesIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, allowRoles_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
-       * </pre>
-       *
-       * <code>repeated string allow_roles = 7;</code>
-       */
-      public Builder clearAllowRoles() {
-        allowRoles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * allow_roles allows one of many roles sourced from the incoming jwt.claims.roles claim
-       * </pre>
-       *
-       * <code>repeated string allow_roles = 7;</code>
-       */
-      public Builder addAllowRolesBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        ensureAllowRolesIsMutable();
-        allowRoles_.add(value);
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.LazyStringList allowAudience_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureAllowAudienceIsMutable() {
-        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-          allowAudience_ = new com.google.protobuf.LazyStringArrayList(allowAudience_);
-          bitField0_ |= 0x00000004;
-         }
-      }
-      /**
-       * <pre>
-       * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
-       * </pre>
-       *
-       * <code>repeated string allow_audience = 8;</code>
-       */
-      public com.google.protobuf.ProtocolStringList
-          getAllowAudienceList() {
-        return allowAudience_.getUnmodifiableView();
-      }
-      /**
-       * <pre>
-       * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
-       * </pre>
-       *
-       * <code>repeated string allow_audience = 8;</code>
-       */
-      public int getAllowAudienceCount() {
-        return allowAudience_.size();
-      }
-      /**
-       * <pre>
-       * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
-       * </pre>
-       *
-       * <code>repeated string allow_audience = 8;</code>
-       */
-      public java.lang.String getAllowAudience(int index) {
-        return allowAudience_.get(index);
-      }
-      /**
-       * <pre>
-       * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
-       * </pre>
-       *
-       * <code>repeated string allow_audience = 8;</code>
-       */
-      public com.google.protobuf.ByteString
-          getAllowAudienceBytes(int index) {
-        return allowAudience_.getByteString(index);
-      }
-      /**
-       * <pre>
-       * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
-       * </pre>
-       *
-       * <code>repeated string allow_audience = 8;</code>
-       */
-      public Builder setAllowAudience(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAllowAudienceIsMutable();
-        allowAudience_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
-       * </pre>
-       *
-       * <code>repeated string allow_audience = 8;</code>
-       */
-      public Builder addAllowAudience(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAllowAudienceIsMutable();
-        allowAudience_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
-       * </pre>
-       *
-       * <code>repeated string allow_audience = 8;</code>
-       */
-      public Builder addAllAllowAudience(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureAllowAudienceIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, allowAudience_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
-       * </pre>
-       *
-       * <code>repeated string allow_audience = 8;</code>
-       */
-      public Builder clearAllowAudience() {
-        allowAudience_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000004);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * allow_audience allows one of many audiences sourced from the incoming jwt.claims.aud claim
-       * </pre>
-       *
-       * <code>repeated string allow_audience = 8;</code>
-       */
-      public Builder addAllowAudienceBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        ensureAllowAudienceIsMutable();
-        allowAudience_.add(value);
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:meshpaas.AuthzSubject)
-    }
-
-    // @@protoc_insertion_point(class_scope:meshpaas.AuthzSubject)
-    private static final meshpaas.Schema.AuthzSubject DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new meshpaas.Schema.AuthzSubject();
-    }
-
-    public static meshpaas.Schema.AuthzSubject getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<AuthzSubject>
-        PARSER = new com.google.protobuf.AbstractParser<AuthzSubject>() {
-      @java.lang.Override
-      public AuthzSubject parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AuthzSubject(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<AuthzSubject> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<AuthzSubject> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public meshpaas.Schema.AuthzSubject getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface AuthzDestinationOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:meshpaas.AuthzDestination)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     * restricts access to one of many paths
-     * </pre>
-     *
-     * <code>repeated string allow_paths = 2;</code>
-     */
-    java.util.List<java.lang.String>
-        getAllowPathsList();
-    /**
-     * <pre>
-     * restricts access to one of many paths
-     * </pre>
-     *
-     * <code>repeated string allow_paths = 2;</code>
-     */
-    int getAllowPathsCount();
-    /**
-     * <pre>
-     * restricts access to one of many paths
-     * </pre>
-     *
-     * <code>repeated string allow_paths = 2;</code>
-     */
-    java.lang.String getAllowPaths(int index);
-    /**
-     * <pre>
-     * restricts access to one of many paths
-     * </pre>
-     *
-     * <code>repeated string allow_paths = 2;</code>
-     */
-    com.google.protobuf.ByteString
-        getAllowPathsBytes(int index);
-
-    /**
-     * <pre>
-     * restricts access to one of many hosts
-     * </pre>
-     *
-     * <code>repeated string allow_hosts = 3;</code>
-     */
-    java.util.List<java.lang.String>
-        getAllowHostsList();
-    /**
-     * <pre>
-     * restricts access to one of many hosts
-     * </pre>
-     *
-     * <code>repeated string allow_hosts = 3;</code>
-     */
-    int getAllowHostsCount();
-    /**
-     * <pre>
-     * restricts access to one of many hosts
-     * </pre>
-     *
-     * <code>repeated string allow_hosts = 3;</code>
-     */
-    java.lang.String getAllowHosts(int index);
-    /**
-     * <pre>
-     * restricts access to one of many hosts
-     * </pre>
-     *
-     * <code>repeated string allow_hosts = 3;</code>
-     */
-    com.google.protobuf.ByteString
-        getAllowHostsBytes(int index);
-
-    /**
-     * <pre>
-     * restricts access to one of many methods
-     * </pre>
-     *
-     * <code>repeated string allow_methods = 4;</code>
-     */
-    java.util.List<java.lang.String>
-        getAllowMethodsList();
-    /**
-     * <pre>
-     * restricts access to one of many methods
-     * </pre>
-     *
-     * <code>repeated string allow_methods = 4;</code>
-     */
-    int getAllowMethodsCount();
-    /**
-     * <pre>
-     * restricts access to one of many methods
-     * </pre>
-     *
-     * <code>repeated string allow_methods = 4;</code>
-     */
-    java.lang.String getAllowMethods(int index);
-    /**
-     * <pre>
-     * restricts access to one of many methods
-     * </pre>
-     *
-     * <code>repeated string allow_methods = 4;</code>
-     */
-    com.google.protobuf.ByteString
-        getAllowMethodsBytes(int index);
-
-    /**
-     * <pre>
-     * restricts access to one of many ports
-     * </pre>
-     *
-     * <code>repeated string allow_ports = 5;</code>
-     */
-    java.util.List<java.lang.String>
-        getAllowPortsList();
-    /**
-     * <pre>
-     * restricts access to one of many ports
-     * </pre>
-     *
-     * <code>repeated string allow_ports = 5;</code>
-     */
-    int getAllowPortsCount();
-    /**
-     * <pre>
-     * restricts access to one of many ports
-     * </pre>
-     *
-     * <code>repeated string allow_ports = 5;</code>
-     */
-    java.lang.String getAllowPorts(int index);
-    /**
-     * <pre>
-     * restricts access to one of many ports
-     * </pre>
-     *
-     * <code>repeated string allow_ports = 5;</code>
-     */
-    com.google.protobuf.ByteString
-        getAllowPortsBytes(int index);
-  }
-  /**
-   * <pre>
-   * the destination of an authorization decision
-   * </pre>
-   *
-   * Protobuf type {@code meshpaas.AuthzDestination}
-   */
-  public  static final class AuthzDestination extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:meshpaas.AuthzDestination)
-      AuthzDestinationOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use AuthzDestination.newBuilder() to construct.
-    private AuthzDestination(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private AuthzDestination() {
-      allowPaths_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      allowHosts_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      allowMethods_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      allowPorts_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private AuthzDestination(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                allowPaths_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              allowPaths_.add(s);
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                allowHosts_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              allowHosts_.add(s);
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                allowMethods_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              allowMethods_.add(s);
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                allowPorts_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              allowPorts_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          allowPaths_ = allowPaths_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-          allowHosts_ = allowHosts_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-          allowMethods_ = allowMethods_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-          allowPorts_ = allowPorts_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return meshpaas.Schema.internal_static_meshpaas_AuthzDestination_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return meshpaas.Schema.internal_static_meshpaas_AuthzDestination_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              meshpaas.Schema.AuthzDestination.class, meshpaas.Schema.AuthzDestination.Builder.class);
-    }
-
-    public static final int ALLOW_PATHS_FIELD_NUMBER = 2;
-    private com.google.protobuf.LazyStringList allowPaths_;
-    /**
-     * <pre>
-     * restricts access to one of many paths
-     * </pre>
-     *
-     * <code>repeated string allow_paths = 2;</code>
-     */
-    public com.google.protobuf.ProtocolStringList
-        getAllowPathsList() {
-      return allowPaths_;
-    }
-    /**
-     * <pre>
-     * restricts access to one of many paths
-     * </pre>
-     *
-     * <code>repeated string allow_paths = 2;</code>
-     */
-    public int getAllowPathsCount() {
-      return allowPaths_.size();
-    }
-    /**
-     * <pre>
-     * restricts access to one of many paths
-     * </pre>
-     *
-     * <code>repeated string allow_paths = 2;</code>
-     */
-    public java.lang.String getAllowPaths(int index) {
-      return allowPaths_.get(index);
-    }
-    /**
-     * <pre>
-     * restricts access to one of many paths
-     * </pre>
-     *
-     * <code>repeated string allow_paths = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getAllowPathsBytes(int index) {
-      return allowPaths_.getByteString(index);
-    }
-
-    public static final int ALLOW_HOSTS_FIELD_NUMBER = 3;
-    private com.google.protobuf.LazyStringList allowHosts_;
-    /**
-     * <pre>
-     * restricts access to one of many hosts
-     * </pre>
-     *
-     * <code>repeated string allow_hosts = 3;</code>
-     */
-    public com.google.protobuf.ProtocolStringList
-        getAllowHostsList() {
-      return allowHosts_;
-    }
-    /**
-     * <pre>
-     * restricts access to one of many hosts
-     * </pre>
-     *
-     * <code>repeated string allow_hosts = 3;</code>
-     */
-    public int getAllowHostsCount() {
-      return allowHosts_.size();
-    }
-    /**
-     * <pre>
-     * restricts access to one of many hosts
-     * </pre>
-     *
-     * <code>repeated string allow_hosts = 3;</code>
-     */
-    public java.lang.String getAllowHosts(int index) {
-      return allowHosts_.get(index);
-    }
-    /**
-     * <pre>
-     * restricts access to one of many hosts
-     * </pre>
-     *
-     * <code>repeated string allow_hosts = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getAllowHostsBytes(int index) {
-      return allowHosts_.getByteString(index);
-    }
-
-    public static final int ALLOW_METHODS_FIELD_NUMBER = 4;
-    private com.google.protobuf.LazyStringList allowMethods_;
-    /**
-     * <pre>
-     * restricts access to one of many methods
-     * </pre>
-     *
-     * <code>repeated string allow_methods = 4;</code>
-     */
-    public com.google.protobuf.ProtocolStringList
-        getAllowMethodsList() {
-      return allowMethods_;
-    }
-    /**
-     * <pre>
-     * restricts access to one of many methods
-     * </pre>
-     *
-     * <code>repeated string allow_methods = 4;</code>
-     */
-    public int getAllowMethodsCount() {
-      return allowMethods_.size();
-    }
-    /**
-     * <pre>
-     * restricts access to one of many methods
-     * </pre>
-     *
-     * <code>repeated string allow_methods = 4;</code>
-     */
-    public java.lang.String getAllowMethods(int index) {
-      return allowMethods_.get(index);
-    }
-    /**
-     * <pre>
-     * restricts access to one of many methods
-     * </pre>
-     *
-     * <code>repeated string allow_methods = 4;</code>
-     */
-    public com.google.protobuf.ByteString
-        getAllowMethodsBytes(int index) {
-      return allowMethods_.getByteString(index);
-    }
-
-    public static final int ALLOW_PORTS_FIELD_NUMBER = 5;
-    private com.google.protobuf.LazyStringList allowPorts_;
-    /**
-     * <pre>
-     * restricts access to one of many ports
-     * </pre>
-     *
-     * <code>repeated string allow_ports = 5;</code>
-     */
-    public com.google.protobuf.ProtocolStringList
-        getAllowPortsList() {
-      return allowPorts_;
-    }
-    /**
-     * <pre>
-     * restricts access to one of many ports
-     * </pre>
-     *
-     * <code>repeated string allow_ports = 5;</code>
-     */
-    public int getAllowPortsCount() {
-      return allowPorts_.size();
-    }
-    /**
-     * <pre>
-     * restricts access to one of many ports
-     * </pre>
-     *
-     * <code>repeated string allow_ports = 5;</code>
-     */
-    public java.lang.String getAllowPorts(int index) {
-      return allowPorts_.get(index);
-    }
-    /**
-     * <pre>
-     * restricts access to one of many ports
-     * </pre>
-     *
-     * <code>repeated string allow_ports = 5;</code>
-     */
-    public com.google.protobuf.ByteString
-        getAllowPortsBytes(int index) {
-      return allowPorts_.getByteString(index);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      for (int i = 0; i < allowPaths_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, allowPaths_.getRaw(i));
-      }
-      for (int i = 0; i < allowHosts_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, allowHosts_.getRaw(i));
-      }
-      for (int i = 0; i < allowMethods_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, allowMethods_.getRaw(i));
-      }
-      for (int i = 0; i < allowPorts_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, allowPorts_.getRaw(i));
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      {
-        int dataSize = 0;
-        for (int i = 0; i < allowPaths_.size(); i++) {
-          dataSize += computeStringSizeNoTag(allowPaths_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getAllowPathsList().size();
-      }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < allowHosts_.size(); i++) {
-          dataSize += computeStringSizeNoTag(allowHosts_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getAllowHostsList().size();
-      }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < allowMethods_.size(); i++) {
-          dataSize += computeStringSizeNoTag(allowMethods_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getAllowMethodsList().size();
-      }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < allowPorts_.size(); i++) {
-          dataSize += computeStringSizeNoTag(allowPorts_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getAllowPortsList().size();
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof meshpaas.Schema.AuthzDestination)) {
-        return super.equals(obj);
-      }
-      meshpaas.Schema.AuthzDestination other = (meshpaas.Schema.AuthzDestination) obj;
-
-      boolean result = true;
-      result = result && getAllowPathsList()
-          .equals(other.getAllowPathsList());
-      result = result && getAllowHostsList()
-          .equals(other.getAllowHostsList());
-      result = result && getAllowMethodsList()
-          .equals(other.getAllowMethodsList());
-      result = result && getAllowPortsList()
-          .equals(other.getAllowPortsList());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      if (getAllowPathsCount() > 0) {
-        hash = (37 * hash) + ALLOW_PATHS_FIELD_NUMBER;
-        hash = (53 * hash) + getAllowPathsList().hashCode();
-      }
-      if (getAllowHostsCount() > 0) {
-        hash = (37 * hash) + ALLOW_HOSTS_FIELD_NUMBER;
-        hash = (53 * hash) + getAllowHostsList().hashCode();
-      }
-      if (getAllowMethodsCount() > 0) {
-        hash = (37 * hash) + ALLOW_METHODS_FIELD_NUMBER;
-        hash = (53 * hash) + getAllowMethodsList().hashCode();
-      }
-      if (getAllowPortsCount() > 0) {
-        hash = (37 * hash) + ALLOW_PORTS_FIELD_NUMBER;
-        hash = (53 * hash) + getAllowPortsList().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static meshpaas.Schema.AuthzDestination parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static meshpaas.Schema.AuthzDestination parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static meshpaas.Schema.AuthzDestination parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static meshpaas.Schema.AuthzDestination parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static meshpaas.Schema.AuthzDestination parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static meshpaas.Schema.AuthzDestination parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static meshpaas.Schema.AuthzDestination parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static meshpaas.Schema.AuthzDestination parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static meshpaas.Schema.AuthzDestination parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static meshpaas.Schema.AuthzDestination parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static meshpaas.Schema.AuthzDestination parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static meshpaas.Schema.AuthzDestination parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(meshpaas.Schema.AuthzDestination prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     * the destination of an authorization decision
-     * </pre>
-     *
-     * Protobuf type {@code meshpaas.AuthzDestination}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:meshpaas.AuthzDestination)
-        meshpaas.Schema.AuthzDestinationOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return meshpaas.Schema.internal_static_meshpaas_AuthzDestination_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return meshpaas.Schema.internal_static_meshpaas_AuthzDestination_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                meshpaas.Schema.AuthzDestination.class, meshpaas.Schema.AuthzDestination.Builder.class);
-      }
-
-      // Construct using meshpaas.Schema.AuthzDestination.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        allowPaths_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        allowHosts_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        allowMethods_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000004);
-        allowPorts_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return meshpaas.Schema.internal_static_meshpaas_AuthzDestination_descriptor;
-      }
-
-      @java.lang.Override
-      public meshpaas.Schema.AuthzDestination getDefaultInstanceForType() {
-        return meshpaas.Schema.AuthzDestination.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public meshpaas.Schema.AuthzDestination build() {
-        meshpaas.Schema.AuthzDestination result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public meshpaas.Schema.AuthzDestination buildPartial() {
-        meshpaas.Schema.AuthzDestination result = new meshpaas.Schema.AuthzDestination(this);
-        int from_bitField0_ = bitField0_;
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          allowPaths_ = allowPaths_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.allowPaths_ = allowPaths_;
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          allowHosts_ = allowHosts_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000002);
-        }
-        result.allowHosts_ = allowHosts_;
-        if (((bitField0_ & 0x00000004) == 0x00000004)) {
-          allowMethods_ = allowMethods_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000004);
-        }
-        result.allowMethods_ = allowMethods_;
-        if (((bitField0_ & 0x00000008) == 0x00000008)) {
-          allowPorts_ = allowPorts_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000008);
-        }
-        result.allowPorts_ = allowPorts_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof meshpaas.Schema.AuthzDestination) {
-          return mergeFrom((meshpaas.Schema.AuthzDestination)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(meshpaas.Schema.AuthzDestination other) {
-        if (other == meshpaas.Schema.AuthzDestination.getDefaultInstance()) return this;
-        if (!other.allowPaths_.isEmpty()) {
-          if (allowPaths_.isEmpty()) {
-            allowPaths_ = other.allowPaths_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensureAllowPathsIsMutable();
-            allowPaths_.addAll(other.allowPaths_);
-          }
-          onChanged();
-        }
-        if (!other.allowHosts_.isEmpty()) {
-          if (allowHosts_.isEmpty()) {
-            allowHosts_ = other.allowHosts_;
-            bitField0_ = (bitField0_ & ~0x00000002);
-          } else {
-            ensureAllowHostsIsMutable();
-            allowHosts_.addAll(other.allowHosts_);
-          }
-          onChanged();
-        }
-        if (!other.allowMethods_.isEmpty()) {
-          if (allowMethods_.isEmpty()) {
-            allowMethods_ = other.allowMethods_;
-            bitField0_ = (bitField0_ & ~0x00000004);
-          } else {
-            ensureAllowMethodsIsMutable();
-            allowMethods_.addAll(other.allowMethods_);
-          }
-          onChanged();
-        }
-        if (!other.allowPorts_.isEmpty()) {
-          if (allowPorts_.isEmpty()) {
-            allowPorts_ = other.allowPorts_;
-            bitField0_ = (bitField0_ & ~0x00000008);
-          } else {
-            ensureAllowPortsIsMutable();
-            allowPorts_.addAll(other.allowPorts_);
-          }
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        meshpaas.Schema.AuthzDestination parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (meshpaas.Schema.AuthzDestination) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private com.google.protobuf.LazyStringList allowPaths_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureAllowPathsIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          allowPaths_ = new com.google.protobuf.LazyStringArrayList(allowPaths_);
-          bitField0_ |= 0x00000001;
-         }
-      }
-      /**
-       * <pre>
-       * restricts access to one of many paths
-       * </pre>
-       *
-       * <code>repeated string allow_paths = 2;</code>
-       */
-      public com.google.protobuf.ProtocolStringList
-          getAllowPathsList() {
-        return allowPaths_.getUnmodifiableView();
-      }
-      /**
-       * <pre>
-       * restricts access to one of many paths
-       * </pre>
-       *
-       * <code>repeated string allow_paths = 2;</code>
-       */
-      public int getAllowPathsCount() {
-        return allowPaths_.size();
-      }
-      /**
-       * <pre>
-       * restricts access to one of many paths
-       * </pre>
-       *
-       * <code>repeated string allow_paths = 2;</code>
-       */
-      public java.lang.String getAllowPaths(int index) {
-        return allowPaths_.get(index);
-      }
-      /**
-       * <pre>
-       * restricts access to one of many paths
-       * </pre>
-       *
-       * <code>repeated string allow_paths = 2;</code>
-       */
-      public com.google.protobuf.ByteString
-          getAllowPathsBytes(int index) {
-        return allowPaths_.getByteString(index);
-      }
-      /**
-       * <pre>
-       * restricts access to one of many paths
-       * </pre>
-       *
-       * <code>repeated string allow_paths = 2;</code>
-       */
-      public Builder setAllowPaths(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAllowPathsIsMutable();
-        allowPaths_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * restricts access to one of many paths
-       * </pre>
-       *
-       * <code>repeated string allow_paths = 2;</code>
-       */
-      public Builder addAllowPaths(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAllowPathsIsMutable();
-        allowPaths_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * restricts access to one of many paths
-       * </pre>
-       *
-       * <code>repeated string allow_paths = 2;</code>
-       */
-      public Builder addAllAllowPaths(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureAllowPathsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, allowPaths_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * restricts access to one of many paths
-       * </pre>
-       *
-       * <code>repeated string allow_paths = 2;</code>
-       */
-      public Builder clearAllowPaths() {
-        allowPaths_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * restricts access to one of many paths
-       * </pre>
-       *
-       * <code>repeated string allow_paths = 2;</code>
-       */
-      public Builder addAllowPathsBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        ensureAllowPathsIsMutable();
-        allowPaths_.add(value);
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.LazyStringList allowHosts_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureAllowHostsIsMutable() {
-        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-          allowHosts_ = new com.google.protobuf.LazyStringArrayList(allowHosts_);
-          bitField0_ |= 0x00000002;
-         }
-      }
-      /**
-       * <pre>
-       * restricts access to one of many hosts
-       * </pre>
-       *
-       * <code>repeated string allow_hosts = 3;</code>
-       */
-      public com.google.protobuf.ProtocolStringList
-          getAllowHostsList() {
-        return allowHosts_.getUnmodifiableView();
-      }
-      /**
-       * <pre>
-       * restricts access to one of many hosts
-       * </pre>
-       *
-       * <code>repeated string allow_hosts = 3;</code>
-       */
-      public int getAllowHostsCount() {
-        return allowHosts_.size();
-      }
-      /**
-       * <pre>
-       * restricts access to one of many hosts
-       * </pre>
-       *
-       * <code>repeated string allow_hosts = 3;</code>
-       */
-      public java.lang.String getAllowHosts(int index) {
-        return allowHosts_.get(index);
-      }
-      /**
-       * <pre>
-       * restricts access to one of many hosts
-       * </pre>
-       *
-       * <code>repeated string allow_hosts = 3;</code>
-       */
-      public com.google.protobuf.ByteString
-          getAllowHostsBytes(int index) {
-        return allowHosts_.getByteString(index);
-      }
-      /**
-       * <pre>
-       * restricts access to one of many hosts
-       * </pre>
-       *
-       * <code>repeated string allow_hosts = 3;</code>
-       */
-      public Builder setAllowHosts(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAllowHostsIsMutable();
-        allowHosts_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * restricts access to one of many hosts
-       * </pre>
-       *
-       * <code>repeated string allow_hosts = 3;</code>
-       */
-      public Builder addAllowHosts(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAllowHostsIsMutable();
-        allowHosts_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * restricts access to one of many hosts
-       * </pre>
-       *
-       * <code>repeated string allow_hosts = 3;</code>
-       */
-      public Builder addAllAllowHosts(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureAllowHostsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, allowHosts_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * restricts access to one of many hosts
-       * </pre>
-       *
-       * <code>repeated string allow_hosts = 3;</code>
-       */
-      public Builder clearAllowHosts() {
-        allowHosts_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * restricts access to one of many hosts
-       * </pre>
-       *
-       * <code>repeated string allow_hosts = 3;</code>
-       */
-      public Builder addAllowHostsBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        ensureAllowHostsIsMutable();
-        allowHosts_.add(value);
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.LazyStringList allowMethods_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureAllowMethodsIsMutable() {
-        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-          allowMethods_ = new com.google.protobuf.LazyStringArrayList(allowMethods_);
-          bitField0_ |= 0x00000004;
-         }
-      }
-      /**
-       * <pre>
-       * restricts access to one of many methods
-       * </pre>
-       *
-       * <code>repeated string allow_methods = 4;</code>
-       */
-      public com.google.protobuf.ProtocolStringList
-          getAllowMethodsList() {
-        return allowMethods_.getUnmodifiableView();
-      }
-      /**
-       * <pre>
-       * restricts access to one of many methods
-       * </pre>
-       *
-       * <code>repeated string allow_methods = 4;</code>
-       */
-      public int getAllowMethodsCount() {
-        return allowMethods_.size();
-      }
-      /**
-       * <pre>
-       * restricts access to one of many methods
-       * </pre>
-       *
-       * <code>repeated string allow_methods = 4;</code>
-       */
-      public java.lang.String getAllowMethods(int index) {
-        return allowMethods_.get(index);
-      }
-      /**
-       * <pre>
-       * restricts access to one of many methods
-       * </pre>
-       *
-       * <code>repeated string allow_methods = 4;</code>
-       */
-      public com.google.protobuf.ByteString
-          getAllowMethodsBytes(int index) {
-        return allowMethods_.getByteString(index);
-      }
-      /**
-       * <pre>
-       * restricts access to one of many methods
-       * </pre>
-       *
-       * <code>repeated string allow_methods = 4;</code>
-       */
-      public Builder setAllowMethods(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAllowMethodsIsMutable();
-        allowMethods_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * restricts access to one of many methods
-       * </pre>
-       *
-       * <code>repeated string allow_methods = 4;</code>
-       */
-      public Builder addAllowMethods(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAllowMethodsIsMutable();
-        allowMethods_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * restricts access to one of many methods
-       * </pre>
-       *
-       * <code>repeated string allow_methods = 4;</code>
-       */
-      public Builder addAllAllowMethods(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureAllowMethodsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, allowMethods_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * restricts access to one of many methods
-       * </pre>
-       *
-       * <code>repeated string allow_methods = 4;</code>
-       */
-      public Builder clearAllowMethods() {
-        allowMethods_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000004);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * restricts access to one of many methods
-       * </pre>
-       *
-       * <code>repeated string allow_methods = 4;</code>
-       */
-      public Builder addAllowMethodsBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        ensureAllowMethodsIsMutable();
-        allowMethods_.add(value);
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.LazyStringList allowPorts_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureAllowPortsIsMutable() {
-        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-          allowPorts_ = new com.google.protobuf.LazyStringArrayList(allowPorts_);
-          bitField0_ |= 0x00000008;
-         }
-      }
-      /**
-       * <pre>
-       * restricts access to one of many ports
-       * </pre>
-       *
-       * <code>repeated string allow_ports = 5;</code>
-       */
-      public com.google.protobuf.ProtocolStringList
-          getAllowPortsList() {
-        return allowPorts_.getUnmodifiableView();
-      }
-      /**
-       * <pre>
-       * restricts access to one of many ports
-       * </pre>
-       *
-       * <code>repeated string allow_ports = 5;</code>
-       */
-      public int getAllowPortsCount() {
-        return allowPorts_.size();
-      }
-      /**
-       * <pre>
-       * restricts access to one of many ports
-       * </pre>
-       *
-       * <code>repeated string allow_ports = 5;</code>
-       */
-      public java.lang.String getAllowPorts(int index) {
-        return allowPorts_.get(index);
-      }
-      /**
-       * <pre>
-       * restricts access to one of many ports
-       * </pre>
-       *
-       * <code>repeated string allow_ports = 5;</code>
-       */
-      public com.google.protobuf.ByteString
-          getAllowPortsBytes(int index) {
-        return allowPorts_.getByteString(index);
-      }
-      /**
-       * <pre>
-       * restricts access to one of many ports
-       * </pre>
-       *
-       * <code>repeated string allow_ports = 5;</code>
-       */
-      public Builder setAllowPorts(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAllowPortsIsMutable();
-        allowPorts_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * restricts access to one of many ports
-       * </pre>
-       *
-       * <code>repeated string allow_ports = 5;</code>
-       */
-      public Builder addAllowPorts(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAllowPortsIsMutable();
-        allowPorts_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * restricts access to one of many ports
-       * </pre>
-       *
-       * <code>repeated string allow_ports = 5;</code>
-       */
-      public Builder addAllAllowPorts(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureAllowPortsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, allowPorts_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * restricts access to one of many ports
-       * </pre>
-       *
-       * <code>repeated string allow_ports = 5;</code>
-       */
-      public Builder clearAllowPorts() {
-        allowPorts_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * restricts access to one of many ports
-       * </pre>
-       *
-       * <code>repeated string allow_ports = 5;</code>
-       */
-      public Builder addAllowPortsBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        ensureAllowPortsIsMutable();
-        allowPorts_.add(value);
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:meshpaas.AuthzDestination)
-    }
-
-    // @@protoc_insertion_point(class_scope:meshpaas.AuthzDestination)
-    private static final meshpaas.Schema.AuthzDestination DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new meshpaas.Schema.AuthzDestination();
-    }
-
-    public static meshpaas.Schema.AuthzDestination getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<AuthzDestination>
-        PARSER = new com.google.protobuf.AbstractParser<AuthzDestination>() {
-      @java.lang.Override
-      public AuthzDestination parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AuthzDestination(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<AuthzDestination> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<AuthzDestination> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public meshpaas.Schema.AuthzDestination getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface AuthzRuleOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:meshpaas.AuthzRule)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     * subject restricts access based on the subject of a request in the service mesh
-     * </pre>
-     *
-     * <code>.meshpaas.AuthzSubject subject = 1;</code>
-     */
-    boolean hasSubject();
-    /**
-     * <pre>
-     * subject restricts access based on the subject of a request in the service mesh
-     * </pre>
-     *
-     * <code>.meshpaas.AuthzSubject subject = 1;</code>
-     */
-    meshpaas.Schema.AuthzSubject getSubject();
-    /**
-     * <pre>
-     * subject restricts access based on the subject of a request in the service mesh
-     * </pre>
-     *
-     * <code>.meshpaas.AuthzSubject subject = 1;</code>
-     */
-    meshpaas.Schema.AuthzSubjectOrBuilder getSubjectOrBuilder();
-
-    /**
-     * <pre>
-     * source restricts access based on the destination of a request in the service mesh
-     * </pre>
-     *
-     * <code>.meshpaas.AuthzDestination destination = 2;</code>
-     */
-    boolean hasDestination();
-    /**
-     * <pre>
-     * source restricts access based on the destination of a request in the service mesh
-     * </pre>
-     *
-     * <code>.meshpaas.AuthzDestination destination = 2;</code>
-     */
-    meshpaas.Schema.AuthzDestination getDestination();
-    /**
-     * <pre>
-     * source restricts access based on the destination of a request in the service mesh
-     * </pre>
-     *
-     * <code>.meshpaas.AuthzDestination destination = 2;</code>
-     */
-    meshpaas.Schema.AuthzDestinationOrBuilder getDestinationOrBuilder();
-  }
-  /**
-   * <pre>
-   * At least on AuthzRule rule must pass for a request to reach its final destination(an application) in the service mesh
-   * </pre>
-   *
-   * Protobuf type {@code meshpaas.AuthzRule}
-   */
-  public  static final class AuthzRule extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:meshpaas.AuthzRule)
-      AuthzRuleOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use AuthzRule.newBuilder() to construct.
-    private AuthzRule(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private AuthzRule() {
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private AuthzRule(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              meshpaas.Schema.AuthzSubject.Builder subBuilder = null;
-              if (subject_ != null) {
-                subBuilder = subject_.toBuilder();
-              }
-              subject_ = input.readMessage(meshpaas.Schema.AuthzSubject.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(subject_);
-                subject_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              meshpaas.Schema.AuthzDestination.Builder subBuilder = null;
-              if (destination_ != null) {
-                subBuilder = destination_.toBuilder();
-              }
-              destination_ = input.readMessage(meshpaas.Schema.AuthzDestination.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(destination_);
-                destination_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return meshpaas.Schema.internal_static_meshpaas_AuthzRule_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return meshpaas.Schema.internal_static_meshpaas_AuthzRule_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              meshpaas.Schema.AuthzRule.class, meshpaas.Schema.AuthzRule.Builder.class);
-    }
-
-    public static final int SUBJECT_FIELD_NUMBER = 1;
-    private meshpaas.Schema.AuthzSubject subject_;
-    /**
-     * <pre>
-     * subject restricts access based on the subject of a request in the service mesh
-     * </pre>
-     *
-     * <code>.meshpaas.AuthzSubject subject = 1;</code>
-     */
-    public boolean hasSubject() {
-      return subject_ != null;
-    }
-    /**
-     * <pre>
-     * subject restricts access based on the subject of a request in the service mesh
-     * </pre>
-     *
-     * <code>.meshpaas.AuthzSubject subject = 1;</code>
-     */
-    public meshpaas.Schema.AuthzSubject getSubject() {
-      return subject_ == null ? meshpaas.Schema.AuthzSubject.getDefaultInstance() : subject_;
-    }
-    /**
-     * <pre>
-     * subject restricts access based on the subject of a request in the service mesh
-     * </pre>
-     *
-     * <code>.meshpaas.AuthzSubject subject = 1;</code>
-     */
-    public meshpaas.Schema.AuthzSubjectOrBuilder getSubjectOrBuilder() {
-      return getSubject();
-    }
-
-    public static final int DESTINATION_FIELD_NUMBER = 2;
-    private meshpaas.Schema.AuthzDestination destination_;
-    /**
-     * <pre>
-     * source restricts access based on the destination of a request in the service mesh
-     * </pre>
-     *
-     * <code>.meshpaas.AuthzDestination destination = 2;</code>
-     */
-    public boolean hasDestination() {
-      return destination_ != null;
-    }
-    /**
-     * <pre>
-     * source restricts access based on the destination of a request in the service mesh
-     * </pre>
-     *
-     * <code>.meshpaas.AuthzDestination destination = 2;</code>
-     */
-    public meshpaas.Schema.AuthzDestination getDestination() {
-      return destination_ == null ? meshpaas.Schema.AuthzDestination.getDefaultInstance() : destination_;
-    }
-    /**
-     * <pre>
-     * source restricts access based on the destination of a request in the service mesh
-     * </pre>
-     *
-     * <code>.meshpaas.AuthzDestination destination = 2;</code>
-     */
-    public meshpaas.Schema.AuthzDestinationOrBuilder getDestinationOrBuilder() {
-      return getDestination();
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (subject_ != null) {
-        output.writeMessage(1, getSubject());
-      }
-      if (destination_ != null) {
-        output.writeMessage(2, getDestination());
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (subject_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getSubject());
-      }
-      if (destination_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getDestination());
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof meshpaas.Schema.AuthzRule)) {
-        return super.equals(obj);
-      }
-      meshpaas.Schema.AuthzRule other = (meshpaas.Schema.AuthzRule) obj;
-
-      boolean result = true;
-      result = result && (hasSubject() == other.hasSubject());
-      if (hasSubject()) {
-        result = result && getSubject()
-            .equals(other.getSubject());
-      }
-      result = result && (hasDestination() == other.hasDestination());
-      if (hasDestination()) {
-        result = result && getDestination()
-            .equals(other.getDestination());
-      }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasSubject()) {
-        hash = (37 * hash) + SUBJECT_FIELD_NUMBER;
-        hash = (53 * hash) + getSubject().hashCode();
-      }
-      if (hasDestination()) {
-        hash = (37 * hash) + DESTINATION_FIELD_NUMBER;
-        hash = (53 * hash) + getDestination().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static meshpaas.Schema.AuthzRule parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static meshpaas.Schema.AuthzRule parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static meshpaas.Schema.AuthzRule parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static meshpaas.Schema.AuthzRule parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static meshpaas.Schema.AuthzRule parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static meshpaas.Schema.AuthzRule parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static meshpaas.Schema.AuthzRule parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static meshpaas.Schema.AuthzRule parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static meshpaas.Schema.AuthzRule parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static meshpaas.Schema.AuthzRule parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static meshpaas.Schema.AuthzRule parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static meshpaas.Schema.AuthzRule parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(meshpaas.Schema.AuthzRule prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     * At least on AuthzRule rule must pass for a request to reach its final destination(an application) in the service mesh
-     * </pre>
-     *
-     * Protobuf type {@code meshpaas.AuthzRule}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:meshpaas.AuthzRule)
-        meshpaas.Schema.AuthzRuleOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return meshpaas.Schema.internal_static_meshpaas_AuthzRule_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return meshpaas.Schema.internal_static_meshpaas_AuthzRule_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                meshpaas.Schema.AuthzRule.class, meshpaas.Schema.AuthzRule.Builder.class);
-      }
-
-      // Construct using meshpaas.Schema.AuthzRule.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        if (subjectBuilder_ == null) {
-          subject_ = null;
-        } else {
-          subject_ = null;
-          subjectBuilder_ = null;
-        }
-        if (destinationBuilder_ == null) {
-          destination_ = null;
-        } else {
-          destination_ = null;
-          destinationBuilder_ = null;
-        }
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return meshpaas.Schema.internal_static_meshpaas_AuthzRule_descriptor;
-      }
-
-      @java.lang.Override
-      public meshpaas.Schema.AuthzRule getDefaultInstanceForType() {
-        return meshpaas.Schema.AuthzRule.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public meshpaas.Schema.AuthzRule build() {
-        meshpaas.Schema.AuthzRule result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public meshpaas.Schema.AuthzRule buildPartial() {
-        meshpaas.Schema.AuthzRule result = new meshpaas.Schema.AuthzRule(this);
-        if (subjectBuilder_ == null) {
-          result.subject_ = subject_;
-        } else {
-          result.subject_ = subjectBuilder_.build();
-        }
-        if (destinationBuilder_ == null) {
-          result.destination_ = destination_;
-        } else {
-          result.destination_ = destinationBuilder_.build();
-        }
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof meshpaas.Schema.AuthzRule) {
-          return mergeFrom((meshpaas.Schema.AuthzRule)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(meshpaas.Schema.AuthzRule other) {
-        if (other == meshpaas.Schema.AuthzRule.getDefaultInstance()) return this;
-        if (other.hasSubject()) {
-          mergeSubject(other.getSubject());
-        }
-        if (other.hasDestination()) {
-          mergeDestination(other.getDestination());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        meshpaas.Schema.AuthzRule parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (meshpaas.Schema.AuthzRule) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private meshpaas.Schema.AuthzSubject subject_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          meshpaas.Schema.AuthzSubject, meshpaas.Schema.AuthzSubject.Builder, meshpaas.Schema.AuthzSubjectOrBuilder> subjectBuilder_;
-      /**
-       * <pre>
-       * subject restricts access based on the subject of a request in the service mesh
-       * </pre>
-       *
-       * <code>.meshpaas.AuthzSubject subject = 1;</code>
-       */
-      public boolean hasSubject() {
-        return subjectBuilder_ != null || subject_ != null;
-      }
-      /**
-       * <pre>
-       * subject restricts access based on the subject of a request in the service mesh
-       * </pre>
-       *
-       * <code>.meshpaas.AuthzSubject subject = 1;</code>
-       */
-      public meshpaas.Schema.AuthzSubject getSubject() {
-        if (subjectBuilder_ == null) {
-          return subject_ == null ? meshpaas.Schema.AuthzSubject.getDefaultInstance() : subject_;
-        } else {
-          return subjectBuilder_.getMessage();
-        }
-      }
-      /**
-       * <pre>
-       * subject restricts access based on the subject of a request in the service mesh
-       * </pre>
-       *
-       * <code>.meshpaas.AuthzSubject subject = 1;</code>
-       */
-      public Builder setSubject(meshpaas.Schema.AuthzSubject value) {
-        if (subjectBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          subject_ = value;
-          onChanged();
-        } else {
-          subjectBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * subject restricts access based on the subject of a request in the service mesh
-       * </pre>
-       *
-       * <code>.meshpaas.AuthzSubject subject = 1;</code>
-       */
-      public Builder setSubject(
-          meshpaas.Schema.AuthzSubject.Builder builderForValue) {
-        if (subjectBuilder_ == null) {
-          subject_ = builderForValue.build();
-          onChanged();
-        } else {
-          subjectBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * subject restricts access based on the subject of a request in the service mesh
-       * </pre>
-       *
-       * <code>.meshpaas.AuthzSubject subject = 1;</code>
-       */
-      public Builder mergeSubject(meshpaas.Schema.AuthzSubject value) {
-        if (subjectBuilder_ == null) {
-          if (subject_ != null) {
-            subject_ =
-              meshpaas.Schema.AuthzSubject.newBuilder(subject_).mergeFrom(value).buildPartial();
-          } else {
-            subject_ = value;
-          }
-          onChanged();
-        } else {
-          subjectBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * subject restricts access based on the subject of a request in the service mesh
-       * </pre>
-       *
-       * <code>.meshpaas.AuthzSubject subject = 1;</code>
-       */
-      public Builder clearSubject() {
-        if (subjectBuilder_ == null) {
-          subject_ = null;
-          onChanged();
-        } else {
-          subject_ = null;
-          subjectBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * subject restricts access based on the subject of a request in the service mesh
-       * </pre>
-       *
-       * <code>.meshpaas.AuthzSubject subject = 1;</code>
-       */
-      public meshpaas.Schema.AuthzSubject.Builder getSubjectBuilder() {
-        
-        onChanged();
-        return getSubjectFieldBuilder().getBuilder();
-      }
-      /**
-       * <pre>
-       * subject restricts access based on the subject of a request in the service mesh
-       * </pre>
-       *
-       * <code>.meshpaas.AuthzSubject subject = 1;</code>
-       */
-      public meshpaas.Schema.AuthzSubjectOrBuilder getSubjectOrBuilder() {
-        if (subjectBuilder_ != null) {
-          return subjectBuilder_.getMessageOrBuilder();
-        } else {
-          return subject_ == null ?
-              meshpaas.Schema.AuthzSubject.getDefaultInstance() : subject_;
-        }
-      }
-      /**
-       * <pre>
-       * subject restricts access based on the subject of a request in the service mesh
-       * </pre>
-       *
-       * <code>.meshpaas.AuthzSubject subject = 1;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          meshpaas.Schema.AuthzSubject, meshpaas.Schema.AuthzSubject.Builder, meshpaas.Schema.AuthzSubjectOrBuilder> 
-          getSubjectFieldBuilder() {
-        if (subjectBuilder_ == null) {
-          subjectBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              meshpaas.Schema.AuthzSubject, meshpaas.Schema.AuthzSubject.Builder, meshpaas.Schema.AuthzSubjectOrBuilder>(
-                  getSubject(),
-                  getParentForChildren(),
-                  isClean());
-          subject_ = null;
-        }
-        return subjectBuilder_;
-      }
-
-      private meshpaas.Schema.AuthzDestination destination_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          meshpaas.Schema.AuthzDestination, meshpaas.Schema.AuthzDestination.Builder, meshpaas.Schema.AuthzDestinationOrBuilder> destinationBuilder_;
-      /**
-       * <pre>
-       * source restricts access based on the destination of a request in the service mesh
-       * </pre>
-       *
-       * <code>.meshpaas.AuthzDestination destination = 2;</code>
-       */
-      public boolean hasDestination() {
-        return destinationBuilder_ != null || destination_ != null;
-      }
-      /**
-       * <pre>
-       * source restricts access based on the destination of a request in the service mesh
-       * </pre>
-       *
-       * <code>.meshpaas.AuthzDestination destination = 2;</code>
-       */
-      public meshpaas.Schema.AuthzDestination getDestination() {
-        if (destinationBuilder_ == null) {
-          return destination_ == null ? meshpaas.Schema.AuthzDestination.getDefaultInstance() : destination_;
-        } else {
-          return destinationBuilder_.getMessage();
-        }
-      }
-      /**
-       * <pre>
-       * source restricts access based on the destination of a request in the service mesh
-       * </pre>
-       *
-       * <code>.meshpaas.AuthzDestination destination = 2;</code>
-       */
-      public Builder setDestination(meshpaas.Schema.AuthzDestination value) {
-        if (destinationBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          destination_ = value;
-          onChanged();
-        } else {
-          destinationBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * source restricts access based on the destination of a request in the service mesh
-       * </pre>
-       *
-       * <code>.meshpaas.AuthzDestination destination = 2;</code>
-       */
-      public Builder setDestination(
-          meshpaas.Schema.AuthzDestination.Builder builderForValue) {
-        if (destinationBuilder_ == null) {
-          destination_ = builderForValue.build();
-          onChanged();
-        } else {
-          destinationBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * source restricts access based on the destination of a request in the service mesh
-       * </pre>
-       *
-       * <code>.meshpaas.AuthzDestination destination = 2;</code>
-       */
-      public Builder mergeDestination(meshpaas.Schema.AuthzDestination value) {
-        if (destinationBuilder_ == null) {
-          if (destination_ != null) {
-            destination_ =
-              meshpaas.Schema.AuthzDestination.newBuilder(destination_).mergeFrom(value).buildPartial();
-          } else {
-            destination_ = value;
-          }
-          onChanged();
-        } else {
-          destinationBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * source restricts access based on the destination of a request in the service mesh
-       * </pre>
-       *
-       * <code>.meshpaas.AuthzDestination destination = 2;</code>
-       */
-      public Builder clearDestination() {
-        if (destinationBuilder_ == null) {
-          destination_ = null;
-          onChanged();
-        } else {
-          destination_ = null;
-          destinationBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * source restricts access based on the destination of a request in the service mesh
-       * </pre>
-       *
-       * <code>.meshpaas.AuthzDestination destination = 2;</code>
-       */
-      public meshpaas.Schema.AuthzDestination.Builder getDestinationBuilder() {
-        
-        onChanged();
-        return getDestinationFieldBuilder().getBuilder();
-      }
-      /**
-       * <pre>
-       * source restricts access based on the destination of a request in the service mesh
-       * </pre>
-       *
-       * <code>.meshpaas.AuthzDestination destination = 2;</code>
-       */
-      public meshpaas.Schema.AuthzDestinationOrBuilder getDestinationOrBuilder() {
-        if (destinationBuilder_ != null) {
-          return destinationBuilder_.getMessageOrBuilder();
-        } else {
-          return destination_ == null ?
-              meshpaas.Schema.AuthzDestination.getDefaultInstance() : destination_;
-        }
-      }
-      /**
-       * <pre>
-       * source restricts access based on the destination of a request in the service mesh
-       * </pre>
-       *
-       * <code>.meshpaas.AuthzDestination destination = 2;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          meshpaas.Schema.AuthzDestination, meshpaas.Schema.AuthzDestination.Builder, meshpaas.Schema.AuthzDestinationOrBuilder> 
-          getDestinationFieldBuilder() {
-        if (destinationBuilder_ == null) {
-          destinationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              meshpaas.Schema.AuthzDestination, meshpaas.Schema.AuthzDestination.Builder, meshpaas.Schema.AuthzDestinationOrBuilder>(
-                  getDestination(),
-                  getParentForChildren(),
-                  isClean());
-          destination_ = null;
-        }
-        return destinationBuilder_;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:meshpaas.AuthzRule)
-    }
-
-    // @@protoc_insertion_point(class_scope:meshpaas.AuthzRule)
-    private static final meshpaas.Schema.AuthzRule DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new meshpaas.Schema.AuthzRule();
-    }
-
-    public static meshpaas.Schema.AuthzRule getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<AuthzRule>
-        PARSER = new com.google.protobuf.AbstractParser<AuthzRule>() {
-      @java.lang.Override
-      public AuthzRule parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AuthzRule(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<AuthzRule> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<AuthzRule> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public meshpaas.Schema.AuthzRule getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface AuthzOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:meshpaas.Authz)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>repeated .meshpaas.AuthzRule rules = 1 [(.validator.field) = { ... }</code>
-     */
-    java.util.List<meshpaas.Schema.AuthzRule> 
-        getRulesList();
-    /**
-     * <code>repeated .meshpaas.AuthzRule rules = 1 [(.validator.field) = { ... }</code>
-     */
-    meshpaas.Schema.AuthzRule getRules(int index);
-    /**
-     * <code>repeated .meshpaas.AuthzRule rules = 1 [(.validator.field) = { ... }</code>
-     */
-    int getRulesCount();
-    /**
-     * <code>repeated .meshpaas.AuthzRule rules = 1 [(.validator.field) = { ... }</code>
-     */
-    java.util.List<? extends meshpaas.Schema.AuthzRuleOrBuilder> 
-        getRulesOrBuilderList();
-    /**
-     * <code>repeated .meshpaas.AuthzRule rules = 1 [(.validator.field) = { ... }</code>
-     */
-    meshpaas.Schema.AuthzRuleOrBuilder getRulesOrBuilder(
-        int index);
-  }
-  /**
-   * <pre>
-   * Authz holds authorization options for an application
-   * </pre>
-   *
-   * Protobuf type {@code meshpaas.Authz}
-   */
-  public  static final class Authz extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:meshpaas.Authz)
-      AuthzOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use Authz.newBuilder() to construct.
-    private Authz(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private Authz() {
-      rules_ = java.util.Collections.emptyList();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private Authz(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                rules_ = new java.util.ArrayList<meshpaas.Schema.AuthzRule>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              rules_.add(
-                  input.readMessage(meshpaas.Schema.AuthzRule.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          rules_ = java.util.Collections.unmodifiableList(rules_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return meshpaas.Schema.internal_static_meshpaas_Authz_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return meshpaas.Schema.internal_static_meshpaas_Authz_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              meshpaas.Schema.Authz.class, meshpaas.Schema.Authz.Builder.class);
-    }
-
-    public static final int RULES_FIELD_NUMBER = 1;
-    private java.util.List<meshpaas.Schema.AuthzRule> rules_;
-    /**
-     * <code>repeated .meshpaas.AuthzRule rules = 1 [(.validator.field) = { ... }</code>
-     */
-    public java.util.List<meshpaas.Schema.AuthzRule> getRulesList() {
-      return rules_;
-    }
-    /**
-     * <code>repeated .meshpaas.AuthzRule rules = 1 [(.validator.field) = { ... }</code>
-     */
-    public java.util.List<? extends meshpaas.Schema.AuthzRuleOrBuilder> 
-        getRulesOrBuilderList() {
-      return rules_;
-    }
-    /**
-     * <code>repeated .meshpaas.AuthzRule rules = 1 [(.validator.field) = { ... }</code>
-     */
-    public int getRulesCount() {
-      return rules_.size();
-    }
-    /**
-     * <code>repeated .meshpaas.AuthzRule rules = 1 [(.validator.field) = { ... }</code>
-     */
-    public meshpaas.Schema.AuthzRule getRules(int index) {
-      return rules_.get(index);
-    }
-    /**
-     * <code>repeated .meshpaas.AuthzRule rules = 1 [(.validator.field) = { ... }</code>
-     */
-    public meshpaas.Schema.AuthzRuleOrBuilder getRulesOrBuilder(
-        int index) {
-      return rules_.get(index);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      for (int i = 0; i < rules_.size(); i++) {
-        output.writeMessage(1, rules_.get(i));
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      for (int i = 0; i < rules_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, rules_.get(i));
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof meshpaas.Schema.Authz)) {
-        return super.equals(obj);
-      }
-      meshpaas.Schema.Authz other = (meshpaas.Schema.Authz) obj;
-
-      boolean result = true;
-      result = result && getRulesList()
-          .equals(other.getRulesList());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      if (getRulesCount() > 0) {
-        hash = (37 * hash) + RULES_FIELD_NUMBER;
-        hash = (53 * hash) + getRulesList().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static meshpaas.Schema.Authz parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static meshpaas.Schema.Authz parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static meshpaas.Schema.Authz parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static meshpaas.Schema.Authz parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static meshpaas.Schema.Authz parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static meshpaas.Schema.Authz parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static meshpaas.Schema.Authz parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static meshpaas.Schema.Authz parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static meshpaas.Schema.Authz parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static meshpaas.Schema.Authz parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static meshpaas.Schema.Authz parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static meshpaas.Schema.Authz parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(meshpaas.Schema.Authz prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     * Authz holds authorization options for an application
-     * </pre>
-     *
-     * Protobuf type {@code meshpaas.Authz}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:meshpaas.Authz)
-        meshpaas.Schema.AuthzOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return meshpaas.Schema.internal_static_meshpaas_Authz_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return meshpaas.Schema.internal_static_meshpaas_Authz_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                meshpaas.Schema.Authz.class, meshpaas.Schema.Authz.Builder.class);
-      }
-
-      // Construct using meshpaas.Schema.Authz.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getRulesFieldBuilder();
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        if (rulesBuilder_ == null) {
-          rules_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        } else {
-          rulesBuilder_.clear();
-        }
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return meshpaas.Schema.internal_static_meshpaas_Authz_descriptor;
-      }
-
-      @java.lang.Override
-      public meshpaas.Schema.Authz getDefaultInstanceForType() {
-        return meshpaas.Schema.Authz.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public meshpaas.Schema.Authz build() {
-        meshpaas.Schema.Authz result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public meshpaas.Schema.Authz buildPartial() {
-        meshpaas.Schema.Authz result = new meshpaas.Schema.Authz(this);
-        int from_bitField0_ = bitField0_;
-        if (rulesBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001)) {
-            rules_ = java.util.Collections.unmodifiableList(rules_);
-            bitField0_ = (bitField0_ & ~0x00000001);
-          }
-          result.rules_ = rules_;
-        } else {
-          result.rules_ = rulesBuilder_.build();
-        }
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof meshpaas.Schema.Authz) {
-          return mergeFrom((meshpaas.Schema.Authz)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(meshpaas.Schema.Authz other) {
-        if (other == meshpaas.Schema.Authz.getDefaultInstance()) return this;
-        if (rulesBuilder_ == null) {
-          if (!other.rules_.isEmpty()) {
-            if (rules_.isEmpty()) {
-              rules_ = other.rules_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-            } else {
-              ensureRulesIsMutable();
-              rules_.addAll(other.rules_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.rules_.isEmpty()) {
-            if (rulesBuilder_.isEmpty()) {
-              rulesBuilder_.dispose();
-              rulesBuilder_ = null;
-              rules_ = other.rules_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-              rulesBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getRulesFieldBuilder() : null;
-            } else {
-              rulesBuilder_.addAllMessages(other.rules_);
-            }
-          }
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        meshpaas.Schema.Authz parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (meshpaas.Schema.Authz) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private java.util.List<meshpaas.Schema.AuthzRule> rules_ =
-        java.util.Collections.emptyList();
-      private void ensureRulesIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          rules_ = new java.util.ArrayList<meshpaas.Schema.AuthzRule>(rules_);
-          bitField0_ |= 0x00000001;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          meshpaas.Schema.AuthzRule, meshpaas.Schema.AuthzRule.Builder, meshpaas.Schema.AuthzRuleOrBuilder> rulesBuilder_;
-
-      /**
-       * <code>repeated .meshpaas.AuthzRule rules = 1 [(.validator.field) = { ... }</code>
-       */
-      public java.util.List<meshpaas.Schema.AuthzRule> getRulesList() {
-        if (rulesBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(rules_);
-        } else {
-          return rulesBuilder_.getMessageList();
-        }
-      }
-      /**
-       * <code>repeated .meshpaas.AuthzRule rules = 1 [(.validator.field) = { ... }</code>
-       */
-      public int getRulesCount() {
-        if (rulesBuilder_ == null) {
-          return rules_.size();
-        } else {
-          return rulesBuilder_.getCount();
-        }
-      }
-      /**
-       * <code>repeated .meshpaas.AuthzRule rules = 1 [(.validator.field) = { ... }</code>
-       */
-      public meshpaas.Schema.AuthzRule getRules(int index) {
-        if (rulesBuilder_ == null) {
-          return rules_.get(index);
-        } else {
-          return rulesBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .meshpaas.AuthzRule rules = 1 [(.validator.field) = { ... }</code>
-       */
-      public Builder setRules(
-          int index, meshpaas.Schema.AuthzRule value) {
-        if (rulesBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureRulesIsMutable();
-          rules_.set(index, value);
-          onChanged();
-        } else {
-          rulesBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .meshpaas.AuthzRule rules = 1 [(.validator.field) = { ... }</code>
-       */
-      public Builder setRules(
-          int index, meshpaas.Schema.AuthzRule.Builder builderForValue) {
-        if (rulesBuilder_ == null) {
-          ensureRulesIsMutable();
-          rules_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          rulesBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .meshpaas.AuthzRule rules = 1 [(.validator.field) = { ... }</code>
-       */
-      public Builder addRules(meshpaas.Schema.AuthzRule value) {
-        if (rulesBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureRulesIsMutable();
-          rules_.add(value);
-          onChanged();
-        } else {
-          rulesBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .meshpaas.AuthzRule rules = 1 [(.validator.field) = { ... }</code>
-       */
-      public Builder addRules(
-          int index, meshpaas.Schema.AuthzRule value) {
-        if (rulesBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureRulesIsMutable();
-          rules_.add(index, value);
-          onChanged();
-        } else {
-          rulesBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .meshpaas.AuthzRule rules = 1 [(.validator.field) = { ... }</code>
-       */
-      public Builder addRules(
-          meshpaas.Schema.AuthzRule.Builder builderForValue) {
-        if (rulesBuilder_ == null) {
-          ensureRulesIsMutable();
-          rules_.add(builderForValue.build());
-          onChanged();
-        } else {
-          rulesBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .meshpaas.AuthzRule rules = 1 [(.validator.field) = { ... }</code>
-       */
-      public Builder addRules(
-          int index, meshpaas.Schema.AuthzRule.Builder builderForValue) {
-        if (rulesBuilder_ == null) {
-          ensureRulesIsMutable();
-          rules_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          rulesBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .meshpaas.AuthzRule rules = 1 [(.validator.field) = { ... }</code>
-       */
-      public Builder addAllRules(
-          java.lang.Iterable<? extends meshpaas.Schema.AuthzRule> values) {
-        if (rulesBuilder_ == null) {
-          ensureRulesIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, rules_);
-          onChanged();
-        } else {
-          rulesBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .meshpaas.AuthzRule rules = 1 [(.validator.field) = { ... }</code>
-       */
-      public Builder clearRules() {
-        if (rulesBuilder_ == null) {
-          rules_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-          onChanged();
-        } else {
-          rulesBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .meshpaas.AuthzRule rules = 1 [(.validator.field) = { ... }</code>
-       */
-      public Builder removeRules(int index) {
-        if (rulesBuilder_ == null) {
-          ensureRulesIsMutable();
-          rules_.remove(index);
-          onChanged();
-        } else {
-          rulesBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .meshpaas.AuthzRule rules = 1 [(.validator.field) = { ... }</code>
-       */
-      public meshpaas.Schema.AuthzRule.Builder getRulesBuilder(
-          int index) {
-        return getRulesFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .meshpaas.AuthzRule rules = 1 [(.validator.field) = { ... }</code>
-       */
-      public meshpaas.Schema.AuthzRuleOrBuilder getRulesOrBuilder(
-          int index) {
-        if (rulesBuilder_ == null) {
-          return rules_.get(index);  } else {
-          return rulesBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .meshpaas.AuthzRule rules = 1 [(.validator.field) = { ... }</code>
-       */
-      public java.util.List<? extends meshpaas.Schema.AuthzRuleOrBuilder> 
-           getRulesOrBuilderList() {
-        if (rulesBuilder_ != null) {
-          return rulesBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(rules_);
-        }
-      }
-      /**
-       * <code>repeated .meshpaas.AuthzRule rules = 1 [(.validator.field) = { ... }</code>
-       */
-      public meshpaas.Schema.AuthzRule.Builder addRulesBuilder() {
-        return getRulesFieldBuilder().addBuilder(
-            meshpaas.Schema.AuthzRule.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .meshpaas.AuthzRule rules = 1 [(.validator.field) = { ... }</code>
-       */
-      public meshpaas.Schema.AuthzRule.Builder addRulesBuilder(
-          int index) {
-        return getRulesFieldBuilder().addBuilder(
-            index, meshpaas.Schema.AuthzRule.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .meshpaas.AuthzRule rules = 1 [(.validator.field) = { ... }</code>
-       */
-      public java.util.List<meshpaas.Schema.AuthzRule.Builder> 
-           getRulesBuilderList() {
-        return getRulesFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          meshpaas.Schema.AuthzRule, meshpaas.Schema.AuthzRule.Builder, meshpaas.Schema.AuthzRuleOrBuilder> 
-          getRulesFieldBuilder() {
-        if (rulesBuilder_ == null) {
-          rulesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              meshpaas.Schema.AuthzRule, meshpaas.Schema.AuthzRule.Builder, meshpaas.Schema.AuthzRuleOrBuilder>(
-                  rules_,
-                  ((bitField0_ & 0x00000001) == 0x00000001),
-                  getParentForChildren(),
-                  isClean());
-          rules_ = null;
-        }
-        return rulesBuilder_;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:meshpaas.Authz)
-    }
-
-    // @@protoc_insertion_point(class_scope:meshpaas.Authz)
-    private static final meshpaas.Schema.Authz DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new meshpaas.Schema.Authz();
-    }
-
-    public static meshpaas.Schema.Authz getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<Authz>
-        PARSER = new com.google.protobuf.AbstractParser<Authz>() {
-      @java.lang.Override
-      public Authz parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Authz(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<Authz> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Authz> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public meshpaas.Schema.Authz getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -17364,57 +12827,47 @@ public final class Schema {
 
     /**
      * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
+     * list of ports
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 5 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.ContainerPort ports = 5;</code>
+     */
+    java.util.List<meshpaas.Schema.ContainerPort> 
+        getPortsList();
+    /**
+     * <pre>
+     * list of ports
+     * </pre>
+     *
+     * <code>repeated .meshpaas.ContainerPort ports = 5;</code>
+     */
+    meshpaas.Schema.ContainerPort getPorts(int index);
+    /**
+     * <pre>
+     * list of ports
+     * </pre>
+     *
+     * <code>repeated .meshpaas.ContainerPort ports = 5;</code>
      */
     int getPortsCount();
     /**
      * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
+     * list of ports
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 5 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.ContainerPort ports = 5;</code>
      */
-    boolean containsPorts(
-        java.lang.String key);
-    /**
-     * Use {@link #getPortsMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.Integer>
-    getPorts();
+    java.util.List<? extends meshpaas.Schema.ContainerPortOrBuilder> 
+        getPortsOrBuilderList();
     /**
      * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
+     * list of ports
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 5 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.ContainerPort ports = 5;</code>
      */
-    java.util.Map<java.lang.String, java.lang.Integer>
-    getPortsMap();
-    /**
-     * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
-     * </pre>
-     *
-     * <code>map&lt;string, uint32&gt; ports = 5 [(.validator.field) = { ... }</code>
-     */
-
-    int getPortsOrDefault(
-        java.lang.String key,
-        int defaultValue);
-    /**
-     * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
-     * </pre>
-     *
-     * <code>map&lt;string, uint32&gt; ports = 5 [(.validator.field) = { ... }</code>
-     */
-
-    int getPortsOrThrow(
-        java.lang.String key);
+    meshpaas.Schema.ContainerPortOrBuilder getPortsOrBuilder(
+        int index);
   }
   /**
    * <pre>
@@ -17436,6 +12889,7 @@ public final class Schema {
       name_ = "";
       image_ = "";
       args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      ports_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -17498,15 +12952,11 @@ public final class Schema {
             }
             case 42: {
               if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-                ports_ = com.google.protobuf.MapField.newMapField(
-                    PortsDefaultEntryHolder.defaultEntry);
+                ports_ = new java.util.ArrayList<meshpaas.Schema.ContainerPort>();
                 mutable_bitField0_ |= 0x00000010;
               }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
-              ports__ = input.readMessage(
-                  PortsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              ports_.getMutableMap().put(
-                  ports__.getKey(), ports__.getValue());
+              ports_.add(
+                  input.readMessage(meshpaas.Schema.ContainerPort.parser(), extensionRegistry));
               break;
             }
             default: {
@@ -17527,6 +12977,9 @@ public final class Schema {
         if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
           args_ = args_.getUnmodifiableView();
         }
+        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+          ports_ = java.util.Collections.unmodifiableList(ports_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -17543,8 +12996,6 @@ public final class Schema {
       switch (number) {
         case 4:
           return internalGetEnv();
-        case 5:
-          return internalGetPorts();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -17781,95 +13232,58 @@ public final class Schema {
     }
 
     public static final int PORTS_FIELD_NUMBER = 5;
-    private static final class PortsDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.Integer> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.Integer>newDefaultInstance(
-                  meshpaas.Schema.internal_static_meshpaas_Container_PortsEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.UINT32,
-                  0);
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.Integer> ports_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-    internalGetPorts() {
-      if (ports_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            PortsDefaultEntryHolder.defaultEntry);
-      }
+    private java.util.List<meshpaas.Schema.ContainerPort> ports_;
+    /**
+     * <pre>
+     * list of ports
+     * </pre>
+     *
+     * <code>repeated .meshpaas.ContainerPort ports = 5;</code>
+     */
+    public java.util.List<meshpaas.Schema.ContainerPort> getPortsList() {
       return ports_;
     }
-
+    /**
+     * <pre>
+     * list of ports
+     * </pre>
+     *
+     * <code>repeated .meshpaas.ContainerPort ports = 5;</code>
+     */
+    public java.util.List<? extends meshpaas.Schema.ContainerPortOrBuilder> 
+        getPortsOrBuilderList() {
+      return ports_;
+    }
+    /**
+     * <pre>
+     * list of ports
+     * </pre>
+     *
+     * <code>repeated .meshpaas.ContainerPort ports = 5;</code>
+     */
     public int getPortsCount() {
-      return internalGetPorts().getMap().size();
+      return ports_.size();
     }
     /**
      * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
+     * list of ports
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 5 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.ContainerPort ports = 5;</code>
      */
-
-    public boolean containsPorts(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetPorts().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getPortsMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.Integer> getPorts() {
-      return getPortsMap();
+    public meshpaas.Schema.ContainerPort getPorts(int index) {
+      return ports_.get(index);
     }
     /**
      * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
+     * list of ports
      * </pre>
      *
-     * <code>map&lt;string, uint32&gt; ports = 5 [(.validator.field) = { ... }</code>
+     * <code>repeated .meshpaas.ContainerPort ports = 5;</code>
      */
-
-    public java.util.Map<java.lang.String, java.lang.Integer> getPortsMap() {
-      return internalGetPorts().getMap();
-    }
-    /**
-     * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
-     * </pre>
-     *
-     * <code>map&lt;string, uint32&gt; ports = 5 [(.validator.field) = { ... }</code>
-     */
-
-    public int getPortsOrDefault(
-        java.lang.String key,
-        int defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.Integer> map =
-          internalGetPorts().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <pre>
-     * k/v map of ports to expose ex: http: 80 https: 443
-     * </pre>
-     *
-     * <code>map&lt;string, uint32&gt; ports = 5 [(.validator.field) = { ... }</code>
-     */
-
-    public int getPortsOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.Integer> map =
-          internalGetPorts().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
+    public meshpaas.Schema.ContainerPortOrBuilder getPortsOrBuilder(
+        int index) {
+      return ports_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -17901,12 +13315,9 @@ public final class Schema {
           internalGetEnv(),
           EnvDefaultEntryHolder.defaultEntry,
           4);
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetPorts(),
-          PortsDefaultEntryHolder.defaultEntry,
-          5);
+      for (int i = 0; i < ports_.size(); i++) {
+        output.writeMessage(5, ports_.get(i));
+      }
       unknownFields.writeTo(output);
     }
 
@@ -17940,15 +13351,9 @@ public final class Schema {
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(4, env__);
       }
-      for (java.util.Map.Entry<java.lang.String, java.lang.Integer> entry
-           : internalGetPorts().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
-        ports__ = PortsDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
+      for (int i = 0; i < ports_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(5, ports__);
+          .computeMessageSize(5, ports_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -17974,8 +13379,8 @@ public final class Schema {
           .equals(other.getArgsList());
       result = result && internalGetEnv().equals(
           other.internalGetEnv());
-      result = result && internalGetPorts().equals(
-          other.internalGetPorts());
+      result = result && getPortsList()
+          .equals(other.getPortsList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -17999,9 +13404,9 @@ public final class Schema {
         hash = (37 * hash) + ENV_FIELD_NUMBER;
         hash = (53 * hash) + internalGetEnv().hashCode();
       }
-      if (!internalGetPorts().getMap().isEmpty()) {
+      if (getPortsCount() > 0) {
         hash = (37 * hash) + PORTS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetPorts().hashCode();
+        hash = (53 * hash) + getPortsList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -18120,8 +13525,6 @@ public final class Schema {
         switch (number) {
           case 4:
             return internalGetEnv();
-          case 5:
-            return internalGetPorts();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -18133,8 +13536,6 @@ public final class Schema {
         switch (number) {
           case 4:
             return internalGetMutableEnv();
-          case 5:
-            return internalGetMutablePorts();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -18161,6 +13562,7 @@ public final class Schema {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getPortsFieldBuilder();
         }
       }
       @java.lang.Override
@@ -18173,7 +13575,12 @@ public final class Schema {
         args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
         internalGetMutableEnv().clear();
-        internalGetMutablePorts().clear();
+        if (portsBuilder_ == null) {
+          ports_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000010);
+        } else {
+          portsBuilder_.clear();
+        }
         return this;
       }
 
@@ -18211,8 +13618,15 @@ public final class Schema {
         result.args_ = args_;
         result.env_ = internalGetEnv();
         result.env_.makeImmutable();
-        result.ports_ = internalGetPorts();
-        result.ports_.makeImmutable();
+        if (portsBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) == 0x00000010)) {
+            ports_ = java.util.Collections.unmodifiableList(ports_);
+            bitField0_ = (bitField0_ & ~0x00000010);
+          }
+          result.ports_ = ports_;
+        } else {
+          result.ports_ = portsBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -18282,8 +13696,32 @@ public final class Schema {
         }
         internalGetMutableEnv().mergeFrom(
             other.internalGetEnv());
-        internalGetMutablePorts().mergeFrom(
-            other.internalGetPorts());
+        if (portsBuilder_ == null) {
+          if (!other.ports_.isEmpty()) {
+            if (ports_.isEmpty()) {
+              ports_ = other.ports_;
+              bitField0_ = (bitField0_ & ~0x00000010);
+            } else {
+              ensurePortsIsMutable();
+              ports_.addAll(other.ports_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.ports_.isEmpty()) {
+            if (portsBuilder_.isEmpty()) {
+              portsBuilder_.dispose();
+              portsBuilder_ = null;
+              ports_ = other.ports_;
+              bitField0_ = (bitField0_ & ~0x00000010);
+              portsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getPortsFieldBuilder() : null;
+            } else {
+              portsBuilder_.addAllMessages(other.ports_);
+            }
+          }
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -18773,155 +14211,316 @@ public final class Schema {
         return this;
       }
 
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.Integer> ports_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-      internalGetPorts() {
-        if (ports_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              PortsDefaultEntryHolder.defaultEntry);
-        }
-        return ports_;
-      }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-      internalGetMutablePorts() {
-        onChanged();;
-        if (ports_ == null) {
-          ports_ = com.google.protobuf.MapField.newMapField(
-              PortsDefaultEntryHolder.defaultEntry);
-        }
-        if (!ports_.isMutable()) {
-          ports_ = ports_.copy();
-        }
-        return ports_;
+      private java.util.List<meshpaas.Schema.ContainerPort> ports_ =
+        java.util.Collections.emptyList();
+      private void ensurePortsIsMutable() {
+        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+          ports_ = new java.util.ArrayList<meshpaas.Schema.ContainerPort>(ports_);
+          bitField0_ |= 0x00000010;
+         }
       }
 
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          meshpaas.Schema.ContainerPort, meshpaas.Schema.ContainerPort.Builder, meshpaas.Schema.ContainerPortOrBuilder> portsBuilder_;
+
+      /**
+       * <pre>
+       * list of ports
+       * </pre>
+       *
+       * <code>repeated .meshpaas.ContainerPort ports = 5;</code>
+       */
+      public java.util.List<meshpaas.Schema.ContainerPort> getPortsList() {
+        if (portsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(ports_);
+        } else {
+          return portsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * list of ports
+       * </pre>
+       *
+       * <code>repeated .meshpaas.ContainerPort ports = 5;</code>
+       */
       public int getPortsCount() {
-        return internalGetPorts().getMap().size();
-      }
-      /**
-       * <pre>
-       * k/v map of ports to expose ex: http: 80 https: 443
-       * </pre>
-       *
-       * <code>map&lt;string, uint32&gt; ports = 5 [(.validator.field) = { ... }</code>
-       */
-
-      public boolean containsPorts(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetPorts().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getPortsMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.Integer> getPorts() {
-        return getPortsMap();
-      }
-      /**
-       * <pre>
-       * k/v map of ports to expose ex: http: 80 https: 443
-       * </pre>
-       *
-       * <code>map&lt;string, uint32&gt; ports = 5 [(.validator.field) = { ... }</code>
-       */
-
-      public java.util.Map<java.lang.String, java.lang.Integer> getPortsMap() {
-        return internalGetPorts().getMap();
-      }
-      /**
-       * <pre>
-       * k/v map of ports to expose ex: http: 80 https: 443
-       * </pre>
-       *
-       * <code>map&lt;string, uint32&gt; ports = 5 [(.validator.field) = { ... }</code>
-       */
-
-      public int getPortsOrDefault(
-          java.lang.String key,
-          int defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.Integer> map =
-            internalGetPorts().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <pre>
-       * k/v map of ports to expose ex: http: 80 https: 443
-       * </pre>
-       *
-       * <code>map&lt;string, uint32&gt; ports = 5 [(.validator.field) = { ... }</code>
-       */
-
-      public int getPortsOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.Integer> map =
-            internalGetPorts().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
+        if (portsBuilder_ == null) {
+          return ports_.size();
+        } else {
+          return portsBuilder_.getCount();
         }
-        return map.get(key);
       }
-
+      /**
+       * <pre>
+       * list of ports
+       * </pre>
+       *
+       * <code>repeated .meshpaas.ContainerPort ports = 5;</code>
+       */
+      public meshpaas.Schema.ContainerPort getPorts(int index) {
+        if (portsBuilder_ == null) {
+          return ports_.get(index);
+        } else {
+          return portsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * list of ports
+       * </pre>
+       *
+       * <code>repeated .meshpaas.ContainerPort ports = 5;</code>
+       */
+      public Builder setPorts(
+          int index, meshpaas.Schema.ContainerPort value) {
+        if (portsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePortsIsMutable();
+          ports_.set(index, value);
+          onChanged();
+        } else {
+          portsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * list of ports
+       * </pre>
+       *
+       * <code>repeated .meshpaas.ContainerPort ports = 5;</code>
+       */
+      public Builder setPorts(
+          int index, meshpaas.Schema.ContainerPort.Builder builderForValue) {
+        if (portsBuilder_ == null) {
+          ensurePortsIsMutable();
+          ports_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          portsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * list of ports
+       * </pre>
+       *
+       * <code>repeated .meshpaas.ContainerPort ports = 5;</code>
+       */
+      public Builder addPorts(meshpaas.Schema.ContainerPort value) {
+        if (portsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePortsIsMutable();
+          ports_.add(value);
+          onChanged();
+        } else {
+          portsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * list of ports
+       * </pre>
+       *
+       * <code>repeated .meshpaas.ContainerPort ports = 5;</code>
+       */
+      public Builder addPorts(
+          int index, meshpaas.Schema.ContainerPort value) {
+        if (portsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePortsIsMutable();
+          ports_.add(index, value);
+          onChanged();
+        } else {
+          portsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * list of ports
+       * </pre>
+       *
+       * <code>repeated .meshpaas.ContainerPort ports = 5;</code>
+       */
+      public Builder addPorts(
+          meshpaas.Schema.ContainerPort.Builder builderForValue) {
+        if (portsBuilder_ == null) {
+          ensurePortsIsMutable();
+          ports_.add(builderForValue.build());
+          onChanged();
+        } else {
+          portsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * list of ports
+       * </pre>
+       *
+       * <code>repeated .meshpaas.ContainerPort ports = 5;</code>
+       */
+      public Builder addPorts(
+          int index, meshpaas.Schema.ContainerPort.Builder builderForValue) {
+        if (portsBuilder_ == null) {
+          ensurePortsIsMutable();
+          ports_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          portsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * list of ports
+       * </pre>
+       *
+       * <code>repeated .meshpaas.ContainerPort ports = 5;</code>
+       */
+      public Builder addAllPorts(
+          java.lang.Iterable<? extends meshpaas.Schema.ContainerPort> values) {
+        if (portsBuilder_ == null) {
+          ensurePortsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, ports_);
+          onChanged();
+        } else {
+          portsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * list of ports
+       * </pre>
+       *
+       * <code>repeated .meshpaas.ContainerPort ports = 5;</code>
+       */
       public Builder clearPorts() {
-        internalGetMutablePorts().getMutableMap()
-            .clear();
+        if (portsBuilder_ == null) {
+          ports_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000010);
+          onChanged();
+        } else {
+          portsBuilder_.clear();
+        }
         return this;
       }
       /**
        * <pre>
-       * k/v map of ports to expose ex: http: 80 https: 443
+       * list of ports
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 5 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.ContainerPort ports = 5;</code>
        */
-
-      public Builder removePorts(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutablePorts().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.Integer>
-      getMutablePorts() {
-        return internalGetMutablePorts().getMutableMap();
-      }
-      /**
-       * <pre>
-       * k/v map of ports to expose ex: http: 80 https: 443
-       * </pre>
-       *
-       * <code>map&lt;string, uint32&gt; ports = 5 [(.validator.field) = { ... }</code>
-       */
-      public Builder putPorts(
-          java.lang.String key,
-          int value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        
-        internalGetMutablePorts().getMutableMap()
-            .put(key, value);
+      public Builder removePorts(int index) {
+        if (portsBuilder_ == null) {
+          ensurePortsIsMutable();
+          ports_.remove(index);
+          onChanged();
+        } else {
+          portsBuilder_.remove(index);
+        }
         return this;
       }
       /**
        * <pre>
-       * k/v map of ports to expose ex: http: 80 https: 443
+       * list of ports
        * </pre>
        *
-       * <code>map&lt;string, uint32&gt; ports = 5 [(.validator.field) = { ... }</code>
+       * <code>repeated .meshpaas.ContainerPort ports = 5;</code>
        */
-
-      public Builder putAllPorts(
-          java.util.Map<java.lang.String, java.lang.Integer> values) {
-        internalGetMutablePorts().getMutableMap()
-            .putAll(values);
-        return this;
+      public meshpaas.Schema.ContainerPort.Builder getPortsBuilder(
+          int index) {
+        return getPortsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * list of ports
+       * </pre>
+       *
+       * <code>repeated .meshpaas.ContainerPort ports = 5;</code>
+       */
+      public meshpaas.Schema.ContainerPortOrBuilder getPortsOrBuilder(
+          int index) {
+        if (portsBuilder_ == null) {
+          return ports_.get(index);  } else {
+          return portsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * list of ports
+       * </pre>
+       *
+       * <code>repeated .meshpaas.ContainerPort ports = 5;</code>
+       */
+      public java.util.List<? extends meshpaas.Schema.ContainerPortOrBuilder> 
+           getPortsOrBuilderList() {
+        if (portsBuilder_ != null) {
+          return portsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(ports_);
+        }
+      }
+      /**
+       * <pre>
+       * list of ports
+       * </pre>
+       *
+       * <code>repeated .meshpaas.ContainerPort ports = 5;</code>
+       */
+      public meshpaas.Schema.ContainerPort.Builder addPortsBuilder() {
+        return getPortsFieldBuilder().addBuilder(
+            meshpaas.Schema.ContainerPort.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * list of ports
+       * </pre>
+       *
+       * <code>repeated .meshpaas.ContainerPort ports = 5;</code>
+       */
+      public meshpaas.Schema.ContainerPort.Builder addPortsBuilder(
+          int index) {
+        return getPortsFieldBuilder().addBuilder(
+            index, meshpaas.Schema.ContainerPort.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * list of ports
+       * </pre>
+       *
+       * <code>repeated .meshpaas.ContainerPort ports = 5;</code>
+       */
+      public java.util.List<meshpaas.Schema.ContainerPort.Builder> 
+           getPortsBuilderList() {
+        return getPortsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          meshpaas.Schema.ContainerPort, meshpaas.Schema.ContainerPort.Builder, meshpaas.Schema.ContainerPortOrBuilder> 
+          getPortsFieldBuilder() {
+        if (portsBuilder_ == null) {
+          portsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              meshpaas.Schema.ContainerPort, meshpaas.Schema.ContainerPort.Builder, meshpaas.Schema.ContainerPortOrBuilder>(
+                  ports_,
+                  ((bitField0_ & 0x00000010) == 0x00000010),
+                  getParentForChildren(),
+                  isClean());
+          ports_ = null;
+        }
+        return portsBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -19103,31 +14702,6 @@ public final class Schema {
 
     /**
      * <pre>
-     * application authorization options
-     * </pre>
-     *
-     * <code>.meshpaas.Authz authorization = 13 [(.validator.field) = { ... }</code>
-     */
-    boolean hasAuthorization();
-    /**
-     * <pre>
-     * application authorization options
-     * </pre>
-     *
-     * <code>.meshpaas.Authz authorization = 13 [(.validator.field) = { ... }</code>
-     */
-    meshpaas.Schema.Authz getAuthorization();
-    /**
-     * <pre>
-     * application authorization options
-     * </pre>
-     *
-     * <code>.meshpaas.Authz authorization = 13 [(.validator.field) = { ... }</code>
-     */
-    meshpaas.Schema.AuthzOrBuilder getAuthorizationOrBuilder();
-
-    /**
-     * <pre>
      * image_pull_secret is the secret used to pull images from docker registry
      * </pre>
      *
@@ -19258,19 +14832,6 @@ public final class Schema {
               if (subBuilder != null) {
                 subBuilder.mergeFrom(authentication_);
                 authentication_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 106: {
-              meshpaas.Schema.Authz.Builder subBuilder = null;
-              if (authorization_ != null) {
-                subBuilder = authorization_.toBuilder();
-              }
-              authorization_ = input.readMessage(meshpaas.Schema.Authz.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(authorization_);
-                authorization_ = subBuilder.buildPartial();
               }
 
               break;
@@ -19506,39 +15067,6 @@ public final class Schema {
       return getAuthentication();
     }
 
-    public static final int AUTHORIZATION_FIELD_NUMBER = 13;
-    private meshpaas.Schema.Authz authorization_;
-    /**
-     * <pre>
-     * application authorization options
-     * </pre>
-     *
-     * <code>.meshpaas.Authz authorization = 13 [(.validator.field) = { ... }</code>
-     */
-    public boolean hasAuthorization() {
-      return authorization_ != null;
-    }
-    /**
-     * <pre>
-     * application authorization options
-     * </pre>
-     *
-     * <code>.meshpaas.Authz authorization = 13 [(.validator.field) = { ... }</code>
-     */
-    public meshpaas.Schema.Authz getAuthorization() {
-      return authorization_ == null ? meshpaas.Schema.Authz.getDefaultInstance() : authorization_;
-    }
-    /**
-     * <pre>
-     * application authorization options
-     * </pre>
-     *
-     * <code>.meshpaas.Authz authorization = 13 [(.validator.field) = { ... }</code>
-     */
-    public meshpaas.Schema.AuthzOrBuilder getAuthorizationOrBuilder() {
-      return getAuthorization();
-    }
-
     public static final int IMAGE_PULL_SECRET_FIELD_NUMBER = 14;
     private volatile java.lang.Object imagePullSecret_;
     /**
@@ -19643,9 +15171,6 @@ public final class Schema {
       if (authentication_ != null) {
         output.writeMessage(12, getAuthentication());
       }
-      if (authorization_ != null) {
-        output.writeMessage(13, getAuthorization());
-      }
       if (!getImagePullSecretBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 14, imagePullSecret_);
       }
@@ -19679,10 +15204,6 @@ public final class Schema {
       if (authentication_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(12, getAuthentication());
-      }
-      if (authorization_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(13, getAuthorization());
       }
       if (!getImagePullSecretBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, imagePullSecret_);
@@ -19723,11 +15244,6 @@ public final class Schema {
         result = result && getAuthentication()
             .equals(other.getAuthentication());
       }
-      result = result && (hasAuthorization() == other.hasAuthorization());
-      if (hasAuthorization()) {
-        result = result && getAuthorization()
-            .equals(other.getAuthorization());
-      }
       result = result && getImagePullSecret()
           .equals(other.getImagePullSecret());
       result = result && (hasStatus() == other.hasStatus());
@@ -19761,10 +15277,6 @@ public final class Schema {
       if (hasAuthentication()) {
         hash = (37 * hash) + AUTHENTICATION_FIELD_NUMBER;
         hash = (53 * hash) + getAuthentication().hashCode();
-      }
-      if (hasAuthorization()) {
-        hash = (37 * hash) + AUTHORIZATION_FIELD_NUMBER;
-        hash = (53 * hash) + getAuthorization().hashCode();
       }
       hash = (37 * hash) + IMAGE_PULL_SECRET_FIELD_NUMBER;
       hash = (53 * hash) + getImagePullSecret().hashCode();
@@ -19932,12 +15444,6 @@ public final class Schema {
           authentication_ = null;
           authenticationBuilder_ = null;
         }
-        if (authorizationBuilder_ == null) {
-          authorization_ = null;
-        } else {
-          authorization_ = null;
-          authorizationBuilder_ = null;
-        }
         imagePullSecret_ = "";
 
         if (statusBuilder_ == null) {
@@ -19994,11 +15500,6 @@ public final class Schema {
           result.authentication_ = authentication_;
         } else {
           result.authentication_ = authenticationBuilder_.build();
-        }
-        if (authorizationBuilder_ == null) {
-          result.authorization_ = authorization_;
-        } else {
-          result.authorization_ = authorizationBuilder_.build();
         }
         result.imagePullSecret_ = imagePullSecret_;
         if (statusBuilder_ == null) {
@@ -20093,9 +15594,6 @@ public final class Schema {
         }
         if (other.hasAuthentication()) {
           mergeAuthentication(other.getAuthentication());
-        }
-        if (other.hasAuthorization()) {
-          mergeAuthorization(other.getAuthorization());
         }
         if (!other.getImagePullSecret().isEmpty()) {
           imagePullSecret_ = other.imagePullSecret_;
@@ -20877,159 +16375,6 @@ public final class Schema {
           authentication_ = null;
         }
         return authenticationBuilder_;
-      }
-
-      private meshpaas.Schema.Authz authorization_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          meshpaas.Schema.Authz, meshpaas.Schema.Authz.Builder, meshpaas.Schema.AuthzOrBuilder> authorizationBuilder_;
-      /**
-       * <pre>
-       * application authorization options
-       * </pre>
-       *
-       * <code>.meshpaas.Authz authorization = 13 [(.validator.field) = { ... }</code>
-       */
-      public boolean hasAuthorization() {
-        return authorizationBuilder_ != null || authorization_ != null;
-      }
-      /**
-       * <pre>
-       * application authorization options
-       * </pre>
-       *
-       * <code>.meshpaas.Authz authorization = 13 [(.validator.field) = { ... }</code>
-       */
-      public meshpaas.Schema.Authz getAuthorization() {
-        if (authorizationBuilder_ == null) {
-          return authorization_ == null ? meshpaas.Schema.Authz.getDefaultInstance() : authorization_;
-        } else {
-          return authorizationBuilder_.getMessage();
-        }
-      }
-      /**
-       * <pre>
-       * application authorization options
-       * </pre>
-       *
-       * <code>.meshpaas.Authz authorization = 13 [(.validator.field) = { ... }</code>
-       */
-      public Builder setAuthorization(meshpaas.Schema.Authz value) {
-        if (authorizationBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          authorization_ = value;
-          onChanged();
-        } else {
-          authorizationBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * application authorization options
-       * </pre>
-       *
-       * <code>.meshpaas.Authz authorization = 13 [(.validator.field) = { ... }</code>
-       */
-      public Builder setAuthorization(
-          meshpaas.Schema.Authz.Builder builderForValue) {
-        if (authorizationBuilder_ == null) {
-          authorization_ = builderForValue.build();
-          onChanged();
-        } else {
-          authorizationBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * application authorization options
-       * </pre>
-       *
-       * <code>.meshpaas.Authz authorization = 13 [(.validator.field) = { ... }</code>
-       */
-      public Builder mergeAuthorization(meshpaas.Schema.Authz value) {
-        if (authorizationBuilder_ == null) {
-          if (authorization_ != null) {
-            authorization_ =
-              meshpaas.Schema.Authz.newBuilder(authorization_).mergeFrom(value).buildPartial();
-          } else {
-            authorization_ = value;
-          }
-          onChanged();
-        } else {
-          authorizationBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * application authorization options
-       * </pre>
-       *
-       * <code>.meshpaas.Authz authorization = 13 [(.validator.field) = { ... }</code>
-       */
-      public Builder clearAuthorization() {
-        if (authorizationBuilder_ == null) {
-          authorization_ = null;
-          onChanged();
-        } else {
-          authorization_ = null;
-          authorizationBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * application authorization options
-       * </pre>
-       *
-       * <code>.meshpaas.Authz authorization = 13 [(.validator.field) = { ... }</code>
-       */
-      public meshpaas.Schema.Authz.Builder getAuthorizationBuilder() {
-        
-        onChanged();
-        return getAuthorizationFieldBuilder().getBuilder();
-      }
-      /**
-       * <pre>
-       * application authorization options
-       * </pre>
-       *
-       * <code>.meshpaas.Authz authorization = 13 [(.validator.field) = { ... }</code>
-       */
-      public meshpaas.Schema.AuthzOrBuilder getAuthorizationOrBuilder() {
-        if (authorizationBuilder_ != null) {
-          return authorizationBuilder_.getMessageOrBuilder();
-        } else {
-          return authorization_ == null ?
-              meshpaas.Schema.Authz.getDefaultInstance() : authorization_;
-        }
-      }
-      /**
-       * <pre>
-       * application authorization options
-       * </pre>
-       *
-       * <code>.meshpaas.Authz authorization = 13 [(.validator.field) = { ... }</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          meshpaas.Schema.Authz, meshpaas.Schema.Authz.Builder, meshpaas.Schema.AuthzOrBuilder> 
-          getAuthorizationFieldBuilder() {
-        if (authorizationBuilder_ == null) {
-          authorizationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              meshpaas.Schema.Authz, meshpaas.Schema.Authz.Builder, meshpaas.Schema.AuthzOrBuilder>(
-                  getAuthorization(),
-                  getParentForChildren(),
-                  isClean());
-          authorization_ = null;
-        }
-        return authorizationBuilder_;
       }
 
       private java.lang.Object imagePullSecret_ = "";
@@ -24340,6 +19685,759 @@ public final class Schema {
 
   }
 
+  public interface ContainerPortOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:meshpaas.ContainerPort)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * port name
+     * </pre>
+     *
+     * <code>string name = 1;</code>
+     */
+    java.lang.String getName();
+    /**
+     * <pre>
+     * port name
+     * </pre>
+     *
+     * <code>string name = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <pre>
+     * port number
+     * </pre>
+     *
+     * <code>uint32 number = 2;</code>
+     */
+    int getNumber();
+
+    /**
+     * <pre>
+     * expose to service mesh(outside of localhost)
+     * </pre>
+     *
+     * <code>bool expose = 3;</code>
+     */
+    boolean getExpose();
+  }
+  /**
+   * Protobuf type {@code meshpaas.ContainerPort}
+   */
+  public  static final class ContainerPort extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:meshpaas.ContainerPort)
+      ContainerPortOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ContainerPort.newBuilder() to construct.
+    private ContainerPort(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ContainerPort() {
+      name_ = "";
+      number_ = 0;
+      expose_ = false;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ContainerPort(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              name_ = s;
+              break;
+            }
+            case 16: {
+
+              number_ = input.readUInt32();
+              break;
+            }
+            case 24: {
+
+              expose_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return meshpaas.Schema.internal_static_meshpaas_ContainerPort_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return meshpaas.Schema.internal_static_meshpaas_ContainerPort_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              meshpaas.Schema.ContainerPort.class, meshpaas.Schema.ContainerPort.Builder.class);
+    }
+
+    public static final int NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object name_;
+    /**
+     * <pre>
+     * port name
+     * </pre>
+     *
+     * <code>string name = 1;</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * port name
+     * </pre>
+     *
+     * <code>string name = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int NUMBER_FIELD_NUMBER = 2;
+    private int number_;
+    /**
+     * <pre>
+     * port number
+     * </pre>
+     *
+     * <code>uint32 number = 2;</code>
+     */
+    public int getNumber() {
+      return number_;
+    }
+
+    public static final int EXPOSE_FIELD_NUMBER = 3;
+    private boolean expose_;
+    /**
+     * <pre>
+     * expose to service mesh(outside of localhost)
+     * </pre>
+     *
+     * <code>bool expose = 3;</code>
+     */
+    public boolean getExpose() {
+      return expose_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      }
+      if (number_ != 0) {
+        output.writeUInt32(2, number_);
+      }
+      if (expose_ != false) {
+        output.writeBool(3, expose_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      if (number_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(2, number_);
+      }
+      if (expose_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, expose_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof meshpaas.Schema.ContainerPort)) {
+        return super.equals(obj);
+      }
+      meshpaas.Schema.ContainerPort other = (meshpaas.Schema.ContainerPort) obj;
+
+      boolean result = true;
+      result = result && getName()
+          .equals(other.getName());
+      result = result && (getNumber()
+          == other.getNumber());
+      result = result && (getExpose()
+          == other.getExpose());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
+      hash = (37 * hash) + NUMBER_FIELD_NUMBER;
+      hash = (53 * hash) + getNumber();
+      hash = (37 * hash) + EXPOSE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getExpose());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static meshpaas.Schema.ContainerPort parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.ContainerPort parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.ContainerPort parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.ContainerPort parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.ContainerPort parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static meshpaas.Schema.ContainerPort parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static meshpaas.Schema.ContainerPort parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.ContainerPort parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static meshpaas.Schema.ContainerPort parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.ContainerPort parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static meshpaas.Schema.ContainerPort parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static meshpaas.Schema.ContainerPort parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(meshpaas.Schema.ContainerPort prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code meshpaas.ContainerPort}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:meshpaas.ContainerPort)
+        meshpaas.Schema.ContainerPortOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return meshpaas.Schema.internal_static_meshpaas_ContainerPort_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return meshpaas.Schema.internal_static_meshpaas_ContainerPort_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                meshpaas.Schema.ContainerPort.class, meshpaas.Schema.ContainerPort.Builder.class);
+      }
+
+      // Construct using meshpaas.Schema.ContainerPort.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+
+        number_ = 0;
+
+        expose_ = false;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return meshpaas.Schema.internal_static_meshpaas_ContainerPort_descriptor;
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.ContainerPort getDefaultInstanceForType() {
+        return meshpaas.Schema.ContainerPort.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.ContainerPort build() {
+        meshpaas.Schema.ContainerPort result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public meshpaas.Schema.ContainerPort buildPartial() {
+        meshpaas.Schema.ContainerPort result = new meshpaas.Schema.ContainerPort(this);
+        result.name_ = name_;
+        result.number_ = number_;
+        result.expose_ = expose_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof meshpaas.Schema.ContainerPort) {
+          return mergeFrom((meshpaas.Schema.ContainerPort)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(meshpaas.Schema.ContainerPort other) {
+        if (other == meshpaas.Schema.ContainerPort.getDefaultInstance()) return this;
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
+          onChanged();
+        }
+        if (other.getNumber() != 0) {
+          setNumber(other.getNumber());
+        }
+        if (other.getExpose() != false) {
+          setExpose(other.getExpose());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        meshpaas.Schema.ContainerPort parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (meshpaas.Schema.ContainerPort) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object name_ = "";
+      /**
+       * <pre>
+       * port name
+       * </pre>
+       *
+       * <code>string name = 1;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * port name
+       * </pre>
+       *
+       * <code>string name = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * port name
+       * </pre>
+       *
+       * <code>string name = 1;</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * port name
+       * </pre>
+       *
+       * <code>string name = 1;</code>
+       */
+      public Builder clearName() {
+        
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * port name
+       * </pre>
+       *
+       * <code>string name = 1;</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int number_ ;
+      /**
+       * <pre>
+       * port number
+       * </pre>
+       *
+       * <code>uint32 number = 2;</code>
+       */
+      public int getNumber() {
+        return number_;
+      }
+      /**
+       * <pre>
+       * port number
+       * </pre>
+       *
+       * <code>uint32 number = 2;</code>
+       */
+      public Builder setNumber(int value) {
+        
+        number_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * port number
+       * </pre>
+       *
+       * <code>uint32 number = 2;</code>
+       */
+      public Builder clearNumber() {
+        
+        number_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private boolean expose_ ;
+      /**
+       * <pre>
+       * expose to service mesh(outside of localhost)
+       * </pre>
+       *
+       * <code>bool expose = 3;</code>
+       */
+      public boolean getExpose() {
+        return expose_;
+      }
+      /**
+       * <pre>
+       * expose to service mesh(outside of localhost)
+       * </pre>
+       *
+       * <code>bool expose = 3;</code>
+       */
+      public Builder setExpose(boolean value) {
+        
+        expose_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * expose to service mesh(outside of localhost)
+       * </pre>
+       *
+       * <code>bool expose = 3;</code>
+       */
+      public Builder clearExpose() {
+        
+        expose_ = false;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:meshpaas.ContainerPort)
+    }
+
+    // @@protoc_insertion_point(class_scope:meshpaas.ContainerPort)
+    private static final meshpaas.Schema.ContainerPort DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new meshpaas.Schema.ContainerPort();
+    }
+
+    public static meshpaas.Schema.ContainerPort getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ContainerPort>
+        PARSER = new com.google.protobuf.AbstractParser<ContainerPort>() {
+      @java.lang.Override
+      public ContainerPort parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ContainerPort(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ContainerPort> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ContainerPort> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public meshpaas.Schema.ContainerPort getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface AppInputOrBuilder extends
       // @@protoc_insertion_point(interface_extends:meshpaas.AppInput)
       com.google.protobuf.MessageOrBuilder {
@@ -24467,31 +20565,6 @@ public final class Schema {
 
     /**
      * <pre>
-     * application authorization options
-     * </pre>
-     *
-     * <code>.meshpaas.Authz authorization = 13 [(.validator.field) = { ... }</code>
-     */
-    boolean hasAuthorization();
-    /**
-     * <pre>
-     * application authorization options
-     * </pre>
-     *
-     * <code>.meshpaas.Authz authorization = 13 [(.validator.field) = { ... }</code>
-     */
-    meshpaas.Schema.Authz getAuthorization();
-    /**
-     * <pre>
-     * application authorization options
-     * </pre>
-     *
-     * <code>.meshpaas.Authz authorization = 13 [(.validator.field) = { ... }</code>
-     */
-    meshpaas.Schema.AuthzOrBuilder getAuthorizationOrBuilder();
-
-    /**
-     * <pre>
      * image_pull_secret is the secret used to pull images from docker registry
      * </pre>
      *
@@ -24597,19 +20670,6 @@ public final class Schema {
               if (subBuilder != null) {
                 subBuilder.mergeFrom(authentication_);
                 authentication_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 106: {
-              meshpaas.Schema.Authz.Builder subBuilder = null;
-              if (authorization_ != null) {
-                subBuilder = authorization_.toBuilder();
-              }
-              authorization_ = input.readMessage(meshpaas.Schema.Authz.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(authorization_);
-                authorization_ = subBuilder.buildPartial();
               }
 
               break;
@@ -24832,39 +20892,6 @@ public final class Schema {
       return getAuthentication();
     }
 
-    public static final int AUTHORIZATION_FIELD_NUMBER = 13;
-    private meshpaas.Schema.Authz authorization_;
-    /**
-     * <pre>
-     * application authorization options
-     * </pre>
-     *
-     * <code>.meshpaas.Authz authorization = 13 [(.validator.field) = { ... }</code>
-     */
-    public boolean hasAuthorization() {
-      return authorization_ != null;
-    }
-    /**
-     * <pre>
-     * application authorization options
-     * </pre>
-     *
-     * <code>.meshpaas.Authz authorization = 13 [(.validator.field) = { ... }</code>
-     */
-    public meshpaas.Schema.Authz getAuthorization() {
-      return authorization_ == null ? meshpaas.Schema.Authz.getDefaultInstance() : authorization_;
-    }
-    /**
-     * <pre>
-     * application authorization options
-     * </pre>
-     *
-     * <code>.meshpaas.Authz authorization = 13 [(.validator.field) = { ... }</code>
-     */
-    public meshpaas.Schema.AuthzOrBuilder getAuthorizationOrBuilder() {
-      return getAuthorization();
-    }
-
     public static final int IMAGE_PULL_SECRET_FIELD_NUMBER = 14;
     private volatile java.lang.Object imagePullSecret_;
     /**
@@ -24936,9 +20963,6 @@ public final class Schema {
       if (authentication_ != null) {
         output.writeMessage(12, getAuthentication());
       }
-      if (authorization_ != null) {
-        output.writeMessage(13, getAuthorization());
-      }
       if (!getImagePullSecretBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 14, imagePullSecret_);
       }
@@ -24969,10 +20993,6 @@ public final class Schema {
       if (authentication_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(12, getAuthentication());
-      }
-      if (authorization_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(13, getAuthorization());
       }
       if (!getImagePullSecretBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, imagePullSecret_);
@@ -25009,11 +21029,6 @@ public final class Schema {
         result = result && getAuthentication()
             .equals(other.getAuthentication());
       }
-      result = result && (hasAuthorization() == other.hasAuthorization());
-      if (hasAuthorization()) {
-        result = result && getAuthorization()
-            .equals(other.getAuthorization());
-      }
       result = result && getImagePullSecret()
           .equals(other.getImagePullSecret());
       result = result && unknownFields.equals(other.unknownFields);
@@ -25042,10 +21057,6 @@ public final class Schema {
       if (hasAuthentication()) {
         hash = (37 * hash) + AUTHENTICATION_FIELD_NUMBER;
         hash = (53 * hash) + getAuthentication().hashCode();
-      }
-      if (hasAuthorization()) {
-        hash = (37 * hash) + AUTHORIZATION_FIELD_NUMBER;
-        hash = (53 * hash) + getAuthorization().hashCode();
       }
       hash = (37 * hash) + IMAGE_PULL_SECRET_FIELD_NUMBER;
       hash = (53 * hash) + getImagePullSecret().hashCode();
@@ -25209,12 +21220,6 @@ public final class Schema {
           authentication_ = null;
           authenticationBuilder_ = null;
         }
-        if (authorizationBuilder_ == null) {
-          authorization_ = null;
-        } else {
-          authorization_ = null;
-          authorizationBuilder_ = null;
-        }
         imagePullSecret_ = "";
 
         return this;
@@ -25265,11 +21270,6 @@ public final class Schema {
           result.authentication_ = authentication_;
         } else {
           result.authentication_ = authenticationBuilder_.build();
-        }
-        if (authorizationBuilder_ == null) {
-          result.authorization_ = authorization_;
-        } else {
-          result.authorization_ = authorizationBuilder_.build();
         }
         result.imagePullSecret_ = imagePullSecret_;
         result.bitField0_ = to_bitField0_;
@@ -25359,9 +21359,6 @@ public final class Schema {
         }
         if (other.hasAuthentication()) {
           mergeAuthentication(other.getAuthentication());
-        }
-        if (other.hasAuthorization()) {
-          mergeAuthorization(other.getAuthorization());
         }
         if (!other.getImagePullSecret().isEmpty()) {
           imagePullSecret_ = other.imagePullSecret_;
@@ -26140,159 +22137,6 @@ public final class Schema {
           authentication_ = null;
         }
         return authenticationBuilder_;
-      }
-
-      private meshpaas.Schema.Authz authorization_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          meshpaas.Schema.Authz, meshpaas.Schema.Authz.Builder, meshpaas.Schema.AuthzOrBuilder> authorizationBuilder_;
-      /**
-       * <pre>
-       * application authorization options
-       * </pre>
-       *
-       * <code>.meshpaas.Authz authorization = 13 [(.validator.field) = { ... }</code>
-       */
-      public boolean hasAuthorization() {
-        return authorizationBuilder_ != null || authorization_ != null;
-      }
-      /**
-       * <pre>
-       * application authorization options
-       * </pre>
-       *
-       * <code>.meshpaas.Authz authorization = 13 [(.validator.field) = { ... }</code>
-       */
-      public meshpaas.Schema.Authz getAuthorization() {
-        if (authorizationBuilder_ == null) {
-          return authorization_ == null ? meshpaas.Schema.Authz.getDefaultInstance() : authorization_;
-        } else {
-          return authorizationBuilder_.getMessage();
-        }
-      }
-      /**
-       * <pre>
-       * application authorization options
-       * </pre>
-       *
-       * <code>.meshpaas.Authz authorization = 13 [(.validator.field) = { ... }</code>
-       */
-      public Builder setAuthorization(meshpaas.Schema.Authz value) {
-        if (authorizationBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          authorization_ = value;
-          onChanged();
-        } else {
-          authorizationBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * application authorization options
-       * </pre>
-       *
-       * <code>.meshpaas.Authz authorization = 13 [(.validator.field) = { ... }</code>
-       */
-      public Builder setAuthorization(
-          meshpaas.Schema.Authz.Builder builderForValue) {
-        if (authorizationBuilder_ == null) {
-          authorization_ = builderForValue.build();
-          onChanged();
-        } else {
-          authorizationBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * application authorization options
-       * </pre>
-       *
-       * <code>.meshpaas.Authz authorization = 13 [(.validator.field) = { ... }</code>
-       */
-      public Builder mergeAuthorization(meshpaas.Schema.Authz value) {
-        if (authorizationBuilder_ == null) {
-          if (authorization_ != null) {
-            authorization_ =
-              meshpaas.Schema.Authz.newBuilder(authorization_).mergeFrom(value).buildPartial();
-          } else {
-            authorization_ = value;
-          }
-          onChanged();
-        } else {
-          authorizationBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * application authorization options
-       * </pre>
-       *
-       * <code>.meshpaas.Authz authorization = 13 [(.validator.field) = { ... }</code>
-       */
-      public Builder clearAuthorization() {
-        if (authorizationBuilder_ == null) {
-          authorization_ = null;
-          onChanged();
-        } else {
-          authorization_ = null;
-          authorizationBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * application authorization options
-       * </pre>
-       *
-       * <code>.meshpaas.Authz authorization = 13 [(.validator.field) = { ... }</code>
-       */
-      public meshpaas.Schema.Authz.Builder getAuthorizationBuilder() {
-        
-        onChanged();
-        return getAuthorizationFieldBuilder().getBuilder();
-      }
-      /**
-       * <pre>
-       * application authorization options
-       * </pre>
-       *
-       * <code>.meshpaas.Authz authorization = 13 [(.validator.field) = { ... }</code>
-       */
-      public meshpaas.Schema.AuthzOrBuilder getAuthorizationOrBuilder() {
-        if (authorizationBuilder_ != null) {
-          return authorizationBuilder_.getMessageOrBuilder();
-        } else {
-          return authorization_ == null ?
-              meshpaas.Schema.Authz.getDefaultInstance() : authorization_;
-        }
-      }
-      /**
-       * <pre>
-       * application authorization options
-       * </pre>
-       *
-       * <code>.meshpaas.Authz authorization = 13 [(.validator.field) = { ... }</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          meshpaas.Schema.Authz, meshpaas.Schema.Authz.Builder, meshpaas.Schema.AuthzOrBuilder> 
-          getAuthorizationFieldBuilder() {
-        if (authorizationBuilder_ == null) {
-          authorizationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              meshpaas.Schema.Authz, meshpaas.Schema.Authz.Builder, meshpaas.Schema.AuthzOrBuilder>(
-                  getAuthorization(),
-                  getParentForChildren(),
-                  isClean());
-          authorization_ = null;
-        }
-        return authorizationBuilder_;
       }
 
       private java.lang.Object imagePullSecret_ = "";
@@ -31875,26 +27719,6 @@ public final class Schema {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_meshpaas_AuthnRule_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_AuthzSubject_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_AuthzSubject_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_AuthzDestination_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_AuthzDestination_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_AuthzRule_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_AuthzRule_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_Authz_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_Authz_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_meshpaas_Authn_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -31960,11 +27784,6 @@ public final class Schema {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_meshpaas_Container_EnvEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_Container_PortsEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_Container_PortsEntry_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_meshpaas_App_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -31979,6 +27798,11 @@ public final class Schema {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_meshpaas_TaskInput_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_meshpaas_ContainerPort_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_meshpaas_ContainerPort_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_meshpaas_AppInput_descriptor;
   private static final 
@@ -32033,127 +27857,115 @@ public final class Schema {
       "p.proto\032\031google/protobuf/any.proto\032\033goog" +
       "le/protobuf/empty.proto\0326github.com/mwit" +
       "kow/go-proto-validators/validator.proto\"" +
-      "\223\001\n\tAuthnRule\022\"\n\010jwks_uri\030\001 \001(\tB\020\342\337\037\014\n\n^" +
-      ".{1,225}$\022 \n\006issuer\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,22" +
-      "5}$\022\020\n\010audience\030\003 \003(\t\022.\n\024ouput_payload_h" +
-      "eader\030\004 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\"R\n\014AuthzSu" +
-      "bject\022\025\n\rallow_issuers\030\006 \003(\t\022\023\n\013allow_ro" +
-      "les\030\007 \003(\t\022\026\n\016allow_audience\030\010 \003(\t\"h\n\020Aut" +
-      "hzDestination\022\023\n\013allow_paths\030\002 \003(\t\022\023\n\013al" +
-      "low_hosts\030\003 \003(\t\022\025\n\rallow_methods\030\004 \003(\t\022\023" +
-      "\n\013allow_ports\030\005 \003(\t\"e\n\tAuthzRule\022\'\n\007subj" +
-      "ect\030\001 \001(\0132\026.meshpaas.AuthzSubject\022/\n\013des" +
-      "tination\030\002 \001(\0132\032.meshpaas.AuthzDestinati" +
-      "on\"3\n\005Authz\022*\n\005rules\030\001 \003(\0132\023.meshpaas.Au" +
-      "thzRuleB\006\342\337\037\002`\001\"3\n\005Authn\022*\n\005rules\030\001 \003(\0132" +
-      "\023.meshpaas.AuthnRuleB\006\342\337\037\002`\001\"\310\001\n\013SecretI" +
-      "nput\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\"\n\004" +
-      "type\030\003 \001(\0162\024.meshpaas.SecretType\022\021\n\timmu" +
-      "table\030\004 \001(\010\0225\n\004data\030\005 \003(\0132\037.meshpaas.Sec" +
-      "retInput.DataEntryB\006\342\337\037\002 \001\032+\n\tDataEntry\022" +
-      "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\276\001\n\006Secr" +
-      "et\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\"\n\004ty" +
-      "pe\030\003 \001(\0162\024.meshpaas.SecretType\022\021\n\timmuta" +
-      "ble\030\004 \001(\010\0220\n\004data\030\005 \003(\0132\032.meshpaas.Secre" +
-      "t.DataEntryB\006\342\337\037\002 \001\032+\n\tDataEntry\022\013\n\003key\030" +
-      "\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\325\001\n\021ServerTLSSe" +
-      "ttings\022\026\n\016https_redirect\030\001 \001(\010\022\037\n\004mode\030\002" +
-      " \001(\0162\021.meshpaas.TLSmode\022\023\n\013secret_name\030\003" +
-      " \001(\t\022\031\n\021subject_alt_names\030\004 \003(\t\022\037\n\027verif" +
-      "y_certificate_spki\030\005 \003(\t\022\037\n\027verify_certi" +
-      "ficate_hash\030\006 \003(\t\022\025\n\rcipher_suites\030\007 \003(\t" +
-      "\"\306\001\n\017GatewayListener\022\024\n\004port\030\001 \001(\rB\006\342\337\037\002" +
-      "\020\000\022\036\n\004name\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\0225\n\010pr" +
-      "otocol\030\003 \001(\0162\033.meshpaas.TransportProtoco" +
-      "lB\006\342\337\037\002\020\000\022\025\n\005hosts\030\004 \003(\tB\006\342\337\037\002`\001\022/\n\ntls_" +
-      "config\030\005 \001(\0132\033.meshpaas.ServerTLSSetting" +
-      "s\"E\n\007Gateway\022\014\n\004name\030\001 \001(\t\022,\n\tlisteners\030" +
-      "\003 \003(\0132\031.meshpaas.GatewayListener\"\\\n\014Gate" +
-      "wayInput\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$" +
-      "\022,\n\tlisteners\030\003 \003(\0132\031.meshpaas.GatewayLi" +
-      "stener\"\343\001\n\tHTTPRoute\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014" +
-      "\n\n^.{1,225}$\022\024\n\004port\030\002 \001(\rB\006\342\337\037\002\020\000\022\023\n\013pa" +
-      "th_prefix\030\003 \001(\t\022\023\n\013rewrite_uri\030\005 \001(\t\022\025\n\r" +
-      "allow_origins\030\006 \003(\t\022\025\n\rallow_methods\030\007 \003" +
-      "(\t\022\025\n\rallow_headers\030\010 \003(\t\022\026\n\016expose_head" +
-      "ers\030\t \003(\t\022\031\n\021allow_credentials\030\n \001(\010\"S\n\007" +
-      "Routing\022\017\n\007gateway\030\001 \001(\t\022\r\n\005hosts\030\002 \003(\t\022" +
-      "(\n\013http_routes\030\004 \003(\0132\023.meshpaas.HTTPRout" +
-      "e\"\226\002\n\tContainer\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{" +
-      "1,225}$\022\037\n\005image\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$" +
-      "\022\014\n\004args\030\003 \003(\t\022)\n\003env\030\004 \003(\0132\034.meshpaas.C" +
-      "ontainer.EnvEntry\0225\n\005ports\030\005 \003(\0132\036.meshp" +
-      "aas.Container.PortsEntryB\006\342\337\037\002 \001\032*\n\010EnvE" +
-      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032,\n\n" +
-      "PortsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\002" +
-      "8\001\"\275\002\n\003App\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225" +
-      "}$\022/\n\ncontainers\030\003 \003(\0132\023.meshpaas.Contai" +
-      "nerB\006\342\337\037\002`\001\022\020\n\010replicas\030\010 \001(\r\022*\n\007routing" +
-      "\030\013 \001(\0132\021.meshpaas.RoutingB\006\342\337\037\002 \001\022/\n\016aut" +
-      "hentication\030\014 \001(\0132\017.meshpaas.AuthnB\006\342\337\037\002" +
-      " \001\022.\n\rauthorization\030\r \001(\0132\017.meshpaas.Aut" +
-      "hzB\006\342\337\037\002 \001\022\031\n\021image_pull_secret\030\016 \001(\t\022+\n" +
-      "\006status\030\024 \001(\0132\023.meshpaas.AppStatusB\006\342\337\037\002" +
-      " \001\"\253\001\n\004Task\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,22" +
-      "5}$\022\031\n\021image_pull_secret\030\003 \001(\t\022/\n\ncontai" +
-      "ners\030\004 \003(\0132\023.meshpaas.ContainerB\006\342\337\037\002`\001\022" +
-      "\"\n\010schedule\030\007 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\023\n\013c" +
-      "ompletions\030\010 \001(\r\"\260\001\n\tTaskInput\022\036\n\004name\030\001" +
-      " \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\031\n\021image_pull_sec" +
-      "ret\030\003 \001(\t\022/\n\ncontainers\030\004 \003(\0132\023.meshpaas" +
-      ".ContainerB\006\342\337\037\002`\001\022\"\n\010schedule\030\007 \001(\tB\020\342\337" +
-      "\037\014\n\n^.{1,225}$\022\023\n\013completions\030\010 \001(\r\"\215\002\n\010" +
-      "AppInput\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$" +
-      "\022/\n\ncontainers\030\003 \003(\0132\023.meshpaas.Containe" +
-      "rB\006\342\337\037\002`\001\022\020\n\010replicas\030\007 \001(\r\022*\n\007routing\030\n" +
-      " \001(\0132\021.meshpaas.RoutingB\006\342\337\037\002 \001\022\'\n\016authe" +
-      "ntication\030\014 \001(\0132\017.meshpaas.Authn\022.\n\rauth" +
-      "orization\030\r \001(\0132\017.meshpaas.AuthzB\006\342\337\037\002 \001" +
-      "\022\031\n\021image_pull_secret\030\016 \001(\t\"%\n\003Ref\022\036\n\004na" +
-      "me\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\";\n\007Replica\022\r\n" +
-      "\005phase\030\001 \001(\t\022\021\n\tcondition\030\002 \001(\t\022\016\n\006reaso" +
-      "n\030\003 \001(\t\"0\n\tAppStatus\022#\n\010replicas\030\001 \003(\0132\021" +
-      ".meshpaas.Replica\"\026\n\003Log\022\017\n\007message\030\001 \001(" +
-      "\t\"+\n\004Apps\022#\n\014applications\030\001 \003(\0132\r.meshpa" +
-      "as.App\"&\n\005Tasks\022\035\n\005tasks\030\001 \003(\0132\016.meshpaa" +
-      "s.Task\"\233\001\n\007LogOpts\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n" +
-      "^.{1,225}$\022#\n\tcontainer\030\002 \001(\tB\020\342\337\037\014\n\n^.{" +
-      "1,225}$\022\025\n\rsince_seconds\030\003 \001(\003\022\022\n\ntail_l" +
-      "ines\030\004 \001(\003\022\020\n\010previous\030\n \001(\010\022\016\n\006stream\030\013" +
-      " \001(\010*=\n\nSecretType\022\n\n\006OPAQUE\020\000\022\020\n\014TLS_CE" +
-      "RT_KEY\020\001\022\021\n\rDOCKER_CONFIG\020\002*p\n\021Transport" +
-      "Protocol\022\024\n\020INVALID_PROTOCOL\020\000\022\010\n\004HTTP\020\001" +
-      "\022\t\n\005HTTPS\020\002\022\010\n\004GRPC\020\003\022\t\n\005HTTP2\020\004\022\t\n\005MONG" +
-      "O\020\005\022\007\n\003TCP\020\006\022\007\n\003TLS\020\007*Z\n\007TLSmode\022\017\n\013PASS" +
-      "THROUGH\020\000\022\n\n\006SIMPLE\020\001\022\n\n\006MUTUAL\020\002\022\024\n\020AUT" +
-      "O_PASSTHROUGH\020\003\022\020\n\014ISTIO_MUTUAL\020\0042\213\010\n\017Me" +
-      "shPaasService\0220\n\tCreateApp\022\022.meshpaas.Ap" +
-      "pInput\032\r.meshpaas.App\"\000\0220\n\tUpdateApp\022\022.m" +
-      "eshpaas.AppInput\032\r.meshpaas.App\"\000\0224\n\tDel" +
-      "eteApp\022\r.meshpaas.Ref\032\026.google.protobuf." +
-      "Empty\"\000\022(\n\006GetApp\022\r.meshpaas.Ref\032\r.meshp" +
-      "aas.App\"\000\0224\n\010ListApps\022\026.google.protobuf." +
-      "Empty\032\016.meshpaas.Apps\"\000\0223\n\nCreateTask\022\023." +
-      "meshpaas.TaskInput\032\016.meshpaas.Task\"\000\0223\n\n" +
-      "UpdateTask\022\023.meshpaas.TaskInput\032\016.meshpa" +
-      "as.Task\"\000\0225\n\nDeleteTask\022\r.meshpaas.Ref\032\026" +
-      ".google.protobuf.Empty\"\000\022*\n\007GetTask\022\r.me" +
-      "shpaas.Ref\032\016.meshpaas.Task\"\000\0226\n\tListTask" +
-      "s\022\026.google.protobuf.Empty\032\017.meshpaas.Tas" +
-      "ks\"\000\022<\n\rCreateGateway\022\026.meshpaas.Gateway" +
-      "Input\032\021.meshpaas.Gateway\"\000\022<\n\rUpdateGate" +
-      "way\022\026.meshpaas.GatewayInput\032\021.meshpaas.G" +
-      "ateway\"\000\0228\n\rDeleteGateway\022\r.meshpaas.Ref" +
-      "\032\026.google.protobuf.Empty\"\000\0220\n\nGetGateway" +
-      "\022\r.meshpaas.Ref\032\021.meshpaas.Gateway\"\000\0229\n\014" +
-      "CreateSecret\022\025.meshpaas.SecretInput\032\020.me" +
-      "shpaas.Secret\"\000\0229\n\014UpdateSecret\022\025.meshpa" +
-      "as.SecretInput\032\020.meshpaas.Secret\"\000\0227\n\014De" +
-      "leteSecret\022\r.meshpaas.Ref\032\026.google.proto" +
-      "buf.Empty\"\000\022.\n\tGetSecret\022\r.meshpaas.Ref\032" +
-      "\020.meshpaas.Secret\"\000\0222\n\nStreamLogs\022\021.mesh" +
-      "paas.LogOpts\032\r.meshpaas.Log\"\0000\001B\014Z\nmeshp" +
-      "aaspbb\006proto3"
+      "c\n\tAuthnRule\022\"\n\010jwks_uri\030\001 \001(\tB\020\342\337\037\014\n\n^." +
+      "{1,225}$\022 \n\006issuer\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225" +
+      "}$\022\020\n\010audience\030\003 \003(\t\"3\n\005Authn\022*\n\005rules\030\001" +
+      " \003(\0132\023.meshpaas.AuthnRuleB\006\342\337\037\002`\001\"\310\001\n\013Se" +
+      "cretInput\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}" +
+      "$\022\"\n\004type\030\003 \001(\0162\024.meshpaas.SecretType\022\021\n" +
+      "\timmutable\030\004 \001(\010\0225\n\004data\030\005 \003(\0132\037.meshpaa" +
+      "s.SecretInput.DataEntryB\006\342\337\037\002 \001\032+\n\tDataE" +
+      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\276\001\n" +
+      "\006Secret\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022" +
+      "\"\n\004type\030\003 \001(\0162\024.meshpaas.SecretType\022\021\n\ti" +
+      "mmutable\030\004 \001(\010\0220\n\004data\030\005 \003(\0132\032.meshpaas." +
+      "Secret.DataEntryB\006\342\337\037\002 \001\032+\n\tDataEntry\022\013\n" +
+      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\325\001\n\021Server" +
+      "TLSSettings\022\026\n\016https_redirect\030\001 \001(\010\022\037\n\004m" +
+      "ode\030\002 \001(\0162\021.meshpaas.TLSmode\022\023\n\013secret_n" +
+      "ame\030\003 \001(\t\022\031\n\021subject_alt_names\030\004 \003(\t\022\037\n\027" +
+      "verify_certificate_spki\030\005 \003(\t\022\037\n\027verify_" +
+      "certificate_hash\030\006 \003(\t\022\025\n\rcipher_suites\030" +
+      "\007 \003(\t\"\306\001\n\017GatewayListener\022\024\n\004port\030\001 \001(\rB" +
+      "\006\342\337\037\002\020\000\022\036\n\004name\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022" +
+      "5\n\010protocol\030\003 \001(\0162\033.meshpaas.TransportPr" +
+      "otocolB\006\342\337\037\002\020\000\022\025\n\005hosts\030\004 \003(\tB\006\342\337\037\002`\001\022/\n" +
+      "\ntls_config\030\005 \001(\0132\033.meshpaas.ServerTLSSe" +
+      "ttings\"E\n\007Gateway\022\014\n\004name\030\001 \001(\t\022,\n\tliste" +
+      "ners\030\003 \003(\0132\031.meshpaas.GatewayListener\"\\\n" +
+      "\014GatewayInput\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1," +
+      "225}$\022,\n\tlisteners\030\003 \003(\0132\031.meshpaas.Gate" +
+      "wayListener\"\343\001\n\tHTTPRoute\022\036\n\004name\030\001 \001(\tB" +
+      "\020\342\337\037\014\n\n^.{1,225}$\022\024\n\004port\030\002 \001(\rB\006\342\337\037\002\020\000\022" +
+      "\023\n\013path_prefix\030\003 \001(\t\022\023\n\013rewrite_uri\030\005 \001(" +
+      "\t\022\025\n\rallow_origins\030\006 \003(\t\022\025\n\rallow_method" +
+      "s\030\007 \003(\t\022\025\n\rallow_headers\030\010 \003(\t\022\026\n\016expose" +
+      "_headers\030\t \003(\t\022\031\n\021allow_credentials\030\n \001(" +
+      "\010\"S\n\007Routing\022\017\n\007gateway\030\001 \001(\t\022\r\n\005hosts\030\002" +
+      " \003(\t\022(\n\013http_routes\030\004 \003(\0132\023.meshpaas.HTT" +
+      "PRoute\"\331\001\n\tContainer\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014" +
+      "\n\n^.{1,225}$\022\037\n\005image\030\002 \001(\tB\020\342\337\037\014\n\n^.{1," +
+      "225}$\022\014\n\004args\030\003 \003(\t\022)\n\003env\030\004 \003(\0132\034.meshp" +
+      "aas.Container.EnvEntry\022&\n\005ports\030\005 \003(\0132\027." +
+      "meshpaas.ContainerPort\032*\n\010EnvEntry\022\013\n\003ke" +
+      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\215\002\n\003App\022\036\n\004na" +
+      "me\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022/\n\ncontainers" +
+      "\030\003 \003(\0132\023.meshpaas.ContainerB\006\342\337\037\002`\001\022\020\n\010r" +
+      "eplicas\030\010 \001(\r\022*\n\007routing\030\013 \001(\0132\021.meshpaa" +
+      "s.RoutingB\006\342\337\037\002 \001\022/\n\016authentication\030\014 \001(" +
+      "\0132\017.meshpaas.AuthnB\006\342\337\037\002 \001\022\031\n\021image_pull" +
+      "_secret\030\016 \001(\t\022+\n\006status\030\024 \001(\0132\023.meshpaas" +
+      ".AppStatusB\006\342\337\037\002 \001\"\253\001\n\004Task\022\036\n\004name\030\001 \001(" +
+      "\tB\020\342\337\037\014\n\n^.{1,225}$\022\031\n\021image_pull_secret" +
+      "\030\003 \001(\t\022/\n\ncontainers\030\004 \003(\0132\023.meshpaas.Co" +
+      "ntainerB\006\342\337\037\002`\001\022\"\n\010schedule\030\007 \001(\tB\020\342\337\037\014\n" +
+      "\n^.{1,225}$\022\023\n\013completions\030\010 \001(\r\"\260\001\n\tTas" +
+      "kInput\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\031" +
+      "\n\021image_pull_secret\030\003 \001(\t\022/\n\ncontainers\030" +
+      "\004 \003(\0132\023.meshpaas.ContainerB\006\342\337\037\002`\001\022\"\n\010sc" +
+      "hedule\030\007 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\023\n\013comple" +
+      "tions\030\010 \001(\r\"=\n\rContainerPort\022\014\n\004name\030\001 \001" +
+      "(\t\022\016\n\006number\030\002 \001(\r\022\016\n\006expose\030\003 \001(\010\"\335\001\n\010A" +
+      "ppInput\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022" +
+      "/\n\ncontainers\030\003 \003(\0132\023.meshpaas.Container" +
+      "B\006\342\337\037\002`\001\022\020\n\010replicas\030\007 \001(\r\022*\n\007routing\030\n " +
+      "\001(\0132\021.meshpaas.RoutingB\006\342\337\037\002 \001\022\'\n\016authen" +
+      "tication\030\014 \001(\0132\017.meshpaas.Authn\022\031\n\021image" +
+      "_pull_secret\030\016 \001(\t\"%\n\003Ref\022\036\n\004name\030\001 \001(\tB" +
+      "\020\342\337\037\014\n\n^.{1,225}$\";\n\007Replica\022\r\n\005phase\030\001 " +
+      "\001(\t\022\021\n\tcondition\030\002 \001(\t\022\016\n\006reason\030\003 \001(\t\"0" +
+      "\n\tAppStatus\022#\n\010replicas\030\001 \003(\0132\021.meshpaas" +
+      ".Replica\"\026\n\003Log\022\017\n\007message\030\001 \001(\t\"+\n\004Apps" +
+      "\022#\n\014applications\030\001 \003(\0132\r.meshpaas.App\"&\n" +
+      "\005Tasks\022\035\n\005tasks\030\001 \003(\0132\016.meshpaas.Task\"\233\001" +
+      "\n\007LogOpts\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}" +
+      "$\022#\n\tcontainer\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\025" +
+      "\n\rsince_seconds\030\003 \001(\003\022\022\n\ntail_lines\030\004 \001(" +
+      "\003\022\020\n\010previous\030\n \001(\010\022\016\n\006stream\030\013 \001(\010*=\n\nS" +
+      "ecretType\022\n\n\006OPAQUE\020\000\022\020\n\014TLS_CERT_KEY\020\001\022" +
+      "\021\n\rDOCKER_CONFIG\020\002*p\n\021TransportProtocol\022" +
+      "\024\n\020INVALID_PROTOCOL\020\000\022\010\n\004HTTP\020\001\022\t\n\005HTTPS" +
+      "\020\002\022\010\n\004GRPC\020\003\022\t\n\005HTTP2\020\004\022\t\n\005MONGO\020\005\022\007\n\003TC" +
+      "P\020\006\022\007\n\003TLS\020\007*Z\n\007TLSmode\022\017\n\013PASSTHROUGH\020\000" +
+      "\022\n\n\006SIMPLE\020\001\022\n\n\006MUTUAL\020\002\022\024\n\020AUTO_PASSTHR" +
+      "OUGH\020\003\022\020\n\014ISTIO_MUTUAL\020\0042\213\010\n\017MeshPaasSer" +
+      "vice\0220\n\tCreateApp\022\022.meshpaas.AppInput\032\r." +
+      "meshpaas.App\"\000\0220\n\tUpdateApp\022\022.meshpaas.A" +
+      "ppInput\032\r.meshpaas.App\"\000\0224\n\tDeleteApp\022\r." +
+      "meshpaas.Ref\032\026.google.protobuf.Empty\"\000\022(" +
+      "\n\006GetApp\022\r.meshpaas.Ref\032\r.meshpaas.App\"\000" +
+      "\0224\n\010ListApps\022\026.google.protobuf.Empty\032\016.m" +
+      "eshpaas.Apps\"\000\0223\n\nCreateTask\022\023.meshpaas." +
+      "TaskInput\032\016.meshpaas.Task\"\000\0223\n\nUpdateTas" +
+      "k\022\023.meshpaas.TaskInput\032\016.meshpaas.Task\"\000" +
+      "\0225\n\nDeleteTask\022\r.meshpaas.Ref\032\026.google.p" +
+      "rotobuf.Empty\"\000\022*\n\007GetTask\022\r.meshpaas.Re" +
+      "f\032\016.meshpaas.Task\"\000\0226\n\tListTasks\022\026.googl" +
+      "e.protobuf.Empty\032\017.meshpaas.Tasks\"\000\022<\n\rC" +
+      "reateGateway\022\026.meshpaas.GatewayInput\032\021.m" +
+      "eshpaas.Gateway\"\000\022<\n\rUpdateGateway\022\026.mes" +
+      "hpaas.GatewayInput\032\021.meshpaas.Gateway\"\000\022" +
+      "8\n\rDeleteGateway\022\r.meshpaas.Ref\032\026.google" +
+      ".protobuf.Empty\"\000\0220\n\nGetGateway\022\r.meshpa" +
+      "as.Ref\032\021.meshpaas.Gateway\"\000\0229\n\014CreateSec" +
+      "ret\022\025.meshpaas.SecretInput\032\020.meshpaas.Se" +
+      "cret\"\000\0229\n\014UpdateSecret\022\025.meshpaas.Secret" +
+      "Input\032\020.meshpaas.Secret\"\000\0227\n\014DeleteSecre" +
+      "t\022\r.meshpaas.Ref\032\026.google.protobuf.Empty" +
+      "\"\000\022.\n\tGetSecret\022\r.meshpaas.Ref\032\020.meshpaa" +
+      "s.Secret\"\000\0222\n\nStreamLogs\022\021.meshpaas.LogO" +
+      "pts\032\r.meshpaas.Log\"\0000\001B\014Z\nmeshpaaspbb\006pr" +
+      "oto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -32177,39 +27989,15 @@ public final class Schema {
     internal_static_meshpaas_AuthnRule_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_AuthnRule_descriptor,
-        new java.lang.String[] { "JwksUri", "Issuer", "Audience", "OuputPayloadHeader", });
-    internal_static_meshpaas_AuthzSubject_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_meshpaas_AuthzSubject_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_AuthzSubject_descriptor,
-        new java.lang.String[] { "AllowIssuers", "AllowRoles", "AllowAudience", });
-    internal_static_meshpaas_AuthzDestination_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_meshpaas_AuthzDestination_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_AuthzDestination_descriptor,
-        new java.lang.String[] { "AllowPaths", "AllowHosts", "AllowMethods", "AllowPorts", });
-    internal_static_meshpaas_AuthzRule_descriptor =
-      getDescriptor().getMessageTypes().get(3);
-    internal_static_meshpaas_AuthzRule_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_AuthzRule_descriptor,
-        new java.lang.String[] { "Subject", "Destination", });
-    internal_static_meshpaas_Authz_descriptor =
-      getDescriptor().getMessageTypes().get(4);
-    internal_static_meshpaas_Authz_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_Authz_descriptor,
-        new java.lang.String[] { "Rules", });
+        new java.lang.String[] { "JwksUri", "Issuer", "Audience", });
     internal_static_meshpaas_Authn_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(1);
     internal_static_meshpaas_Authn_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Authn_descriptor,
         new java.lang.String[] { "Rules", });
     internal_static_meshpaas_SecretInput_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_meshpaas_SecretInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_SecretInput_descriptor,
@@ -32221,7 +28009,7 @@ public final class Schema {
         internal_static_meshpaas_SecretInput_DataEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_meshpaas_Secret_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_meshpaas_Secret_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Secret_descriptor,
@@ -32233,43 +28021,43 @@ public final class Schema {
         internal_static_meshpaas_Secret_DataEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_meshpaas_ServerTLSSettings_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_meshpaas_ServerTLSSettings_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_ServerTLSSettings_descriptor,
         new java.lang.String[] { "HttpsRedirect", "Mode", "SecretName", "SubjectAltNames", "VerifyCertificateSpki", "VerifyCertificateHash", "CipherSuites", });
     internal_static_meshpaas_GatewayListener_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_meshpaas_GatewayListener_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_GatewayListener_descriptor,
         new java.lang.String[] { "Port", "Name", "Protocol", "Hosts", "TlsConfig", });
     internal_static_meshpaas_Gateway_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_meshpaas_Gateway_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Gateway_descriptor,
         new java.lang.String[] { "Name", "Listeners", });
     internal_static_meshpaas_GatewayInput_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_meshpaas_GatewayInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_GatewayInput_descriptor,
         new java.lang.String[] { "Name", "Listeners", });
     internal_static_meshpaas_HTTPRoute_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_meshpaas_HTTPRoute_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_HTTPRoute_descriptor,
         new java.lang.String[] { "Name", "Port", "PathPrefix", "RewriteUri", "AllowOrigins", "AllowMethods", "AllowHeaders", "ExposeHeaders", "AllowCredentials", });
     internal_static_meshpaas_Routing_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_meshpaas_Routing_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Routing_descriptor,
         new java.lang.String[] { "Gateway", "Hosts", "HttpRoutes", });
     internal_static_meshpaas_Container_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_meshpaas_Container_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Container_descriptor,
@@ -32280,74 +28068,74 @@ public final class Schema {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Container_EnvEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_meshpaas_Container_PortsEntry_descriptor =
-      internal_static_meshpaas_Container_descriptor.getNestedTypes().get(1);
-    internal_static_meshpaas_Container_PortsEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_Container_PortsEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
     internal_static_meshpaas_App_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_meshpaas_App_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_App_descriptor,
-        new java.lang.String[] { "Name", "Containers", "Replicas", "Routing", "Authentication", "Authorization", "ImagePullSecret", "Status", });
+        new java.lang.String[] { "Name", "Containers", "Replicas", "Routing", "Authentication", "ImagePullSecret", "Status", });
     internal_static_meshpaas_Task_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_meshpaas_Task_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Task_descriptor,
         new java.lang.String[] { "Name", "ImagePullSecret", "Containers", "Schedule", "Completions", });
     internal_static_meshpaas_TaskInput_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_meshpaas_TaskInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_TaskInput_descriptor,
         new java.lang.String[] { "Name", "ImagePullSecret", "Containers", "Schedule", "Completions", });
+    internal_static_meshpaas_ContainerPort_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_meshpaas_ContainerPort_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_meshpaas_ContainerPort_descriptor,
+        new java.lang.String[] { "Name", "Number", "Expose", });
     internal_static_meshpaas_AppInput_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_meshpaas_AppInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_AppInput_descriptor,
-        new java.lang.String[] { "Name", "Containers", "Replicas", "Routing", "Authentication", "Authorization", "ImagePullSecret", });
+        new java.lang.String[] { "Name", "Containers", "Replicas", "Routing", "Authentication", "ImagePullSecret", });
     internal_static_meshpaas_Ref_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_meshpaas_Ref_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Ref_descriptor,
         new java.lang.String[] { "Name", });
     internal_static_meshpaas_Replica_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_meshpaas_Replica_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Replica_descriptor,
         new java.lang.String[] { "Phase", "Condition", "Reason", });
     internal_static_meshpaas_AppStatus_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_meshpaas_AppStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_AppStatus_descriptor,
         new java.lang.String[] { "Replicas", });
     internal_static_meshpaas_Log_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_meshpaas_Log_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Log_descriptor,
         new java.lang.String[] { "Message", });
     internal_static_meshpaas_Apps_descriptor =
-      getDescriptor().getMessageTypes().get(23);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_meshpaas_Apps_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Apps_descriptor,
         new java.lang.String[] { "Applications", });
     internal_static_meshpaas_Tasks_descriptor =
-      getDescriptor().getMessageTypes().get(24);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_meshpaas_Tasks_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Tasks_descriptor,
         new java.lang.String[] { "Tasks", });
     internal_static_meshpaas_LogOpts_descriptor =
-      getDescriptor().getMessageTypes().get(25);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_meshpaas_LogOpts_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_LogOpts_descriptor,

@@ -64,6 +64,12 @@ type ComplexityRoot struct {
 		Ports func(childComplexity int) int
 	}
 
+	ContainerPort struct {
+		Expose func(childComplexity int) int
+		Name   func(childComplexity int) int
+		Number func(childComplexity int) int
+	}
+
 	HTTPRoute struct {
 		AllowCredentials func(childComplexity int) int
 		AllowHeaders     func(childComplexity int) int
@@ -231,6 +237,27 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Container.Ports(childComplexity), true
+
+	case "ContainerPort.expose":
+		if e.complexity.ContainerPort.Expose == nil {
+			break
+		}
+
+		return e.complexity.ContainerPort.Expose(childComplexity), true
+
+	case "ContainerPort.name":
+		if e.complexity.ContainerPort.Name == nil {
+			break
+		}
+
+		return e.complexity.ContainerPort.Name(childComplexity), true
+
+	case "ContainerPort.number":
+		if e.complexity.ContainerPort.Number == nil {
+			break
+		}
+
+		return e.complexity.ContainerPort.Number(childComplexity), true
 
 	case "HTTPRoute.allow_credentials":
 		if e.complexity.HTTPRoute.AllowCredentials == nil {
@@ -663,6 +690,17 @@ input RoutingInput {
     http_routes: [HTTPRouteInput!]
 }
 
+type ContainerPort {
+    name: String!
+    number: Int!
+    expose: Boolean!
+}
+
+input ContainerPortInput {
+    name: String!
+    number: Int!
+    expose: Boolean!
+}
 
 type Container {
     name: String!
@@ -672,8 +710,7 @@ type Container {
     args: [String!]
     # k/v map of environmental variables
     env: Map
-    # k/v map of ports to expose ex: http-1: 80 https-1: 443
-    ports: Map!
+    ports: [ContainerPort]
 }
 
 input ContainerInput {
@@ -684,8 +721,7 @@ input ContainerInput {
     args: [String!]
     # k/v map of environmental variables
     env: Map
-    # k/v map of ports to expose ex: http-1: 80 https-1: 443
-    ports: Map!
+    ports: [ContainerPortInput]
 }
 
 # App is a stateless application
@@ -1423,14 +1459,116 @@ func (ec *executionContext) _Container_ports(ctx context.Context, field graphql.
 		return graphql.Null
 	}
 	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.([]*model.ContainerPort)
+	fc.Result = res
+	return ec.marshalOContainerPort2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐContainerPort(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ContainerPort_name(ctx context.Context, field graphql.CollectedField, obj *model.ContainerPort) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ContainerPort",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Name, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
 		if !graphql.HasFieldError(ctx, fc) {
 			ec.Errorf(ctx, "must not be null")
 		}
 		return graphql.Null
 	}
-	res := resTmp.(map[string]interface{})
+	res := resTmp.(string)
 	fc.Result = res
-	return ec.marshalNMap2map(ctx, field.Selections, res)
+	return ec.marshalNString2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ContainerPort_number(ctx context.Context, field graphql.CollectedField, obj *model.ContainerPort) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ContainerPort",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Number, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(int)
+	fc.Result = res
+	return ec.marshalNInt2int(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ContainerPort_expose(ctx context.Context, field graphql.CollectedField, obj *model.ContainerPort) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ContainerPort",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Expose, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(bool)
+	fc.Result = res
+	return ec.marshalNBoolean2bool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _HTTPRoute_name(ctx context.Context, field graphql.CollectedField, obj *model.HTTPRoute) (ret graphql.Marshaler) {
@@ -3837,7 +3975,43 @@ func (ec *executionContext) unmarshalInputContainerInput(ctx context.Context, ob
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ports"))
-			it.Ports, err = ec.unmarshalNMap2map(ctx, v)
+			it.Ports, err = ec.unmarshalOContainerPortInput2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐContainerPortInput(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputContainerPortInput(ctx context.Context, obj interface{}) (model.ContainerPortInput, error) {
+	var it model.ContainerPortInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "number":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("number"))
+			it.Number, err = ec.unmarshalNInt2int(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "expose":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("expose"))
+			it.Expose, err = ec.unmarshalNBoolean2bool(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -4200,6 +4374,40 @@ func (ec *executionContext) _Container(ctx context.Context, sel ast.SelectionSet
 			out.Values[i] = ec._Container_env(ctx, field, obj)
 		case "ports":
 			out.Values[i] = ec._Container_ports(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var containerPortImplementors = []string{"ContainerPort"}
+
+func (ec *executionContext) _ContainerPort(ctx context.Context, sel ast.SelectionSet, obj *model.ContainerPort) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, containerPortImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("ContainerPort")
+		case "name":
+			out.Values[i] = ec._ContainerPort_name(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "number":
+			out.Values[i] = ec._ContainerPort_number(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "expose":
+			out.Values[i] = ec._ContainerPort_expose(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
@@ -4934,27 +5142,6 @@ func (ec *executionContext) unmarshalNLogOpts2githubᚗcomᚋautom8terᚋmeshpaa
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNMap2map(ctx context.Context, v interface{}) (map[string]interface{}, error) {
-	res, err := graphql.UnmarshalMap(v)
-	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalNMap2map(ctx context.Context, sel ast.SelectionSet, v map[string]interface{}) graphql.Marshaler {
-	if v == nil {
-		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := graphql.MarshalMap(v)
-	if res == graphql.Null {
-		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
-			ec.Errorf(ctx, "must not be null")
-		}
-	}
-	return res
-}
-
 func (ec *executionContext) unmarshalNRef2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐRef(ctx context.Context, v interface{}) (model.Ref, error) {
 	res, err := ec.unmarshalInputRef(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -5344,6 +5531,85 @@ func (ec *executionContext) marshalOBoolean2ᚖbool(ctx context.Context, sel ast
 		return graphql.Null
 	}
 	return graphql.MarshalBoolean(*v)
+}
+
+func (ec *executionContext) marshalOContainerPort2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐContainerPort(ctx context.Context, sel ast.SelectionSet, v []*model.ContainerPort) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalOContainerPort2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐContainerPort(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+	return ret
+}
+
+func (ec *executionContext) marshalOContainerPort2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐContainerPort(ctx context.Context, sel ast.SelectionSet, v *model.ContainerPort) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._ContainerPort(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOContainerPortInput2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐContainerPortInput(ctx context.Context, v interface{}) ([]*model.ContainerPortInput, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]*model.ContainerPortInput, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalOContainerPortInput2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐContainerPortInput(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) unmarshalOContainerPortInput2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐContainerPortInput(ctx context.Context, v interface{}) (*model.ContainerPortInput, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputContainerPortInput(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) marshalOHTTPRoute2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐHTTPRouteᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.HTTPRoute) graphql.Marshaler {

@@ -33,12 +33,6 @@ class AuthnRule extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>repeated string audience = 3;</code>
      */
     private $audience;
-    /**
-     * serialize jwt payload & write to this header
-     *
-     * Generated from protobuf field <code>string ouput_payload_header = 4 [(.validator.field) = {</code>
-     */
-    private $ouput_payload_header = '';
 
     /**
      * Constructor.
@@ -52,8 +46,6 @@ class AuthnRule extends \Google\Protobuf\Internal\Message
      *           issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $audience
      *           issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
-     *     @type string $ouput_payload_header
-     *           serialize jwt payload & write to this header
      * }
      */
     public function __construct($data = NULL) {
@@ -135,32 +127,6 @@ class AuthnRule extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
         $this->audience = $arr;
-
-        return $this;
-    }
-
-    /**
-     * serialize jwt payload & write to this header
-     *
-     * Generated from protobuf field <code>string ouput_payload_header = 4 [(.validator.field) = {</code>
-     * @return string
-     */
-    public function getOuputPayloadHeader()
-    {
-        return $this->ouput_payload_header;
-    }
-
-    /**
-     * serialize jwt payload & write to this header
-     *
-     * Generated from protobuf field <code>string ouput_payload_header = 4 [(.validator.field) = {</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setOuputPayloadHeader($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->ouput_payload_header = $var;
 
         return $this;
     }
