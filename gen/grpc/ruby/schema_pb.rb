@@ -52,11 +52,11 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     repeated :listeners, :message, 3, "meshpaas.GatewayListener"
   end
   add_message "meshpaas.Gateways" do
-    repeated :gatways, :message, 1, "meshpaas.Gateway"
+    repeated :gateways, :message, 1, "meshpaas.Gateway"
   end
   add_message "meshpaas.GatewayInput" do
     optional :name, :string, 1
-    repeated :listeners, :message, 3, "meshpaas.GatewayListener"
+    repeated :listeners, :message, 2, "meshpaas.GatewayListener"
   end
   add_message "meshpaas.HTTPRoute" do
     optional :name, :string, 1

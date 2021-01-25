@@ -1,4 +1,4 @@
-version := "0.0.21"
+version := "0.0.22"
 
 .DEFAULT_GOAL := help
 
@@ -10,7 +10,7 @@ help:
 	@echo "----------------------------------------------------------------"
 
 run:
-	@go run cmd/meshpaas/main.go --open-id https://accounts.google.com/.well-known/openid-configuration --out-of-cluster
+	@go run cmd/meshpaas/main.go --out-of-cluster
 
 gen: gql proto
 

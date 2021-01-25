@@ -5,8 +5,6 @@ package gql
 
 import (
 	"context"
-	"fmt"
-
 	"github.com/99designs/gqlgen/graphql"
 	"github.com/autom8ter/meshpaas/gen/gql/go/generated"
 	"github.com/autom8ter/meshpaas/gen/gql/go/model"
@@ -14,10 +12,6 @@ import (
 	"github.com/golang/protobuf/ptypes/empty"
 	"github.com/vektah/gqlparser/v2/gqlerror"
 )
-
-func (r *mutationResolver) DelProject(ctx context.Context, input *string) (*string, error) {
-	panic(fmt.Errorf("not implemented"))
-}
 
 func (r *mutationResolver) CreateAPI(ctx context.Context, input model.APIInput) (*model.API, error) {
 	app, err := r.client.CreateAPI(ctx, toAPI(input))
@@ -89,6 +83,76 @@ func (r *mutationResolver) DelTask(ctx context.Context, input model.Ref) (*strin
 	return nil, nil
 }
 
+func (r *mutationResolver) CreateGateway(ctx context.Context, input model.GatewayInput) (*model.Gateway, error) {
+	gw, err := r.client.CreateGateway(ctx, toGateway(input))
+	if err != nil {
+		return nil, &gqlerror.Error{
+			Message: err.Error(),
+			Path:    graphql.GetPath(ctx),
+		}
+	}
+	return fromGateway(gw), nil
+}
+
+func (r *mutationResolver) UpdateGateway(ctx context.Context, input model.GatewayInput) (*model.Gateway, error) {
+	gw, err := r.client.UpdateGateway(ctx, toGateway(input))
+	if err != nil {
+		return nil, &gqlerror.Error{
+			Message: err.Error(),
+			Path:    graphql.GetPath(ctx),
+		}
+	}
+	return fromGateway(gw), nil
+}
+
+func (r *mutationResolver) DelGateway(ctx context.Context, input model.Ref) (*string, error) {
+	_, err := r.client.DeleteGateway(ctx, &meshpaaspb.Ref{
+		Name: input.Name,
+	})
+	if err != nil {
+		return nil, &gqlerror.Error{
+			Message: err.Error(),
+			Path:    graphql.GetPath(ctx),
+		}
+	}
+	return nil, nil
+}
+
+func (r *mutationResolver) CreateSecret(ctx context.Context, input model.SecretInput) (*model.Secret, error) {
+	s, err := r.client.CreateSecret(ctx, toSecret(input))
+	if err != nil {
+		return nil, &gqlerror.Error{
+			Message: err.Error(),
+			Path:    graphql.GetPath(ctx),
+		}
+	}
+	return fromSecret(s), nil
+}
+
+func (r *mutationResolver) UpdateSecret(ctx context.Context, input model.SecretInput) (*model.Secret, error) {
+	s, err := r.client.UpdateSecret(ctx, toSecret(input))
+	if err != nil {
+		return nil, &gqlerror.Error{
+			Message: err.Error(),
+			Path:    graphql.GetPath(ctx),
+		}
+	}
+	return fromSecret(s), nil
+}
+
+func (r *mutationResolver) DelSecret(ctx context.Context, input model.Ref) (*string, error) {
+	_, err := r.client.DeleteSecret(ctx, &meshpaaspb.Ref{
+		Name: input.Name,
+	})
+	if err != nil {
+		return nil, &gqlerror.Error{
+			Message: err.Error(),
+			Path:    graphql.GetPath(ctx),
+		}
+	}
+	return nil, nil
+}
+
 func (r *queryResolver) GetAPI(ctx context.Context, input model.Ref) (*model.API, error) {
 	app, err := r.client.GetAPI(ctx, &meshpaaspb.Ref{
 		Name: input.Name,
@@ -141,6 +205,62 @@ func (r *queryResolver) ListTasks(ctx context.Context, input *string) ([]*model.
 	var toReturn []*model.Task
 	for _, a := range apps.GetTasks() {
 		toReturn = append(toReturn, fromTask(a))
+	}
+	return toReturn, nil
+}
+
+func (r *queryResolver) GetGateway(ctx context.Context, input model.Ref) (*model.Gateway, error) {
+	gw, err := r.client.GetGateway(ctx, &meshpaaspb.Ref{
+		Name: input.Name,
+	})
+	if err != nil {
+		return nil, &gqlerror.Error{
+			Message: err.Error(),
+			Path:    graphql.GetPath(ctx),
+		}
+	}
+	return fromGateway(gw), nil
+}
+
+func (r *queryResolver) ListGateways(ctx context.Context, input *string) ([]*model.Gateway, error) {
+	gws, err := r.client.ListGateways(ctx, &empty.Empty{})
+	if err != nil {
+		return nil, &gqlerror.Error{
+			Message: err.Error(),
+			Path:    graphql.GetPath(ctx),
+		}
+	}
+	var toReturn []*model.Gateway
+	for _, a := range gws.GetGateways() {
+		toReturn = append(toReturn, fromGateway(a))
+	}
+	return toReturn, nil
+}
+
+func (r *queryResolver) GetSecret(ctx context.Context, input model.Ref) (*model.Secret, error) {
+	s, err := r.client.GetSecret(ctx, &meshpaaspb.Ref{
+		Name: input.Name,
+	})
+	if err != nil {
+		return nil, &gqlerror.Error{
+			Message: err.Error(),
+			Path:    graphql.GetPath(ctx),
+		}
+	}
+	return fromSecret(s), nil
+}
+
+func (r *queryResolver) ListSecrets(ctx context.Context, input *string) ([]*model.Secret, error) {
+	ss, err := r.client.ListSecrets(ctx, &empty.Empty{})
+	if err != nil {
+		return nil, &gqlerror.Error{
+			Message: err.Error(),
+			Path:    graphql.GetPath(ctx),
+		}
+	}
+	var toReturn []*model.Secret
+	for _, a := range ss.GetSecrets() {
+		toReturn = append(toReturn, fromSecret(a))
 	}
 	return toReturn, nil
 }

@@ -20,7 +20,7 @@ class GatewayInput extends \Google\Protobuf\Internal\Message
      */
     private $name = '';
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.GatewayListener listeners = 3;</code>
+     * Generated from protobuf field <code>repeated .meshpaas.GatewayListener listeners = 2 [(.validator.field) = {</code>
      */
     private $listeners;
 
@@ -67,7 +67,7 @@ class GatewayInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.GatewayListener listeners = 3;</code>
+     * Generated from protobuf field <code>repeated .meshpaas.GatewayListener listeners = 2 [(.validator.field) = {</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getListeners()
@@ -76,7 +76,7 @@ class GatewayInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.GatewayListener listeners = 3;</code>
+     * Generated from protobuf field <code>repeated .meshpaas.GatewayListener listeners = 2 [(.validator.field) = {</code>
      * @param \Meshpaas\GatewayListener[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */

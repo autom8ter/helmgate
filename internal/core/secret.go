@@ -92,8 +92,7 @@ func (m *Manager) ListSecrets(ctx context.Context) (*meshpaaspb.Secrets, error) 
 		return nil, err
 	}
 	secrets, err := m.kclient.Secrets(cast.ToString(usr[m.namespaceClaim])).List(ctx, apiv1.ListOptions{
-		TypeMeta:      apiv1.TypeMeta{},
-		LabelSelector: labelSelector,
+		TypeMeta: apiv1.TypeMeta{},
 	})
 	if err != nil {
 		return nil, err

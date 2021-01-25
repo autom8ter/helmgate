@@ -5,15 +5,15 @@ package meshpaaspb
 
 import (
 	fmt "fmt"
-	math "math"
 	proto "github.com/golang/protobuf/proto"
-	_ "github.com/golang/protobuf/ptypes/timestamp"
 	_ "github.com/golang/protobuf/ptypes/any"
 	_ "github.com/golang/protobuf/ptypes/empty"
-	_ "github.com/mwitkow/go-proto-validators"
 	_ "github.com/golang/protobuf/ptypes/struct"
-	regexp "regexp"
+	_ "github.com/golang/protobuf/ptypes/timestamp"
+	_ "github.com/mwitkow/go-proto-validators"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
+	math "math"
+	regexp "regexp"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -110,10 +110,10 @@ func (this *Gateway) Validate() error {
 	return nil
 }
 func (this *Gateways) Validate() error {
-	for _, item := range this.Gatways {
+	for _, item := range this.Gateways {
 		if item != nil {
 			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
-				return github_com_mwitkow_go_proto_validators.FieldError("Gatways", err)
+				return github_com_mwitkow_go_proto_validators.FieldError("Gateways", err)
 			}
 		}
 	}
@@ -125,6 +125,9 @@ var _regex_GatewayInput_Name = regexp.MustCompile(`^.{1,225}$`)
 func (this *GatewayInput) Validate() error {
 	if !_regex_GatewayInput_Name.MatchString(this.Name) {
 		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
+	}
+	if len(this.Listeners) < 1 {
+		return github_com_mwitkow_go_proto_validators.FieldError("Listeners", fmt.Errorf(`value '%v' must contain at least 1 elements`, this.Listeners))
 	}
 	for _, item := range this.Listeners {
 		if item != nil {

@@ -48,8 +48,8 @@ func init() {
 	pflag.CommandLine.BoolVar(&debug, "debug", helpers.BoolEnvOr("MESHPAAS_DEBUG", false), "enable debug logs (env: MESHPAAS_DEBUG)")
 	pflag.CommandLine.Int64Var(&listenPort, "listen-port", int64(helpers.IntEnvOr("MESHPAAS_LISTEN_PORT", 8820)), "serve gRPC & graphQL on this port (env: MESHPAAS_LISTEN_PORT)")
 	pflag.CommandLine.BoolVar(&outOfCluster, "out-of-cluster", helpers.BoolEnvOr("MESHPAAS_OUT_OF_CLUSTER", false), "enable out of cluster k8s config discovery (env: MESHPAAS_OUT_OF_CLUSTER)")
-	pflag.CommandLine.StringVar(&jwksUri, "jwks-uri", helpers.EnvOr("MESHPAAS_JWKS_URI", ""), "remote json web key set uri for verifying authorization tokens (required) (env: MESHPAAS_JWKS_URI)")
-	pflag.CommandLine.StringVar(&jwtIssuer, "allow-jwt-issuer", helpers.EnvOr("MESHPAAS_ALLOW_ISSUER", ""), "allowed jwt.claim.iss issuer (required) (env: MESHPAAS_ALLOW_ISSUER)")
+	pflag.CommandLine.StringVar(&jwksUri, "jwks-uri", helpers.EnvOr("MESHPAAS_JWKS_URI", ""), "remote json web key set uri for verifying authorization tokens (env: MESHPAAS_JWKS_URI)")
+	pflag.CommandLine.StringVar(&jwtIssuer, "allow-jwt-issuer", helpers.EnvOr("MESHPAAS_ALLOW_ISSUER", ""), "allowed jwt.claim.iss issuer (env: MESHPAAS_ALLOW_ISSUER)")
 	pflag.CommandLine.StringVar(&namespaceClaim, "namespace-claim", helpers.EnvOr("MESHPAAS_NAMESPACE_CLAIM", "aud"), "the jwt attribute on the id token that returns the namespace the user is allowed access to (required) (env: MESHPAAS_NAMESPACE_CLAIM)")
 	pflag.Parse()
 }
@@ -199,6 +199,7 @@ func run(ctx context.Context) {
 	mux := http.NewServeMux()
 
 	mux.Handle("/graphql", resolver.QueryHandler())
+	mux.Handle("/", resolver.Playground())
 	graphQLServer := &http.Server{
 		Handler: mux,
 	}

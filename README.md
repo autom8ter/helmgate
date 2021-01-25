@@ -11,10 +11,11 @@ an opinionated graphQL/gRPC API for easily deploying applications & jobs on Isti
 ## Command Line
 
 ```
+meshpaas -h
 Usage of meshpaas:
-      --allow-jwt-issuer string   allowed jwt.claim.iss issuer (required) (env: MESHPAAS_ALLOW_ISSUER)
+      --allow-jwt-issuer string   allowed jwt.claim.iss issuer (env: MESHPAAS_ALLOW_ISSUER)
       --debug                     enable debug logs (env: MESHPAAS_DEBUG)
-      --jwks-uri string           remote json web key set uri for verifying authorization tokens (required) (env: MESHPAAS_JWKS_URI)
+      --jwks-uri string           remote json web key set uri for verifying authorization tokens (env: MESHPAAS_JWKS_URI)
       --listen-port int           serve gRPC & graphQL on this port (env: MESHPAAS_LISTEN_PORT) (default 8820)
       --namespace-claim string    the jwt attribute on the id token that returns the namespace the user is allowed access to (required) (env: MESHPAAS_NAMESPACE_CLAIM) (default "aud")
       --out-of-cluster            enable out of cluster k8s config discovery (env: MESHPAAS_OUT_OF_CLUSTER)

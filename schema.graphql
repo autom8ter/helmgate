@@ -3,6 +3,91 @@ scalar Time
 # Map is a k/v map where the key is a string and the value is any value
 scalar Map
 
+enum TLSmode {
+    PASSTHROUGH
+    SIMPLE
+    MUTUAL
+    AUTO_PASSTHROUGH
+    ISTIO_MUTUAL
+}
+
+enum SecretType {
+    OPAQUE
+    TLS_CERT_KEY
+    DOCKER_CONFIG
+}
+
+
+enum TransportProtocol {
+    HTTP
+    HTTPS
+    GRPC
+    HTTP2
+    MONGO
+    TCP
+    TLS
+}
+
+type Secret {
+    type: SecretType!
+    name: String!
+    immutable: Boolean!
+    data: Map!
+}
+
+input SecretInput {
+    type: SecretType!
+    name: String!
+    immutable: Boolean!
+    data: Map!
+}
+
+type ServerTLSSettings {
+    https_redirect: Boolean!
+    mode: TLSmode!
+    secret: String
+    subject_alt_names: [String!]
+    verify_certificate_spki: [String!]
+    verify_certificate_hash: [String!]
+    cipher_suites: [String!]
+}
+
+input ServerTLSSettingsInput {
+    https_redirect: Boolean!
+    mode: TLSmode!
+    secret: String
+    subject_alt_names: [String!]
+    verify_certificate_spki: [String!]
+    verify_certificate_hash: [String!]
+    cipher_suites: [String!]
+}
+
+type GatewayListener {
+    name: String!
+    port: Int!
+    protocol: TransportProtocol!
+    hosts: [String!]!
+    tls_config: ServerTLSSettings
+}
+
+input GatewayListenerInput {
+    name: String!
+    port: Int!
+    protocol: TransportProtocol!
+    hosts: [String!]!
+    tls_config: ServerTLSSettingsInput
+}
+
+type Gateway {
+    name: String!
+    listeners: [GatewayListener]!
+}
+
+input GatewayInput {
+    name: String!
+    listeners: [GatewayListenerInput]!
+}
+
 type HTTPRoute {
     # The name assigned to the route for debugging purposes
     name: String!
@@ -188,36 +273,36 @@ input LogOpts {
 }
 
 type Mutation {
-    # delProject deletes all resources within an existing project
-    delProject(input: String): String
-    # createAPI creates a new stateless api(k8s deployment), exposed with a single load balancer(k8s service) within a single project(k8s project)
     createAPI(input: APIInput!): API!
-    # updateAPI edits/patches an existing stateless api(k8s deployment & service) within an existing project(k8s project)
     updateAPI(input: APIInput!): API!
-    # delAPI deletes a single stateless api(k8s deployment & service) within an existing project
     delAPI(input: Ref!): String
-    # createTask creates a new task(k8s cron job) within a single project(k8s project)
+
     createTask(input: TaskInput!): Task!
-    #  UpdateTask edits/patches an existing task(k8s cron job) within an existing project(k8s project)
     updateTask(input: TaskInput!): Task!
-    # DeleteTask deletes a single task(k8s cron job) within an existing project
     delTask(input: Ref!): String
 
+    createGateway(input: GatewayInput!): Gateway!
+    updateGateway(input: GatewayInput!): Gateway!
+    delGateway(input: Ref!): String
+
+    createSecret(input: SecretInput!): Secret!
+    updateSecret(input: SecretInput!): Secret!
+    delSecret(input: Ref!): String
 
 }
 
 type Query {
-    # getAPI gets an existing stateless api(k8s deployment) by name within an existing project
-    getAPI(input: Ref!): API
-    # listAPIs lists all an existing stateless apis(k8s deployments) within an existing project
+    getAPI(input: Ref!): API!
     listAPIs(input: String): [API!]
 
-    # getTask gets a task(k8s cron job) by name within an existing project
-    getTask(input: Ref!): Task
-    # listTasks lists all tasks(k8s cron jobs) within an existing project
+    getTask(input: Ref!): Task!
     listTasks(input: String): [Task!]
 
+    getGateway(input: Ref!): Gateway!
+    listGateways(input: String): [Gateway!]
 
+    getSecret(input: Ref!): Secret!
+    listSecrets(input: String): [Secret!]
 }
 
 type Subscription {

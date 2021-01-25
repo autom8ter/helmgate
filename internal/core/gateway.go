@@ -109,7 +109,7 @@ func (m *Manager) ListGateways(ctx context.Context) (*meshpaaspb.Gateways, error
 			namespace: ns,
 			gateway:   &gw,
 		}
-		kgateways.Gatways = append(kgateways.Gatways, gateway.toGateway())
+		kgateways.Gateways = append(kgateways.Gateways, gateway.toGateway())
 	}
 	return kgateways, nil
 }

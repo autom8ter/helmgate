@@ -115,13 +115,13 @@ message Gateway {
 }
 
 message Gateways {
-  repeated Gateway gatways =1;
+  repeated Gateway gateways =1;
 }
 
 message GatewayInput {
   // name of the gateway
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  repeated GatewayListener listeners = 3;
+  repeated GatewayListener listeners = 2[(validator.field) = {repeated_count_min : 1}];
 }
 
 // HTTPRoute is a single http route(istio HttpRoute)

@@ -14,9 +14,9 @@ use Google\Protobuf\Internal\GPBUtil;
 class Gateways extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.Gateway gatways = 1;</code>
+     * Generated from protobuf field <code>repeated .meshpaas.Gateway gateways = 1;</code>
      */
-    private $gatways;
+    private $gateways;
 
     /**
      * Constructor.
@@ -24,7 +24,7 @@ class Gateways extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type \Meshpaas\Gateway[]|\Google\Protobuf\Internal\RepeatedField $gatways
+     *     @type \Meshpaas\Gateway[]|\Google\Protobuf\Internal\RepeatedField $gateways
      * }
      */
     public function __construct($data = NULL) {
@@ -33,23 +33,23 @@ class Gateways extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.Gateway gatways = 1;</code>
+     * Generated from protobuf field <code>repeated .meshpaas.Gateway gateways = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
-    public function getGatways()
+    public function getGateways()
     {
-        return $this->gatways;
+        return $this->gateways;
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.Gateway gatways = 1;</code>
+     * Generated from protobuf field <code>repeated .meshpaas.Gateway gateways = 1;</code>
      * @param \Meshpaas\Gateway[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
-    public function setGatways($var)
+    public function setGateways($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Meshpaas\Gateway::class);
-        $this->gatways = $arr;
+        $this->gateways = $arr;
 
         return $this;
     }

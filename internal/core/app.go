@@ -227,8 +227,7 @@ func (m *Manager) ListAPIs(ctx context.Context) (*meshpaaspb.APIs, error) {
 		}
 	}
 	deployments, err := m.kclient.Deployments(usrNamespace).List(ctx, v1.ListOptions{
-		TypeMeta:      v1.TypeMeta{},
-		LabelSelector: labelSelector,
+		TypeMeta: v1.TypeMeta{},
 	})
 	if err != nil {
 		return nil, err

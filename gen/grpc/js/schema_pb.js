@@ -1957,7 +1957,7 @@ proto.meshpaas.Gateways.prototype.toObject = function(opt_includeInstance) {
  */
 proto.meshpaas.Gateways.toObject = function(includeInstance, msg) {
   var f, obj = {
-    gatwaysList: jspb.Message.toObjectList(msg.getGatwaysList(),
+    gatewaysList: jspb.Message.toObjectList(msg.getGatewaysList(),
     proto.meshpaas.Gateway.toObject, includeInstance)
   };
 
@@ -1998,7 +1998,7 @@ proto.meshpaas.Gateways.deserializeBinaryFromReader = function(msg, reader) {
     case 1:
       var value = new proto.meshpaas.Gateway;
       reader.readMessage(value,proto.meshpaas.Gateway.deserializeBinaryFromReader);
-      msg.addGatways(value);
+      msg.addGateways(value);
       break;
     default:
       reader.skipField();
@@ -2029,7 +2029,7 @@ proto.meshpaas.Gateways.prototype.serializeBinary = function() {
  */
 proto.meshpaas.Gateways.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getGatwaysList();
+  f = message.getGatewaysList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       1,
@@ -2041,17 +2041,17 @@ proto.meshpaas.Gateways.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * repeated Gateway gatways = 1;
+ * repeated Gateway gateways = 1;
  * @return {!Array<!proto.meshpaas.Gateway>}
  */
-proto.meshpaas.Gateways.prototype.getGatwaysList = function() {
+proto.meshpaas.Gateways.prototype.getGatewaysList = function() {
   return /** @type{!Array<!proto.meshpaas.Gateway>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.meshpaas.Gateway, 1));
 };
 
 
 /** @param {!Array<!proto.meshpaas.Gateway>} value */
-proto.meshpaas.Gateways.prototype.setGatwaysList = function(value) {
+proto.meshpaas.Gateways.prototype.setGatewaysList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 1, value);
 };
 
@@ -2061,13 +2061,13 @@ proto.meshpaas.Gateways.prototype.setGatwaysList = function(value) {
  * @param {number=} opt_index
  * @return {!proto.meshpaas.Gateway}
  */
-proto.meshpaas.Gateways.prototype.addGatways = function(opt_value, opt_index) {
+proto.meshpaas.Gateways.prototype.addGateways = function(opt_value, opt_index) {
   return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.meshpaas.Gateway, opt_index);
 };
 
 
-proto.meshpaas.Gateways.prototype.clearGatwaysList = function() {
-  this.setGatwaysList([]);
+proto.meshpaas.Gateways.prototype.clearGatewaysList = function() {
+  this.setGatewaysList([]);
 };
 
 
@@ -2094,7 +2094,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.meshpaas.GatewayInput.repeatedFields_ = [3];
+proto.meshpaas.GatewayInput.repeatedFields_ = [2];
 
 
 
@@ -2168,7 +2168,7 @@ proto.meshpaas.GatewayInput.deserializeBinaryFromReader = function(msg, reader) 
       var value = /** @type {string} */ (reader.readString());
       msg.setName(value);
       break;
-    case 3:
+    case 2:
       var value = new proto.meshpaas.GatewayListener;
       reader.readMessage(value,proto.meshpaas.GatewayListener.deserializeBinaryFromReader);
       msg.addListeners(value);
@@ -2212,7 +2212,7 @@ proto.meshpaas.GatewayInput.serializeBinaryToWriter = function(message, writer) 
   f = message.getListenersList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
-      3,
+      2,
       f,
       proto.meshpaas.GatewayListener.serializeBinaryToWriter
     );
@@ -2236,18 +2236,18 @@ proto.meshpaas.GatewayInput.prototype.setName = function(value) {
 
 
 /**
- * repeated GatewayListener listeners = 3;
+ * repeated GatewayListener listeners = 2;
  * @return {!Array<!proto.meshpaas.GatewayListener>}
  */
 proto.meshpaas.GatewayInput.prototype.getListenersList = function() {
   return /** @type{!Array<!proto.meshpaas.GatewayListener>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.meshpaas.GatewayListener, 3));
+    jspb.Message.getRepeatedWrapperField(this, proto.meshpaas.GatewayListener, 2));
 };
 
 
 /** @param {!Array<!proto.meshpaas.GatewayListener>} value */
 proto.meshpaas.GatewayInput.prototype.setListenersList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 3, value);
+  jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
@@ -2257,7 +2257,7 @@ proto.meshpaas.GatewayInput.prototype.setListenersList = function(value) {
  * @return {!proto.meshpaas.GatewayListener}
  */
 proto.meshpaas.GatewayInput.prototype.addListeners = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 3, opt_value, proto.meshpaas.GatewayListener, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.meshpaas.GatewayListener, opt_index);
 };
 
 

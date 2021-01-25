@@ -21,10 +21,13 @@ import (
 	"strings"
 )
 
-const Always = "Always"
-const OnFailure = "OnFailure"
-const RWO = "ReadWriteOnce"
-const meshpaasAPI = "meshpaas.app"
+const (
+	labelSelector = "meshpaas = true"
+	Always        = "Always"
+	OnFailure     = "OnFailure"
+	meshpaasApp   = "meshpaas.app"
+	meshpaas      = "meshpaas"
+)
 
 func appContainers(app *meshpaaspb.APIInput) ([]v12.Container, error) {
 	var containers []v12.Container
@@ -209,7 +212,8 @@ func (m *Manager) toVirtualService(usr map[string]interface{}, app *meshpaaspb.A
 			Name:      app.Name,
 			Namespace: cast.ToString(usr[m.namespaceClaim]),
 			Labels: map[string]string{
-				meshpaasAPI: app.Name,
+				meshpaasApp: app.Name,
+				meshpaas:    "true",
 			},
 		},
 		Spec:   v1alpha3.VirtualService{},
@@ -303,7 +307,8 @@ func (m *Manager) toRequestAuthentication(usr map[string]interface{}, input *mes
 		},
 	}
 	auth.Spec.Selector.MatchLabels = map[string]string{
-		meshpaasAPI: input.Name,
+		meshpaasApp: input.Name,
+		meshpaas:    "true",
 	}
 	for _, r := range input.Authentication.Rules {
 		auth.Spec.JwtRules = append(auth.Spec.JwtRules, &securityv1beta1.JWTRule{
@@ -324,9 +329,14 @@ func (m *Manager) toAuthorizationPolicy(usr map[string]interface{}, input *meshp
 		},
 	}
 	auth.Spec.Selector.MatchLabels = map[string]string{
-		meshpaasAPI: input.Name,
+		meshpaasApp: input.Name,
+		meshpaas:    "true",
 	}
 	auth.Spec.Action = securityv1beta1.AuthorizationPolicy_ALLOW
+	return auth
+}
+
+func (m *Manager) overwriteAuthorizationPolicy(auth *security.AuthorizationPolicy, input *meshpaaspb.APIInput) *security.AuthorizationPolicy {
 	return auth
 }
 
@@ -345,7 +355,8 @@ func (m *Manager) toDeployment(usr map[string]interface{}, app *meshpaaspb.APIIn
 		})
 	}
 	var labels = map[string]string{
-		meshpaasAPI: app.Name,
+		meshpaasApp: app.Name,
+		meshpaas:    "true",
 	}
 
 	return &apps.Deployment{
@@ -393,7 +404,8 @@ func (m *Manager) toTask(usr map[string]interface{}, app *meshpaaspb.TaskInput) 
 		return nil, err
 	}
 	var labels = map[string]string{
-		meshpaasAPI: app.Name,
+		meshpaasApp: app.Name,
+		meshpaas:    "true",
 	}
 	return &v1beta1.CronJob{
 		TypeMeta: metav1.TypeMeta{
@@ -453,7 +465,6 @@ func overwriteDeployment(deployment *apps.Deployment, app *meshpaaspb.APIInput) 
 }
 
 func overwriteGateway(gateway *pkgnv1alpha3.Gateway, gw *meshpaaspb.GatewayInput) *pkgnv1alpha3.Gateway {
-	gateway.Name = gw.Name
 	gateway.Spec.Servers = toServers(gw)
 	return gateway
 }
@@ -546,7 +557,8 @@ func (m *Manager) toService(usr map[string]interface{}, input *meshpaaspb.APIInp
 			Name:      input.Name,
 			Namespace: cast.ToString(usr[m.namespaceClaim]),
 			Labels: map[string]string{
-				meshpaasAPI: input.Name,
+				meshpaasApp: input.Name,
+				meshpaas:    "true",
 			},
 		},
 	}

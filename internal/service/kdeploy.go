@@ -60,7 +60,6 @@ func (k MeshPaasService) StreamLogs(opts *meshpaaspb.LogOpts, server meshpaaspb.
 		select {
 		case <-server.Context().Done():
 			close(stream)
-
 		case log := <-stream:
 			if err := server.Send(&meshpaaspb.Log{Message: log}); err != nil {
 				k.client.L().Error("failed to stream log", zap.Error(err))
