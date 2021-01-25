@@ -9,14 +9,16 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * ProjectRef is a reference to an existing project(k8s namespace)
+ * ProjectRef is a generic structure for looking up projects
  *
  * Generated from protobuf message <code>meshpaas.ProjectRef</code>
  */
 class ProjectRef extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
+     * name of the project
+     *
+     * Generated from protobuf field <code>string name = 1;</code>
      */
     private $name = '';
 
@@ -27,6 +29,7 @@ class ProjectRef extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $name
+     *           name of the project
      * }
      */
     public function __construct($data = NULL) {
@@ -35,7 +38,9 @@ class ProjectRef extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
+     * name of the project
+     *
+     * Generated from protobuf field <code>string name = 1;</code>
      * @return string
      */
     public function getName()
@@ -44,7 +49,9 @@ class ProjectRef extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
+     * name of the project
+     *
+     * Generated from protobuf field <code>string name = 1;</code>
      * @param string $var
      * @return $this
      */

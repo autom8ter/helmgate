@@ -179,129 +179,65 @@
             <ul>
               
                 <li>
-                  <a href="#meshpaas.API"><span class="badge">M</span>API</a>
+                  <a href="#meshpaas.App"><span class="badge">M</span>App</a>
                 </li>
               
                 <li>
-                  <a href="#meshpaas.APIInput"><span class="badge">M</span>APIInput</a>
+                  <a href="#meshpaas.AppInput"><span class="badge">M</span>AppInput</a>
                 </li>
               
                 <li>
-                  <a href="#meshpaas.APIStatus"><span class="badge">M</span>APIStatus</a>
+                  <a href="#meshpaas.AppInput.ConfigEntry"><span class="badge">M</span>AppInput.ConfigEntry</a>
                 </li>
               
                 <li>
-                  <a href="#meshpaas.APIs"><span class="badge">M</span>APIs</a>
+                  <a href="#meshpaas.AppRef"><span class="badge">M</span>AppRef</a>
                 </li>
               
                 <li>
-                  <a href="#meshpaas.Authn"><span class="badge">M</span>Authn</a>
+                  <a href="#meshpaas.AppTemplate"><span class="badge">M</span>AppTemplate</a>
                 </li>
               
                 <li>
-                  <a href="#meshpaas.AuthnRule"><span class="badge">M</span>AuthnRule</a>
+                  <a href="#meshpaas.AppTemplate.MetadataEntry"><span class="badge">M</span>AppTemplate.MetadataEntry</a>
                 </li>
               
                 <li>
-                  <a href="#meshpaas.Container"><span class="badge">M</span>Container</a>
+                  <a href="#meshpaas.AppTemplates"><span class="badge">M</span>AppTemplates</a>
                 </li>
               
                 <li>
-                  <a href="#meshpaas.Container.EnvEntry"><span class="badge">M</span>Container.EnvEntry</a>
+                  <a href="#meshpaas.Apps"><span class="badge">M</span>Apps</a>
                 </li>
               
                 <li>
-                  <a href="#meshpaas.ContainerPort"><span class="badge">M</span>ContainerPort</a>
+                  <a href="#meshpaas.Dependency"><span class="badge">M</span>Dependency</a>
                 </li>
               
                 <li>
-                  <a href="#meshpaas.Gateway"><span class="badge">M</span>Gateway</a>
+                  <a href="#meshpaas.Filter"><span class="badge">M</span>Filter</a>
                 </li>
               
                 <li>
-                  <a href="#meshpaas.GatewayInput"><span class="badge">M</span>GatewayInput</a>
+                  <a href="#meshpaas.LifeCycle"><span class="badge">M</span>LifeCycle</a>
                 </li>
               
                 <li>
-                  <a href="#meshpaas.GatewayListener"><span class="badge">M</span>GatewayListener</a>
+                  <a href="#meshpaas.LifeCycle.TimestampsEntry"><span class="badge">M</span>LifeCycle.TimestampsEntry</a>
                 </li>
               
                 <li>
-                  <a href="#meshpaas.Gateways"><span class="badge">M</span>Gateways</a>
+                  <a href="#meshpaas.Maintainer"><span class="badge">M</span>Maintainer</a>
                 </li>
               
                 <li>
-                  <a href="#meshpaas.HTTPRoute"><span class="badge">M</span>HTTPRoute</a>
+                  <a href="#meshpaas.ProjectRef"><span class="badge">M</span>ProjectRef</a>
                 </li>
               
                 <li>
-                  <a href="#meshpaas.Log"><span class="badge">M</span>Log</a>
+                  <a href="#meshpaas.ProjectRefs"><span class="badge">M</span>ProjectRefs</a>
                 </li>
               
-                <li>
-                  <a href="#meshpaas.LogOpts"><span class="badge">M</span>LogOpts</a>
-                </li>
-              
-                <li>
-                  <a href="#meshpaas.Ref"><span class="badge">M</span>Ref</a>
-                </li>
-              
-                <li>
-                  <a href="#meshpaas.Replica"><span class="badge">M</span>Replica</a>
-                </li>
-              
-                <li>
-                  <a href="#meshpaas.Routing"><span class="badge">M</span>Routing</a>
-                </li>
-              
-                <li>
-                  <a href="#meshpaas.Secret"><span class="badge">M</span>Secret</a>
-                </li>
-              
-                <li>
-                  <a href="#meshpaas.Secret.DataEntry"><span class="badge">M</span>Secret.DataEntry</a>
-                </li>
-              
-                <li>
-                  <a href="#meshpaas.SecretInput"><span class="badge">M</span>SecretInput</a>
-                </li>
-              
-                <li>
-                  <a href="#meshpaas.SecretInput.DataEntry"><span class="badge">M</span>SecretInput.DataEntry</a>
-                </li>
-              
-                <li>
-                  <a href="#meshpaas.Secrets"><span class="badge">M</span>Secrets</a>
-                </li>
-              
-                <li>
-                  <a href="#meshpaas.ServerTLSSettings"><span class="badge">M</span>ServerTLSSettings</a>
-                </li>
-              
-                <li>
-                  <a href="#meshpaas.Task"><span class="badge">M</span>Task</a>
-                </li>
-              
-                <li>
-                  <a href="#meshpaas.TaskInput"><span class="badge">M</span>TaskInput</a>
-                </li>
-              
-                <li>
-                  <a href="#meshpaas.Tasks"><span class="badge">M</span>Tasks</a>
-                </li>
-              
-              
-                <li>
-                  <a href="#meshpaas.SecretType"><span class="badge">E</span>SecretType</a>
-                </li>
-              
-                <li>
-                  <a href="#meshpaas.TLSmode"><span class="badge">E</span>TLSmode</a>
-                </li>
-              
-                <li>
-                  <a href="#meshpaas.TransportProtocol"><span class="badge">E</span>TransportProtocol</a>
-                </li>
               
               
               
@@ -324,8 +260,8 @@
       <p></p>
 
       
-        <h3 id="meshpaas.API">API</h3>
-        <p>API is a api</p>
+        <h3 id="meshpaas.App">App</h3>
+        <p>App is an App created from an AppTemplate</p>
 
         
           <table class="field-table">
@@ -338,250 +274,673 @@
                   <td>name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>name of the api </p></td>
+                  <td><p>name of the application </p></td>
                 </tr>
               
                 <tr>
-                  <td>containers</td>
-                  <td><a href="#meshpaas.Container">Container</a></td>
-                  <td>repeated</td>
-                  <td><p>containers are docker containers that run the api&#39;s business logic </p></td>
-                </tr>
-              
-                <tr>
-                  <td>replicas</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p>number of deployment replicas </p></td>
-                </tr>
-              
-                <tr>
-                  <td>routing</td>
-                  <td><a href="#meshpaas.Routing">Routing</a></td>
-                  <td></td>
-                  <td><p>gateway/service-mesh routing </p></td>
-                </tr>
-              
-                <tr>
-                  <td>authentication</td>
-                  <td><a href="#meshpaas.Authn">Authn</a></td>
-                  <td></td>
-                  <td><p>api authentication options </p></td>
-                </tr>
-              
-                <tr>
-                  <td>image_pull_secret</td>
+                  <td>project</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>image_pull_secret is the secret used to pull images from docker registry </p></td>
+                  <td><p>project name the app belongs to(autocreated) </p></td>
+                </tr>
+              
+                <tr>
+                  <td>version</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>version of the App. Iterates with each upgrade </p></td>
+                </tr>
+              
+                <tr>
+                  <td>config</td>
+                  <td><a href="#google.protobuf.Struct">google.protobuf.Struct</a></td>
+                  <td></td>
+                  <td><p>config values </p></td>
+                </tr>
+              
+                <tr>
+                  <td>life_cycle</td>
+                  <td><a href="#meshpaas.LifeCycle">LifeCycle</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>template</td>
+                  <td><a href="#meshpaas.AppTemplate">AppTemplate</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>project</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
+          
+
+        
+      
+        <h3 id="meshpaas.AppInput">AppInput</h3>
+        <p>AppInput is used to create/update an app</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>project</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>project name the app belongs to(autocreated) </p></td>
+                </tr>
+              
+                <tr>
+                  <td>template_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>the app template to use </p></td>
+                </tr>
+              
+                <tr>
+                  <td>app_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>name of the app </p></td>
+                </tr>
+              
+                <tr>
+                  <td>config</td>
+                  <td><a href="#meshpaas.AppInput.ConfigEntry">AppInput.ConfigEntry</a></td>
+                  <td>repeated</td>
+                  <td><p>config values used to render the app template </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>project</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>template_name</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>app_name</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>config</td>
+                  <td>
+                    <ul>
+                    
+                      <li>msg_exists: true</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
+          
+
+        
+      
+        <h3 id="meshpaas.AppInput.ConfigEntry">AppInput.ConfigEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.AppRef">AppRef</h3>
+        <p>AppRef is a generic structure for looking up apps</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>project</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>project name the app belongs to(autocreated) </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>project</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
+          
+
+        
+      
+        <h3 id="meshpaas.AppTemplate">AppTemplate</h3>
+        <p>AppTemplate is a template of an application</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>name of the app template </p></td>
+                </tr>
+              
+                <tr>
+                  <td>home</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>home page of the app template </p></td>
+                </tr>
+              
+                <tr>
+                  <td>description</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>description of the app template </p></td>
+                </tr>
+              
+                <tr>
+                  <td>version</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>version of the app template </p></td>
+                </tr>
+              
+                <tr>
+                  <td>sources</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>keywords</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>keywords associated with the app template </p></td>
+                </tr>
+              
+                <tr>
+                  <td>icon</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>deprecated</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>dependencies</td>
+                  <td><a href="#meshpaas.Dependency">Dependency</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>maintainer</td>
+                  <td><a href="#meshpaas.Maintainer">Maintainer</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>metadata</td>
+                  <td><a href="#meshpaas.AppTemplate.MetadataEntry">AppTemplate.MetadataEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
+          
+
+        
+      
+        <h3 id="meshpaas.AppTemplate.MetadataEntry">AppTemplate.MetadataEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.AppTemplates">AppTemplates</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>templates</td>
+                  <td><a href="#meshpaas.AppTemplate">AppTemplate</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.Apps">Apps</h3>
+        <p>Apps is a list of apps</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>apps</td>
+                  <td><a href="#meshpaas.App">App</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.Dependency">Dependency</h3>
+        <p>Dependency is a dependency(template) required by a template</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>template_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>version</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>repository</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>template_name</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>version</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <td>repository</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
+          
+
+        
+      
+        <h3 id="meshpaas.Filter">Filter</h3>
+        <p>Filter is used for filtering search results</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>term</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>regex</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>term</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
+          
+
+        
+      
+        <h3 id="meshpaas.LifeCycle">LifeCycle</h3>
+        <p>LifeCycle tracks the state of an app during it's lifecycle</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>notes</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>description</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
                 </tr>
               
                 <tr>
                   <td>status</td>
-                  <td><a href="#meshpaas.APIStatus">APIStatus</a></td>
-                  <td></td>
-                  <td><p>status tracks the state of the api during it&#39;s lifecycle </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-            
-            
-            <h4>Validated Fields</h4>
-            <table>
-              <thead>
-                <tr>
-                  <td>Field</td>
-                  <td>Validations</td>
-                </tr>
-              </thead>
-              <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
-                  <td>containers</td>
-                  <td>
-                    <ul>
-                    
-                      <li>repeated_count_min: 1</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
-                  <td>routing</td>
-                  <td>
-                    <ul>
-                    
-                      <li>msg_exists: true</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
-                  <td>authentication</td>
-                  <td>
-                    <ul>
-                    
-                      <li>msg_exists: true</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
-                  <td>status</td>
-                  <td>
-                    <ul>
-                    
-                      <li>msg_exists: true</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-              </tbody>
-            </table>
-            
-          
-
-        
-      
-        <h3 id="meshpaas.APIInput">APIInput</h3>
-        <p>APIInput creates/replaces an api</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>name of the api </p></td>
+                  <td><p> </p></td>
                 </tr>
               
                 <tr>
-                  <td>containers</td>
-                  <td><a href="#meshpaas.Container">Container</a></td>
-                  <td>repeated</td>
-                  <td><p>containers are docker containers that run the api&#39;s business logic </p></td>
-                </tr>
-              
-                <tr>
-                  <td>replicas</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p>number of deployment replicas </p></td>
-                </tr>
-              
-                <tr>
-                  <td>routing</td>
-                  <td><a href="#meshpaas.Routing">Routing</a></td>
-                  <td></td>
-                  <td><p>routing - routing options </p></td>
-                </tr>
-              
-                <tr>
-                  <td>authentication</td>
-                  <td><a href="#meshpaas.Authn">Authn</a></td>
-                  <td></td>
-                  <td><p>api authentication options </p></td>
-                </tr>
-              
-                <tr>
-                  <td>image_pull_secret</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>image_pull_secret is the secret used to pull images from docker registry </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-            
-            
-            <h4>Validated Fields</h4>
-            <table>
-              <thead>
-                <tr>
-                  <td>Field</td>
-                  <td>Validations</td>
-                </tr>
-              </thead>
-              <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
-                  <td>containers</td>
-                  <td>
-                    <ul>
-                    
-                      <li>repeated_count_min: 1</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
-                  <td>routing</td>
-                  <td>
-                    <ul>
-                    
-                      <li>msg_exists: true</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-              </tbody>
-            </table>
-            
-          
-
-        
-      
-        <h3 id="meshpaas.APIStatus">APIStatus</h3>
-        <p>APIStatus tracks the status of an api</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>replicas</td>
-                  <td><a href="#meshpaas.Replica">Replica</a></td>
+                  <td>timestamps</td>
+                  <td><a href="#meshpaas.LifeCycle.TimestampsEntry">LifeCycle.TimestampsEntry</a></td>
                   <td>repeated</td>
                   <td><p> </p></td>
                 </tr>
@@ -593,248 +952,7 @@
 
         
       
-        <h3 id="meshpaas.APIs">APIs</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>apis</td>
-                  <td><a href="#meshpaas.API">API</a></td>
-                  <td>repeated</td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="meshpaas.Authn">Authn</h3>
-        <p>Authn holds authentication options for an api</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>rules</td>
-                  <td><a href="#meshpaas.AuthnRule">AuthnRule</a></td>
-                  <td>repeated</td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-            
-            
-            <h4>Validated Fields</h4>
-            <table>
-              <thead>
-                <tr>
-                  <td>Field</td>
-                  <td>Validations</td>
-                </tr>
-              </thead>
-              <tbody>
-              
-                <tr>
-                  <td>rules</td>
-                  <td>
-                    <ul>
-                    
-                      <li>repeated_count_min: 1</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-              </tbody>
-            </table>
-            
-          
-
-        
-      
-        <h3 id="meshpaas.AuthnRule">AuthnRule</h3>
-        <p>AuthnRule is an authentication rule</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>jwks_uri</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>json web keys uri ref: https://tools.ietf.org/html/rfc7517 </p></td>
-                </tr>
-              
-                <tr>
-                  <td>issuer</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1 </p></td>
-                </tr>
-              
-                <tr>
-                  <td>audience</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p>issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1 </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-            
-            
-            <h4>Validated Fields</h4>
-            <table>
-              <thead>
-                <tr>
-                  <td>Field</td>
-                  <td>Validations</td>
-                </tr>
-              </thead>
-              <tbody>
-              
-                <tr>
-                  <td>jwks_uri</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
-                  <td>issuer</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-              </tbody>
-            </table>
-            
-          
-
-        
-      
-        <h3 id="meshpaas.Container">Container</h3>
-        <p>Container is a single docker container</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>name of the container </p></td>
-                </tr>
-              
-                <tr>
-                  <td>image</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>docker image of container </p></td>
-                </tr>
-              
-                <tr>
-                  <td>args</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p>args are arguments given to the docker image at startup </p></td>
-                </tr>
-              
-                <tr>
-                  <td>env</td>
-                  <td><a href="#meshpaas.Container.EnvEntry">Container.EnvEntry</a></td>
-                  <td>repeated</td>
-                  <td><p>k/v map of environmental variables </p></td>
-                </tr>
-              
-                <tr>
-                  <td>ports</td>
-                  <td><a href="#meshpaas.ContainerPort">ContainerPort</a></td>
-                  <td>repeated</td>
-                  <td><p>list of ports </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-            
-            
-            <h4>Validated Fields</h4>
-            <table>
-              <thead>
-                <tr>
-                  <td>Field</td>
-                  <td>Validations</td>
-                </tr>
-              </thead>
-              <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
-                  <td>image</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-              </tbody>
-            </table>
-            
-          
-
-        
-      
-        <h3 id="meshpaas.Container.EnvEntry">Container.EnvEntry</h3>
+        <h3 id="meshpaas.LifeCycle.TimestampsEntry">LifeCycle.TimestampsEntry</h3>
         <p></p>
 
         
@@ -853,7 +971,7 @@
               
                 <tr>
                   <td>value</td>
-                  <td><a href="#string">string</a></td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -865,8 +983,8 @@
 
         
       
-        <h3 id="meshpaas.ContainerPort">ContainerPort</h3>
-        <p></p>
+        <h3 id="meshpaas.Maintainer">Maintainer</h3>
+        <p>Maintainer is the maintainer of a</p>
 
         
           <table class="field-table">
@@ -879,82 +997,13 @@
                   <td>name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>port name </p></td>
-                </tr>
-              
-                <tr>
-                  <td>number</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p>port number </p></td>
-                </tr>
-              
-                <tr>
-                  <td>expose</td>
-                  <td><a href="#bool">bool</a></td>
-                  <td></td>
-                  <td><p>expose to service mesh(outside of localhost) </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="meshpaas.Gateway">Gateway</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>name of the gateway </p></td>
-                </tr>
-              
-                <tr>
-                  <td>listeners</td>
-                  <td><a href="#meshpaas.GatewayListener">GatewayListener</a></td>
-                  <td>repeated</td>
                   <td><p> </p></td>
                 </tr>
               
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="meshpaas.GatewayInput">GatewayInput</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
                 <tr>
-                  <td>name</td>
+                  <td>email</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>name of the gateway </p></td>
-                </tr>
-              
-                <tr>
-                  <td>listeners</td>
-                  <td><a href="#meshpaas.GatewayListener">GatewayListener</a></td>
-                  <td>repeated</td>
                   <td><p> </p></td>
                 </tr>
               
@@ -986,382 +1035,7 @@
                 </tr>
               
                 <tr>
-                  <td>listeners</td>
-                  <td>
-                    <ul>
-                    
-                      <li>repeated_count_min: 1</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-              </tbody>
-            </table>
-            
-          
-
-        
-      
-        <h3 id="meshpaas.GatewayListener">GatewayListener</h3>
-        <p>GatewayListener is a single, public tcp listener served by a gateway</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>port</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p>port the gateway listener will listen on ex: 80 </p></td>
-                </tr>
-              
-                <tr>
-                  <td>name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>name of the gateway listener ex: http </p></td>
-                </tr>
-              
-                <tr>
-                  <td>protocol</td>
-                  <td><a href="#meshpaas.TransportProtocol">TransportProtocol</a></td>
-                  <td></td>
-                  <td><p>protocol describes the transport protocol served by this listener </p></td>
-                </tr>
-              
-                <tr>
-                  <td>hosts</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p>hosts describes hostnames that may route to this listener </p></td>
-                </tr>
-              
-                <tr>
-                  <td>tls_config</td>
-                  <td><a href="#meshpaas.ServerTLSSettings">ServerTLSSettings</a></td>
-                  <td></td>
-                  <td><p>tls_config provides tls/ssl encryption options </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-            
-            
-            <h4>Validated Fields</h4>
-            <table>
-              <thead>
-                <tr>
-                  <td>Field</td>
-                  <td>Validations</td>
-                </tr>
-              </thead>
-              <tbody>
-              
-                <tr>
-                  <td>port</td>
-                  <td>
-                    <ul>
-                    
-                      <li>int_gt: 0</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
-                  <td>name</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
-                  <td>protocol</td>
-                  <td>
-                    <ul>
-                    
-                      <li>int_gt: 0</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
-                  <td>hosts</td>
-                  <td>
-                    <ul>
-                    
-                      <li>repeated_count_min: 1</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-              </tbody>
-            </table>
-            
-          
-
-        
-      
-        <h3 id="meshpaas.Gateways">Gateways</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>gateways</td>
-                  <td><a href="#meshpaas.Gateway">Gateway</a></td>
-                  <td>repeated</td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="meshpaas.HTTPRoute">HTTPRoute</h3>
-        <p>HTTPRoute is a single http route(istio HttpRoute)</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>port</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>path_prefix</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>rewrite_uri</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>allow_origins</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p>The list of origins that are allowed to perform CORS requests </p></td>
-                </tr>
-              
-                <tr>
-                  <td>allow_methods</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p>The list of methods that are allowed to perform CORS requests </p></td>
-                </tr>
-              
-                <tr>
-                  <td>allow_headers</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p>The list of headers that are allowed to perform CORS requests </p></td>
-                </tr>
-              
-                <tr>
-                  <td>expose_headers</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p>The list of origins that are allowed to perform CORS requests </p></td>
-                </tr>
-              
-                <tr>
-                  <td>allow_credentials</td>
-                  <td><a href="#bool">bool</a></td>
-                  <td></td>
-                  <td><p>adds `Access-Control-Allow-Credentials` header </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-            
-            
-            <h4>Validated Fields</h4>
-            <table>
-              <thead>
-                <tr>
-                  <td>Field</td>
-                  <td>Validations</td>
-                </tr>
-              </thead>
-              <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
-                  <td>port</td>
-                  <td>
-                    <ul>
-                    
-                      <li>int_gt: 0</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-              </tbody>
-            </table>
-            
-          
-
-        
-      
-        <h3 id="meshpaas.Log">Log</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>message</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="meshpaas.LogOpts">LogOpts</h3>
-        <p>LogOpts holds options for fetching logs from Tasks & APIlications</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>name is the name of the APIlication or Task </p></td>
-                </tr>
-              
-                <tr>
-                  <td>container</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>container is the container to stream from </p></td>
-                </tr>
-              
-                <tr>
-                  <td>since_seconds</td>
-                  <td><a href="#int64">int64</a></td>
-                  <td></td>
-                  <td><p>since_seconds streams since a certain unix time(in the past) </p></td>
-                </tr>
-              
-                <tr>
-                  <td>tail_lines</td>
-                  <td><a href="#int64">int64</a></td>
-                  <td></td>
-                  <td><p>the number of lines from the end of the logs to show. If not specified, logs are shown from the creation of the container or since_seconds </p></td>
-                </tr>
-              
-                <tr>
-                  <td>previous</td>
-                  <td><a href="#bool">bool</a></td>
-                  <td></td>
-                  <td><p>previous retrieves logs from the previous container than the one running(useful for restarts) </p></td>
-                </tr>
-              
-                <tr>
-                  <td>stream</td>
-                  <td><a href="#bool">bool</a></td>
-                  <td></td>
-                  <td><p>if stream is true, the tcp connection will be left open &amp; logs will continue to be sent to the client </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-            
-            
-            <h4>Validated Fields</h4>
-            <table>
-              <thead>
-                <tr>
-                  <td>Field</td>
-                  <td>Validations</td>
-                </tr>
-              </thead>
-              <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
-                  <td>container</td>
+                  <td>email</td>
                   <td>
                     <ul>
                     
@@ -1378,8 +1052,8 @@
 
         
       
-        <h3 id="meshpaas.Ref">Ref</h3>
-        <p>Ref is a pointer to a resource</p>
+        <h3 id="meshpaas.ProjectRef">ProjectRef</h3>
+        <p>ProjectRef is a generic structure for looking up projects</p>
 
         
           <table class="field-table">
@@ -1392,45 +1066,18 @@
                   <td>name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>name of the resource </p></td>
+                  <td><p>name of the project </p></td>
                 </tr>
               
             </tbody>
           </table>
 
           
-            
-            
-            <h4>Validated Fields</h4>
-            <table>
-              <thead>
-                <tr>
-                  <td>Field</td>
-                  <td>Validations</td>
-                </tr>
-              </thead>
-              <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-              </tbody>
-            </table>
-            
-          
 
         
       
-        <h3 id="meshpaas.Replica">Replica</h3>
-        <p>Replica tracks the state/status of an individual replica of an api</p>
+        <h3 id="meshpaas.ProjectRefs">ProjectRefs</h3>
+        <p>ProjectRefs is a list of ProjectRef</p>
 
         
           <table class="field-table">
@@ -1440,604 +1087,8 @@
             <tbody>
               
                 <tr>
-                  <td>phase</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>condition</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>reason</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="meshpaas.Routing">Routing</h3>
-        <p>Routing describes service mesh routing options(gateway/host bindings, route rewrites, etc) for an APIlication</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>gateway</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>gateway to bind to </p></td>
-                </tr>
-              
-                <tr>
-                  <td>hosts</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p>host names to bind to </p></td>
-                </tr>
-              
-                <tr>
-                  <td>http_routes</td>
-                  <td><a href="#meshpaas.HTTPRoute">HTTPRoute</a></td>
-                  <td>repeated</td>
-                  <td><p>http route matchers/configurations </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="meshpaas.Secret">Secret</h3>
-        <p>Secret is a secret/credential used by various components of the service mesh</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>name of the secret </p></td>
-                </tr>
-              
-                <tr>
-                  <td>type</td>
-                  <td><a href="#meshpaas.SecretType">SecretType</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>immutable</td>
-                  <td><a href="#bool">bool</a></td>
-                  <td></td>
-                  <td><p>prevent changes to the secret after it is created </p></td>
-                </tr>
-              
-                <tr>
-                  <td>data</td>
-                  <td><a href="#meshpaas.Secret.DataEntry">Secret.DataEntry</a></td>
-                  <td>repeated</td>
-                  <td><p>k/v map of base64 encoded data </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-            
-            
-            <h4>Validated Fields</h4>
-            <table>
-              <thead>
-                <tr>
-                  <td>Field</td>
-                  <td>Validations</td>
-                </tr>
-              </thead>
-              <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
-                  <td>data</td>
-                  <td>
-                    <ul>
-                    
-                      <li>msg_exists: true</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-              </tbody>
-            </table>
-            
-          
-
-        
-      
-        <h3 id="meshpaas.Secret.DataEntry">Secret.DataEntry</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>key</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>value</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="meshpaas.SecretInput">SecretInput</h3>
-        <p>SecretInput creates/replaces a secret</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>name of the secret </p></td>
-                </tr>
-              
-                <tr>
-                  <td>type</td>
-                  <td><a href="#meshpaas.SecretType">SecretType</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>immutable</td>
-                  <td><a href="#bool">bool</a></td>
-                  <td></td>
-                  <td><p>prevent changes to the secret after it is created </p></td>
-                </tr>
-              
-                <tr>
-                  <td>data</td>
-                  <td><a href="#meshpaas.SecretInput.DataEntry">SecretInput.DataEntry</a></td>
-                  <td>repeated</td>
-                  <td><p>k/v map of base64 encoded data </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-            
-            
-            <h4>Validated Fields</h4>
-            <table>
-              <thead>
-                <tr>
-                  <td>Field</td>
-                  <td>Validations</td>
-                </tr>
-              </thead>
-              <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
-                  <td>data</td>
-                  <td>
-                    <ul>
-                    
-                      <li>msg_exists: true</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-              </tbody>
-            </table>
-            
-          
-
-        
-      
-        <h3 id="meshpaas.SecretInput.DataEntry">SecretInput.DataEntry</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>key</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>value</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="meshpaas.Secrets">Secrets</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>secrets</td>
-                  <td><a href="#meshpaas.Secret">Secret</a></td>
-                  <td>repeated</td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="meshpaas.ServerTLSSettings">ServerTLSSettings</h3>
-        <p>ServerTLSSettings provides tls/ssl encryption options</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>https_redirect</td>
-                  <td><a href="#bool">bool</a></td>
-                  <td></td>
-                  <td><p>automatically redirect http -&gt; https </p></td>
-                </tr>
-              
-                <tr>
-                  <td>mode</td>
-                  <td><a href="#meshpaas.TLSmode">TLSmode</a></td>
-                  <td></td>
-                  <td><p>tls mode </p></td>
-                </tr>
-              
-                <tr>
-                  <td>secret_name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>secret where tls credentials are stored </p></td>
-                </tr>
-              
-                <tr>
-                  <td>subject_alt_names</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>verify_certificate_spki</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>verify_certificate_hash</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>cipher_suites</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="meshpaas.Task">Task</h3>
-        <p>Task is scheduled cron job</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>name of the task </p></td>
-                </tr>
-              
-                <tr>
-                  <td>image_pull_secret</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>image_pull_secret is the secret used to pull images from docker registry </p></td>
-                </tr>
-              
-                <tr>
-                  <td>containers</td>
-                  <td><a href="#meshpaas.Container">Container</a></td>
-                  <td>repeated</td>
-                  <td><p>containers are docker containers that run the task&#39;s business logic </p></td>
-                </tr>
-              
-                <tr>
-                  <td>schedule</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/ </p></td>
-                </tr>
-              
-                <tr>
-                  <td>completions</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p>completions is the number of times to execute the task. If completions = 0, the task will run forever </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-            
-            
-            <h4>Validated Fields</h4>
-            <table>
-              <thead>
-                <tr>
-                  <td>Field</td>
-                  <td>Validations</td>
-                </tr>
-              </thead>
-              <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
-                  <td>containers</td>
-                  <td>
-                    <ul>
-                    
-                      <li>repeated_count_min: 1</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
-                  <td>schedule</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-              </tbody>
-            </table>
-            
-          
-
-        
-      
-        <h3 id="meshpaas.TaskInput">TaskInput</h3>
-        <p>TaskInput creates/updates a task(cron job)</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>name of the task </p></td>
-                </tr>
-              
-                <tr>
-                  <td>image_pull_secret</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>image_pull_secret is the secret used to pull images from docker registry </p></td>
-                </tr>
-              
-                <tr>
-                  <td>containers</td>
-                  <td><a href="#meshpaas.Container">Container</a></td>
-                  <td>repeated</td>
-                  <td><p>containers are docker containers that run the task&#39;s business logic </p></td>
-                </tr>
-              
-                <tr>
-                  <td>schedule</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/ </p></td>
-                </tr>
-              
-                <tr>
-                  <td>completions</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p>completions is the number of times to execute the task. If completions = 0, the task will run forever </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-            
-            
-            <h4>Validated Fields</h4>
-            <table>
-              <thead>
-                <tr>
-                  <td>Field</td>
-                  <td>Validations</td>
-                </tr>
-              </thead>
-              <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
-                  <td>containers</td>
-                  <td>
-                    <ul>
-                    
-                      <li>repeated_count_min: 1</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-                <tr>
-                  <td>schedule</td>
-                  <td>
-                    <ul>
-                    
-                      <li>regex: ^.{1,225}$</li>
-                    
-                    </ul>
-                  </td>
-                </tr>
-              
-              </tbody>
-            </table>
-            
-          
-
-        
-      
-        <h3 id="meshpaas.Tasks">Tasks</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>tasks</td>
-                  <td><a href="#meshpaas.Task">Task</a></td>
+                  <td>projects</td>
+                  <td><a href="#meshpaas.ProjectRef">ProjectRef</a></td>
                   <td>repeated</td>
                   <td><p> </p></td>
                 </tr>
@@ -2050,135 +1101,6 @@
         
       
 
-      
-        <h3 id="meshpaas.SecretType">SecretType</h3>
-        <p>SecretType is a classification of secret</p>
-        <table class="enum-table">
-          <thead>
-            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
-          </thead>
-          <tbody>
-            
-              <tr>
-                <td>OPAQUE</td>
-                <td>0</td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>TLS_CERT_KEY</td>
-                <td>1</td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>DOCKER_CONFIG</td>
-                <td>2</td>
-                <td><p></p></td>
-              </tr>
-            
-          </tbody>
-        </table>
-      
-        <h3 id="meshpaas.TLSmode">TLSmode</h3>
-        <p></p>
-        <table class="enum-table">
-          <thead>
-            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
-          </thead>
-          <tbody>
-            
-              <tr>
-                <td>PASSTHROUGH</td>
-                <td>0</td>
-                <td><p>no termination</p></td>
-              </tr>
-            
-              <tr>
-                <td>SIMPLE</td>
-                <td>1</td>
-                <td><p>tls termination</p></td>
-              </tr>
-            
-              <tr>
-                <td>MUTUAL</td>
-                <td>2</td>
-                <td><p>mutual tls</p></td>
-              </tr>
-            
-              <tr>
-                <td>AUTO_PASSTHROUGH</td>
-                <td>3</td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>ISTIO_MUTUAL</td>
-                <td>4</td>
-                <td><p></p></td>
-              </tr>
-            
-          </tbody>
-        </table>
-      
-        <h3 id="meshpaas.TransportProtocol">TransportProtocol</h3>
-        <p></p>
-        <table class="enum-table">
-          <thead>
-            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
-          </thead>
-          <tbody>
-            
-              <tr>
-                <td>INVALID_PROTOCOL</td>
-                <td>0</td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>HTTP</td>
-                <td>1</td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>HTTPS</td>
-                <td>2</td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>GRPC</td>
-                <td>3</td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>HTTP2</td>
-                <td>4</td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>MONGO</td>
-                <td>5</td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>TCP</td>
-                <td>6</td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>TLS</td>
-                <td>7</td>
-                <td><p></p></td>
-              </tr>
-            
-          </tbody>
-        </table>
       
 
       
@@ -2193,151 +1115,59 @@
           <tbody>
             
               <tr>
-                <td>CreateAPI</td>
-                <td><a href="#meshpaas.APIInput">APIInput</a></td>
-                <td><a href="#meshpaas.API">API</a></td>
-                <td><p>CreateAPI creates a new api(k8s deployment, k8s service, istio virtual service, request authenticator, &amp; authorization policy) in the user&#39;s authorized namespace(jwt.claims.${namespace-claim})</p></td>
-              </tr>
-            
-              <tr>
-                <td>UpdateAPI</td>
-                <td><a href="#meshpaas.APIInput">APIInput</a></td>
-                <td><a href="#meshpaas.API">API</a></td>
-                <td><p>UpdateAPI replaces an existing api(k8s deployment, k8s service, istio virtual service, request authenticator, &amp; authorization policy) in the user&#39;s authorized namespace(jwt.claims.${namespace-claim})</p></td>
-              </tr>
-            
-              <tr>
-                <td>DeleteAPI</td>
-                <td><a href="#meshpaas.Ref">Ref</a></td>
+                <td>ListProjects</td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>DeleteAPI deletes a single api(k8s deployment, k8s service, istio virtual service, request authenticator, &amp; authorization policy) in the user&#39;s authorized namespace(jwt.claims.${namespace-claim})</p></td>
+                <td><a href="#meshpaas.ProjectRefs">ProjectRefs</a></td>
+                <td><p>returns a list of all of the projects</p></td>
               </tr>
             
               <tr>
-                <td>GetAPI</td>
-                <td><a href="#meshpaas.Ref">Ref</a></td>
-                <td><a href="#meshpaas.API">API</a></td>
-                <td><p>GetAPI gets an api by name in the user&#39;s authorized namespace(jwt.claims.${namespace-claim})</p></td>
+                <td>GetApp</td>
+                <td><a href="#meshpaas.AppRef">AppRef</a></td>
+                <td><a href="#meshpaas.App">App</a></td>
+                <td><p>GetApp gets an app in the given project</p></td>
               </tr>
             
               <tr>
-                <td>ListAPIs</td>
-                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><a href="#meshpaas.APIs">APIs</a></td>
-                <td><p>ListAPIs lists all apis in the user&#39;s authorized namespace(jwt.claims.${namespace-claim})</p></td>
+                <td>ListApps</td>
+                <td><a href="#meshpaas.ProjectRef">ProjectRef</a></td>
+                <td><a href="#meshpaas.Apps">Apps</a></td>
+                <td><p>ListApps lists apps in the project</p></td>
               </tr>
             
               <tr>
-                <td>CreateTask</td>
-                <td><a href="#meshpaas.TaskInput">TaskInput</a></td>
-                <td><a href="#meshpaas.Task">Task</a></td>
-                <td><p>CreateTask creates a new task(k8s cron job) in the user&#39;s authorized namespace(jwt.claims.${namespace-claim})</p></td>
+                <td>UninstallApp</td>
+                <td><a href="#meshpaas.AppRef">AppRef</a></td>
+                <td><a href="#meshpaas.Apps">Apps</a></td>
+                <td><p>UninstallApp uninstalls an app in the given project</p></td>
               </tr>
             
               <tr>
-                <td>UpdateTask</td>
-                <td><a href="#meshpaas.TaskInput">TaskInput</a></td>
-                <td><a href="#meshpaas.Task">Task</a></td>
-                <td><p>UpdateTask replaces an existing task(k8s cron job) in the user&#39;s authorized namespace(jwt.claims.${namespace-claim})</p></td>
+                <td>RollbackApp</td>
+                <td><a href="#meshpaas.AppRef">AppRef</a></td>
+                <td><a href="#meshpaas.App">App</a></td>
+                <td><p>RollbackApp rolls the app back to the previous version in the given namespace</p></td>
               </tr>
             
               <tr>
-                <td>DeleteTask</td>
-                <td><a href="#meshpaas.Ref">Ref</a></td>
-                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>DeleteTask deletes a single task(k8s cron job) in the user&#39;s authorized namespace(jwt.claims.${namespace-claim})</p></td>
+                <td>CreateApp</td>
+                <td><a href="#meshpaas.AppInput">AppInput</a></td>
+                <td><a href="#meshpaas.App">App</a></td>
+                <td><p>CreateApp creates an app in the given project</p></td>
               </tr>
             
               <tr>
-                <td>GetTask</td>
-                <td><a href="#meshpaas.Ref">Ref</a></td>
-                <td><a href="#meshpaas.Task">Task</a></td>
-                <td><p>GetTask gets a task(k8s cron job) by name in the user&#39;s authorized namespace(jwt.claims.${namespace-claim})</p></td>
+                <td>UpdateApp</td>
+                <td><a href="#meshpaas.AppInput">AppInput</a></td>
+                <td><a href="#meshpaas.App">App</a></td>
+                <td><p>UpdateApp updates an app in the given project</p></td>
               </tr>
             
               <tr>
-                <td>ListTasks</td>
-                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><a href="#meshpaas.Tasks">Tasks</a></td>
-                <td><p>ListTasks lists all tasks(k8s cron jobs) in the user&#39;s authorized namespace(jwt.claims.${namespace-claim})</p></td>
-              </tr>
-            
-              <tr>
-                <td>CreateGateway</td>
-                <td><a href="#meshpaas.GatewayInput">GatewayInput</a></td>
-                <td><a href="#meshpaas.Gateway">Gateway</a></td>
-                <td><p>CreateGateway creates a new gateway(istio gateway) in the user&#39;s authorized namespace(jwt.claims.${namespace-claim})</p></td>
-              </tr>
-            
-              <tr>
-                <td>UpdateGateway</td>
-                <td><a href="#meshpaas.GatewayInput">GatewayInput</a></td>
-                <td><a href="#meshpaas.Gateway">Gateway</a></td>
-                <td><p>UpdateGateway replaces an existing gateway(istio gateway) in the user&#39;s authorized namespace(jwt.claims.${namespace-claim})</p></td>
-              </tr>
-            
-              <tr>
-                <td>DeleteGateway</td>
-                <td><a href="#meshpaas.Ref">Ref</a></td>
-                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>DeleteGateway deletes a single gateway(istio gateway) in the user&#39;s authorized namespace(jwt.claims.${namespace-claim})</p></td>
-              </tr>
-            
-              <tr>
-                <td>GetGateway</td>
-                <td><a href="#meshpaas.Ref">Ref</a></td>
-                <td><a href="#meshpaas.Gateway">Gateway</a></td>
-                <td><p>GetGateway gets a gateway(istio gateway) by name in the user&#39;s authorized namespace(jwt.claims.${namespace-claim})</p></td>
-              </tr>
-            
-              <tr>
-                <td>ListGateways</td>
-                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><a href="#meshpaas.Gateways">Gateways</a></td>
-                <td><p>ListGateways lists all gateways(istio gateways) in the user&#39;s authorized namespace(jwt.claims.${namespace-claim})</p></td>
-              </tr>
-            
-              <tr>
-                <td>CreateSecret</td>
-                <td><a href="#meshpaas.SecretInput">SecretInput</a></td>
-                <td><a href="#meshpaas.Secret">Secret</a></td>
-                <td><p>CreateSecret creates a new secret(k8s secret)</p></td>
-              </tr>
-            
-              <tr>
-                <td>UpdateSecret</td>
-                <td><a href="#meshpaas.SecretInput">SecretInput</a></td>
-                <td><a href="#meshpaas.Secret">Secret</a></td>
-                <td><p>UpdateSecret replaces an existing secret(k8s secret)</p></td>
-              </tr>
-            
-              <tr>
-                <td>DeleteSecret</td>
-                <td><a href="#meshpaas.Ref">Ref</a></td>
-                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>DeleteSecret deletes a single secret(k8s secret)</p></td>
-              </tr>
-            
-              <tr>
-                <td>GetSecret</td>
-                <td><a href="#meshpaas.Ref">Ref</a></td>
-                <td><a href="#meshpaas.Secret">Secret</a></td>
-                <td><p>GetSecret gets a secret(k8s secret) by name</p></td>
-              </tr>
-            
-              <tr>
-                <td>ListSecrets</td>
-                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><a href="#meshpaas.Secrets">Secrets</a></td>
-                <td><p>ListSecrets lists all secrets(k8s secret) in the user&#39;s authorized namespace(jwt.claims.${namespace-claim})</p></td>
-              </tr>
-            
-              <tr>
-                <td>StreamLogs</td>
-                <td><a href="#meshpaas.LogOpts">LogOpts</a></td>
-                <td><a href="#meshpaas.Log">Log</a> stream</td>
-                <td><p>StreamLogs streams logs from an api/task.
-Streams are opened to all replicas &amp; converted into a single stream</p></td>
+                <td>SearchAppTemplates</td>
+                <td><a href="#meshpaas.Filter">Filter</a></td>
+                <td><a href="#meshpaas.AppTemplates">AppTemplates</a></td>
+                <td><p>SearchAppTemplates searches for an app template</p></td>
               </tr>
             
           </tbody>

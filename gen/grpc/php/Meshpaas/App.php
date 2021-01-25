@@ -9,7 +9,7 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * App is a stateless application
+ * App is an App created from an AppTemplate
  *
  * Generated from protobuf message <code>meshpaas.App</code>
  */
@@ -22,41 +22,31 @@ class App extends \Google\Protobuf\Internal\Message
      */
     private $name = '';
     /**
-     * containers are docker containers that run the application's business logic
+     * project name the app belongs to(autocreated)
      *
-     * Generated from protobuf field <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
      */
-    private $containers;
+    private $project = '';
     /**
-     * number of deployment replicas
+     * version of the App. Iterates with each upgrade
      *
-     * Generated from protobuf field <code>uint32 replicas = 8;</code>
+     * Generated from protobuf field <code>uint32 version = 3;</code>
      */
-    private $replicas = 0;
+    private $version = 0;
     /**
-     * gateway/service-mesh routing
+     * config values
      *
-     * Generated from protobuf field <code>.meshpaas.Routing routing = 11 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>.google.protobuf.Struct config = 4;</code>
      */
-    private $routing = null;
+    private $config = null;
     /**
-     * application authentication options
-     *
-     * Generated from protobuf field <code>.meshpaas.Authn authentication = 12 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>.meshpaas.LifeCycle life_cycle = 5;</code>
      */
-    private $authentication = null;
+    private $life_cycle = null;
     /**
-     * image_pull_secret is the secret used to pull images from docker registry
-     *
-     * Generated from protobuf field <code>string image_pull_secret = 14;</code>
+     * Generated from protobuf field <code>.meshpaas.AppTemplate template = 20;</code>
      */
-    private $image_pull_secret = '';
-    /**
-     * status tracks the state of the application during it's lifecycle
-     *
-     * Generated from protobuf field <code>.meshpaas.AppStatus status = 20 [(.validator.field) = {</code>
-     */
-    private $status = null;
+    private $template = null;
 
     /**
      * Constructor.
@@ -66,18 +56,14 @@ class App extends \Google\Protobuf\Internal\Message
      *
      *     @type string $name
      *           name of the application
-     *     @type \Meshpaas\Container[]|\Google\Protobuf\Internal\RepeatedField $containers
-     *           containers are docker containers that run the application's business logic
-     *     @type int $replicas
-     *           number of deployment replicas
-     *     @type \Meshpaas\Routing $routing
-     *           gateway/service-mesh routing
-     *     @type \Meshpaas\Authn $authentication
-     *           application authentication options
-     *     @type string $image_pull_secret
-     *           image_pull_secret is the secret used to pull images from docker registry
-     *     @type \Meshpaas\AppStatus $status
-     *           status tracks the state of the application during it's lifecycle
+     *     @type string $project
+     *           project name the app belongs to(autocreated)
+     *     @type int $version
+     *           version of the App. Iterates with each upgrade
+     *     @type \Google\Protobuf\Struct $config
+     *           config values
+     *     @type \Meshpaas\LifeCycle $life_cycle
+     *     @type \Meshpaas\AppTemplate $template
      * }
      */
     public function __construct($data = NULL) {
@@ -112,157 +98,123 @@ class App extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * containers are docker containers that run the application's business logic
+     * project name the app belongs to(autocreated)
      *
-     * Generated from protobuf field <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = {</code>
-     * @return \Google\Protobuf\Internal\RepeatedField
-     */
-    public function getContainers()
-    {
-        return $this->containers;
-    }
-
-    /**
-     * containers are docker containers that run the application's business logic
-     *
-     * Generated from protobuf field <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = {</code>
-     * @param \Meshpaas\Container[]|\Google\Protobuf\Internal\RepeatedField $var
-     * @return $this
-     */
-    public function setContainers($var)
-    {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Meshpaas\Container::class);
-        $this->containers = $arr;
-
-        return $this;
-    }
-
-    /**
-     * number of deployment replicas
-     *
-     * Generated from protobuf field <code>uint32 replicas = 8;</code>
-     * @return int
-     */
-    public function getReplicas()
-    {
-        return $this->replicas;
-    }
-
-    /**
-     * number of deployment replicas
-     *
-     * Generated from protobuf field <code>uint32 replicas = 8;</code>
-     * @param int $var
-     * @return $this
-     */
-    public function setReplicas($var)
-    {
-        GPBUtil::checkUint32($var);
-        $this->replicas = $var;
-
-        return $this;
-    }
-
-    /**
-     * gateway/service-mesh routing
-     *
-     * Generated from protobuf field <code>.meshpaas.Routing routing = 11 [(.validator.field) = {</code>
-     * @return \Meshpaas\Routing
-     */
-    public function getRouting()
-    {
-        return $this->routing;
-    }
-
-    /**
-     * gateway/service-mesh routing
-     *
-     * Generated from protobuf field <code>.meshpaas.Routing routing = 11 [(.validator.field) = {</code>
-     * @param \Meshpaas\Routing $var
-     * @return $this
-     */
-    public function setRouting($var)
-    {
-        GPBUtil::checkMessage($var, \Meshpaas\Routing::class);
-        $this->routing = $var;
-
-        return $this;
-    }
-
-    /**
-     * application authentication options
-     *
-     * Generated from protobuf field <code>.meshpaas.Authn authentication = 12 [(.validator.field) = {</code>
-     * @return \Meshpaas\Authn
-     */
-    public function getAuthentication()
-    {
-        return $this->authentication;
-    }
-
-    /**
-     * application authentication options
-     *
-     * Generated from protobuf field <code>.meshpaas.Authn authentication = 12 [(.validator.field) = {</code>
-     * @param \Meshpaas\Authn $var
-     * @return $this
-     */
-    public function setAuthentication($var)
-    {
-        GPBUtil::checkMessage($var, \Meshpaas\Authn::class);
-        $this->authentication = $var;
-
-        return $this;
-    }
-
-    /**
-     * image_pull_secret is the secret used to pull images from docker registry
-     *
-     * Generated from protobuf field <code>string image_pull_secret = 14;</code>
+     * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
      * @return string
      */
-    public function getImagePullSecret()
+    public function getProject()
     {
-        return $this->image_pull_secret;
+        return $this->project;
     }
 
     /**
-     * image_pull_secret is the secret used to pull images from docker registry
+     * project name the app belongs to(autocreated)
      *
-     * Generated from protobuf field <code>string image_pull_secret = 14;</code>
+     * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
      * @param string $var
      * @return $this
      */
-    public function setImagePullSecret($var)
+    public function setProject($var)
     {
         GPBUtil::checkString($var, True);
-        $this->image_pull_secret = $var;
+        $this->project = $var;
 
         return $this;
     }
 
     /**
-     * status tracks the state of the application during it's lifecycle
+     * version of the App. Iterates with each upgrade
      *
-     * Generated from protobuf field <code>.meshpaas.AppStatus status = 20 [(.validator.field) = {</code>
-     * @return \Meshpaas\AppStatus
+     * Generated from protobuf field <code>uint32 version = 3;</code>
+     * @return int
      */
-    public function getStatus()
+    public function getVersion()
     {
-        return $this->status;
+        return $this->version;
     }
 
     /**
-     * status tracks the state of the application during it's lifecycle
+     * version of the App. Iterates with each upgrade
      *
-     * Generated from protobuf field <code>.meshpaas.AppStatus status = 20 [(.validator.field) = {</code>
-     * @param \Meshpaas\AppStatus $var
+     * Generated from protobuf field <code>uint32 version = 3;</code>
+     * @param int $var
      * @return $this
      */
-    public function setStatus($var)
+    public function setVersion($var)
     {
-        GPBUtil::checkMessage($var, \Meshpaas\AppStatus::class);
-        $this->status = $var;
+        GPBUtil::checkUint32($var);
+        $this->version = $var;
+
+        return $this;
+    }
+
+    /**
+     * config values
+     *
+     * Generated from protobuf field <code>.google.protobuf.Struct config = 4;</code>
+     * @return \Google\Protobuf\Struct
+     */
+    public function getConfig()
+    {
+        return $this->config;
+    }
+
+    /**
+     * config values
+     *
+     * Generated from protobuf field <code>.google.protobuf.Struct config = 4;</code>
+     * @param \Google\Protobuf\Struct $var
+     * @return $this
+     */
+    public function setConfig($var)
+    {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
+        $this->config = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.meshpaas.LifeCycle life_cycle = 5;</code>
+     * @return \Meshpaas\LifeCycle
+     */
+    public function getLifeCycle()
+    {
+        return $this->life_cycle;
+    }
+
+    /**
+     * Generated from protobuf field <code>.meshpaas.LifeCycle life_cycle = 5;</code>
+     * @param \Meshpaas\LifeCycle $var
+     * @return $this
+     */
+    public function setLifeCycle($var)
+    {
+        GPBUtil::checkMessage($var, \Meshpaas\LifeCycle::class);
+        $this->life_cycle = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.meshpaas.AppTemplate template = 20;</code>
+     * @return \Meshpaas\AppTemplate
+     */
+    public function getTemplate()
+    {
+        return $this->template;
+    }
+
+    /**
+     * Generated from protobuf field <code>.meshpaas.AppTemplate template = 20;</code>
+     * @param \Meshpaas\AppTemplate $var
+     * @return $this
+     */
+    public function setTemplate($var)
+    {
+        GPBUtil::checkMessage($var, \Meshpaas\AppTemplate::class);
+        $this->template = $var;
 
         return $this;
     }

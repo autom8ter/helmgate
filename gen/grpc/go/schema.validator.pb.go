@@ -5,15 +5,15 @@ package meshpaaspb
 
 import (
 	fmt "fmt"
+	math "math"
 	proto "github.com/golang/protobuf/proto"
-	_ "github.com/golang/protobuf/ptypes/any"
-	_ "github.com/golang/protobuf/ptypes/empty"
 	_ "github.com/golang/protobuf/ptypes/struct"
 	_ "github.com/golang/protobuf/ptypes/timestamp"
+	_ "github.com/golang/protobuf/ptypes/any"
+	_ "github.com/golang/protobuf/ptypes/empty"
 	_ "github.com/mwitkow/go-proto-validators"
-	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
-	math "math"
 	regexp "regexp"
+	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -21,345 +21,161 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-var _regex_AuthnRule_JwksUri = regexp.MustCompile(`^.{1,225}$`)
-var _regex_AuthnRule_Issuer = regexp.MustCompile(`^.{1,225}$`)
+var _regex_Dependency_TemplateName = regexp.MustCompile(`^.{1,225}$`)
+var _regex_Dependency_Version = regexp.MustCompile(`^.{1,225}$`)
+var _regex_Dependency_Repository = regexp.MustCompile(`^.{1,225}$`)
 
-func (this *AuthnRule) Validate() error {
-	if !_regex_AuthnRule_JwksUri.MatchString(this.JwksUri) {
-		return github_com_mwitkow_go_proto_validators.FieldError("JwksUri", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.JwksUri))
+func (this *Dependency) Validate() error {
+	if !_regex_Dependency_TemplateName.MatchString(this.TemplateName) {
+		return github_com_mwitkow_go_proto_validators.FieldError("TemplateName", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.TemplateName))
 	}
-	if !_regex_AuthnRule_Issuer.MatchString(this.Issuer) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Issuer", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Issuer))
+	if !_regex_Dependency_Version.MatchString(this.Version) {
+		return github_com_mwitkow_go_proto_validators.FieldError("Version", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Version))
+	}
+	if !_regex_Dependency_Repository.MatchString(this.Repository) {
+		return github_com_mwitkow_go_proto_validators.FieldError("Repository", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Repository))
 	}
 	return nil
 }
-func (this *Authn) Validate() error {
-	if len(this.Rules) < 1 {
-		return github_com_mwitkow_go_proto_validators.FieldError("Rules", fmt.Errorf(`value '%v' must contain at least 1 elements`, this.Rules))
+
+var _regex_Maintainer_Name = regexp.MustCompile(`^.{1,225}$`)
+var _regex_Maintainer_Email = regexp.MustCompile(`^.{1,225}$`)
+
+func (this *Maintainer) Validate() error {
+	if !_regex_Maintainer_Name.MatchString(this.Name) {
+		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
 	}
-	for _, item := range this.Rules {
+	if !_regex_Maintainer_Email.MatchString(this.Email) {
+		return github_com_mwitkow_go_proto_validators.FieldError("Email", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Email))
+	}
+	return nil
+}
+
+var _regex_Filter_Term = regexp.MustCompile(`^.{1,225}$`)
+
+func (this *Filter) Validate() error {
+	if !_regex_Filter_Term.MatchString(this.Term) {
+		return github_com_mwitkow_go_proto_validators.FieldError("Term", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Term))
+	}
+	return nil
+}
+
+var _regex_AppTemplate_Name = regexp.MustCompile(`^.{1,225}$`)
+
+func (this *AppTemplate) Validate() error {
+	if !_regex_AppTemplate_Name.MatchString(this.Name) {
+		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
+	}
+	for _, item := range this.Dependencies {
 		if item != nil {
 			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
-				return github_com_mwitkow_go_proto_validators.FieldError("Rules", err)
+				return github_com_mwitkow_go_proto_validators.FieldError("Dependencies", err)
 			}
 		}
 	}
-	return nil
-}
-
-var _regex_SecretInput_Name = regexp.MustCompile(`^.{1,225}$`)
-
-func (this *SecretInput) Validate() error {
-	if !_regex_SecretInput_Name.MatchString(this.Name) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
+	for _, item := range this.Maintainer {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Maintainer", err)
+			}
+		}
 	}
 	// Validation of proto3 map<> fields is unsupported.
 	return nil
 }
+func (this *AppTemplates) Validate() error {
+	for _, item := range this.Templates {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Templates", err)
+			}
+		}
+	}
+	return nil
+}
 
-var _regex_Secret_Name = regexp.MustCompile(`^.{1,225}$`)
+var _regex_App_Name = regexp.MustCompile(`^.{1,225}$`)
+var _regex_App_Project = regexp.MustCompile(`^.{1,225}$`)
 
-func (this *Secret) Validate() error {
-	if !_regex_Secret_Name.MatchString(this.Name) {
+func (this *App) Validate() error {
+	if !_regex_App_Name.MatchString(this.Name) {
 		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
+	}
+	if !_regex_App_Project.MatchString(this.Project) {
+		return github_com_mwitkow_go_proto_validators.FieldError("Project", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Project))
+	}
+	if this.Config != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Config); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Config", err)
+		}
+	}
+	if this.LifeCycle != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.LifeCycle); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("LifeCycle", err)
+		}
+	}
+	if this.Template != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Template); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Template", err)
+		}
+	}
+	return nil
+}
+func (this *Apps) Validate() error {
+	for _, item := range this.Apps {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Apps", err)
+			}
+		}
+	}
+	return nil
+}
+func (this *LifeCycle) Validate() error {
+	// Validation of proto3 map<> fields is unsupported.
+	return nil
+}
+
+var _regex_AppRef_Project = regexp.MustCompile(`^.{1,225}$`)
+var _regex_AppRef_Name = regexp.MustCompile(`^.{1,225}$`)
+
+func (this *AppRef) Validate() error {
+	if !_regex_AppRef_Project.MatchString(this.Project) {
+		return github_com_mwitkow_go_proto_validators.FieldError("Project", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Project))
+	}
+	if !_regex_AppRef_Name.MatchString(this.Name) {
+		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
+	}
+	return nil
+}
+
+var _regex_AppInput_Project = regexp.MustCompile(`^.{1,225}$`)
+var _regex_AppInput_TemplateName = regexp.MustCompile(`^.{1,225}$`)
+var _regex_AppInput_AppName = regexp.MustCompile(`^.{1,225}$`)
+
+func (this *AppInput) Validate() error {
+	if !_regex_AppInput_Project.MatchString(this.Project) {
+		return github_com_mwitkow_go_proto_validators.FieldError("Project", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Project))
+	}
+	if !_regex_AppInput_TemplateName.MatchString(this.TemplateName) {
+		return github_com_mwitkow_go_proto_validators.FieldError("TemplateName", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.TemplateName))
+	}
+	if !_regex_AppInput_AppName.MatchString(this.AppName) {
+		return github_com_mwitkow_go_proto_validators.FieldError("AppName", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.AppName))
 	}
 	// Validation of proto3 map<> fields is unsupported.
 	return nil
 }
-func (this *Secrets) Validate() error {
-	for _, item := range this.Secrets {
+func (this *ProjectRef) Validate() error {
+	return nil
+}
+func (this *ProjectRefs) Validate() error {
+	for _, item := range this.Projects {
 		if item != nil {
 			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
-				return github_com_mwitkow_go_proto_validators.FieldError("Secrets", err)
+				return github_com_mwitkow_go_proto_validators.FieldError("Projects", err)
 			}
 		}
-	}
-	return nil
-}
-func (this *ServerTLSSettings) Validate() error {
-	return nil
-}
-
-var _regex_GatewayListener_Name = regexp.MustCompile(`^.{1,225}$`)
-
-func (this *GatewayListener) Validate() error {
-	if !(this.Port > 0) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Port", fmt.Errorf(`value '%v' must be greater than '0'`, this.Port))
-	}
-	if !_regex_GatewayListener_Name.MatchString(this.Name) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
-	}
-	if len(this.Hosts) < 1 {
-		return github_com_mwitkow_go_proto_validators.FieldError("Hosts", fmt.Errorf(`value '%v' must contain at least 1 elements`, this.Hosts))
-	}
-	if this.TlsConfig != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.TlsConfig); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("TlsConfig", err)
-		}
-	}
-	return nil
-}
-func (this *Gateway) Validate() error {
-	for _, item := range this.Listeners {
-		if item != nil {
-			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
-				return github_com_mwitkow_go_proto_validators.FieldError("Listeners", err)
-			}
-		}
-	}
-	return nil
-}
-func (this *Gateways) Validate() error {
-	for _, item := range this.Gateways {
-		if item != nil {
-			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
-				return github_com_mwitkow_go_proto_validators.FieldError("Gateways", err)
-			}
-		}
-	}
-	return nil
-}
-
-var _regex_GatewayInput_Name = regexp.MustCompile(`^.{1,225}$`)
-
-func (this *GatewayInput) Validate() error {
-	if !_regex_GatewayInput_Name.MatchString(this.Name) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
-	}
-	if len(this.Listeners) < 1 {
-		return github_com_mwitkow_go_proto_validators.FieldError("Listeners", fmt.Errorf(`value '%v' must contain at least 1 elements`, this.Listeners))
-	}
-	for _, item := range this.Listeners {
-		if item != nil {
-			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
-				return github_com_mwitkow_go_proto_validators.FieldError("Listeners", err)
-			}
-		}
-	}
-	return nil
-}
-
-var _regex_HTTPRoute_Name = regexp.MustCompile(`^.{1,225}$`)
-
-func (this *HTTPRoute) Validate() error {
-	if !_regex_HTTPRoute_Name.MatchString(this.Name) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
-	}
-	if !(this.Port > 0) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Port", fmt.Errorf(`value '%v' must be greater than '0'`, this.Port))
-	}
-	return nil
-}
-func (this *Routing) Validate() error {
-	for _, item := range this.HttpRoutes {
-		if item != nil {
-			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
-				return github_com_mwitkow_go_proto_validators.FieldError("HttpRoutes", err)
-			}
-		}
-	}
-	return nil
-}
-
-var _regex_Container_Name = regexp.MustCompile(`^.{1,225}$`)
-var _regex_Container_Image = regexp.MustCompile(`^.{1,225}$`)
-
-func (this *Container) Validate() error {
-	if !_regex_Container_Name.MatchString(this.Name) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
-	}
-	if !_regex_Container_Image.MatchString(this.Image) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Image", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Image))
-	}
-	// Validation of proto3 map<> fields is unsupported.
-	for _, item := range this.Ports {
-		if item != nil {
-			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
-				return github_com_mwitkow_go_proto_validators.FieldError("Ports", err)
-			}
-		}
-	}
-	return nil
-}
-
-var _regex_API_Name = regexp.MustCompile(`^.{1,225}$`)
-
-func (this *API) Validate() error {
-	if !_regex_API_Name.MatchString(this.Name) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
-	}
-	if len(this.Containers) < 1 {
-		return github_com_mwitkow_go_proto_validators.FieldError("Containers", fmt.Errorf(`value '%v' must contain at least 1 elements`, this.Containers))
-	}
-	for _, item := range this.Containers {
-		if item != nil {
-			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
-				return github_com_mwitkow_go_proto_validators.FieldError("Containers", err)
-			}
-		}
-	}
-	if nil == this.Routing {
-		return github_com_mwitkow_go_proto_validators.FieldError("Routing", fmt.Errorf("message must exist"))
-	}
-	if this.Routing != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Routing); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("Routing", err)
-		}
-	}
-	if nil == this.Authentication {
-		return github_com_mwitkow_go_proto_validators.FieldError("Authentication", fmt.Errorf("message must exist"))
-	}
-	if this.Authentication != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Authentication); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("Authentication", err)
-		}
-	}
-	if nil == this.Status {
-		return github_com_mwitkow_go_proto_validators.FieldError("Status", fmt.Errorf("message must exist"))
-	}
-	if this.Status != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Status); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("Status", err)
-		}
-	}
-	return nil
-}
-
-var _regex_Task_Name = regexp.MustCompile(`^.{1,225}$`)
-var _regex_Task_Schedule = regexp.MustCompile(`^.{1,225}$`)
-
-func (this *Task) Validate() error {
-	if !_regex_Task_Name.MatchString(this.Name) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
-	}
-	if len(this.Containers) < 1 {
-		return github_com_mwitkow_go_proto_validators.FieldError("Containers", fmt.Errorf(`value '%v' must contain at least 1 elements`, this.Containers))
-	}
-	for _, item := range this.Containers {
-		if item != nil {
-			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
-				return github_com_mwitkow_go_proto_validators.FieldError("Containers", err)
-			}
-		}
-	}
-	if !_regex_Task_Schedule.MatchString(this.Schedule) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Schedule", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Schedule))
-	}
-	return nil
-}
-
-var _regex_TaskInput_Name = regexp.MustCompile(`^.{1,225}$`)
-var _regex_TaskInput_Schedule = regexp.MustCompile(`^.{1,225}$`)
-
-func (this *TaskInput) Validate() error {
-	if !_regex_TaskInput_Name.MatchString(this.Name) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
-	}
-	if len(this.Containers) < 1 {
-		return github_com_mwitkow_go_proto_validators.FieldError("Containers", fmt.Errorf(`value '%v' must contain at least 1 elements`, this.Containers))
-	}
-	for _, item := range this.Containers {
-		if item != nil {
-			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
-				return github_com_mwitkow_go_proto_validators.FieldError("Containers", err)
-			}
-		}
-	}
-	if !_regex_TaskInput_Schedule.MatchString(this.Schedule) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Schedule", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Schedule))
-	}
-	return nil
-}
-func (this *ContainerPort) Validate() error {
-	return nil
-}
-
-var _regex_APIInput_Name = regexp.MustCompile(`^.{1,225}$`)
-
-func (this *APIInput) Validate() error {
-	if !_regex_APIInput_Name.MatchString(this.Name) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
-	}
-	if len(this.Containers) < 1 {
-		return github_com_mwitkow_go_proto_validators.FieldError("Containers", fmt.Errorf(`value '%v' must contain at least 1 elements`, this.Containers))
-	}
-	for _, item := range this.Containers {
-		if item != nil {
-			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
-				return github_com_mwitkow_go_proto_validators.FieldError("Containers", err)
-			}
-		}
-	}
-	if nil == this.Routing {
-		return github_com_mwitkow_go_proto_validators.FieldError("Routing", fmt.Errorf("message must exist"))
-	}
-	if this.Routing != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Routing); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("Routing", err)
-		}
-	}
-	if this.Authentication != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Authentication); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("Authentication", err)
-		}
-	}
-	return nil
-}
-
-var _regex_Ref_Name = regexp.MustCompile(`^.{1,225}$`)
-
-func (this *Ref) Validate() error {
-	if !_regex_Ref_Name.MatchString(this.Name) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
-	}
-	return nil
-}
-func (this *Replica) Validate() error {
-	return nil
-}
-func (this *APIStatus) Validate() error {
-	for _, item := range this.Replicas {
-		if item != nil {
-			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
-				return github_com_mwitkow_go_proto_validators.FieldError("Replicas", err)
-			}
-		}
-	}
-	return nil
-}
-func (this *Log) Validate() error {
-	return nil
-}
-func (this *APIs) Validate() error {
-	for _, item := range this.Apis {
-		if item != nil {
-			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
-				return github_com_mwitkow_go_proto_validators.FieldError("Apis", err)
-			}
-		}
-	}
-	return nil
-}
-func (this *Tasks) Validate() error {
-	for _, item := range this.Tasks {
-		if item != nil {
-			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
-				return github_com_mwitkow_go_proto_validators.FieldError("Tasks", err)
-			}
-		}
-	}
-	return nil
-}
-
-var _regex_LogOpts_Name = regexp.MustCompile(`^.{1,225}$`)
-var _regex_LogOpts_Container = regexp.MustCompile(`^.{1,225}$`)
-
-func (this *LogOpts) Validate() error {
-	if !_regex_LogOpts_Name.MatchString(this.Name) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Name", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Name))
-	}
-	if !_regex_LogOpts_Container.MatchString(this.Container) {
-		return github_com_mwitkow_go_proto_validators.FieldError("Container", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Container))
 	}
 	return nil
 }

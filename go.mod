@@ -4,7 +4,7 @@ go 1.15
 
 require (
 	github.com/99designs/gqlgen v0.13.0
-	github.com/autom8ter/kubego v0.0.6
+	github.com/autom8ter/kubego v0.0.10
 	github.com/autom8ter/machine v1.1.2
 	github.com/golang/protobuf v1.4.3
 	github.com/gorilla/websocket v1.4.2
@@ -26,6 +26,6 @@ require (
 	google.golang.org/protobuf v1.25.0
 	istio.io/api v0.0.0-20210115162953-da389fc06d2c
 	istio.io/client-go v0.0.0-20210115164403-c9e58f5c6252
-	k8s.io/api v0.19.0
-	k8s.io/apimachinery v0.19.0
+	k8s.io/api v0.20.1
+	k8s.io/apimachinery v0.20.1
 )
