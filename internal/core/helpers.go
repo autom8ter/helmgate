@@ -22,11 +22,12 @@ import (
 )
 
 const (
-	labelSelector = "meshpaas = true"
-	Always        = "Always"
-	OnFailure     = "OnFailure"
-	meshpaasApp   = "meshpaas.app"
-	meshpaas      = "meshpaas"
+	labelSelector     = "meshpaas = true"
+	Always            = "Always"
+	OnFailure         = "OnFailure"
+	meshpaasApp       = "meshpaas.app"
+	meshpaas          = "meshpaas"
+	meshpaasNamespace = "meshpaas.namespace"
 )
 
 func appContainers(app *meshpaaspb.APIInput) ([]v12.Container, error) {
@@ -206,14 +207,16 @@ func (m *Manager) overwriteVirtualService(usr map[string]interface{}, svc *netwo
 */
 
 func (m *Manager) toVirtualService(usr map[string]interface{}, app *meshpaaspb.APIInput) *networking.VirtualService {
+	usrNs := cast.ToString(usr[m.namespaceClaim])
 	svc := &networking.VirtualService{
 		TypeMeta: metav1.TypeMeta{},
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      app.Name,
 			Namespace: cast.ToString(usr[m.namespaceClaim]),
 			Labels: map[string]string{
-				meshpaasApp: app.Name,
-				meshpaas:    "true",
+				meshpaasApp:       app.Name,
+				meshpaas:          "true",
+				meshpaasNamespace: usrNs,
 			},
 		},
 		Spec:   v1alpha3.VirtualService{},
@@ -300,6 +303,7 @@ func (m *Manager) toRequestAuthentication(usr map[string]interface{}, input *mes
 	if input.Authentication == nil {
 		return nil
 	}
+	usrNs := cast.ToString(usr[m.namespaceClaim])
 	var auth = &security.RequestAuthentication{
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      input.Name,
@@ -307,8 +311,9 @@ func (m *Manager) toRequestAuthentication(usr map[string]interface{}, input *mes
 		},
 	}
 	auth.Spec.Selector.MatchLabels = map[string]string{
-		meshpaasApp: input.Name,
-		meshpaas:    "true",
+		meshpaasApp:       input.Name,
+		meshpaas:          "true",
+		meshpaasNamespace: usrNs,
 	}
 	for _, r := range input.Authentication.Rules {
 		auth.Spec.JwtRules = append(auth.Spec.JwtRules, &securityv1beta1.JWTRule{
@@ -322,6 +327,7 @@ func (m *Manager) toRequestAuthentication(usr map[string]interface{}, input *mes
 }
 
 func (m *Manager) toAuthorizationPolicy(usr map[string]interface{}, input *meshpaaspb.APIInput) *security.AuthorizationPolicy {
+	usrNs := cast.ToString(usr[m.namespaceClaim])
 	var auth = &security.AuthorizationPolicy{
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      input.Name,
@@ -329,8 +335,9 @@ func (m *Manager) toAuthorizationPolicy(usr map[string]interface{}, input *meshp
 		},
 	}
 	auth.Spec.Selector.MatchLabels = map[string]string{
-		meshpaasApp: input.Name,
-		meshpaas:    "true",
+		meshpaasApp:       input.Name,
+		meshpaas:          "true",
+		meshpaasNamespace: usrNs,
 	}
 	auth.Spec.Action = securityv1beta1.AuthorizationPolicy_ALLOW
 	return auth
@@ -346,6 +353,7 @@ func (m *Manager) toDeployment(usr map[string]interface{}, app *meshpaaspb.APIIn
 		containers, err = appContainers(app)
 		imagePullSecret []v12.LocalObjectReference
 	)
+	usrNs := cast.ToString(usr[m.namespaceClaim])
 	if err != nil {
 		return nil, err
 	}
@@ -355,8 +363,9 @@ func (m *Manager) toDeployment(usr map[string]interface{}, app *meshpaaspb.APIIn
 		})
 	}
 	var labels = map[string]string{
-		meshpaasApp: app.Name,
-		meshpaas:    "true",
+		meshpaasApp:       app.Name,
+		meshpaas:          "true",
+		meshpaasNamespace: usrNs,
 	}
 
 	return &apps.Deployment{
@@ -403,9 +412,13 @@ func (m *Manager) toTask(usr map[string]interface{}, app *meshpaaspb.TaskInput) 
 	if err != nil {
 		return nil, err
 	}
+
+	usrNs := cast.ToString(usr[m.namespaceClaim])
+
 	var labels = map[string]string{
-		meshpaasApp: app.Name,
-		meshpaas:    "true",
+		meshpaasApp:       app.Name,
+		meshpaas:          "true",
+		meshpaasNamespace: usrNs,
 	}
 	return &v1beta1.CronJob{
 		TypeMeta: metav1.TypeMeta{
@@ -516,13 +529,21 @@ func toServers(gateway *meshpaaspb.GatewayInput) []*nv1alpha3.Server {
 }
 
 func (m *Manager) toGateway(usr map[string]interface{}, gateway *meshpaaspb.GatewayInput) *pkgnv1alpha3.Gateway {
+	usrNs := cast.ToString(usr[m.namespaceClaim])
 	return &pkgnv1alpha3.Gateway{
 		TypeMeta: metav1.TypeMeta{},
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      gateway.GetName(),
 			Namespace: cast.ToString(usr[m.namespaceClaim]),
+			Labels: map[string]string{
+				meshpaas: "true",
+			},
 		},
 		Spec: nv1alpha3.Gateway{
+			Selector: map[string]string{
+				meshpaas:          "true",
+				meshpaasNamespace: usrNs,
+			},
 			Servers: toServers(gateway),
 		},
 		Status: v1alpha1.IstioStatus{},
@@ -552,13 +573,15 @@ func overwriteTask(cronJob *v1beta1.CronJob, task *meshpaaspb.TaskInput) (*v1bet
 }
 
 func (m *Manager) toService(usr map[string]interface{}, input *meshpaaspb.APIInput) *v1.Service {
+	usrNs := cast.ToString(usr[m.namespaceClaim])
 	svc := &v1.Service{
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      input.Name,
 			Namespace: cast.ToString(usr[m.namespaceClaim]),
 			Labels: map[string]string{
-				meshpaasApp: input.Name,
-				meshpaas:    "true",
+				meshpaasApp:       input.Name,
+				meshpaas:          "true",
+				meshpaasNamespace: usrNs,
 			},
 		},
 	}
