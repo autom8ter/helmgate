@@ -7,11 +7,10 @@ import (
 	"github.com/autom8ter/machine"
 	meshpaaspb "github.com/autom8ter/meshpaas/gen/grpc/go"
 	"github.com/autom8ter/meshpaas/internal/auth"
-	"github.com/autom8ter/meshpaas/internal/core"
 	"github.com/autom8ter/meshpaas/internal/gql"
 	"github.com/autom8ter/meshpaas/internal/helpers"
 	"github.com/autom8ter/meshpaas/internal/logger"
-	"github.com/autom8ter/meshpaas/internal/service"
+	"github.com/autom8ter/meshpaas/internal/providers"
 	grpc_auth "github.com/grpc-ecosystem/go-grpc-middleware/auth"
 	grpc_zap "github.com/grpc-ecosystem/go-grpc-middleware/logging/zap"
 	grpc_recovery "github.com/grpc-ecosystem/go-grpc-middleware/recovery"
@@ -126,31 +125,10 @@ func run(ctx context.Context) {
 			lgger.Error("metrics server failure", zap.Error(err))
 		}
 	})
-	var cli *core.Manager
-	if outOfCluster {
-		kclient, err := kubego.NewOutOfClusterKubeClient()
-		if err != nil {
-			lgger.Error(err.Error())
-			return
-		}
-		iclient, err := kubego.NewOutOfClusterIstioClient()
-		if err != nil {
-			lgger.Error(err.Error())
-			return
-		}
-		cli = core.NewManager(kclient, iclient, lgger, namespaceClaim)
-	} else {
-		kclient, err := kubego.NewInClusterKubeClient()
-		if err != nil {
-			lgger.Error(err.Error())
-			return
-		}
-		iclient, err := kubego.NewInClusterIstioClient()
-		if err != nil {
-			lgger.Error(err.Error())
-			return
-		}
-		cli = core.NewManager(kclient, iclient, lgger, namespaceClaim)
+	helm, err := kubego.NewHelm()
+	if err != nil {
+		lgger.Error("failed to create helm client", zap.Error(err))
+		return
 	}
 	a, err := auth.NewAuth(jwksUri, jwtIssuer, namespaceClaim, lgger)
 	if err != nil {
@@ -174,7 +152,7 @@ func run(ctx context.Context) {
 		),
 	}
 	gserver := grpc.NewServer(gopts...)
-	meshpaaspb.RegisterMeshPaasServiceServer(gserver, service.NewMeshPaasService(cli))
+	meshpaaspb.RegisterMeshPaasServiceServer(gserver, providers.GetHelmProvider(helm))
 	reflection.Register(gserver)
 	grpc_prometheus.Register(gserver)
 	m.Go(func(routine machine.Routine) {
@@ -199,7 +177,6 @@ func run(ctx context.Context) {
 	mux := http.NewServeMux()
 
 	mux.Handle("/graphql", resolver.QueryHandler())
-	mux.Handle("/", resolver.Playground())
 	graphQLServer := &http.Server{
 		Handler: mux,
 	}

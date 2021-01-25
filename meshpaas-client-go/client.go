@@ -5,7 +5,6 @@ import (
 	"fmt"
 	meshpaaspb "github.com/autom8ter/meshpaas/gen/grpc/go"
 	"github.com/autom8ter/meshpaas/internal/logger"
-	"github.com/golang/protobuf/ptypes/empty"
 	grpc_zap "github.com/grpc-ecosystem/go-grpc-middleware/logging/zap"
 	grpc_validator "github.com/grpc-ecosystem/go-grpc-middleware/validator"
 	grpc_prometheus "github.com/grpc-ecosystem/go-grpc-prometheus"
@@ -148,109 +147,4 @@ func toContext(ctx context.Context, tokenSource oauth2.TokenSource) (context.Con
 		ctx,
 		"Authorization", fmt.Sprintf("Bearer %v", token.AccessToken),
 	), nil
-}
-
-// CreateAPI creates a new application
-func (c *Client) CreateAPI(ctx context.Context, app *meshpaaspb.APIInput) (*meshpaaspb.API, error) {
-	return c.client.CreateAPI(ctx, app)
-}
-
-// UpdateAPI updates an application - it performs a full replace
-func (c *Client) UpdateAPI(ctx context.Context, app *meshpaaspb.APIInput) (*meshpaaspb.API, error) {
-	return c.client.UpdateAPI(ctx, app)
-}
-
-// DeleteAPI deletes an application by reference(name/namespace)
-func (c *Client) DeleteAPI(ctx context.Context, ref *meshpaaspb.Ref) error {
-	_, err := c.client.DeleteAPI(ctx, ref)
-	return err
-}
-
-// GetAPI get an application by reference(name/namespace)
-func (c *Client) GetAPI(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb.API, error) {
-	return c.client.GetAPI(ctx, ref)
-}
-
-// CreateTask creates a new task
-func (c *Client) CreateTask(ctx context.Context, app *meshpaaspb.TaskInput) (*meshpaaspb.Task, error) {
-	return c.client.CreateTask(ctx, app)
-}
-
-// ListTasks
-func (c *Client) ListTasks(ctx context.Context) (*meshpaaspb.Tasks, error) {
-	return c.client.ListTasks(ctx, &empty.Empty{})
-}
-
-// ListAPIs
-func (c *Client) ListAPIs(ctx context.Context) (*meshpaaspb.APIs, error) {
-	return c.client.ListAPIs(ctx, &empty.Empty{})
-}
-
-// ListGateways
-func (c *Client) ListGateways(ctx context.Context) (*meshpaaspb.Gateways, error) {
-	return c.client.ListGateways(ctx, &empty.Empty{})
-}
-
-// ListSecrets
-func (c *Client) ListSecrets(ctx context.Context) (*meshpaaspb.Secrets, error) {
-	return c.client.ListSecrets(ctx, &empty.Empty{})
-}
-
-// UpdateTask updates a task - it performs a full replace
-func (c *Client) UpdateTask(ctx context.Context, app *meshpaaspb.TaskInput) (*meshpaaspb.Task, error) {
-	return c.client.UpdateTask(ctx, app)
-}
-
-// DeleteTask deletes a task by reference(name/namespace)
-func (c *Client) DeleteTask(ctx context.Context, ref *meshpaaspb.Ref) error {
-	_, err := c.client.DeleteTask(ctx, ref)
-	return err
-}
-
-// GetTask gets a task by reference(name/namespace)
-func (c *Client) GetTask(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb.Task, error) {
-	return c.client.GetTask(ctx, ref)
-}
-
-// StreamLogs streams logs from an application until the context cancelled or the function(fn) return false
-func (c *Client) StreamLogs(ctx context.Context, ref *meshpaaspb.LogOpts, fn func(l *meshpaaspb.Log) bool) error {
-	stream, err := c.client.StreamLogs(ctx, ref)
-	if err != nil {
-		return err
-	}
-	for {
-		select {
-		case <-ctx.Done():
-			return nil
-		default:
-			msg, err := stream.Recv()
-			if err != nil {
-				return err
-			}
-			if !fn(msg) {
-				return nil
-			}
-		}
-	}
-}
-
-// CreateGateway creates a new gateway
-func (c *Client) CreateGateway(ctx context.Context, app *meshpaaspb.GatewayInput) (*meshpaaspb.Gateway, error) {
-	return c.client.CreateGateway(ctx, app)
-}
-
-// UpdateGateway updates a gateway - it performs a full replace
-func (c *Client) UpdateGateway(ctx context.Context, app *meshpaaspb.GatewayInput) (*meshpaaspb.Gateway, error) {
-	return c.client.UpdateGateway(ctx, app)
-}
-
-// DeleteGateway deletes a gateway by reference(name/namespace)
-func (c *Client) DeleteGateway(ctx context.Context, ref *meshpaaspb.Ref) error {
-	_, err := c.client.DeleteGateway(ctx, ref)
-	return err
-}
-
-// GetGateway gets a gateway by reference(name/namespace)
-func (c *Client) GetGateway(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb.Gateway, error) {
-	return c.client.GetGateway(ctx, ref)
 }

@@ -11,6 +11,10 @@ type Helm struct {
 	client *kubego.Helm
 }
 
+func NewHelm(client *kubego.Helm) *Helm {
+	return &Helm{client: client}
+}
+
 func (h Helm) ListProjects(ctx context.Context, empty *empty.Empty) (*meshpaaspb.ProjectRefs, error) {
 	panic("implement me")
 }
@@ -42,5 +46,3 @@ func (h Helm) UpdateApp(ctx context.Context, input *meshpaaspb.AppInput) (*meshp
 func (h Helm) SearchAppTemplates(ctx context.Context, filter *meshpaaspb.Filter) (*meshpaaspb.AppTemplates, error) {
 	panic("implement me")
 }
-
-
