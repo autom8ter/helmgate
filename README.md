@@ -6,7 +6,6 @@ an opinionated graphQL/gRPC API for easily deploying applications & jobs on Isti
 
 ## Helpful Links
 - [Istio Docs](https://istio.io/latest/)
-- [Free Online GraphQL Console](graphqlbin.com)
 
 ## Command Line
 
