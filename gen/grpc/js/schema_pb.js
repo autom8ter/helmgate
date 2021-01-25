@@ -16,10 +16,10 @@ var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/time
 var google_protobuf_any_pb = require('google-protobuf/google/protobuf/any_pb.js');
 var google_protobuf_empty_pb = require('google-protobuf/google/protobuf/empty_pb.js');
 var github_com_mwitkow_go$proto$validators_validator_pb = require('./github.com/mwitkow/go-proto-validators/validator_pb.js');
-goog.exportSymbol('proto.meshpaas.App', null, global);
-goog.exportSymbol('proto.meshpaas.AppInput', null, global);
-goog.exportSymbol('proto.meshpaas.AppStatus', null, global);
-goog.exportSymbol('proto.meshpaas.Apps', null, global);
+goog.exportSymbol('proto.meshpaas.API', null, global);
+goog.exportSymbol('proto.meshpaas.APIInput', null, global);
+goog.exportSymbol('proto.meshpaas.APIStatus', null, global);
+goog.exportSymbol('proto.meshpaas.APIs', null, global);
 goog.exportSymbol('proto.meshpaas.Authn', null, global);
 goog.exportSymbol('proto.meshpaas.AuthnRule', null, global);
 goog.exportSymbol('proto.meshpaas.Container', null, global);
@@ -27,6 +27,7 @@ goog.exportSymbol('proto.meshpaas.ContainerPort', null, global);
 goog.exportSymbol('proto.meshpaas.Gateway', null, global);
 goog.exportSymbol('proto.meshpaas.GatewayInput', null, global);
 goog.exportSymbol('proto.meshpaas.GatewayListener', null, global);
+goog.exportSymbol('proto.meshpaas.Gateways', null, global);
 goog.exportSymbol('proto.meshpaas.HTTPRoute', null, global);
 goog.exportSymbol('proto.meshpaas.Log', null, global);
 goog.exportSymbol('proto.meshpaas.LogOpts', null, global);
@@ -36,6 +37,7 @@ goog.exportSymbol('proto.meshpaas.Routing', null, global);
 goog.exportSymbol('proto.meshpaas.Secret', null, global);
 goog.exportSymbol('proto.meshpaas.SecretInput', null, global);
 goog.exportSymbol('proto.meshpaas.SecretType', null, global);
+goog.exportSymbol('proto.meshpaas.Secrets', null, global);
 goog.exportSymbol('proto.meshpaas.ServerTLSSettings', null, global);
 goog.exportSymbol('proto.meshpaas.TLSmode', null, global);
 goog.exportSymbol('proto.meshpaas.Task', null, global);
@@ -892,6 +894,174 @@ proto.meshpaas.Secret.prototype.clearDataMap = function() {
  * @extends {jspb.Message}
  * @constructor
  */
+proto.meshpaas.Secrets = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.meshpaas.Secrets.repeatedFields_, null);
+};
+goog.inherits(proto.meshpaas.Secrets, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.meshpaas.Secrets.displayName = 'proto.meshpaas.Secrets';
+}
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.meshpaas.Secrets.repeatedFields_ = [1];
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.meshpaas.Secrets.prototype.toObject = function(opt_includeInstance) {
+  return proto.meshpaas.Secrets.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.meshpaas.Secrets} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.meshpaas.Secrets.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    secretsList: jspb.Message.toObjectList(msg.getSecretsList(),
+    proto.meshpaas.Secret.toObject, includeInstance)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.meshpaas.Secrets}
+ */
+proto.meshpaas.Secrets.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.meshpaas.Secrets;
+  return proto.meshpaas.Secrets.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.meshpaas.Secrets} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.meshpaas.Secrets}
+ */
+proto.meshpaas.Secrets.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = new proto.meshpaas.Secret;
+      reader.readMessage(value,proto.meshpaas.Secret.deserializeBinaryFromReader);
+      msg.addSecrets(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.meshpaas.Secrets.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.meshpaas.Secrets.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.meshpaas.Secrets} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.meshpaas.Secrets.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getSecretsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      1,
+      f,
+      proto.meshpaas.Secret.serializeBinaryToWriter
+    );
+  }
+};
+
+
+/**
+ * repeated Secret secrets = 1;
+ * @return {!Array<!proto.meshpaas.Secret>}
+ */
+proto.meshpaas.Secrets.prototype.getSecretsList = function() {
+  return /** @type{!Array<!proto.meshpaas.Secret>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.meshpaas.Secret, 1));
+};
+
+
+/** @param {!Array<!proto.meshpaas.Secret>} value */
+proto.meshpaas.Secrets.prototype.setSecretsList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 1, value);
+};
+
+
+/**
+ * @param {!proto.meshpaas.Secret=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.meshpaas.Secret}
+ */
+proto.meshpaas.Secrets.prototype.addSecrets = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.meshpaas.Secret, opt_index);
+};
+
+
+proto.meshpaas.Secrets.prototype.clearSecretsList = function() {
+  this.setSecretsList([]);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
 proto.meshpaas.ServerTLSSettings = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, proto.meshpaas.ServerTLSSettings.repeatedFields_, null);
 };
@@ -1730,6 +1900,174 @@ proto.meshpaas.Gateway.prototype.addListeners = function(opt_value, opt_index) {
 
 proto.meshpaas.Gateway.prototype.clearListenersList = function() {
   this.setListenersList([]);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.meshpaas.Gateways = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.meshpaas.Gateways.repeatedFields_, null);
+};
+goog.inherits(proto.meshpaas.Gateways, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.meshpaas.Gateways.displayName = 'proto.meshpaas.Gateways';
+}
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.meshpaas.Gateways.repeatedFields_ = [1];
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.meshpaas.Gateways.prototype.toObject = function(opt_includeInstance) {
+  return proto.meshpaas.Gateways.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.meshpaas.Gateways} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.meshpaas.Gateways.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    gatwaysList: jspb.Message.toObjectList(msg.getGatwaysList(),
+    proto.meshpaas.Gateway.toObject, includeInstance)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.meshpaas.Gateways}
+ */
+proto.meshpaas.Gateways.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.meshpaas.Gateways;
+  return proto.meshpaas.Gateways.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.meshpaas.Gateways} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.meshpaas.Gateways}
+ */
+proto.meshpaas.Gateways.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = new proto.meshpaas.Gateway;
+      reader.readMessage(value,proto.meshpaas.Gateway.deserializeBinaryFromReader);
+      msg.addGatways(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.meshpaas.Gateways.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.meshpaas.Gateways.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.meshpaas.Gateways} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.meshpaas.Gateways.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getGatwaysList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      1,
+      f,
+      proto.meshpaas.Gateway.serializeBinaryToWriter
+    );
+  }
+};
+
+
+/**
+ * repeated Gateway gatways = 1;
+ * @return {!Array<!proto.meshpaas.Gateway>}
+ */
+proto.meshpaas.Gateways.prototype.getGatwaysList = function() {
+  return /** @type{!Array<!proto.meshpaas.Gateway>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.meshpaas.Gateway, 1));
+};
+
+
+/** @param {!Array<!proto.meshpaas.Gateway>} value */
+proto.meshpaas.Gateways.prototype.setGatwaysList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 1, value);
+};
+
+
+/**
+ * @param {!proto.meshpaas.Gateway=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.meshpaas.Gateway}
+ */
+proto.meshpaas.Gateways.prototype.addGatways = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.meshpaas.Gateway, opt_index);
+};
+
+
+proto.meshpaas.Gateways.prototype.clearGatwaysList = function() {
+  this.setGatwaysList([]);
 };
 
 
@@ -2890,19 +3228,19 @@ proto.meshpaas.Container.prototype.clearPortsList = function() {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.meshpaas.App = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.meshpaas.App.repeatedFields_, null);
+proto.meshpaas.API = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.meshpaas.API.repeatedFields_, null);
 };
-goog.inherits(proto.meshpaas.App, jspb.Message);
+goog.inherits(proto.meshpaas.API, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.meshpaas.App.displayName = 'proto.meshpaas.App';
+  proto.meshpaas.API.displayName = 'proto.meshpaas.API';
 }
 /**
  * List of repeated fields within this message type.
  * @private {!Array<number>}
  * @const
  */
-proto.meshpaas.App.repeatedFields_ = [3];
+proto.meshpaas.API.repeatedFields_ = [3];
 
 
 
@@ -2917,8 +3255,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.meshpaas.App.prototype.toObject = function(opt_includeInstance) {
-  return proto.meshpaas.App.toObject(opt_includeInstance, this);
+proto.meshpaas.API.prototype.toObject = function(opt_includeInstance) {
+  return proto.meshpaas.API.toObject(opt_includeInstance, this);
 };
 
 
@@ -2927,11 +3265,11 @@ proto.meshpaas.App.prototype.toObject = function(opt_includeInstance) {
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.meshpaas.App} msg The msg instance to transform.
+ * @param {!proto.meshpaas.API} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.meshpaas.App.toObject = function(includeInstance, msg) {
+proto.meshpaas.API.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
     containersList: jspb.Message.toObjectList(msg.getContainersList(),
@@ -2940,7 +3278,7 @@ proto.meshpaas.App.toObject = function(includeInstance, msg) {
     routing: (f = msg.getRouting()) && proto.meshpaas.Routing.toObject(includeInstance, f),
     authentication: (f = msg.getAuthentication()) && proto.meshpaas.Authn.toObject(includeInstance, f),
     imagePullSecret: jspb.Message.getFieldWithDefault(msg, 14, ""),
-    status: (f = msg.getStatus()) && proto.meshpaas.AppStatus.toObject(includeInstance, f)
+    status: (f = msg.getStatus()) && proto.meshpaas.APIStatus.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -2954,23 +3292,23 @@ proto.meshpaas.App.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.meshpaas.App}
+ * @return {!proto.meshpaas.API}
  */
-proto.meshpaas.App.deserializeBinary = function(bytes) {
+proto.meshpaas.API.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.meshpaas.App;
-  return proto.meshpaas.App.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.meshpaas.API;
+  return proto.meshpaas.API.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.meshpaas.App} msg The message object to deserialize into.
+ * @param {!proto.meshpaas.API} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.meshpaas.App}
+ * @return {!proto.meshpaas.API}
  */
-proto.meshpaas.App.deserializeBinaryFromReader = function(msg, reader) {
+proto.meshpaas.API.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -3005,8 +3343,8 @@ proto.meshpaas.App.deserializeBinaryFromReader = function(msg, reader) {
       msg.setImagePullSecret(value);
       break;
     case 20:
-      var value = new proto.meshpaas.AppStatus;
-      reader.readMessage(value,proto.meshpaas.AppStatus.deserializeBinaryFromReader);
+      var value = new proto.meshpaas.APIStatus;
+      reader.readMessage(value,proto.meshpaas.APIStatus.deserializeBinaryFromReader);
       msg.setStatus(value);
       break;
     default:
@@ -3022,9 +3360,9 @@ proto.meshpaas.App.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.meshpaas.App.prototype.serializeBinary = function() {
+proto.meshpaas.API.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.meshpaas.App.serializeBinaryToWriter(this, writer);
+  proto.meshpaas.API.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -3032,11 +3370,11 @@ proto.meshpaas.App.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.meshpaas.App} message
+ * @param {!proto.meshpaas.API} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.meshpaas.App.serializeBinaryToWriter = function(message, writer) {
+proto.meshpaas.API.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getName();
   if (f.length > 0) {
@@ -3088,7 +3426,7 @@ proto.meshpaas.App.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       20,
       f,
-      proto.meshpaas.AppStatus.serializeBinaryToWriter
+      proto.meshpaas.APIStatus.serializeBinaryToWriter
     );
   }
 };
@@ -3098,13 +3436,13 @@ proto.meshpaas.App.serializeBinaryToWriter = function(message, writer) {
  * optional string name = 1;
  * @return {string}
  */
-proto.meshpaas.App.prototype.getName = function() {
+proto.meshpaas.API.prototype.getName = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
 /** @param {string} value */
-proto.meshpaas.App.prototype.setName = function(value) {
+proto.meshpaas.API.prototype.setName = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
 };
 
@@ -3113,14 +3451,14 @@ proto.meshpaas.App.prototype.setName = function(value) {
  * repeated Container containers = 3;
  * @return {!Array<!proto.meshpaas.Container>}
  */
-proto.meshpaas.App.prototype.getContainersList = function() {
+proto.meshpaas.API.prototype.getContainersList = function() {
   return /** @type{!Array<!proto.meshpaas.Container>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.meshpaas.Container, 3));
 };
 
 
 /** @param {!Array<!proto.meshpaas.Container>} value */
-proto.meshpaas.App.prototype.setContainersList = function(value) {
+proto.meshpaas.API.prototype.setContainersList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 3, value);
 };
 
@@ -3130,12 +3468,12 @@ proto.meshpaas.App.prototype.setContainersList = function(value) {
  * @param {number=} opt_index
  * @return {!proto.meshpaas.Container}
  */
-proto.meshpaas.App.prototype.addContainers = function(opt_value, opt_index) {
+proto.meshpaas.API.prototype.addContainers = function(opt_value, opt_index) {
   return jspb.Message.addToRepeatedWrapperField(this, 3, opt_value, proto.meshpaas.Container, opt_index);
 };
 
 
-proto.meshpaas.App.prototype.clearContainersList = function() {
+proto.meshpaas.API.prototype.clearContainersList = function() {
   this.setContainersList([]);
 };
 
@@ -3144,13 +3482,13 @@ proto.meshpaas.App.prototype.clearContainersList = function() {
  * optional uint32 replicas = 8;
  * @return {number}
  */
-proto.meshpaas.App.prototype.getReplicas = function() {
+proto.meshpaas.API.prototype.getReplicas = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
 };
 
 
 /** @param {number} value */
-proto.meshpaas.App.prototype.setReplicas = function(value) {
+proto.meshpaas.API.prototype.setReplicas = function(value) {
   jspb.Message.setProto3IntField(this, 8, value);
 };
 
@@ -3159,19 +3497,19 @@ proto.meshpaas.App.prototype.setReplicas = function(value) {
  * optional Routing routing = 11;
  * @return {?proto.meshpaas.Routing}
  */
-proto.meshpaas.App.prototype.getRouting = function() {
+proto.meshpaas.API.prototype.getRouting = function() {
   return /** @type{?proto.meshpaas.Routing} */ (
     jspb.Message.getWrapperField(this, proto.meshpaas.Routing, 11));
 };
 
 
 /** @param {?proto.meshpaas.Routing|undefined} value */
-proto.meshpaas.App.prototype.setRouting = function(value) {
+proto.meshpaas.API.prototype.setRouting = function(value) {
   jspb.Message.setWrapperField(this, 11, value);
 };
 
 
-proto.meshpaas.App.prototype.clearRouting = function() {
+proto.meshpaas.API.prototype.clearRouting = function() {
   this.setRouting(undefined);
 };
 
@@ -3180,7 +3518,7 @@ proto.meshpaas.App.prototype.clearRouting = function() {
  * Returns whether this field is set.
  * @return {!boolean}
  */
-proto.meshpaas.App.prototype.hasRouting = function() {
+proto.meshpaas.API.prototype.hasRouting = function() {
   return jspb.Message.getField(this, 11) != null;
 };
 
@@ -3189,19 +3527,19 @@ proto.meshpaas.App.prototype.hasRouting = function() {
  * optional Authn authentication = 12;
  * @return {?proto.meshpaas.Authn}
  */
-proto.meshpaas.App.prototype.getAuthentication = function() {
+proto.meshpaas.API.prototype.getAuthentication = function() {
   return /** @type{?proto.meshpaas.Authn} */ (
     jspb.Message.getWrapperField(this, proto.meshpaas.Authn, 12));
 };
 
 
 /** @param {?proto.meshpaas.Authn|undefined} value */
-proto.meshpaas.App.prototype.setAuthentication = function(value) {
+proto.meshpaas.API.prototype.setAuthentication = function(value) {
   jspb.Message.setWrapperField(this, 12, value);
 };
 
 
-proto.meshpaas.App.prototype.clearAuthentication = function() {
+proto.meshpaas.API.prototype.clearAuthentication = function() {
   this.setAuthentication(undefined);
 };
 
@@ -3210,7 +3548,7 @@ proto.meshpaas.App.prototype.clearAuthentication = function() {
  * Returns whether this field is set.
  * @return {!boolean}
  */
-proto.meshpaas.App.prototype.hasAuthentication = function() {
+proto.meshpaas.API.prototype.hasAuthentication = function() {
   return jspb.Message.getField(this, 12) != null;
 };
 
@@ -3219,34 +3557,34 @@ proto.meshpaas.App.prototype.hasAuthentication = function() {
  * optional string image_pull_secret = 14;
  * @return {string}
  */
-proto.meshpaas.App.prototype.getImagePullSecret = function() {
+proto.meshpaas.API.prototype.getImagePullSecret = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 14, ""));
 };
 
 
 /** @param {string} value */
-proto.meshpaas.App.prototype.setImagePullSecret = function(value) {
+proto.meshpaas.API.prototype.setImagePullSecret = function(value) {
   jspb.Message.setProto3StringField(this, 14, value);
 };
 
 
 /**
- * optional AppStatus status = 20;
- * @return {?proto.meshpaas.AppStatus}
+ * optional APIStatus status = 20;
+ * @return {?proto.meshpaas.APIStatus}
  */
-proto.meshpaas.App.prototype.getStatus = function() {
-  return /** @type{?proto.meshpaas.AppStatus} */ (
-    jspb.Message.getWrapperField(this, proto.meshpaas.AppStatus, 20));
+proto.meshpaas.API.prototype.getStatus = function() {
+  return /** @type{?proto.meshpaas.APIStatus} */ (
+    jspb.Message.getWrapperField(this, proto.meshpaas.APIStatus, 20));
 };
 
 
-/** @param {?proto.meshpaas.AppStatus|undefined} value */
-proto.meshpaas.App.prototype.setStatus = function(value) {
+/** @param {?proto.meshpaas.APIStatus|undefined} value */
+proto.meshpaas.API.prototype.setStatus = function(value) {
   jspb.Message.setWrapperField(this, 20, value);
 };
 
 
-proto.meshpaas.App.prototype.clearStatus = function() {
+proto.meshpaas.API.prototype.clearStatus = function() {
   this.setStatus(undefined);
 };
 
@@ -3255,7 +3593,7 @@ proto.meshpaas.App.prototype.clearStatus = function() {
  * Returns whether this field is set.
  * @return {!boolean}
  */
-proto.meshpaas.App.prototype.hasStatus = function() {
+proto.meshpaas.API.prototype.hasStatus = function() {
   return jspb.Message.getField(this, 20) != null;
 };
 
@@ -4021,19 +4359,19 @@ proto.meshpaas.ContainerPort.prototype.setExpose = function(value) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.meshpaas.AppInput = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.meshpaas.AppInput.repeatedFields_, null);
+proto.meshpaas.APIInput = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.meshpaas.APIInput.repeatedFields_, null);
 };
-goog.inherits(proto.meshpaas.AppInput, jspb.Message);
+goog.inherits(proto.meshpaas.APIInput, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.meshpaas.AppInput.displayName = 'proto.meshpaas.AppInput';
+  proto.meshpaas.APIInput.displayName = 'proto.meshpaas.APIInput';
 }
 /**
  * List of repeated fields within this message type.
  * @private {!Array<number>}
  * @const
  */
-proto.meshpaas.AppInput.repeatedFields_ = [3];
+proto.meshpaas.APIInput.repeatedFields_ = [3];
 
 
 
@@ -4048,8 +4386,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.meshpaas.AppInput.prototype.toObject = function(opt_includeInstance) {
-  return proto.meshpaas.AppInput.toObject(opt_includeInstance, this);
+proto.meshpaas.APIInput.prototype.toObject = function(opt_includeInstance) {
+  return proto.meshpaas.APIInput.toObject(opt_includeInstance, this);
 };
 
 
@@ -4058,11 +4396,11 @@ proto.meshpaas.AppInput.prototype.toObject = function(opt_includeInstance) {
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.meshpaas.AppInput} msg The msg instance to transform.
+ * @param {!proto.meshpaas.APIInput} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.meshpaas.AppInput.toObject = function(includeInstance, msg) {
+proto.meshpaas.APIInput.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
     containersList: jspb.Message.toObjectList(msg.getContainersList(),
@@ -4084,23 +4422,23 @@ proto.meshpaas.AppInput.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.meshpaas.AppInput}
+ * @return {!proto.meshpaas.APIInput}
  */
-proto.meshpaas.AppInput.deserializeBinary = function(bytes) {
+proto.meshpaas.APIInput.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.meshpaas.AppInput;
-  return proto.meshpaas.AppInput.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.meshpaas.APIInput;
+  return proto.meshpaas.APIInput.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.meshpaas.AppInput} msg The message object to deserialize into.
+ * @param {!proto.meshpaas.APIInput} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.meshpaas.AppInput}
+ * @return {!proto.meshpaas.APIInput}
  */
-proto.meshpaas.AppInput.deserializeBinaryFromReader = function(msg, reader) {
+proto.meshpaas.APIInput.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -4147,9 +4485,9 @@ proto.meshpaas.AppInput.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.meshpaas.AppInput.prototype.serializeBinary = function() {
+proto.meshpaas.APIInput.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.meshpaas.AppInput.serializeBinaryToWriter(this, writer);
+  proto.meshpaas.APIInput.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -4157,11 +4495,11 @@ proto.meshpaas.AppInput.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.meshpaas.AppInput} message
+ * @param {!proto.meshpaas.APIInput} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.meshpaas.AppInput.serializeBinaryToWriter = function(message, writer) {
+proto.meshpaas.APIInput.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getName();
   if (f.length > 0) {
@@ -4215,13 +4553,13 @@ proto.meshpaas.AppInput.serializeBinaryToWriter = function(message, writer) {
  * optional string name = 1;
  * @return {string}
  */
-proto.meshpaas.AppInput.prototype.getName = function() {
+proto.meshpaas.APIInput.prototype.getName = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
 /** @param {string} value */
-proto.meshpaas.AppInput.prototype.setName = function(value) {
+proto.meshpaas.APIInput.prototype.setName = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
 };
 
@@ -4230,14 +4568,14 @@ proto.meshpaas.AppInput.prototype.setName = function(value) {
  * repeated Container containers = 3;
  * @return {!Array<!proto.meshpaas.Container>}
  */
-proto.meshpaas.AppInput.prototype.getContainersList = function() {
+proto.meshpaas.APIInput.prototype.getContainersList = function() {
   return /** @type{!Array<!proto.meshpaas.Container>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.meshpaas.Container, 3));
 };
 
 
 /** @param {!Array<!proto.meshpaas.Container>} value */
-proto.meshpaas.AppInput.prototype.setContainersList = function(value) {
+proto.meshpaas.APIInput.prototype.setContainersList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 3, value);
 };
 
@@ -4247,12 +4585,12 @@ proto.meshpaas.AppInput.prototype.setContainersList = function(value) {
  * @param {number=} opt_index
  * @return {!proto.meshpaas.Container}
  */
-proto.meshpaas.AppInput.prototype.addContainers = function(opt_value, opt_index) {
+proto.meshpaas.APIInput.prototype.addContainers = function(opt_value, opt_index) {
   return jspb.Message.addToRepeatedWrapperField(this, 3, opt_value, proto.meshpaas.Container, opt_index);
 };
 
 
-proto.meshpaas.AppInput.prototype.clearContainersList = function() {
+proto.meshpaas.APIInput.prototype.clearContainersList = function() {
   this.setContainersList([]);
 };
 
@@ -4261,13 +4599,13 @@ proto.meshpaas.AppInput.prototype.clearContainersList = function() {
  * optional uint32 replicas = 7;
  * @return {number}
  */
-proto.meshpaas.AppInput.prototype.getReplicas = function() {
+proto.meshpaas.APIInput.prototype.getReplicas = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
 };
 
 
 /** @param {number} value */
-proto.meshpaas.AppInput.prototype.setReplicas = function(value) {
+proto.meshpaas.APIInput.prototype.setReplicas = function(value) {
   jspb.Message.setProto3IntField(this, 7, value);
 };
 
@@ -4276,19 +4614,19 @@ proto.meshpaas.AppInput.prototype.setReplicas = function(value) {
  * optional Routing routing = 10;
  * @return {?proto.meshpaas.Routing}
  */
-proto.meshpaas.AppInput.prototype.getRouting = function() {
+proto.meshpaas.APIInput.prototype.getRouting = function() {
   return /** @type{?proto.meshpaas.Routing} */ (
     jspb.Message.getWrapperField(this, proto.meshpaas.Routing, 10));
 };
 
 
 /** @param {?proto.meshpaas.Routing|undefined} value */
-proto.meshpaas.AppInput.prototype.setRouting = function(value) {
+proto.meshpaas.APIInput.prototype.setRouting = function(value) {
   jspb.Message.setWrapperField(this, 10, value);
 };
 
 
-proto.meshpaas.AppInput.prototype.clearRouting = function() {
+proto.meshpaas.APIInput.prototype.clearRouting = function() {
   this.setRouting(undefined);
 };
 
@@ -4297,7 +4635,7 @@ proto.meshpaas.AppInput.prototype.clearRouting = function() {
  * Returns whether this field is set.
  * @return {!boolean}
  */
-proto.meshpaas.AppInput.prototype.hasRouting = function() {
+proto.meshpaas.APIInput.prototype.hasRouting = function() {
   return jspb.Message.getField(this, 10) != null;
 };
 
@@ -4306,19 +4644,19 @@ proto.meshpaas.AppInput.prototype.hasRouting = function() {
  * optional Authn authentication = 12;
  * @return {?proto.meshpaas.Authn}
  */
-proto.meshpaas.AppInput.prototype.getAuthentication = function() {
+proto.meshpaas.APIInput.prototype.getAuthentication = function() {
   return /** @type{?proto.meshpaas.Authn} */ (
     jspb.Message.getWrapperField(this, proto.meshpaas.Authn, 12));
 };
 
 
 /** @param {?proto.meshpaas.Authn|undefined} value */
-proto.meshpaas.AppInput.prototype.setAuthentication = function(value) {
+proto.meshpaas.APIInput.prototype.setAuthentication = function(value) {
   jspb.Message.setWrapperField(this, 12, value);
 };
 
 
-proto.meshpaas.AppInput.prototype.clearAuthentication = function() {
+proto.meshpaas.APIInput.prototype.clearAuthentication = function() {
   this.setAuthentication(undefined);
 };
 
@@ -4327,7 +4665,7 @@ proto.meshpaas.AppInput.prototype.clearAuthentication = function() {
  * Returns whether this field is set.
  * @return {!boolean}
  */
-proto.meshpaas.AppInput.prototype.hasAuthentication = function() {
+proto.meshpaas.APIInput.prototype.hasAuthentication = function() {
   return jspb.Message.getField(this, 12) != null;
 };
 
@@ -4336,13 +4674,13 @@ proto.meshpaas.AppInput.prototype.hasAuthentication = function() {
  * optional string image_pull_secret = 14;
  * @return {string}
  */
-proto.meshpaas.AppInput.prototype.getImagePullSecret = function() {
+proto.meshpaas.APIInput.prototype.getImagePullSecret = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 14, ""));
 };
 
 
 /** @param {string} value */
-proto.meshpaas.AppInput.prototype.setImagePullSecret = function(value) {
+proto.meshpaas.APIInput.prototype.setImagePullSecret = function(value) {
   jspb.Message.setProto3StringField(this, 14, value);
 };
 
@@ -4696,19 +5034,19 @@ proto.meshpaas.Replica.prototype.setReason = function(value) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.meshpaas.AppStatus = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.meshpaas.AppStatus.repeatedFields_, null);
+proto.meshpaas.APIStatus = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.meshpaas.APIStatus.repeatedFields_, null);
 };
-goog.inherits(proto.meshpaas.AppStatus, jspb.Message);
+goog.inherits(proto.meshpaas.APIStatus, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.meshpaas.AppStatus.displayName = 'proto.meshpaas.AppStatus';
+  proto.meshpaas.APIStatus.displayName = 'proto.meshpaas.APIStatus';
 }
 /**
  * List of repeated fields within this message type.
  * @private {!Array<number>}
  * @const
  */
-proto.meshpaas.AppStatus.repeatedFields_ = [1];
+proto.meshpaas.APIStatus.repeatedFields_ = [1];
 
 
 
@@ -4723,8 +5061,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.meshpaas.AppStatus.prototype.toObject = function(opt_includeInstance) {
-  return proto.meshpaas.AppStatus.toObject(opt_includeInstance, this);
+proto.meshpaas.APIStatus.prototype.toObject = function(opt_includeInstance) {
+  return proto.meshpaas.APIStatus.toObject(opt_includeInstance, this);
 };
 
 
@@ -4733,11 +5071,11 @@ proto.meshpaas.AppStatus.prototype.toObject = function(opt_includeInstance) {
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.meshpaas.AppStatus} msg The msg instance to transform.
+ * @param {!proto.meshpaas.APIStatus} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.meshpaas.AppStatus.toObject = function(includeInstance, msg) {
+proto.meshpaas.APIStatus.toObject = function(includeInstance, msg) {
   var f, obj = {
     replicasList: jspb.Message.toObjectList(msg.getReplicasList(),
     proto.meshpaas.Replica.toObject, includeInstance)
@@ -4754,23 +5092,23 @@ proto.meshpaas.AppStatus.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.meshpaas.AppStatus}
+ * @return {!proto.meshpaas.APIStatus}
  */
-proto.meshpaas.AppStatus.deserializeBinary = function(bytes) {
+proto.meshpaas.APIStatus.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.meshpaas.AppStatus;
-  return proto.meshpaas.AppStatus.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.meshpaas.APIStatus;
+  return proto.meshpaas.APIStatus.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.meshpaas.AppStatus} msg The message object to deserialize into.
+ * @param {!proto.meshpaas.APIStatus} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.meshpaas.AppStatus}
+ * @return {!proto.meshpaas.APIStatus}
  */
-proto.meshpaas.AppStatus.deserializeBinaryFromReader = function(msg, reader) {
+proto.meshpaas.APIStatus.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -4795,9 +5133,9 @@ proto.meshpaas.AppStatus.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.meshpaas.AppStatus.prototype.serializeBinary = function() {
+proto.meshpaas.APIStatus.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.meshpaas.AppStatus.serializeBinaryToWriter(this, writer);
+  proto.meshpaas.APIStatus.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -4805,11 +5143,11 @@ proto.meshpaas.AppStatus.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.meshpaas.AppStatus} message
+ * @param {!proto.meshpaas.APIStatus} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.meshpaas.AppStatus.serializeBinaryToWriter = function(message, writer) {
+proto.meshpaas.APIStatus.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getReplicasList();
   if (f.length > 0) {
@@ -4826,14 +5164,14 @@ proto.meshpaas.AppStatus.serializeBinaryToWriter = function(message, writer) {
  * repeated Replica replicas = 1;
  * @return {!Array<!proto.meshpaas.Replica>}
  */
-proto.meshpaas.AppStatus.prototype.getReplicasList = function() {
+proto.meshpaas.APIStatus.prototype.getReplicasList = function() {
   return /** @type{!Array<!proto.meshpaas.Replica>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.meshpaas.Replica, 1));
 };
 
 
 /** @param {!Array<!proto.meshpaas.Replica>} value */
-proto.meshpaas.AppStatus.prototype.setReplicasList = function(value) {
+proto.meshpaas.APIStatus.prototype.setReplicasList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 1, value);
 };
 
@@ -4843,12 +5181,12 @@ proto.meshpaas.AppStatus.prototype.setReplicasList = function(value) {
  * @param {number=} opt_index
  * @return {!proto.meshpaas.Replica}
  */
-proto.meshpaas.AppStatus.prototype.addReplicas = function(opt_value, opt_index) {
+proto.meshpaas.APIStatus.prototype.addReplicas = function(opt_value, opt_index) {
   return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.meshpaas.Replica, opt_index);
 };
 
 
-proto.meshpaas.AppStatus.prototype.clearReplicasList = function() {
+proto.meshpaas.APIStatus.prototype.clearReplicasList = function() {
   this.setReplicasList([]);
 };
 
@@ -5006,19 +5344,19 @@ proto.meshpaas.Log.prototype.setMessage = function(value) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.meshpaas.Apps = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.meshpaas.Apps.repeatedFields_, null);
+proto.meshpaas.APIs = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.meshpaas.APIs.repeatedFields_, null);
 };
-goog.inherits(proto.meshpaas.Apps, jspb.Message);
+goog.inherits(proto.meshpaas.APIs, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.meshpaas.Apps.displayName = 'proto.meshpaas.Apps';
+  proto.meshpaas.APIs.displayName = 'proto.meshpaas.APIs';
 }
 /**
  * List of repeated fields within this message type.
  * @private {!Array<number>}
  * @const
  */
-proto.meshpaas.Apps.repeatedFields_ = [1];
+proto.meshpaas.APIs.repeatedFields_ = [1];
 
 
 
@@ -5033,8 +5371,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.meshpaas.Apps.prototype.toObject = function(opt_includeInstance) {
-  return proto.meshpaas.Apps.toObject(opt_includeInstance, this);
+proto.meshpaas.APIs.prototype.toObject = function(opt_includeInstance) {
+  return proto.meshpaas.APIs.toObject(opt_includeInstance, this);
 };
 
 
@@ -5043,14 +5381,14 @@ proto.meshpaas.Apps.prototype.toObject = function(opt_includeInstance) {
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.meshpaas.Apps} msg The msg instance to transform.
+ * @param {!proto.meshpaas.APIs} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.meshpaas.Apps.toObject = function(includeInstance, msg) {
+proto.meshpaas.APIs.toObject = function(includeInstance, msg) {
   var f, obj = {
-    applicationsList: jspb.Message.toObjectList(msg.getApplicationsList(),
-    proto.meshpaas.App.toObject, includeInstance)
+    apisList: jspb.Message.toObjectList(msg.getApisList(),
+    proto.meshpaas.API.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -5064,23 +5402,23 @@ proto.meshpaas.Apps.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.meshpaas.Apps}
+ * @return {!proto.meshpaas.APIs}
  */
-proto.meshpaas.Apps.deserializeBinary = function(bytes) {
+proto.meshpaas.APIs.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.meshpaas.Apps;
-  return proto.meshpaas.Apps.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.meshpaas.APIs;
+  return proto.meshpaas.APIs.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.meshpaas.Apps} msg The message object to deserialize into.
+ * @param {!proto.meshpaas.APIs} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.meshpaas.Apps}
+ * @return {!proto.meshpaas.APIs}
  */
-proto.meshpaas.Apps.deserializeBinaryFromReader = function(msg, reader) {
+proto.meshpaas.APIs.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -5088,9 +5426,9 @@ proto.meshpaas.Apps.deserializeBinaryFromReader = function(msg, reader) {
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto.meshpaas.App;
-      reader.readMessage(value,proto.meshpaas.App.deserializeBinaryFromReader);
-      msg.addApplications(value);
+      var value = new proto.meshpaas.API;
+      reader.readMessage(value,proto.meshpaas.API.deserializeBinaryFromReader);
+      msg.addApis(value);
       break;
     default:
       reader.skipField();
@@ -5105,9 +5443,9 @@ proto.meshpaas.Apps.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.meshpaas.Apps.prototype.serializeBinary = function() {
+proto.meshpaas.APIs.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.meshpaas.Apps.serializeBinaryToWriter(this, writer);
+  proto.meshpaas.APIs.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -5115,51 +5453,51 @@ proto.meshpaas.Apps.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.meshpaas.Apps} message
+ * @param {!proto.meshpaas.APIs} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.meshpaas.Apps.serializeBinaryToWriter = function(message, writer) {
+proto.meshpaas.APIs.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getApplicationsList();
+  f = message.getApisList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       1,
       f,
-      proto.meshpaas.App.serializeBinaryToWriter
+      proto.meshpaas.API.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * repeated App applications = 1;
- * @return {!Array<!proto.meshpaas.App>}
+ * repeated API apis = 1;
+ * @return {!Array<!proto.meshpaas.API>}
  */
-proto.meshpaas.Apps.prototype.getApplicationsList = function() {
-  return /** @type{!Array<!proto.meshpaas.App>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.meshpaas.App, 1));
+proto.meshpaas.APIs.prototype.getApisList = function() {
+  return /** @type{!Array<!proto.meshpaas.API>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.meshpaas.API, 1));
 };
 
 
-/** @param {!Array<!proto.meshpaas.App>} value */
-proto.meshpaas.Apps.prototype.setApplicationsList = function(value) {
+/** @param {!Array<!proto.meshpaas.API>} value */
+proto.meshpaas.APIs.prototype.setApisList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 1, value);
 };
 
 
 /**
- * @param {!proto.meshpaas.App=} opt_value
+ * @param {!proto.meshpaas.API=} opt_value
  * @param {number=} opt_index
- * @return {!proto.meshpaas.App}
+ * @return {!proto.meshpaas.API}
  */
-proto.meshpaas.Apps.prototype.addApplications = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.meshpaas.App, opt_index);
+proto.meshpaas.APIs.prototype.addApis = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.meshpaas.API, opt_index);
 };
 
 
-proto.meshpaas.Apps.prototype.clearApplicationsList = function() {
-  this.setApplicationsList([]);
+proto.meshpaas.APIs.prototype.clearApisList = function() {
+  this.setApisList([]);
 };
 
 

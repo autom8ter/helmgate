@@ -6,11 +6,11 @@ scalar Map
 type HTTPRoute {
     # The name assigned to the route for debugging purposes
     name: String!
-    # forward to specific port on application
+    # forward to specific port on api
     port: Int!
     # prefix-based path match
     path_prefix: String
-    # rewrite HTTP URIs before they reach the application
+    # rewrite HTTP URIs before they reach the api
     rewrite_uri: String
     # The list of origins that are allowed to perform CORS requests
     allow_origins: [String!]
@@ -37,11 +37,11 @@ type Routing {
 input HTTPRouteInput {
     # The name assigned to the route for debugging purposes
     name: String!
-    # forward to specific port on application
+    # forward to specific port on api
     port: Int!
     # prefix-based path match
     path_prefix: String
-    # rewrite HTTP URIs before they reach the application
+    # rewrite HTTP URIs before they reach the api
     rewrite_uri: String
     # The list of origins that are allowed to perform CORS requests
     allow_origins: [String!]
@@ -78,7 +78,7 @@ input ContainerPortInput {
 
 type Container {
     name: String!
-    # docker image of application
+    # docker image of api
     image: String!
     # args are arguments given to the container/image at startup
     args: [String!]
@@ -89,7 +89,7 @@ type Container {
 
 input ContainerInput {
     name: String!
-    # docker image of application
+    # docker image of api
     image: String!
     # args are arguments given to the container/image at startup
     args: [String!]
@@ -98,24 +98,24 @@ input ContainerInput {
     ports: [ContainerPortInput]
 }
 
-# App is a stateless application
-type App {
-    # name of the application
+# API is a stateless api
+type API {
+    # name of the api
     name: String!
     containers: [Container!]!
     # number of deployment replicas min:1
     replicas: Int!
     # gateway/service mesh routing
     routing: Routing!
-    # status tracks the state of the application during it's lifecycle
-    status: AppStatus!
+    # status tracks the state of the api during it's lifecycle
+    status: APIStatus!
     
 
 }
 
 # Task is scheduled cron job
 type Task {
-    # name of the application
+    # name of the api
     name: String!
     containers: [Container!]!
     # schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
@@ -133,8 +133,8 @@ type Replica {
     reason: String!
 }
 
-# AppStatus tracks the state of an app's lifecycle
-type AppStatus {
+# APIStatus tracks the state of an app's lifecycle
+type APIStatus {
     replicas: [Replica]!
 }
 
@@ -143,9 +143,9 @@ type Log {
     message: String!
 }
 
-# AppInput creates a new stateless Application
-input AppInput {
-    # name of the application
+# APIInput creates a new stateless API
+input APIInput {
+    # name of the api
     name: String!
     containers: [ContainerInput!]!
     # number of deployment replicas min:1
@@ -156,7 +156,7 @@ input AppInput {
 
 # TaskInput creates a new task(cron job)
 input TaskInput {
-    # name of the application
+    # name of the api
     name: String!
     containers: [ContainerInput!]!
     # schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
@@ -190,12 +190,12 @@ input LogOpts {
 type Mutation {
     # delProject deletes all resources within an existing project
     delProject(input: String): String
-    # createApp creates a new stateless application(k8s deployment), exposed with a single load balancer(k8s service) within a single project(k8s project)
-    createApp(input: AppInput!): App!
-    # updateApp edits/patches an existing stateless application(k8s deployment & service) within an existing project(k8s project)
-    updateApp(input: AppInput!): App!
-    # delApp deletes a single stateless application(k8s deployment & service) within an existing project
-    delApp(input: Ref!): String
+    # createAPI creates a new stateless api(k8s deployment), exposed with a single load balancer(k8s service) within a single project(k8s project)
+    createAPI(input: APIInput!): API!
+    # updateAPI edits/patches an existing stateless api(k8s deployment & service) within an existing project(k8s project)
+    updateAPI(input: APIInput!): API!
+    # delAPI deletes a single stateless api(k8s deployment & service) within an existing project
+    delAPI(input: Ref!): String
     # createTask creates a new task(k8s cron job) within a single project(k8s project)
     createTask(input: TaskInput!): Task!
     #  UpdateTask edits/patches an existing task(k8s cron job) within an existing project(k8s project)
@@ -207,19 +207,20 @@ type Mutation {
 }
 
 type Query {
-    # getApp gets an existing stateless application(k8s deployment) by name within an existing project
-    getApp(input: Ref!): App
-    # listApps lists all an existing stateless applications(k8s deployments) within an existing project
-    listApps(input: String): [App!]
+    # getAPI gets an existing stateless api(k8s deployment) by name within an existing project
+    getAPI(input: Ref!): API
+    # listAPIs lists all an existing stateless apis(k8s deployments) within an existing project
+    listAPIs(input: String): [API!]
 
     # getTask gets a task(k8s cron job) by name within an existing project
     getTask(input: Ref!): Task
     # listTasks lists all tasks(k8s cron jobs) within an existing project
     listTasks(input: String): [Task!]
 
+
 }
 
 type Subscription {
-    # logs streams logs from an an existing application/cronjob
+    # logs streams logs from an an existing api/cronjob
     streamLogs(input: LogOpts!): String!
 }

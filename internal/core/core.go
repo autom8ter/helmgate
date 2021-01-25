@@ -29,7 +29,7 @@ func (m *Manager) L() *logger.Logger {
 	return m.logger
 }
 
-func (m *Manager) getStatus(ctx context.Context, namespace, name string) (*meshpaaspb.AppStatus, error) {
+func (m *Manager) getStatus(ctx context.Context, namespace, name string) (*meshpaaspb.APIStatus, error) {
 	var replicas []*meshpaaspb.Replica
 	pods, err := m.kclient.Pods(namespace).List(ctx, v1.ListOptions{
 		TypeMeta:      v1.TypeMeta{},
@@ -45,5 +45,5 @@ func (m *Manager) getStatus(ctx context.Context, namespace, name string) (*meshp
 			Reason:    pod.Status.Reason,
 		})
 	}
-	return &meshpaaspb.AppStatus{Replicas: replicas}, nil
+	return &meshpaaspb.APIStatus{Replicas: replicas}, nil
 }

@@ -10,7 +10,6 @@ import (
 	"github.com/lestrrat-go/jwx/jwk"
 	"github.com/lestrrat-go/jwx/jws"
 	"github.com/pkg/errors"
-	"github.com/spf13/cast"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 	"sync"
@@ -23,32 +22,40 @@ var (
 )
 
 type Auth struct {
-	jwksUri   string
-	jwtIssuer string
-	jwksSet   *jwk.Set
-	mu        sync.RWMutex
-	logger    *logger.Logger
+	namespaceClaim string
+	jwksUri        string
+	jwtIssuer      string
+	jwksSet        *jwk.Set
+	mu             sync.RWMutex
+	logger         *logger.Logger
 }
 
-func NewAuth(jwksUri string, jwtIssuer string, logger2 *logger.Logger) (*Auth, error) {
+func NewAuth(jwksUri, jwtIssuer, namespaceClaim string, logger2 *logger.Logger) (*Auth, error) {
+	if namespaceClaim == "" {
+		return nil, errors.New("empty namespace claim")
+	}
 	a := &Auth{
-		jwksUri:   jwksUri,
-		jwksSet:   nil,
-		mu:        sync.RWMutex{},
-		logger:    logger2,
-		jwtIssuer: jwtIssuer,
+		jwksUri:        jwksUri,
+		jwksSet:        nil,
+		mu:             sync.RWMutex{},
+		logger:         logger2,
+		jwtIssuer:      jwtIssuer,
+		namespaceClaim: namespaceClaim,
 	}
 	return a, a.RefreshJWKS()
 }
 
 func (a *Auth) RefreshJWKS() error {
-	jwks, err := jwk.Fetch(a.jwksUri)
-	if err != nil {
-		return err
+	if a.jwksUri != "" {
+		jwks, err := jwk.Fetch(a.jwksUri)
+		if err != nil {
+			return err
+		}
+		a.mu.Lock()
+		a.jwksSet = jwks
+		a.mu.Unlock()
 	}
-	a.mu.Lock()
-	a.jwksSet = jwks
-	a.mu.Unlock()
+
 	return nil
 }
 
@@ -57,28 +64,26 @@ func (a *Auth) ParseAndVerify(token string) (map[string]interface{}, error) {
 	if err != nil {
 		return nil, err
 	}
-	a.mu.RLock()
-	defer a.mu.RUnlock()
-	if len(message.Signatures()) == 0 {
-		return nil, fmt.Errorf("zero jws signatures")
-	}
-	kid, ok := message.Signatures()[0].ProtectedHeaders().Get("kid")
-	if !ok {
-		return nil, fmt.Errorf("jws kid not found")
-	}
-	algI, ok := message.Signatures()[0].ProtectedHeaders().Get("alg")
-	if !ok {
-		return nil, fmt.Errorf("jw alg not found")
-	}
-	alg, ok := algI.(jwa.SignatureAlgorithm)
-	if !ok {
-		return nil, fmt.Errorf("alg type cast error")
-	}
-
 	var payload []byte
-	if a.jwksSet == nil {
-		payload = message.Payload()
-	} else {
+	if a.jwksSet != nil && a.jwksUri != "" {
+		a.mu.RLock()
+		defer a.mu.RUnlock()
+		if len(message.Signatures()) == 0 {
+			return nil, fmt.Errorf("zero jws signatures")
+		}
+		kid, ok := message.Signatures()[0].ProtectedHeaders().Get("kid")
+		if !ok {
+			return nil, fmt.Errorf("jws kid not found")
+		}
+		algI, ok := message.Signatures()[0].ProtectedHeaders().Get("alg")
+		if !ok {
+			return nil, fmt.Errorf("jw alg not found")
+		}
+		alg, ok := algI.(jwa.SignatureAlgorithm)
+		if !ok {
+			return nil, fmt.Errorf("alg type cast error")
+		}
+
 		keys := a.jwksSet.LookupKeyID(kid.(string))
 		if len(keys) == 0 {
 			return nil, errors.Errorf("failed to lookup kid: %s - zero keys", kid.(string))
@@ -91,20 +96,20 @@ func (a *Auth) ParseAndVerify(token string) (map[string]interface{}, error) {
 		if err != nil {
 			return nil, err
 		}
+	} else {
+		payload = message.Payload()
 	}
-
 	data := map[string]interface{}{}
 	if err := json.Unmarshal(payload, &data); err != nil {
 		return nil, err
 	}
-	if len(a.jwtIssuer) > 0 {
-		if issuer := data["iss"]; issuer == nil {
-			return nil, errors.Errorf("empty jwt.claims.iss issuer")
-		} else {
-			if a.jwtIssuer != cast.ToString(issuer) {
-				return nil, errors.Errorf("unsupported jwt.claims.iss issuer: %s", cast.ToString(issuer))
-			}
+	if a.jwtIssuer != "" {
+		if a.jwtIssuer != data["iss"] {
+			return nil, errors.Errorf("unsupported jwt.claims.iss issuer: %s", data["iss"])
 		}
+	}
+	if data[a.namespaceClaim] == nil {
+		return nil, errors.Errorf("empty namespace claim. expecting jwt.claims.%s", a.namespaceClaim)
 	}
 	return data, nil
 }

@@ -179,19 +179,19 @@
             <ul>
               
                 <li>
-                  <a href="#meshpaas.App"><span class="badge">M</span>App</a>
+                  <a href="#meshpaas.API"><span class="badge">M</span>API</a>
                 </li>
               
                 <li>
-                  <a href="#meshpaas.AppInput"><span class="badge">M</span>AppInput</a>
+                  <a href="#meshpaas.APIInput"><span class="badge">M</span>APIInput</a>
                 </li>
               
                 <li>
-                  <a href="#meshpaas.AppStatus"><span class="badge">M</span>AppStatus</a>
+                  <a href="#meshpaas.APIStatus"><span class="badge">M</span>APIStatus</a>
                 </li>
               
                 <li>
-                  <a href="#meshpaas.Apps"><span class="badge">M</span>Apps</a>
+                  <a href="#meshpaas.APIs"><span class="badge">M</span>APIs</a>
                 </li>
               
                 <li>
@@ -224,6 +224,10 @@
               
                 <li>
                   <a href="#meshpaas.GatewayListener"><span class="badge">M</span>GatewayListener</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.Gateways"><span class="badge">M</span>Gateways</a>
                 </li>
               
                 <li>
@@ -264,6 +268,10 @@
               
                 <li>
                   <a href="#meshpaas.SecretInput.DataEntry"><span class="badge">M</span>SecretInput.DataEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.Secrets"><span class="badge">M</span>Secrets</a>
                 </li>
               
                 <li>
@@ -316,8 +324,8 @@
       <p></p>
 
       
-        <h3 id="meshpaas.App">App</h3>
-        <p>App is a stateless application</p>
+        <h3 id="meshpaas.API">API</h3>
+        <p>API is a api</p>
 
         
           <table class="field-table">
@@ -330,14 +338,14 @@
                   <td>name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>name of the application </p></td>
+                  <td><p>name of the api </p></td>
                 </tr>
               
                 <tr>
                   <td>containers</td>
                   <td><a href="#meshpaas.Container">Container</a></td>
                   <td>repeated</td>
-                  <td><p>containers are docker containers that run the application&#39;s business logic </p></td>
+                  <td><p>containers are docker containers that run the api&#39;s business logic </p></td>
                 </tr>
               
                 <tr>
@@ -358,7 +366,7 @@
                   <td>authentication</td>
                   <td><a href="#meshpaas.Authn">Authn</a></td>
                   <td></td>
-                  <td><p>application authentication options </p></td>
+                  <td><p>api authentication options </p></td>
                 </tr>
               
                 <tr>
@@ -370,9 +378,9 @@
               
                 <tr>
                   <td>status</td>
-                  <td><a href="#meshpaas.AppStatus">AppStatus</a></td>
+                  <td><a href="#meshpaas.APIStatus">APIStatus</a></td>
                   <td></td>
-                  <td><p>status tracks the state of the application during it&#39;s lifecycle </p></td>
+                  <td><p>status tracks the state of the api during it&#39;s lifecycle </p></td>
                 </tr>
               
             </tbody>
@@ -453,8 +461,8 @@
 
         
       
-        <h3 id="meshpaas.AppInput">AppInput</h3>
-        <p>AppInput creates/replaces an app</p>
+        <h3 id="meshpaas.APIInput">APIInput</h3>
+        <p>APIInput creates/replaces an api</p>
 
         
           <table class="field-table">
@@ -467,14 +475,14 @@
                   <td>name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>name of the application </p></td>
+                  <td><p>name of the api </p></td>
                 </tr>
               
                 <tr>
                   <td>containers</td>
                   <td><a href="#meshpaas.Container">Container</a></td>
                   <td>repeated</td>
-                  <td><p>containers are docker containers that run the application&#39;s business logic </p></td>
+                  <td><p>containers are docker containers that run the api&#39;s business logic </p></td>
                 </tr>
               
                 <tr>
@@ -495,7 +503,7 @@
                   <td>authentication</td>
                   <td><a href="#meshpaas.Authn">Authn</a></td>
                   <td></td>
-                  <td><p>application authentication options </p></td>
+                  <td><p>api authentication options </p></td>
                 </tr>
               
                 <tr>
@@ -561,8 +569,8 @@
 
         
       
-        <h3 id="meshpaas.AppStatus">AppStatus</h3>
-        <p>AppStatus tracks the status of an application</p>
+        <h3 id="meshpaas.APIStatus">APIStatus</h3>
+        <p>APIStatus tracks the status of an api</p>
 
         
           <table class="field-table">
@@ -585,7 +593,7 @@
 
         
       
-        <h3 id="meshpaas.Apps">Apps</h3>
+        <h3 id="meshpaas.APIs">APIs</h3>
         <p></p>
 
         
@@ -596,8 +604,8 @@
             <tbody>
               
                 <tr>
-                  <td>applications</td>
-                  <td><a href="#meshpaas.App">App</a></td>
+                  <td>apis</td>
+                  <td><a href="#meshpaas.API">API</a></td>
                   <td>repeated</td>
                   <td><p> </p></td>
                 </tr>
@@ -610,7 +618,7 @@
         
       
         <h3 id="meshpaas.Authn">Authn</h3>
-        <p>Authn holds authentication options for an application</p>
+        <p>Authn holds authentication options for an api</p>
 
         
           <table class="field-table">
@@ -1096,6 +1104,30 @@
 
         
       
+        <h3 id="meshpaas.Gateways">Gateways</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>gatways</td>
+                  <td><a href="#meshpaas.Gateway">Gateway</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="meshpaas.HTTPRoute">HTTPRoute</h3>
         <p>HTTPRoute is a single http route(istio HttpRoute)</p>
 
@@ -1239,7 +1271,7 @@
         
       
         <h3 id="meshpaas.LogOpts">LogOpts</h3>
-        <p>LogOpts holds options for fetching logs from Tasks & Applications</p>
+        <p>LogOpts holds options for fetching logs from Tasks & APIlications</p>
 
         
           <table class="field-table">
@@ -1252,7 +1284,7 @@
                   <td>name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>name is the name of the Application or Task </p></td>
+                  <td><p>name is the name of the APIlication or Task </p></td>
                 </tr>
               
                 <tr>
@@ -1387,7 +1419,7 @@
         
       
         <h3 id="meshpaas.Replica">Replica</h3>
-        <p>Replica tracks the state/status of an individual replica of an application</p>
+        <p>Replica tracks the state/status of an individual replica of an api</p>
 
         
           <table class="field-table">
@@ -1425,7 +1457,7 @@
         
       
         <h3 id="meshpaas.Routing">Routing</h3>
-        <p>Routing describes service mesh routing options(gateway/host bindings, route rewrites, etc) for an Application</p>
+        <p>Routing describes service mesh routing options(gateway/host bindings, route rewrites, etc) for an APIlication</p>
 
         
           <table class="field-table">
@@ -1680,6 +1712,30 @@
                   <td>value</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.Secrets">Secrets</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>secrets</td>
+                  <td><a href="#meshpaas.Secret">Secret</a></td>
+                  <td>repeated</td>
                   <td><p> </p></td>
                 </tr>
               
@@ -2118,7 +2174,7 @@
 
       
         <h3 id="meshpaas.MeshPaasService">MeshPaasService</h3>
-        <p>MeshPaasService is a platform as a service backed by Istio service mesh</p>
+        <p>MeshPaasService is a platform as a service backed by Istio service mesh</p><p>all requests are made in the context of the user's identity which is derived from the inbound jwt & verified with the configured jwks(json web keys) uri</p>
         <table class="enum-table">
           <thead>
             <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
@@ -2126,101 +2182,108 @@
           <tbody>
             
               <tr>
-                <td>CreateApp</td>
-                <td><a href="#meshpaas.AppInput">AppInput</a></td>
-                <td><a href="#meshpaas.App">App</a></td>
-                <td><p>CreateApp creates a new stateless application(k8s deployment, istio virtual service, request authenticator, &amp; authorization policy)</p></td>
+                <td>CreateAPI</td>
+                <td><a href="#meshpaas.APIInput">APIInput</a></td>
+                <td><a href="#meshpaas.API">API</a></td>
+                <td><p>CreateAPI creates a new api(k8s deployment, k8s service, istio virtual service, request authenticator, &amp; authorization policy) in the user&#39;s authorized namespace(jwt.claims.${namespace-claim})</p></td>
               </tr>
             
               <tr>
-                <td>UpdateApp</td>
-                <td><a href="#meshpaas.AppInput">AppInput</a></td>
-                <td><a href="#meshpaas.App">App</a></td>
-                <td><p>UpdateApp replaces an existing stateless application(k8s deployment, istio virtual service, request authenticator, &amp; authorization policy)</p></td>
+                <td>UpdateAPI</td>
+                <td><a href="#meshpaas.APIInput">APIInput</a></td>
+                <td><a href="#meshpaas.API">API</a></td>
+                <td><p>UpdateAPI replaces an existing api(k8s deployment, k8s service, istio virtual service, request authenticator, &amp; authorization policy) in the user&#39;s authorized namespace(jwt.claims.${namespace-claim})</p></td>
               </tr>
             
               <tr>
-                <td>DeleteApp</td>
+                <td>DeleteAPI</td>
                 <td><a href="#meshpaas.Ref">Ref</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>DeleteApp deletes a single stateless application(k8s deployment, istio virtual service, request authenticator, &amp; authorization policy)</p></td>
+                <td><p>DeleteAPI deletes a single api(k8s deployment, k8s service, istio virtual service, request authenticator, &amp; authorization policy) in the user&#39;s authorized namespace(jwt.claims.${namespace-claim})</p></td>
               </tr>
             
               <tr>
-                <td>GetApp</td>
+                <td>GetAPI</td>
                 <td><a href="#meshpaas.Ref">Ref</a></td>
-                <td><a href="#meshpaas.App">App</a></td>
-                <td><p>GetApp gets an app by name</p></td>
+                <td><a href="#meshpaas.API">API</a></td>
+                <td><p>GetAPI gets an api by name in the user&#39;s authorized namespace(jwt.claims.${namespace-claim})</p></td>
               </tr>
             
               <tr>
-                <td>ListApps</td>
+                <td>ListAPIs</td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><a href="#meshpaas.Apps">Apps</a></td>
-                <td><p>ListApps lists all apps</p></td>
+                <td><a href="#meshpaas.APIs">APIs</a></td>
+                <td><p>ListAPIs lists all apis in the user&#39;s authorized namespace(jwt.claims.${namespace-claim})</p></td>
               </tr>
             
               <tr>
                 <td>CreateTask</td>
                 <td><a href="#meshpaas.TaskInput">TaskInput</a></td>
                 <td><a href="#meshpaas.Task">Task</a></td>
-                <td><p>CreateTask creates a new task(k8s cron job)</p></td>
+                <td><p>CreateTask creates a new task(k8s cron job) in the user&#39;s authorized namespace(jwt.claims.${namespace-claim})</p></td>
               </tr>
             
               <tr>
                 <td>UpdateTask</td>
                 <td><a href="#meshpaas.TaskInput">TaskInput</a></td>
                 <td><a href="#meshpaas.Task">Task</a></td>
-                <td><p>UpdateTask replaces an existing task(k8s cron job)</p></td>
+                <td><p>UpdateTask replaces an existing task(k8s cron job) in the user&#39;s authorized namespace(jwt.claims.${namespace-claim})</p></td>
               </tr>
             
               <tr>
                 <td>DeleteTask</td>
                 <td><a href="#meshpaas.Ref">Ref</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>DeleteTask deletes a single task(k8s cron job)</p></td>
+                <td><p>DeleteTask deletes a single task(k8s cron job) in the user&#39;s authorized namespace(jwt.claims.${namespace-claim})</p></td>
               </tr>
             
               <tr>
                 <td>GetTask</td>
                 <td><a href="#meshpaas.Ref">Ref</a></td>
                 <td><a href="#meshpaas.Task">Task</a></td>
-                <td><p>GetTask gets a task(k8s cron job) by name</p></td>
+                <td><p>GetTask gets a task(k8s cron job) by name in the user&#39;s authorized namespace(jwt.claims.${namespace-claim})</p></td>
               </tr>
             
               <tr>
                 <td>ListTasks</td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><a href="#meshpaas.Tasks">Tasks</a></td>
-                <td><p>ListTasks lists all tasks(k8s cron jobs)</p></td>
+                <td><p>ListTasks lists all tasks(k8s cron jobs) in the user&#39;s authorized namespace(jwt.claims.${namespace-claim})</p></td>
               </tr>
             
               <tr>
                 <td>CreateGateway</td>
                 <td><a href="#meshpaas.GatewayInput">GatewayInput</a></td>
                 <td><a href="#meshpaas.Gateway">Gateway</a></td>
-                <td><p>CreateGateway creates a new gateway(istio gateway)</p></td>
+                <td><p>CreateGateway creates a new gateway(istio gateway) in the user&#39;s authorized namespace(jwt.claims.${namespace-claim})</p></td>
               </tr>
             
               <tr>
                 <td>UpdateGateway</td>
                 <td><a href="#meshpaas.GatewayInput">GatewayInput</a></td>
                 <td><a href="#meshpaas.Gateway">Gateway</a></td>
-                <td><p>UpdateGateway replaces an existing gateway(istio gateway)</p></td>
+                <td><p>UpdateGateway replaces an existing gateway(istio gateway) in the user&#39;s authorized namespace(jwt.claims.${namespace-claim})</p></td>
               </tr>
             
               <tr>
                 <td>DeleteGateway</td>
                 <td><a href="#meshpaas.Ref">Ref</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>DeleteGateway deletes a single gateway(istio gateway)</p></td>
+                <td><p>DeleteGateway deletes a single gateway(istio gateway) in the user&#39;s authorized namespace(jwt.claims.${namespace-claim})</p></td>
               </tr>
             
               <tr>
                 <td>GetGateway</td>
                 <td><a href="#meshpaas.Ref">Ref</a></td>
                 <td><a href="#meshpaas.Gateway">Gateway</a></td>
-                <td><p>GetGateway gets a gateway(istio gateway) by name</p></td>
+                <td><p>GetGateway gets a gateway(istio gateway) by name in the user&#39;s authorized namespace(jwt.claims.${namespace-claim})</p></td>
+              </tr>
+            
+              <tr>
+                <td>ListGateways</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#meshpaas.Gateways">Gateways</a></td>
+                <td><p>ListGateways lists all gateways(istio gateways) in the user&#39;s authorized namespace(jwt.claims.${namespace-claim})</p></td>
               </tr>
             
               <tr>
@@ -2252,10 +2315,17 @@
               </tr>
             
               <tr>
+                <td>ListSecrets</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#meshpaas.Secrets">Secrets</a></td>
+                <td><p>ListSecrets lists all secrets(k8s secret) in the user&#39;s authorized namespace(jwt.claims.${namespace-claim})</p></td>
+              </tr>
+            
+              <tr>
                 <td>StreamLogs</td>
                 <td><a href="#meshpaas.LogOpts">LogOpts</a></td>
                 <td><a href="#meshpaas.Log">Log</a> stream</td>
-                <td><p>StreamLogs streams logs from an app/task.
+                <td><p>StreamLogs streams logs from an api/task.
 Streams are opened to all replicas &amp; converted into a single stream</p></td>
               </tr>
             

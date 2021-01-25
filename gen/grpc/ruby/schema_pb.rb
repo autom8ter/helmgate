@@ -28,6 +28,9 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     optional :immutable, :bool, 4
     map :data, :string, :string, 5
   end
+  add_message "meshpaas.Secrets" do
+    repeated :secrets, :message, 1, "meshpaas.Secret"
+  end
   add_message "meshpaas.ServerTLSSettings" do
     optional :https_redirect, :bool, 1
     optional :mode, :enum, 2, "meshpaas.TLSmode"
@@ -47,6 +50,9 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   add_message "meshpaas.Gateway" do
     optional :name, :string, 1
     repeated :listeners, :message, 3, "meshpaas.GatewayListener"
+  end
+  add_message "meshpaas.Gateways" do
+    repeated :gatways, :message, 1, "meshpaas.Gateway"
   end
   add_message "meshpaas.GatewayInput" do
     optional :name, :string, 1
@@ -75,14 +81,14 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     map :env, :string, :string, 4
     repeated :ports, :message, 5, "meshpaas.ContainerPort"
   end
-  add_message "meshpaas.App" do
+  add_message "meshpaas.API" do
     optional :name, :string, 1
     repeated :containers, :message, 3, "meshpaas.Container"
     optional :replicas, :uint32, 8
     optional :routing, :message, 11, "meshpaas.Routing"
     optional :authentication, :message, 12, "meshpaas.Authn"
     optional :image_pull_secret, :string, 14
-    optional :status, :message, 20, "meshpaas.AppStatus"
+    optional :status, :message, 20, "meshpaas.APIStatus"
   end
   add_message "meshpaas.Task" do
     optional :name, :string, 1
@@ -103,7 +109,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     optional :number, :uint32, 2
     optional :expose, :bool, 3
   end
-  add_message "meshpaas.AppInput" do
+  add_message "meshpaas.APIInput" do
     optional :name, :string, 1
     repeated :containers, :message, 3, "meshpaas.Container"
     optional :replicas, :uint32, 7
@@ -119,14 +125,14 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     optional :condition, :string, 2
     optional :reason, :string, 3
   end
-  add_message "meshpaas.AppStatus" do
+  add_message "meshpaas.APIStatus" do
     repeated :replicas, :message, 1, "meshpaas.Replica"
   end
   add_message "meshpaas.Log" do
     optional :message, :string, 1
   end
-  add_message "meshpaas.Apps" do
-    repeated :applications, :message, 1, "meshpaas.App"
+  add_message "meshpaas.APIs" do
+    repeated :apis, :message, 1, "meshpaas.API"
   end
   add_message "meshpaas.Tasks" do
     repeated :tasks, :message, 1, "meshpaas.Task"
@@ -168,23 +174,25 @@ module Meshpaas
   Authn = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Authn").msgclass
   SecretInput = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.SecretInput").msgclass
   Secret = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Secret").msgclass
+  Secrets = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Secrets").msgclass
   ServerTLSSettings = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.ServerTLSSettings").msgclass
   GatewayListener = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.GatewayListener").msgclass
   Gateway = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Gateway").msgclass
+  Gateways = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Gateways").msgclass
   GatewayInput = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.GatewayInput").msgclass
   HTTPRoute = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.HTTPRoute").msgclass
   Routing = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Routing").msgclass
   Container = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Container").msgclass
-  App = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.App").msgclass
+  API = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.API").msgclass
   Task = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Task").msgclass
   TaskInput = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.TaskInput").msgclass
   ContainerPort = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.ContainerPort").msgclass
-  AppInput = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.AppInput").msgclass
+  APIInput = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.APIInput").msgclass
   Ref = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Ref").msgclass
   Replica = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Replica").msgclass
-  AppStatus = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.AppStatus").msgclass
+  APIStatus = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.APIStatus").msgclass
   Log = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Log").msgclass
-  Apps = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Apps").msgclass
+  APIs = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.APIs").msgclass
   Tasks = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Tasks").msgclass
   LogOpts = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.LogOpts").msgclass
   SecretType = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.SecretType").enummodule

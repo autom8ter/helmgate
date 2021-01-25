@@ -5,6 +5,7 @@ import (
 	"fmt"
 	meshpaaspb "github.com/autom8ter/meshpaas/gen/grpc/go"
 	"github.com/autom8ter/meshpaas/internal/logger"
+	"github.com/golang/protobuf/ptypes/empty"
 	grpc_zap "github.com/grpc-ecosystem/go-grpc-middleware/logging/zap"
 	grpc_validator "github.com/grpc-ecosystem/go-grpc-middleware/validator"
 	grpc_prometheus "github.com/grpc-ecosystem/go-grpc-prometheus"
@@ -149,30 +150,50 @@ func toContext(ctx context.Context, tokenSource oauth2.TokenSource) (context.Con
 	), nil
 }
 
-// CreateApp creates a new application
-func (c *Client) CreateApp(ctx context.Context, app *meshpaaspb.AppInput) (*meshpaaspb.App, error) {
-	return c.client.CreateApp(ctx, app)
+// CreateAPI creates a new application
+func (c *Client) CreateAPI(ctx context.Context, app *meshpaaspb.APIInput) (*meshpaaspb.API, error) {
+	return c.client.CreateAPI(ctx, app)
 }
 
-// UpdateApp updates an application - it performs a full replace
-func (c *Client) UpdateApp(ctx context.Context, app *meshpaaspb.AppInput) (*meshpaaspb.App, error) {
-	return c.client.UpdateApp(ctx, app)
+// UpdateAPI updates an application - it performs a full replace
+func (c *Client) UpdateAPI(ctx context.Context, app *meshpaaspb.APIInput) (*meshpaaspb.API, error) {
+	return c.client.UpdateAPI(ctx, app)
 }
 
-// DeleteApp deletes an application by reference(name/namespace)
-func (c *Client) DeleteApp(ctx context.Context, ref *meshpaaspb.Ref) error {
-	_, err := c.client.DeleteApp(ctx, ref)
+// DeleteAPI deletes an application by reference(name/namespace)
+func (c *Client) DeleteAPI(ctx context.Context, ref *meshpaaspb.Ref) error {
+	_, err := c.client.DeleteAPI(ctx, ref)
 	return err
 }
 
-// GetApp get an application by reference(name/namespace)
-func (c *Client) GetApp(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb.App, error) {
-	return c.client.GetApp(ctx, ref)
+// GetAPI get an application by reference(name/namespace)
+func (c *Client) GetAPI(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb.API, error) {
+	return c.client.GetAPI(ctx, ref)
 }
 
 // CreateTask creates a new task
 func (c *Client) CreateTask(ctx context.Context, app *meshpaaspb.TaskInput) (*meshpaaspb.Task, error) {
 	return c.client.CreateTask(ctx, app)
+}
+
+// ListTasks
+func (c *Client) ListTasks(ctx context.Context) (*meshpaaspb.Tasks, error) {
+	return c.client.ListTasks(ctx, &empty.Empty{})
+}
+
+// ListAPIs
+func (c *Client) ListAPIs(ctx context.Context) (*meshpaaspb.APIs, error) {
+	return c.client.ListAPIs(ctx, &empty.Empty{})
+}
+
+// ListGateways
+func (c *Client) ListGateways(ctx context.Context) (*meshpaaspb.Gateways, error) {
+	return c.client.ListGateways(ctx, &empty.Empty{})
+}
+
+// ListSecrets
+func (c *Client) ListSecrets(ctx context.Context) (*meshpaaspb.Secrets, error) {
+	return c.client.ListSecrets(ctx, &empty.Empty{})
 }
 
 // UpdateTask updates a task - it performs a full replace

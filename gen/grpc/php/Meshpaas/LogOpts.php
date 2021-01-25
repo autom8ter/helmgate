@@ -9,14 +9,14 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * LogOpts holds options for fetching logs from Tasks & Applications
+ * LogOpts holds options for fetching logs from Tasks & APIlications
  *
  * Generated from protobuf message <code>meshpaas.LogOpts</code>
  */
 class LogOpts extends \Google\Protobuf\Internal\Message
 {
     /**
-     * name is the name of the Application or Task
+     * name is the name of the APIlication or Task
      *
      * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      */
@@ -59,7 +59,7 @@ class LogOpts extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $name
-     *           name is the name of the Application or Task
+     *           name is the name of the APIlication or Task
      *     @type string $container
      *           container is the container to stream from
      *     @type int|string $since_seconds
@@ -78,7 +78,7 @@ class LogOpts extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * name is the name of the Application or Task
+     * name is the name of the APIlication or Task
      *
      * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      * @return string
@@ -89,7 +89,7 @@ class LogOpts extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * name is the name of the Application or Task
+     * name is the name of the APIlication or Task
      *
      * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      * @param string $var

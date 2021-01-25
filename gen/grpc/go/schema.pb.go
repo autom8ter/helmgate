@@ -268,7 +268,7 @@ func (x *AuthnRule) GetAudience() []string {
 	return nil
 }
 
-// Authn holds authentication options for an application
+// Authn holds authentication options for an api
 type Authn struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -466,6 +466,53 @@ func (x *Secret) GetData() map[string]string {
 	return nil
 }
 
+type Secrets struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Secrets []*Secret `protobuf:"bytes,1,rep,name=secrets,proto3" json:"secrets,omitempty"`
+}
+
+func (x *Secrets) Reset() {
+	*x = Secrets{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_schema_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *Secrets) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Secrets) ProtoMessage() {}
+
+func (x *Secrets) ProtoReflect() protoreflect.Message {
+	mi := &file_schema_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Secrets.ProtoReflect.Descriptor instead.
+func (*Secrets) Descriptor() ([]byte, []int) {
+	return file_schema_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *Secrets) GetSecrets() []*Secret {
+	if x != nil {
+		return x.Secrets
+	}
+	return nil
+}
+
 // ServerTLSSettings provides tls/ssl encryption options
 type ServerTLSSettings struct {
 	state         protoimpl.MessageState
@@ -487,7 +534,7 @@ type ServerTLSSettings struct {
 func (x *ServerTLSSettings) Reset() {
 	*x = ServerTLSSettings{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_schema_proto_msgTypes[4]
+		mi := &file_schema_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -500,7 +547,7 @@ func (x *ServerTLSSettings) String() string {
 func (*ServerTLSSettings) ProtoMessage() {}
 
 func (x *ServerTLSSettings) ProtoReflect() protoreflect.Message {
-	mi := &file_schema_proto_msgTypes[4]
+	mi := &file_schema_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -513,7 +560,7 @@ func (x *ServerTLSSettings) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ServerTLSSettings.ProtoReflect.Descriptor instead.
 func (*ServerTLSSettings) Descriptor() ([]byte, []int) {
-	return file_schema_proto_rawDescGZIP(), []int{4}
+	return file_schema_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *ServerTLSSettings) GetHttpsRedirect() bool {
@@ -586,7 +633,7 @@ type GatewayListener struct {
 func (x *GatewayListener) Reset() {
 	*x = GatewayListener{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_schema_proto_msgTypes[5]
+		mi := &file_schema_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -599,7 +646,7 @@ func (x *GatewayListener) String() string {
 func (*GatewayListener) ProtoMessage() {}
 
 func (x *GatewayListener) ProtoReflect() protoreflect.Message {
-	mi := &file_schema_proto_msgTypes[5]
+	mi := &file_schema_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -612,7 +659,7 @@ func (x *GatewayListener) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GatewayListener.ProtoReflect.Descriptor instead.
 func (*GatewayListener) Descriptor() ([]byte, []int) {
-	return file_schema_proto_rawDescGZIP(), []int{5}
+	return file_schema_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *GatewayListener) GetPort() uint32 {
@@ -663,7 +710,7 @@ type Gateway struct {
 func (x *Gateway) Reset() {
 	*x = Gateway{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_schema_proto_msgTypes[6]
+		mi := &file_schema_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -676,7 +723,7 @@ func (x *Gateway) String() string {
 func (*Gateway) ProtoMessage() {}
 
 func (x *Gateway) ProtoReflect() protoreflect.Message {
-	mi := &file_schema_proto_msgTypes[6]
+	mi := &file_schema_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -689,7 +736,7 @@ func (x *Gateway) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Gateway.ProtoReflect.Descriptor instead.
 func (*Gateway) Descriptor() ([]byte, []int) {
-	return file_schema_proto_rawDescGZIP(), []int{6}
+	return file_schema_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *Gateway) GetName() string {
@@ -702,6 +749,53 @@ func (x *Gateway) GetName() string {
 func (x *Gateway) GetListeners() []*GatewayListener {
 	if x != nil {
 		return x.Listeners
+	}
+	return nil
+}
+
+type Gateways struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Gatways []*Gateway `protobuf:"bytes,1,rep,name=gatways,proto3" json:"gatways,omitempty"`
+}
+
+func (x *Gateways) Reset() {
+	*x = Gateways{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_schema_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *Gateways) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Gateways) ProtoMessage() {}
+
+func (x *Gateways) ProtoReflect() protoreflect.Message {
+	mi := &file_schema_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Gateways.ProtoReflect.Descriptor instead.
+func (*Gateways) Descriptor() ([]byte, []int) {
+	return file_schema_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *Gateways) GetGatways() []*Gateway {
+	if x != nil {
+		return x.Gatways
 	}
 	return nil
 }
@@ -719,7 +813,7 @@ type GatewayInput struct {
 func (x *GatewayInput) Reset() {
 	*x = GatewayInput{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_schema_proto_msgTypes[7]
+		mi := &file_schema_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -732,7 +826,7 @@ func (x *GatewayInput) String() string {
 func (*GatewayInput) ProtoMessage() {}
 
 func (x *GatewayInput) ProtoReflect() protoreflect.Message {
-	mi := &file_schema_proto_msgTypes[7]
+	mi := &file_schema_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -745,7 +839,7 @@ func (x *GatewayInput) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GatewayInput.ProtoReflect.Descriptor instead.
 func (*GatewayInput) Descriptor() ([]byte, []int) {
-	return file_schema_proto_rawDescGZIP(), []int{7}
+	return file_schema_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *GatewayInput) GetName() string {
@@ -787,7 +881,7 @@ type HTTPRoute struct {
 func (x *HTTPRoute) Reset() {
 	*x = HTTPRoute{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_schema_proto_msgTypes[8]
+		mi := &file_schema_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -800,7 +894,7 @@ func (x *HTTPRoute) String() string {
 func (*HTTPRoute) ProtoMessage() {}
 
 func (x *HTTPRoute) ProtoReflect() protoreflect.Message {
-	mi := &file_schema_proto_msgTypes[8]
+	mi := &file_schema_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -813,7 +907,7 @@ func (x *HTTPRoute) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HTTPRoute.ProtoReflect.Descriptor instead.
 func (*HTTPRoute) Descriptor() ([]byte, []int) {
-	return file_schema_proto_rawDescGZIP(), []int{8}
+	return file_schema_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *HTTPRoute) GetName() string {
@@ -879,7 +973,7 @@ func (x *HTTPRoute) GetAllowCredentials() bool {
 	return false
 }
 
-// Routing describes service mesh routing options(gateway/host bindings, route rewrites, etc) for an Application
+// Routing describes service mesh routing options(gateway/host bindings, route rewrites, etc) for an APIlication
 type Routing struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -896,7 +990,7 @@ type Routing struct {
 func (x *Routing) Reset() {
 	*x = Routing{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_schema_proto_msgTypes[9]
+		mi := &file_schema_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -909,7 +1003,7 @@ func (x *Routing) String() string {
 func (*Routing) ProtoMessage() {}
 
 func (x *Routing) ProtoReflect() protoreflect.Message {
-	mi := &file_schema_proto_msgTypes[9]
+	mi := &file_schema_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -922,7 +1016,7 @@ func (x *Routing) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Routing.ProtoReflect.Descriptor instead.
 func (*Routing) Descriptor() ([]byte, []int) {
-	return file_schema_proto_rawDescGZIP(), []int{9}
+	return file_schema_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *Routing) GetGateway() string {
@@ -967,7 +1061,7 @@ type Container struct {
 func (x *Container) Reset() {
 	*x = Container{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_schema_proto_msgTypes[10]
+		mi := &file_schema_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -980,7 +1074,7 @@ func (x *Container) String() string {
 func (*Container) ProtoMessage() {}
 
 func (x *Container) ProtoReflect() protoreflect.Message {
-	mi := &file_schema_proto_msgTypes[10]
+	mi := &file_schema_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -993,7 +1087,7 @@ func (x *Container) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Container.ProtoReflect.Descriptor instead.
 func (*Container) Descriptor() ([]byte, []int) {
-	return file_schema_proto_rawDescGZIP(), []int{10}
+	return file_schema_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *Container) GetName() string {
@@ -1031,45 +1125,45 @@ func (x *Container) GetPorts() []*ContainerPort {
 	return nil
 }
 
-// App is a stateless application
-type App struct {
+// API is a api
+type API struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// name of the application
+	// name of the api
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	// containers are docker containers that run the application's business logic
+	// containers are docker containers that run the api's business logic
 	Containers []*Container `protobuf:"bytes,3,rep,name=containers,proto3" json:"containers,omitempty"`
 	// number of deployment replicas
 	Replicas uint32 `protobuf:"varint,8,opt,name=replicas,proto3" json:"replicas,omitempty"`
 	// gateway/service-mesh routing
 	Routing *Routing `protobuf:"bytes,11,opt,name=routing,proto3" json:"routing,omitempty"`
-	// application authentication options
+	// api authentication options
 	Authentication *Authn `protobuf:"bytes,12,opt,name=authentication,proto3" json:"authentication,omitempty"`
 	// image_pull_secret is the secret used to pull images from docker registry
 	ImagePullSecret string `protobuf:"bytes,14,opt,name=image_pull_secret,json=imagePullSecret,proto3" json:"image_pull_secret,omitempty"`
-	// status tracks the state of the application during it's lifecycle
-	Status *AppStatus `protobuf:"bytes,20,opt,name=status,proto3" json:"status,omitempty"`
+	// status tracks the state of the api during it's lifecycle
+	Status *APIStatus `protobuf:"bytes,20,opt,name=status,proto3" json:"status,omitempty"`
 }
 
-func (x *App) Reset() {
-	*x = App{}
+func (x *API) Reset() {
+	*x = API{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_schema_proto_msgTypes[11]
+		mi := &file_schema_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
 }
 
-func (x *App) String() string {
+func (x *API) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*App) ProtoMessage() {}
+func (*API) ProtoMessage() {}
 
-func (x *App) ProtoReflect() protoreflect.Message {
-	mi := &file_schema_proto_msgTypes[11]
+func (x *API) ProtoReflect() protoreflect.Message {
+	mi := &file_schema_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1080,54 +1174,54 @@ func (x *App) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use App.ProtoReflect.Descriptor instead.
-func (*App) Descriptor() ([]byte, []int) {
-	return file_schema_proto_rawDescGZIP(), []int{11}
+// Deprecated: Use API.ProtoReflect.Descriptor instead.
+func (*API) Descriptor() ([]byte, []int) {
+	return file_schema_proto_rawDescGZIP(), []int{13}
 }
 
-func (x *App) GetName() string {
+func (x *API) GetName() string {
 	if x != nil {
 		return x.Name
 	}
 	return ""
 }
 
-func (x *App) GetContainers() []*Container {
+func (x *API) GetContainers() []*Container {
 	if x != nil {
 		return x.Containers
 	}
 	return nil
 }
 
-func (x *App) GetReplicas() uint32 {
+func (x *API) GetReplicas() uint32 {
 	if x != nil {
 		return x.Replicas
 	}
 	return 0
 }
 
-func (x *App) GetRouting() *Routing {
+func (x *API) GetRouting() *Routing {
 	if x != nil {
 		return x.Routing
 	}
 	return nil
 }
 
-func (x *App) GetAuthentication() *Authn {
+func (x *API) GetAuthentication() *Authn {
 	if x != nil {
 		return x.Authentication
 	}
 	return nil
 }
 
-func (x *App) GetImagePullSecret() string {
+func (x *API) GetImagePullSecret() string {
 	if x != nil {
 		return x.ImagePullSecret
 	}
 	return ""
 }
 
-func (x *App) GetStatus() *AppStatus {
+func (x *API) GetStatus() *APIStatus {
 	if x != nil {
 		return x.Status
 	}
@@ -1155,7 +1249,7 @@ type Task struct {
 func (x *Task) Reset() {
 	*x = Task{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_schema_proto_msgTypes[12]
+		mi := &file_schema_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1168,7 +1262,7 @@ func (x *Task) String() string {
 func (*Task) ProtoMessage() {}
 
 func (x *Task) ProtoReflect() protoreflect.Message {
-	mi := &file_schema_proto_msgTypes[12]
+	mi := &file_schema_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1181,7 +1275,7 @@ func (x *Task) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Task.ProtoReflect.Descriptor instead.
 func (*Task) Descriptor() ([]byte, []int) {
-	return file_schema_proto_rawDescGZIP(), []int{12}
+	return file_schema_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *Task) GetName() string {
@@ -1240,7 +1334,7 @@ type TaskInput struct {
 func (x *TaskInput) Reset() {
 	*x = TaskInput{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_schema_proto_msgTypes[13]
+		mi := &file_schema_proto_msgTypes[15]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1253,7 +1347,7 @@ func (x *TaskInput) String() string {
 func (*TaskInput) ProtoMessage() {}
 
 func (x *TaskInput) ProtoReflect() protoreflect.Message {
-	mi := &file_schema_proto_msgTypes[13]
+	mi := &file_schema_proto_msgTypes[15]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1266,7 +1360,7 @@ func (x *TaskInput) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TaskInput.ProtoReflect.Descriptor instead.
 func (*TaskInput) Descriptor() ([]byte, []int) {
-	return file_schema_proto_rawDescGZIP(), []int{13}
+	return file_schema_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *TaskInput) GetName() string {
@@ -1320,7 +1414,7 @@ type ContainerPort struct {
 func (x *ContainerPort) Reset() {
 	*x = ContainerPort{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_schema_proto_msgTypes[14]
+		mi := &file_schema_proto_msgTypes[16]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1333,7 +1427,7 @@ func (x *ContainerPort) String() string {
 func (*ContainerPort) ProtoMessage() {}
 
 func (x *ContainerPort) ProtoReflect() protoreflect.Message {
-	mi := &file_schema_proto_msgTypes[14]
+	mi := &file_schema_proto_msgTypes[16]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1346,7 +1440,7 @@ func (x *ContainerPort) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ContainerPort.ProtoReflect.Descriptor instead.
 func (*ContainerPort) Descriptor() ([]byte, []int) {
-	return file_schema_proto_rawDescGZIP(), []int{14}
+	return file_schema_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *ContainerPort) GetName() string {
@@ -1370,43 +1464,43 @@ func (x *ContainerPort) GetExpose() bool {
 	return false
 }
 
-// AppInput creates/replaces an app
-type AppInput struct {
+// APIInput creates/replaces an api
+type APIInput struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// name of the application
+	// name of the api
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	// containers are docker containers that run the application's business logic
+	// containers are docker containers that run the api's business logic
 	Containers []*Container `protobuf:"bytes,3,rep,name=containers,proto3" json:"containers,omitempty"`
 	// number of deployment replicas
 	Replicas uint32 `protobuf:"varint,7,opt,name=replicas,proto3" json:"replicas,omitempty"`
 	// routing - routing options
 	Routing *Routing `protobuf:"bytes,10,opt,name=routing,proto3" json:"routing,omitempty"`
-	// application authentication options
+	// api authentication options
 	Authentication *Authn `protobuf:"bytes,12,opt,name=authentication,proto3" json:"authentication,omitempty"`
 	// image_pull_secret is the secret used to pull images from docker registry
 	ImagePullSecret string `protobuf:"bytes,14,opt,name=image_pull_secret,json=imagePullSecret,proto3" json:"image_pull_secret,omitempty"`
 }
 
-func (x *AppInput) Reset() {
-	*x = AppInput{}
+func (x *APIInput) Reset() {
+	*x = APIInput{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_schema_proto_msgTypes[15]
+		mi := &file_schema_proto_msgTypes[17]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
 }
 
-func (x *AppInput) String() string {
+func (x *APIInput) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*AppInput) ProtoMessage() {}
+func (*APIInput) ProtoMessage() {}
 
-func (x *AppInput) ProtoReflect() protoreflect.Message {
-	mi := &file_schema_proto_msgTypes[15]
+func (x *APIInput) ProtoReflect() protoreflect.Message {
+	mi := &file_schema_proto_msgTypes[17]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1417,47 +1511,47 @@ func (x *AppInput) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use AppInput.ProtoReflect.Descriptor instead.
-func (*AppInput) Descriptor() ([]byte, []int) {
-	return file_schema_proto_rawDescGZIP(), []int{15}
+// Deprecated: Use APIInput.ProtoReflect.Descriptor instead.
+func (*APIInput) Descriptor() ([]byte, []int) {
+	return file_schema_proto_rawDescGZIP(), []int{17}
 }
 
-func (x *AppInput) GetName() string {
+func (x *APIInput) GetName() string {
 	if x != nil {
 		return x.Name
 	}
 	return ""
 }
 
-func (x *AppInput) GetContainers() []*Container {
+func (x *APIInput) GetContainers() []*Container {
 	if x != nil {
 		return x.Containers
 	}
 	return nil
 }
 
-func (x *AppInput) GetReplicas() uint32 {
+func (x *APIInput) GetReplicas() uint32 {
 	if x != nil {
 		return x.Replicas
 	}
 	return 0
 }
 
-func (x *AppInput) GetRouting() *Routing {
+func (x *APIInput) GetRouting() *Routing {
 	if x != nil {
 		return x.Routing
 	}
 	return nil
 }
 
-func (x *AppInput) GetAuthentication() *Authn {
+func (x *APIInput) GetAuthentication() *Authn {
 	if x != nil {
 		return x.Authentication
 	}
 	return nil
 }
 
-func (x *AppInput) GetImagePullSecret() string {
+func (x *APIInput) GetImagePullSecret() string {
 	if x != nil {
 		return x.ImagePullSecret
 	}
@@ -1477,7 +1571,7 @@ type Ref struct {
 func (x *Ref) Reset() {
 	*x = Ref{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_schema_proto_msgTypes[16]
+		mi := &file_schema_proto_msgTypes[18]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1490,7 +1584,7 @@ func (x *Ref) String() string {
 func (*Ref) ProtoMessage() {}
 
 func (x *Ref) ProtoReflect() protoreflect.Message {
-	mi := &file_schema_proto_msgTypes[16]
+	mi := &file_schema_proto_msgTypes[18]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1503,7 +1597,7 @@ func (x *Ref) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Ref.ProtoReflect.Descriptor instead.
 func (*Ref) Descriptor() ([]byte, []int) {
-	return file_schema_proto_rawDescGZIP(), []int{16}
+	return file_schema_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *Ref) GetName() string {
@@ -1513,7 +1607,7 @@ func (x *Ref) GetName() string {
 	return ""
 }
 
-// Replica tracks the state/status of an individual replica of an application
+// Replica tracks the state/status of an individual replica of an api
 type Replica struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -1527,7 +1621,7 @@ type Replica struct {
 func (x *Replica) Reset() {
 	*x = Replica{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_schema_proto_msgTypes[17]
+		mi := &file_schema_proto_msgTypes[19]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1540,7 +1634,7 @@ func (x *Replica) String() string {
 func (*Replica) ProtoMessage() {}
 
 func (x *Replica) ProtoReflect() protoreflect.Message {
-	mi := &file_schema_proto_msgTypes[17]
+	mi := &file_schema_proto_msgTypes[19]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1553,7 +1647,7 @@ func (x *Replica) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Replica.ProtoReflect.Descriptor instead.
 func (*Replica) Descriptor() ([]byte, []int) {
-	return file_schema_proto_rawDescGZIP(), []int{17}
+	return file_schema_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *Replica) GetPhase() string {
@@ -1577,8 +1671,8 @@ func (x *Replica) GetReason() string {
 	return ""
 }
 
-// AppStatus tracks the status of an application
-type AppStatus struct {
+// APIStatus tracks the status of an api
+type APIStatus struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -1586,23 +1680,23 @@ type AppStatus struct {
 	Replicas []*Replica `protobuf:"bytes,1,rep,name=replicas,proto3" json:"replicas,omitempty"`
 }
 
-func (x *AppStatus) Reset() {
-	*x = AppStatus{}
+func (x *APIStatus) Reset() {
+	*x = APIStatus{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_schema_proto_msgTypes[18]
+		mi := &file_schema_proto_msgTypes[20]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
 }
 
-func (x *AppStatus) String() string {
+func (x *APIStatus) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*AppStatus) ProtoMessage() {}
+func (*APIStatus) ProtoMessage() {}
 
-func (x *AppStatus) ProtoReflect() protoreflect.Message {
-	mi := &file_schema_proto_msgTypes[18]
+func (x *APIStatus) ProtoReflect() protoreflect.Message {
+	mi := &file_schema_proto_msgTypes[20]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1613,12 +1707,12 @@ func (x *AppStatus) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use AppStatus.ProtoReflect.Descriptor instead.
-func (*AppStatus) Descriptor() ([]byte, []int) {
-	return file_schema_proto_rawDescGZIP(), []int{18}
+// Deprecated: Use APIStatus.ProtoReflect.Descriptor instead.
+func (*APIStatus) Descriptor() ([]byte, []int) {
+	return file_schema_proto_rawDescGZIP(), []int{20}
 }
 
-func (x *AppStatus) GetReplicas() []*Replica {
+func (x *APIStatus) GetReplicas() []*Replica {
 	if x != nil {
 		return x.Replicas
 	}
@@ -1636,7 +1730,7 @@ type Log struct {
 func (x *Log) Reset() {
 	*x = Log{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_schema_proto_msgTypes[19]
+		mi := &file_schema_proto_msgTypes[21]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1649,7 +1743,7 @@ func (x *Log) String() string {
 func (*Log) ProtoMessage() {}
 
 func (x *Log) ProtoReflect() protoreflect.Message {
-	mi := &file_schema_proto_msgTypes[19]
+	mi := &file_schema_proto_msgTypes[21]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1662,7 +1756,7 @@ func (x *Log) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Log.ProtoReflect.Descriptor instead.
 func (*Log) Descriptor() ([]byte, []int) {
-	return file_schema_proto_rawDescGZIP(), []int{19}
+	return file_schema_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *Log) GetMessage() string {
@@ -1672,31 +1766,31 @@ func (x *Log) GetMessage() string {
 	return ""
 }
 
-type Apps struct {
+type APIs struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Applications []*App `protobuf:"bytes,1,rep,name=applications,proto3" json:"applications,omitempty"`
+	Apis []*API `protobuf:"bytes,1,rep,name=apis,proto3" json:"apis,omitempty"`
 }
 
-func (x *Apps) Reset() {
-	*x = Apps{}
+func (x *APIs) Reset() {
+	*x = APIs{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_schema_proto_msgTypes[20]
+		mi := &file_schema_proto_msgTypes[22]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
 }
 
-func (x *Apps) String() string {
+func (x *APIs) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*Apps) ProtoMessage() {}
+func (*APIs) ProtoMessage() {}
 
-func (x *Apps) ProtoReflect() protoreflect.Message {
-	mi := &file_schema_proto_msgTypes[20]
+func (x *APIs) ProtoReflect() protoreflect.Message {
+	mi := &file_schema_proto_msgTypes[22]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1707,14 +1801,14 @@ func (x *Apps) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use Apps.ProtoReflect.Descriptor instead.
-func (*Apps) Descriptor() ([]byte, []int) {
-	return file_schema_proto_rawDescGZIP(), []int{20}
+// Deprecated: Use APIs.ProtoReflect.Descriptor instead.
+func (*APIs) Descriptor() ([]byte, []int) {
+	return file_schema_proto_rawDescGZIP(), []int{22}
 }
 
-func (x *Apps) GetApplications() []*App {
+func (x *APIs) GetApis() []*API {
 	if x != nil {
-		return x.Applications
+		return x.Apis
 	}
 	return nil
 }
@@ -1730,7 +1824,7 @@ type Tasks struct {
 func (x *Tasks) Reset() {
 	*x = Tasks{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_schema_proto_msgTypes[21]
+		mi := &file_schema_proto_msgTypes[23]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1743,7 +1837,7 @@ func (x *Tasks) String() string {
 func (*Tasks) ProtoMessage() {}
 
 func (x *Tasks) ProtoReflect() protoreflect.Message {
-	mi := &file_schema_proto_msgTypes[21]
+	mi := &file_schema_proto_msgTypes[23]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1756,7 +1850,7 @@ func (x *Tasks) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Tasks.ProtoReflect.Descriptor instead.
 func (*Tasks) Descriptor() ([]byte, []int) {
-	return file_schema_proto_rawDescGZIP(), []int{21}
+	return file_schema_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *Tasks) GetTasks() []*Task {
@@ -1766,13 +1860,13 @@ func (x *Tasks) GetTasks() []*Task {
 	return nil
 }
 
-// LogOpts holds options for fetching logs from Tasks & Applications
+// LogOpts holds options for fetching logs from Tasks & APIlications
 type LogOpts struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// name is the name of the Application or Task
+	// name is the name of the APIlication or Task
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	// container is the container to stream from
 	Container string `protobuf:"bytes,2,opt,name=container,proto3" json:"container,omitempty"`
@@ -1789,7 +1883,7 @@ type LogOpts struct {
 func (x *LogOpts) Reset() {
 	*x = LogOpts{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_schema_proto_msgTypes[22]
+		mi := &file_schema_proto_msgTypes[24]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1802,7 +1896,7 @@ func (x *LogOpts) String() string {
 func (*LogOpts) ProtoMessage() {}
 
 func (x *LogOpts) ProtoReflect() protoreflect.Message {
-	mi := &file_schema_proto_msgTypes[22]
+	mi := &file_schema_proto_msgTypes[24]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1815,7 +1909,7 @@ func (x *LogOpts) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LogOpts.ProtoReflect.Descriptor instead.
 func (*LogOpts) Descriptor() ([]byte, []int) {
-	return file_schema_proto_rawDescGZIP(), []int{22}
+	return file_schema_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *LogOpts) GetName() string {
@@ -1917,47 +2011,54 @@ var file_schema_proto_rawDesc = []byte{
 	0x45, 0x6e, 0x74, 0x72, 0x79, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01,
 	0x28, 0x09, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
 	0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x3a, 0x02, 0x38,
-	0x01, 0x22, 0xc3, 0x02, 0x0a, 0x11, 0x53, 0x65, 0x72, 0x76, 0x65, 0x72, 0x54, 0x4c, 0x53, 0x53,
-	0x65, 0x74, 0x74, 0x69, 0x6e, 0x67, 0x73, 0x12, 0x25, 0x0a, 0x0e, 0x68, 0x74, 0x74, 0x70, 0x73,
-	0x5f, 0x72, 0x65, 0x64, 0x69, 0x72, 0x65, 0x63, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52,
-	0x0d, 0x68, 0x74, 0x74, 0x70, 0x73, 0x52, 0x65, 0x64, 0x69, 0x72, 0x65, 0x63, 0x74, 0x12, 0x25,
-	0x0a, 0x04, 0x6d, 0x6f, 0x64, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x11, 0x2e, 0x6d,
-	0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x54, 0x4c, 0x53, 0x6d, 0x6f, 0x64, 0x65, 0x52,
-	0x04, 0x6d, 0x6f, 0x64, 0x65, 0x12, 0x1f, 0x0a, 0x0b, 0x73, 0x65, 0x63, 0x72, 0x65, 0x74, 0x5f,
-	0x6e, 0x61, 0x6d, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x73, 0x65, 0x63, 0x72,
-	0x65, 0x74, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x2a, 0x0a, 0x11, 0x73, 0x75, 0x62, 0x6a, 0x65, 0x63,
-	0x74, 0x5f, 0x61, 0x6c, 0x74, 0x5f, 0x6e, 0x61, 0x6d, 0x65, 0x73, 0x18, 0x04, 0x20, 0x03, 0x28,
-	0x09, 0x52, 0x0f, 0x73, 0x75, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x41, 0x6c, 0x74, 0x4e, 0x61, 0x6d,
-	0x65, 0x73, 0x12, 0x36, 0x0a, 0x17, 0x76, 0x65, 0x72, 0x69, 0x66, 0x79, 0x5f, 0x63, 0x65, 0x72,
-	0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x65, 0x5f, 0x73, 0x70, 0x6b, 0x69, 0x18, 0x05, 0x20,
-	0x03, 0x28, 0x09, 0x52, 0x15, 0x76, 0x65, 0x72, 0x69, 0x66, 0x79, 0x43, 0x65, 0x72, 0x74, 0x69,
-	0x66, 0x69, 0x63, 0x61, 0x74, 0x65, 0x53, 0x70, 0x6b, 0x69, 0x12, 0x36, 0x0a, 0x17, 0x76, 0x65,
-	0x72, 0x69, 0x66, 0x79, 0x5f, 0x63, 0x65, 0x72, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x65,
-	0x5f, 0x68, 0x61, 0x73, 0x68, 0x18, 0x06, 0x20, 0x03, 0x28, 0x09, 0x52, 0x15, 0x76, 0x65, 0x72,
-	0x69, 0x66, 0x79, 0x43, 0x65, 0x72, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x65, 0x48, 0x61,
-	0x73, 0x68, 0x12, 0x23, 0x0a, 0x0d, 0x63, 0x69, 0x70, 0x68, 0x65, 0x72, 0x5f, 0x73, 0x75, 0x69,
-	0x74, 0x65, 0x73, 0x18, 0x07, 0x20, 0x03, 0x28, 0x09, 0x52, 0x0c, 0x63, 0x69, 0x70, 0x68, 0x65,
-	0x72, 0x53, 0x75, 0x69, 0x74, 0x65, 0x73, 0x22, 0xee, 0x01, 0x0a, 0x0f, 0x47, 0x61, 0x74, 0x65,
-	0x77, 0x61, 0x79, 0x4c, 0x69, 0x73, 0x74, 0x65, 0x6e, 0x65, 0x72, 0x12, 0x1a, 0x0a, 0x04, 0x70,
-	0x6f, 0x72, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x42, 0x06, 0xe2, 0xdf, 0x1f, 0x02, 0x10,
-	0x00, 0x52, 0x04, 0x70, 0x6f, 0x72, 0x74, 0x12, 0x24, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18,
-	0x02, 0x20, 0x01, 0x28, 0x09, 0x42, 0x10, 0xe2, 0xdf, 0x1f, 0x0c, 0x0a, 0x0a, 0x5e, 0x2e, 0x7b,
-	0x31, 0x2c, 0x32, 0x32, 0x35, 0x7d, 0x24, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x3f, 0x0a,
-	0x08, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x63, 0x6f, 0x6c, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0e, 0x32,
-	0x1b, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x54, 0x72, 0x61, 0x6e, 0x73,
-	0x70, 0x6f, 0x72, 0x74, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x63, 0x6f, 0x6c, 0x42, 0x06, 0xe2, 0xdf,
-	0x1f, 0x02, 0x10, 0x00, 0x52, 0x08, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x63, 0x6f, 0x6c, 0x12, 0x1c,
-	0x0a, 0x05, 0x68, 0x6f, 0x73, 0x74, 0x73, 0x18, 0x04, 0x20, 0x03, 0x28, 0x09, 0x42, 0x06, 0xe2,
-	0xdf, 0x1f, 0x02, 0x60, 0x01, 0x52, 0x05, 0x68, 0x6f, 0x73, 0x74, 0x73, 0x12, 0x3a, 0x0a, 0x0a,
-	0x74, 0x6c, 0x73, 0x5f, 0x63, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x18, 0x05, 0x20, 0x01, 0x28, 0x0b,
-	0x32, 0x1b, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x53, 0x65, 0x72, 0x76,
-	0x65, 0x72, 0x54, 0x4c, 0x53, 0x53, 0x65, 0x74, 0x74, 0x69, 0x6e, 0x67, 0x73, 0x52, 0x09, 0x74,
-	0x6c, 0x73, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x22, 0x56, 0x0a, 0x07, 0x47, 0x61, 0x74, 0x65,
-	0x77, 0x61, 0x79, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x37, 0x0a, 0x09, 0x6c, 0x69, 0x73, 0x74, 0x65,
-	0x6e, 0x65, 0x72, 0x73, 0x18, 0x03, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x19, 0x2e, 0x6d, 0x65, 0x73,
-	0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x47, 0x61, 0x74, 0x65, 0x77, 0x61, 0x79, 0x4c, 0x69, 0x73,
-	0x74, 0x65, 0x6e, 0x65, 0x72, 0x52, 0x09, 0x6c, 0x69, 0x73, 0x74, 0x65, 0x6e, 0x65, 0x72, 0x73,
+	0x01, 0x22, 0x35, 0x0a, 0x07, 0x53, 0x65, 0x63, 0x72, 0x65, 0x74, 0x73, 0x12, 0x2a, 0x0a, 0x07,
+	0x73, 0x65, 0x63, 0x72, 0x65, 0x74, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x10, 0x2e,
+	0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x53, 0x65, 0x63, 0x72, 0x65, 0x74, 0x52,
+	0x07, 0x73, 0x65, 0x63, 0x72, 0x65, 0x74, 0x73, 0x22, 0xc3, 0x02, 0x0a, 0x11, 0x53, 0x65, 0x72,
+	0x76, 0x65, 0x72, 0x54, 0x4c, 0x53, 0x53, 0x65, 0x74, 0x74, 0x69, 0x6e, 0x67, 0x73, 0x12, 0x25,
+	0x0a, 0x0e, 0x68, 0x74, 0x74, 0x70, 0x73, 0x5f, 0x72, 0x65, 0x64, 0x69, 0x72, 0x65, 0x63, 0x74,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x0d, 0x68, 0x74, 0x74, 0x70, 0x73, 0x52, 0x65, 0x64,
+	0x69, 0x72, 0x65, 0x63, 0x74, 0x12, 0x25, 0x0a, 0x04, 0x6d, 0x6f, 0x64, 0x65, 0x18, 0x02, 0x20,
+	0x01, 0x28, 0x0e, 0x32, 0x11, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x54,
+	0x4c, 0x53, 0x6d, 0x6f, 0x64, 0x65, 0x52, 0x04, 0x6d, 0x6f, 0x64, 0x65, 0x12, 0x1f, 0x0a, 0x0b,
+	0x73, 0x65, 0x63, 0x72, 0x65, 0x74, 0x5f, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x0a, 0x73, 0x65, 0x63, 0x72, 0x65, 0x74, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x2a, 0x0a,
+	0x11, 0x73, 0x75, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x5f, 0x61, 0x6c, 0x74, 0x5f, 0x6e, 0x61, 0x6d,
+	0x65, 0x73, 0x18, 0x04, 0x20, 0x03, 0x28, 0x09, 0x52, 0x0f, 0x73, 0x75, 0x62, 0x6a, 0x65, 0x63,
+	0x74, 0x41, 0x6c, 0x74, 0x4e, 0x61, 0x6d, 0x65, 0x73, 0x12, 0x36, 0x0a, 0x17, 0x76, 0x65, 0x72,
+	0x69, 0x66, 0x79, 0x5f, 0x63, 0x65, 0x72, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x65, 0x5f,
+	0x73, 0x70, 0x6b, 0x69, 0x18, 0x05, 0x20, 0x03, 0x28, 0x09, 0x52, 0x15, 0x76, 0x65, 0x72, 0x69,
+	0x66, 0x79, 0x43, 0x65, 0x72, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x65, 0x53, 0x70, 0x6b,
+	0x69, 0x12, 0x36, 0x0a, 0x17, 0x76, 0x65, 0x72, 0x69, 0x66, 0x79, 0x5f, 0x63, 0x65, 0x72, 0x74,
+	0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x65, 0x5f, 0x68, 0x61, 0x73, 0x68, 0x18, 0x06, 0x20, 0x03,
+	0x28, 0x09, 0x52, 0x15, 0x76, 0x65, 0x72, 0x69, 0x66, 0x79, 0x43, 0x65, 0x72, 0x74, 0x69, 0x66,
+	0x69, 0x63, 0x61, 0x74, 0x65, 0x48, 0x61, 0x73, 0x68, 0x12, 0x23, 0x0a, 0x0d, 0x63, 0x69, 0x70,
+	0x68, 0x65, 0x72, 0x5f, 0x73, 0x75, 0x69, 0x74, 0x65, 0x73, 0x18, 0x07, 0x20, 0x03, 0x28, 0x09,
+	0x52, 0x0c, 0x63, 0x69, 0x70, 0x68, 0x65, 0x72, 0x53, 0x75, 0x69, 0x74, 0x65, 0x73, 0x22, 0xee,
+	0x01, 0x0a, 0x0f, 0x47, 0x61, 0x74, 0x65, 0x77, 0x61, 0x79, 0x4c, 0x69, 0x73, 0x74, 0x65, 0x6e,
+	0x65, 0x72, 0x12, 0x1a, 0x0a, 0x04, 0x70, 0x6f, 0x72, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d,
+	0x42, 0x06, 0xe2, 0xdf, 0x1f, 0x02, 0x10, 0x00, 0x52, 0x04, 0x70, 0x6f, 0x72, 0x74, 0x12, 0x24,
+	0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x42, 0x10, 0xe2, 0xdf,
+	0x1f, 0x0c, 0x0a, 0x0a, 0x5e, 0x2e, 0x7b, 0x31, 0x2c, 0x32, 0x32, 0x35, 0x7d, 0x24, 0x52, 0x04,
+	0x6e, 0x61, 0x6d, 0x65, 0x12, 0x3f, 0x0a, 0x08, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x63, 0x6f, 0x6c,
+	0x18, 0x03, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x1b, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61,
+	0x73, 0x2e, 0x54, 0x72, 0x61, 0x6e, 0x73, 0x70, 0x6f, 0x72, 0x74, 0x50, 0x72, 0x6f, 0x74, 0x6f,
+	0x63, 0x6f, 0x6c, 0x42, 0x06, 0xe2, 0xdf, 0x1f, 0x02, 0x10, 0x00, 0x52, 0x08, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x63, 0x6f, 0x6c, 0x12, 0x1c, 0x0a, 0x05, 0x68, 0x6f, 0x73, 0x74, 0x73, 0x18, 0x04,
+	0x20, 0x03, 0x28, 0x09, 0x42, 0x06, 0xe2, 0xdf, 0x1f, 0x02, 0x60, 0x01, 0x52, 0x05, 0x68, 0x6f,
+	0x73, 0x74, 0x73, 0x12, 0x3a, 0x0a, 0x0a, 0x74, 0x6c, 0x73, 0x5f, 0x63, 0x6f, 0x6e, 0x66, 0x69,
+	0x67, 0x18, 0x05, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1b, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61,
+	0x61, 0x73, 0x2e, 0x53, 0x65, 0x72, 0x76, 0x65, 0x72, 0x54, 0x4c, 0x53, 0x53, 0x65, 0x74, 0x74,
+	0x69, 0x6e, 0x67, 0x73, 0x52, 0x09, 0x74, 0x6c, 0x73, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x22,
+	0x56, 0x0a, 0x07, 0x47, 0x61, 0x74, 0x65, 0x77, 0x61, 0x79, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61,
+	0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x37,
+	0x0a, 0x09, 0x6c, 0x69, 0x73, 0x74, 0x65, 0x6e, 0x65, 0x72, 0x73, 0x18, 0x03, 0x20, 0x03, 0x28,
+	0x0b, 0x32, 0x19, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x47, 0x61, 0x74,
+	0x65, 0x77, 0x61, 0x79, 0x4c, 0x69, 0x73, 0x74, 0x65, 0x6e, 0x65, 0x72, 0x52, 0x09, 0x6c, 0x69,
+	0x73, 0x74, 0x65, 0x6e, 0x65, 0x72, 0x73, 0x22, 0x37, 0x0a, 0x08, 0x47, 0x61, 0x74, 0x65, 0x77,
+	0x61, 0x79, 0x73, 0x12, 0x2b, 0x0a, 0x07, 0x67, 0x61, 0x74, 0x77, 0x61, 0x79, 0x73, 0x18, 0x01,
+	0x20, 0x03, 0x28, 0x0b, 0x32, 0x11, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e,
+	0x47, 0x61, 0x74, 0x65, 0x77, 0x61, 0x79, 0x52, 0x07, 0x67, 0x61, 0x74, 0x77, 0x61, 0x79, 0x73,
 	0x22, 0x6d, 0x0a, 0x0c, 0x47, 0x61, 0x74, 0x65, 0x77, 0x61, 0x79, 0x49, 0x6e, 0x70, 0x75, 0x74,
 	0x12, 0x24, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x42, 0x10,
 	0xe2, 0xdf, 0x1f, 0x0c, 0x0a, 0x0a, 0x5e, 0x2e, 0x7b, 0x31, 0x2c, 0x32, 0x32, 0x35, 0x7d, 0x24,
@@ -2010,7 +2111,7 @@ var file_schema_proto_rawDesc = []byte{
 	0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x6b,
 	0x65, 0x79, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28,
 	0x09, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x3a, 0x02, 0x38, 0x01, 0x22, 0xdb, 0x02, 0x0a,
-	0x03, 0x41, 0x70, 0x70, 0x12, 0x24, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01,
+	0x03, 0x41, 0x50, 0x49, 0x12, 0x24, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01,
 	0x28, 0x09, 0x42, 0x10, 0xe2, 0xdf, 0x1f, 0x0c, 0x0a, 0x0a, 0x5e, 0x2e, 0x7b, 0x31, 0x2c, 0x32,
 	0x32, 0x35, 0x7d, 0x24, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x3b, 0x0a, 0x0a, 0x63, 0x6f,
 	0x6e, 0x74, 0x61, 0x69, 0x6e, 0x65, 0x72, 0x73, 0x18, 0x03, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x13,
@@ -2030,7 +2131,7 @@ var file_schema_proto_rawDesc = []byte{
 	0x20, 0x01, 0x28, 0x09, 0x52, 0x0f, 0x69, 0x6d, 0x61, 0x67, 0x65, 0x50, 0x75, 0x6c, 0x6c, 0x53,
 	0x65, 0x63, 0x72, 0x65, 0x74, 0x12, 0x33, 0x0a, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18,
 	0x14, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x13, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73,
-	0x2e, 0x41, 0x70, 0x70, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x42, 0x06, 0xe2, 0xdf, 0x1f, 0x02,
+	0x2e, 0x41, 0x50, 0x49, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x42, 0x06, 0xe2, 0xdf, 0x1f, 0x02,
 	0x20, 0x01, 0x52, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x22, 0xe5, 0x01, 0x0a, 0x04, 0x54,
 	0x61, 0x73, 0x6b, 0x12, 0x24, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
 	0x09, 0x42, 0x10, 0xe2, 0xdf, 0x1f, 0x0c, 0x0a, 0x0a, 0x5e, 0x2e, 0x7b, 0x31, 0x2c, 0x32, 0x32,
@@ -2066,7 +2167,7 @@ var file_schema_proto_rawDesc = []byte{
 	0x6e, 0x61, 0x6d, 0x65, 0x12, 0x16, 0x0a, 0x06, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x18, 0x02,
 	0x20, 0x01, 0x28, 0x0d, 0x52, 0x06, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x12, 0x16, 0x0a, 0x06,
 	0x65, 0x78, 0x70, 0x6f, 0x73, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x08, 0x52, 0x06, 0x65, 0x78,
-	0x70, 0x6f, 0x73, 0x65, 0x22, 0xa3, 0x02, 0x0a, 0x08, 0x41, 0x70, 0x70, 0x49, 0x6e, 0x70, 0x75,
+	0x70, 0x6f, 0x73, 0x65, 0x22, 0xa3, 0x02, 0x0a, 0x08, 0x41, 0x50, 0x49, 0x49, 0x6e, 0x70, 0x75,
 	0x74, 0x12, 0x24, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x42,
 	0x10, 0xe2, 0xdf, 0x1f, 0x0c, 0x0a, 0x0a, 0x5e, 0x2e, 0x7b, 0x31, 0x2c, 0x32, 0x32, 0x35, 0x7d,
 	0x24, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x3b, 0x0a, 0x0a, 0x63, 0x6f, 0x6e, 0x74, 0x61,
@@ -2093,16 +2194,15 @@ var file_schema_proto_rawDesc = []byte{
 	0x69, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x63, 0x6f, 0x6e,
 	0x64, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x16, 0x0a, 0x06, 0x72, 0x65, 0x61, 0x73, 0x6f, 0x6e,
 	0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x72, 0x65, 0x61, 0x73, 0x6f, 0x6e, 0x22, 0x3a,
-	0x0a, 0x09, 0x41, 0x70, 0x70, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x2d, 0x0a, 0x08, 0x72,
+	0x0a, 0x09, 0x41, 0x50, 0x49, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x2d, 0x0a, 0x08, 0x72,
 	0x65, 0x70, 0x6c, 0x69, 0x63, 0x61, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x11, 0x2e,
 	0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x52, 0x65, 0x70, 0x6c, 0x69, 0x63, 0x61,
 	0x52, 0x08, 0x72, 0x65, 0x70, 0x6c, 0x69, 0x63, 0x61, 0x73, 0x22, 0x1f, 0x0a, 0x03, 0x4c, 0x6f,
 	0x67, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x22, 0x39, 0x0a, 0x04, 0x41,
-	0x70, 0x70, 0x73, 0x12, 0x31, 0x0a, 0x0c, 0x61, 0x70, 0x70, 0x6c, 0x69, 0x63, 0x61, 0x74, 0x69,
-	0x6f, 0x6e, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0d, 0x2e, 0x6d, 0x65, 0x73, 0x68,
-	0x70, 0x61, 0x61, 0x73, 0x2e, 0x41, 0x70, 0x70, 0x52, 0x0c, 0x61, 0x70, 0x70, 0x6c, 0x69, 0x63,
-	0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x22, 0x2d, 0x0a, 0x05, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x12,
+	0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x22, 0x29, 0x0a, 0x04, 0x41,
+	0x50, 0x49, 0x73, 0x12, 0x21, 0x0a, 0x04, 0x61, 0x70, 0x69, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28,
+	0x0b, 0x32, 0x0d, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x41, 0x50, 0x49,
+	0x52, 0x04, 0x61, 0x70, 0x69, 0x73, 0x22, 0x2d, 0x0a, 0x05, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x12,
 	0x24, 0x0a, 0x05, 0x74, 0x61, 0x73, 0x6b, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0e,
 	0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x54, 0x61, 0x73, 0x6b, 0x52, 0x05,
 	0x74, 0x61, 0x73, 0x6b, 0x73, 0x22, 0xd7, 0x01, 0x0a, 0x07, 0x4c, 0x6f, 0x67, 0x4f, 0x70, 0x74,
@@ -2135,24 +2235,24 @@ var file_schema_proto_rawDesc = []byte{
 	0x53, 0x49, 0x4d, 0x50, 0x4c, 0x45, 0x10, 0x01, 0x12, 0x0a, 0x0a, 0x06, 0x4d, 0x55, 0x54, 0x55,
 	0x41, 0x4c, 0x10, 0x02, 0x12, 0x14, 0x0a, 0x10, 0x41, 0x55, 0x54, 0x4f, 0x5f, 0x50, 0x41, 0x53,
 	0x53, 0x54, 0x48, 0x52, 0x4f, 0x55, 0x47, 0x48, 0x10, 0x03, 0x12, 0x10, 0x0a, 0x0c, 0x49, 0x53,
-	0x54, 0x49, 0x4f, 0x5f, 0x4d, 0x55, 0x54, 0x55, 0x41, 0x4c, 0x10, 0x04, 0x32, 0x8b, 0x08, 0x0a,
+	0x54, 0x49, 0x4f, 0x5f, 0x4d, 0x55, 0x54, 0x55, 0x41, 0x4c, 0x10, 0x04, 0x32, 0x85, 0x09, 0x0a,
 	0x0f, 0x4d, 0x65, 0x73, 0x68, 0x50, 0x61, 0x61, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
-	0x12, 0x30, 0x0a, 0x09, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x41, 0x70, 0x70, 0x12, 0x12, 0x2e,
-	0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x41, 0x70, 0x70, 0x49, 0x6e, 0x70, 0x75,
-	0x74, 0x1a, 0x0d, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x41, 0x70, 0x70,
-	0x22, 0x00, 0x12, 0x30, 0x0a, 0x09, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x41, 0x70, 0x70, 0x12,
-	0x12, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x41, 0x70, 0x70, 0x49, 0x6e,
+	0x12, 0x30, 0x0a, 0x09, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x41, 0x50, 0x49, 0x12, 0x12, 0x2e,
+	0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x41, 0x50, 0x49, 0x49, 0x6e, 0x70, 0x75,
+	0x74, 0x1a, 0x0d, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x41, 0x50, 0x49,
+	0x22, 0x00, 0x12, 0x30, 0x0a, 0x09, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x41, 0x50, 0x49, 0x12,
+	0x12, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x41, 0x50, 0x49, 0x49, 0x6e,
 	0x70, 0x75, 0x74, 0x1a, 0x0d, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x41,
-	0x70, 0x70, 0x22, 0x00, 0x12, 0x34, 0x0a, 0x09, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x41, 0x70,
-	0x70, 0x12, 0x0d, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x52, 0x65, 0x66,
+	0x50, 0x49, 0x22, 0x00, 0x12, 0x34, 0x0a, 0x09, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x41, 0x50,
+	0x49, 0x12, 0x0d, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x52, 0x65, 0x66,
 	0x1a, 0x16, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62,
 	0x75, 0x66, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x22, 0x00, 0x12, 0x28, 0x0a, 0x06, 0x47, 0x65,
-	0x74, 0x41, 0x70, 0x70, 0x12, 0x0d, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e,
+	0x74, 0x41, 0x50, 0x49, 0x12, 0x0d, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e,
 	0x52, 0x65, 0x66, 0x1a, 0x0d, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x41,
-	0x70, 0x70, 0x22, 0x00, 0x12, 0x34, 0x0a, 0x08, 0x4c, 0x69, 0x73, 0x74, 0x41, 0x70, 0x70, 0x73,
+	0x50, 0x49, 0x22, 0x00, 0x12, 0x34, 0x0a, 0x08, 0x4c, 0x69, 0x73, 0x74, 0x41, 0x50, 0x49, 0x73,
 	0x12, 0x16, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62,
 	0x75, 0x66, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x1a, 0x0e, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70,
-	0x61, 0x61, 0x73, 0x2e, 0x41, 0x70, 0x70, 0x73, 0x22, 0x00, 0x12, 0x33, 0x0a, 0x0a, 0x43, 0x72,
+	0x61, 0x61, 0x73, 0x2e, 0x41, 0x50, 0x49, 0x73, 0x22, 0x00, 0x12, 0x33, 0x0a, 0x0a, 0x43, 0x72,
 	0x65, 0x61, 0x74, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x12, 0x13, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70,
 	0x61, 0x61, 0x73, 0x2e, 0x54, 0x61, 0x73, 0x6b, 0x49, 0x6e, 0x70, 0x75, 0x74, 0x1a, 0x0e, 0x2e,
 	0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x54, 0x61, 0x73, 0x6b, 0x22, 0x00, 0x12,
@@ -2183,25 +2283,33 @@ var file_schema_proto_rawDesc = []byte{
 	0x70, 0x74, 0x79, 0x22, 0x00, 0x12, 0x30, 0x0a, 0x0a, 0x47, 0x65, 0x74, 0x47, 0x61, 0x74, 0x65,
 	0x77, 0x61, 0x79, 0x12, 0x0d, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x52,
 	0x65, 0x66, 0x1a, 0x11, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x47, 0x61,
-	0x74, 0x65, 0x77, 0x61, 0x79, 0x22, 0x00, 0x12, 0x39, 0x0a, 0x0c, 0x43, 0x72, 0x65, 0x61, 0x74,
-	0x65, 0x53, 0x65, 0x63, 0x72, 0x65, 0x74, 0x12, 0x15, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61,
-	0x61, 0x73, 0x2e, 0x53, 0x65, 0x63, 0x72, 0x65, 0x74, 0x49, 0x6e, 0x70, 0x75, 0x74, 0x1a, 0x10,
-	0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x53, 0x65, 0x63, 0x72, 0x65, 0x74,
-	0x22, 0x00, 0x12, 0x39, 0x0a, 0x0c, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x53, 0x65, 0x63, 0x72,
-	0x65, 0x74, 0x12, 0x15, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x53, 0x65,
-	0x63, 0x72, 0x65, 0x74, 0x49, 0x6e, 0x70, 0x75, 0x74, 0x1a, 0x10, 0x2e, 0x6d, 0x65, 0x73, 0x68,
-	0x70, 0x61, 0x61, 0x73, 0x2e, 0x53, 0x65, 0x63, 0x72, 0x65, 0x74, 0x22, 0x00, 0x12, 0x37, 0x0a,
-	0x0c, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x53, 0x65, 0x63, 0x72, 0x65, 0x74, 0x12, 0x0d, 0x2e,
-	0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x52, 0x65, 0x66, 0x1a, 0x16, 0x2e, 0x67,
-	0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x45,
-	0x6d, 0x70, 0x74, 0x79, 0x22, 0x00, 0x12, 0x2e, 0x0a, 0x09, 0x47, 0x65, 0x74, 0x53, 0x65, 0x63,
-	0x72, 0x65, 0x74, 0x12, 0x0d, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x52,
-	0x65, 0x66, 0x1a, 0x10, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x53, 0x65,
-	0x63, 0x72, 0x65, 0x74, 0x22, 0x00, 0x12, 0x32, 0x0a, 0x0a, 0x53, 0x74, 0x72, 0x65, 0x61, 0x6d,
-	0x4c, 0x6f, 0x67, 0x73, 0x12, 0x11, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e,
-	0x4c, 0x6f, 0x67, 0x4f, 0x70, 0x74, 0x73, 0x1a, 0x0d, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61,
-	0x61, 0x73, 0x2e, 0x4c, 0x6f, 0x67, 0x22, 0x00, 0x30, 0x01, 0x42, 0x0c, 0x5a, 0x0a, 0x6d, 0x65,
-	0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x74, 0x65, 0x77, 0x61, 0x79, 0x22, 0x00, 0x12, 0x3c, 0x0a, 0x0c, 0x4c, 0x69, 0x73, 0x74, 0x47,
+	0x61, 0x74, 0x65, 0x77, 0x61, 0x79, 0x73, 0x12, 0x16, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65,
+	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x1a,
+	0x12, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x47, 0x61, 0x74, 0x65, 0x77,
+	0x61, 0x79, 0x73, 0x22, 0x00, 0x12, 0x39, 0x0a, 0x0c, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x53,
+	0x65, 0x63, 0x72, 0x65, 0x74, 0x12, 0x15, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73,
+	0x2e, 0x53, 0x65, 0x63, 0x72, 0x65, 0x74, 0x49, 0x6e, 0x70, 0x75, 0x74, 0x1a, 0x10, 0x2e, 0x6d,
+	0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x53, 0x65, 0x63, 0x72, 0x65, 0x74, 0x22, 0x00,
+	0x12, 0x39, 0x0a, 0x0c, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x53, 0x65, 0x63, 0x72, 0x65, 0x74,
+	0x12, 0x15, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x53, 0x65, 0x63, 0x72,
+	0x65, 0x74, 0x49, 0x6e, 0x70, 0x75, 0x74, 0x1a, 0x10, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61,
+	0x61, 0x73, 0x2e, 0x53, 0x65, 0x63, 0x72, 0x65, 0x74, 0x22, 0x00, 0x12, 0x37, 0x0a, 0x0c, 0x44,
+	0x65, 0x6c, 0x65, 0x74, 0x65, 0x53, 0x65, 0x63, 0x72, 0x65, 0x74, 0x12, 0x0d, 0x2e, 0x6d, 0x65,
+	0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x52, 0x65, 0x66, 0x1a, 0x16, 0x2e, 0x67, 0x6f, 0x6f,
+	0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x45, 0x6d, 0x70,
+	0x74, 0x79, 0x22, 0x00, 0x12, 0x2e, 0x0a, 0x09, 0x47, 0x65, 0x74, 0x53, 0x65, 0x63, 0x72, 0x65,
+	0x74, 0x12, 0x0d, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x52, 0x65, 0x66,
+	0x1a, 0x10, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x53, 0x65, 0x63, 0x72,
+	0x65, 0x74, 0x22, 0x00, 0x12, 0x3a, 0x0a, 0x0b, 0x4c, 0x69, 0x73, 0x74, 0x53, 0x65, 0x63, 0x72,
+	0x65, 0x74, 0x73, 0x12, 0x16, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x1a, 0x11, 0x2e, 0x6d, 0x65,
+	0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x53, 0x65, 0x63, 0x72, 0x65, 0x74, 0x73, 0x22, 0x00,
+	0x12, 0x32, 0x0a, 0x0a, 0x53, 0x74, 0x72, 0x65, 0x61, 0x6d, 0x4c, 0x6f, 0x67, 0x73, 0x12, 0x11,
+	0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x4c, 0x6f, 0x67, 0x4f, 0x70, 0x74,
+	0x73, 0x1a, 0x0d, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x4c, 0x6f, 0x67,
+	0x22, 0x00, 0x30, 0x01, 0x42, 0x0c, 0x5a, 0x0a, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73,
+	0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -2217,7 +2325,7 @@ func file_schema_proto_rawDescGZIP() []byte {
 }
 
 var file_schema_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
-var file_schema_proto_msgTypes = make([]protoimpl.MessageInfo, 26)
+var file_schema_proto_msgTypes = make([]protoimpl.MessageInfo, 28)
 var file_schema_proto_goTypes = []interface{}{
 	(SecretType)(0),           // 0: meshpaas.SecretType
 	(TransportProtocol)(0),    // 1: meshpaas.TransportProtocol
@@ -2226,99 +2334,107 @@ var file_schema_proto_goTypes = []interface{}{
 	(*Authn)(nil),             // 4: meshpaas.Authn
 	(*SecretInput)(nil),       // 5: meshpaas.SecretInput
 	(*Secret)(nil),            // 6: meshpaas.Secret
-	(*ServerTLSSettings)(nil), // 7: meshpaas.ServerTLSSettings
-	(*GatewayListener)(nil),   // 8: meshpaas.GatewayListener
-	(*Gateway)(nil),           // 9: meshpaas.Gateway
-	(*GatewayInput)(nil),      // 10: meshpaas.GatewayInput
-	(*HTTPRoute)(nil),         // 11: meshpaas.HTTPRoute
-	(*Routing)(nil),           // 12: meshpaas.Routing
-	(*Container)(nil),         // 13: meshpaas.Container
-	(*App)(nil),               // 14: meshpaas.App
-	(*Task)(nil),              // 15: meshpaas.Task
-	(*TaskInput)(nil),         // 16: meshpaas.TaskInput
-	(*ContainerPort)(nil),     // 17: meshpaas.ContainerPort
-	(*AppInput)(nil),          // 18: meshpaas.AppInput
-	(*Ref)(nil),               // 19: meshpaas.Ref
-	(*Replica)(nil),           // 20: meshpaas.Replica
-	(*AppStatus)(nil),         // 21: meshpaas.AppStatus
-	(*Log)(nil),               // 22: meshpaas.Log
-	(*Apps)(nil),              // 23: meshpaas.Apps
-	(*Tasks)(nil),             // 24: meshpaas.Tasks
-	(*LogOpts)(nil),           // 25: meshpaas.LogOpts
-	nil,                       // 26: meshpaas.SecretInput.DataEntry
-	nil,                       // 27: meshpaas.Secret.DataEntry
-	nil,                       // 28: meshpaas.Container.EnvEntry
-	(*empty.Empty)(nil),       // 29: google.protobuf.Empty
+	(*Secrets)(nil),           // 7: meshpaas.Secrets
+	(*ServerTLSSettings)(nil), // 8: meshpaas.ServerTLSSettings
+	(*GatewayListener)(nil),   // 9: meshpaas.GatewayListener
+	(*Gateway)(nil),           // 10: meshpaas.Gateway
+	(*Gateways)(nil),          // 11: meshpaas.Gateways
+	(*GatewayInput)(nil),      // 12: meshpaas.GatewayInput
+	(*HTTPRoute)(nil),         // 13: meshpaas.HTTPRoute
+	(*Routing)(nil),           // 14: meshpaas.Routing
+	(*Container)(nil),         // 15: meshpaas.Container
+	(*API)(nil),               // 16: meshpaas.API
+	(*Task)(nil),              // 17: meshpaas.Task
+	(*TaskInput)(nil),         // 18: meshpaas.TaskInput
+	(*ContainerPort)(nil),     // 19: meshpaas.ContainerPort
+	(*APIInput)(nil),          // 20: meshpaas.APIInput
+	(*Ref)(nil),               // 21: meshpaas.Ref
+	(*Replica)(nil),           // 22: meshpaas.Replica
+	(*APIStatus)(nil),         // 23: meshpaas.APIStatus
+	(*Log)(nil),               // 24: meshpaas.Log
+	(*APIs)(nil),              // 25: meshpaas.APIs
+	(*Tasks)(nil),             // 26: meshpaas.Tasks
+	(*LogOpts)(nil),           // 27: meshpaas.LogOpts
+	nil,                       // 28: meshpaas.SecretInput.DataEntry
+	nil,                       // 29: meshpaas.Secret.DataEntry
+	nil,                       // 30: meshpaas.Container.EnvEntry
+	(*empty.Empty)(nil),       // 31: google.protobuf.Empty
 }
 var file_schema_proto_depIdxs = []int32{
 	3,  // 0: meshpaas.Authn.rules:type_name -> meshpaas.AuthnRule
 	0,  // 1: meshpaas.SecretInput.type:type_name -> meshpaas.SecretType
-	26, // 2: meshpaas.SecretInput.data:type_name -> meshpaas.SecretInput.DataEntry
+	28, // 2: meshpaas.SecretInput.data:type_name -> meshpaas.SecretInput.DataEntry
 	0,  // 3: meshpaas.Secret.type:type_name -> meshpaas.SecretType
-	27, // 4: meshpaas.Secret.data:type_name -> meshpaas.Secret.DataEntry
-	2,  // 5: meshpaas.ServerTLSSettings.mode:type_name -> meshpaas.TLSmode
-	1,  // 6: meshpaas.GatewayListener.protocol:type_name -> meshpaas.TransportProtocol
-	7,  // 7: meshpaas.GatewayListener.tls_config:type_name -> meshpaas.ServerTLSSettings
-	8,  // 8: meshpaas.Gateway.listeners:type_name -> meshpaas.GatewayListener
-	8,  // 9: meshpaas.GatewayInput.listeners:type_name -> meshpaas.GatewayListener
-	11, // 10: meshpaas.Routing.http_routes:type_name -> meshpaas.HTTPRoute
-	28, // 11: meshpaas.Container.env:type_name -> meshpaas.Container.EnvEntry
-	17, // 12: meshpaas.Container.ports:type_name -> meshpaas.ContainerPort
-	13, // 13: meshpaas.App.containers:type_name -> meshpaas.Container
-	12, // 14: meshpaas.App.routing:type_name -> meshpaas.Routing
-	4,  // 15: meshpaas.App.authentication:type_name -> meshpaas.Authn
-	21, // 16: meshpaas.App.status:type_name -> meshpaas.AppStatus
-	13, // 17: meshpaas.Task.containers:type_name -> meshpaas.Container
-	13, // 18: meshpaas.TaskInput.containers:type_name -> meshpaas.Container
-	13, // 19: meshpaas.AppInput.containers:type_name -> meshpaas.Container
-	12, // 20: meshpaas.AppInput.routing:type_name -> meshpaas.Routing
-	4,  // 21: meshpaas.AppInput.authentication:type_name -> meshpaas.Authn
-	20, // 22: meshpaas.AppStatus.replicas:type_name -> meshpaas.Replica
-	14, // 23: meshpaas.Apps.applications:type_name -> meshpaas.App
-	15, // 24: meshpaas.Tasks.tasks:type_name -> meshpaas.Task
-	18, // 25: meshpaas.MeshPaasService.CreateApp:input_type -> meshpaas.AppInput
-	18, // 26: meshpaas.MeshPaasService.UpdateApp:input_type -> meshpaas.AppInput
-	19, // 27: meshpaas.MeshPaasService.DeleteApp:input_type -> meshpaas.Ref
-	19, // 28: meshpaas.MeshPaasService.GetApp:input_type -> meshpaas.Ref
-	29, // 29: meshpaas.MeshPaasService.ListApps:input_type -> google.protobuf.Empty
-	16, // 30: meshpaas.MeshPaasService.CreateTask:input_type -> meshpaas.TaskInput
-	16, // 31: meshpaas.MeshPaasService.UpdateTask:input_type -> meshpaas.TaskInput
-	19, // 32: meshpaas.MeshPaasService.DeleteTask:input_type -> meshpaas.Ref
-	19, // 33: meshpaas.MeshPaasService.GetTask:input_type -> meshpaas.Ref
-	29, // 34: meshpaas.MeshPaasService.ListTasks:input_type -> google.protobuf.Empty
-	10, // 35: meshpaas.MeshPaasService.CreateGateway:input_type -> meshpaas.GatewayInput
-	10, // 36: meshpaas.MeshPaasService.UpdateGateway:input_type -> meshpaas.GatewayInput
-	19, // 37: meshpaas.MeshPaasService.DeleteGateway:input_type -> meshpaas.Ref
-	19, // 38: meshpaas.MeshPaasService.GetGateway:input_type -> meshpaas.Ref
-	5,  // 39: meshpaas.MeshPaasService.CreateSecret:input_type -> meshpaas.SecretInput
-	5,  // 40: meshpaas.MeshPaasService.UpdateSecret:input_type -> meshpaas.SecretInput
-	19, // 41: meshpaas.MeshPaasService.DeleteSecret:input_type -> meshpaas.Ref
-	19, // 42: meshpaas.MeshPaasService.GetSecret:input_type -> meshpaas.Ref
-	25, // 43: meshpaas.MeshPaasService.StreamLogs:input_type -> meshpaas.LogOpts
-	14, // 44: meshpaas.MeshPaasService.CreateApp:output_type -> meshpaas.App
-	14, // 45: meshpaas.MeshPaasService.UpdateApp:output_type -> meshpaas.App
-	29, // 46: meshpaas.MeshPaasService.DeleteApp:output_type -> google.protobuf.Empty
-	14, // 47: meshpaas.MeshPaasService.GetApp:output_type -> meshpaas.App
-	23, // 48: meshpaas.MeshPaasService.ListApps:output_type -> meshpaas.Apps
-	15, // 49: meshpaas.MeshPaasService.CreateTask:output_type -> meshpaas.Task
-	15, // 50: meshpaas.MeshPaasService.UpdateTask:output_type -> meshpaas.Task
-	29, // 51: meshpaas.MeshPaasService.DeleteTask:output_type -> google.protobuf.Empty
-	15, // 52: meshpaas.MeshPaasService.GetTask:output_type -> meshpaas.Task
-	24, // 53: meshpaas.MeshPaasService.ListTasks:output_type -> meshpaas.Tasks
-	9,  // 54: meshpaas.MeshPaasService.CreateGateway:output_type -> meshpaas.Gateway
-	9,  // 55: meshpaas.MeshPaasService.UpdateGateway:output_type -> meshpaas.Gateway
-	29, // 56: meshpaas.MeshPaasService.DeleteGateway:output_type -> google.protobuf.Empty
-	9,  // 57: meshpaas.MeshPaasService.GetGateway:output_type -> meshpaas.Gateway
-	6,  // 58: meshpaas.MeshPaasService.CreateSecret:output_type -> meshpaas.Secret
-	6,  // 59: meshpaas.MeshPaasService.UpdateSecret:output_type -> meshpaas.Secret
-	29, // 60: meshpaas.MeshPaasService.DeleteSecret:output_type -> google.protobuf.Empty
-	6,  // 61: meshpaas.MeshPaasService.GetSecret:output_type -> meshpaas.Secret
-	22, // 62: meshpaas.MeshPaasService.StreamLogs:output_type -> meshpaas.Log
-	44, // [44:63] is the sub-list for method output_type
-	25, // [25:44] is the sub-list for method input_type
-	25, // [25:25] is the sub-list for extension type_name
-	25, // [25:25] is the sub-list for extension extendee
-	0,  // [0:25] is the sub-list for field type_name
+	29, // 4: meshpaas.Secret.data:type_name -> meshpaas.Secret.DataEntry
+	6,  // 5: meshpaas.Secrets.secrets:type_name -> meshpaas.Secret
+	2,  // 6: meshpaas.ServerTLSSettings.mode:type_name -> meshpaas.TLSmode
+	1,  // 7: meshpaas.GatewayListener.protocol:type_name -> meshpaas.TransportProtocol
+	8,  // 8: meshpaas.GatewayListener.tls_config:type_name -> meshpaas.ServerTLSSettings
+	9,  // 9: meshpaas.Gateway.listeners:type_name -> meshpaas.GatewayListener
+	10, // 10: meshpaas.Gateways.gatways:type_name -> meshpaas.Gateway
+	9,  // 11: meshpaas.GatewayInput.listeners:type_name -> meshpaas.GatewayListener
+	13, // 12: meshpaas.Routing.http_routes:type_name -> meshpaas.HTTPRoute
+	30, // 13: meshpaas.Container.env:type_name -> meshpaas.Container.EnvEntry
+	19, // 14: meshpaas.Container.ports:type_name -> meshpaas.ContainerPort
+	15, // 15: meshpaas.API.containers:type_name -> meshpaas.Container
+	14, // 16: meshpaas.API.routing:type_name -> meshpaas.Routing
+	4,  // 17: meshpaas.API.authentication:type_name -> meshpaas.Authn
+	23, // 18: meshpaas.API.status:type_name -> meshpaas.APIStatus
+	15, // 19: meshpaas.Task.containers:type_name -> meshpaas.Container
+	15, // 20: meshpaas.TaskInput.containers:type_name -> meshpaas.Container
+	15, // 21: meshpaas.APIInput.containers:type_name -> meshpaas.Container
+	14, // 22: meshpaas.APIInput.routing:type_name -> meshpaas.Routing
+	4,  // 23: meshpaas.APIInput.authentication:type_name -> meshpaas.Authn
+	22, // 24: meshpaas.APIStatus.replicas:type_name -> meshpaas.Replica
+	16, // 25: meshpaas.APIs.apis:type_name -> meshpaas.API
+	17, // 26: meshpaas.Tasks.tasks:type_name -> meshpaas.Task
+	20, // 27: meshpaas.MeshPaasService.CreateAPI:input_type -> meshpaas.APIInput
+	20, // 28: meshpaas.MeshPaasService.UpdateAPI:input_type -> meshpaas.APIInput
+	21, // 29: meshpaas.MeshPaasService.DeleteAPI:input_type -> meshpaas.Ref
+	21, // 30: meshpaas.MeshPaasService.GetAPI:input_type -> meshpaas.Ref
+	31, // 31: meshpaas.MeshPaasService.ListAPIs:input_type -> google.protobuf.Empty
+	18, // 32: meshpaas.MeshPaasService.CreateTask:input_type -> meshpaas.TaskInput
+	18, // 33: meshpaas.MeshPaasService.UpdateTask:input_type -> meshpaas.TaskInput
+	21, // 34: meshpaas.MeshPaasService.DeleteTask:input_type -> meshpaas.Ref
+	21, // 35: meshpaas.MeshPaasService.GetTask:input_type -> meshpaas.Ref
+	31, // 36: meshpaas.MeshPaasService.ListTasks:input_type -> google.protobuf.Empty
+	12, // 37: meshpaas.MeshPaasService.CreateGateway:input_type -> meshpaas.GatewayInput
+	12, // 38: meshpaas.MeshPaasService.UpdateGateway:input_type -> meshpaas.GatewayInput
+	21, // 39: meshpaas.MeshPaasService.DeleteGateway:input_type -> meshpaas.Ref
+	21, // 40: meshpaas.MeshPaasService.GetGateway:input_type -> meshpaas.Ref
+	31, // 41: meshpaas.MeshPaasService.ListGateways:input_type -> google.protobuf.Empty
+	5,  // 42: meshpaas.MeshPaasService.CreateSecret:input_type -> meshpaas.SecretInput
+	5,  // 43: meshpaas.MeshPaasService.UpdateSecret:input_type -> meshpaas.SecretInput
+	21, // 44: meshpaas.MeshPaasService.DeleteSecret:input_type -> meshpaas.Ref
+	21, // 45: meshpaas.MeshPaasService.GetSecret:input_type -> meshpaas.Ref
+	31, // 46: meshpaas.MeshPaasService.ListSecrets:input_type -> google.protobuf.Empty
+	27, // 47: meshpaas.MeshPaasService.StreamLogs:input_type -> meshpaas.LogOpts
+	16, // 48: meshpaas.MeshPaasService.CreateAPI:output_type -> meshpaas.API
+	16, // 49: meshpaas.MeshPaasService.UpdateAPI:output_type -> meshpaas.API
+	31, // 50: meshpaas.MeshPaasService.DeleteAPI:output_type -> google.protobuf.Empty
+	16, // 51: meshpaas.MeshPaasService.GetAPI:output_type -> meshpaas.API
+	25, // 52: meshpaas.MeshPaasService.ListAPIs:output_type -> meshpaas.APIs
+	17, // 53: meshpaas.MeshPaasService.CreateTask:output_type -> meshpaas.Task
+	17, // 54: meshpaas.MeshPaasService.UpdateTask:output_type -> meshpaas.Task
+	31, // 55: meshpaas.MeshPaasService.DeleteTask:output_type -> google.protobuf.Empty
+	17, // 56: meshpaas.MeshPaasService.GetTask:output_type -> meshpaas.Task
+	26, // 57: meshpaas.MeshPaasService.ListTasks:output_type -> meshpaas.Tasks
+	10, // 58: meshpaas.MeshPaasService.CreateGateway:output_type -> meshpaas.Gateway
+	10, // 59: meshpaas.MeshPaasService.UpdateGateway:output_type -> meshpaas.Gateway
+	31, // 60: meshpaas.MeshPaasService.DeleteGateway:output_type -> google.protobuf.Empty
+	10, // 61: meshpaas.MeshPaasService.GetGateway:output_type -> meshpaas.Gateway
+	11, // 62: meshpaas.MeshPaasService.ListGateways:output_type -> meshpaas.Gateways
+	6,  // 63: meshpaas.MeshPaasService.CreateSecret:output_type -> meshpaas.Secret
+	6,  // 64: meshpaas.MeshPaasService.UpdateSecret:output_type -> meshpaas.Secret
+	31, // 65: meshpaas.MeshPaasService.DeleteSecret:output_type -> google.protobuf.Empty
+	6,  // 66: meshpaas.MeshPaasService.GetSecret:output_type -> meshpaas.Secret
+	7,  // 67: meshpaas.MeshPaasService.ListSecrets:output_type -> meshpaas.Secrets
+	24, // 68: meshpaas.MeshPaasService.StreamLogs:output_type -> meshpaas.Log
+	48, // [48:69] is the sub-list for method output_type
+	27, // [27:48] is the sub-list for method input_type
+	27, // [27:27] is the sub-list for extension type_name
+	27, // [27:27] is the sub-list for extension extendee
+	0,  // [0:27] is the sub-list for field type_name
 }
 
 func init() { file_schema_proto_init() }
@@ -2376,7 +2492,7 @@ func file_schema_proto_init() {
 			}
 		}
 		file_schema_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ServerTLSSettings); i {
+			switch v := v.(*Secrets); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2388,7 +2504,7 @@ func file_schema_proto_init() {
 			}
 		}
 		file_schema_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GatewayListener); i {
+			switch v := v.(*ServerTLSSettings); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2400,7 +2516,7 @@ func file_schema_proto_init() {
 			}
 		}
 		file_schema_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Gateway); i {
+			switch v := v.(*GatewayListener); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2412,7 +2528,7 @@ func file_schema_proto_init() {
 			}
 		}
 		file_schema_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GatewayInput); i {
+			switch v := v.(*Gateway); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2424,7 +2540,7 @@ func file_schema_proto_init() {
 			}
 		}
 		file_schema_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*HTTPRoute); i {
+			switch v := v.(*Gateways); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2436,7 +2552,7 @@ func file_schema_proto_init() {
 			}
 		}
 		file_schema_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Routing); i {
+			switch v := v.(*GatewayInput); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2448,7 +2564,7 @@ func file_schema_proto_init() {
 			}
 		}
 		file_schema_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Container); i {
+			switch v := v.(*HTTPRoute); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2460,7 +2576,7 @@ func file_schema_proto_init() {
 			}
 		}
 		file_schema_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*App); i {
+			switch v := v.(*Routing); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2472,7 +2588,7 @@ func file_schema_proto_init() {
 			}
 		}
 		file_schema_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Task); i {
+			switch v := v.(*Container); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2484,7 +2600,7 @@ func file_schema_proto_init() {
 			}
 		}
 		file_schema_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*TaskInput); i {
+			switch v := v.(*API); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2496,7 +2612,7 @@ func file_schema_proto_init() {
 			}
 		}
 		file_schema_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ContainerPort); i {
+			switch v := v.(*Task); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2508,7 +2624,7 @@ func file_schema_proto_init() {
 			}
 		}
 		file_schema_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AppInput); i {
+			switch v := v.(*TaskInput); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2520,7 +2636,7 @@ func file_schema_proto_init() {
 			}
 		}
 		file_schema_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Ref); i {
+			switch v := v.(*ContainerPort); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2532,7 +2648,7 @@ func file_schema_proto_init() {
 			}
 		}
 		file_schema_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Replica); i {
+			switch v := v.(*APIInput); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2544,7 +2660,7 @@ func file_schema_proto_init() {
 			}
 		}
 		file_schema_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AppStatus); i {
+			switch v := v.(*Ref); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2556,7 +2672,7 @@ func file_schema_proto_init() {
 			}
 		}
 		file_schema_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Log); i {
+			switch v := v.(*Replica); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2568,7 +2684,7 @@ func file_schema_proto_init() {
 			}
 		}
 		file_schema_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Apps); i {
+			switch v := v.(*APIStatus); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2580,7 +2696,7 @@ func file_schema_proto_init() {
 			}
 		}
 		file_schema_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Tasks); i {
+			switch v := v.(*Log); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2592,6 +2708,30 @@ func file_schema_proto_init() {
 			}
 		}
 		file_schema_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*APIs); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_schema_proto_msgTypes[23].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*Tasks); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_schema_proto_msgTypes[24].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*LogOpts); i {
 			case 0:
 				return &v.state
@@ -2610,7 +2750,7 @@ func file_schema_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_schema_proto_rawDesc,
 			NumEnums:      3,
-			NumMessages:   26,
+			NumMessages:   28,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -2637,34 +2777,36 @@ const _ = grpc.SupportPackageIsVersion6
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type MeshPaasServiceClient interface {
-	// CreateApp creates a new stateless application(k8s deployment, istio virtual service, request authenticator, & authorization policy)
-	CreateApp(ctx context.Context, in *AppInput, opts ...grpc.CallOption) (*App, error)
-	// UpdateApp replaces an existing stateless application(k8s deployment, istio virtual service, request authenticator, & authorization policy)
-	UpdateApp(ctx context.Context, in *AppInput, opts ...grpc.CallOption) (*App, error)
-	// DeleteApp deletes a single stateless application(k8s deployment, istio virtual service, request authenticator, & authorization policy)
-	DeleteApp(ctx context.Context, in *Ref, opts ...grpc.CallOption) (*empty.Empty, error)
-	// GetApp gets an app by name
-	GetApp(ctx context.Context, in *Ref, opts ...grpc.CallOption) (*App, error)
-	// ListApps lists all apps
-	ListApps(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*Apps, error)
-	// CreateTask creates a new task(k8s cron job)
+	// CreateAPI creates a new api(k8s deployment, k8s service, istio virtual service, request authenticator, & authorization policy) in the user's authorized namespace(jwt.claims.${namespace-claim})
+	CreateAPI(ctx context.Context, in *APIInput, opts ...grpc.CallOption) (*API, error)
+	// UpdateAPI replaces an existing api(k8s deployment, k8s service, istio virtual service, request authenticator, & authorization policy) in the user's authorized namespace(jwt.claims.${namespace-claim})
+	UpdateAPI(ctx context.Context, in *APIInput, opts ...grpc.CallOption) (*API, error)
+	// DeleteAPI deletes a single api(k8s deployment, k8s service, istio virtual service, request authenticator, & authorization policy) in the user's authorized namespace(jwt.claims.${namespace-claim})
+	DeleteAPI(ctx context.Context, in *Ref, opts ...grpc.CallOption) (*empty.Empty, error)
+	// GetAPI gets an api by name in the user's authorized namespace(jwt.claims.${namespace-claim})
+	GetAPI(ctx context.Context, in *Ref, opts ...grpc.CallOption) (*API, error)
+	// ListAPIs lists all apis in the user's authorized namespace(jwt.claims.${namespace-claim})
+	ListAPIs(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*APIs, error)
+	// CreateTask creates a new task(k8s cron job) in the user's authorized namespace(jwt.claims.${namespace-claim})
 	CreateTask(ctx context.Context, in *TaskInput, opts ...grpc.CallOption) (*Task, error)
-	// UpdateTask replaces an existing task(k8s cron job)
+	// UpdateTask replaces an existing task(k8s cron job) in the user's authorized namespace(jwt.claims.${namespace-claim})
 	UpdateTask(ctx context.Context, in *TaskInput, opts ...grpc.CallOption) (*Task, error)
-	// DeleteTask deletes a single task(k8s cron job)
+	// DeleteTask deletes a single task(k8s cron job) in the user's authorized namespace(jwt.claims.${namespace-claim})
 	DeleteTask(ctx context.Context, in *Ref, opts ...grpc.CallOption) (*empty.Empty, error)
-	// GetTask gets a task(k8s cron job) by name
+	// GetTask gets a task(k8s cron job) by name in the user's authorized namespace(jwt.claims.${namespace-claim})
 	GetTask(ctx context.Context, in *Ref, opts ...grpc.CallOption) (*Task, error)
-	// ListTasks lists all tasks(k8s cron jobs)
+	// ListTasks lists all tasks(k8s cron jobs) in the user's authorized namespace(jwt.claims.${namespace-claim})
 	ListTasks(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*Tasks, error)
-	// CreateGateway creates a new gateway(istio gateway)
+	// CreateGateway creates a new gateway(istio gateway) in the user's authorized namespace(jwt.claims.${namespace-claim})
 	CreateGateway(ctx context.Context, in *GatewayInput, opts ...grpc.CallOption) (*Gateway, error)
-	// UpdateGateway replaces an existing gateway(istio gateway)
+	// UpdateGateway replaces an existing gateway(istio gateway) in the user's authorized namespace(jwt.claims.${namespace-claim})
 	UpdateGateway(ctx context.Context, in *GatewayInput, opts ...grpc.CallOption) (*Gateway, error)
-	// DeleteGateway deletes a single gateway(istio gateway)
+	// DeleteGateway deletes a single gateway(istio gateway) in the user's authorized namespace(jwt.claims.${namespace-claim})
 	DeleteGateway(ctx context.Context, in *Ref, opts ...grpc.CallOption) (*empty.Empty, error)
-	// GetGateway gets a gateway(istio gateway) by name
+	// GetGateway gets a gateway(istio gateway) by name in the user's authorized namespace(jwt.claims.${namespace-claim})
 	GetGateway(ctx context.Context, in *Ref, opts ...grpc.CallOption) (*Gateway, error)
+	// ListGateways lists all gateways(istio gateways) in the user's authorized namespace(jwt.claims.${namespace-claim})
+	ListGateways(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*Gateways, error)
 	// CreateSecret creates a new secret(k8s secret)
 	CreateSecret(ctx context.Context, in *SecretInput, opts ...grpc.CallOption) (*Secret, error)
 	// UpdateSecret replaces an existing secret(k8s secret)
@@ -2673,7 +2815,9 @@ type MeshPaasServiceClient interface {
 	DeleteSecret(ctx context.Context, in *Ref, opts ...grpc.CallOption) (*empty.Empty, error)
 	// GetSecret gets a secret(k8s secret) by name
 	GetSecret(ctx context.Context, in *Ref, opts ...grpc.CallOption) (*Secret, error)
-	// StreamLogs streams logs from an app/task.
+	// ListSecrets lists all secrets(k8s secret) in the user's authorized namespace(jwt.claims.${namespace-claim})
+	ListSecrets(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*Secrets, error)
+	// StreamLogs streams logs from an api/task.
 	// Streams are opened to all replicas & converted into a single stream
 	StreamLogs(ctx context.Context, in *LogOpts, opts ...grpc.CallOption) (MeshPaasService_StreamLogsClient, error)
 }
@@ -2686,45 +2830,45 @@ func NewMeshPaasServiceClient(cc grpc.ClientConnInterface) MeshPaasServiceClient
 	return &meshPaasServiceClient{cc}
 }
 
-func (c *meshPaasServiceClient) CreateApp(ctx context.Context, in *AppInput, opts ...grpc.CallOption) (*App, error) {
-	out := new(App)
-	err := c.cc.Invoke(ctx, "/meshpaas.MeshPaasService/CreateApp", in, out, opts...)
+func (c *meshPaasServiceClient) CreateAPI(ctx context.Context, in *APIInput, opts ...grpc.CallOption) (*API, error) {
+	out := new(API)
+	err := c.cc.Invoke(ctx, "/meshpaas.MeshPaasService/CreateAPI", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *meshPaasServiceClient) UpdateApp(ctx context.Context, in *AppInput, opts ...grpc.CallOption) (*App, error) {
-	out := new(App)
-	err := c.cc.Invoke(ctx, "/meshpaas.MeshPaasService/UpdateApp", in, out, opts...)
+func (c *meshPaasServiceClient) UpdateAPI(ctx context.Context, in *APIInput, opts ...grpc.CallOption) (*API, error) {
+	out := new(API)
+	err := c.cc.Invoke(ctx, "/meshpaas.MeshPaasService/UpdateAPI", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *meshPaasServiceClient) DeleteApp(ctx context.Context, in *Ref, opts ...grpc.CallOption) (*empty.Empty, error) {
+func (c *meshPaasServiceClient) DeleteAPI(ctx context.Context, in *Ref, opts ...grpc.CallOption) (*empty.Empty, error) {
 	out := new(empty.Empty)
-	err := c.cc.Invoke(ctx, "/meshpaas.MeshPaasService/DeleteApp", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/meshpaas.MeshPaasService/DeleteAPI", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *meshPaasServiceClient) GetApp(ctx context.Context, in *Ref, opts ...grpc.CallOption) (*App, error) {
-	out := new(App)
-	err := c.cc.Invoke(ctx, "/meshpaas.MeshPaasService/GetApp", in, out, opts...)
+func (c *meshPaasServiceClient) GetAPI(ctx context.Context, in *Ref, opts ...grpc.CallOption) (*API, error) {
+	out := new(API)
+	err := c.cc.Invoke(ctx, "/meshpaas.MeshPaasService/GetAPI", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *meshPaasServiceClient) ListApps(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*Apps, error) {
-	out := new(Apps)
-	err := c.cc.Invoke(ctx, "/meshpaas.MeshPaasService/ListApps", in, out, opts...)
+func (c *meshPaasServiceClient) ListAPIs(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*APIs, error) {
+	out := new(APIs)
+	err := c.cc.Invoke(ctx, "/meshpaas.MeshPaasService/ListAPIs", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -2812,6 +2956,15 @@ func (c *meshPaasServiceClient) GetGateway(ctx context.Context, in *Ref, opts ..
 	return out, nil
 }
 
+func (c *meshPaasServiceClient) ListGateways(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*Gateways, error) {
+	out := new(Gateways)
+	err := c.cc.Invoke(ctx, "/meshpaas.MeshPaasService/ListGateways", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *meshPaasServiceClient) CreateSecret(ctx context.Context, in *SecretInput, opts ...grpc.CallOption) (*Secret, error) {
 	out := new(Secret)
 	err := c.cc.Invoke(ctx, "/meshpaas.MeshPaasService/CreateSecret", in, out, opts...)
@@ -2842,6 +2995,15 @@ func (c *meshPaasServiceClient) DeleteSecret(ctx context.Context, in *Ref, opts 
 func (c *meshPaasServiceClient) GetSecret(ctx context.Context, in *Ref, opts ...grpc.CallOption) (*Secret, error) {
 	out := new(Secret)
 	err := c.cc.Invoke(ctx, "/meshpaas.MeshPaasService/GetSecret", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *meshPaasServiceClient) ListSecrets(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*Secrets, error) {
+	out := new(Secrets)
+	err := c.cc.Invoke(ctx, "/meshpaas.MeshPaasService/ListSecrets", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -2882,34 +3044,36 @@ func (x *meshPaasServiceStreamLogsClient) Recv() (*Log, error) {
 
 // MeshPaasServiceServer is the server API for MeshPaasService service.
 type MeshPaasServiceServer interface {
-	// CreateApp creates a new stateless application(k8s deployment, istio virtual service, request authenticator, & authorization policy)
-	CreateApp(context.Context, *AppInput) (*App, error)
-	// UpdateApp replaces an existing stateless application(k8s deployment, istio virtual service, request authenticator, & authorization policy)
-	UpdateApp(context.Context, *AppInput) (*App, error)
-	// DeleteApp deletes a single stateless application(k8s deployment, istio virtual service, request authenticator, & authorization policy)
-	DeleteApp(context.Context, *Ref) (*empty.Empty, error)
-	// GetApp gets an app by name
-	GetApp(context.Context, *Ref) (*App, error)
-	// ListApps lists all apps
-	ListApps(context.Context, *empty.Empty) (*Apps, error)
-	// CreateTask creates a new task(k8s cron job)
+	// CreateAPI creates a new api(k8s deployment, k8s service, istio virtual service, request authenticator, & authorization policy) in the user's authorized namespace(jwt.claims.${namespace-claim})
+	CreateAPI(context.Context, *APIInput) (*API, error)
+	// UpdateAPI replaces an existing api(k8s deployment, k8s service, istio virtual service, request authenticator, & authorization policy) in the user's authorized namespace(jwt.claims.${namespace-claim})
+	UpdateAPI(context.Context, *APIInput) (*API, error)
+	// DeleteAPI deletes a single api(k8s deployment, k8s service, istio virtual service, request authenticator, & authorization policy) in the user's authorized namespace(jwt.claims.${namespace-claim})
+	DeleteAPI(context.Context, *Ref) (*empty.Empty, error)
+	// GetAPI gets an api by name in the user's authorized namespace(jwt.claims.${namespace-claim})
+	GetAPI(context.Context, *Ref) (*API, error)
+	// ListAPIs lists all apis in the user's authorized namespace(jwt.claims.${namespace-claim})
+	ListAPIs(context.Context, *empty.Empty) (*APIs, error)
+	// CreateTask creates a new task(k8s cron job) in the user's authorized namespace(jwt.claims.${namespace-claim})
 	CreateTask(context.Context, *TaskInput) (*Task, error)
-	// UpdateTask replaces an existing task(k8s cron job)
+	// UpdateTask replaces an existing task(k8s cron job) in the user's authorized namespace(jwt.claims.${namespace-claim})
 	UpdateTask(context.Context, *TaskInput) (*Task, error)
-	// DeleteTask deletes a single task(k8s cron job)
+	// DeleteTask deletes a single task(k8s cron job) in the user's authorized namespace(jwt.claims.${namespace-claim})
 	DeleteTask(context.Context, *Ref) (*empty.Empty, error)
-	// GetTask gets a task(k8s cron job) by name
+	// GetTask gets a task(k8s cron job) by name in the user's authorized namespace(jwt.claims.${namespace-claim})
 	GetTask(context.Context, *Ref) (*Task, error)
-	// ListTasks lists all tasks(k8s cron jobs)
+	// ListTasks lists all tasks(k8s cron jobs) in the user's authorized namespace(jwt.claims.${namespace-claim})
 	ListTasks(context.Context, *empty.Empty) (*Tasks, error)
-	// CreateGateway creates a new gateway(istio gateway)
+	// CreateGateway creates a new gateway(istio gateway) in the user's authorized namespace(jwt.claims.${namespace-claim})
 	CreateGateway(context.Context, *GatewayInput) (*Gateway, error)
-	// UpdateGateway replaces an existing gateway(istio gateway)
+	// UpdateGateway replaces an existing gateway(istio gateway) in the user's authorized namespace(jwt.claims.${namespace-claim})
 	UpdateGateway(context.Context, *GatewayInput) (*Gateway, error)
-	// DeleteGateway deletes a single gateway(istio gateway)
+	// DeleteGateway deletes a single gateway(istio gateway) in the user's authorized namespace(jwt.claims.${namespace-claim})
 	DeleteGateway(context.Context, *Ref) (*empty.Empty, error)
-	// GetGateway gets a gateway(istio gateway) by name
+	// GetGateway gets a gateway(istio gateway) by name in the user's authorized namespace(jwt.claims.${namespace-claim})
 	GetGateway(context.Context, *Ref) (*Gateway, error)
+	// ListGateways lists all gateways(istio gateways) in the user's authorized namespace(jwt.claims.${namespace-claim})
+	ListGateways(context.Context, *empty.Empty) (*Gateways, error)
 	// CreateSecret creates a new secret(k8s secret)
 	CreateSecret(context.Context, *SecretInput) (*Secret, error)
 	// UpdateSecret replaces an existing secret(k8s secret)
@@ -2918,7 +3082,9 @@ type MeshPaasServiceServer interface {
 	DeleteSecret(context.Context, *Ref) (*empty.Empty, error)
 	// GetSecret gets a secret(k8s secret) by name
 	GetSecret(context.Context, *Ref) (*Secret, error)
-	// StreamLogs streams logs from an app/task.
+	// ListSecrets lists all secrets(k8s secret) in the user's authorized namespace(jwt.claims.${namespace-claim})
+	ListSecrets(context.Context, *empty.Empty) (*Secrets, error)
+	// StreamLogs streams logs from an api/task.
 	// Streams are opened to all replicas & converted into a single stream
 	StreamLogs(*LogOpts, MeshPaasService_StreamLogsServer) error
 }
@@ -2927,20 +3093,20 @@ type MeshPaasServiceServer interface {
 type UnimplementedMeshPaasServiceServer struct {
 }
 
-func (*UnimplementedMeshPaasServiceServer) CreateApp(context.Context, *AppInput) (*App, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateApp not implemented")
+func (*UnimplementedMeshPaasServiceServer) CreateAPI(context.Context, *APIInput) (*API, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateAPI not implemented")
 }
-func (*UnimplementedMeshPaasServiceServer) UpdateApp(context.Context, *AppInput) (*App, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateApp not implemented")
+func (*UnimplementedMeshPaasServiceServer) UpdateAPI(context.Context, *APIInput) (*API, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateAPI not implemented")
 }
-func (*UnimplementedMeshPaasServiceServer) DeleteApp(context.Context, *Ref) (*empty.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteApp not implemented")
+func (*UnimplementedMeshPaasServiceServer) DeleteAPI(context.Context, *Ref) (*empty.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteAPI not implemented")
 }
-func (*UnimplementedMeshPaasServiceServer) GetApp(context.Context, *Ref) (*App, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetApp not implemented")
+func (*UnimplementedMeshPaasServiceServer) GetAPI(context.Context, *Ref) (*API, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAPI not implemented")
 }
-func (*UnimplementedMeshPaasServiceServer) ListApps(context.Context, *empty.Empty) (*Apps, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ListApps not implemented")
+func (*UnimplementedMeshPaasServiceServer) ListAPIs(context.Context, *empty.Empty) (*APIs, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListAPIs not implemented")
 }
 func (*UnimplementedMeshPaasServiceServer) CreateTask(context.Context, *TaskInput) (*Task, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateTask not implemented")
@@ -2969,6 +3135,9 @@ func (*UnimplementedMeshPaasServiceServer) DeleteGateway(context.Context, *Ref) 
 func (*UnimplementedMeshPaasServiceServer) GetGateway(context.Context, *Ref) (*Gateway, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetGateway not implemented")
 }
+func (*UnimplementedMeshPaasServiceServer) ListGateways(context.Context, *empty.Empty) (*Gateways, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListGateways not implemented")
+}
 func (*UnimplementedMeshPaasServiceServer) CreateSecret(context.Context, *SecretInput) (*Secret, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateSecret not implemented")
 }
@@ -2981,6 +3150,9 @@ func (*UnimplementedMeshPaasServiceServer) DeleteSecret(context.Context, *Ref) (
 func (*UnimplementedMeshPaasServiceServer) GetSecret(context.Context, *Ref) (*Secret, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetSecret not implemented")
 }
+func (*UnimplementedMeshPaasServiceServer) ListSecrets(context.Context, *empty.Empty) (*Secrets, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListSecrets not implemented")
+}
 func (*UnimplementedMeshPaasServiceServer) StreamLogs(*LogOpts, MeshPaasService_StreamLogsServer) error {
 	return status.Errorf(codes.Unimplemented, "method StreamLogs not implemented")
 }
@@ -2989,92 +3161,92 @@ func RegisterMeshPaasServiceServer(s *grpc.Server, srv MeshPaasServiceServer) {
 	s.RegisterService(&_MeshPaasService_serviceDesc, srv)
 }
 
-func _MeshPaasService_CreateApp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AppInput)
+func _MeshPaasService_CreateAPI_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(APIInput)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MeshPaasServiceServer).CreateApp(ctx, in)
+		return srv.(MeshPaasServiceServer).CreateAPI(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/meshpaas.MeshPaasService/CreateApp",
+		FullMethod: "/meshpaas.MeshPaasService/CreateAPI",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MeshPaasServiceServer).CreateApp(ctx, req.(*AppInput))
+		return srv.(MeshPaasServiceServer).CreateAPI(ctx, req.(*APIInput))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _MeshPaasService_UpdateApp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AppInput)
+func _MeshPaasService_UpdateAPI_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(APIInput)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MeshPaasServiceServer).UpdateApp(ctx, in)
+		return srv.(MeshPaasServiceServer).UpdateAPI(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/meshpaas.MeshPaasService/UpdateApp",
+		FullMethod: "/meshpaas.MeshPaasService/UpdateAPI",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MeshPaasServiceServer).UpdateApp(ctx, req.(*AppInput))
+		return srv.(MeshPaasServiceServer).UpdateAPI(ctx, req.(*APIInput))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _MeshPaasService_DeleteApp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _MeshPaasService_DeleteAPI_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Ref)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MeshPaasServiceServer).DeleteApp(ctx, in)
+		return srv.(MeshPaasServiceServer).DeleteAPI(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/meshpaas.MeshPaasService/DeleteApp",
+		FullMethod: "/meshpaas.MeshPaasService/DeleteAPI",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MeshPaasServiceServer).DeleteApp(ctx, req.(*Ref))
+		return srv.(MeshPaasServiceServer).DeleteAPI(ctx, req.(*Ref))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _MeshPaasService_GetApp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _MeshPaasService_GetAPI_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Ref)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MeshPaasServiceServer).GetApp(ctx, in)
+		return srv.(MeshPaasServiceServer).GetAPI(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/meshpaas.MeshPaasService/GetApp",
+		FullMethod: "/meshpaas.MeshPaasService/GetAPI",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MeshPaasServiceServer).GetApp(ctx, req.(*Ref))
+		return srv.(MeshPaasServiceServer).GetAPI(ctx, req.(*Ref))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _MeshPaasService_ListApps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _MeshPaasService_ListAPIs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(empty.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MeshPaasServiceServer).ListApps(ctx, in)
+		return srv.(MeshPaasServiceServer).ListAPIs(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/meshpaas.MeshPaasService/ListApps",
+		FullMethod: "/meshpaas.MeshPaasService/ListAPIs",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MeshPaasServiceServer).ListApps(ctx, req.(*empty.Empty))
+		return srv.(MeshPaasServiceServer).ListAPIs(ctx, req.(*empty.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3241,6 +3413,24 @@ func _MeshPaasService_GetGateway_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
+func _MeshPaasService_ListGateways_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(empty.Empty)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MeshPaasServiceServer).ListGateways(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/meshpaas.MeshPaasService/ListGateways",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MeshPaasServiceServer).ListGateways(ctx, req.(*empty.Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _MeshPaasService_CreateSecret_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SecretInput)
 	if err := dec(in); err != nil {
@@ -3313,6 +3503,24 @@ func _MeshPaasService_GetSecret_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _MeshPaasService_ListSecrets_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(empty.Empty)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MeshPaasServiceServer).ListSecrets(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/meshpaas.MeshPaasService/ListSecrets",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MeshPaasServiceServer).ListSecrets(ctx, req.(*empty.Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _MeshPaasService_StreamLogs_Handler(srv interface{}, stream grpc.ServerStream) error {
 	m := new(LogOpts)
 	if err := stream.RecvMsg(m); err != nil {
@@ -3339,24 +3547,24 @@ var _MeshPaasService_serviceDesc = grpc.ServiceDesc{
 	HandlerType: (*MeshPaasServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "CreateApp",
-			Handler:    _MeshPaasService_CreateApp_Handler,
+			MethodName: "CreateAPI",
+			Handler:    _MeshPaasService_CreateAPI_Handler,
 		},
 		{
-			MethodName: "UpdateApp",
-			Handler:    _MeshPaasService_UpdateApp_Handler,
+			MethodName: "UpdateAPI",
+			Handler:    _MeshPaasService_UpdateAPI_Handler,
 		},
 		{
-			MethodName: "DeleteApp",
-			Handler:    _MeshPaasService_DeleteApp_Handler,
+			MethodName: "DeleteAPI",
+			Handler:    _MeshPaasService_DeleteAPI_Handler,
 		},
 		{
-			MethodName: "GetApp",
-			Handler:    _MeshPaasService_GetApp_Handler,
+			MethodName: "GetAPI",
+			Handler:    _MeshPaasService_GetAPI_Handler,
 		},
 		{
-			MethodName: "ListApps",
-			Handler:    _MeshPaasService_ListApps_Handler,
+			MethodName: "ListAPIs",
+			Handler:    _MeshPaasService_ListAPIs_Handler,
 		},
 		{
 			MethodName: "CreateTask",
@@ -3395,6 +3603,10 @@ var _MeshPaasService_serviceDesc = grpc.ServiceDesc{
 			Handler:    _MeshPaasService_GetGateway_Handler,
 		},
 		{
+			MethodName: "ListGateways",
+			Handler:    _MeshPaasService_ListGateways_Handler,
+		},
+		{
 			MethodName: "CreateSecret",
 			Handler:    _MeshPaasService_CreateSecret_Handler,
 		},
@@ -3409,6 +3621,10 @@ var _MeshPaasService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetSecret",
 			Handler:    _MeshPaasService_GetSecret_Handler,
+		},
+		{
+			MethodName: "ListSecrets",
+			Handler:    _MeshPaasService_ListSecrets_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{

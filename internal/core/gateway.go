@@ -88,3 +88,28 @@ func (m *Manager) GetGateway(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaa
 	kapp.gateway = gw
 	return kapp.toGateway(), nil
 }
+
+func (m *Manager) ListGateways(ctx context.Context) (*meshpaaspb.Gateways, error) {
+	usr, ok := auth.UserContext(ctx)
+	if !ok {
+		return nil, status.Error(codes.Unauthenticated, "failed to get logged in user")
+	}
+	var kgateways = &meshpaaspb.Gateways{}
+	ns, err := m.kclient.Namespaces().Get(ctx, cast.ToString(usr[m.namespaceClaim]), v1.GetOptions{})
+	if err != nil {
+		return nil, err
+	}
+	gws, err := m.iclient.Gateways(cast.ToString(usr[m.namespaceClaim])).List(ctx, v1.ListOptions{})
+	if err != nil {
+		return nil, err
+	}
+
+	for _, gw := range gws.Items {
+		gateway := &k8sGateway{
+			namespace: ns,
+			gateway:   &gw,
+		}
+		kgateways.Gatways = append(kgateways.Gatways, gateway.toGateway())
+	}
+	return kgateways, nil
+}

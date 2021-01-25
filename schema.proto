@@ -20,7 +20,7 @@ message AuthnRule {
   repeated string audience =3;
 }
 
-// Authn holds authentication options for an application
+// Authn holds authentication options for an api
 message Authn {
   repeated AuthnRule rules =1[(validator.field) = {repeated_count_min : 1}];
 }
@@ -52,6 +52,10 @@ message Secret {
   bool immutable =4;
   // k/v map of base64 encoded data
   map<string, string> data =5[(validator.field) = {msg_exists : true}];
+}
+
+message Secrets {
+  repeated Secret secrets =1;
 }
 
 enum TransportProtocol {
@@ -110,6 +114,10 @@ message Gateway {
   repeated GatewayListener listeners = 3;
 }
 
+message Gateways {
+  repeated Gateway gatways =1;
+}
+
 message GatewayInput {
   // name of the gateway
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
@@ -134,7 +142,7 @@ message HTTPRoute {
   bool allow_credentials =10;
 }
 
-// Routing describes service mesh routing options(gateway/host bindings, route rewrites, etc) for an Application
+// Routing describes service mesh routing options(gateway/host bindings, route rewrites, etc) for an APIlication
 message Routing {
   // gateway to bind to
   string gateway =1;
@@ -158,22 +166,22 @@ message Container {
   repeated ContainerPort ports =5;
 }
 
-// App is a stateless application
-message App {
-  // name of the application
+// API is a api
+message API {
+  // name of the api
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // containers are docker containers that run the application's business logic
+  // containers are docker containers that run the api's business logic
   repeated Container containers =3 [(validator.field) = {repeated_count_min : 1}];
   // number of deployment replicas
   uint32 replicas =8;
   // gateway/service-mesh routing
   Routing routing =11[(validator.field) = {msg_exists : true}];
-  // application authentication options
+  // api authentication options
   Authn authentication =12[(validator.field) = {msg_exists : true}];
   // image_pull_secret is the secret used to pull images from docker registry
   string image_pull_secret =14;
-  // status tracks the state of the application during it's lifecycle
-  AppStatus status =20[(validator.field) = {msg_exists : true}];
+  // status tracks the state of the api during it's lifecycle
+  APIStatus status =20[(validator.field) = {msg_exists : true}];
 }
 
 
@@ -214,17 +222,17 @@ message ContainerPort {
   bool expose =3;
 }
 
-// AppInput creates/replaces an app
-message AppInput {
-  // name of the application
+// APIInput creates/replaces an api
+message APIInput {
+  // name of the api
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // containers are docker containers that run the application's business logic
+  // containers are docker containers that run the api's business logic
   repeated Container containers =3 [(validator.field) = {repeated_count_min : 1}];
   // number of deployment replicas
   uint32 replicas =7;
   // routing - routing options
   Routing routing =10[(validator.field) = {msg_exists : true}];
-  // application authentication options
+  // api authentication options
   Authn authentication =12;
   // image_pull_secret is the secret used to pull images from docker registry
   string image_pull_secret =14;
@@ -236,15 +244,15 @@ message Ref {
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
 }
 
-// Replica tracks the state/status of an individual replica of an application
+// Replica tracks the state/status of an individual replica of an api
 message Replica {
   string phase =1;
   string condition =2;
   string reason =3;
 }
 
-// AppStatus tracks the status of an application
-message AppStatus {
+// APIStatus tracks the status of an api
+message APIStatus {
   repeated Replica replicas =1;
 }
 
@@ -252,17 +260,17 @@ message Log {
   string message =1;
 }
 
-message Apps {
-  repeated App applications =1;
+message APIs {
+  repeated API apis =1;
 }
 
 message Tasks {
   repeated Task tasks =1;
 }
 
-// LogOpts holds options for fetching logs from Tasks & Applications
+// LogOpts holds options for fetching logs from Tasks & APIlications
 message LogOpts {
-  // name is the name of the Application or Task
+  // name is the name of the APIlication or Task
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
   // container is the container to stream from
   string container =2[(validator.field) = {regex : "^.{1,225}$"}];
@@ -277,38 +285,41 @@ message LogOpts {
 }
 
 // MeshPaasService is a platform as a service backed by Istio service mesh
+// all requests are made in the context of the user's identity which is derived from the inbound jwt & verified with the configured jwks(json web keys) uri
 service MeshPaasService {
-  // CreateApp creates a new stateless application(k8s deployment, istio virtual service, request authenticator, & authorization policy)
-  rpc CreateApp(AppInput) returns(App){}
-  // UpdateApp replaces an existing stateless application(k8s deployment, istio virtual service, request authenticator, & authorization policy)
-  rpc UpdateApp(AppInput) returns(App){}
-  // DeleteApp deletes a single stateless application(k8s deployment, istio virtual service, request authenticator, & authorization policy)
-  rpc DeleteApp(Ref) returns(google.protobuf.Empty){}
-  // GetApp gets an app by name
-  rpc GetApp(Ref) returns(App){}
-  // ListApps lists all apps
-  rpc ListApps(google.protobuf.Empty) returns(Apps){}
+  // CreateAPI creates a new api(k8s deployment, k8s service, istio virtual service, request authenticator, & authorization policy) in the user's authorized namespace(jwt.claims.${namespace-claim})
+  rpc CreateAPI(APIInput) returns(API){}
+  // UpdateAPI replaces an existing api(k8s deployment, k8s service, istio virtual service, request authenticator, & authorization policy) in the user's authorized namespace(jwt.claims.${namespace-claim})
+  rpc UpdateAPI(APIInput) returns(API){}
+  // DeleteAPI deletes a single api(k8s deployment, k8s service, istio virtual service, request authenticator, & authorization policy) in the user's authorized namespace(jwt.claims.${namespace-claim})
+  rpc DeleteAPI(Ref) returns(google.protobuf.Empty){}
+  // GetAPI gets an api by name in the user's authorized namespace(jwt.claims.${namespace-claim}) 
+  rpc GetAPI(Ref) returns(API){}
+  // ListAPIs lists all apis in the user's authorized namespace(jwt.claims.${namespace-claim})
+  rpc ListAPIs(google.protobuf.Empty) returns(APIs){}
 
-  // CreateTask creates a new task(k8s cron job)
+  // CreateTask creates a new task(k8s cron job) in the user's authorized namespace(jwt.claims.${namespace-claim})
   rpc CreateTask(TaskInput) returns(Task){}
-  // UpdateTask replaces an existing task(k8s cron job)
+  // UpdateTask replaces an existing task(k8s cron job) in the user's authorized namespace(jwt.claims.${namespace-claim})
   rpc UpdateTask(TaskInput) returns(Task){}
-  // DeleteTask deletes a single task(k8s cron job)
+  // DeleteTask deletes a single task(k8s cron job) in the user's authorized namespace(jwt.claims.${namespace-claim})
   rpc DeleteTask(Ref) returns(google.protobuf.Empty){}
-  // GetTask gets a task(k8s cron job) by name
+  // GetTask gets a task(k8s cron job) by name in the user's authorized namespace(jwt.claims.${namespace-claim})
   rpc GetTask(Ref) returns(Task){}
-  // ListTasks lists all tasks(k8s cron jobs)
+  // ListTasks lists all tasks(k8s cron jobs) in the user's authorized namespace(jwt.claims.${namespace-claim})
   rpc ListTasks(google.protobuf.Empty) returns(Tasks){}
 
-  // CreateGateway creates a new gateway(istio gateway)
+  // CreateGateway creates a new gateway(istio gateway) in the user's authorized namespace(jwt.claims.${namespace-claim})
   rpc CreateGateway(GatewayInput) returns(Gateway){}
-  // UpdateGateway replaces an existing gateway(istio gateway)
+  // UpdateGateway replaces an existing gateway(istio gateway) in the user's authorized namespace(jwt.claims.${namespace-claim})
   rpc UpdateGateway(GatewayInput) returns(Gateway){}
-  // DeleteGateway deletes a single gateway(istio gateway)
+  // DeleteGateway deletes a single gateway(istio gateway) in the user's authorized namespace(jwt.claims.${namespace-claim})
   rpc DeleteGateway(Ref) returns(google.protobuf.Empty){}
-  // GetGateway gets a gateway(istio gateway) by name
+  // GetGateway gets a gateway(istio gateway) by name in the user's authorized namespace(jwt.claims.${namespace-claim})
   rpc GetGateway(Ref) returns(Gateway){}
-
+  // ListGateways lists all gateways(istio gateways) in the user's authorized namespace(jwt.claims.${namespace-claim})
+  rpc ListGateways(google.protobuf.Empty) returns(Gateways){}
+  
   // CreateSecret creates a new secret(k8s secret)
   rpc CreateSecret(SecretInput) returns(Secret){}
   // UpdateSecret replaces an existing secret(k8s secret)
@@ -317,9 +328,10 @@ service MeshPaasService {
   rpc DeleteSecret(Ref) returns(google.protobuf.Empty){}
   // GetSecret gets a secret(k8s secret) by name
   rpc GetSecret(Ref) returns(Secret){}
+  // ListSecrets lists all secrets(k8s secret) in the user's authorized namespace(jwt.claims.${namespace-claim})
+  rpc ListSecrets(google.protobuf.Empty) returns(Secrets){}
 
-
-  // StreamLogs streams logs from an app/task.
+  // StreamLogs streams logs from an api/task.
   // Streams are opened to all replicas & converted into a single stream
   rpc StreamLogs(LogOpts) returns (stream Log){}
 }

@@ -44,7 +44,7 @@ type DirectiveRoot struct {
 }
 
 type ComplexityRoot struct {
-	App struct {
+	API struct {
 		Containers func(childComplexity int) int
 		Name       func(childComplexity int) int
 		Replicas   func(childComplexity int) int
@@ -52,7 +52,7 @@ type ComplexityRoot struct {
 		Status     func(childComplexity int) int
 	}
 
-	AppStatus struct {
+	APIStatus struct {
 		Replicas func(childComplexity int) int
 	}
 
@@ -87,19 +87,19 @@ type ComplexityRoot struct {
 	}
 
 	Mutation struct {
-		CreateApp  func(childComplexity int, input model.AppInput) int
+		CreateAPI  func(childComplexity int, input model.APIInput) int
 		CreateTask func(childComplexity int, input model.TaskInput) int
-		DelApp     func(childComplexity int, input model.Ref) int
+		DelAPI     func(childComplexity int, input model.Ref) int
 		DelProject func(childComplexity int, input *string) int
 		DelTask    func(childComplexity int, input model.Ref) int
-		UpdateApp  func(childComplexity int, input model.AppInput) int
+		UpdateAPI  func(childComplexity int, input model.APIInput) int
 		UpdateTask func(childComplexity int, input model.TaskInput) int
 	}
 
 	Query struct {
-		GetApp    func(childComplexity int, input model.Ref) int
+		GetAPI    func(childComplexity int, input model.Ref) int
 		GetTask   func(childComplexity int, input model.Ref) int
-		ListApps  func(childComplexity int, input *string) int
+		ListAPIs  func(childComplexity int, input *string) int
 		ListTasks func(childComplexity int, input *string) int
 	}
 
@@ -129,16 +129,16 @@ type ComplexityRoot struct {
 
 type MutationResolver interface {
 	DelProject(ctx context.Context, input *string) (*string, error)
-	CreateApp(ctx context.Context, input model.AppInput) (*model.App, error)
-	UpdateApp(ctx context.Context, input model.AppInput) (*model.App, error)
-	DelApp(ctx context.Context, input model.Ref) (*string, error)
+	CreateAPI(ctx context.Context, input model.APIInput) (*model.API, error)
+	UpdateAPI(ctx context.Context, input model.APIInput) (*model.API, error)
+	DelAPI(ctx context.Context, input model.Ref) (*string, error)
 	CreateTask(ctx context.Context, input model.TaskInput) (*model.Task, error)
 	UpdateTask(ctx context.Context, input model.TaskInput) (*model.Task, error)
 	DelTask(ctx context.Context, input model.Ref) (*string, error)
 }
 type QueryResolver interface {
-	GetApp(ctx context.Context, input model.Ref) (*model.App, error)
-	ListApps(ctx context.Context, input *string) ([]*model.App, error)
+	GetAPI(ctx context.Context, input model.Ref) (*model.API, error)
+	ListAPIs(ctx context.Context, input *string) ([]*model.API, error)
 	GetTask(ctx context.Context, input model.Ref) (*model.Task, error)
 	ListTasks(ctx context.Context, input *string) ([]*model.Task, error)
 }
@@ -161,47 +161,47 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 	_ = ec
 	switch typeName + "." + field {
 
-	case "App.containers":
-		if e.complexity.App.Containers == nil {
+	case "API.containers":
+		if e.complexity.API.Containers == nil {
 			break
 		}
 
-		return e.complexity.App.Containers(childComplexity), true
+		return e.complexity.API.Containers(childComplexity), true
 
-	case "App.name":
-		if e.complexity.App.Name == nil {
+	case "API.name":
+		if e.complexity.API.Name == nil {
 			break
 		}
 
-		return e.complexity.App.Name(childComplexity), true
+		return e.complexity.API.Name(childComplexity), true
 
-	case "App.replicas":
-		if e.complexity.App.Replicas == nil {
+	case "API.replicas":
+		if e.complexity.API.Replicas == nil {
 			break
 		}
 
-		return e.complexity.App.Replicas(childComplexity), true
+		return e.complexity.API.Replicas(childComplexity), true
 
-	case "App.routing":
-		if e.complexity.App.Routing == nil {
+	case "API.routing":
+		if e.complexity.API.Routing == nil {
 			break
 		}
 
-		return e.complexity.App.Routing(childComplexity), true
+		return e.complexity.API.Routing(childComplexity), true
 
-	case "App.status":
-		if e.complexity.App.Status == nil {
+	case "API.status":
+		if e.complexity.API.Status == nil {
 			break
 		}
 
-		return e.complexity.App.Status(childComplexity), true
+		return e.complexity.API.Status(childComplexity), true
 
-	case "AppStatus.replicas":
-		if e.complexity.AppStatus.Replicas == nil {
+	case "APIStatus.replicas":
+		if e.complexity.APIStatus.Replicas == nil {
 			break
 		}
 
-		return e.complexity.AppStatus.Replicas(childComplexity), true
+		return e.complexity.APIStatus.Replicas(childComplexity), true
 
 	case "Container.args":
 		if e.complexity.Container.Args == nil {
@@ -329,17 +329,17 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Log.Message(childComplexity), true
 
-	case "Mutation.createApp":
-		if e.complexity.Mutation.CreateApp == nil {
+	case "Mutation.createAPI":
+		if e.complexity.Mutation.CreateAPI == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_createApp_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_createAPI_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.CreateApp(childComplexity, args["input"].(model.AppInput)), true
+		return e.complexity.Mutation.CreateAPI(childComplexity, args["input"].(model.APIInput)), true
 
 	case "Mutation.createTask":
 		if e.complexity.Mutation.CreateTask == nil {
@@ -353,17 +353,17 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.CreateTask(childComplexity, args["input"].(model.TaskInput)), true
 
-	case "Mutation.delApp":
-		if e.complexity.Mutation.DelApp == nil {
+	case "Mutation.delAPI":
+		if e.complexity.Mutation.DelAPI == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_delApp_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_delAPI_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.DelApp(childComplexity, args["input"].(model.Ref)), true
+		return e.complexity.Mutation.DelAPI(childComplexity, args["input"].(model.Ref)), true
 
 	case "Mutation.delProject":
 		if e.complexity.Mutation.DelProject == nil {
@@ -389,17 +389,17 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DelTask(childComplexity, args["input"].(model.Ref)), true
 
-	case "Mutation.updateApp":
-		if e.complexity.Mutation.UpdateApp == nil {
+	case "Mutation.updateAPI":
+		if e.complexity.Mutation.UpdateAPI == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_updateApp_args(context.TODO(), rawArgs)
+		args, err := ec.field_Mutation_updateAPI_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Mutation.UpdateApp(childComplexity, args["input"].(model.AppInput)), true
+		return e.complexity.Mutation.UpdateAPI(childComplexity, args["input"].(model.APIInput)), true
 
 	case "Mutation.updateTask":
 		if e.complexity.Mutation.UpdateTask == nil {
@@ -413,17 +413,17 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateTask(childComplexity, args["input"].(model.TaskInput)), true
 
-	case "Query.getApp":
-		if e.complexity.Query.GetApp == nil {
+	case "Query.getAPI":
+		if e.complexity.Query.GetAPI == nil {
 			break
 		}
 
-		args, err := ec.field_Query_getApp_args(context.TODO(), rawArgs)
+		args, err := ec.field_Query_getAPI_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Query.GetApp(childComplexity, args["input"].(model.Ref)), true
+		return e.complexity.Query.GetAPI(childComplexity, args["input"].(model.Ref)), true
 
 	case "Query.getTask":
 		if e.complexity.Query.GetTask == nil {
@@ -437,17 +437,17 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.GetTask(childComplexity, args["input"].(model.Ref)), true
 
-	case "Query.listApps":
-		if e.complexity.Query.ListApps == nil {
+	case "Query.listAPIs":
+		if e.complexity.Query.ListAPIs == nil {
 			break
 		}
 
-		args, err := ec.field_Query_listApps_args(context.TODO(), rawArgs)
+		args, err := ec.field_Query_listAPIs_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Query.ListApps(childComplexity, args["input"].(*string)), true
+		return e.complexity.Query.ListAPIs(childComplexity, args["input"].(*string)), true
 
 	case "Query.listTasks":
 		if e.complexity.Query.ListTasks == nil {
@@ -632,11 +632,11 @@ scalar Map
 type HTTPRoute {
     # The name assigned to the route for debugging purposes
     name: String!
-    # forward to specific port on application
+    # forward to specific port on api
     port: Int!
     # prefix-based path match
     path_prefix: String
-    # rewrite HTTP URIs before they reach the application
+    # rewrite HTTP URIs before they reach the api
     rewrite_uri: String
     # The list of origins that are allowed to perform CORS requests
     allow_origins: [String!]
@@ -663,11 +663,11 @@ type Routing {
 input HTTPRouteInput {
     # The name assigned to the route for debugging purposes
     name: String!
-    # forward to specific port on application
+    # forward to specific port on api
     port: Int!
     # prefix-based path match
     path_prefix: String
-    # rewrite HTTP URIs before they reach the application
+    # rewrite HTTP URIs before they reach the api
     rewrite_uri: String
     # The list of origins that are allowed to perform CORS requests
     allow_origins: [String!]
@@ -704,7 +704,7 @@ input ContainerPortInput {
 
 type Container {
     name: String!
-    # docker image of application
+    # docker image of api
     image: String!
     # args are arguments given to the container/image at startup
     args: [String!]
@@ -715,7 +715,7 @@ type Container {
 
 input ContainerInput {
     name: String!
-    # docker image of application
+    # docker image of api
     image: String!
     # args are arguments given to the container/image at startup
     args: [String!]
@@ -724,24 +724,24 @@ input ContainerInput {
     ports: [ContainerPortInput]
 }
 
-# App is a stateless application
-type App {
-    # name of the application
+# API is a stateless api
+type API {
+    # name of the api
     name: String!
     containers: [Container!]!
     # number of deployment replicas min:1
     replicas: Int!
     # gateway/service mesh routing
     routing: Routing!
-    # status tracks the state of the application during it's lifecycle
-    status: AppStatus!
+    # status tracks the state of the api during it's lifecycle
+    status: APIStatus!
     
 
 }
 
 # Task is scheduled cron job
 type Task {
-    # name of the application
+    # name of the api
     name: String!
     containers: [Container!]!
     # schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
@@ -759,8 +759,8 @@ type Replica {
     reason: String!
 }
 
-# AppStatus tracks the state of an app's lifecycle
-type AppStatus {
+# APIStatus tracks the state of an app's lifecycle
+type APIStatus {
     replicas: [Replica]!
 }
 
@@ -769,9 +769,9 @@ type Log {
     message: String!
 }
 
-# AppInput creates a new stateless Application
-input AppInput {
-    # name of the application
+# APIInput creates a new stateless API
+input APIInput {
+    # name of the api
     name: String!
     containers: [ContainerInput!]!
     # number of deployment replicas min:1
@@ -782,7 +782,7 @@ input AppInput {
 
 # TaskInput creates a new task(cron job)
 input TaskInput {
-    # name of the application
+    # name of the api
     name: String!
     containers: [ContainerInput!]!
     # schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
@@ -816,12 +816,12 @@ input LogOpts {
 type Mutation {
     # delProject deletes all resources within an existing project
     delProject(input: String): String
-    # createApp creates a new stateless application(k8s deployment), exposed with a single load balancer(k8s service) within a single project(k8s project)
-    createApp(input: AppInput!): App!
-    # updateApp edits/patches an existing stateless application(k8s deployment & service) within an existing project(k8s project)
-    updateApp(input: AppInput!): App!
-    # delApp deletes a single stateless application(k8s deployment & service) within an existing project
-    delApp(input: Ref!): String
+    # createAPI creates a new stateless api(k8s deployment), exposed with a single load balancer(k8s service) within a single project(k8s project)
+    createAPI(input: APIInput!): API!
+    # updateAPI edits/patches an existing stateless api(k8s deployment & service) within an existing project(k8s project)
+    updateAPI(input: APIInput!): API!
+    # delAPI deletes a single stateless api(k8s deployment & service) within an existing project
+    delAPI(input: Ref!): String
     # createTask creates a new task(k8s cron job) within a single project(k8s project)
     createTask(input: TaskInput!): Task!
     #  UpdateTask edits/patches an existing task(k8s cron job) within an existing project(k8s project)
@@ -833,20 +833,21 @@ type Mutation {
 }
 
 type Query {
-    # getApp gets an existing stateless application(k8s deployment) by name within an existing project
-    getApp(input: Ref!): App
-    # listApps lists all an existing stateless applications(k8s deployments) within an existing project
-    listApps(input: String): [App!]
+    # getAPI gets an existing stateless api(k8s deployment) by name within an existing project
+    getAPI(input: Ref!): API
+    # listAPIs lists all an existing stateless apis(k8s deployments) within an existing project
+    listAPIs(input: String): [API!]
 
     # getTask gets a task(k8s cron job) by name within an existing project
     getTask(input: Ref!): Task
     # listTasks lists all tasks(k8s cron jobs) within an existing project
     listTasks(input: String): [Task!]
 
+
 }
 
 type Subscription {
-    # logs streams logs from an an existing application/cronjob
+    # logs streams logs from an an existing api/cronjob
     streamLogs(input: LogOpts!): String!
 }
 `, BuiltIn: false},
@@ -857,13 +858,13 @@ var parsedSchema = gqlparser.MustLoadSchema(sources...)
 
 // region    ***************************** args.gotpl *****************************
 
-func (ec *executionContext) field_Mutation_createApp_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_createAPI_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 model.AppInput
+	var arg0 model.APIInput
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNAppInput2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppInput(ctx, tmp)
+		arg0, err = ec.unmarshalNAPIInput2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAPIInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -887,7 +888,7 @@ func (ec *executionContext) field_Mutation_createTask_args(ctx context.Context, 
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_delApp_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_delAPI_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
 	var arg0 model.Ref
@@ -932,13 +933,13 @@ func (ec *executionContext) field_Mutation_delTask_args(ctx context.Context, raw
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_updateApp_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Mutation_updateAPI_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 model.AppInput
+	var arg0 model.APIInput
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNAppInput2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppInput(ctx, tmp)
+		arg0, err = ec.unmarshalNAPIInput2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAPIInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -977,7 +978,7 @@ func (ec *executionContext) field_Query___type_args(ctx context.Context, rawArgs
 	return args, nil
 }
 
-func (ec *executionContext) field_Query_getApp_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Query_getAPI_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
 	var arg0 model.Ref
@@ -1007,7 +1008,7 @@ func (ec *executionContext) field_Query_getTask_args(ctx context.Context, rawArg
 	return args, nil
 }
 
-func (ec *executionContext) field_Query_listApps_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Query_listAPIs_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
 	var arg0 *string
@@ -1090,7 +1091,7 @@ func (ec *executionContext) field___Type_fields_args(ctx context.Context, rawArg
 
 // region    **************************** field.gotpl *****************************
 
-func (ec *executionContext) _App_name(ctx context.Context, field graphql.CollectedField, obj *model.App) (ret graphql.Marshaler) {
+func (ec *executionContext) _API_name(ctx context.Context, field graphql.CollectedField, obj *model.API) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -1098,7 +1099,7 @@ func (ec *executionContext) _App_name(ctx context.Context, field graphql.Collect
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "App",
+		Object:     "API",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -1125,7 +1126,7 @@ func (ec *executionContext) _App_name(ctx context.Context, field graphql.Collect
 	return ec.marshalNString2string(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _App_containers(ctx context.Context, field graphql.CollectedField, obj *model.App) (ret graphql.Marshaler) {
+func (ec *executionContext) _API_containers(ctx context.Context, field graphql.CollectedField, obj *model.API) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -1133,7 +1134,7 @@ func (ec *executionContext) _App_containers(ctx context.Context, field graphql.C
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "App",
+		Object:     "API",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -1160,7 +1161,7 @@ func (ec *executionContext) _App_containers(ctx context.Context, field graphql.C
 	return ec.marshalNContainer2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐContainerᚄ(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _App_replicas(ctx context.Context, field graphql.CollectedField, obj *model.App) (ret graphql.Marshaler) {
+func (ec *executionContext) _API_replicas(ctx context.Context, field graphql.CollectedField, obj *model.API) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -1168,7 +1169,7 @@ func (ec *executionContext) _App_replicas(ctx context.Context, field graphql.Col
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "App",
+		Object:     "API",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -1195,7 +1196,7 @@ func (ec *executionContext) _App_replicas(ctx context.Context, field graphql.Col
 	return ec.marshalNInt2int(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _App_routing(ctx context.Context, field graphql.CollectedField, obj *model.App) (ret graphql.Marshaler) {
+func (ec *executionContext) _API_routing(ctx context.Context, field graphql.CollectedField, obj *model.API) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -1203,7 +1204,7 @@ func (ec *executionContext) _App_routing(ctx context.Context, field graphql.Coll
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "App",
+		Object:     "API",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -1230,7 +1231,7 @@ func (ec *executionContext) _App_routing(ctx context.Context, field graphql.Coll
 	return ec.marshalNRouting2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐRouting(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _App_status(ctx context.Context, field graphql.CollectedField, obj *model.App) (ret graphql.Marshaler) {
+func (ec *executionContext) _API_status(ctx context.Context, field graphql.CollectedField, obj *model.API) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -1238,7 +1239,7 @@ func (ec *executionContext) _App_status(ctx context.Context, field graphql.Colle
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "App",
+		Object:     "API",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -1260,12 +1261,12 @@ func (ec *executionContext) _App_status(ctx context.Context, field graphql.Colle
 		}
 		return graphql.Null
 	}
-	res := resTmp.(*model.AppStatus)
+	res := resTmp.(*model.APIStatus)
 	fc.Result = res
-	return ec.marshalNAppStatus2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppStatus(ctx, field.Selections, res)
+	return ec.marshalNAPIStatus2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAPIStatus(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _AppStatus_replicas(ctx context.Context, field graphql.CollectedField, obj *model.AppStatus) (ret graphql.Marshaler) {
+func (ec *executionContext) _APIStatus_replicas(ctx context.Context, field graphql.CollectedField, obj *model.APIStatus) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -1273,7 +1274,7 @@ func (ec *executionContext) _AppStatus_replicas(ctx context.Context, field graph
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "AppStatus",
+		Object:     "APIStatus",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -1939,7 +1940,7 @@ func (ec *executionContext) _Mutation_delProject(ctx context.Context, field grap
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Mutation_createApp(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+func (ec *executionContext) _Mutation_createAPI(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -1956,7 +1957,7 @@ func (ec *executionContext) _Mutation_createApp(ctx context.Context, field graph
 
 	ctx = graphql.WithFieldContext(ctx, fc)
 	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_createApp_args(ctx, rawArgs)
+	args, err := ec.field_Mutation_createAPI_args(ctx, rawArgs)
 	if err != nil {
 		ec.Error(ctx, err)
 		return graphql.Null
@@ -1964,7 +1965,7 @@ func (ec *executionContext) _Mutation_createApp(ctx context.Context, field graph
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CreateApp(rctx, args["input"].(model.AppInput))
+		return ec.resolvers.Mutation().CreateAPI(rctx, args["input"].(model.APIInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -1976,12 +1977,12 @@ func (ec *executionContext) _Mutation_createApp(ctx context.Context, field graph
 		}
 		return graphql.Null
 	}
-	res := resTmp.(*model.App)
+	res := resTmp.(*model.API)
 	fc.Result = res
-	return ec.marshalNApp2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx, field.Selections, res)
+	return ec.marshalNAPI2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAPI(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Mutation_updateApp(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+func (ec *executionContext) _Mutation_updateAPI(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -1998,7 +1999,7 @@ func (ec *executionContext) _Mutation_updateApp(ctx context.Context, field graph
 
 	ctx = graphql.WithFieldContext(ctx, fc)
 	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_updateApp_args(ctx, rawArgs)
+	args, err := ec.field_Mutation_updateAPI_args(ctx, rawArgs)
 	if err != nil {
 		ec.Error(ctx, err)
 		return graphql.Null
@@ -2006,7 +2007,7 @@ func (ec *executionContext) _Mutation_updateApp(ctx context.Context, field graph
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateApp(rctx, args["input"].(model.AppInput))
+		return ec.resolvers.Mutation().UpdateAPI(rctx, args["input"].(model.APIInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -2018,12 +2019,12 @@ func (ec *executionContext) _Mutation_updateApp(ctx context.Context, field graph
 		}
 		return graphql.Null
 	}
-	res := resTmp.(*model.App)
+	res := resTmp.(*model.API)
 	fc.Result = res
-	return ec.marshalNApp2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx, field.Selections, res)
+	return ec.marshalNAPI2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAPI(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Mutation_delApp(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+func (ec *executionContext) _Mutation_delAPI(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -2040,7 +2041,7 @@ func (ec *executionContext) _Mutation_delApp(ctx context.Context, field graphql.
 
 	ctx = graphql.WithFieldContext(ctx, fc)
 	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_delApp_args(ctx, rawArgs)
+	args, err := ec.field_Mutation_delAPI_args(ctx, rawArgs)
 	if err != nil {
 		ec.Error(ctx, err)
 		return graphql.Null
@@ -2048,7 +2049,7 @@ func (ec *executionContext) _Mutation_delApp(ctx context.Context, field graphql.
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().DelApp(rctx, args["input"].(model.Ref))
+		return ec.resolvers.Mutation().DelAPI(rctx, args["input"].(model.Ref))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -2185,7 +2186,7 @@ func (ec *executionContext) _Mutation_delTask(ctx context.Context, field graphql
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Query_getApp(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+func (ec *executionContext) _Query_getAPI(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -2202,7 +2203,7 @@ func (ec *executionContext) _Query_getApp(ctx context.Context, field graphql.Col
 
 	ctx = graphql.WithFieldContext(ctx, fc)
 	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Query_getApp_args(ctx, rawArgs)
+	args, err := ec.field_Query_getAPI_args(ctx, rawArgs)
 	if err != nil {
 		ec.Error(ctx, err)
 		return graphql.Null
@@ -2210,7 +2211,7 @@ func (ec *executionContext) _Query_getApp(ctx context.Context, field graphql.Col
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().GetApp(rctx, args["input"].(model.Ref))
+		return ec.resolvers.Query().GetAPI(rctx, args["input"].(model.Ref))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -2219,12 +2220,12 @@ func (ec *executionContext) _Query_getApp(ctx context.Context, field graphql.Col
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.App)
+	res := resTmp.(*model.API)
 	fc.Result = res
-	return ec.marshalOApp2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx, field.Selections, res)
+	return ec.marshalOAPI2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAPI(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Query_listApps(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+func (ec *executionContext) _Query_listAPIs(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -2241,7 +2242,7 @@ func (ec *executionContext) _Query_listApps(ctx context.Context, field graphql.C
 
 	ctx = graphql.WithFieldContext(ctx, fc)
 	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Query_listApps_args(ctx, rawArgs)
+	args, err := ec.field_Query_listAPIs_args(ctx, rawArgs)
 	if err != nil {
 		ec.Error(ctx, err)
 		return graphql.Null
@@ -2249,7 +2250,7 @@ func (ec *executionContext) _Query_listApps(ctx context.Context, field graphql.C
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().ListApps(rctx, args["input"].(*string))
+		return ec.resolvers.Query().ListAPIs(rctx, args["input"].(*string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -2258,9 +2259,9 @@ func (ec *executionContext) _Query_listApps(ctx context.Context, field graphql.C
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.([]*model.App)
+	res := resTmp.([]*model.API)
 	fc.Result = res
-	return ec.marshalOApp2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppᚄ(ctx, field.Selections, res)
+	return ec.marshalOAPI2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAPIᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_getTask(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -3889,8 +3890,8 @@ func (ec *executionContext) ___Type_ofType(ctx context.Context, field graphql.Co
 
 // region    **************************** input.gotpl *****************************
 
-func (ec *executionContext) unmarshalInputAppInput(ctx context.Context, obj interface{}) (model.AppInput, error) {
-	var it model.AppInput
+func (ec *executionContext) unmarshalInputAPIInput(ctx context.Context, obj interface{}) (model.APIInput, error) {
+	var it model.APIInput
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -4273,39 +4274,39 @@ func (ec *executionContext) unmarshalInputTaskInput(ctx context.Context, obj int
 
 // region    **************************** object.gotpl ****************************
 
-var appImplementors = []string{"App"}
+var aPIImplementors = []string{"API"}
 
-func (ec *executionContext) _App(ctx context.Context, sel ast.SelectionSet, obj *model.App) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, appImplementors)
+func (ec *executionContext) _API(ctx context.Context, sel ast.SelectionSet, obj *model.API) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, aPIImplementors)
 
 	out := graphql.NewFieldSet(fields)
 	var invalids uint32
 	for i, field := range fields {
 		switch field.Name {
 		case "__typename":
-			out.Values[i] = graphql.MarshalString("App")
+			out.Values[i] = graphql.MarshalString("API")
 		case "name":
-			out.Values[i] = ec._App_name(ctx, field, obj)
+			out.Values[i] = ec._API_name(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
 		case "containers":
-			out.Values[i] = ec._App_containers(ctx, field, obj)
+			out.Values[i] = ec._API_containers(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
 		case "replicas":
-			out.Values[i] = ec._App_replicas(ctx, field, obj)
+			out.Values[i] = ec._API_replicas(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
 		case "routing":
-			out.Values[i] = ec._App_routing(ctx, field, obj)
+			out.Values[i] = ec._API_routing(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
 		case "status":
-			out.Values[i] = ec._App_status(ctx, field, obj)
+			out.Values[i] = ec._API_status(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
@@ -4320,19 +4321,19 @@ func (ec *executionContext) _App(ctx context.Context, sel ast.SelectionSet, obj 
 	return out
 }
 
-var appStatusImplementors = []string{"AppStatus"}
+var aPIStatusImplementors = []string{"APIStatus"}
 
-func (ec *executionContext) _AppStatus(ctx context.Context, sel ast.SelectionSet, obj *model.AppStatus) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, appStatusImplementors)
+func (ec *executionContext) _APIStatus(ctx context.Context, sel ast.SelectionSet, obj *model.APIStatus) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, aPIStatusImplementors)
 
 	out := graphql.NewFieldSet(fields)
 	var invalids uint32
 	for i, field := range fields {
 		switch field.Name {
 		case "__typename":
-			out.Values[i] = graphql.MarshalString("AppStatus")
+			out.Values[i] = graphql.MarshalString("APIStatus")
 		case "replicas":
-			out.Values[i] = ec._AppStatus_replicas(ctx, field, obj)
+			out.Values[i] = ec._APIStatus_replicas(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
@@ -4512,18 +4513,18 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = graphql.MarshalString("Mutation")
 		case "delProject":
 			out.Values[i] = ec._Mutation_delProject(ctx, field)
-		case "createApp":
-			out.Values[i] = ec._Mutation_createApp(ctx, field)
+		case "createAPI":
+			out.Values[i] = ec._Mutation_createAPI(ctx, field)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "updateApp":
-			out.Values[i] = ec._Mutation_updateApp(ctx, field)
+		case "updateAPI":
+			out.Values[i] = ec._Mutation_updateAPI(ctx, field)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "delApp":
-			out.Values[i] = ec._Mutation_delApp(ctx, field)
+		case "delAPI":
+			out.Values[i] = ec._Mutation_delAPI(ctx, field)
 		case "createTask":
 			out.Values[i] = ec._Mutation_createTask(ctx, field)
 			if out.Values[i] == graphql.Null {
@@ -4562,7 +4563,7 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 		switch field.Name {
 		case "__typename":
 			out.Values[i] = graphql.MarshalString("Query")
-		case "getApp":
+		case "getAPI":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
 				defer func() {
@@ -4570,10 +4571,10 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 						ec.Error(ctx, ec.Recover(ctx, r))
 					}
 				}()
-				res = ec._Query_getApp(ctx, field)
+				res = ec._Query_getAPI(ctx, field)
 				return res
 			})
-		case "listApps":
+		case "listAPIs":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
 				defer func() {
@@ -4581,7 +4582,7 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 						ec.Error(ctx, ec.Recover(ctx, r))
 					}
 				}()
-				res = ec._Query_listApps(ctx, field)
+				res = ec._Query_listAPIs(ctx, field)
 				return res
 			})
 		case "getTask":
@@ -4990,33 +4991,33 @@ func (ec *executionContext) ___Type(ctx context.Context, sel ast.SelectionSet, o
 
 // region    ***************************** type.gotpl *****************************
 
-func (ec *executionContext) marshalNApp2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx context.Context, sel ast.SelectionSet, v model.App) graphql.Marshaler {
-	return ec._App(ctx, sel, &v)
+func (ec *executionContext) marshalNAPI2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAPI(ctx context.Context, sel ast.SelectionSet, v model.API) graphql.Marshaler {
+	return ec._API(ctx, sel, &v)
 }
 
-func (ec *executionContext) marshalNApp2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx context.Context, sel ast.SelectionSet, v *model.App) graphql.Marshaler {
+func (ec *executionContext) marshalNAPI2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAPI(ctx context.Context, sel ast.SelectionSet, v *model.API) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "must not be null")
 		}
 		return graphql.Null
 	}
-	return ec._App(ctx, sel, v)
+	return ec._API(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalNAppInput2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppInput(ctx context.Context, v interface{}) (model.AppInput, error) {
-	res, err := ec.unmarshalInputAppInput(ctx, v)
+func (ec *executionContext) unmarshalNAPIInput2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAPIInput(ctx context.Context, v interface{}) (model.APIInput, error) {
+	res, err := ec.unmarshalInputAPIInput(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNAppStatus2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppStatus(ctx context.Context, sel ast.SelectionSet, v *model.AppStatus) graphql.Marshaler {
+func (ec *executionContext) marshalNAPIStatus2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAPIStatus(ctx context.Context, sel ast.SelectionSet, v *model.APIStatus) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "must not be null")
 		}
 		return graphql.Null
 	}
-	return ec._AppStatus(ctx, sel, v)
+	return ec._APIStatus(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalNBoolean2bool(ctx context.Context, v interface{}) (bool, error) {
@@ -5462,7 +5463,7 @@ func (ec *executionContext) marshalN__TypeKind2string(ctx context.Context, sel a
 	return res
 }
 
-func (ec *executionContext) marshalOApp2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.App) graphql.Marshaler {
+func (ec *executionContext) marshalOAPI2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAPIᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.API) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
@@ -5489,7 +5490,7 @@ func (ec *executionContext) marshalOApp2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaa
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalNApp2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx, sel, v[i])
+			ret[i] = ec.marshalNAPI2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAPI(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -5502,11 +5503,11 @@ func (ec *executionContext) marshalOApp2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaa
 	return ret
 }
 
-func (ec *executionContext) marshalOApp2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx context.Context, sel ast.SelectionSet, v *model.App) graphql.Marshaler {
+func (ec *executionContext) marshalOAPI2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAPI(ctx context.Context, sel ast.SelectionSet, v *model.API) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
-	return ec._App(ctx, sel, v)
+	return ec._API(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalOBoolean2bool(ctx context.Context, v interface{}) (bool, error) {

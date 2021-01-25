@@ -19,30 +19,30 @@ func (r *mutationResolver) DelProject(ctx context.Context, input *string) (*stri
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) CreateApp(ctx context.Context, input model.AppInput) (*model.App, error) {
-	app, err := r.client.CreateApp(ctx, toApp(input))
+func (r *mutationResolver) CreateAPI(ctx context.Context, input model.APIInput) (*model.API, error) {
+	app, err := r.client.CreateAPI(ctx, toAPI(input))
 	if err != nil {
 		return nil, &gqlerror.Error{
 			Message: err.Error(),
 			Path:    graphql.GetPath(ctx),
 		}
 	}
-	return fromApp(app), nil
+	return fromAPI(app), nil
 }
 
-func (r *mutationResolver) UpdateApp(ctx context.Context, input model.AppInput) (*model.App, error) {
-	app, err := r.client.UpdateApp(ctx, toApp(input))
+func (r *mutationResolver) UpdateAPI(ctx context.Context, input model.APIInput) (*model.API, error) {
+	app, err := r.client.UpdateAPI(ctx, toAPI(input))
 	if err != nil {
 		return nil, &gqlerror.Error{
 			Message: err.Error(),
 			Path:    graphql.GetPath(ctx),
 		}
 	}
-	return fromApp(app), nil
+	return fromAPI(app), nil
 }
 
-func (r *mutationResolver) DelApp(ctx context.Context, input model.Ref) (*string, error) {
-	_, err := r.client.DeleteApp(ctx, &meshpaaspb.Ref{
+func (r *mutationResolver) DelAPI(ctx context.Context, input model.Ref) (*string, error) {
+	_, err := r.client.DeleteAPI(ctx, &meshpaaspb.Ref{
 		Name: input.Name,
 	})
 	if err != nil {
@@ -77,7 +77,7 @@ func (r *mutationResolver) UpdateTask(ctx context.Context, input model.TaskInput
 }
 
 func (r *mutationResolver) DelTask(ctx context.Context, input model.Ref) (*string, error) {
-	_, err := r.client.DeleteApp(ctx, &meshpaaspb.Ref{
+	_, err := r.client.DeleteAPI(ctx, &meshpaaspb.Ref{
 		Name: input.Name,
 	})
 	if err != nil {
@@ -89,8 +89,8 @@ func (r *mutationResolver) DelTask(ctx context.Context, input model.Ref) (*strin
 	return nil, nil
 }
 
-func (r *queryResolver) GetApp(ctx context.Context, input model.Ref) (*model.App, error) {
-	app, err := r.client.GetApp(ctx, &meshpaaspb.Ref{
+func (r *queryResolver) GetAPI(ctx context.Context, input model.Ref) (*model.API, error) {
+	app, err := r.client.GetAPI(ctx, &meshpaaspb.Ref{
 		Name: input.Name,
 	})
 	if err != nil {
@@ -99,20 +99,20 @@ func (r *queryResolver) GetApp(ctx context.Context, input model.Ref) (*model.App
 			Path:    graphql.GetPath(ctx),
 		}
 	}
-	return fromApp(app), nil
+	return fromAPI(app), nil
 }
 
-func (r *queryResolver) ListApps(ctx context.Context, input *string) ([]*model.App, error) {
-	apps, err := r.client.ListApps(ctx, &empty.Empty{})
+func (r *queryResolver) ListAPIs(ctx context.Context, input *string) ([]*model.API, error) {
+	apps, err := r.client.ListAPIs(ctx, &empty.Empty{})
 	if err != nil {
 		return nil, &gqlerror.Error{
 			Message: err.Error(),
 			Path:    graphql.GetPath(ctx),
 		}
 	}
-	var toReturn []*model.App
-	for _, a := range apps.GetApplications() {
-		toReturn = append(toReturn, fromApp(a))
+	var toReturn []*model.API
+	for _, a := range apps.GetApis() {
+		toReturn = append(toReturn, fromAPI(a))
 	}
 	return toReturn, nil
 }

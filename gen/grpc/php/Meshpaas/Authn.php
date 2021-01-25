@@ -9,7 +9,7 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Authn holds authentication options for an application
+ * Authn holds authentication options for an api
  *
  * Generated from protobuf message <code>meshpaas.Authn</code>
  */

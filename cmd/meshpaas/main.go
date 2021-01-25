@@ -19,7 +19,6 @@ import (
 	grpc_prometheus "github.com/grpc-ecosystem/go-grpc-prometheus"
 	"github.com/joho/godotenv"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
-	"github.com/rs/cors"
 	"github.com/soheilhy/cmux"
 	"github.com/spf13/pflag"
 	"go.uber.org/zap"
@@ -38,9 +37,6 @@ import (
 var (
 	debug          bool
 	listenPort     int64
-	allowedOrigins []string
-	allowedHeaders []string
-	allowedMethods []string
 	jwksUri        string
 	jwtIssuer      string
 	outOfCluster   bool
@@ -51,13 +47,10 @@ func init() {
 	godotenv.Load()
 	pflag.CommandLine.BoolVar(&debug, "debug", helpers.BoolEnvOr("MESHPAAS_DEBUG", false), "enable debug logs (env: MESHPAAS_DEBUG)")
 	pflag.CommandLine.Int64Var(&listenPort, "listen-port", int64(helpers.IntEnvOr("MESHPAAS_LISTEN_PORT", 8820)), "serve gRPC & graphQL on this port (env: MESHPAAS_LISTEN_PORT)")
-	pflag.CommandLine.StringSliceVar(&allowedHeaders, "allow-headers", helpers.StringSliceEnvOr("MESHPAAS_ALLOW_HEADERS", []string{"*"}), "cors allow headers (env: MESHPAAS_ALLOW_HEADERS)")
-	pflag.CommandLine.StringSliceVar(&allowedOrigins, "allow-origins", helpers.StringSliceEnvOr("MESHPAAS_ALLOW_ORIGINS", []string{"*"}), "cors allow origins (env: MESHPAAS_ALLOW_ORIGINS)")
-	pflag.CommandLine.StringSliceVar(&allowedMethods, "allow-methods", helpers.StringSliceEnvOr("MESHPAAS_ALLOW_METHODS", []string{"HEAD", "GET", "POST", "PUT", "PATCH", "DELETE"}), "cors allow methods (env: MESHPAAS_ALLOW_METHODS)")
 	pflag.CommandLine.BoolVar(&outOfCluster, "out-of-cluster", helpers.BoolEnvOr("MESHPAAS_OUT_OF_CLUSTER", false), "enable out of cluster k8s config discovery (env: MESHPAAS_OUT_OF_CLUSTER)")
-	pflag.CommandLine.StringVar(&jwksUri, "jwks-uri", helpers.EnvOr("MESHPAAS_JWKS_URI", ""), "remote json web key set uri for verifying authorization tokens (env: MESHPAAS_JWKS_URI)")
-	pflag.CommandLine.StringVar(&jwtIssuer, "allow-jwt-issuer", helpers.EnvOr("MESHPAAS_ALLOW_ISSUER", ""), "allowed jwt.claim.iss issuer (env: MESHPAAS_ALLOW_ISSUER)")
-	pflag.CommandLine.StringVar(&namespaceClaim, "namespace-claim", helpers.EnvOr("MESHPAAS_NAMESPACE_CLAIM", "aud"), "the jwt attribute on the id token that returns the namespace the user is allowed access to (env: MESHPAAS_NAMESPACE_CLAIM)")
+	pflag.CommandLine.StringVar(&jwksUri, "jwks-uri", helpers.EnvOr("MESHPAAS_JWKS_URI", ""), "remote json web key set uri for verifying authorization tokens (required) (env: MESHPAAS_JWKS_URI)")
+	pflag.CommandLine.StringVar(&jwtIssuer, "allow-jwt-issuer", helpers.EnvOr("MESHPAAS_ALLOW_ISSUER", ""), "allowed jwt.claim.iss issuer (required) (env: MESHPAAS_ALLOW_ISSUER)")
+	pflag.CommandLine.StringVar(&namespaceClaim, "namespace-claim", helpers.EnvOr("MESHPAAS_NAMESPACE_CLAIM", "aud"), "the jwt attribute on the id token that returns the namespace the user is allowed access to (required) (env: MESHPAAS_NAMESPACE_CLAIM)")
 	pflag.Parse()
 }
 
@@ -159,7 +152,7 @@ func run(ctx context.Context) {
 		}
 		cli = core.NewManager(kclient, iclient, lgger, namespaceClaim)
 	}
-	a, err := auth.NewAuth(jwksUri, jwtIssuer, lgger)
+	a, err := auth.NewAuth(jwksUri, jwtIssuer, namespaceClaim, lgger)
 	if err != nil {
 		lgger.Error(err.Error())
 		return
@@ -201,17 +194,11 @@ func run(ctx context.Context) {
 		return
 	}
 	defer conn.Close()
-	resolver := gql.NewResolver(meshpaaspb.NewMeshPaasServiceClient(conn), cors.New(cors.Options{
-		AllowedOrigins: allowedOrigins,
-		AllowedMethods: allowedMethods,
-		AllowedHeaders: allowedHeaders,
-	}), lgger)
+	resolver := gql.NewResolver(meshpaaspb.NewMeshPaasServiceClient(conn), lgger)
 
 	mux := http.NewServeMux()
 
 	mux.Handle("/graphql", resolver.QueryHandler())
-	mux.Handle("/", resolver.Playground())
-
 	graphQLServer := &http.Server{
 		Handler: mux,
 	}

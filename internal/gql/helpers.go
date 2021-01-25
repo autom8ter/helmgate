@@ -6,7 +6,7 @@ import (
 	"github.com/autom8ter/meshpaas/internal/helpers"
 )
 
-func toApp(input model.AppInput) *meshpaaspb.AppInput {
+func toAPI(input model.APIInput) *meshpaaspb.APIInput {
 	var networking = &meshpaaspb.Routing{}
 	var containers []*meshpaaspb.Container
 	for _, c := range input.Containers {
@@ -45,7 +45,7 @@ func toApp(input model.AppInput) *meshpaaspb.AppInput {
 			AllowCredentials: allowCredentials,
 		})
 	}
-	return &meshpaaspb.AppInput{
+	return &meshpaaspb.APIInput{
 		Name:       input.Name,
 		Containers: containers,
 		Replicas:   uint32(input.Replicas),
@@ -84,9 +84,9 @@ func toTask(input model.TaskInput) *meshpaaspb.TaskInput {
 	}
 }
 
-func fromApp(app *meshpaaspb.App) *model.App {
+func fromAPI(app *meshpaaspb.API) *model.API {
 	var (
-		status     = &model.AppStatus{}
+		status     = &model.APIStatus{}
 		containers []*model.Container
 	)
 	for _, c := range app.Containers {
@@ -125,7 +125,7 @@ func fromApp(app *meshpaaspb.App) *model.App {
 			Reason:    r.Reason,
 		})
 	}
-	return &model.App{
+	return &model.API{
 		Name:       app.Name,
 		Containers: containers,
 		Replicas:   int(app.Replicas),

@@ -18,28 +18,36 @@ func NewMeshPaasService(client *core.Manager) *MeshPaasService {
 	return &MeshPaasService{client: client}
 }
 
-func (k MeshPaasService) CreateApp(ctx context.Context, constructor *meshpaaspb.AppInput) (*meshpaaspb.App, error) {
-	return k.client.CreateApp(ctx, constructor)
+func (k MeshPaasService) CreateAPI(ctx context.Context, constructor *meshpaaspb.APIInput) (*meshpaaspb.API, error) {
+	return k.client.CreateAPI(ctx, constructor)
 }
 
-func (k MeshPaasService) UpdateApp(ctx context.Context, update *meshpaaspb.AppInput) (*meshpaaspb.App, error) {
-	return k.client.UpdateApp(ctx, update)
+func (k MeshPaasService) UpdateAPI(ctx context.Context, update *meshpaaspb.APIInput) (*meshpaaspb.API, error) {
+	return k.client.UpdateAPI(ctx, update)
 }
 
-func (k MeshPaasService) DeleteApp(ctx context.Context, ref *meshpaaspb.Ref) (*empty.Empty, error) {
-	if err := k.client.DeleteApp(ctx, ref); err != nil {
+func (k MeshPaasService) DeleteAPI(ctx context.Context, ref *meshpaaspb.Ref) (*empty.Empty, error) {
+	if err := k.client.DeleteAPI(ctx, ref); err != nil {
 		k.client.L().Error("failed to delete app", zap.Error(err))
 		return nil, status.Error(codes.Internal, "failed to delete app")
 	}
 	return &empty.Empty{}, nil
 }
 
-func (k MeshPaasService) GetApp(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb.App, error) {
-	return k.client.GetApp(ctx, ref)
+func (k MeshPaasService) GetAPI(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb.API, error) {
+	return k.client.GetAPI(ctx, ref)
 }
 
-func (k MeshPaasService) ListApps(ctx context.Context, e *empty.Empty) (*meshpaaspb.Apps, error) {
-	return k.client.ListApps(ctx)
+func (k MeshPaasService) ListAPIs(ctx context.Context, e *empty.Empty) (*meshpaaspb.APIs, error) {
+	return k.client.ListAPIs(ctx)
+}
+
+func (k MeshPaasService) ListSecrets(ctx context.Context, e *empty.Empty) (*meshpaaspb.Secrets, error) {
+	return k.client.ListSecrets(ctx)
+}
+
+func (k MeshPaasService) ListGateways(ctx context.Context, e *empty.Empty) (*meshpaaspb.Gateways, error) {
+	return k.client.ListGateways(ctx)
 }
 
 func (k MeshPaasService) StreamLogs(opts *meshpaaspb.LogOpts, server meshpaaspb.MeshPaasService_StreamLogsServer) error {

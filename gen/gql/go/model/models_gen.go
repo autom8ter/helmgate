@@ -2,22 +2,22 @@
 
 package model
 
-type App struct {
+type API struct {
 	Name       string       `json:"name"`
 	Containers []*Container `json:"containers"`
 	Replicas   int          `json:"replicas"`
 	Routing    *Routing     `json:"routing"`
-	Status     *AppStatus   `json:"status"`
+	Status     *APIStatus   `json:"status"`
 }
 
-type AppInput struct {
+type APIInput struct {
 	Name       string            `json:"name"`
 	Containers []*ContainerInput `json:"containers"`
 	Replicas   int               `json:"replicas"`
 	Routing    *RoutingInput     `json:"routing"`
 }
 
-type AppStatus struct {
+type APIStatus struct {
 	Replicas []*Replica `json:"replicas"`
 }
 

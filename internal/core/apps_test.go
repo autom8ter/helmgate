@@ -8,7 +8,7 @@ import (
 	"testing"
 )
 
-func TestApps(t *testing.T) {
+func TestAPIs(t *testing.T) {
 	kclient, err := kubego.NewOutOfClusterKubeClient()
 	if err != nil {
 		t.Fatal(err.Error())

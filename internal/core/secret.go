@@ -80,3 +80,30 @@ func (m *Manager) UpdateSecret(ctx context.Context, secret *meshpaaspb.SecretInp
 	kapp.secret = ksecret
 	return kapp.toSecret(), nil
 }
+
+func (m *Manager) ListSecrets(ctx context.Context) (*meshpaaspb.Secrets, error) {
+	usr, ok := auth.UserContext(ctx)
+	if !ok {
+		return nil, status.Error(codes.Unauthenticated, "failed to get logged in user")
+	}
+	var ksecrets = &meshpaaspb.Secrets{}
+	ns, err := m.kclient.Namespaces().Get(ctx, cast.ToString(usr[m.namespaceClaim]), apiv1.GetOptions{})
+	if err != nil {
+		return nil, err
+	}
+	secrets, err := m.kclient.Secrets(cast.ToString(usr[m.namespaceClaim])).List(ctx, apiv1.ListOptions{
+		TypeMeta:      apiv1.TypeMeta{},
+		LabelSelector: labelSelector,
+	})
+	if err != nil {
+		return nil, err
+	}
+	for _, secret := range secrets.Items {
+		ksecret := &k8sSecret{
+			namespace: ns,
+			secret:    &secret,
+		}
+		ksecrets.Secrets = append(ksecrets.Secrets, ksecret.toSecret())
+	}
+	return ksecrets, nil
+}

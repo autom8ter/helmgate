@@ -9,7 +9,7 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Routing describes service mesh routing options(gateway/host bindings, route rewrites, etc) for an Application
+ * Routing describes service mesh routing options(gateway/host bindings, route rewrites, etc) for an APIlication
  *
  * Generated from protobuf message <code>meshpaas.Routing</code>
  */

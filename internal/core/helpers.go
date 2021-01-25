@@ -24,9 +24,9 @@ import (
 const Always = "Always"
 const OnFailure = "OnFailure"
 const RWO = "ReadWriteOnce"
-const meshpaasApp = "meshpaas.app"
+const meshpaasAPI = "meshpaas.app"
 
-func appContainers(app *meshpaaspb.AppInput) ([]v12.Container, error) {
+func appContainers(app *meshpaaspb.APIInput) ([]v12.Container, error) {
 	var containers []v12.Container
 	for _, c := range app.Containers {
 		ports := []v12.ContainerPort{}
@@ -101,7 +101,7 @@ func (m *Manager) toNamespace(usr map[string]interface{}) *v12.Namespace {
 	}
 }
 
-func (m *Manager) overwriteService(svc *v1.Service, app *meshpaaspb.AppInput) *v1.Service {
+func (m *Manager) overwriteService(svc *v1.Service, app *meshpaaspb.APIInput) *v1.Service {
 	var ports []v1.ServicePort
 
 	for _, c := range app.Containers {
@@ -116,7 +116,7 @@ func (m *Manager) overwriteService(svc *v1.Service, app *meshpaaspb.AppInput) *v
 	return svc
 }
 
-func (m *Manager) overwriteVirtualService(usr map[string]interface{}, svc *networking.VirtualService, app *meshpaaspb.AppInput) *networking.VirtualService {
+func (m *Manager) overwriteVirtualService(usr map[string]interface{}, svc *networking.VirtualService, app *meshpaaspb.APIInput) *networking.VirtualService {
 	if svc.Name != "" {
 		svc.Name = app.Name
 	}
@@ -202,14 +202,14 @@ func (m *Manager) overwriteVirtualService(usr map[string]interface{}, svc *netwo
 	Status: v1.ServiceStatus{},
 */
 
-func (m *Manager) toVirtualService(usr map[string]interface{}, app *meshpaaspb.AppInput) *networking.VirtualService {
+func (m *Manager) toVirtualService(usr map[string]interface{}, app *meshpaaspb.APIInput) *networking.VirtualService {
 	svc := &networking.VirtualService{
 		TypeMeta: metav1.TypeMeta{},
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      app.Name,
 			Namespace: cast.ToString(usr[m.namespaceClaim]),
 			Labels: map[string]string{
-				meshpaasApp: app.Name,
+				meshpaasAPI: app.Name,
 			},
 		},
 		Spec:   v1alpha3.VirtualService{},
@@ -292,7 +292,7 @@ func (m *Manager) toVirtualService(usr map[string]interface{}, app *meshpaaspb.A
 	return svc
 }
 
-func (m *Manager) toRequestAuthentication(usr map[string]interface{}, input *meshpaaspb.AppInput) *security.RequestAuthentication {
+func (m *Manager) toRequestAuthentication(usr map[string]interface{}, input *meshpaaspb.APIInput) *security.RequestAuthentication {
 	if input.Authentication == nil {
 		return nil
 	}
@@ -303,7 +303,7 @@ func (m *Manager) toRequestAuthentication(usr map[string]interface{}, input *mes
 		},
 	}
 	auth.Spec.Selector.MatchLabels = map[string]string{
-		meshpaasApp: input.Name,
+		meshpaasAPI: input.Name,
 	}
 	for _, r := range input.Authentication.Rules {
 		auth.Spec.JwtRules = append(auth.Spec.JwtRules, &securityv1beta1.JWTRule{
@@ -316,7 +316,7 @@ func (m *Manager) toRequestAuthentication(usr map[string]interface{}, input *mes
 	return auth
 }
 
-func (m *Manager) toAuthorizationPolicy(usr map[string]interface{}, input *meshpaaspb.AppInput) *security.AuthorizationPolicy {
+func (m *Manager) toAuthorizationPolicy(usr map[string]interface{}, input *meshpaaspb.APIInput) *security.AuthorizationPolicy {
 	var auth = &security.AuthorizationPolicy{
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      input.Name,
@@ -324,13 +324,13 @@ func (m *Manager) toAuthorizationPolicy(usr map[string]interface{}, input *meshp
 		},
 	}
 	auth.Spec.Selector.MatchLabels = map[string]string{
-		meshpaasApp: input.Name,
+		meshpaasAPI: input.Name,
 	}
 	auth.Spec.Action = securityv1beta1.AuthorizationPolicy_ALLOW
 	return auth
 }
 
-func (m *Manager) toDeployment(usr map[string]interface{}, app *meshpaaspb.AppInput) (*apps.Deployment, error) {
+func (m *Manager) toDeployment(usr map[string]interface{}, app *meshpaaspb.APIInput) (*apps.Deployment, error) {
 	var (
 		replicas        = int32(app.Replicas)
 		containers, err = appContainers(app)
@@ -345,7 +345,7 @@ func (m *Manager) toDeployment(usr map[string]interface{}, app *meshpaaspb.AppIn
 		})
 	}
 	var labels = map[string]string{
-		meshpaasApp: app.Name,
+		meshpaasAPI: app.Name,
 	}
 
 	return &apps.Deployment{
@@ -393,7 +393,7 @@ func (m *Manager) toTask(usr map[string]interface{}, app *meshpaaspb.TaskInput) 
 		return nil, err
 	}
 	var labels = map[string]string{
-		meshpaasApp: app.Name,
+		meshpaasAPI: app.Name,
 	}
 	return &v1beta1.CronJob{
 		TypeMeta: metav1.TypeMeta{
@@ -432,7 +432,7 @@ func (m *Manager) toTask(usr map[string]interface{}, app *meshpaaspb.TaskInput) 
 	}, nil
 }
 
-func overwriteDeployment(deployment *apps.Deployment, app *meshpaaspb.AppInput) (*apps.Deployment, error) {
+func overwriteDeployment(deployment *apps.Deployment, app *meshpaaspb.APIInput) (*apps.Deployment, error) {
 	replicas := int32(app.Replicas)
 	if replicas != *deployment.Spec.Replicas {
 		deployment.Spec.Replicas = &replicas
@@ -540,13 +540,13 @@ func overwriteTask(cronJob *v1beta1.CronJob, task *meshpaaspb.TaskInput) (*v1bet
 	return cronJob, nil
 }
 
-func (m *Manager) toService(usr map[string]interface{}, input *meshpaaspb.AppInput) *v1.Service {
+func (m *Manager) toService(usr map[string]interface{}, input *meshpaaspb.APIInput) *v1.Service {
 	svc := &v1.Service{
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      input.Name,
 			Namespace: cast.ToString(usr[m.namespaceClaim]),
 			Labels: map[string]string{
-				meshpaasApp: input.Name,
+				meshpaasAPI: input.Name,
 			},
 		},
 	}
@@ -563,7 +563,7 @@ func (m *Manager) toService(usr map[string]interface{}, input *meshpaaspb.AppInp
 	return svc
 }
 
-type k8sApp struct {
+type k8sAPI struct {
 	namespace      *v12.Namespace
 	deployment     *apps.Deployment
 	svc            *v1.Service
@@ -572,8 +572,8 @@ type k8sApp struct {
 	authorization  *security.AuthorizationPolicy
 }
 
-func (k *k8sApp) toApp() *meshpaaspb.App {
-	a := &meshpaaspb.App{
+func (k *k8sAPI) toAPI() *meshpaaspb.API {
+	a := &meshpaaspb.API{
 		Name:           k.deployment.Name,
 		Containers:     nil,
 		Replicas:       uint32(*k.deployment.Spec.Replicas),

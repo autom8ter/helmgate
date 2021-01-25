@@ -11,7 +11,7 @@ import (
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
-func (m *Manager) CreateApp(ctx context.Context, app *meshpaaspb.AppInput) (*meshpaaspb.App, error) {
+func (m *Manager) CreateAPI(ctx context.Context, app *meshpaaspb.APIInput) (*meshpaaspb.API, error) {
 	usr, ok := auth.UserContext(ctx)
 	if !ok {
 		return nil, status.Error(codes.Unauthenticated, "failed to get logged in user")
@@ -52,7 +52,7 @@ func (m *Manager) CreateApp(ctx context.Context, app *meshpaaspb.AppInput) (*mes
 	if err != nil {
 		return nil, err
 	}
-	kapp := &k8sApp{
+	kapp := &k8sAPI{
 		namespace:      namespace,
 		deployment:     deployment,
 		svc:            svc,
@@ -60,18 +60,18 @@ func (m *Manager) CreateApp(ctx context.Context, app *meshpaaspb.AppInput) (*mes
 		authentication: a,
 		authorization:  authz,
 	}
-	ap := kapp.toApp()
+	ap := kapp.toAPI()
 	ap.Status = s
 	return ap, nil
 }
 
-func (m *Manager) UpdateApp(ctx context.Context, app *meshpaaspb.AppInput) (*meshpaaspb.App, error) {
+func (m *Manager) UpdateAPI(ctx context.Context, app *meshpaaspb.APIInput) (*meshpaaspb.API, error) {
 	usr, ok := auth.UserContext(ctx)
 	if !ok {
 		return nil, status.Error(codes.Unauthenticated, "failed to get logged in user")
 	}
 	usrNamespace := cast.ToString(usr[m.namespaceClaim])
-	kapp := &k8sApp{}
+	kapp := &k8sAPI{}
 	namespace, err := m.kclient.Namespaces().Get(ctx, usrNamespace, v1.GetOptions{})
 	if err != nil {
 		return nil, err
@@ -142,18 +142,18 @@ func (m *Manager) UpdateApp(ctx context.Context, app *meshpaaspb.AppInput) (*mes
 	if err != nil {
 		return nil, err
 	}
-	a := kapp.toApp()
+	a := kapp.toAPI()
 	a.Status = stat
 	return a, nil
 }
 
-func (m *Manager) GetApp(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb.App, error) {
+func (m *Manager) GetAPI(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb.API, error) {
 	usr, ok := auth.UserContext(ctx)
 	if !ok {
 		return nil, status.Error(codes.Unauthenticated, "failed to get logged in user")
 	}
 	usrNamespace := cast.ToString(usr[m.namespaceClaim])
-	kapp := &k8sApp{}
+	kapp := &k8sAPI{}
 	namespace, err := m.kclient.Namespaces().Get(ctx, usrNamespace, v1.GetOptions{})
 	if err != nil {
 		namespace, err = m.kclient.Namespaces().Create(ctx, m.toNamespace(usr), v1.CreateOptions{})
@@ -185,12 +185,12 @@ func (m *Manager) GetApp(ctx context.Context, ref *meshpaaspb.Ref) (*meshpaaspb.
 	if err != nil {
 		return nil, err
 	}
-	a := kapp.toApp()
+	a := kapp.toAPI()
 	a.Status = stat
 	return a, nil
 }
 
-func (m *Manager) DeleteApp(ctx context.Context, ref *meshpaaspb.Ref) error {
+func (m *Manager) DeleteAPI(ctx context.Context, ref *meshpaaspb.Ref) error {
 	usr, ok := auth.UserContext(ctx)
 	if !ok {
 		return status.Error(codes.Unauthenticated, "failed to get logged in user")
@@ -211,13 +211,13 @@ func (m *Manager) DeleteApp(ctx context.Context, ref *meshpaaspb.Ref) error {
 	return nil
 }
 
-func (m *Manager) ListApps(ctx context.Context) (*meshpaaspb.Apps, error) {
+func (m *Manager) ListAPIs(ctx context.Context) (*meshpaaspb.APIs, error) {
 	usr, ok := auth.UserContext(ctx)
 	if !ok {
 		return nil, status.Error(codes.Unauthenticated, "failed to get logged in user")
 	}
 	usrNamespace := cast.ToString(usr[m.namespaceClaim])
-	var kapps = &meshpaaspb.Apps{}
+	var kapps = &meshpaaspb.APIs{}
 
 	namespace, err := m.kclient.Namespaces().Get(ctx, usrNamespace, v1.GetOptions{})
 	if err != nil {
@@ -242,7 +242,7 @@ func (m *Manager) ListApps(ctx context.Context) (*meshpaaspb.Apps, error) {
 		if err != nil {
 			return nil, err
 		}
-		kapp := &k8sApp{
+		kapp := &k8sAPI{
 			namespace:      namespace,
 			deployment:     &deployment,
 			svc:            svc,
@@ -254,13 +254,13 @@ func (m *Manager) ListApps(ctx context.Context) (*meshpaaspb.Apps, error) {
 		kapp.authentication = athn
 		athz, _ := m.iclient.AuthorizationPolicies(usrNamespace).Get(ctx, deployment.Name, v1.GetOptions{})
 		kapp.authorization = athz
-		a := kapp.toApp()
+		a := kapp.toAPI()
 		stat, err := m.getStatus(ctx, usrNamespace, deployment.Name)
 		if err != nil {
 			return nil, err
 		}
 		a.Status = stat
-		kapps.Applications = append(kapps.Applications, a)
+		kapps.Apis = append(kapps.Apis, a)
 	}
 	return kapps, nil
 }
