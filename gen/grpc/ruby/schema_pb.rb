@@ -40,19 +40,19 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   add_message "meshpaas.App" do
     optional :name, :string, 1
     optional :project, :string, 2
-    optional :version, :uint32, 3
-    optional :config, :message, 4, "google.protobuf.Struct"
-    optional :life_cycle, :message, 5, "meshpaas.LifeCycle"
+    optional :release, :message, 5, "meshpaas.Release"
     optional :template, :message, 20, "meshpaas.AppTemplate"
   end
   add_message "meshpaas.Apps" do
     repeated :apps, :message, 1, "meshpaas.App"
   end
-  add_message "meshpaas.LifeCycle" do
-    optional :notes, :string, 1
-    optional :description, :string, 2
-    optional :status, :string, 3
-    map :timestamps, :string, :message, 4, "google.protobuf.Timestamp"
+  add_message "meshpaas.Release" do
+    optional :version, :uint32, 1
+    optional :config, :message, 2, "google.protobuf.Struct"
+    optional :notes, :string, 3
+    optional :description, :string, 4
+    optional :status, :string, 5
+    map :timestamps, :string, :message, 6, "google.protobuf.Timestamp"
   end
   add_message "meshpaas.AppRef" do
     optional :project, :string, 1
@@ -80,7 +80,7 @@ module Meshpaas
   AppTemplates = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.AppTemplates").msgclass
   App = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.App").msgclass
   Apps = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Apps").msgclass
-  LifeCycle = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.LifeCycle").msgclass
+  Release = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Release").msgclass
   AppRef = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.AppRef").msgclass
   AppInput = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.AppInput").msgclass
   ProjectRef = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.ProjectRef").msgclass

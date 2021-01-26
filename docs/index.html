@@ -219,14 +219,6 @@
                 </li>
               
                 <li>
-                  <a href="#meshpaas.LifeCycle"><span class="badge">M</span>LifeCycle</a>
-                </li>
-              
-                <li>
-                  <a href="#meshpaas.LifeCycle.TimestampsEntry"><span class="badge">M</span>LifeCycle.TimestampsEntry</a>
-                </li>
-              
-                <li>
                   <a href="#meshpaas.Maintainer"><span class="badge">M</span>Maintainer</a>
                 </li>
               
@@ -236,6 +228,14 @@
               
                 <li>
                   <a href="#meshpaas.ProjectRefs"><span class="badge">M</span>ProjectRefs</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.Release"><span class="badge">M</span>Release</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.Release.TimestampsEntry"><span class="badge">M</span>Release.TimestampsEntry</a>
                 </li>
               
               
@@ -285,22 +285,8 @@
                 </tr>
               
                 <tr>
-                  <td>version</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p>version of the App. Iterates with each upgrade </p></td>
-                </tr>
-              
-                <tr>
-                  <td>config</td>
-                  <td><a href="#google.protobuf.Struct">google.protobuf.Struct</a></td>
-                  <td></td>
-                  <td><p>config values </p></td>
-                </tr>
-              
-                <tr>
-                  <td>life_cycle</td>
-                  <td><a href="#meshpaas.LifeCycle">LifeCycle</a></td>
+                  <td>release</td>
+                  <td><a href="#meshpaas.Release">Release</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -907,82 +893,6 @@
 
         
       
-        <h3 id="meshpaas.LifeCycle">LifeCycle</h3>
-        <p>LifeCycle tracks the state of an app during it's lifecycle</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>notes</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>description</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>status</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>timestamps</td>
-                  <td><a href="#meshpaas.LifeCycle.TimestampsEntry">LifeCycle.TimestampsEntry</a></td>
-                  <td>repeated</td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="meshpaas.LifeCycle.TimestampsEntry">LifeCycle.TimestampsEntry</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>key</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>value</td>
-                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
         <h3 id="meshpaas.Maintainer">Maintainer</h3>
         <p>Maintainer is the maintainer of a</p>
 
@@ -1090,6 +1000,96 @@
                   <td>projects</td>
                   <td><a href="#meshpaas.ProjectRef">ProjectRef</a></td>
                   <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.Release">Release</h3>
+        <p>Release tracks the state of an app during the lifecycle of it's current deployment</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>version</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>version of the App. Iterates with each upgrade </p></td>
+                </tr>
+              
+                <tr>
+                  <td>config</td>
+                  <td><a href="#google.protobuf.Struct">google.protobuf.Struct</a></td>
+                  <td></td>
+                  <td><p>config values </p></td>
+                </tr>
+              
+                <tr>
+                  <td>notes</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>description</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>status</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>timestamps</td>
+                  <td><a href="#meshpaas.Release.TimestampsEntry">Release.TimestampsEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.Release.TimestampsEntry">Release.TimestampsEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
                   <td><p> </p></td>
                 </tr>
               

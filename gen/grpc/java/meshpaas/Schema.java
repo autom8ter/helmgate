@@ -5872,51 +5872,17 @@ public final class Schema {
         getProjectBytes();
 
     /**
-     * <pre>
-     * version of the App. Iterates with each upgrade
-     * </pre>
-     *
-     * <code>uint32 version = 3;</code>
+     * <code>.meshpaas.Release release = 5;</code>
      */
-    int getVersion();
-
+    boolean hasRelease();
     /**
-     * <pre>
-     * config values
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct config = 4;</code>
+     * <code>.meshpaas.Release release = 5;</code>
      */
-    boolean hasConfig();
+    meshpaas.Schema.Release getRelease();
     /**
-     * <pre>
-     * config values
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct config = 4;</code>
+     * <code>.meshpaas.Release release = 5;</code>
      */
-    com.google.protobuf.Struct getConfig();
-    /**
-     * <pre>
-     * config values
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct config = 4;</code>
-     */
-    com.google.protobuf.StructOrBuilder getConfigOrBuilder();
-
-    /**
-     * <code>.meshpaas.LifeCycle life_cycle = 5;</code>
-     */
-    boolean hasLifeCycle();
-    /**
-     * <code>.meshpaas.LifeCycle life_cycle = 5;</code>
-     */
-    meshpaas.Schema.LifeCycle getLifeCycle();
-    /**
-     * <code>.meshpaas.LifeCycle life_cycle = 5;</code>
-     */
-    meshpaas.Schema.LifeCycleOrBuilder getLifeCycleOrBuilder();
+    meshpaas.Schema.ReleaseOrBuilder getReleaseOrBuilder();
 
     /**
      * <code>.meshpaas.AppTemplate template = 20;</code>
@@ -5950,7 +5916,6 @@ public final class Schema {
     private App() {
       name_ = "";
       project_ = "";
-      version_ = 0;
     }
 
     @java.lang.Override
@@ -5989,33 +5954,15 @@ public final class Schema {
               project_ = s;
               break;
             }
-            case 24: {
-
-              version_ = input.readUInt32();
-              break;
-            }
-            case 34: {
-              com.google.protobuf.Struct.Builder subBuilder = null;
-              if (config_ != null) {
-                subBuilder = config_.toBuilder();
-              }
-              config_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(config_);
-                config_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
             case 42: {
-              meshpaas.Schema.LifeCycle.Builder subBuilder = null;
-              if (lifeCycle_ != null) {
-                subBuilder = lifeCycle_.toBuilder();
+              meshpaas.Schema.Release.Builder subBuilder = null;
+              if (release_ != null) {
+                subBuilder = release_.toBuilder();
               }
-              lifeCycle_ = input.readMessage(meshpaas.Schema.LifeCycle.parser(), extensionRegistry);
+              release_ = input.readMessage(meshpaas.Schema.Release.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(lifeCycle_);
-                lifeCycle_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(release_);
+                release_ = subBuilder.buildPartial();
               }
 
               break;
@@ -6149,71 +6096,25 @@ public final class Schema {
       }
     }
 
-    public static final int VERSION_FIELD_NUMBER = 3;
-    private int version_;
+    public static final int RELEASE_FIELD_NUMBER = 5;
+    private meshpaas.Schema.Release release_;
     /**
-     * <pre>
-     * version of the App. Iterates with each upgrade
-     * </pre>
-     *
-     * <code>uint32 version = 3;</code>
+     * <code>.meshpaas.Release release = 5;</code>
      */
-    public int getVersion() {
-      return version_;
-    }
-
-    public static final int CONFIG_FIELD_NUMBER = 4;
-    private com.google.protobuf.Struct config_;
-    /**
-     * <pre>
-     * config values
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct config = 4;</code>
-     */
-    public boolean hasConfig() {
-      return config_ != null;
+    public boolean hasRelease() {
+      return release_ != null;
     }
     /**
-     * <pre>
-     * config values
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct config = 4;</code>
+     * <code>.meshpaas.Release release = 5;</code>
      */
-    public com.google.protobuf.Struct getConfig() {
-      return config_ == null ? com.google.protobuf.Struct.getDefaultInstance() : config_;
+    public meshpaas.Schema.Release getRelease() {
+      return release_ == null ? meshpaas.Schema.Release.getDefaultInstance() : release_;
     }
     /**
-     * <pre>
-     * config values
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct config = 4;</code>
+     * <code>.meshpaas.Release release = 5;</code>
      */
-    public com.google.protobuf.StructOrBuilder getConfigOrBuilder() {
-      return getConfig();
-    }
-
-    public static final int LIFE_CYCLE_FIELD_NUMBER = 5;
-    private meshpaas.Schema.LifeCycle lifeCycle_;
-    /**
-     * <code>.meshpaas.LifeCycle life_cycle = 5;</code>
-     */
-    public boolean hasLifeCycle() {
-      return lifeCycle_ != null;
-    }
-    /**
-     * <code>.meshpaas.LifeCycle life_cycle = 5;</code>
-     */
-    public meshpaas.Schema.LifeCycle getLifeCycle() {
-      return lifeCycle_ == null ? meshpaas.Schema.LifeCycle.getDefaultInstance() : lifeCycle_;
-    }
-    /**
-     * <code>.meshpaas.LifeCycle life_cycle = 5;</code>
-     */
-    public meshpaas.Schema.LifeCycleOrBuilder getLifeCycleOrBuilder() {
-      return getLifeCycle();
+    public meshpaas.Schema.ReleaseOrBuilder getReleaseOrBuilder() {
+      return getRelease();
     }
 
     public static final int TEMPLATE_FIELD_NUMBER = 20;
@@ -6257,14 +6158,8 @@ public final class Schema {
       if (!getProjectBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, project_);
       }
-      if (version_ != 0) {
-        output.writeUInt32(3, version_);
-      }
-      if (config_ != null) {
-        output.writeMessage(4, getConfig());
-      }
-      if (lifeCycle_ != null) {
-        output.writeMessage(5, getLifeCycle());
+      if (release_ != null) {
+        output.writeMessage(5, getRelease());
       }
       if (template_ != null) {
         output.writeMessage(20, getTemplate());
@@ -6284,17 +6179,9 @@ public final class Schema {
       if (!getProjectBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, project_);
       }
-      if (version_ != 0) {
+      if (release_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(3, version_);
-      }
-      if (config_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, getConfig());
-      }
-      if (lifeCycle_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, getLifeCycle());
+          .computeMessageSize(5, getRelease());
       }
       if (template_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -6320,17 +6207,10 @@ public final class Schema {
           .equals(other.getName());
       result = result && getProject()
           .equals(other.getProject());
-      result = result && (getVersion()
-          == other.getVersion());
-      result = result && (hasConfig() == other.hasConfig());
-      if (hasConfig()) {
-        result = result && getConfig()
-            .equals(other.getConfig());
-      }
-      result = result && (hasLifeCycle() == other.hasLifeCycle());
-      if (hasLifeCycle()) {
-        result = result && getLifeCycle()
-            .equals(other.getLifeCycle());
+      result = result && (hasRelease() == other.hasRelease());
+      if (hasRelease()) {
+        result = result && getRelease()
+            .equals(other.getRelease());
       }
       result = result && (hasTemplate() == other.hasTemplate());
       if (hasTemplate()) {
@@ -6352,15 +6232,9 @@ public final class Schema {
       hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + PROJECT_FIELD_NUMBER;
       hash = (53 * hash) + getProject().hashCode();
-      hash = (37 * hash) + VERSION_FIELD_NUMBER;
-      hash = (53 * hash) + getVersion();
-      if (hasConfig()) {
-        hash = (37 * hash) + CONFIG_FIELD_NUMBER;
-        hash = (53 * hash) + getConfig().hashCode();
-      }
-      if (hasLifeCycle()) {
-        hash = (37 * hash) + LIFE_CYCLE_FIELD_NUMBER;
-        hash = (53 * hash) + getLifeCycle().hashCode();
+      if (hasRelease()) {
+        hash = (37 * hash) + RELEASE_FIELD_NUMBER;
+        hash = (53 * hash) + getRelease().hashCode();
       }
       if (hasTemplate()) {
         hash = (37 * hash) + TEMPLATE_FIELD_NUMBER;
@@ -6507,19 +6381,11 @@ public final class Schema {
 
         project_ = "";
 
-        version_ = 0;
-
-        if (configBuilder_ == null) {
-          config_ = null;
+        if (releaseBuilder_ == null) {
+          release_ = null;
         } else {
-          config_ = null;
-          configBuilder_ = null;
-        }
-        if (lifeCycleBuilder_ == null) {
-          lifeCycle_ = null;
-        } else {
-          lifeCycle_ = null;
-          lifeCycleBuilder_ = null;
+          release_ = null;
+          releaseBuilder_ = null;
         }
         if (templateBuilder_ == null) {
           template_ = null;
@@ -6555,16 +6421,10 @@ public final class Schema {
         meshpaas.Schema.App result = new meshpaas.Schema.App(this);
         result.name_ = name_;
         result.project_ = project_;
-        result.version_ = version_;
-        if (configBuilder_ == null) {
-          result.config_ = config_;
+        if (releaseBuilder_ == null) {
+          result.release_ = release_;
         } else {
-          result.config_ = configBuilder_.build();
-        }
-        if (lifeCycleBuilder_ == null) {
-          result.lifeCycle_ = lifeCycle_;
-        } else {
-          result.lifeCycle_ = lifeCycleBuilder_.build();
+          result.release_ = releaseBuilder_.build();
         }
         if (templateBuilder_ == null) {
           result.template_ = template_;
@@ -6627,14 +6487,8 @@ public final class Schema {
           project_ = other.project_;
           onChanged();
         }
-        if (other.getVersion() != 0) {
-          setVersion(other.getVersion());
-        }
-        if (other.hasConfig()) {
-          mergeConfig(other.getConfig());
-        }
-        if (other.hasLifeCycle()) {
-          mergeLifeCycle(other.getLifeCycle());
+        if (other.hasRelease()) {
+          mergeRelease(other.getRelease());
         }
         if (other.hasTemplate()) {
           mergeTemplate(other.getTemplate());
@@ -6846,312 +6700,121 @@ public final class Schema {
         return this;
       }
 
-      private int version_ ;
-      /**
-       * <pre>
-       * version of the App. Iterates with each upgrade
-       * </pre>
-       *
-       * <code>uint32 version = 3;</code>
-       */
-      public int getVersion() {
-        return version_;
-      }
-      /**
-       * <pre>
-       * version of the App. Iterates with each upgrade
-       * </pre>
-       *
-       * <code>uint32 version = 3;</code>
-       */
-      public Builder setVersion(int value) {
-        
-        version_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * version of the App. Iterates with each upgrade
-       * </pre>
-       *
-       * <code>uint32 version = 3;</code>
-       */
-      public Builder clearVersion() {
-        
-        version_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.Struct config_ = null;
+      private meshpaas.Schema.Release release_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> configBuilder_;
+          meshpaas.Schema.Release, meshpaas.Schema.Release.Builder, meshpaas.Schema.ReleaseOrBuilder> releaseBuilder_;
       /**
-       * <pre>
-       * config values
-       * </pre>
-       *
-       * <code>.google.protobuf.Struct config = 4;</code>
+       * <code>.meshpaas.Release release = 5;</code>
        */
-      public boolean hasConfig() {
-        return configBuilder_ != null || config_ != null;
+      public boolean hasRelease() {
+        return releaseBuilder_ != null || release_ != null;
       }
       /**
-       * <pre>
-       * config values
-       * </pre>
-       *
-       * <code>.google.protobuf.Struct config = 4;</code>
+       * <code>.meshpaas.Release release = 5;</code>
        */
-      public com.google.protobuf.Struct getConfig() {
-        if (configBuilder_ == null) {
-          return config_ == null ? com.google.protobuf.Struct.getDefaultInstance() : config_;
+      public meshpaas.Schema.Release getRelease() {
+        if (releaseBuilder_ == null) {
+          return release_ == null ? meshpaas.Schema.Release.getDefaultInstance() : release_;
         } else {
-          return configBuilder_.getMessage();
+          return releaseBuilder_.getMessage();
         }
       }
       /**
-       * <pre>
-       * config values
-       * </pre>
-       *
-       * <code>.google.protobuf.Struct config = 4;</code>
+       * <code>.meshpaas.Release release = 5;</code>
        */
-      public Builder setConfig(com.google.protobuf.Struct value) {
-        if (configBuilder_ == null) {
+      public Builder setRelease(meshpaas.Schema.Release value) {
+        if (releaseBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          config_ = value;
+          release_ = value;
           onChanged();
         } else {
-          configBuilder_.setMessage(value);
+          releaseBuilder_.setMessage(value);
         }
 
         return this;
       }
       /**
-       * <pre>
-       * config values
-       * </pre>
-       *
-       * <code>.google.protobuf.Struct config = 4;</code>
+       * <code>.meshpaas.Release release = 5;</code>
        */
-      public Builder setConfig(
-          com.google.protobuf.Struct.Builder builderForValue) {
-        if (configBuilder_ == null) {
-          config_ = builderForValue.build();
+      public Builder setRelease(
+          meshpaas.Schema.Release.Builder builderForValue) {
+        if (releaseBuilder_ == null) {
+          release_ = builderForValue.build();
           onChanged();
         } else {
-          configBuilder_.setMessage(builderForValue.build());
+          releaseBuilder_.setMessage(builderForValue.build());
         }
 
         return this;
       }
       /**
-       * <pre>
-       * config values
-       * </pre>
-       *
-       * <code>.google.protobuf.Struct config = 4;</code>
+       * <code>.meshpaas.Release release = 5;</code>
        */
-      public Builder mergeConfig(com.google.protobuf.Struct value) {
-        if (configBuilder_ == null) {
-          if (config_ != null) {
-            config_ =
-              com.google.protobuf.Struct.newBuilder(config_).mergeFrom(value).buildPartial();
+      public Builder mergeRelease(meshpaas.Schema.Release value) {
+        if (releaseBuilder_ == null) {
+          if (release_ != null) {
+            release_ =
+              meshpaas.Schema.Release.newBuilder(release_).mergeFrom(value).buildPartial();
           } else {
-            config_ = value;
+            release_ = value;
           }
           onChanged();
         } else {
-          configBuilder_.mergeFrom(value);
+          releaseBuilder_.mergeFrom(value);
         }
 
         return this;
       }
       /**
-       * <pre>
-       * config values
-       * </pre>
-       *
-       * <code>.google.protobuf.Struct config = 4;</code>
+       * <code>.meshpaas.Release release = 5;</code>
        */
-      public Builder clearConfig() {
-        if (configBuilder_ == null) {
-          config_ = null;
+      public Builder clearRelease() {
+        if (releaseBuilder_ == null) {
+          release_ = null;
           onChanged();
         } else {
-          config_ = null;
-          configBuilder_ = null;
+          release_ = null;
+          releaseBuilder_ = null;
         }
 
         return this;
       }
       /**
-       * <pre>
-       * config values
-       * </pre>
-       *
-       * <code>.google.protobuf.Struct config = 4;</code>
+       * <code>.meshpaas.Release release = 5;</code>
        */
-      public com.google.protobuf.Struct.Builder getConfigBuilder() {
+      public meshpaas.Schema.Release.Builder getReleaseBuilder() {
         
         onChanged();
-        return getConfigFieldBuilder().getBuilder();
+        return getReleaseFieldBuilder().getBuilder();
       }
       /**
-       * <pre>
-       * config values
-       * </pre>
-       *
-       * <code>.google.protobuf.Struct config = 4;</code>
+       * <code>.meshpaas.Release release = 5;</code>
        */
-      public com.google.protobuf.StructOrBuilder getConfigOrBuilder() {
-        if (configBuilder_ != null) {
-          return configBuilder_.getMessageOrBuilder();
+      public meshpaas.Schema.ReleaseOrBuilder getReleaseOrBuilder() {
+        if (releaseBuilder_ != null) {
+          return releaseBuilder_.getMessageOrBuilder();
         } else {
-          return config_ == null ?
-              com.google.protobuf.Struct.getDefaultInstance() : config_;
+          return release_ == null ?
+              meshpaas.Schema.Release.getDefaultInstance() : release_;
         }
       }
       /**
-       * <pre>
-       * config values
-       * </pre>
-       *
-       * <code>.google.protobuf.Struct config = 4;</code>
+       * <code>.meshpaas.Release release = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
-          getConfigFieldBuilder() {
-        if (configBuilder_ == null) {
-          configBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
-                  getConfig(),
+          meshpaas.Schema.Release, meshpaas.Schema.Release.Builder, meshpaas.Schema.ReleaseOrBuilder> 
+          getReleaseFieldBuilder() {
+        if (releaseBuilder_ == null) {
+          releaseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              meshpaas.Schema.Release, meshpaas.Schema.Release.Builder, meshpaas.Schema.ReleaseOrBuilder>(
+                  getRelease(),
                   getParentForChildren(),
                   isClean());
-          config_ = null;
+          release_ = null;
         }
-        return configBuilder_;
-      }
-
-      private meshpaas.Schema.LifeCycle lifeCycle_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          meshpaas.Schema.LifeCycle, meshpaas.Schema.LifeCycle.Builder, meshpaas.Schema.LifeCycleOrBuilder> lifeCycleBuilder_;
-      /**
-       * <code>.meshpaas.LifeCycle life_cycle = 5;</code>
-       */
-      public boolean hasLifeCycle() {
-        return lifeCycleBuilder_ != null || lifeCycle_ != null;
-      }
-      /**
-       * <code>.meshpaas.LifeCycle life_cycle = 5;</code>
-       */
-      public meshpaas.Schema.LifeCycle getLifeCycle() {
-        if (lifeCycleBuilder_ == null) {
-          return lifeCycle_ == null ? meshpaas.Schema.LifeCycle.getDefaultInstance() : lifeCycle_;
-        } else {
-          return lifeCycleBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.meshpaas.LifeCycle life_cycle = 5;</code>
-       */
-      public Builder setLifeCycle(meshpaas.Schema.LifeCycle value) {
-        if (lifeCycleBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          lifeCycle_ = value;
-          onChanged();
-        } else {
-          lifeCycleBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.meshpaas.LifeCycle life_cycle = 5;</code>
-       */
-      public Builder setLifeCycle(
-          meshpaas.Schema.LifeCycle.Builder builderForValue) {
-        if (lifeCycleBuilder_ == null) {
-          lifeCycle_ = builderForValue.build();
-          onChanged();
-        } else {
-          lifeCycleBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.meshpaas.LifeCycle life_cycle = 5;</code>
-       */
-      public Builder mergeLifeCycle(meshpaas.Schema.LifeCycle value) {
-        if (lifeCycleBuilder_ == null) {
-          if (lifeCycle_ != null) {
-            lifeCycle_ =
-              meshpaas.Schema.LifeCycle.newBuilder(lifeCycle_).mergeFrom(value).buildPartial();
-          } else {
-            lifeCycle_ = value;
-          }
-          onChanged();
-        } else {
-          lifeCycleBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.meshpaas.LifeCycle life_cycle = 5;</code>
-       */
-      public Builder clearLifeCycle() {
-        if (lifeCycleBuilder_ == null) {
-          lifeCycle_ = null;
-          onChanged();
-        } else {
-          lifeCycle_ = null;
-          lifeCycleBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.meshpaas.LifeCycle life_cycle = 5;</code>
-       */
-      public meshpaas.Schema.LifeCycle.Builder getLifeCycleBuilder() {
-        
-        onChanged();
-        return getLifeCycleFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.meshpaas.LifeCycle life_cycle = 5;</code>
-       */
-      public meshpaas.Schema.LifeCycleOrBuilder getLifeCycleOrBuilder() {
-        if (lifeCycleBuilder_ != null) {
-          return lifeCycleBuilder_.getMessageOrBuilder();
-        } else {
-          return lifeCycle_ == null ?
-              meshpaas.Schema.LifeCycle.getDefaultInstance() : lifeCycle_;
-        }
-      }
-      /**
-       * <code>.meshpaas.LifeCycle life_cycle = 5;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          meshpaas.Schema.LifeCycle, meshpaas.Schema.LifeCycle.Builder, meshpaas.Schema.LifeCycleOrBuilder> 
-          getLifeCycleFieldBuilder() {
-        if (lifeCycleBuilder_ == null) {
-          lifeCycleBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              meshpaas.Schema.LifeCycle, meshpaas.Schema.LifeCycle.Builder, meshpaas.Schema.LifeCycleOrBuilder>(
-                  getLifeCycle(),
-                  getParentForChildren(),
-                  isClean());
-          lifeCycle_ = null;
-        }
-        return lifeCycleBuilder_;
+        return releaseBuilder_;
       }
 
       private meshpaas.Schema.AppTemplate template_ = null;
@@ -8113,46 +7776,80 @@ public final class Schema {
 
   }
 
-  public interface LifeCycleOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:meshpaas.LifeCycle)
+  public interface ReleaseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:meshpaas.Release)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string notes = 1;</code>
+     * <pre>
+     * version of the App. Iterates with each upgrade
+     * </pre>
+     *
+     * <code>uint32 version = 1;</code>
+     */
+    int getVersion();
+
+    /**
+     * <pre>
+     * config values
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct config = 2;</code>
+     */
+    boolean hasConfig();
+    /**
+     * <pre>
+     * config values
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct config = 2;</code>
+     */
+    com.google.protobuf.Struct getConfig();
+    /**
+     * <pre>
+     * config values
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct config = 2;</code>
+     */
+    com.google.protobuf.StructOrBuilder getConfigOrBuilder();
+
+    /**
+     * <code>string notes = 3;</code>
      */
     java.lang.String getNotes();
     /**
-     * <code>string notes = 1;</code>
+     * <code>string notes = 3;</code>
      */
     com.google.protobuf.ByteString
         getNotesBytes();
 
     /**
-     * <code>string description = 2;</code>
+     * <code>string description = 4;</code>
      */
     java.lang.String getDescription();
     /**
-     * <code>string description = 2;</code>
+     * <code>string description = 4;</code>
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
 
     /**
-     * <code>string status = 3;</code>
+     * <code>string status = 5;</code>
      */
     java.lang.String getStatus();
     /**
-     * <code>string status = 3;</code>
+     * <code>string status = 5;</code>
      */
     com.google.protobuf.ByteString
         getStatusBytes();
 
     /**
-     * <code>map&lt;string, .google.protobuf.Timestamp&gt; timestamps = 4;</code>
+     * <code>map&lt;string, .google.protobuf.Timestamp&gt; timestamps = 6;</code>
      */
     int getTimestampsCount();
     /**
-     * <code>map&lt;string, .google.protobuf.Timestamp&gt; timestamps = 4;</code>
+     * <code>map&lt;string, .google.protobuf.Timestamp&gt; timestamps = 6;</code>
      */
     boolean containsTimestamps(
         java.lang.String key);
@@ -8163,19 +7860,19 @@ public final class Schema {
     java.util.Map<java.lang.String, com.google.protobuf.Timestamp>
     getTimestamps();
     /**
-     * <code>map&lt;string, .google.protobuf.Timestamp&gt; timestamps = 4;</code>
+     * <code>map&lt;string, .google.protobuf.Timestamp&gt; timestamps = 6;</code>
      */
     java.util.Map<java.lang.String, com.google.protobuf.Timestamp>
     getTimestampsMap();
     /**
-     * <code>map&lt;string, .google.protobuf.Timestamp&gt; timestamps = 4;</code>
+     * <code>map&lt;string, .google.protobuf.Timestamp&gt; timestamps = 6;</code>
      */
 
     com.google.protobuf.Timestamp getTimestampsOrDefault(
         java.lang.String key,
         com.google.protobuf.Timestamp defaultValue);
     /**
-     * <code>map&lt;string, .google.protobuf.Timestamp&gt; timestamps = 4;</code>
+     * <code>map&lt;string, .google.protobuf.Timestamp&gt; timestamps = 6;</code>
      */
 
     com.google.protobuf.Timestamp getTimestampsOrThrow(
@@ -8183,21 +7880,22 @@ public final class Schema {
   }
   /**
    * <pre>
-   * LifeCycle tracks the state of an app during it's lifecycle
+   * Release tracks the state of an app during the lifecycle of it's current deployment
    * </pre>
    *
-   * Protobuf type {@code meshpaas.LifeCycle}
+   * Protobuf type {@code meshpaas.Release}
    */
-  public  static final class LifeCycle extends
+  public  static final class Release extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:meshpaas.LifeCycle)
-      LifeCycleOrBuilder {
+      // @@protoc_insertion_point(message_implements:meshpaas.Release)
+      ReleaseOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use LifeCycle.newBuilder() to construct.
-    private LifeCycle(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use Release.newBuilder() to construct.
+    private Release(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private LifeCycle() {
+    private Release() {
+      version_ = 0;
       notes_ = "";
       description_ = "";
       status_ = "";
@@ -8208,7 +7906,7 @@ public final class Schema {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private LifeCycle(
+    private Release(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -8227,29 +7925,47 @@ public final class Schema {
             case 0:
               done = true;
               break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 8: {
 
-              notes_ = s;
+              version_ = input.readUInt32();
               break;
             }
             case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
+              com.google.protobuf.Struct.Builder subBuilder = null;
+              if (config_ != null) {
+                subBuilder = config_.toBuilder();
+              }
+              config_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(config_);
+                config_ = subBuilder.buildPartial();
+              }
 
-              description_ = s;
               break;
             }
             case 26: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              status_ = s;
+              notes_ = s;
               break;
             }
             case 34: {
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              description_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              status_ = s;
+              break;
+            }
+            case 50: {
+              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
                 timestamps_ = com.google.protobuf.MapField.newMapField(
                     TimestampsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000008;
+                mutable_bitField0_ |= 0x00000020;
               }
               com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Timestamp>
               timestamps__ = input.readMessage(
@@ -8279,7 +7995,7 @@ public final class Schema {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return meshpaas.Schema.internal_static_meshpaas_LifeCycle_descriptor;
+      return meshpaas.Schema.internal_static_meshpaas_Release_descriptor;
     }
 
     @SuppressWarnings({"rawtypes"})
@@ -8287,7 +8003,7 @@ public final class Schema {
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
-        case 4:
+        case 6:
           return internalGetTimestamps();
         default:
           throw new RuntimeException(
@@ -8297,16 +8013,62 @@ public final class Schema {
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return meshpaas.Schema.internal_static_meshpaas_LifeCycle_fieldAccessorTable
+      return meshpaas.Schema.internal_static_meshpaas_Release_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              meshpaas.Schema.LifeCycle.class, meshpaas.Schema.LifeCycle.Builder.class);
+              meshpaas.Schema.Release.class, meshpaas.Schema.Release.Builder.class);
     }
 
     private int bitField0_;
-    public static final int NOTES_FIELD_NUMBER = 1;
+    public static final int VERSION_FIELD_NUMBER = 1;
+    private int version_;
+    /**
+     * <pre>
+     * version of the App. Iterates with each upgrade
+     * </pre>
+     *
+     * <code>uint32 version = 1;</code>
+     */
+    public int getVersion() {
+      return version_;
+    }
+
+    public static final int CONFIG_FIELD_NUMBER = 2;
+    private com.google.protobuf.Struct config_;
+    /**
+     * <pre>
+     * config values
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct config = 2;</code>
+     */
+    public boolean hasConfig() {
+      return config_ != null;
+    }
+    /**
+     * <pre>
+     * config values
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct config = 2;</code>
+     */
+    public com.google.protobuf.Struct getConfig() {
+      return config_ == null ? com.google.protobuf.Struct.getDefaultInstance() : config_;
+    }
+    /**
+     * <pre>
+     * config values
+     * </pre>
+     *
+     * <code>.google.protobuf.Struct config = 2;</code>
+     */
+    public com.google.protobuf.StructOrBuilder getConfigOrBuilder() {
+      return getConfig();
+    }
+
+    public static final int NOTES_FIELD_NUMBER = 3;
     private volatile java.lang.Object notes_;
     /**
-     * <code>string notes = 1;</code>
+     * <code>string notes = 3;</code>
      */
     public java.lang.String getNotes() {
       java.lang.Object ref = notes_;
@@ -8321,7 +8083,7 @@ public final class Schema {
       }
     }
     /**
-     * <code>string notes = 1;</code>
+     * <code>string notes = 3;</code>
      */
     public com.google.protobuf.ByteString
         getNotesBytes() {
@@ -8337,10 +8099,10 @@ public final class Schema {
       }
     }
 
-    public static final int DESCRIPTION_FIELD_NUMBER = 2;
+    public static final int DESCRIPTION_FIELD_NUMBER = 4;
     private volatile java.lang.Object description_;
     /**
-     * <code>string description = 2;</code>
+     * <code>string description = 4;</code>
      */
     public java.lang.String getDescription() {
       java.lang.Object ref = description_;
@@ -8355,7 +8117,7 @@ public final class Schema {
       }
     }
     /**
-     * <code>string description = 2;</code>
+     * <code>string description = 4;</code>
      */
     public com.google.protobuf.ByteString
         getDescriptionBytes() {
@@ -8371,10 +8133,10 @@ public final class Schema {
       }
     }
 
-    public static final int STATUS_FIELD_NUMBER = 3;
+    public static final int STATUS_FIELD_NUMBER = 5;
     private volatile java.lang.Object status_;
     /**
-     * <code>string status = 3;</code>
+     * <code>string status = 5;</code>
      */
     public java.lang.String getStatus() {
       java.lang.Object ref = status_;
@@ -8389,7 +8151,7 @@ public final class Schema {
       }
     }
     /**
-     * <code>string status = 3;</code>
+     * <code>string status = 5;</code>
      */
     public com.google.protobuf.ByteString
         getStatusBytes() {
@@ -8405,13 +8167,13 @@ public final class Schema {
       }
     }
 
-    public static final int TIMESTAMPS_FIELD_NUMBER = 4;
+    public static final int TIMESTAMPS_FIELD_NUMBER = 6;
     private static final class TimestampsDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
           java.lang.String, com.google.protobuf.Timestamp> defaultEntry =
               com.google.protobuf.MapEntry
               .<java.lang.String, com.google.protobuf.Timestamp>newDefaultInstance(
-                  meshpaas.Schema.internal_static_meshpaas_LifeCycle_TimestampsEntry_descriptor, 
+                  meshpaas.Schema.internal_static_meshpaas_Release_TimestampsEntry_descriptor, 
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "",
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
@@ -8432,7 +8194,7 @@ public final class Schema {
       return internalGetTimestamps().getMap().size();
     }
     /**
-     * <code>map&lt;string, .google.protobuf.Timestamp&gt; timestamps = 4;</code>
+     * <code>map&lt;string, .google.protobuf.Timestamp&gt; timestamps = 6;</code>
      */
 
     public boolean containsTimestamps(
@@ -8448,14 +8210,14 @@ public final class Schema {
       return getTimestampsMap();
     }
     /**
-     * <code>map&lt;string, .google.protobuf.Timestamp&gt; timestamps = 4;</code>
+     * <code>map&lt;string, .google.protobuf.Timestamp&gt; timestamps = 6;</code>
      */
 
     public java.util.Map<java.lang.String, com.google.protobuf.Timestamp> getTimestampsMap() {
       return internalGetTimestamps().getMap();
     }
     /**
-     * <code>map&lt;string, .google.protobuf.Timestamp&gt; timestamps = 4;</code>
+     * <code>map&lt;string, .google.protobuf.Timestamp&gt; timestamps = 6;</code>
      */
 
     public com.google.protobuf.Timestamp getTimestampsOrDefault(
@@ -8467,7 +8229,7 @@ public final class Schema {
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;string, .google.protobuf.Timestamp&gt; timestamps = 4;</code>
+     * <code>map&lt;string, .google.protobuf.Timestamp&gt; timestamps = 6;</code>
      */
 
     public com.google.protobuf.Timestamp getTimestampsOrThrow(
@@ -8495,21 +8257,27 @@ public final class Schema {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (version_ != 0) {
+        output.writeUInt32(1, version_);
+      }
+      if (config_ != null) {
+        output.writeMessage(2, getConfig());
+      }
       if (!getNotesBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, notes_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, notes_);
       }
       if (!getDescriptionBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, description_);
       }
       if (!getStatusBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, status_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, status_);
       }
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
           output,
           internalGetTimestamps(),
           TimestampsDefaultEntryHolder.defaultEntry,
-          4);
+          6);
       unknownFields.writeTo(output);
     }
 
@@ -8519,14 +8287,22 @@ public final class Schema {
       if (size != -1) return size;
 
       size = 0;
+      if (version_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(1, version_);
+      }
+      if (config_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getConfig());
+      }
       if (!getNotesBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, notes_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, notes_);
       }
       if (!getDescriptionBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, description_);
       }
       if (!getStatusBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, status_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, status_);
       }
       for (java.util.Map.Entry<java.lang.String, com.google.protobuf.Timestamp> entry
            : internalGetTimestamps().getMap().entrySet()) {
@@ -8536,7 +8312,7 @@ public final class Schema {
             .setValue(entry.getValue())
             .build();
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(4, timestamps__);
+            .computeMessageSize(6, timestamps__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -8548,12 +8324,19 @@ public final class Schema {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof meshpaas.Schema.LifeCycle)) {
+      if (!(obj instanceof meshpaas.Schema.Release)) {
         return super.equals(obj);
       }
-      meshpaas.Schema.LifeCycle other = (meshpaas.Schema.LifeCycle) obj;
+      meshpaas.Schema.Release other = (meshpaas.Schema.Release) obj;
 
       boolean result = true;
+      result = result && (getVersion()
+          == other.getVersion());
+      result = result && (hasConfig() == other.hasConfig());
+      if (hasConfig()) {
+        result = result && getConfig()
+            .equals(other.getConfig());
+      }
       result = result && getNotes()
           .equals(other.getNotes());
       result = result && getDescription()
@@ -8573,6 +8356,12 @@ public final class Schema {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + getVersion();
+      if (hasConfig()) {
+        hash = (37 * hash) + CONFIG_FIELD_NUMBER;
+        hash = (53 * hash) + getConfig().hashCode();
+      }
       hash = (37 * hash) + NOTES_FIELD_NUMBER;
       hash = (53 * hash) + getNotes().hashCode();
       hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
@@ -8588,69 +8377,69 @@ public final class Schema {
       return hash;
     }
 
-    public static meshpaas.Schema.LifeCycle parseFrom(
+    public static meshpaas.Schema.Release parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static meshpaas.Schema.LifeCycle parseFrom(
+    public static meshpaas.Schema.Release parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static meshpaas.Schema.LifeCycle parseFrom(
+    public static meshpaas.Schema.Release parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static meshpaas.Schema.LifeCycle parseFrom(
+    public static meshpaas.Schema.Release parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static meshpaas.Schema.LifeCycle parseFrom(byte[] data)
+    public static meshpaas.Schema.Release parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static meshpaas.Schema.LifeCycle parseFrom(
+    public static meshpaas.Schema.Release parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static meshpaas.Schema.LifeCycle parseFrom(java.io.InputStream input)
+    public static meshpaas.Schema.Release parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static meshpaas.Schema.LifeCycle parseFrom(
+    public static meshpaas.Schema.Release parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static meshpaas.Schema.LifeCycle parseDelimitedFrom(java.io.InputStream input)
+    public static meshpaas.Schema.Release parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static meshpaas.Schema.LifeCycle parseDelimitedFrom(
+    public static meshpaas.Schema.Release parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static meshpaas.Schema.LifeCycle parseFrom(
+    public static meshpaas.Schema.Release parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static meshpaas.Schema.LifeCycle parseFrom(
+    public static meshpaas.Schema.Release parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -8663,7 +8452,7 @@ public final class Schema {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(meshpaas.Schema.LifeCycle prototype) {
+    public static Builder newBuilder(meshpaas.Schema.Release prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -8680,25 +8469,25 @@ public final class Schema {
     }
     /**
      * <pre>
-     * LifeCycle tracks the state of an app during it's lifecycle
+     * Release tracks the state of an app during the lifecycle of it's current deployment
      * </pre>
      *
-     * Protobuf type {@code meshpaas.LifeCycle}
+     * Protobuf type {@code meshpaas.Release}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:meshpaas.LifeCycle)
-        meshpaas.Schema.LifeCycleOrBuilder {
+        // @@protoc_insertion_point(builder_implements:meshpaas.Release)
+        meshpaas.Schema.ReleaseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return meshpaas.Schema.internal_static_meshpaas_LifeCycle_descriptor;
+        return meshpaas.Schema.internal_static_meshpaas_Release_descriptor;
       }
 
       @SuppressWarnings({"rawtypes"})
       protected com.google.protobuf.MapField internalGetMapField(
           int number) {
         switch (number) {
-          case 4:
+          case 6:
             return internalGetTimestamps();
           default:
             throw new RuntimeException(
@@ -8709,7 +8498,7 @@ public final class Schema {
       protected com.google.protobuf.MapField internalGetMutableMapField(
           int number) {
         switch (number) {
-          case 4:
+          case 6:
             return internalGetMutableTimestamps();
           default:
             throw new RuntimeException(
@@ -8719,12 +8508,12 @@ public final class Schema {
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return meshpaas.Schema.internal_static_meshpaas_LifeCycle_fieldAccessorTable
+        return meshpaas.Schema.internal_static_meshpaas_Release_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                meshpaas.Schema.LifeCycle.class, meshpaas.Schema.LifeCycle.Builder.class);
+                meshpaas.Schema.Release.class, meshpaas.Schema.Release.Builder.class);
       }
 
-      // Construct using meshpaas.Schema.LifeCycle.newBuilder()
+      // Construct using meshpaas.Schema.Release.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -8742,6 +8531,14 @@ public final class Schema {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        version_ = 0;
+
+        if (configBuilder_ == null) {
+          config_ = null;
+        } else {
+          config_ = null;
+          configBuilder_ = null;
+        }
         notes_ = "";
 
         description_ = "";
@@ -8755,17 +8552,17 @@ public final class Schema {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return meshpaas.Schema.internal_static_meshpaas_LifeCycle_descriptor;
+        return meshpaas.Schema.internal_static_meshpaas_Release_descriptor;
       }
 
       @java.lang.Override
-      public meshpaas.Schema.LifeCycle getDefaultInstanceForType() {
-        return meshpaas.Schema.LifeCycle.getDefaultInstance();
+      public meshpaas.Schema.Release getDefaultInstanceForType() {
+        return meshpaas.Schema.Release.getDefaultInstance();
       }
 
       @java.lang.Override
-      public meshpaas.Schema.LifeCycle build() {
-        meshpaas.Schema.LifeCycle result = buildPartial();
+      public meshpaas.Schema.Release build() {
+        meshpaas.Schema.Release result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -8773,10 +8570,16 @@ public final class Schema {
       }
 
       @java.lang.Override
-      public meshpaas.Schema.LifeCycle buildPartial() {
-        meshpaas.Schema.LifeCycle result = new meshpaas.Schema.LifeCycle(this);
+      public meshpaas.Schema.Release buildPartial() {
+        meshpaas.Schema.Release result = new meshpaas.Schema.Release(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
+        result.version_ = version_;
+        if (configBuilder_ == null) {
+          result.config_ = config_;
+        } else {
+          result.config_ = configBuilder_.build();
+        }
         result.notes_ = notes_;
         result.description_ = description_;
         result.status_ = status_;
@@ -8821,16 +8624,22 @@ public final class Schema {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof meshpaas.Schema.LifeCycle) {
-          return mergeFrom((meshpaas.Schema.LifeCycle)other);
+        if (other instanceof meshpaas.Schema.Release) {
+          return mergeFrom((meshpaas.Schema.Release)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(meshpaas.Schema.LifeCycle other) {
-        if (other == meshpaas.Schema.LifeCycle.getDefaultInstance()) return this;
+      public Builder mergeFrom(meshpaas.Schema.Release other) {
+        if (other == meshpaas.Schema.Release.getDefaultInstance()) return this;
+        if (other.getVersion() != 0) {
+          setVersion(other.getVersion());
+        }
+        if (other.hasConfig()) {
+          mergeConfig(other.getConfig());
+        }
         if (!other.getNotes().isEmpty()) {
           notes_ = other.notes_;
           onChanged();
@@ -8860,11 +8669,11 @@ public final class Schema {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        meshpaas.Schema.LifeCycle parsedMessage = null;
+        meshpaas.Schema.Release parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (meshpaas.Schema.LifeCycle) e.getUnfinishedMessage();
+          parsedMessage = (meshpaas.Schema.Release) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -8875,9 +8684,200 @@ public final class Schema {
       }
       private int bitField0_;
 
+      private int version_ ;
+      /**
+       * <pre>
+       * version of the App. Iterates with each upgrade
+       * </pre>
+       *
+       * <code>uint32 version = 1;</code>
+       */
+      public int getVersion() {
+        return version_;
+      }
+      /**
+       * <pre>
+       * version of the App. Iterates with each upgrade
+       * </pre>
+       *
+       * <code>uint32 version = 1;</code>
+       */
+      public Builder setVersion(int value) {
+        
+        version_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * version of the App. Iterates with each upgrade
+       * </pre>
+       *
+       * <code>uint32 version = 1;</code>
+       */
+      public Builder clearVersion() {
+        
+        version_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Struct config_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> configBuilder_;
+      /**
+       * <pre>
+       * config values
+       * </pre>
+       *
+       * <code>.google.protobuf.Struct config = 2;</code>
+       */
+      public boolean hasConfig() {
+        return configBuilder_ != null || config_ != null;
+      }
+      /**
+       * <pre>
+       * config values
+       * </pre>
+       *
+       * <code>.google.protobuf.Struct config = 2;</code>
+       */
+      public com.google.protobuf.Struct getConfig() {
+        if (configBuilder_ == null) {
+          return config_ == null ? com.google.protobuf.Struct.getDefaultInstance() : config_;
+        } else {
+          return configBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * config values
+       * </pre>
+       *
+       * <code>.google.protobuf.Struct config = 2;</code>
+       */
+      public Builder setConfig(com.google.protobuf.Struct value) {
+        if (configBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          config_ = value;
+          onChanged();
+        } else {
+          configBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * config values
+       * </pre>
+       *
+       * <code>.google.protobuf.Struct config = 2;</code>
+       */
+      public Builder setConfig(
+          com.google.protobuf.Struct.Builder builderForValue) {
+        if (configBuilder_ == null) {
+          config_ = builderForValue.build();
+          onChanged();
+        } else {
+          configBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * config values
+       * </pre>
+       *
+       * <code>.google.protobuf.Struct config = 2;</code>
+       */
+      public Builder mergeConfig(com.google.protobuf.Struct value) {
+        if (configBuilder_ == null) {
+          if (config_ != null) {
+            config_ =
+              com.google.protobuf.Struct.newBuilder(config_).mergeFrom(value).buildPartial();
+          } else {
+            config_ = value;
+          }
+          onChanged();
+        } else {
+          configBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * config values
+       * </pre>
+       *
+       * <code>.google.protobuf.Struct config = 2;</code>
+       */
+      public Builder clearConfig() {
+        if (configBuilder_ == null) {
+          config_ = null;
+          onChanged();
+        } else {
+          config_ = null;
+          configBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * config values
+       * </pre>
+       *
+       * <code>.google.protobuf.Struct config = 2;</code>
+       */
+      public com.google.protobuf.Struct.Builder getConfigBuilder() {
+        
+        onChanged();
+        return getConfigFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * config values
+       * </pre>
+       *
+       * <code>.google.protobuf.Struct config = 2;</code>
+       */
+      public com.google.protobuf.StructOrBuilder getConfigOrBuilder() {
+        if (configBuilder_ != null) {
+          return configBuilder_.getMessageOrBuilder();
+        } else {
+          return config_ == null ?
+              com.google.protobuf.Struct.getDefaultInstance() : config_;
+        }
+      }
+      /**
+       * <pre>
+       * config values
+       * </pre>
+       *
+       * <code>.google.protobuf.Struct config = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+          getConfigFieldBuilder() {
+        if (configBuilder_ == null) {
+          configBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
+                  getConfig(),
+                  getParentForChildren(),
+                  isClean());
+          config_ = null;
+        }
+        return configBuilder_;
+      }
+
       private java.lang.Object notes_ = "";
       /**
-       * <code>string notes = 1;</code>
+       * <code>string notes = 3;</code>
        */
       public java.lang.String getNotes() {
         java.lang.Object ref = notes_;
@@ -8892,7 +8892,7 @@ public final class Schema {
         }
       }
       /**
-       * <code>string notes = 1;</code>
+       * <code>string notes = 3;</code>
        */
       public com.google.protobuf.ByteString
           getNotesBytes() {
@@ -8908,7 +8908,7 @@ public final class Schema {
         }
       }
       /**
-       * <code>string notes = 1;</code>
+       * <code>string notes = 3;</code>
        */
       public Builder setNotes(
           java.lang.String value) {
@@ -8921,7 +8921,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>string notes = 1;</code>
+       * <code>string notes = 3;</code>
        */
       public Builder clearNotes() {
         
@@ -8930,7 +8930,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>string notes = 1;</code>
+       * <code>string notes = 3;</code>
        */
       public Builder setNotesBytes(
           com.google.protobuf.ByteString value) {
@@ -8946,7 +8946,7 @@ public final class Schema {
 
       private java.lang.Object description_ = "";
       /**
-       * <code>string description = 2;</code>
+       * <code>string description = 4;</code>
        */
       public java.lang.String getDescription() {
         java.lang.Object ref = description_;
@@ -8961,7 +8961,7 @@ public final class Schema {
         }
       }
       /**
-       * <code>string description = 2;</code>
+       * <code>string description = 4;</code>
        */
       public com.google.protobuf.ByteString
           getDescriptionBytes() {
@@ -8977,7 +8977,7 @@ public final class Schema {
         }
       }
       /**
-       * <code>string description = 2;</code>
+       * <code>string description = 4;</code>
        */
       public Builder setDescription(
           java.lang.String value) {
@@ -8990,7 +8990,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>string description = 2;</code>
+       * <code>string description = 4;</code>
        */
       public Builder clearDescription() {
         
@@ -8999,7 +8999,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>string description = 2;</code>
+       * <code>string description = 4;</code>
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
@@ -9015,7 +9015,7 @@ public final class Schema {
 
       private java.lang.Object status_ = "";
       /**
-       * <code>string status = 3;</code>
+       * <code>string status = 5;</code>
        */
       public java.lang.String getStatus() {
         java.lang.Object ref = status_;
@@ -9030,7 +9030,7 @@ public final class Schema {
         }
       }
       /**
-       * <code>string status = 3;</code>
+       * <code>string status = 5;</code>
        */
       public com.google.protobuf.ByteString
           getStatusBytes() {
@@ -9046,7 +9046,7 @@ public final class Schema {
         }
       }
       /**
-       * <code>string status = 3;</code>
+       * <code>string status = 5;</code>
        */
       public Builder setStatus(
           java.lang.String value) {
@@ -9059,7 +9059,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>string status = 3;</code>
+       * <code>string status = 5;</code>
        */
       public Builder clearStatus() {
         
@@ -9068,7 +9068,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>string status = 3;</code>
+       * <code>string status = 5;</code>
        */
       public Builder setStatusBytes(
           com.google.protobuf.ByteString value) {
@@ -9109,7 +9109,7 @@ public final class Schema {
         return internalGetTimestamps().getMap().size();
       }
       /**
-       * <code>map&lt;string, .google.protobuf.Timestamp&gt; timestamps = 4;</code>
+       * <code>map&lt;string, .google.protobuf.Timestamp&gt; timestamps = 6;</code>
        */
 
       public boolean containsTimestamps(
@@ -9125,14 +9125,14 @@ public final class Schema {
         return getTimestampsMap();
       }
       /**
-       * <code>map&lt;string, .google.protobuf.Timestamp&gt; timestamps = 4;</code>
+       * <code>map&lt;string, .google.protobuf.Timestamp&gt; timestamps = 6;</code>
        */
 
       public java.util.Map<java.lang.String, com.google.protobuf.Timestamp> getTimestampsMap() {
         return internalGetTimestamps().getMap();
       }
       /**
-       * <code>map&lt;string, .google.protobuf.Timestamp&gt; timestamps = 4;</code>
+       * <code>map&lt;string, .google.protobuf.Timestamp&gt; timestamps = 6;</code>
        */
 
       public com.google.protobuf.Timestamp getTimestampsOrDefault(
@@ -9144,7 +9144,7 @@ public final class Schema {
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
       /**
-       * <code>map&lt;string, .google.protobuf.Timestamp&gt; timestamps = 4;</code>
+       * <code>map&lt;string, .google.protobuf.Timestamp&gt; timestamps = 6;</code>
        */
 
       public com.google.protobuf.Timestamp getTimestampsOrThrow(
@@ -9164,7 +9164,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>map&lt;string, .google.protobuf.Timestamp&gt; timestamps = 4;</code>
+       * <code>map&lt;string, .google.protobuf.Timestamp&gt; timestamps = 6;</code>
        */
 
       public Builder removeTimestamps(
@@ -9183,7 +9183,7 @@ public final class Schema {
         return internalGetMutableTimestamps().getMutableMap();
       }
       /**
-       * <code>map&lt;string, .google.protobuf.Timestamp&gt; timestamps = 4;</code>
+       * <code>map&lt;string, .google.protobuf.Timestamp&gt; timestamps = 6;</code>
        */
       public Builder putTimestamps(
           java.lang.String key,
@@ -9195,7 +9195,7 @@ public final class Schema {
         return this;
       }
       /**
-       * <code>map&lt;string, .google.protobuf.Timestamp&gt; timestamps = 4;</code>
+       * <code>map&lt;string, .google.protobuf.Timestamp&gt; timestamps = 6;</code>
        */
 
       public Builder putAllTimestamps(
@@ -9217,41 +9217,41 @@ public final class Schema {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:meshpaas.LifeCycle)
+      // @@protoc_insertion_point(builder_scope:meshpaas.Release)
     }
 
-    // @@protoc_insertion_point(class_scope:meshpaas.LifeCycle)
-    private static final meshpaas.Schema.LifeCycle DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:meshpaas.Release)
+    private static final meshpaas.Schema.Release DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new meshpaas.Schema.LifeCycle();
+      DEFAULT_INSTANCE = new meshpaas.Schema.Release();
     }
 
-    public static meshpaas.Schema.LifeCycle getDefaultInstance() {
+    public static meshpaas.Schema.Release getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<LifeCycle>
-        PARSER = new com.google.protobuf.AbstractParser<LifeCycle>() {
+    private static final com.google.protobuf.Parser<Release>
+        PARSER = new com.google.protobuf.AbstractParser<Release>() {
       @java.lang.Override
-      public LifeCycle parsePartialFrom(
+      public Release parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new LifeCycle(input, extensionRegistry);
+        return new Release(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<LifeCycle> parser() {
+    public static com.google.protobuf.Parser<Release> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<LifeCycle> getParserForType() {
+    public com.google.protobuf.Parser<Release> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public meshpaas.Schema.LifeCycle getDefaultInstanceForType() {
+    public meshpaas.Schema.Release getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -12729,15 +12729,15 @@ public final class Schema {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_meshpaas_Apps_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_LifeCycle_descriptor;
+    internal_static_meshpaas_Release_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_LifeCycle_fieldAccessorTable;
+      internal_static_meshpaas_Release_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_LifeCycle_TimestampsEntry_descriptor;
+    internal_static_meshpaas_Release_TimestampsEntry_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_LifeCycle_TimestampsEntry_fieldAccessorTable;
+      internal_static_meshpaas_Release_TimestampsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_meshpaas_AppRef_descriptor;
   private static final 
@@ -12794,40 +12794,39 @@ public final class Schema {
       ".MetadataEntry\032/\n\rMetadataEntry\022\013\n\003key\030\001" +
       " \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"8\n\014AppTemplates\022" +
       "(\n\ttemplates\030\001 \003(\0132\025.meshpaas.AppTemplat" +
-      "e\"\324\001\n\003App\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}" +
-      "$\022!\n\007project\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\017\n\007" +
-      "version\030\003 \001(\r\022\'\n\006config\030\004 \001(\0132\027.google.p" +
-      "rotobuf.Struct\022\'\n\nlife_cycle\030\005 \001(\0132\023.mes" +
-      "hpaas.LifeCycle\022\'\n\010template\030\024 \001(\0132\025.mesh" +
-      "paas.AppTemplate\"#\n\004Apps\022\033\n\004apps\030\001 \003(\0132\r" +
-      ".meshpaas.App\"\307\001\n\tLifeCycle\022\r\n\005notes\030\001 \001" +
-      "(\t\022\023\n\013description\030\002 \001(\t\022\016\n\006status\030\003 \001(\t\022" +
-      "7\n\ntimestamps\030\004 \003(\0132#.meshpaas.LifeCycle" +
-      ".TimestampsEntry\032M\n\017TimestampsEntry\022\013\n\003k" +
-      "ey\030\001 \001(\t\022)\n\005value\030\002 \001(\0132\032.google.protobu" +
-      "f.Timestamp:\0028\001\"K\n\006AppRef\022!\n\007project\030\001 \001" +
-      "(\tB\020\342\337\037\014\n\n^.{1,225}$\022\036\n\004name\030\002 \001(\tB\020\342\337\037\014" +
-      "\n\n^.{1,225}$\"\341\001\n\010AppInput\022!\n\007project\030\001 \001" +
-      "(\tB\020\342\337\037\014\n\n^.{1,225}$\022\'\n\rtemplate_name\030\002 " +
-      "\001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\"\n\010app_name\030\003 \001(\tB" +
-      "\020\342\337\037\014\n\n^.{1,225}$\0226\n\006config\030\004 \003(\0132\036.mesh" +
-      "paas.AppInput.ConfigEntryB\006\342\337\037\002 \001\032-\n\013Con" +
-      "figEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001" +
-      "\"\032\n\nProjectRef\022\014\n\004name\030\001 \001(\t\"5\n\013ProjectR" +
-      "efs\022&\n\010projects\030\001 \003(\0132\024.meshpaas.Project" +
-      "Ref2\307\003\n\017MeshPaasService\022?\n\014ListProjects\022" +
-      "\026.google.protobuf.Empty\032\025.meshpaas.Proje" +
-      "ctRefs\"\000\022+\n\006GetApp\022\020.meshpaas.AppRef\032\r.m" +
-      "eshpaas.App\"\000\0222\n\010ListApps\022\024.meshpaas.Pro" +
-      "jectRef\032\016.meshpaas.Apps\"\000\022:\n\014UninstallAp" +
-      "p\022\020.meshpaas.AppRef\032\026.google.protobuf.Em" +
-      "pty\"\000\0220\n\013RollbackApp\022\020.meshpaas.AppRef\032\r" +
-      ".meshpaas.App\"\000\0220\n\tCreateApp\022\022.meshpaas." +
-      "AppInput\032\r.meshpaas.App\"\000\0220\n\tUpdateApp\022\022" +
-      ".meshpaas.AppInput\032\r.meshpaas.App\"\000\022@\n\022S" +
-      "earchAppTemplates\022\020.meshpaas.Filter\032\026.me" +
-      "shpaas.AppTemplates\"\000B\014Z\nmeshpaaspbb\006pro" +
-      "to3"
+      "e\"\225\001\n\003App\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}" +
+      "$\022!\n\007project\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\"\n\007" +
+      "release\030\005 \001(\0132\021.meshpaas.Release\022\'\n\010temp" +
+      "late\030\024 \001(\0132\025.meshpaas.AppTemplate\"#\n\004App" +
+      "s\022\033\n\004apps\030\001 \003(\0132\r.meshpaas.App\"\375\001\n\007Relea" +
+      "se\022\017\n\007version\030\001 \001(\r\022\'\n\006config\030\002 \001(\0132\027.go" +
+      "ogle.protobuf.Struct\022\r\n\005notes\030\003 \001(\t\022\023\n\013d" +
+      "escription\030\004 \001(\t\022\016\n\006status\030\005 \001(\t\0225\n\ntime" +
+      "stamps\030\006 \003(\0132!.meshpaas.Release.Timestam" +
+      "psEntry\032M\n\017TimestampsEntry\022\013\n\003key\030\001 \001(\t\022" +
+      ")\n\005value\030\002 \001(\0132\032.google.protobuf.Timesta" +
+      "mp:\0028\001\"K\n\006AppRef\022!\n\007project\030\001 \001(\tB\020\342\337\037\014\n" +
+      "\n^.{1,225}$\022\036\n\004name\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,22" +
+      "5}$\"\341\001\n\010AppInput\022!\n\007project\030\001 \001(\tB\020\342\337\037\014\n" +
+      "\n^.{1,225}$\022\'\n\rtemplate_name\030\002 \001(\tB\020\342\337\037\014" +
+      "\n\n^.{1,225}$\022\"\n\010app_name\030\003 \001(\tB\020\342\337\037\014\n\n^." +
+      "{1,225}$\0226\n\006config\030\004 \003(\0132\036.meshpaas.AppI" +
+      "nput.ConfigEntryB\006\342\337\037\002 \001\032-\n\013ConfigEntry\022" +
+      "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\032\n\nProje" +
+      "ctRef\022\014\n\004name\030\001 \001(\t\"5\n\013ProjectRefs\022&\n\010pr" +
+      "ojects\030\001 \003(\0132\024.meshpaas.ProjectRef2\307\003\n\017M" +
+      "eshPaasService\022?\n\014ListProjects\022\026.google." +
+      "protobuf.Empty\032\025.meshpaas.ProjectRefs\"\000\022" +
+      "+\n\006GetApp\022\020.meshpaas.AppRef\032\r.meshpaas.A" +
+      "pp\"\000\0222\n\010ListApps\022\024.meshpaas.ProjectRef\032\016" +
+      ".meshpaas.Apps\"\000\022:\n\014UninstallApp\022\020.meshp" +
+      "aas.AppRef\032\026.google.protobuf.Empty\"\000\0220\n\013" +
+      "RollbackApp\022\020.meshpaas.AppRef\032\r.meshpaas" +
+      ".App\"\000\0220\n\tCreateApp\022\022.meshpaas.AppInput\032" +
+      "\r.meshpaas.App\"\000\0220\n\tUpdateApp\022\022.meshpaas" +
+      ".AppInput\032\r.meshpaas.App\"\000\022@\n\022SearchAppT" +
+      "emplates\022\020.meshpaas.Filter\032\026.meshpaas.Ap" +
+      "pTemplates\"\000B\014Z\nmeshpaaspbb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -12887,24 +12886,24 @@ public final class Schema {
     internal_static_meshpaas_App_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_App_descriptor,
-        new java.lang.String[] { "Name", "Project", "Version", "Config", "LifeCycle", "Template", });
+        new java.lang.String[] { "Name", "Project", "Release", "Template", });
     internal_static_meshpaas_Apps_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_meshpaas_Apps_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Apps_descriptor,
         new java.lang.String[] { "Apps", });
-    internal_static_meshpaas_LifeCycle_descriptor =
+    internal_static_meshpaas_Release_descriptor =
       getDescriptor().getMessageTypes().get(7);
-    internal_static_meshpaas_LifeCycle_fieldAccessorTable = new
+    internal_static_meshpaas_Release_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_LifeCycle_descriptor,
-        new java.lang.String[] { "Notes", "Description", "Status", "Timestamps", });
-    internal_static_meshpaas_LifeCycle_TimestampsEntry_descriptor =
-      internal_static_meshpaas_LifeCycle_descriptor.getNestedTypes().get(0);
-    internal_static_meshpaas_LifeCycle_TimestampsEntry_fieldAccessorTable = new
+        internal_static_meshpaas_Release_descriptor,
+        new java.lang.String[] { "Version", "Config", "Notes", "Description", "Status", "Timestamps", });
+    internal_static_meshpaas_Release_TimestampsEntry_descriptor =
+      internal_static_meshpaas_Release_descriptor.getNestedTypes().get(0);
+    internal_static_meshpaas_Release_TimestampsEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_LifeCycle_TimestampsEntry_descriptor,
+        internal_static_meshpaas_Release_TimestampsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_meshpaas_AppRef_descriptor =
       getDescriptor().getMessageTypes().get(8);

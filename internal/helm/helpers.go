@@ -21,9 +21,9 @@ func (h Helm) toApp(release *release.Release) (*meshpaaspb.App, error) {
 	app := &meshpaaspb.App{
 		Name:    release.Name,
 		Project: release.Namespace,
-		Version: uint32(release.Version),
-		Config:  config,
-		LifeCycle: &meshpaaspb.LifeCycle{
+		Release: &meshpaaspb.Release{
+			Version:     uint32(release.Version),
+			Config:      config,
 			Notes:       release.Info.Notes,
 			Description: release.Info.Description,
 			Status:      release.Info.Status.String(),

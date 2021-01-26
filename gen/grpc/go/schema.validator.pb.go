@@ -7,11 +7,11 @@ import (
 	fmt "fmt"
 	math "math"
 	proto "github.com/golang/protobuf/proto"
-	_ "github.com/mwitkow/go-proto-validators"
 	_ "github.com/golang/protobuf/ptypes/struct"
 	_ "github.com/golang/protobuf/ptypes/timestamp"
 	_ "github.com/golang/protobuf/ptypes/any"
 	_ "github.com/golang/protobuf/ptypes/empty"
+	_ "github.com/mwitkow/go-proto-validators"
 	regexp "regexp"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
 )
@@ -104,14 +104,9 @@ func (this *App) Validate() error {
 	if !_regex_App_Project.MatchString(this.Project) {
 		return github_com_mwitkow_go_proto_validators.FieldError("Project", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Project))
 	}
-	if this.Config != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Config); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("Config", err)
-		}
-	}
-	if this.LifeCycle != nil {
-		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.LifeCycle); err != nil {
-			return github_com_mwitkow_go_proto_validators.FieldError("LifeCycle", err)
+	if this.Release != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Release); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Release", err)
 		}
 	}
 	if this.Template != nil {
@@ -131,7 +126,12 @@ func (this *Apps) Validate() error {
 	}
 	return nil
 }
-func (this *LifeCycle) Validate() error {
+func (this *Release) Validate() error {
+	if this.Config != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Config); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Config", err)
+		}
+	}
 	// Validation of proto3 map<> fields is unsupported.
 	return nil
 }

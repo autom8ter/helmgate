@@ -62,11 +62,7 @@ message App {
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
   // project name the app belongs to(autocreated)
   string project =2[(validator.field) = {regex : "^.{1,225}$"}];
-  // version of the App. Iterates with each upgrade
-  uint32 version =3;
-  // config values
-  google.protobuf.Struct config =4;
-  LifeCycle life_cycle =5;
+  Release release =5;
   AppTemplate template =20;
 }
 
@@ -75,12 +71,16 @@ message Apps {
   repeated App apps =1;
 }
 
-// LifeCycle tracks the state of an app during it's lifecycle
-message LifeCycle {
-  string notes =1;
-  string description =2;
-  string status =3;
-  map<string, google.protobuf.Timestamp> timestamps =4;
+// Release tracks the state of an app during the lifecycle of it's current deployment
+message Release {
+  // version of the App. Iterates with each upgrade
+  uint32 version =1;
+  // config values
+  google.protobuf.Struct config =2;
+  string notes =3;
+  string description =4;
+  string status =5;
+  map<string, google.protobuf.Timestamp> timestamps =6;
 }
 
 // AppRef is a generic structure for looking up apps

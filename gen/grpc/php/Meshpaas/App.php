@@ -28,21 +28,9 @@ class App extends \Google\Protobuf\Internal\Message
      */
     private $project = '';
     /**
-     * version of the App. Iterates with each upgrade
-     *
-     * Generated from protobuf field <code>uint32 version = 3;</code>
+     * Generated from protobuf field <code>.meshpaas.Release release = 5;</code>
      */
-    private $version = 0;
-    /**
-     * config values
-     *
-     * Generated from protobuf field <code>.google.protobuf.Struct config = 4;</code>
-     */
-    private $config = null;
-    /**
-     * Generated from protobuf field <code>.meshpaas.LifeCycle life_cycle = 5;</code>
-     */
-    private $life_cycle = null;
+    private $release = null;
     /**
      * Generated from protobuf field <code>.meshpaas.AppTemplate template = 20;</code>
      */
@@ -58,11 +46,7 @@ class App extends \Google\Protobuf\Internal\Message
      *           name of the application
      *     @type string $project
      *           project name the app belongs to(autocreated)
-     *     @type int $version
-     *           version of the App. Iterates with each upgrade
-     *     @type \Google\Protobuf\Struct $config
-     *           config values
-     *     @type \Meshpaas\LifeCycle $life_cycle
+     *     @type \Meshpaas\Release $release
      *     @type \Meshpaas\AppTemplate $template
      * }
      */
@@ -124,75 +108,23 @@ class App extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * version of the App. Iterates with each upgrade
-     *
-     * Generated from protobuf field <code>uint32 version = 3;</code>
-     * @return int
+     * Generated from protobuf field <code>.meshpaas.Release release = 5;</code>
+     * @return \Meshpaas\Release
      */
-    public function getVersion()
+    public function getRelease()
     {
-        return $this->version;
+        return $this->release;
     }
 
     /**
-     * version of the App. Iterates with each upgrade
-     *
-     * Generated from protobuf field <code>uint32 version = 3;</code>
-     * @param int $var
+     * Generated from protobuf field <code>.meshpaas.Release release = 5;</code>
+     * @param \Meshpaas\Release $var
      * @return $this
      */
-    public function setVersion($var)
+    public function setRelease($var)
     {
-        GPBUtil::checkUint32($var);
-        $this->version = $var;
-
-        return $this;
-    }
-
-    /**
-     * config values
-     *
-     * Generated from protobuf field <code>.google.protobuf.Struct config = 4;</code>
-     * @return \Google\Protobuf\Struct
-     */
-    public function getConfig()
-    {
-        return $this->config;
-    }
-
-    /**
-     * config values
-     *
-     * Generated from protobuf field <code>.google.protobuf.Struct config = 4;</code>
-     * @param \Google\Protobuf\Struct $var
-     * @return $this
-     */
-    public function setConfig($var)
-    {
-        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
-        $this->config = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>.meshpaas.LifeCycle life_cycle = 5;</code>
-     * @return \Meshpaas\LifeCycle
-     */
-    public function getLifeCycle()
-    {
-        return $this->life_cycle;
-    }
-
-    /**
-     * Generated from protobuf field <code>.meshpaas.LifeCycle life_cycle = 5;</code>
-     * @param \Meshpaas\LifeCycle $var
-     * @return $this
-     */
-    public function setLifeCycle($var)
-    {
-        GPBUtil::checkMessage($var, \Meshpaas\LifeCycle::class);
-        $this->life_cycle = $var;
+        GPBUtil::checkMessage($var, \Meshpaas\Release::class);
+        $this->release = $var;
 
         return $this;
     }
