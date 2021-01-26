@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/autom8ter/kubego"
 	"github.com/autom8ter/machine"
 	meshpaaspb "github.com/autom8ter/meshpaas/gen/grpc/go"
 	"github.com/autom8ter/meshpaas/internal/auth"
@@ -11,18 +10,19 @@ import (
 	"github.com/autom8ter/meshpaas/internal/helpers"
 	"github.com/autom8ter/meshpaas/internal/logger"
 	"github.com/autom8ter/meshpaas/internal/providers"
-	grpc_auth "github.com/grpc-ecosystem/go-grpc-middleware/auth"
 	grpc_zap "github.com/grpc-ecosystem/go-grpc-middleware/logging/zap"
 	grpc_recovery "github.com/grpc-ecosystem/go-grpc-middleware/recovery"
 	grpc_validator "github.com/grpc-ecosystem/go-grpc-middleware/validator"
 	grpc_prometheus "github.com/grpc-ecosystem/go-grpc-prometheus"
 	"github.com/joho/godotenv"
+	"github.com/open-policy-agent/opa/rego"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/soheilhy/cmux"
 	"github.com/spf13/pflag"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
+	"io/ioutil"
 	"net"
 	"net/http"
 	"net/http/pprof"
@@ -38,18 +38,20 @@ var (
 	listenPort     int64
 	jwksUri        string
 	jwtIssuer      string
-	outOfCluster   bool
-	namespaceClaim string
+	query string
+	backend string
+	policies string
 )
 
 func init() {
 	godotenv.Load()
 	pflag.CommandLine.BoolVar(&debug, "debug", helpers.BoolEnvOr("MESHPAAS_DEBUG", false), "enable debug logs (env: MESHPAAS_DEBUG)")
 	pflag.CommandLine.Int64Var(&listenPort, "listen-port", int64(helpers.IntEnvOr("MESHPAAS_LISTEN_PORT", 8820)), "serve gRPC & graphQL on this port (env: MESHPAAS_LISTEN_PORT)")
-	pflag.CommandLine.BoolVar(&outOfCluster, "out-of-cluster", helpers.BoolEnvOr("MESHPAAS_OUT_OF_CLUSTER", false), "enable out of cluster k8s config discovery (env: MESHPAAS_OUT_OF_CLUSTER)")
 	pflag.CommandLine.StringVar(&jwksUri, "jwks-uri", helpers.EnvOr("MESHPAAS_JWKS_URI", ""), "remote json web key set uri for verifying authorization tokens (env: MESHPAAS_JWKS_URI)")
 	pflag.CommandLine.StringVar(&jwtIssuer, "allow-jwt-issuer", helpers.EnvOr("MESHPAAS_ALLOW_ISSUER", ""), "allowed jwt.claim.iss issuer (env: MESHPAAS_ALLOW_ISSUER)")
-	pflag.CommandLine.StringVar(&namespaceClaim, "namespace-claim", helpers.EnvOr("MESHPAAS_NAMESPACE_CLAIM", "aud"), "the jwt attribute on the id token that returns the namespace the user is allowed access to (required) (env: MESHPAAS_NAMESPACE_CLAIM)")
+	pflag.CommandLine.StringVar(&backend, "backend", helpers.EnvOr("MESHPAAS_BACKEND", string(providers.K8sHelm)), "the backend provider (options: [k8s-helm]) (env: MESHPAAS_BACKEND)")
+	pflag.CommandLine.StringVar(&policies, "rego-path", helpers.EnvOr("MESHPAAS_REGO_PATH", "policy.rego"), "path to rego authz policy (required) (env: MESHPAAS_REGO_PATH)")
+	pflag.CommandLine.StringVar(&query, "rego-query", helpers.EnvOr("MESHPAAS_REGO_QUERY", "data.meshpaas.allow"), "rego authz query (required) (env: MESHPAAS_REGO_QUERY)")
 	pflag.Parse()
 }
 
@@ -125,12 +127,22 @@ func run(ctx context.Context) {
 			lgger.Error("metrics server failure", zap.Error(err))
 		}
 	})
-	helm, err := kubego.NewHelm()
+	service, err := providers.GetBackend(providers.Backend(backend))
 	if err != nil {
-		lgger.Error("failed to create helm client", zap.Error(err))
+		lgger.Error("failed to initialize", zap.Error(err))
 		return
 	}
-	a, err := auth.NewAuth(jwksUri, jwtIssuer, namespaceClaim, lgger)
+
+	bits, err := ioutil.ReadFile(policies)
+	if err != nil {
+		lgger.Error("failed to find rego policy file", zap.Error(err))
+		return
+	}
+	r := rego.New(
+		rego.Query(query),
+		rego.Module(policies, string(bits)),
+		)
+	a, err := auth.NewAuth(jwksUri, jwtIssuer, lgger, r)
 	if err != nil {
 		lgger.Error(err.Error())
 		return
@@ -139,20 +151,20 @@ func run(ctx context.Context) {
 		grpc.ChainUnaryInterceptor(
 			grpc_prometheus.UnaryServerInterceptor,
 			grpc_zap.UnaryServerInterceptor(lgger.Zap()),
-			grpc_auth.UnaryServerInterceptor(a.Interceptor()),
+			a.UnaryInterceptor(),
 			grpc_validator.UnaryServerInterceptor(),
 			grpc_recovery.UnaryServerInterceptor(),
 		),
 		grpc.ChainStreamInterceptor(
 			grpc_prometheus.StreamServerInterceptor,
 			grpc_zap.StreamServerInterceptor(lgger.Zap()),
-			grpc_auth.StreamServerInterceptor(a.Interceptor()),
+			a.StreamInterceptor(),
 			grpc_validator.StreamServerInterceptor(),
 			grpc_recovery.StreamServerInterceptor(),
 		),
 	}
 	gserver := grpc.NewServer(gopts...)
-	meshpaaspb.RegisterMeshPaasServiceServer(gserver, providers.GetHelmProvider(helm))
+	meshpaaspb.RegisterMeshPaasServiceServer(gserver, service)
 	reflection.Register(gserver)
 	grpc_prometheus.Register(gserver)
 	m.Go(func(routine machine.Routine) {

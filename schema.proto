@@ -63,6 +63,7 @@ message App {
   uint32 version =3;
   // config values
   google.protobuf.Struct config =4;
+
   LifeCycle life_cycle =5;
   AppTemplate template =20;
 }

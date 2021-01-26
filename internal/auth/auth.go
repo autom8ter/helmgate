@@ -4,14 +4,19 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"github.com/autom8ter/meshpaas/internal/helpers"
 	"github.com/autom8ter/meshpaas/internal/logger"
 	grpc_auth "github.com/grpc-ecosystem/go-grpc-middleware/auth"
+	"github.com/grpc-ecosystem/go-grpc-middleware/util/metautils"
 	"github.com/lestrrat-go/jwx/jwa"
 	"github.com/lestrrat-go/jwx/jwk"
 	"github.com/lestrrat-go/jwx/jws"
+	"github.com/open-policy-agent/opa/rego"
 	"github.com/pkg/errors"
+	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
+	"google.golang.org/protobuf/proto"
 	"sync"
 )
 
@@ -22,25 +27,22 @@ var (
 )
 
 type Auth struct {
-	namespaceClaim string
 	jwksUri        string
 	jwtIssuer      string
 	jwksSet        *jwk.Set
 	mu             sync.RWMutex
 	logger         *logger.Logger
+	policy *rego.Rego
 }
 
-func NewAuth(jwksUri, jwtIssuer, namespaceClaim string, logger2 *logger.Logger) (*Auth, error) {
-	if namespaceClaim == "" {
-		return nil, errors.New("empty namespace claim")
-	}
+func NewAuth(jwksUri, jwtIssuer string, logger2 *logger.Logger, policy *rego.Rego) (*Auth, error) {
 	a := &Auth{
 		jwksUri:        jwksUri,
 		jwksSet:        nil,
 		mu:             sync.RWMutex{},
 		logger:         logger2,
 		jwtIssuer:      jwtIssuer,
-		namespaceClaim: namespaceClaim,
+		policy: policy,
 	}
 	return a, a.RefreshJWKS()
 }
@@ -108,15 +110,12 @@ func (a *Auth) ParseAndVerify(token string) (map[string]interface{}, error) {
 			return nil, errors.Errorf("unsupported jwt.claims.iss issuer: %s", data["iss"])
 		}
 	}
-	if data[a.namespaceClaim] == nil {
-		return nil, errors.Errorf("empty namespace claim. expecting jwt.claims.%s", a.namespaceClaim)
-	}
 	return data, nil
 }
 
-func (a *Auth) Interceptor() grpc_auth.AuthFunc {
-	return func(ctx context.Context) (context.Context, error) {
-		token, err := grpc_auth.AuthFromMD(ctx, "bearer")
+func (a *Auth) UnaryInterceptor() grpc.UnaryServerInterceptor {
+	return func(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (resp interface{}, err error) {
+		token, err := grpc_auth.AuthFromMD(ctx, "Bearer")
 		if err != nil {
 			return nil, err
 		}
@@ -125,15 +124,130 @@ func (a *Auth) Interceptor() grpc_auth.AuthFunc {
 			a.logger.Error(err.Error())
 			return nil, status.Error(codes.Unauthenticated, "unverified")
 		}
-		ctx = context.WithValue(ctx, userCtxKey, payload)
-		return ctx, nil
+		md := metautils.ExtractIncoming(ctx)
+		c := &Context{
+			Claims:  payload,
+			Method:  info.FullMethod,
+			Request: toMap(req),
+			Headers: map[string]string{},
+		}
+		for k, arr := range md {
+			c.Headers[k] = arr[0]
+		}
+		allowed, err := a.BooleanExpression(ctx, c)
+		if err != nil {
+			a.logger.Error(err.Error())
+			return nil, status.Error(codes.Internal, "failed to evaluate authz policy")
+		}
+		if !allowed {
+			return nil, status.Error(codes.PermissionDenied, "permission denied")
+		}
+		ctx = SetContext(ctx, c)
+		return handler(ctx, req)
 	}
 }
 
-func UserContext(ctx context.Context) (map[string]interface{}, bool) {
+func (a *Auth) StreamInterceptor() grpc.StreamServerInterceptor {
+	return func(srv interface{}, ss grpc.ServerStream, info *grpc.StreamServerInfo, handler grpc.StreamHandler) error {
+		ctx := ss.Context()
+		token, err := grpc_auth.AuthFromMD(ctx, "Bearer")
+		if err != nil {
+			return err
+		}
+		payload, err := a.ParseAndVerify(token)
+		if err != nil {
+			a.logger.Error(err.Error())
+			return status.Error(codes.Unauthenticated, "unverified")
+		}
+		md := metautils.ExtractIncoming(ctx)
+		c := &Context{
+			Claims:  payload,
+			Method:  info.FullMethod,
+			Request: toMap(ss),
+			Headers: map[string]string{},
+		}
+		for k, arr := range md {
+			if len(arr) > 0 {
+				c.Headers[k] = arr[0]
+			}
+		}
+		allowed, err := a.BooleanExpression(ctx, c)
+		if err != nil {
+			a.logger.Error(err.Error())
+			return status.Error(codes.Internal, "failed to evaluate authz policy")
+		}
+		if !allowed {
+			return status.Error(codes.PermissionDenied, "permission denied")
+		}
+		ctx = SetContext(ctx, c)
+		return handler(ctx, ss)
+	}
+}
+
+
+func SetContext(ctx context.Context, contxt *Context) context.Context {
+	return context.WithValue(ctx, userCtxKey, contxt)
+}
+
+func GetContext(ctx context.Context) (*Context, bool) {
 	if ctx.Value(userCtxKey) == nil {
 		return nil, false
 	}
-	data, ok := ctx.Value(userCtxKey).(map[string]interface{})
+	data, ok := ctx.Value(userCtxKey).(*Context)
 	return data, ok
 }
+
+type Context struct {
+	Claims map[string]interface{}
+	Method string
+	Request map[string]interface{}
+	Headers map[string]string
+}
+
+func (a *Context) input() map[string]interface{} {
+	return map[string]interface{}{
+		"claims": a.Claims,
+		"method": a.Method,
+		"headers": a.Headers,
+		"request": a.Request,
+	}
+}
+
+
+func (a *Auth) BooleanExpression(ctx context.Context, context *Context) (bool, error) {
+	query, err := a.policy.PrepareForEval(ctx)
+	if err != nil {
+		return false, errors.Wrap(err, "policy: failed to prepare for evaluation")
+	}
+	results, err := query.Eval(ctx, rego.EvalInput(context.input()))
+	if err != nil {
+		return false, errors.Wrap(err, "policy: failed to evaluate input")
+	}
+	if len(results) == 0 {
+		return false, errors.Wrap(err, "policy: zero results")
+	}
+	if len(results[0].Expressions) == 0 {
+		return false, errors.Wrap(err, "policy: zero result expressions")
+	}
+	if results[0].Expressions[0].Value == nil {
+		return false, errors.Wrap(err, "policy: empty expression value")
+	}
+	res, ok := results[0].Expressions[0].Value.(bool)
+	if !ok {
+		return false, errors.Wrap(err, "policy: expression does not return a boolean value")
+	}
+	return res, nil
+}
+
+func toMap(obj interface{}) map[string]interface{} {
+	data := map[string]interface{}{}
+	if val, ok := obj.(proto.Message); ok {
+		bits, _ := helpers.MarshalJSON(val)
+		json.Unmarshal(bits, &data)
+	} else {
+		bits, _ := json.Marshal(obj)
+		json.Unmarshal(bits, &data)
+	}
+	return data
+}
+
