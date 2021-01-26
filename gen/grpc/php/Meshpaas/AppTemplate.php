@@ -62,9 +62,9 @@ class AppTemplate extends \Google\Protobuf\Internal\Message
      */
     private $dependencies;
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.Maintainer maintainer = 10;</code>
+     * Generated from protobuf field <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
      */
-    private $maintainer;
+    private $maintainers;
     /**
      * Generated from protobuf field <code>map<string, string> metadata = 11;</code>
      */
@@ -90,7 +90,7 @@ class AppTemplate extends \Google\Protobuf\Internal\Message
      *     @type string $icon
      *     @type bool $deprecated
      *     @type \Meshpaas\Dependency[]|\Google\Protobuf\Internal\RepeatedField $dependencies
-     *     @type \Meshpaas\Maintainer[]|\Google\Protobuf\Internal\RepeatedField $maintainer
+     *     @type \Meshpaas\Maintainer[]|\Google\Protobuf\Internal\RepeatedField $maintainers
      *     @type array|\Google\Protobuf\Internal\MapField $metadata
      * }
      */
@@ -318,23 +318,23 @@ class AppTemplate extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.Maintainer maintainer = 10;</code>
+     * Generated from protobuf field <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
-    public function getMaintainer()
+    public function getMaintainers()
     {
-        return $this->maintainer;
+        return $this->maintainers;
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.Maintainer maintainer = 10;</code>
+     * Generated from protobuf field <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
      * @param \Meshpaas\Maintainer[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
-    public function setMaintainer($var)
+    public function setMaintainers($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Meshpaas\Maintainer::class);
-        $this->maintainer = $arr;
+        $this->maintainers = $arr;
 
         return $this;
     }

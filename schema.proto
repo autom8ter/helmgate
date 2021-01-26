@@ -12,7 +12,9 @@ import "github.com/mwitkow/go-proto-validators/validator.proto";
 
 // Dependency is a dependency(template) required by a template
 message Dependency {
+  // name of the template dependency
   string template_name =1[(validator.field) = {regex : "^.{1,225}$"}];
+  // name of the template version
   string version =2[(validator.field) = {regex : "^.{1,225}$"}];
   string repository =3[(validator.field) = {regex : "^.{1,225}$"}];
 }
@@ -45,10 +47,11 @@ message AppTemplate {
   string icon =7;
   bool deprecated =8;
   repeated Dependency dependencies =9;
-  repeated Maintainer maintainer =10;
+  repeated Maintainer maintainers =10;
   map<string, string> metadata =11;
 }
 
+// AppTemplates is a list of app templates
 message AppTemplates {
   repeated AppTemplate templates =1;
 }
@@ -63,7 +66,6 @@ message App {
   uint32 version =3;
   // config values
   google.protobuf.Struct config =4;
-
   LifeCycle life_cycle =5;
   AppTemplate template =20;
 }
@@ -121,7 +123,7 @@ service MeshPaasService {
   // ListApps lists apps in the project
   rpc ListApps(ProjectRef) returns(Apps){}
   // UninstallApp uninstalls an app in the given project
-  rpc UninstallApp(AppRef) returns(Apps){}
+  rpc UninstallApp(AppRef) returns(google.protobuf.Empty){}
   // RollbackApp rolls the app back to the previous version in the given namespace
   rpc RollbackApp(AppRef) returns(App){}
   // CreateApp creates an app in the given project

@@ -6,15 +6,15 @@ import (
 	"github.com/autom8ter/machine"
 	meshpaaspb "github.com/autom8ter/meshpaas/gen/grpc/go"
 	"github.com/autom8ter/meshpaas/internal/auth"
+	"github.com/autom8ter/meshpaas/internal/config"
 	"github.com/autom8ter/meshpaas/internal/gql"
+	"github.com/autom8ter/meshpaas/internal/helm"
 	"github.com/autom8ter/meshpaas/internal/helpers"
 	"github.com/autom8ter/meshpaas/internal/logger"
-	"github.com/autom8ter/meshpaas/internal/providers"
 	grpc_zap "github.com/grpc-ecosystem/go-grpc-middleware/logging/zap"
 	grpc_recovery "github.com/grpc-ecosystem/go-grpc-middleware/recovery"
 	grpc_validator "github.com/grpc-ecosystem/go-grpc-middleware/validator"
 	grpc_prometheus "github.com/grpc-ecosystem/go-grpc-prometheus"
-	"github.com/joho/godotenv"
 	"github.com/open-policy-agent/opa/rego"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/soheilhy/cmux"
@@ -23,6 +23,7 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 	"io/ioutil"
+	"k8s.io/apimachinery/pkg/util/yaml"
 	"net"
 	"net/http"
 	"net/http/pprof"
@@ -34,24 +35,11 @@ import (
 )
 
 var (
-	debug          bool
-	listenPort     int64
-	jwksUri        string
-	jwtIssuer      string
-	query string
-	backend string
-	policies string
+	configPath string
 )
 
 func init() {
-	godotenv.Load()
-	pflag.CommandLine.BoolVar(&debug, "debug", helpers.BoolEnvOr("MESHPAAS_DEBUG", false), "enable debug logs (env: MESHPAAS_DEBUG)")
-	pflag.CommandLine.Int64Var(&listenPort, "listen-port", int64(helpers.IntEnvOr("MESHPAAS_LISTEN_PORT", 8820)), "serve gRPC & graphQL on this port (env: MESHPAAS_LISTEN_PORT)")
-	pflag.CommandLine.StringVar(&jwksUri, "jwks-uri", helpers.EnvOr("MESHPAAS_JWKS_URI", ""), "remote json web key set uri for verifying authorization tokens (env: MESHPAAS_JWKS_URI)")
-	pflag.CommandLine.StringVar(&jwtIssuer, "allow-jwt-issuer", helpers.EnvOr("MESHPAAS_ALLOW_ISSUER", ""), "allowed jwt.claim.iss issuer (env: MESHPAAS_ALLOW_ISSUER)")
-	pflag.CommandLine.StringVar(&backend, "backend", helpers.EnvOr("MESHPAAS_BACKEND", string(providers.K8sHelm)), "the backend provider (options: [k8s-helm]) (env: MESHPAAS_BACKEND)")
-	pflag.CommandLine.StringVar(&policies, "rego-path", helpers.EnvOr("MESHPAAS_REGO_PATH", "policy.rego"), "path to rego authz policy (required) (env: MESHPAAS_REGO_PATH)")
-	pflag.CommandLine.StringVar(&query, "rego-query", helpers.EnvOr("MESHPAAS_REGO_QUERY", "data.meshpaas.allow"), "rego authz query (required) (env: MESHPAAS_REGO_QUERY)")
+	pflag.CommandLine.StringVar(&configPath, "config", helpers.EnvOr("MESHPAAS_CONFIG", "meshpaas.yaml"), "path to config file (env: MESHPAAS_JWKS_URI)")
 	pflag.Parse()
 }
 
@@ -60,18 +48,28 @@ func main() {
 }
 
 func run(ctx context.Context) {
-	var lgger = logger.New(debug)
+	bits, err := ioutil.ReadFile("meshpaas.yaml")
+	if err != nil {
+		fmt.Printf("failed to read config file: %s", err.Error())
+		return
+	}
+	c := &config.Config{}
+	if err := yaml.Unmarshal(bits, c); err != nil {
+		fmt.Printf("failed to read config file: %s", err.Error())
+		return
+	}
+	var lgger = logger.New(c.Debug)
+
 	var (
 		metricsLis net.Listener
 		m          = machine.New(ctx)
-		err        error
 		interrupt  = make(chan os.Signal, 1)
 		apiLis     net.Listener
 	)
 	signal.Notify(interrupt, os.Interrupt, syscall.SIGTERM)
 	defer signal.Stop(interrupt)
 	{
-		addr, err := net.ResolveTCPAddr("tcp", fmt.Sprintf(":%v", listenPort))
+		addr, err := net.ResolveTCPAddr("tcp", fmt.Sprintf(":%v", c.Port))
 		if err != nil {
 			lgger.Error("failed to create listener", zap.Error(err))
 			return
@@ -95,7 +93,7 @@ func run(ctx context.Context) {
 		}
 	})
 	{
-		addr, err := net.ResolveTCPAddr("tcp", fmt.Sprintf(":%v", listenPort+1))
+		addr, err := net.ResolveTCPAddr("tcp", fmt.Sprintf(":%v", c.Port+1))
 		if err != nil {
 			lgger.Error("failed to create listener", zap.Error(err))
 			return
@@ -127,22 +125,16 @@ func run(ctx context.Context) {
 			lgger.Error("metrics server failure", zap.Error(err))
 		}
 	})
-	service, err := providers.GetBackend(providers.Backend(backend))
-	if err != nil {
-		lgger.Error("failed to initialize", zap.Error(err))
-		return
-	}
-
-	bits, err := ioutil.ReadFile(policies)
+	regoBits, err := ioutil.ReadFile(c.RegoPath)
 	if err != nil {
 		lgger.Error("failed to find rego policy file", zap.Error(err))
 		return
 	}
 	r := rego.New(
-		rego.Query(query),
-		rego.Module(policies, string(bits)),
-		)
-	a, err := auth.NewAuth(jwksUri, jwtIssuer, lgger, r)
+		rego.Query(c.RegoQuery),
+		rego.Module(c.RegoPath, string(regoBits)),
+	)
+	a, err := auth.NewAuth(c.JwksURI, lgger, r)
 	if err != nil {
 		lgger.Error(err.Error())
 		return
@@ -163,6 +155,11 @@ func run(ctx context.Context) {
 			grpc_recovery.StreamServerInterceptor(),
 		),
 	}
+	service, err := helm.NewHelm(lgger, c.Repos)
+	if err != nil {
+		lgger.Error(err.Error())
+		return
+	}
 	gserver := grpc.NewServer(gopts...)
 	meshpaaspb.RegisterMeshPaasServiceServer(gserver, service)
 	reflection.Register(gserver)
@@ -175,7 +172,7 @@ func run(ctx context.Context) {
 			lgger.Error("grpc server failure", zap.Error(err))
 		}
 	})
-	conn, err := grpc.DialContext(context.Background(), fmt.Sprintf("localhost:%v", listenPort),
+	conn, err := grpc.DialContext(context.Background(), fmt.Sprintf("localhost:%v", c.Port),
 		grpc.WithInsecure(),
 		grpc.WithBlock(),
 	)

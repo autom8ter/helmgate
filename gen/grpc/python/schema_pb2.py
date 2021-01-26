@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='meshpaas',
   syntax='proto3',
   serialized_options=_b('Z\nmeshpaaspb'),
-  serialized_pb=_b('\n\x0cschema.proto\x12\x08meshpaas\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x19google/protobuf/any.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x36github.com/mwitkow/go-proto-validators/validator.proto\"~\n\nDependency\x12\'\n\rtemplate_name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12!\n\x07version\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12$\n\nrepository\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"M\n\nMaintainer\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05\x65mail\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"7\n\x06\x46ilter\x12\x1e\n\x04term\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\r\n\x05regex\x18\x02 \x01(\x08\"\xe4\x02\n\x0b\x41ppTemplate\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x0c\n\x04home\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x0f\n\x07version\x18\x04 \x01(\t\x12\x0f\n\x07sources\x18\x05 \x03(\t\x12\x10\n\x08keywords\x18\x06 \x03(\t\x12\x0c\n\x04icon\x18\x07 \x01(\t\x12\x12\n\ndeprecated\x18\x08 \x01(\x08\x12*\n\x0c\x64\x65pendencies\x18\t \x03(\x0b\x32\x14.meshpaas.Dependency\x12(\n\nmaintainer\x18\n \x03(\x0b\x32\x14.meshpaas.Maintainer\x12\x35\n\x08metadata\x18\x0b \x03(\x0b\x32#.meshpaas.AppTemplate.MetadataEntry\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"8\n\x0c\x41ppTemplates\x12(\n\ttemplates\x18\x01 \x03(\x0b\x32\x15.meshpaas.AppTemplate\"\xd4\x01\n\x03\x41pp\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12!\n\x07project\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x0f\n\x07version\x18\x03 \x01(\r\x12\'\n\x06\x63onfig\x18\x04 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\'\n\nlife_cycle\x18\x05 \x01(\x0b\x32\x13.meshpaas.LifeCycle\x12\'\n\x08template\x18\x14 \x01(\x0b\x32\x15.meshpaas.AppTemplate\"#\n\x04\x41pps\x12\x1b\n\x04\x61pps\x18\x01 \x03(\x0b\x32\r.meshpaas.App\"\xc7\x01\n\tLifeCycle\x12\r\n\x05notes\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x0e\n\x06status\x18\x03 \x01(\t\x12\x37\n\ntimestamps\x18\x04 \x03(\x0b\x32#.meshpaas.LifeCycle.TimestampsEntry\x1aM\n\x0fTimestampsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12)\n\x05value\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp:\x02\x38\x01\"K\n\x06\x41ppRef\x12!\n\x07project\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1e\n\x04name\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"\xe1\x01\n\x08\x41ppInput\x12!\n\x07project\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\'\n\rtemplate_name\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\"\n\x08\x61pp_name\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x36\n\x06\x63onfig\x18\x04 \x03(\x0b\x32\x1e.meshpaas.AppInput.ConfigEntryB\x06\xe2\xdf\x1f\x02 \x01\x1a-\n\x0b\x43onfigEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x1a\n\nProjectRef\x12\x0c\n\x04name\x18\x01 \x01(\t\"5\n\x0bProjectRefs\x12&\n\x08projects\x18\x01 \x03(\x0b\x32\x14.meshpaas.ProjectRef2\xbf\x03\n\x0fMeshPaasService\x12?\n\x0cListProjects\x12\x16.google.protobuf.Empty\x1a\x15.meshpaas.ProjectRefs\"\x00\x12+\n\x06GetApp\x12\x10.meshpaas.AppRef\x1a\r.meshpaas.App\"\x00\x12\x32\n\x08ListApps\x12\x14.meshpaas.ProjectRef\x1a\x0e.meshpaas.Apps\"\x00\x12\x32\n\x0cUninstallApp\x12\x10.meshpaas.AppRef\x1a\x0e.meshpaas.Apps\"\x00\x12\x30\n\x0bRollbackApp\x12\x10.meshpaas.AppRef\x1a\r.meshpaas.App\"\x00\x12\x30\n\tCreateApp\x12\x12.meshpaas.AppInput\x1a\r.meshpaas.App\"\x00\x12\x30\n\tUpdateApp\x12\x12.meshpaas.AppInput\x1a\r.meshpaas.App\"\x00\x12@\n\x12SearchAppTemplates\x12\x10.meshpaas.Filter\x1a\x16.meshpaas.AppTemplates\"\x00\x42\x0cZ\nmeshpaaspbb\x06proto3')
+  serialized_pb=_b('\n\x0cschema.proto\x12\x08meshpaas\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x19google/protobuf/any.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x36github.com/mwitkow/go-proto-validators/validator.proto\"~\n\nDependency\x12\'\n\rtemplate_name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12!\n\x07version\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12$\n\nrepository\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"M\n\nMaintainer\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05\x65mail\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"7\n\x06\x46ilter\x12\x1e\n\x04term\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\r\n\x05regex\x18\x02 \x01(\x08\"\xe5\x02\n\x0b\x41ppTemplate\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x0c\n\x04home\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x0f\n\x07version\x18\x04 \x01(\t\x12\x0f\n\x07sources\x18\x05 \x03(\t\x12\x10\n\x08keywords\x18\x06 \x03(\t\x12\x0c\n\x04icon\x18\x07 \x01(\t\x12\x12\n\ndeprecated\x18\x08 \x01(\x08\x12*\n\x0c\x64\x65pendencies\x18\t \x03(\x0b\x32\x14.meshpaas.Dependency\x12)\n\x0bmaintainers\x18\n \x03(\x0b\x32\x14.meshpaas.Maintainer\x12\x35\n\x08metadata\x18\x0b \x03(\x0b\x32#.meshpaas.AppTemplate.MetadataEntry\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"8\n\x0c\x41ppTemplates\x12(\n\ttemplates\x18\x01 \x03(\x0b\x32\x15.meshpaas.AppTemplate\"\xd4\x01\n\x03\x41pp\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12!\n\x07project\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x0f\n\x07version\x18\x03 \x01(\r\x12\'\n\x06\x63onfig\x18\x04 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\'\n\nlife_cycle\x18\x05 \x01(\x0b\x32\x13.meshpaas.LifeCycle\x12\'\n\x08template\x18\x14 \x01(\x0b\x32\x15.meshpaas.AppTemplate\"#\n\x04\x41pps\x12\x1b\n\x04\x61pps\x18\x01 \x03(\x0b\x32\r.meshpaas.App\"\xc7\x01\n\tLifeCycle\x12\r\n\x05notes\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x0e\n\x06status\x18\x03 \x01(\t\x12\x37\n\ntimestamps\x18\x04 \x03(\x0b\x32#.meshpaas.LifeCycle.TimestampsEntry\x1aM\n\x0fTimestampsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12)\n\x05value\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp:\x02\x38\x01\"K\n\x06\x41ppRef\x12!\n\x07project\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1e\n\x04name\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"\xe1\x01\n\x08\x41ppInput\x12!\n\x07project\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\'\n\rtemplate_name\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\"\n\x08\x61pp_name\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x36\n\x06\x63onfig\x18\x04 \x03(\x0b\x32\x1e.meshpaas.AppInput.ConfigEntryB\x06\xe2\xdf\x1f\x02 \x01\x1a-\n\x0b\x43onfigEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x1a\n\nProjectRef\x12\x0c\n\x04name\x18\x01 \x01(\t\"5\n\x0bProjectRefs\x12&\n\x08projects\x18\x01 \x03(\x0b\x32\x14.meshpaas.ProjectRef2\xc7\x03\n\x0fMeshPaasService\x12?\n\x0cListProjects\x12\x16.google.protobuf.Empty\x1a\x15.meshpaas.ProjectRefs\"\x00\x12+\n\x06GetApp\x12\x10.meshpaas.AppRef\x1a\r.meshpaas.App\"\x00\x12\x32\n\x08ListApps\x12\x14.meshpaas.ProjectRef\x1a\x0e.meshpaas.Apps\"\x00\x12:\n\x0cUninstallApp\x12\x10.meshpaas.AppRef\x1a\x16.google.protobuf.Empty\"\x00\x12\x30\n\x0bRollbackApp\x12\x10.meshpaas.AppRef\x1a\r.meshpaas.App\"\x00\x12\x30\n\tCreateApp\x12\x12.meshpaas.AppInput\x1a\r.meshpaas.App\"\x00\x12\x30\n\tUpdateApp\x12\x12.meshpaas.AppInput\x1a\r.meshpaas.App\"\x00\x12@\n\x12SearchAppTemplates\x12\x10.meshpaas.Filter\x1a\x16.meshpaas.AppTemplates\"\x00\x42\x0cZ\nmeshpaaspbb\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_any__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,github_dot_com_dot_mwitkow_dot_go__proto__validators_dot_validator__pb2.DESCRIPTOR,])
 
@@ -185,8 +185,8 @@ _APPTEMPLATE_METADATAENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=775,
-  serialized_end=822,
+  serialized_start=776,
+  serialized_end=823,
 )
 
 _APPTEMPLATE = _descriptor.Descriptor(
@@ -260,7 +260,7 @@ _APPTEMPLATE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='maintainer', full_name='meshpaas.AppTemplate.maintainer', index=9,
+      name='maintainers', full_name='meshpaas.AppTemplate.maintainers', index=9,
       number=10, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -286,7 +286,7 @@ _APPTEMPLATE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=466,
-  serialized_end=822,
+  serialized_end=823,
 )
 
 
@@ -316,8 +316,8 @@ _APPTEMPLATES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=824,
-  serialized_end=880,
+  serialized_start=825,
+  serialized_end=881,
 )
 
 
@@ -382,8 +382,8 @@ _APP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=883,
-  serialized_end=1095,
+  serialized_start=884,
+  serialized_end=1096,
 )
 
 
@@ -413,8 +413,8 @@ _APPS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1097,
-  serialized_end=1132,
+  serialized_start=1098,
+  serialized_end=1133,
 )
 
 
@@ -451,8 +451,8 @@ _LIFECYCLE_TIMESTAMPSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1257,
-  serialized_end=1334,
+  serialized_start=1258,
+  serialized_end=1335,
 )
 
 _LIFECYCLE = _descriptor.Descriptor(
@@ -502,8 +502,8 @@ _LIFECYCLE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1135,
-  serialized_end=1334,
+  serialized_start=1136,
+  serialized_end=1335,
 )
 
 
@@ -540,8 +540,8 @@ _APPREF = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1336,
-  serialized_end=1411,
+  serialized_start=1337,
+  serialized_end=1412,
 )
 
 
@@ -578,8 +578,8 @@ _APPINPUT_CONFIGENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1594,
-  serialized_end=1639,
+  serialized_start=1595,
+  serialized_end=1640,
 )
 
 _APPINPUT = _descriptor.Descriptor(
@@ -629,8 +629,8 @@ _APPINPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1414,
-  serialized_end=1639,
+  serialized_start=1415,
+  serialized_end=1640,
 )
 
 
@@ -660,8 +660,8 @@ _PROJECTREF = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1641,
-  serialized_end=1667,
+  serialized_start=1642,
+  serialized_end=1668,
 )
 
 
@@ -691,13 +691,13 @@ _PROJECTREFS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1669,
-  serialized_end=1722,
+  serialized_start=1670,
+  serialized_end=1723,
 )
 
 _APPTEMPLATE_METADATAENTRY.containing_type = _APPTEMPLATE
 _APPTEMPLATE.fields_by_name['dependencies'].message_type = _DEPENDENCY
-_APPTEMPLATE.fields_by_name['maintainer'].message_type = _MAINTAINER
+_APPTEMPLATE.fields_by_name['maintainers'].message_type = _MAINTAINER
 _APPTEMPLATE.fields_by_name['metadata'].message_type = _APPTEMPLATE_METADATAENTRY
 _APPTEMPLATES.fields_by_name['templates'].message_type = _APPTEMPLATE
 _APP.fields_by_name['config'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
@@ -859,8 +859,8 @@ _MESHPAASSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=1725,
-  serialized_end=2172,
+  serialized_start=1726,
+  serialized_end=2181,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListProjects',
@@ -895,7 +895,7 @@ _MESHPAASSERVICE = _descriptor.ServiceDescriptor(
     index=3,
     containing_service=None,
     input_type=_APPREF,
-    output_type=_APPS,
+    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(

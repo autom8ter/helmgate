@@ -31,7 +31,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     optional :icon, :string, 7
     optional :deprecated, :bool, 8
     repeated :dependencies, :message, 9, "meshpaas.Dependency"
-    repeated :maintainer, :message, 10, "meshpaas.Maintainer"
+    repeated :maintainers, :message, 10, "meshpaas.Maintainer"
     map :metadata, :string, :string, 11
   end
   add_message "meshpaas.AppTemplates" do

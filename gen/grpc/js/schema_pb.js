@@ -628,7 +628,7 @@ proto.meshpaas.AppTemplate.toObject = function(includeInstance, msg) {
     deprecated: jspb.Message.getFieldWithDefault(msg, 8, false),
     dependenciesList: jspb.Message.toObjectList(msg.getDependenciesList(),
     proto.meshpaas.Dependency.toObject, includeInstance),
-    maintainerList: jspb.Message.toObjectList(msg.getMaintainerList(),
+    maintainersList: jspb.Message.toObjectList(msg.getMaintainersList(),
     proto.meshpaas.Maintainer.toObject, includeInstance),
     metadataMap: (f = msg.getMetadataMap()) ? f.toObject(includeInstance, undefined) : []
   };
@@ -707,7 +707,7 @@ proto.meshpaas.AppTemplate.deserializeBinaryFromReader = function(msg, reader) {
     case 10:
       var value = new proto.meshpaas.Maintainer;
       reader.readMessage(value,proto.meshpaas.Maintainer.deserializeBinaryFromReader);
-      msg.addMaintainer(value);
+      msg.addMaintainers(value);
       break;
     case 11:
       var value = msg.getMetadataMap();
@@ -808,7 +808,7 @@ proto.meshpaas.AppTemplate.serializeBinaryToWriter = function(message, writer) {
       proto.meshpaas.Dependency.serializeBinaryToWriter
     );
   }
-  f = message.getMaintainerList();
+  f = message.getMaintainersList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       10,
@@ -1005,17 +1005,17 @@ proto.meshpaas.AppTemplate.prototype.clearDependenciesList = function() {
 
 
 /**
- * repeated Maintainer maintainer = 10;
+ * repeated Maintainer maintainers = 10;
  * @return {!Array<!proto.meshpaas.Maintainer>}
  */
-proto.meshpaas.AppTemplate.prototype.getMaintainerList = function() {
+proto.meshpaas.AppTemplate.prototype.getMaintainersList = function() {
   return /** @type{!Array<!proto.meshpaas.Maintainer>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.meshpaas.Maintainer, 10));
 };
 
 
 /** @param {!Array<!proto.meshpaas.Maintainer>} value */
-proto.meshpaas.AppTemplate.prototype.setMaintainerList = function(value) {
+proto.meshpaas.AppTemplate.prototype.setMaintainersList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 10, value);
 };
 
@@ -1025,13 +1025,13 @@ proto.meshpaas.AppTemplate.prototype.setMaintainerList = function(value) {
  * @param {number=} opt_index
  * @return {!proto.meshpaas.Maintainer}
  */
-proto.meshpaas.AppTemplate.prototype.addMaintainer = function(opt_value, opt_index) {
+proto.meshpaas.AppTemplate.prototype.addMaintainers = function(opt_value, opt_index) {
   return jspb.Message.addToRepeatedWrapperField(this, 10, opt_value, proto.meshpaas.Maintainer, opt_index);
 };
 
 
-proto.meshpaas.AppTemplate.prototype.clearMaintainerList = function() {
-  this.setMaintainerList([]);
+proto.meshpaas.AppTemplate.prototype.clearMaintainersList = function() {
+  this.setMaintainersList([]);
 };
 
 

@@ -34,52 +34,52 @@ namespace Meshpaas {
             "CgpeLnsxLDIyNX0kIk0KCk1haW50YWluZXISHgoEbmFtZRgBIAEoCUIQ4t8f",
             "DAoKXi57MSwyMjV9JBIfCgVlbWFpbBgCIAEoCUIQ4t8fDAoKXi57MSwyMjV9",
             "JCI3CgZGaWx0ZXISHgoEdGVybRgBIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIN",
-            "CgVyZWdleBgCIAEoCCLkAgoLQXBwVGVtcGxhdGUSHgoEbmFtZRgBIAEoCUIQ",
+            "CgVyZWdleBgCIAEoCCLlAgoLQXBwVGVtcGxhdGUSHgoEbmFtZRgBIAEoCUIQ",
             "4t8fDAoKXi57MSwyMjV9JBIMCgRob21lGAIgASgJEhMKC2Rlc2NyaXB0aW9u",
             "GAMgASgJEg8KB3ZlcnNpb24YBCABKAkSDwoHc291cmNlcxgFIAMoCRIQCghr",
             "ZXl3b3JkcxgGIAMoCRIMCgRpY29uGAcgASgJEhIKCmRlcHJlY2F0ZWQYCCAB",
             "KAgSKgoMZGVwZW5kZW5jaWVzGAkgAygLMhQubWVzaHBhYXMuRGVwZW5kZW5j",
-            "eRIoCgptYWludGFpbmVyGAogAygLMhQubWVzaHBhYXMuTWFpbnRhaW5lchI1",
-            "CghtZXRhZGF0YRgLIAMoCzIjLm1lc2hwYWFzLkFwcFRlbXBsYXRlLk1ldGFk",
-            "YXRhRW50cnkaLwoNTWV0YWRhdGFFbnRyeRILCgNrZXkYASABKAkSDQoFdmFs",
-            "dWUYAiABKAk6AjgBIjgKDEFwcFRlbXBsYXRlcxIoCgl0ZW1wbGF0ZXMYASAD",
-            "KAsyFS5tZXNocGFhcy5BcHBUZW1wbGF0ZSLUAQoDQXBwEh4KBG5hbWUYASAB",
-            "KAlCEOLfHwwKCl4uezEsMjI1fSQSIQoHcHJvamVjdBgCIAEoCUIQ4t8fDAoK",
-            "Xi57MSwyMjV9JBIPCgd2ZXJzaW9uGAMgASgNEicKBmNvbmZpZxgEIAEoCzIX",
-            "Lmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3QSJwoKbGlmZV9jeWNsZRgFIAEoCzIT",
-            "Lm1lc2hwYWFzLkxpZmVDeWNsZRInCgh0ZW1wbGF0ZRgUIAEoCzIVLm1lc2hw",
-            "YWFzLkFwcFRlbXBsYXRlIiMKBEFwcHMSGwoEYXBwcxgBIAMoCzINLm1lc2hw",
-            "YWFzLkFwcCLHAQoJTGlmZUN5Y2xlEg0KBW5vdGVzGAEgASgJEhMKC2Rlc2Ny",
-            "aXB0aW9uGAIgASgJEg4KBnN0YXR1cxgDIAEoCRI3Cgp0aW1lc3RhbXBzGAQg",
-            "AygLMiMubWVzaHBhYXMuTGlmZUN5Y2xlLlRpbWVzdGFtcHNFbnRyeRpNCg9U",
-            "aW1lc3RhbXBzRW50cnkSCwoDa2V5GAEgASgJEikKBXZhbHVlGAIgASgLMhou",
-            "Z29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcDoCOAEiSwoGQXBwUmVmEiEKB3By",
-            "b2plY3QYASABKAlCEOLfHwwKCl4uezEsMjI1fSQSHgoEbmFtZRgCIAEoCUIQ",
-            "4t8fDAoKXi57MSwyMjV9JCLhAQoIQXBwSW5wdXQSIQoHcHJvamVjdBgBIAEo",
-            "CUIQ4t8fDAoKXi57MSwyMjV9JBInCg10ZW1wbGF0ZV9uYW1lGAIgASgJQhDi",
-            "3x8MCgpeLnsxLDIyNX0kEiIKCGFwcF9uYW1lGAMgASgJQhDi3x8MCgpeLnsx",
-            "LDIyNX0kEjYKBmNvbmZpZxgEIAMoCzIeLm1lc2hwYWFzLkFwcElucHV0LkNv",
-            "bmZpZ0VudHJ5Qgbi3x8CIAEaLQoLQ29uZmlnRW50cnkSCwoDa2V5GAEgASgJ",
-            "Eg0KBXZhbHVlGAIgASgJOgI4ASIaCgpQcm9qZWN0UmVmEgwKBG5hbWUYASAB",
-            "KAkiNQoLUHJvamVjdFJlZnMSJgoIcHJvamVjdHMYASADKAsyFC5tZXNocGFh",
-            "cy5Qcm9qZWN0UmVmMr8DCg9NZXNoUGFhc1NlcnZpY2USPwoMTGlzdFByb2pl",
-            "Y3RzEhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5GhUubWVzaHBhYXMuUHJvamVj",
-            "dFJlZnMiABIrCgZHZXRBcHASEC5tZXNocGFhcy5BcHBSZWYaDS5tZXNocGFh",
-            "cy5BcHAiABIyCghMaXN0QXBwcxIULm1lc2hwYWFzLlByb2plY3RSZWYaDi5t",
-            "ZXNocGFhcy5BcHBzIgASMgoMVW5pbnN0YWxsQXBwEhAubWVzaHBhYXMuQXBw",
-            "UmVmGg4ubWVzaHBhYXMuQXBwcyIAEjAKC1JvbGxiYWNrQXBwEhAubWVzaHBh",
-            "YXMuQXBwUmVmGg0ubWVzaHBhYXMuQXBwIgASMAoJQ3JlYXRlQXBwEhIubWVz",
-            "aHBhYXMuQXBwSW5wdXQaDS5tZXNocGFhcy5BcHAiABIwCglVcGRhdGVBcHAS",
-            "Ei5tZXNocGFhcy5BcHBJbnB1dBoNLm1lc2hwYWFzLkFwcCIAEkAKElNlYXJj",
-            "aEFwcFRlbXBsYXRlcxIQLm1lc2hwYWFzLkZpbHRlchoWLm1lc2hwYWFzLkFw",
-            "cFRlbXBsYXRlcyIAQgxaCm1lc2hwYWFzcGJiBnByb3RvMw=="));
+            "eRIpCgttYWludGFpbmVycxgKIAMoCzIULm1lc2hwYWFzLk1haW50YWluZXIS",
+            "NQoIbWV0YWRhdGEYCyADKAsyIy5tZXNocGFhcy5BcHBUZW1wbGF0ZS5NZXRh",
+            "ZGF0YUVudHJ5Gi8KDU1ldGFkYXRhRW50cnkSCwoDa2V5GAEgASgJEg0KBXZh",
+            "bHVlGAIgASgJOgI4ASI4CgxBcHBUZW1wbGF0ZXMSKAoJdGVtcGxhdGVzGAEg",
+            "AygLMhUubWVzaHBhYXMuQXBwVGVtcGxhdGUi1AEKA0FwcBIeCgRuYW1lGAEg",
+            "ASgJQhDi3x8MCgpeLnsxLDIyNX0kEiEKB3Byb2plY3QYAiABKAlCEOLfHwwK",
+            "Cl4uezEsMjI1fSQSDwoHdmVyc2lvbhgDIAEoDRInCgZjb25maWcYBCABKAsy",
+            "Fy5nb29nbGUucHJvdG9idWYuU3RydWN0EicKCmxpZmVfY3ljbGUYBSABKAsy",
+            "Ey5tZXNocGFhcy5MaWZlQ3ljbGUSJwoIdGVtcGxhdGUYFCABKAsyFS5tZXNo",
+            "cGFhcy5BcHBUZW1wbGF0ZSIjCgRBcHBzEhsKBGFwcHMYASADKAsyDS5tZXNo",
+            "cGFhcy5BcHAixwEKCUxpZmVDeWNsZRINCgVub3RlcxgBIAEoCRITCgtkZXNj",
+            "cmlwdGlvbhgCIAEoCRIOCgZzdGF0dXMYAyABKAkSNwoKdGltZXN0YW1wcxgE",
+            "IAMoCzIjLm1lc2hwYWFzLkxpZmVDeWNsZS5UaW1lc3RhbXBzRW50cnkaTQoP",
+            "VGltZXN0YW1wc0VudHJ5EgsKA2tleRgBIAEoCRIpCgV2YWx1ZRgCIAEoCzIa",
+            "Lmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXA6AjgBIksKBkFwcFJlZhIhCgdw",
+            "cm9qZWN0GAEgASgJQhDi3x8MCgpeLnsxLDIyNX0kEh4KBG5hbWUYAiABKAlC",
+            "EOLfHwwKCl4uezEsMjI1fSQi4QEKCEFwcElucHV0EiEKB3Byb2plY3QYASAB",
+            "KAlCEOLfHwwKCl4uezEsMjI1fSQSJwoNdGVtcGxhdGVfbmFtZRgCIAEoCUIQ",
+            "4t8fDAoKXi57MSwyMjV9JBIiCghhcHBfbmFtZRgDIAEoCUIQ4t8fDAoKXi57",
+            "MSwyMjV9JBI2CgZjb25maWcYBCADKAsyHi5tZXNocGFhcy5BcHBJbnB1dC5D",
+            "b25maWdFbnRyeUIG4t8fAiABGi0KC0NvbmZpZ0VudHJ5EgsKA2tleRgBIAEo",
+            "CRINCgV2YWx1ZRgCIAEoCToCOAEiGgoKUHJvamVjdFJlZhIMCgRuYW1lGAEg",
+            "ASgJIjUKC1Byb2plY3RSZWZzEiYKCHByb2plY3RzGAEgAygLMhQubWVzaHBh",
+            "YXMuUHJvamVjdFJlZjLHAwoPTWVzaFBhYXNTZXJ2aWNlEj8KDExpc3RQcm9q",
+            "ZWN0cxIWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRoVLm1lc2hwYWFzLlByb2pl",
+            "Y3RSZWZzIgASKwoGR2V0QXBwEhAubWVzaHBhYXMuQXBwUmVmGg0ubWVzaHBh",
+            "YXMuQXBwIgASMgoITGlzdEFwcHMSFC5tZXNocGFhcy5Qcm9qZWN0UmVmGg4u",
+            "bWVzaHBhYXMuQXBwcyIAEjoKDFVuaW5zdGFsbEFwcBIQLm1lc2hwYWFzLkFw",
+            "cFJlZhoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAEjAKC1JvbGxiYWNrQXBw",
+            "EhAubWVzaHBhYXMuQXBwUmVmGg0ubWVzaHBhYXMuQXBwIgASMAoJQ3JlYXRl",
+            "QXBwEhIubWVzaHBhYXMuQXBwSW5wdXQaDS5tZXNocGFhcy5BcHAiABIwCglV",
+            "cGRhdGVBcHASEi5tZXNocGFhcy5BcHBJbnB1dBoNLm1lc2hwYWFzLkFwcCIA",
+            "EkAKElNlYXJjaEFwcFRlbXBsYXRlcxIQLm1lc2hwYWFzLkZpbHRlchoWLm1l",
+            "c2hwYWFzLkFwcFRlbXBsYXRlcyIAQgxaCm1lc2hwYWFzcGJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Validator.ValidatorReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Dependency), global::Meshpaas.Dependency.Parser, new[]{ "TemplateName", "Version", "Repository" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Maintainer), global::Meshpaas.Maintainer.Parser, new[]{ "Name", "Email" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Filter), global::Meshpaas.Filter.Parser, new[]{ "Term", "Regex" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.AppTemplate), global::Meshpaas.AppTemplate.Parser, new[]{ "Name", "Home", "Description", "Version", "Sources", "Keywords", "Icon", "Deprecated", "Dependencies", "Maintainer", "Metadata" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.AppTemplate), global::Meshpaas.AppTemplate.Parser, new[]{ "Name", "Home", "Description", "Version", "Sources", "Keywords", "Icon", "Deprecated", "Dependencies", "Maintainers", "Metadata" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.AppTemplates), global::Meshpaas.AppTemplates.Parser, new[]{ "Templates" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.App), global::Meshpaas.App.Parser, new[]{ "Name", "Project", "Version", "Config", "LifeCycle", "Template" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Apps), global::Meshpaas.Apps.Parser, new[]{ "Apps_" }, null, null, null),
@@ -136,6 +136,9 @@ namespace Meshpaas {
     /// <summary>Field number for the "template_name" field.</summary>
     public const int TemplateNameFieldNumber = 1;
     private string templateName_ = "";
+    /// <summary>
+    /// name of the template dependency
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string TemplateName {
       get { return templateName_; }
@@ -147,6 +150,9 @@ namespace Meshpaas {
     /// <summary>Field number for the "version" field.</summary>
     public const int VersionFieldNumber = 2;
     private string version_ = "";
+    /// <summary>
+    /// name of the template version
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Version {
       get { return version_; }
@@ -639,7 +645,7 @@ namespace Meshpaas {
       icon_ = other.icon_;
       deprecated_ = other.deprecated_;
       dependencies_ = other.dependencies_.Clone();
-      maintainer_ = other.maintainer_.Clone();
+      maintainers_ = other.maintainers_.Clone();
       metadata_ = other.metadata_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -760,14 +766,14 @@ namespace Meshpaas {
       get { return dependencies_; }
     }
 
-    /// <summary>Field number for the "maintainer" field.</summary>
-    public const int MaintainerFieldNumber = 10;
-    private static readonly pb::FieldCodec<global::Meshpaas.Maintainer> _repeated_maintainer_codec
+    /// <summary>Field number for the "maintainers" field.</summary>
+    public const int MaintainersFieldNumber = 10;
+    private static readonly pb::FieldCodec<global::Meshpaas.Maintainer> _repeated_maintainers_codec
         = pb::FieldCodec.ForMessage(82, global::Meshpaas.Maintainer.Parser);
-    private readonly pbc::RepeatedField<global::Meshpaas.Maintainer> maintainer_ = new pbc::RepeatedField<global::Meshpaas.Maintainer>();
+    private readonly pbc::RepeatedField<global::Meshpaas.Maintainer> maintainers_ = new pbc::RepeatedField<global::Meshpaas.Maintainer>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Meshpaas.Maintainer> Maintainer {
-      get { return maintainer_; }
+    public pbc::RepeatedField<global::Meshpaas.Maintainer> Maintainers {
+      get { return maintainers_; }
     }
 
     /// <summary>Field number for the "metadata" field.</summary>
@@ -802,7 +808,7 @@ namespace Meshpaas {
       if (Icon != other.Icon) return false;
       if (Deprecated != other.Deprecated) return false;
       if(!dependencies_.Equals(other.dependencies_)) return false;
-      if(!maintainer_.Equals(other.maintainer_)) return false;
+      if(!maintainers_.Equals(other.maintainers_)) return false;
       if (!Metadata.Equals(other.Metadata)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -819,7 +825,7 @@ namespace Meshpaas {
       if (Icon.Length != 0) hash ^= Icon.GetHashCode();
       if (Deprecated != false) hash ^= Deprecated.GetHashCode();
       hash ^= dependencies_.GetHashCode();
-      hash ^= maintainer_.GetHashCode();
+      hash ^= maintainers_.GetHashCode();
       hash ^= Metadata.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -861,7 +867,7 @@ namespace Meshpaas {
         output.WriteBool(Deprecated);
       }
       dependencies_.WriteTo(output, _repeated_dependencies_codec);
-      maintainer_.WriteTo(output, _repeated_maintainer_codec);
+      maintainers_.WriteTo(output, _repeated_maintainers_codec);
       metadata_.WriteTo(output, _map_metadata_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -892,7 +898,7 @@ namespace Meshpaas {
         size += 1 + 1;
       }
       size += dependencies_.CalculateSize(_repeated_dependencies_codec);
-      size += maintainer_.CalculateSize(_repeated_maintainer_codec);
+      size += maintainers_.CalculateSize(_repeated_maintainers_codec);
       size += metadata_.CalculateSize(_map_metadata_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -926,7 +932,7 @@ namespace Meshpaas {
         Deprecated = other.Deprecated;
       }
       dependencies_.Add(other.dependencies_);
-      maintainer_.Add(other.maintainer_);
+      maintainers_.Add(other.maintainers_);
       metadata_.Add(other.metadata_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -976,7 +982,7 @@ namespace Meshpaas {
             break;
           }
           case 82: {
-            maintainer_.AddEntriesFrom(input, _repeated_maintainer_codec);
+            maintainers_.AddEntriesFrom(input, _repeated_maintainers_codec);
             break;
           }
           case 90: {
@@ -989,6 +995,9 @@ namespace Meshpaas {
 
   }
 
+  /// <summary>
+  /// AppTemplates is a list of app templates
+  /// </summary>
   public sealed partial class AppTemplates : pb::IMessage<AppTemplates> {
     private static readonly pb::MessageParser<AppTemplates> _parser = new pb::MessageParser<AppTemplates>(() => new AppTemplates());
     private pb::UnknownFieldSet _unknownFields;

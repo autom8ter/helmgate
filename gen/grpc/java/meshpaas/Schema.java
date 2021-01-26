@@ -19,20 +19,36 @@ public final class Schema {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * name of the template dependency
+     * </pre>
+     *
      * <code>string template_name = 1 [(.validator.field) = { ... }</code>
      */
     java.lang.String getTemplateName();
     /**
+     * <pre>
+     * name of the template dependency
+     * </pre>
+     *
      * <code>string template_name = 1 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
         getTemplateNameBytes();
 
     /**
+     * <pre>
+     * name of the template version
+     * </pre>
+     *
      * <code>string version = 2 [(.validator.field) = { ... }</code>
      */
     java.lang.String getVersion();
     /**
+     * <pre>
+     * name of the template version
+     * </pre>
+     *
      * <code>string version = 2 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
@@ -147,6 +163,10 @@ public final class Schema {
     public static final int TEMPLATE_NAME_FIELD_NUMBER = 1;
     private volatile java.lang.Object templateName_;
     /**
+     * <pre>
+     * name of the template dependency
+     * </pre>
+     *
      * <code>string template_name = 1 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getTemplateName() {
@@ -162,6 +182,10 @@ public final class Schema {
       }
     }
     /**
+     * <pre>
+     * name of the template dependency
+     * </pre>
+     *
      * <code>string template_name = 1 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
@@ -181,6 +205,10 @@ public final class Schema {
     public static final int VERSION_FIELD_NUMBER = 2;
     private volatile java.lang.Object version_;
     /**
+     * <pre>
+     * name of the template version
+     * </pre>
+     *
      * <code>string version = 2 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getVersion() {
@@ -196,6 +224,10 @@ public final class Schema {
       }
     }
     /**
+     * <pre>
+     * name of the template version
+     * </pre>
+     *
      * <code>string version = 2 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
@@ -589,6 +621,10 @@ public final class Schema {
 
       private java.lang.Object templateName_ = "";
       /**
+       * <pre>
+       * name of the template dependency
+       * </pre>
+       *
        * <code>string template_name = 1 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getTemplateName() {
@@ -604,6 +640,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * name of the template dependency
+       * </pre>
+       *
        * <code>string template_name = 1 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
@@ -620,6 +660,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * name of the template dependency
+       * </pre>
+       *
        * <code>string template_name = 1 [(.validator.field) = { ... }</code>
        */
       public Builder setTemplateName(
@@ -633,6 +677,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * name of the template dependency
+       * </pre>
+       *
        * <code>string template_name = 1 [(.validator.field) = { ... }</code>
        */
       public Builder clearTemplateName() {
@@ -642,6 +690,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * name of the template dependency
+       * </pre>
+       *
        * <code>string template_name = 1 [(.validator.field) = { ... }</code>
        */
       public Builder setTemplateNameBytes(
@@ -658,6 +710,10 @@ public final class Schema {
 
       private java.lang.Object version_ = "";
       /**
+       * <pre>
+       * name of the template version
+       * </pre>
+       *
        * <code>string version = 2 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getVersion() {
@@ -673,6 +729,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * name of the template version
+       * </pre>
+       *
        * <code>string version = 2 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
@@ -689,6 +749,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * name of the template version
+       * </pre>
+       *
        * <code>string version = 2 [(.validator.field) = { ... }</code>
        */
       public Builder setVersion(
@@ -702,6 +766,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * name of the template version
+       * </pre>
+       *
        * <code>string version = 2 [(.validator.field) = { ... }</code>
        */
       public Builder clearVersion() {
@@ -711,6 +779,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * name of the template version
+       * </pre>
+       *
        * <code>string version = 2 [(.validator.field) = { ... }</code>
        */
       public Builder setVersionBytes(
@@ -2333,27 +2405,27 @@ public final class Schema {
         int index);
 
     /**
-     * <code>repeated .meshpaas.Maintainer maintainer = 10;</code>
+     * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
      */
     java.util.List<meshpaas.Schema.Maintainer> 
-        getMaintainerList();
+        getMaintainersList();
     /**
-     * <code>repeated .meshpaas.Maintainer maintainer = 10;</code>
+     * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
      */
-    meshpaas.Schema.Maintainer getMaintainer(int index);
+    meshpaas.Schema.Maintainer getMaintainers(int index);
     /**
-     * <code>repeated .meshpaas.Maintainer maintainer = 10;</code>
+     * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
      */
-    int getMaintainerCount();
+    int getMaintainersCount();
     /**
-     * <code>repeated .meshpaas.Maintainer maintainer = 10;</code>
+     * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
      */
     java.util.List<? extends meshpaas.Schema.MaintainerOrBuilder> 
-        getMaintainerOrBuilderList();
+        getMaintainersOrBuilderList();
     /**
-     * <code>repeated .meshpaas.Maintainer maintainer = 10;</code>
+     * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
      */
-    meshpaas.Schema.MaintainerOrBuilder getMaintainerOrBuilder(
+    meshpaas.Schema.MaintainerOrBuilder getMaintainersOrBuilder(
         int index);
 
     /**
@@ -2416,7 +2488,7 @@ public final class Schema {
       icon_ = "";
       deprecated_ = false;
       dependencies_ = java.util.Collections.emptyList();
-      maintainer_ = java.util.Collections.emptyList();
+      maintainers_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -2507,10 +2579,10 @@ public final class Schema {
             }
             case 82: {
               if (!((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
-                maintainer_ = new java.util.ArrayList<meshpaas.Schema.Maintainer>();
+                maintainers_ = new java.util.ArrayList<meshpaas.Schema.Maintainer>();
                 mutable_bitField0_ |= 0x00000200;
               }
-              maintainer_.add(
+              maintainers_.add(
                   input.readMessage(meshpaas.Schema.Maintainer.parser(), extensionRegistry));
               break;
             }
@@ -2552,7 +2624,7 @@ public final class Schema {
           dependencies_ = java.util.Collections.unmodifiableList(dependencies_);
         }
         if (((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
-          maintainer_ = java.util.Collections.unmodifiableList(maintainer_);
+          maintainers_ = java.util.Collections.unmodifiableList(maintainers_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -2904,39 +2976,39 @@ public final class Schema {
       return dependencies_.get(index);
     }
 
-    public static final int MAINTAINER_FIELD_NUMBER = 10;
-    private java.util.List<meshpaas.Schema.Maintainer> maintainer_;
+    public static final int MAINTAINERS_FIELD_NUMBER = 10;
+    private java.util.List<meshpaas.Schema.Maintainer> maintainers_;
     /**
-     * <code>repeated .meshpaas.Maintainer maintainer = 10;</code>
+     * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
      */
-    public java.util.List<meshpaas.Schema.Maintainer> getMaintainerList() {
-      return maintainer_;
+    public java.util.List<meshpaas.Schema.Maintainer> getMaintainersList() {
+      return maintainers_;
     }
     /**
-     * <code>repeated .meshpaas.Maintainer maintainer = 10;</code>
+     * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
      */
     public java.util.List<? extends meshpaas.Schema.MaintainerOrBuilder> 
-        getMaintainerOrBuilderList() {
-      return maintainer_;
+        getMaintainersOrBuilderList() {
+      return maintainers_;
     }
     /**
-     * <code>repeated .meshpaas.Maintainer maintainer = 10;</code>
+     * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
      */
-    public int getMaintainerCount() {
-      return maintainer_.size();
+    public int getMaintainersCount() {
+      return maintainers_.size();
     }
     /**
-     * <code>repeated .meshpaas.Maintainer maintainer = 10;</code>
+     * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
      */
-    public meshpaas.Schema.Maintainer getMaintainer(int index) {
-      return maintainer_.get(index);
+    public meshpaas.Schema.Maintainer getMaintainers(int index) {
+      return maintainers_.get(index);
     }
     /**
-     * <code>repeated .meshpaas.Maintainer maintainer = 10;</code>
+     * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
      */
-    public meshpaas.Schema.MaintainerOrBuilder getMaintainerOrBuilder(
+    public meshpaas.Schema.MaintainerOrBuilder getMaintainersOrBuilder(
         int index) {
-      return maintainer_.get(index);
+      return maintainers_.get(index);
     }
 
     public static final int METADATA_FIELD_NUMBER = 11;
@@ -3056,8 +3128,8 @@ public final class Schema {
       for (int i = 0; i < dependencies_.size(); i++) {
         output.writeMessage(9, dependencies_.get(i));
       }
-      for (int i = 0; i < maintainer_.size(); i++) {
-        output.writeMessage(10, maintainer_.get(i));
+      for (int i = 0; i < maintainers_.size(); i++) {
+        output.writeMessage(10, maintainers_.get(i));
       }
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
@@ -3113,9 +3185,9 @@ public final class Schema {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(9, dependencies_.get(i));
       }
-      for (int i = 0; i < maintainer_.size(); i++) {
+      for (int i = 0; i < maintainers_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(10, maintainer_.get(i));
+          .computeMessageSize(10, maintainers_.get(i));
       }
       for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
            : internalGetMetadata().getMap().entrySet()) {
@@ -3161,8 +3233,8 @@ public final class Schema {
           == other.getDeprecated());
       result = result && getDependenciesList()
           .equals(other.getDependenciesList());
-      result = result && getMaintainerList()
-          .equals(other.getMaintainerList());
+      result = result && getMaintainersList()
+          .equals(other.getMaintainersList());
       result = result && internalGetMetadata().equals(
           other.internalGetMetadata());
       result = result && unknownFields.equals(other.unknownFields);
@@ -3201,9 +3273,9 @@ public final class Schema {
         hash = (37 * hash) + DEPENDENCIES_FIELD_NUMBER;
         hash = (53 * hash) + getDependenciesList().hashCode();
       }
-      if (getMaintainerCount() > 0) {
-        hash = (37 * hash) + MAINTAINER_FIELD_NUMBER;
-        hash = (53 * hash) + getMaintainerList().hashCode();
+      if (getMaintainersCount() > 0) {
+        hash = (37 * hash) + MAINTAINERS_FIELD_NUMBER;
+        hash = (53 * hash) + getMaintainersList().hashCode();
       }
       if (!internalGetMetadata().getMap().isEmpty()) {
         hash = (37 * hash) + METADATA_FIELD_NUMBER;
@@ -3364,7 +3436,7 @@ public final class Schema {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
           getDependenciesFieldBuilder();
-          getMaintainerFieldBuilder();
+          getMaintainersFieldBuilder();
         }
       }
       @java.lang.Override
@@ -3392,11 +3464,11 @@ public final class Schema {
         } else {
           dependenciesBuilder_.clear();
         }
-        if (maintainerBuilder_ == null) {
-          maintainer_ = java.util.Collections.emptyList();
+        if (maintainersBuilder_ == null) {
+          maintainers_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000200);
         } else {
-          maintainerBuilder_.clear();
+          maintainersBuilder_.clear();
         }
         internalGetMutableMetadata().clear();
         return this;
@@ -3452,14 +3524,14 @@ public final class Schema {
         } else {
           result.dependencies_ = dependenciesBuilder_.build();
         }
-        if (maintainerBuilder_ == null) {
+        if (maintainersBuilder_ == null) {
           if (((bitField0_ & 0x00000200) == 0x00000200)) {
-            maintainer_ = java.util.Collections.unmodifiableList(maintainer_);
+            maintainers_ = java.util.Collections.unmodifiableList(maintainers_);
             bitField0_ = (bitField0_ & ~0x00000200);
           }
-          result.maintainer_ = maintainer_;
+          result.maintainers_ = maintainers_;
         } else {
-          result.maintainer_ = maintainerBuilder_.build();
+          result.maintainers_ = maintainersBuilder_.build();
         }
         result.metadata_ = internalGetMetadata();
         result.metadata_.makeImmutable();
@@ -3581,29 +3653,29 @@ public final class Schema {
             }
           }
         }
-        if (maintainerBuilder_ == null) {
-          if (!other.maintainer_.isEmpty()) {
-            if (maintainer_.isEmpty()) {
-              maintainer_ = other.maintainer_;
+        if (maintainersBuilder_ == null) {
+          if (!other.maintainers_.isEmpty()) {
+            if (maintainers_.isEmpty()) {
+              maintainers_ = other.maintainers_;
               bitField0_ = (bitField0_ & ~0x00000200);
             } else {
-              ensureMaintainerIsMutable();
-              maintainer_.addAll(other.maintainer_);
+              ensureMaintainersIsMutable();
+              maintainers_.addAll(other.maintainers_);
             }
             onChanged();
           }
         } else {
-          if (!other.maintainer_.isEmpty()) {
-            if (maintainerBuilder_.isEmpty()) {
-              maintainerBuilder_.dispose();
-              maintainerBuilder_ = null;
-              maintainer_ = other.maintainer_;
+          if (!other.maintainers_.isEmpty()) {
+            if (maintainersBuilder_.isEmpty()) {
+              maintainersBuilder_.dispose();
+              maintainersBuilder_ = null;
+              maintainers_ = other.maintainers_;
               bitField0_ = (bitField0_ & ~0x00000200);
-              maintainerBuilder_ = 
+              maintainersBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getMaintainerFieldBuilder() : null;
+                   getMaintainersFieldBuilder() : null;
             } else {
-              maintainerBuilder_.addAllMessages(other.maintainer_);
+              maintainersBuilder_.addAllMessages(other.maintainers_);
             }
           }
         }
@@ -4554,244 +4626,244 @@ public final class Schema {
         return dependenciesBuilder_;
       }
 
-      private java.util.List<meshpaas.Schema.Maintainer> maintainer_ =
+      private java.util.List<meshpaas.Schema.Maintainer> maintainers_ =
         java.util.Collections.emptyList();
-      private void ensureMaintainerIsMutable() {
+      private void ensureMaintainersIsMutable() {
         if (!((bitField0_ & 0x00000200) == 0x00000200)) {
-          maintainer_ = new java.util.ArrayList<meshpaas.Schema.Maintainer>(maintainer_);
+          maintainers_ = new java.util.ArrayList<meshpaas.Schema.Maintainer>(maintainers_);
           bitField0_ |= 0x00000200;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          meshpaas.Schema.Maintainer, meshpaas.Schema.Maintainer.Builder, meshpaas.Schema.MaintainerOrBuilder> maintainerBuilder_;
+          meshpaas.Schema.Maintainer, meshpaas.Schema.Maintainer.Builder, meshpaas.Schema.MaintainerOrBuilder> maintainersBuilder_;
 
       /**
-       * <code>repeated .meshpaas.Maintainer maintainer = 10;</code>
+       * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
-      public java.util.List<meshpaas.Schema.Maintainer> getMaintainerList() {
-        if (maintainerBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(maintainer_);
+      public java.util.List<meshpaas.Schema.Maintainer> getMaintainersList() {
+        if (maintainersBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(maintainers_);
         } else {
-          return maintainerBuilder_.getMessageList();
+          return maintainersBuilder_.getMessageList();
         }
       }
       /**
-       * <code>repeated .meshpaas.Maintainer maintainer = 10;</code>
+       * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
-      public int getMaintainerCount() {
-        if (maintainerBuilder_ == null) {
-          return maintainer_.size();
+      public int getMaintainersCount() {
+        if (maintainersBuilder_ == null) {
+          return maintainers_.size();
         } else {
-          return maintainerBuilder_.getCount();
+          return maintainersBuilder_.getCount();
         }
       }
       /**
-       * <code>repeated .meshpaas.Maintainer maintainer = 10;</code>
+       * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
-      public meshpaas.Schema.Maintainer getMaintainer(int index) {
-        if (maintainerBuilder_ == null) {
-          return maintainer_.get(index);
+      public meshpaas.Schema.Maintainer getMaintainers(int index) {
+        if (maintainersBuilder_ == null) {
+          return maintainers_.get(index);
         } else {
-          return maintainerBuilder_.getMessage(index);
+          return maintainersBuilder_.getMessage(index);
         }
       }
       /**
-       * <code>repeated .meshpaas.Maintainer maintainer = 10;</code>
+       * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
-      public Builder setMaintainer(
+      public Builder setMaintainers(
           int index, meshpaas.Schema.Maintainer value) {
-        if (maintainerBuilder_ == null) {
+        if (maintainersBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureMaintainerIsMutable();
-          maintainer_.set(index, value);
+          ensureMaintainersIsMutable();
+          maintainers_.set(index, value);
           onChanged();
         } else {
-          maintainerBuilder_.setMessage(index, value);
+          maintainersBuilder_.setMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .meshpaas.Maintainer maintainer = 10;</code>
+       * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
-      public Builder setMaintainer(
+      public Builder setMaintainers(
           int index, meshpaas.Schema.Maintainer.Builder builderForValue) {
-        if (maintainerBuilder_ == null) {
-          ensureMaintainerIsMutable();
-          maintainer_.set(index, builderForValue.build());
+        if (maintainersBuilder_ == null) {
+          ensureMaintainersIsMutable();
+          maintainers_.set(index, builderForValue.build());
           onChanged();
         } else {
-          maintainerBuilder_.setMessage(index, builderForValue.build());
+          maintainersBuilder_.setMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .meshpaas.Maintainer maintainer = 10;</code>
+       * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
-      public Builder addMaintainer(meshpaas.Schema.Maintainer value) {
-        if (maintainerBuilder_ == null) {
+      public Builder addMaintainers(meshpaas.Schema.Maintainer value) {
+        if (maintainersBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureMaintainerIsMutable();
-          maintainer_.add(value);
+          ensureMaintainersIsMutable();
+          maintainers_.add(value);
           onChanged();
         } else {
-          maintainerBuilder_.addMessage(value);
+          maintainersBuilder_.addMessage(value);
         }
         return this;
       }
       /**
-       * <code>repeated .meshpaas.Maintainer maintainer = 10;</code>
+       * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
-      public Builder addMaintainer(
+      public Builder addMaintainers(
           int index, meshpaas.Schema.Maintainer value) {
-        if (maintainerBuilder_ == null) {
+        if (maintainersBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureMaintainerIsMutable();
-          maintainer_.add(index, value);
+          ensureMaintainersIsMutable();
+          maintainers_.add(index, value);
           onChanged();
         } else {
-          maintainerBuilder_.addMessage(index, value);
+          maintainersBuilder_.addMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .meshpaas.Maintainer maintainer = 10;</code>
+       * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
-      public Builder addMaintainer(
+      public Builder addMaintainers(
           meshpaas.Schema.Maintainer.Builder builderForValue) {
-        if (maintainerBuilder_ == null) {
-          ensureMaintainerIsMutable();
-          maintainer_.add(builderForValue.build());
+        if (maintainersBuilder_ == null) {
+          ensureMaintainersIsMutable();
+          maintainers_.add(builderForValue.build());
           onChanged();
         } else {
-          maintainerBuilder_.addMessage(builderForValue.build());
+          maintainersBuilder_.addMessage(builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .meshpaas.Maintainer maintainer = 10;</code>
+       * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
-      public Builder addMaintainer(
+      public Builder addMaintainers(
           int index, meshpaas.Schema.Maintainer.Builder builderForValue) {
-        if (maintainerBuilder_ == null) {
-          ensureMaintainerIsMutable();
-          maintainer_.add(index, builderForValue.build());
+        if (maintainersBuilder_ == null) {
+          ensureMaintainersIsMutable();
+          maintainers_.add(index, builderForValue.build());
           onChanged();
         } else {
-          maintainerBuilder_.addMessage(index, builderForValue.build());
+          maintainersBuilder_.addMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .meshpaas.Maintainer maintainer = 10;</code>
+       * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
-      public Builder addAllMaintainer(
+      public Builder addAllMaintainers(
           java.lang.Iterable<? extends meshpaas.Schema.Maintainer> values) {
-        if (maintainerBuilder_ == null) {
-          ensureMaintainerIsMutable();
+        if (maintainersBuilder_ == null) {
+          ensureMaintainersIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, maintainer_);
+              values, maintainers_);
           onChanged();
         } else {
-          maintainerBuilder_.addAllMessages(values);
+          maintainersBuilder_.addAllMessages(values);
         }
         return this;
       }
       /**
-       * <code>repeated .meshpaas.Maintainer maintainer = 10;</code>
+       * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
-      public Builder clearMaintainer() {
-        if (maintainerBuilder_ == null) {
-          maintainer_ = java.util.Collections.emptyList();
+      public Builder clearMaintainers() {
+        if (maintainersBuilder_ == null) {
+          maintainers_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000200);
           onChanged();
         } else {
-          maintainerBuilder_.clear();
+          maintainersBuilder_.clear();
         }
         return this;
       }
       /**
-       * <code>repeated .meshpaas.Maintainer maintainer = 10;</code>
+       * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
-      public Builder removeMaintainer(int index) {
-        if (maintainerBuilder_ == null) {
-          ensureMaintainerIsMutable();
-          maintainer_.remove(index);
+      public Builder removeMaintainers(int index) {
+        if (maintainersBuilder_ == null) {
+          ensureMaintainersIsMutable();
+          maintainers_.remove(index);
           onChanged();
         } else {
-          maintainerBuilder_.remove(index);
+          maintainersBuilder_.remove(index);
         }
         return this;
       }
       /**
-       * <code>repeated .meshpaas.Maintainer maintainer = 10;</code>
+       * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
-      public meshpaas.Schema.Maintainer.Builder getMaintainerBuilder(
+      public meshpaas.Schema.Maintainer.Builder getMaintainersBuilder(
           int index) {
-        return getMaintainerFieldBuilder().getBuilder(index);
+        return getMaintainersFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .meshpaas.Maintainer maintainer = 10;</code>
+       * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
-      public meshpaas.Schema.MaintainerOrBuilder getMaintainerOrBuilder(
+      public meshpaas.Schema.MaintainerOrBuilder getMaintainersOrBuilder(
           int index) {
-        if (maintainerBuilder_ == null) {
-          return maintainer_.get(index);  } else {
-          return maintainerBuilder_.getMessageOrBuilder(index);
+        if (maintainersBuilder_ == null) {
+          return maintainers_.get(index);  } else {
+          return maintainersBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
-       * <code>repeated .meshpaas.Maintainer maintainer = 10;</code>
+       * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
       public java.util.List<? extends meshpaas.Schema.MaintainerOrBuilder> 
-           getMaintainerOrBuilderList() {
-        if (maintainerBuilder_ != null) {
-          return maintainerBuilder_.getMessageOrBuilderList();
+           getMaintainersOrBuilderList() {
+        if (maintainersBuilder_ != null) {
+          return maintainersBuilder_.getMessageOrBuilderList();
         } else {
-          return java.util.Collections.unmodifiableList(maintainer_);
+          return java.util.Collections.unmodifiableList(maintainers_);
         }
       }
       /**
-       * <code>repeated .meshpaas.Maintainer maintainer = 10;</code>
+       * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
-      public meshpaas.Schema.Maintainer.Builder addMaintainerBuilder() {
-        return getMaintainerFieldBuilder().addBuilder(
+      public meshpaas.Schema.Maintainer.Builder addMaintainersBuilder() {
+        return getMaintainersFieldBuilder().addBuilder(
             meshpaas.Schema.Maintainer.getDefaultInstance());
       }
       /**
-       * <code>repeated .meshpaas.Maintainer maintainer = 10;</code>
+       * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
-      public meshpaas.Schema.Maintainer.Builder addMaintainerBuilder(
+      public meshpaas.Schema.Maintainer.Builder addMaintainersBuilder(
           int index) {
-        return getMaintainerFieldBuilder().addBuilder(
+        return getMaintainersFieldBuilder().addBuilder(
             index, meshpaas.Schema.Maintainer.getDefaultInstance());
       }
       /**
-       * <code>repeated .meshpaas.Maintainer maintainer = 10;</code>
+       * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
       public java.util.List<meshpaas.Schema.Maintainer.Builder> 
-           getMaintainerBuilderList() {
-        return getMaintainerFieldBuilder().getBuilderList();
+           getMaintainersBuilderList() {
+        return getMaintainersFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
           meshpaas.Schema.Maintainer, meshpaas.Schema.Maintainer.Builder, meshpaas.Schema.MaintainerOrBuilder> 
-          getMaintainerFieldBuilder() {
-        if (maintainerBuilder_ == null) {
-          maintainerBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+          getMaintainersFieldBuilder() {
+        if (maintainersBuilder_ == null) {
+          maintainersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               meshpaas.Schema.Maintainer, meshpaas.Schema.Maintainer.Builder, meshpaas.Schema.MaintainerOrBuilder>(
-                  maintainer_,
+                  maintainers_,
                   ((bitField0_ & 0x00000200) == 0x00000200),
                   getParentForChildren(),
                   isClean());
-          maintainer_ = null;
+          maintainers_ = null;
         }
-        return maintainerBuilder_;
+        return maintainersBuilder_;
       }
 
       private com.google.protobuf.MapField<
@@ -4998,6 +5070,10 @@ public final class Schema {
         int index);
   }
   /**
+   * <pre>
+   * AppTemplates is a list of app templates
+   * </pre>
+   *
    * Protobuf type {@code meshpaas.AppTemplates}
    */
   public  static final class AppTemplates extends
@@ -5275,6 +5351,10 @@ public final class Schema {
       return builder;
     }
     /**
+     * <pre>
+     * AppTemplates is a list of app templates
+     * </pre>
+     *
      * Protobuf type {@code meshpaas.AppTemplates}
      */
     public static final class Builder extends
@@ -12703,50 +12783,51 @@ public final class Schema {
       "1,225}$\"M\n\nMaintainer\022\036\n\004name\030\001 \001(\tB\020\342\337\037" +
       "\014\n\n^.{1,225}$\022\037\n\005email\030\002 \001(\tB\020\342\337\037\014\n\n^.{1" +
       ",225}$\"7\n\006Filter\022\036\n\004term\030\001 \001(\tB\020\342\337\037\014\n\n^." +
-      "{1,225}$\022\r\n\005regex\030\002 \001(\010\"\344\002\n\013AppTemplate\022" +
+      "{1,225}$\022\r\n\005regex\030\002 \001(\010\"\345\002\n\013AppTemplate\022" +
       "\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\014\n\004home\030" +
       "\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\017\n\007version\030\004 " +
       "\001(\t\022\017\n\007sources\030\005 \003(\t\022\020\n\010keywords\030\006 \003(\t\022\014" +
       "\n\004icon\030\007 \001(\t\022\022\n\ndeprecated\030\010 \001(\010\022*\n\014depe" +
-      "ndencies\030\t \003(\0132\024.meshpaas.Dependency\022(\n\n" +
-      "maintainer\030\n \003(\0132\024.meshpaas.Maintainer\0225" +
-      "\n\010metadata\030\013 \003(\0132#.meshpaas.AppTemplate." +
-      "MetadataEntry\032/\n\rMetadataEntry\022\013\n\003key\030\001 " +
-      "\001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"8\n\014AppTemplates\022(" +
-      "\n\ttemplates\030\001 \003(\0132\025.meshpaas.AppTemplate" +
-      "\"\324\001\n\003App\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$" +
-      "\022!\n\007project\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\017\n\007v" +
-      "ersion\030\003 \001(\r\022\'\n\006config\030\004 \001(\0132\027.google.pr" +
-      "otobuf.Struct\022\'\n\nlife_cycle\030\005 \001(\0132\023.mesh" +
-      "paas.LifeCycle\022\'\n\010template\030\024 \001(\0132\025.meshp" +
-      "aas.AppTemplate\"#\n\004Apps\022\033\n\004apps\030\001 \003(\0132\r." +
-      "meshpaas.App\"\307\001\n\tLifeCycle\022\r\n\005notes\030\001 \001(" +
-      "\t\022\023\n\013description\030\002 \001(\t\022\016\n\006status\030\003 \001(\t\0227" +
-      "\n\ntimestamps\030\004 \003(\0132#.meshpaas.LifeCycle." +
-      "TimestampsEntry\032M\n\017TimestampsEntry\022\013\n\003ke" +
-      "y\030\001 \001(\t\022)\n\005value\030\002 \001(\0132\032.google.protobuf" +
-      ".Timestamp:\0028\001\"K\n\006AppRef\022!\n\007project\030\001 \001(" +
-      "\tB\020\342\337\037\014\n\n^.{1,225}$\022\036\n\004name\030\002 \001(\tB\020\342\337\037\014\n" +
-      "\n^.{1,225}$\"\341\001\n\010AppInput\022!\n\007project\030\001 \001(" +
-      "\tB\020\342\337\037\014\n\n^.{1,225}$\022\'\n\rtemplate_name\030\002 \001" +
-      "(\tB\020\342\337\037\014\n\n^.{1,225}$\022\"\n\010app_name\030\003 \001(\tB\020" +
-      "\342\337\037\014\n\n^.{1,225}$\0226\n\006config\030\004 \003(\0132\036.meshp" +
-      "aas.AppInput.ConfigEntryB\006\342\337\037\002 \001\032-\n\013Conf" +
-      "igEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"" +
-      "\032\n\nProjectRef\022\014\n\004name\030\001 \001(\t\"5\n\013ProjectRe" +
-      "fs\022&\n\010projects\030\001 \003(\0132\024.meshpaas.ProjectR" +
-      "ef2\277\003\n\017MeshPaasService\022?\n\014ListProjects\022\026" +
-      ".google.protobuf.Empty\032\025.meshpaas.Projec" +
-      "tRefs\"\000\022+\n\006GetApp\022\020.meshpaas.AppRef\032\r.me" +
-      "shpaas.App\"\000\0222\n\010ListApps\022\024.meshpaas.Proj" +
-      "ectRef\032\016.meshpaas.Apps\"\000\0222\n\014UninstallApp" +
-      "\022\020.meshpaas.AppRef\032\016.meshpaas.Apps\"\000\0220\n\013" +
-      "RollbackApp\022\020.meshpaas.AppRef\032\r.meshpaas" +
-      ".App\"\000\0220\n\tCreateApp\022\022.meshpaas.AppInput\032" +
-      "\r.meshpaas.App\"\000\0220\n\tUpdateApp\022\022.meshpaas" +
-      ".AppInput\032\r.meshpaas.App\"\000\022@\n\022SearchAppT" +
-      "emplates\022\020.meshpaas.Filter\032\026.meshpaas.Ap" +
-      "pTemplates\"\000B\014Z\nmeshpaaspbb\006proto3"
+      "ndencies\030\t \003(\0132\024.meshpaas.Dependency\022)\n\013" +
+      "maintainers\030\n \003(\0132\024.meshpaas.Maintainer\022" +
+      "5\n\010metadata\030\013 \003(\0132#.meshpaas.AppTemplate" +
+      ".MetadataEntry\032/\n\rMetadataEntry\022\013\n\003key\030\001" +
+      " \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"8\n\014AppTemplates\022" +
+      "(\n\ttemplates\030\001 \003(\0132\025.meshpaas.AppTemplat" +
+      "e\"\324\001\n\003App\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}" +
+      "$\022!\n\007project\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\017\n\007" +
+      "version\030\003 \001(\r\022\'\n\006config\030\004 \001(\0132\027.google.p" +
+      "rotobuf.Struct\022\'\n\nlife_cycle\030\005 \001(\0132\023.mes" +
+      "hpaas.LifeCycle\022\'\n\010template\030\024 \001(\0132\025.mesh" +
+      "paas.AppTemplate\"#\n\004Apps\022\033\n\004apps\030\001 \003(\0132\r" +
+      ".meshpaas.App\"\307\001\n\tLifeCycle\022\r\n\005notes\030\001 \001" +
+      "(\t\022\023\n\013description\030\002 \001(\t\022\016\n\006status\030\003 \001(\t\022" +
+      "7\n\ntimestamps\030\004 \003(\0132#.meshpaas.LifeCycle" +
+      ".TimestampsEntry\032M\n\017TimestampsEntry\022\013\n\003k" +
+      "ey\030\001 \001(\t\022)\n\005value\030\002 \001(\0132\032.google.protobu" +
+      "f.Timestamp:\0028\001\"K\n\006AppRef\022!\n\007project\030\001 \001" +
+      "(\tB\020\342\337\037\014\n\n^.{1,225}$\022\036\n\004name\030\002 \001(\tB\020\342\337\037\014" +
+      "\n\n^.{1,225}$\"\341\001\n\010AppInput\022!\n\007project\030\001 \001" +
+      "(\tB\020\342\337\037\014\n\n^.{1,225}$\022\'\n\rtemplate_name\030\002 " +
+      "\001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\"\n\010app_name\030\003 \001(\tB" +
+      "\020\342\337\037\014\n\n^.{1,225}$\0226\n\006config\030\004 \003(\0132\036.mesh" +
+      "paas.AppInput.ConfigEntryB\006\342\337\037\002 \001\032-\n\013Con" +
+      "figEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001" +
+      "\"\032\n\nProjectRef\022\014\n\004name\030\001 \001(\t\"5\n\013ProjectR" +
+      "efs\022&\n\010projects\030\001 \003(\0132\024.meshpaas.Project" +
+      "Ref2\307\003\n\017MeshPaasService\022?\n\014ListProjects\022" +
+      "\026.google.protobuf.Empty\032\025.meshpaas.Proje" +
+      "ctRefs\"\000\022+\n\006GetApp\022\020.meshpaas.AppRef\032\r.m" +
+      "eshpaas.App\"\000\0222\n\010ListApps\022\024.meshpaas.Pro" +
+      "jectRef\032\016.meshpaas.Apps\"\000\022:\n\014UninstallAp" +
+      "p\022\020.meshpaas.AppRef\032\026.google.protobuf.Em" +
+      "pty\"\000\0220\n\013RollbackApp\022\020.meshpaas.AppRef\032\r" +
+      ".meshpaas.App\"\000\0220\n\tCreateApp\022\022.meshpaas." +
+      "AppInput\032\r.meshpaas.App\"\000\0220\n\tUpdateApp\022\022" +
+      ".meshpaas.AppInput\032\r.meshpaas.App\"\000\022@\n\022S" +
+      "earchAppTemplates\022\020.meshpaas.Filter\032\026.me" +
+      "shpaas.AppTemplates\"\000B\014Z\nmeshpaaspbb\006pro" +
+      "to3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -12788,7 +12869,7 @@ public final class Schema {
     internal_static_meshpaas_AppTemplate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_AppTemplate_descriptor,
-        new java.lang.String[] { "Name", "Home", "Description", "Version", "Sources", "Keywords", "Icon", "Deprecated", "Dependencies", "Maintainer", "Metadata", });
+        new java.lang.String[] { "Name", "Home", "Description", "Version", "Sources", "Keywords", "Icon", "Deprecated", "Dependencies", "Maintainers", "Metadata", });
     internal_static_meshpaas_AppTemplate_MetadataEntry_descriptor =
       internal_static_meshpaas_AppTemplate_descriptor.getNestedTypes().get(0);
     internal_static_meshpaas_AppTemplate_MetadataEntry_fieldAccessorTable = new

@@ -9,6 +9,8 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
+ * AppTemplates is a list of app templates
+ *
  * Generated from protobuf message <code>meshpaas.AppTemplates</code>
  */
 class AppTemplates extends \Google\Protobuf\Internal\Message

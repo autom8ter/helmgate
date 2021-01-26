@@ -27,22 +27,20 @@ var (
 )
 
 type Auth struct {
-	jwksUri        string
-	jwtIssuer      string
-	jwksSet        *jwk.Set
-	mu             sync.RWMutex
-	logger         *logger.Logger
-	policy *rego.Rego
+	jwksUri string
+	jwksSet *jwk.Set
+	mu      sync.RWMutex
+	logger  *logger.Logger
+	policy  *rego.Rego
 }
 
-func NewAuth(jwksUri, jwtIssuer string, logger2 *logger.Logger, policy *rego.Rego) (*Auth, error) {
+func NewAuth(jwksUri string, logger2 *logger.Logger, policy *rego.Rego) (*Auth, error) {
 	a := &Auth{
-		jwksUri:        jwksUri,
-		jwksSet:        nil,
-		mu:             sync.RWMutex{},
-		logger:         logger2,
-		jwtIssuer:      jwtIssuer,
-		policy: policy,
+		jwksUri: jwksUri,
+		jwksSet: nil,
+		mu:      sync.RWMutex{},
+		logger:  logger2,
+		policy:  policy,
 	}
 	return a, a.RefreshJWKS()
 }
@@ -105,11 +103,6 @@ func (a *Auth) ParseAndVerify(token string) (map[string]interface{}, error) {
 	if err := json.Unmarshal(payload, &data); err != nil {
 		return nil, err
 	}
-	if a.jwtIssuer != "" {
-		if a.jwtIssuer != data["iss"] {
-			return nil, errors.Errorf("unsupported jwt.claims.iss issuer: %s", data["iss"])
-		}
-	}
 	return data, nil
 }
 
@@ -134,7 +127,7 @@ func (a *Auth) UnaryInterceptor() grpc.UnaryServerInterceptor {
 		for k, arr := range md {
 			c.Headers[k] = arr[0]
 		}
-		allowed, err := a.BooleanExpression(ctx, c)
+		allowed, err := a.booleanExpression(ctx, c)
 		if err != nil {
 			a.logger.Error(err.Error())
 			return nil, status.Error(codes.Internal, "failed to evaluate authz policy")
@@ -171,7 +164,7 @@ func (a *Auth) StreamInterceptor() grpc.StreamServerInterceptor {
 				c.Headers[k] = arr[0]
 			}
 		}
-		allowed, err := a.BooleanExpression(ctx, c)
+		allowed, err := a.booleanExpression(ctx, c)
 		if err != nil {
 			a.logger.Error(err.Error())
 			return status.Error(codes.Internal, "failed to evaluate authz policy")
@@ -183,7 +176,6 @@ func (a *Auth) StreamInterceptor() grpc.StreamServerInterceptor {
 		return handler(ctx, ss)
 	}
 }
-
 
 func SetContext(ctx context.Context, contxt *Context) context.Context {
 	return context.WithValue(ctx, userCtxKey, contxt)
@@ -198,23 +190,22 @@ func GetContext(ctx context.Context) (*Context, bool) {
 }
 
 type Context struct {
-	Claims map[string]interface{}
-	Method string
+	Claims  map[string]interface{}
+	Method  string
 	Request map[string]interface{}
 	Headers map[string]string
 }
 
 func (a *Context) input() map[string]interface{} {
 	return map[string]interface{}{
-		"claims": a.Claims,
-		"method": a.Method,
+		"claims":  a.Claims,
+		"method":  a.Method,
 		"headers": a.Headers,
 		"request": a.Request,
 	}
 }
 
-
-func (a *Auth) BooleanExpression(ctx context.Context, context *Context) (bool, error) {
+func (a *Auth) booleanExpression(ctx context.Context, context *Context) (bool, error) {
 	query, err := a.policy.PrepareForEval(ctx)
 	if err != nil {
 		return false, errors.Wrap(err, "policy: failed to prepare for evaluation")
@@ -250,4 +241,3 @@ func toMap(obj interface{}) map[string]interface{} {
 	}
 	return data
 }
-

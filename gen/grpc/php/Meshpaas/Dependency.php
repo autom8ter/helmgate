@@ -16,10 +16,14 @@ use Google\Protobuf\Internal\GPBUtil;
 class Dependency extends \Google\Protobuf\Internal\Message
 {
     /**
+     * name of the template dependency
+     *
      * Generated from protobuf field <code>string template_name = 1 [(.validator.field) = {</code>
      */
     private $template_name = '';
     /**
+     * name of the template version
+     *
      * Generated from protobuf field <code>string version = 2 [(.validator.field) = {</code>
      */
     private $version = '';
@@ -35,7 +39,9 @@ class Dependency extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $template_name
+     *           name of the template dependency
      *     @type string $version
+     *           name of the template version
      *     @type string $repository
      * }
      */
@@ -45,6 +51,8 @@ class Dependency extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * name of the template dependency
+     *
      * Generated from protobuf field <code>string template_name = 1 [(.validator.field) = {</code>
      * @return string
      */
@@ -54,6 +62,8 @@ class Dependency extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * name of the template dependency
+     *
      * Generated from protobuf field <code>string template_name = 1 [(.validator.field) = {</code>
      * @param string $var
      * @return $this
@@ -67,6 +77,8 @@ class Dependency extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * name of the template version
+     *
      * Generated from protobuf field <code>string version = 2 [(.validator.field) = {</code>
      * @return string
      */
@@ -76,6 +88,8 @@ class Dependency extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * name of the template version
+     *
      * Generated from protobuf field <code>string version = 2 [(.validator.field) = {</code>
      * @param string $var
      * @return $this
