@@ -964,7 +964,7 @@ var file_schema_proto_rawDesc = []byte{
 	0x73, 0x12, 0x30, 0x0a, 0x08, 0x70, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x73, 0x18, 0x01, 0x20,
 	0x03, 0x28, 0x0b, 0x32, 0x14, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x50,
 	0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x66, 0x52, 0x08, 0x70, 0x72, 0x6f, 0x6a, 0x65,
-	0x63, 0x74, 0x73, 0x32, 0xc7, 0x03, 0x0a, 0x0f, 0x4d, 0x65, 0x73, 0x68, 0x50, 0x61, 0x61, 0x73,
+	0x63, 0x74, 0x73, 0x32, 0xc4, 0x03, 0x0a, 0x0f, 0x4d, 0x65, 0x73, 0x68, 0x50, 0x61, 0x61, 0x73,
 	0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x3f, 0x0a, 0x0c, 0x4c, 0x69, 0x73, 0x74, 0x50,
 	0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x73, 0x12, 0x16, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65,
 	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x1a,
@@ -988,13 +988,12 @@ var file_schema_proto_rawDesc = []byte{
 	0x61, 0x61, 0x73, 0x2e, 0x41, 0x70, 0x70, 0x22, 0x00, 0x12, 0x30, 0x0a, 0x09, 0x55, 0x70, 0x64,
 	0x61, 0x74, 0x65, 0x41, 0x70, 0x70, 0x12, 0x12, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61,
 	0x73, 0x2e, 0x41, 0x70, 0x70, 0x49, 0x6e, 0x70, 0x75, 0x74, 0x1a, 0x0d, 0x2e, 0x6d, 0x65, 0x73,
-	0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x41, 0x70, 0x70, 0x22, 0x00, 0x12, 0x40, 0x0a, 0x12, 0x53,
-	0x65, 0x61, 0x72, 0x63, 0x68, 0x41, 0x70, 0x70, 0x54, 0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65,
-	0x73, 0x12, 0x10, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x46, 0x69, 0x6c,
-	0x74, 0x65, 0x72, 0x1a, 0x16, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x41,
-	0x70, 0x70, 0x54, 0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x73, 0x22, 0x00, 0x42, 0x0c, 0x5a,
-	0x0a, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x33,
+	0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x41, 0x70, 0x70, 0x22, 0x00, 0x12, 0x3d, 0x0a, 0x0f, 0x53,
+	0x65, 0x61, 0x72, 0x63, 0x68, 0x54, 0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x73, 0x12, 0x10,
+	0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x46, 0x69, 0x6c, 0x74, 0x65, 0x72,
+	0x1a, 0x16, 0x2e, 0x6d, 0x65, 0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x41, 0x70, 0x70, 0x54,
+	0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x73, 0x22, 0x00, 0x42, 0x0c, 0x5a, 0x0a, 0x6d, 0x65,
+	0x73, 0x68, 0x70, 0x61, 0x61, 0x73, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -1050,7 +1049,7 @@ var file_schema_proto_depIdxs = []int32{
 	8,  // 16: meshpaas.MeshPaasService.RollbackApp:input_type -> meshpaas.AppRef
 	9,  // 17: meshpaas.MeshPaasService.CreateApp:input_type -> meshpaas.AppInput
 	9,  // 18: meshpaas.MeshPaasService.UpdateApp:input_type -> meshpaas.AppInput
-	2,  // 19: meshpaas.MeshPaasService.SearchAppTemplates:input_type -> meshpaas.Filter
+	2,  // 19: meshpaas.MeshPaasService.SearchTemplates:input_type -> meshpaas.Filter
 	11, // 20: meshpaas.MeshPaasService.ListProjects:output_type -> meshpaas.ProjectRefs
 	5,  // 21: meshpaas.MeshPaasService.GetApp:output_type -> meshpaas.App
 	6,  // 22: meshpaas.MeshPaasService.ListApps:output_type -> meshpaas.Apps
@@ -1058,7 +1057,7 @@ var file_schema_proto_depIdxs = []int32{
 	5,  // 24: meshpaas.MeshPaasService.RollbackApp:output_type -> meshpaas.App
 	5,  // 25: meshpaas.MeshPaasService.CreateApp:output_type -> meshpaas.App
 	5,  // 26: meshpaas.MeshPaasService.UpdateApp:output_type -> meshpaas.App
-	4,  // 27: meshpaas.MeshPaasService.SearchAppTemplates:output_type -> meshpaas.AppTemplates
+	4,  // 27: meshpaas.MeshPaasService.SearchTemplates:output_type -> meshpaas.AppTemplates
 	20, // [20:28] is the sub-list for method output_type
 	12, // [12:20] is the sub-list for method input_type
 	12, // [12:12] is the sub-list for extension type_name
@@ -1263,8 +1262,8 @@ type MeshPaasServiceClient interface {
 	CreateApp(ctx context.Context, in *AppInput, opts ...grpc.CallOption) (*App, error)
 	// UpdateApp updates an app in the given project
 	UpdateApp(ctx context.Context, in *AppInput, opts ...grpc.CallOption) (*App, error)
-	// SearchAppTemplates searches for an app template
-	SearchAppTemplates(ctx context.Context, in *Filter, opts ...grpc.CallOption) (*AppTemplates, error)
+	// SearchTemplates searches for an app template
+	SearchTemplates(ctx context.Context, in *Filter, opts ...grpc.CallOption) (*AppTemplates, error)
 }
 
 type meshPaasServiceClient struct {
@@ -1338,9 +1337,9 @@ func (c *meshPaasServiceClient) UpdateApp(ctx context.Context, in *AppInput, opt
 	return out, nil
 }
 
-func (c *meshPaasServiceClient) SearchAppTemplates(ctx context.Context, in *Filter, opts ...grpc.CallOption) (*AppTemplates, error) {
+func (c *meshPaasServiceClient) SearchTemplates(ctx context.Context, in *Filter, opts ...grpc.CallOption) (*AppTemplates, error) {
 	out := new(AppTemplates)
-	err := c.cc.Invoke(ctx, "/meshpaas.MeshPaasService/SearchAppTemplates", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/meshpaas.MeshPaasService/SearchTemplates", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1363,8 +1362,8 @@ type MeshPaasServiceServer interface {
 	CreateApp(context.Context, *AppInput) (*App, error)
 	// UpdateApp updates an app in the given project
 	UpdateApp(context.Context, *AppInput) (*App, error)
-	// SearchAppTemplates searches for an app template
-	SearchAppTemplates(context.Context, *Filter) (*AppTemplates, error)
+	// SearchTemplates searches for an app template
+	SearchTemplates(context.Context, *Filter) (*AppTemplates, error)
 }
 
 // UnimplementedMeshPaasServiceServer can be embedded to have forward compatible implementations.
@@ -1392,8 +1391,8 @@ func (*UnimplementedMeshPaasServiceServer) CreateApp(context.Context, *AppInput)
 func (*UnimplementedMeshPaasServiceServer) UpdateApp(context.Context, *AppInput) (*App, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateApp not implemented")
 }
-func (*UnimplementedMeshPaasServiceServer) SearchAppTemplates(context.Context, *Filter) (*AppTemplates, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SearchAppTemplates not implemented")
+func (*UnimplementedMeshPaasServiceServer) SearchTemplates(context.Context, *Filter) (*AppTemplates, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SearchTemplates not implemented")
 }
 
 func RegisterMeshPaasServiceServer(s *grpc.Server, srv MeshPaasServiceServer) {
@@ -1526,20 +1525,20 @@ func _MeshPaasService_UpdateApp_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
-func _MeshPaasService_SearchAppTemplates_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _MeshPaasService_SearchTemplates_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Filter)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MeshPaasServiceServer).SearchAppTemplates(ctx, in)
+		return srv.(MeshPaasServiceServer).SearchTemplates(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/meshpaas.MeshPaasService/SearchAppTemplates",
+		FullMethod: "/meshpaas.MeshPaasService/SearchTemplates",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MeshPaasServiceServer).SearchAppTemplates(ctx, req.(*Filter))
+		return srv.(MeshPaasServiceServer).SearchTemplates(ctx, req.(*Filter))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1577,8 +1576,8 @@ var _MeshPaasService_serviceDesc = grpc.ServiceDesc{
 			Handler:    _MeshPaasService_UpdateApp_Handler,
 		},
 		{
-			MethodName: "SearchAppTemplates",
-			Handler:    _MeshPaasService_SearchAppTemplates_Handler,
+			MethodName: "SearchTemplates",
+			Handler:    _MeshPaasService_SearchTemplates_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

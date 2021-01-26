@@ -3,6 +3,78 @@ scalar Time
 # Map is a k/v map where the key is a string and the value is any value
 scalar Map
 
+type Maintainer {
+    name: String!
+    email: String!
+}
+
+type Dependency {
+    template_name: String!
+    version: Int!
+    repository: String!
+}
+
+type Release {
+    version: Int!
+    config: Map!
+    notes: String
+    description: String
+    status: String
+    timestamps: Map
+}
+
+type AppTemplate {
+    name: String!
+    home: String
+    icon: String
+    version: String
+    description: String
+    sources: [String]
+    keywords: [String]
+    deprecated: Boolean
+    metadata: Map
+    maintainers: [Maintainer]
+    dependencies: [Dependency]
+}
+
+type App {
+    name: String!
+    project: String!
+    release: Release!
+    template: AppTemplate!
+}
+
+input Filter {
+    term: String!
+    regex: Boolean
+}
+
+input AppRef {
+    project: String!
+    name: String!
+}
+
+input ProjectRef {
+    name: String!
+}
+
+input AppInput {
+    project: String!
+    template_name: String!
+    app_name: String!
+    config: Map!
+}
+
 type Query {
-    ping(input: String): String
+    listProjects(input: String): [String]
+    getApp(input: AppRef!): App
+    listApps(input: ProjectRef!): [App]
+    searchTemplates(input: Filter!): [AppTemplate]
+}
+
+type Mutation {
+    uninstallApp(input: AppRef): String
+    installApp(input: AppInput): App
+    updateApp(input: AppInput): App
+    rollbackApp(input: AppRef): App
 }

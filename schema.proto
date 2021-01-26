@@ -130,6 +130,6 @@ service MeshPaasService {
   rpc CreateApp(AppInput) returns(App){}
   // UpdateApp updates an app in the given project
   rpc UpdateApp(AppInput) returns(App){}
-  // SearchAppTemplates searches for an app template
-  rpc SearchAppTemplates(Filter) returns(AppTemplates){}
+  // SearchTemplates searches for an app template
+  rpc SearchTemplates(Filter) returns(AppTemplates){}
 }

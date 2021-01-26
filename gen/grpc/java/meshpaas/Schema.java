@@ -12814,7 +12814,7 @@ public final class Schema {
       "nput.ConfigEntryB\006\342\337\037\002 \001\032-\n\013ConfigEntry\022" +
       "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\032\n\nProje" +
       "ctRef\022\014\n\004name\030\001 \001(\t\"5\n\013ProjectRefs\022&\n\010pr" +
-      "ojects\030\001 \003(\0132\024.meshpaas.ProjectRef2\307\003\n\017M" +
+      "ojects\030\001 \003(\0132\024.meshpaas.ProjectRef2\304\003\n\017M" +
       "eshPaasService\022?\n\014ListProjects\022\026.google." +
       "protobuf.Empty\032\025.meshpaas.ProjectRefs\"\000\022" +
       "+\n\006GetApp\022\020.meshpaas.AppRef\032\r.meshpaas.A" +
@@ -12824,9 +12824,9 @@ public final class Schema {
       "RollbackApp\022\020.meshpaas.AppRef\032\r.meshpaas" +
       ".App\"\000\0220\n\tCreateApp\022\022.meshpaas.AppInput\032" +
       "\r.meshpaas.App\"\000\0220\n\tUpdateApp\022\022.meshpaas" +
-      ".AppInput\032\r.meshpaas.App\"\000\022@\n\022SearchAppT" +
-      "emplates\022\020.meshpaas.Filter\032\026.meshpaas.Ap" +
-      "pTemplates\"\000B\014Z\nmeshpaaspbb\006proto3"
+      ".AppInput\032\r.meshpaas.App\"\000\022=\n\017SearchTemp" +
+      "lates\022\020.meshpaas.Filter\032\026.meshpaas.AppTe" +
+      "mplates\"\000B\014Z\nmeshpaaspbb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

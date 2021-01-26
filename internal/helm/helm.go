@@ -83,7 +83,7 @@ func (h Helm) UpdateApp(ctx context.Context, input *meshpaaspb.AppInput) (*meshp
 	return h.toApp(release)
 }
 
-func (h Helm) SearchAppTemplates(ctx context.Context, filter *meshpaaspb.Filter) (*meshpaaspb.AppTemplates, error) {
+func (h Helm) SearchTemplates(ctx context.Context, filter *meshpaaspb.Filter) (*meshpaaspb.AppTemplates, error) {
 	charts, err := h.client.SearchCharts(filter.Term, filter.Regex)
 	if err != nil {
 		return nil, err
