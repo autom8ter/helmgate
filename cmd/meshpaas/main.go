@@ -125,14 +125,9 @@ func run(ctx context.Context) {
 			lgger.Error("metrics server failure", zap.Error(err))
 		}
 	})
-	regoBits, err := ioutil.ReadFile(c.RegoPath)
-	if err != nil {
-		lgger.Error("failed to find rego policy file", zap.Error(err))
-		return
-	}
 	r := rego.New(
 		rego.Query(c.RegoQuery),
-		rego.Module(c.RegoPath, string(regoBits)),
+		rego.Module("meshpaas.rego", c.RegoPolicy),
 	)
 	a, err := auth.NewAuth(c.JwksURI, lgger, r)
 	if err != nil {

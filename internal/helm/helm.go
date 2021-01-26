@@ -6,8 +6,6 @@ import (
 	meshpaaspb "github.com/autom8ter/meshpaas/gen/grpc/go"
 	"github.com/autom8ter/meshpaas/internal/logger"
 	"github.com/golang/protobuf/ptypes/empty"
-	"google.golang.org/grpc/codes"
-	"google.golang.org/grpc/status"
 	"helm.sh/helm/v3/pkg/repo"
 )
 
@@ -30,10 +28,6 @@ func NewHelm(logger *logger.Logger, repos []*repo.Entry) (*Helm, error) {
 		return nil, err
 	}
 	return &Helm{client: client, logger: logger}, nil
-}
-
-func (h Helm) ListProjects(ctx context.Context, empty *empty.Empty) (*meshpaaspb.ProjectRefs, error) {
-	return nil, status.Error(codes.Unimplemented, "unimplemented")
 }
 
 func (h Helm) GetApp(ctx context.Context, ref *meshpaaspb.AppRef) (*meshpaaspb.App, error) {
@@ -67,7 +61,7 @@ func (h Helm) RollbackApp(ctx context.Context, ref *meshpaaspb.AppRef) (*meshpaa
 	return h.GetApp(ctx, ref)
 }
 
-func (h Helm) CreateApp(ctx context.Context, input *meshpaaspb.AppInput) (*meshpaaspb.App, error) {
+func (h Helm) InstallApp(ctx context.Context, input *meshpaaspb.AppInput) (*meshpaaspb.App, error) {
 	release, err := h.client.Install(input.Project, input.TemplateName, input.AppName, true, input.Config)
 	if err != nil {
 		return nil, err

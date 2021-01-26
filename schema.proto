@@ -80,7 +80,14 @@ message Release {
   string notes =3;
   string description =4;
   string status =5;
-  map<string, google.protobuf.Timestamp> timestamps =6;
+  Timestamps timestamps =6;
+}
+
+// Timestamps tracks timestamps related to an App
+message Timestamps {
+  google.protobuf.Timestamp created =1;
+  google.protobuf.Timestamp updated =2;
+  google.protobuf.Timestamp deleted =3;
 }
 
 // AppRef is a generic structure for looking up apps
@@ -116,8 +123,6 @@ message ProjectRefs {
 // MeshPaasService is a platform as a service backed by Istio service mesh
 // all requests are made in the context of the user's identity which is derived from the inbound jwt & verified with the configured jwks(json web keys) uri
 service MeshPaasService {
-  // returns a list of all of the projects
-  rpc ListProjects(google.protobuf.Empty) returns(ProjectRefs){}
   // GetApp gets an app in the given project
   rpc GetApp(AppRef) returns(App){}
   // ListApps lists apps in the project
@@ -126,8 +131,8 @@ service MeshPaasService {
   rpc UninstallApp(AppRef) returns(google.protobuf.Empty){}
   // RollbackApp rolls the app back to the previous version in the given namespace
   rpc RollbackApp(AppRef) returns(App){}
-  // CreateApp creates an app in the given project
-  rpc CreateApp(AppInput) returns(App){}
+  // InstallApp installs an app in the given project
+  rpc InstallApp(AppInput) returns(App){}
   // UpdateApp updates an app in the given project
   rpc UpdateApp(AppInput) returns(App){}
   // SearchTemplates searches for an app template

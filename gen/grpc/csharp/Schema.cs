@@ -47,32 +47,32 @@ namespace Meshpaas {
             "ASgJQhDi3x8MCgpeLnsxLDIyNX0kEiEKB3Byb2plY3QYAiABKAlCEOLfHwwK",
             "Cl4uezEsMjI1fSQSIgoHcmVsZWFzZRgFIAEoCzIRLm1lc2hwYWFzLlJlbGVh",
             "c2USJwoIdGVtcGxhdGUYFCABKAsyFS5tZXNocGFhcy5BcHBUZW1wbGF0ZSIj",
-            "CgRBcHBzEhsKBGFwcHMYASADKAsyDS5tZXNocGFhcy5BcHAi/QEKB1JlbGVh",
+            "CgRBcHBzEhsKBGFwcHMYASADKAsyDS5tZXNocGFhcy5BcHAioQEKB1JlbGVh",
             "c2USDwoHdmVyc2lvbhgBIAEoDRInCgZjb25maWcYAiABKAsyFy5nb29nbGUu",
             "cHJvdG9idWYuU3RydWN0Eg0KBW5vdGVzGAMgASgJEhMKC2Rlc2NyaXB0aW9u",
-            "GAQgASgJEg4KBnN0YXR1cxgFIAEoCRI1Cgp0aW1lc3RhbXBzGAYgAygLMiEu",
-            "bWVzaHBhYXMuUmVsZWFzZS5UaW1lc3RhbXBzRW50cnkaTQoPVGltZXN0YW1w",
-            "c0VudHJ5EgsKA2tleRgBIAEoCRIpCgV2YWx1ZRgCIAEoCzIaLmdvb2dsZS5w",
-            "cm90b2J1Zi5UaW1lc3RhbXA6AjgBIksKBkFwcFJlZhIhCgdwcm9qZWN0GAEg",
-            "ASgJQhDi3x8MCgpeLnsxLDIyNX0kEh4KBG5hbWUYAiABKAlCEOLfHwwKCl4u",
-            "ezEsMjI1fSQi4QEKCEFwcElucHV0EiEKB3Byb2plY3QYASABKAlCEOLfHwwK",
-            "Cl4uezEsMjI1fSQSJwoNdGVtcGxhdGVfbmFtZRgCIAEoCUIQ4t8fDAoKXi57",
-            "MSwyMjV9JBIiCghhcHBfbmFtZRgDIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBI2",
-            "CgZjb25maWcYBCADKAsyHi5tZXNocGFhcy5BcHBJbnB1dC5Db25maWdFbnRy",
-            "eUIG4t8fAiABGi0KC0NvbmZpZ0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1",
-            "ZRgCIAEoCToCOAEiGgoKUHJvamVjdFJlZhIMCgRuYW1lGAEgASgJIjUKC1By",
-            "b2plY3RSZWZzEiYKCHByb2plY3RzGAEgAygLMhQubWVzaHBhYXMuUHJvamVj",
-            "dFJlZjLEAwoPTWVzaFBhYXNTZXJ2aWNlEj8KDExpc3RQcm9qZWN0cxIWLmdv",
-            "b2dsZS5wcm90b2J1Zi5FbXB0eRoVLm1lc2hwYWFzLlByb2plY3RSZWZzIgAS",
-            "KwoGR2V0QXBwEhAubWVzaHBhYXMuQXBwUmVmGg0ubWVzaHBhYXMuQXBwIgAS",
-            "MgoITGlzdEFwcHMSFC5tZXNocGFhcy5Qcm9qZWN0UmVmGg4ubWVzaHBhYXMu",
-            "QXBwcyIAEjoKDFVuaW5zdGFsbEFwcBIQLm1lc2hwYWFzLkFwcFJlZhoWLmdv",
-            "b2dsZS5wcm90b2J1Zi5FbXB0eSIAEjAKC1JvbGxiYWNrQXBwEhAubWVzaHBh",
-            "YXMuQXBwUmVmGg0ubWVzaHBhYXMuQXBwIgASMAoJQ3JlYXRlQXBwEhIubWVz",
-            "aHBhYXMuQXBwSW5wdXQaDS5tZXNocGFhcy5BcHAiABIwCglVcGRhdGVBcHAS",
-            "Ei5tZXNocGFhcy5BcHBJbnB1dBoNLm1lc2hwYWFzLkFwcCIAEj0KD1NlYXJj",
-            "aFRlbXBsYXRlcxIQLm1lc2hwYWFzLkZpbHRlchoWLm1lc2hwYWFzLkFwcFRl",
-            "bXBsYXRlcyIAQgxaCm1lc2hwYWFzcGJiBnByb3RvMw=="));
+            "GAQgASgJEg4KBnN0YXR1cxgFIAEoCRIoCgp0aW1lc3RhbXBzGAYgASgLMhQu",
+            "bWVzaHBhYXMuVGltZXN0YW1wcyKTAQoKVGltZXN0YW1wcxIrCgdjcmVhdGVk",
+            "GAEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIrCgd1cGRhdGVk",
+            "GAIgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIrCgdkZWxldGVk",
+            "GAMgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcCJLCgZBcHBSZWYS",
+            "IQoHcHJvamVjdBgBIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIeCgRuYW1lGAIg",
+            "ASgJQhDi3x8MCgpeLnsxLDIyNX0kIuEBCghBcHBJbnB1dBIhCgdwcm9qZWN0",
+            "GAEgASgJQhDi3x8MCgpeLnsxLDIyNX0kEicKDXRlbXBsYXRlX25hbWUYAiAB",
+            "KAlCEOLfHwwKCl4uezEsMjI1fSQSIgoIYXBwX25hbWUYAyABKAlCEOLfHwwK",
+            "Cl4uezEsMjI1fSQSNgoGY29uZmlnGAQgAygLMh4ubWVzaHBhYXMuQXBwSW5w",
+            "dXQuQ29uZmlnRW50cnlCBuLfHwIgARotCgtDb25maWdFbnRyeRILCgNrZXkY",
+            "ASABKAkSDQoFdmFsdWUYAiABKAk6AjgBIhoKClByb2plY3RSZWYSDAoEbmFt",
+            "ZRgBIAEoCSI1CgtQcm9qZWN0UmVmcxImCghwcm9qZWN0cxgBIAMoCzIULm1l",
+            "c2hwYWFzLlByb2plY3RSZWYyhAMKD01lc2hQYWFzU2VydmljZRIrCgZHZXRB",
+            "cHASEC5tZXNocGFhcy5BcHBSZWYaDS5tZXNocGFhcy5BcHAiABIyCghMaXN0",
+            "QXBwcxIULm1lc2hwYWFzLlByb2plY3RSZWYaDi5tZXNocGFhcy5BcHBzIgAS",
+            "OgoMVW5pbnN0YWxsQXBwEhAubWVzaHBhYXMuQXBwUmVmGhYuZ29vZ2xlLnBy",
+            "b3RvYnVmLkVtcHR5IgASMAoLUm9sbGJhY2tBcHASEC5tZXNocGFhcy5BcHBS",
+            "ZWYaDS5tZXNocGFhcy5BcHAiABIxCgpJbnN0YWxsQXBwEhIubWVzaHBhYXMu",
+            "QXBwSW5wdXQaDS5tZXNocGFhcy5BcHAiABIwCglVcGRhdGVBcHASEi5tZXNo",
+            "cGFhcy5BcHBJbnB1dBoNLm1lc2hwYWFzLkFwcCIAEj0KD1NlYXJjaFRlbXBs",
+            "YXRlcxIQLm1lc2hwYWFzLkZpbHRlchoWLm1lc2hwYWFzLkFwcFRlbXBsYXRl",
+            "cyIAQgxaCm1lc2hwYWFzcGJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Validator.ValidatorReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -83,7 +83,8 @@ namespace Meshpaas {
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.AppTemplates), global::Meshpaas.AppTemplates.Parser, new[]{ "Templates" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.App), global::Meshpaas.App.Parser, new[]{ "Name", "Project", "Release", "Template" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Apps), global::Meshpaas.Apps.Parser, new[]{ "Apps_" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Release), global::Meshpaas.Release.Parser, new[]{ "Version", "Config", "Notes", "Description", "Status", "Timestamps" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Release), global::Meshpaas.Release.Parser, new[]{ "Version", "Config", "Notes", "Description", "Status", "Timestamps" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.Timestamps), global::Meshpaas.Timestamps.Parser, new[]{ "Created", "Updated", "Deleted" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.AppRef), global::Meshpaas.AppRef.Parser, new[]{ "Project", "Name" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.AppInput), global::Meshpaas.AppInput.Parser, new[]{ "Project", "TemplateName", "AppName", "Config" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Meshpaas.ProjectRef), global::Meshpaas.ProjectRef.Parser, new[]{ "Name" }, null, null, null),
@@ -1510,7 +1511,7 @@ namespace Meshpaas {
       notes_ = other.notes_;
       description_ = other.description_;
       status_ = other.status_;
-      timestamps_ = other.timestamps_.Clone();
+      timestamps_ = other.timestamps_ != null ? other.timestamps_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1582,12 +1583,13 @@ namespace Meshpaas {
 
     /// <summary>Field number for the "timestamps" field.</summary>
     public const int TimestampsFieldNumber = 6;
-    private static readonly pbc::MapField<string, global::Google.Protobuf.WellKnownTypes.Timestamp>.Codec _map_timestamps_codec
-        = new pbc::MapField<string, global::Google.Protobuf.WellKnownTypes.Timestamp>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForMessage(18, global::Google.Protobuf.WellKnownTypes.Timestamp.Parser), 50);
-    private readonly pbc::MapField<string, global::Google.Protobuf.WellKnownTypes.Timestamp> timestamps_ = new pbc::MapField<string, global::Google.Protobuf.WellKnownTypes.Timestamp>();
+    private global::Meshpaas.Timestamps timestamps_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::MapField<string, global::Google.Protobuf.WellKnownTypes.Timestamp> Timestamps {
+    public global::Meshpaas.Timestamps Timestamps {
       get { return timestamps_; }
+      set {
+        timestamps_ = value;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1608,7 +1610,7 @@ namespace Meshpaas {
       if (Notes != other.Notes) return false;
       if (Description != other.Description) return false;
       if (Status != other.Status) return false;
-      if (!Timestamps.Equals(other.Timestamps)) return false;
+      if (!object.Equals(Timestamps, other.Timestamps)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1620,7 +1622,7 @@ namespace Meshpaas {
       if (Notes.Length != 0) hash ^= Notes.GetHashCode();
       if (Description.Length != 0) hash ^= Description.GetHashCode();
       if (Status.Length != 0) hash ^= Status.GetHashCode();
-      hash ^= Timestamps.GetHashCode();
+      if (timestamps_ != null) hash ^= Timestamps.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1654,7 +1656,10 @@ namespace Meshpaas {
         output.WriteRawTag(42);
         output.WriteString(Status);
       }
-      timestamps_.WriteTo(output, _map_timestamps_codec);
+      if (timestamps_ != null) {
+        output.WriteRawTag(50);
+        output.WriteMessage(Timestamps);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1678,7 +1683,9 @@ namespace Meshpaas {
       if (Status.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Status);
       }
-      size += timestamps_.CalculateSize(_map_timestamps_codec);
+      if (timestamps_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Timestamps);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1708,7 +1715,12 @@ namespace Meshpaas {
       if (other.Status.Length != 0) {
         Status = other.Status;
       }
-      timestamps_.Add(other.timestamps_);
+      if (other.timestamps_ != null) {
+        if (timestamps_ == null) {
+          timestamps_ = new global::Meshpaas.Timestamps();
+        }
+        Timestamps.MergeFrom(other.Timestamps);
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -1744,7 +1756,216 @@ namespace Meshpaas {
             break;
           }
           case 50: {
-            timestamps_.AddEntriesFrom(input, _map_timestamps_codec);
+            if (timestamps_ == null) {
+              timestamps_ = new global::Meshpaas.Timestamps();
+            }
+            input.ReadMessage(timestamps_);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  /// Timestamps tracks timestamps related to an App
+  /// </summary>
+  public sealed partial class Timestamps : pb::IMessage<Timestamps> {
+    private static readonly pb::MessageParser<Timestamps> _parser = new pb::MessageParser<Timestamps>(() => new Timestamps());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<Timestamps> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[8]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Timestamps() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Timestamps(Timestamps other) : this() {
+      created_ = other.created_ != null ? other.created_.Clone() : null;
+      updated_ = other.updated_ != null ? other.updated_.Clone() : null;
+      deleted_ = other.deleted_ != null ? other.deleted_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Timestamps Clone() {
+      return new Timestamps(this);
+    }
+
+    /// <summary>Field number for the "created" field.</summary>
+    public const int CreatedFieldNumber = 1;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp created_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp Created {
+      get { return created_; }
+      set {
+        created_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "updated" field.</summary>
+    public const int UpdatedFieldNumber = 2;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp updated_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp Updated {
+      get { return updated_; }
+      set {
+        updated_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "deleted" field.</summary>
+    public const int DeletedFieldNumber = 3;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp deleted_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp Deleted {
+      get { return deleted_; }
+      set {
+        deleted_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as Timestamps);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(Timestamps other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(Created, other.Created)) return false;
+      if (!object.Equals(Updated, other.Updated)) return false;
+      if (!object.Equals(Deleted, other.Deleted)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (created_ != null) hash ^= Created.GetHashCode();
+      if (updated_ != null) hash ^= Updated.GetHashCode();
+      if (deleted_ != null) hash ^= Deleted.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (created_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Created);
+      }
+      if (updated_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Updated);
+      }
+      if (deleted_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Deleted);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (created_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Created);
+      }
+      if (updated_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Updated);
+      }
+      if (deleted_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Deleted);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(Timestamps other) {
+      if (other == null) {
+        return;
+      }
+      if (other.created_ != null) {
+        if (created_ == null) {
+          created_ = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        Created.MergeFrom(other.Created);
+      }
+      if (other.updated_ != null) {
+        if (updated_ == null) {
+          updated_ = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        Updated.MergeFrom(other.Updated);
+      }
+      if (other.deleted_ != null) {
+        if (deleted_ == null) {
+          deleted_ = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        Deleted.MergeFrom(other.Deleted);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (created_ == null) {
+              created_ = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(created_);
+            break;
+          }
+          case 18: {
+            if (updated_ == null) {
+              updated_ = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(updated_);
+            break;
+          }
+          case 26: {
+            if (deleted_ == null) {
+              deleted_ = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(deleted_);
             break;
           }
         }
@@ -1764,7 +1985,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[8]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1927,7 +2148,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[9]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2147,7 +2368,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[10]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2282,7 +2503,7 @@ namespace Meshpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[11]; }
+      get { return global::Meshpaas.SchemaReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

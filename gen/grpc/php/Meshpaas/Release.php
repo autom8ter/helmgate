@@ -40,9 +40,9 @@ class Release extends \Google\Protobuf\Internal\Message
      */
     private $status = '';
     /**
-     * Generated from protobuf field <code>map<string, .google.protobuf.Timestamp> timestamps = 6;</code>
+     * Generated from protobuf field <code>.meshpaas.Timestamps timestamps = 6;</code>
      */
-    private $timestamps;
+    private $timestamps = null;
 
     /**
      * Constructor.
@@ -57,7 +57,7 @@ class Release extends \Google\Protobuf\Internal\Message
      *     @type string $notes
      *     @type string $description
      *     @type string $status
-     *     @type array|\Google\Protobuf\Internal\MapField $timestamps
+     *     @type \Meshpaas\Timestamps $timestamps
      * }
      */
     public function __construct($data = NULL) {
@@ -184,8 +184,8 @@ class Release extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>map<string, .google.protobuf.Timestamp> timestamps = 6;</code>
-     * @return \Google\Protobuf\Internal\MapField
+     * Generated from protobuf field <code>.meshpaas.Timestamps timestamps = 6;</code>
+     * @return \Meshpaas\Timestamps
      */
     public function getTimestamps()
     {
@@ -193,14 +193,14 @@ class Release extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>map<string, .google.protobuf.Timestamp> timestamps = 6;</code>
-     * @param array|\Google\Protobuf\Internal\MapField $var
+     * Generated from protobuf field <code>.meshpaas.Timestamps timestamps = 6;</code>
+     * @param \Meshpaas\Timestamps $var
      * @return $this
      */
     public function setTimestamps($var)
     {
-        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::MESSAGE, \Google\Protobuf\Timestamp::class);
-        $this->timestamps = $arr;
+        GPBUtil::checkMessage($var, \Meshpaas\Timestamps::class);
+        $this->timestamps = $var;
 
         return $this;
     }

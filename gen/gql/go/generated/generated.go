@@ -8,6 +8,7 @@ import (
 	"errors"
 	"strconv"
 	"sync"
+	"time"
 
 	"github.com/99designs/gqlgen/graphql"
 	"github.com/99designs/gqlgen/graphql/introspection"
@@ -75,16 +76,15 @@ type ComplexityRoot struct {
 	}
 
 	Mutation struct {
-		InstallApp   func(childComplexity int, input *model.AppInput) int
-		RollbackApp  func(childComplexity int, input *model.AppRef) int
-		UninstallApp func(childComplexity int, input *model.AppRef) int
-		UpdateApp    func(childComplexity int, input *model.AppInput) int
+		InstallApp   func(childComplexity int, input model.AppInput) int
+		RollbackApp  func(childComplexity int, input model.AppRef) int
+		UninstallApp func(childComplexity int, input model.AppRef) int
+		UpdateApp    func(childComplexity int, input model.AppInput) int
 	}
 
 	Query struct {
 		GetApp          func(childComplexity int, input model.AppRef) int
 		ListApps        func(childComplexity int, input model.ProjectRef) int
-		ListProjects    func(childComplexity int, input *string) int
 		SearchTemplates func(childComplexity int, input model.Filter) int
 	}
 
@@ -96,16 +96,21 @@ type ComplexityRoot struct {
 		Timestamps  func(childComplexity int) int
 		Version     func(childComplexity int) int
 	}
+
+	Timestamps struct {
+		Created func(childComplexity int) int
+		Deleted func(childComplexity int) int
+		Updated func(childComplexity int) int
+	}
 }
 
 type MutationResolver interface {
-	UninstallApp(ctx context.Context, input *model.AppRef) (*string, error)
-	InstallApp(ctx context.Context, input *model.AppInput) (*model.App, error)
-	UpdateApp(ctx context.Context, input *model.AppInput) (*model.App, error)
-	RollbackApp(ctx context.Context, input *model.AppRef) (*model.App, error)
+	UninstallApp(ctx context.Context, input model.AppRef) (*string, error)
+	InstallApp(ctx context.Context, input model.AppInput) (*model.App, error)
+	UpdateApp(ctx context.Context, input model.AppInput) (*model.App, error)
+	RollbackApp(ctx context.Context, input model.AppRef) (*model.App, error)
 }
 type QueryResolver interface {
-	ListProjects(ctx context.Context, input *string) ([]*string, error)
 	GetApp(ctx context.Context, input model.AppRef) (*model.App, error)
 	ListApps(ctx context.Context, input model.ProjectRef) ([]*model.App, error)
 	SearchTemplates(ctx context.Context, input model.Filter) ([]*model.AppTemplate, error)
@@ -276,7 +281,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Mutation.InstallApp(childComplexity, args["input"].(*model.AppInput)), true
+		return e.complexity.Mutation.InstallApp(childComplexity, args["input"].(model.AppInput)), true
 
 	case "Mutation.rollbackApp":
 		if e.complexity.Mutation.RollbackApp == nil {
@@ -288,7 +293,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Mutation.RollbackApp(childComplexity, args["input"].(*model.AppRef)), true
+		return e.complexity.Mutation.RollbackApp(childComplexity, args["input"].(model.AppRef)), true
 
 	case "Mutation.uninstallApp":
 		if e.complexity.Mutation.UninstallApp == nil {
@@ -300,7 +305,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Mutation.UninstallApp(childComplexity, args["input"].(*model.AppRef)), true
+		return e.complexity.Mutation.UninstallApp(childComplexity, args["input"].(model.AppRef)), true
 
 	case "Mutation.updateApp":
 		if e.complexity.Mutation.UpdateApp == nil {
@@ -312,7 +317,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Mutation.UpdateApp(childComplexity, args["input"].(*model.AppInput)), true
+		return e.complexity.Mutation.UpdateApp(childComplexity, args["input"].(model.AppInput)), true
 
 	case "Query.getApp":
 		if e.complexity.Query.GetApp == nil {
@@ -337,18 +342,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.ListApps(childComplexity, args["input"].(model.ProjectRef)), true
-
-	case "Query.listProjects":
-		if e.complexity.Query.ListProjects == nil {
-			break
-		}
-
-		args, err := ec.field_Query_listProjects_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Query.ListProjects(childComplexity, args["input"].(*string)), true
 
 	case "Query.searchTemplates":
 		if e.complexity.Query.SearchTemplates == nil {
@@ -403,6 +396,27 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Release.Version(childComplexity), true
+
+	case "Timestamps.created":
+		if e.complexity.Timestamps.Created == nil {
+			break
+		}
+
+		return e.complexity.Timestamps.Created(childComplexity), true
+
+	case "Timestamps.deleted":
+		if e.complexity.Timestamps.Deleted == nil {
+			break
+		}
+
+		return e.complexity.Timestamps.Deleted(childComplexity), true
+
+	case "Timestamps.updated":
+		if e.complexity.Timestamps.Updated == nil {
+			break
+		}
+
+		return e.complexity.Timestamps.Updated(childComplexity), true
 
 	}
 	return 0, false
@@ -480,7 +494,7 @@ type Maintainer {
 
 type Dependency {
     template_name: String!
-    version: Int!
+    version: String!
     repository: String!
 }
 
@@ -490,7 +504,13 @@ type Release {
     notes: String
     description: String
     status: String
-    timestamps: Map
+    timestamps: Timestamps
+}
+
+type Timestamps {
+    created: Time
+    updated: Time
+    deleted: Time
 }
 
 type AppTemplate {
@@ -499,12 +519,12 @@ type AppTemplate {
     icon: String
     version: String
     description: String
-    sources: [String]
-    keywords: [String]
+    sources: [String!]
+    keywords: [String!]
     deprecated: Boolean
     metadata: Map
-    maintainers: [Maintainer]
-    dependencies: [Dependency]
+    maintainers: [Maintainer!]
+    dependencies: [Dependency!]
 }
 
 type App {
@@ -536,17 +556,16 @@ input AppInput {
 }
 
 type Query {
-    listProjects(input: String): [String]
     getApp(input: AppRef!): App
-    listApps(input: ProjectRef!): [App]
-    searchTemplates(input: Filter!): [AppTemplate]
+    listApps(input: ProjectRef!): [App!]
+    searchTemplates(input: Filter!): [AppTemplate!]
 }
 
 type Mutation {
-    uninstallApp(input: AppRef): String
-    installApp(input: AppInput): App
-    updateApp(input: AppInput): App
-    rollbackApp(input: AppRef): App
+    uninstallApp(input: AppRef!): String
+    installApp(input: AppInput!): App
+    updateApp(input: AppInput!): App
+    rollbackApp(input: AppRef!): App
 }`, BuiltIn: false},
 }
 var parsedSchema = gqlparser.MustLoadSchema(sources...)
@@ -558,10 +577,10 @@ var parsedSchema = gqlparser.MustLoadSchema(sources...)
 func (ec *executionContext) field_Mutation_installApp_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *model.AppInput
+	var arg0 model.AppInput
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalOAppInput2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppInput(ctx, tmp)
+		arg0, err = ec.unmarshalNAppInput2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -573,10 +592,10 @@ func (ec *executionContext) field_Mutation_installApp_args(ctx context.Context, 
 func (ec *executionContext) field_Mutation_rollbackApp_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *model.AppRef
+	var arg0 model.AppRef
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalOAppRef2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppRef(ctx, tmp)
+		arg0, err = ec.unmarshalNAppRef2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppRef(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -588,10 +607,10 @@ func (ec *executionContext) field_Mutation_rollbackApp_args(ctx context.Context,
 func (ec *executionContext) field_Mutation_uninstallApp_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *model.AppRef
+	var arg0 model.AppRef
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalOAppRef2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppRef(ctx, tmp)
+		arg0, err = ec.unmarshalNAppRef2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppRef(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -603,10 +622,10 @@ func (ec *executionContext) field_Mutation_uninstallApp_args(ctx context.Context
 func (ec *executionContext) field_Mutation_updateApp_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *model.AppInput
+	var arg0 model.AppInput
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalOAppInput2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppInput(ctx, tmp)
+		arg0, err = ec.unmarshalNAppInput2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -652,21 +671,6 @@ func (ec *executionContext) field_Query_listApps_args(ctx context.Context, rawAr
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
 		arg0, err = ec.unmarshalNProjectRef2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐProjectRef(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["input"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Query_listProjects_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 *string
-	if tmp, ok := rawArgs["input"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalOString2ᚖstring(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1058,9 +1062,9 @@ func (ec *executionContext) _AppTemplate_sources(ctx context.Context, field grap
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.([]*string)
+	res := resTmp.([]string)
 	fc.Result = res
-	return ec.marshalOString2ᚕᚖstring(ctx, field.Selections, res)
+	return ec.marshalOString2ᚕstringᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _AppTemplate_keywords(ctx context.Context, field graphql.CollectedField, obj *model.AppTemplate) (ret graphql.Marshaler) {
@@ -1090,9 +1094,9 @@ func (ec *executionContext) _AppTemplate_keywords(ctx context.Context, field gra
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.([]*string)
+	res := resTmp.([]string)
 	fc.Result = res
-	return ec.marshalOString2ᚕᚖstring(ctx, field.Selections, res)
+	return ec.marshalOString2ᚕstringᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _AppTemplate_deprecated(ctx context.Context, field graphql.CollectedField, obj *model.AppTemplate) (ret graphql.Marshaler) {
@@ -1188,7 +1192,7 @@ func (ec *executionContext) _AppTemplate_maintainers(ctx context.Context, field 
 	}
 	res := resTmp.([]*model.Maintainer)
 	fc.Result = res
-	return ec.marshalOMaintainer2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐMaintainer(ctx, field.Selections, res)
+	return ec.marshalOMaintainer2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐMaintainerᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _AppTemplate_dependencies(ctx context.Context, field graphql.CollectedField, obj *model.AppTemplate) (ret graphql.Marshaler) {
@@ -1220,7 +1224,7 @@ func (ec *executionContext) _AppTemplate_dependencies(ctx context.Context, field
 	}
 	res := resTmp.([]*model.Dependency)
 	fc.Result = res
-	return ec.marshalODependency2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐDependency(ctx, field.Selections, res)
+	return ec.marshalODependency2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐDependencyᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Dependency_template_name(ctx context.Context, field graphql.CollectedField, obj *model.Dependency) (ret graphql.Marshaler) {
@@ -1288,9 +1292,9 @@ func (ec *executionContext) _Dependency_version(ctx context.Context, field graph
 		}
 		return graphql.Null
 	}
-	res := resTmp.(int)
+	res := resTmp.(string)
 	fc.Result = res
-	return ec.marshalNInt2int(ctx, field.Selections, res)
+	return ec.marshalNString2string(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Dependency_repository(ctx context.Context, field graphql.CollectedField, obj *model.Dependency) (ret graphql.Marshaler) {
@@ -1423,7 +1427,7 @@ func (ec *executionContext) _Mutation_uninstallApp(ctx context.Context, field gr
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UninstallApp(rctx, args["input"].(*model.AppRef))
+		return ec.resolvers.Mutation().UninstallApp(rctx, args["input"].(model.AppRef))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -1462,7 +1466,7 @@ func (ec *executionContext) _Mutation_installApp(ctx context.Context, field grap
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().InstallApp(rctx, args["input"].(*model.AppInput))
+		return ec.resolvers.Mutation().InstallApp(rctx, args["input"].(model.AppInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -1501,7 +1505,7 @@ func (ec *executionContext) _Mutation_updateApp(ctx context.Context, field graph
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateApp(rctx, args["input"].(*model.AppInput))
+		return ec.resolvers.Mutation().UpdateApp(rctx, args["input"].(model.AppInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -1540,7 +1544,7 @@ func (ec *executionContext) _Mutation_rollbackApp(ctx context.Context, field gra
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().RollbackApp(rctx, args["input"].(*model.AppRef))
+		return ec.resolvers.Mutation().RollbackApp(rctx, args["input"].(model.AppRef))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -1552,45 +1556,6 @@ func (ec *executionContext) _Mutation_rollbackApp(ctx context.Context, field gra
 	res := resTmp.(*model.App)
 	fc.Result = res
 	return ec.marshalOApp2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Query_listProjects(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Query",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Query_listProjects_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().ListProjects(rctx, args["input"].(*string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.([]*string)
-	fc.Result = res
-	return ec.marshalOString2ᚕᚖstring(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_getApp(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -1668,7 +1633,7 @@ func (ec *executionContext) _Query_listApps(ctx context.Context, field graphql.C
 	}
 	res := resTmp.([]*model.App)
 	fc.Result = res
-	return ec.marshalOApp2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx, field.Selections, res)
+	return ec.marshalOApp2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_searchTemplates(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -1707,7 +1672,7 @@ func (ec *executionContext) _Query_searchTemplates(ctx context.Context, field gr
 	}
 	res := resTmp.([]*model.AppTemplate)
 	fc.Result = res
-	return ec.marshalOAppTemplate2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppTemplate(ctx, field.Selections, res)
+	return ec.marshalOAppTemplate2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppTemplateᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query___type(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -1974,9 +1939,105 @@ func (ec *executionContext) _Release_timestamps(ctx context.Context, field graph
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(map[string]interface{})
+	res := resTmp.(*model.Timestamps)
 	fc.Result = res
-	return ec.marshalOMap2map(ctx, field.Selections, res)
+	return ec.marshalOTimestamps2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐTimestamps(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Timestamps_created(ctx context.Context, field graphql.CollectedField, obj *model.Timestamps) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Timestamps",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Created, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTime2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Timestamps_updated(ctx context.Context, field graphql.CollectedField, obj *model.Timestamps) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Timestamps",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Updated, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTime2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Timestamps_deleted(ctx context.Context, field graphql.CollectedField, obj *model.Timestamps) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Timestamps",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Deleted, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTime2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) ___Directive_name(ctx context.Context, field graphql.CollectedField, obj *introspection.Directive) (ret graphql.Marshaler) {
@@ -3401,17 +3462,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 		switch field.Name {
 		case "__typename":
 			out.Values[i] = graphql.MarshalString("Query")
-		case "listProjects":
-			field := field
-			out.Concurrently(i, func() (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Query_listProjects(ctx, field)
-				return res
-			})
 		case "getApp":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -3489,6 +3539,34 @@ func (ec *executionContext) _Release(ctx context.Context, sel ast.SelectionSet, 
 			out.Values[i] = ec._Release_status(ctx, field, obj)
 		case "timestamps":
 			out.Values[i] = ec._Release_timestamps(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var timestampsImplementors = []string{"Timestamps"}
+
+func (ec *executionContext) _Timestamps(ctx context.Context, sel ast.SelectionSet, obj *model.Timestamps) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, timestampsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("Timestamps")
+		case "created":
+			out.Values[i] = ec._Timestamps_created(ctx, field, obj)
+		case "updated":
+			out.Values[i] = ec._Timestamps_updated(ctx, field, obj)
+		case "deleted":
+			out.Values[i] = ec._Timestamps_deleted(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -3745,6 +3823,21 @@ func (ec *executionContext) ___Type(ctx context.Context, sel ast.SelectionSet, o
 
 // region    ***************************** type.gotpl *****************************
 
+func (ec *executionContext) marshalNApp2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx context.Context, sel ast.SelectionSet, v *model.App) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	return ec._App(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalNAppInput2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppInput(ctx context.Context, v interface{}) (model.AppInput, error) {
+	res, err := ec.unmarshalInputAppInput(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
 func (ec *executionContext) unmarshalNAppRef2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppRef(ctx context.Context, v interface{}) (model.AppRef, error) {
 	res, err := ec.unmarshalInputAppRef(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -3775,6 +3868,16 @@ func (ec *executionContext) marshalNBoolean2bool(ctx context.Context, sel ast.Se
 	return res
 }
 
+func (ec *executionContext) marshalNDependency2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐDependency(ctx context.Context, sel ast.SelectionSet, v *model.Dependency) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	return ec._Dependency(ctx, sel, v)
+}
+
 func (ec *executionContext) unmarshalNFilter2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐFilter(ctx context.Context, v interface{}) (model.Filter, error) {
 	res, err := ec.unmarshalInputFilter(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -3793,6 +3896,16 @@ func (ec *executionContext) marshalNInt2int(ctx context.Context, sel ast.Selecti
 		}
 	}
 	return res
+}
+
+func (ec *executionContext) marshalNMaintainer2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐMaintainer(ctx context.Context, sel ast.SelectionSet, v *model.Maintainer) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	return ec._Maintainer(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalNMap2map(ctx context.Context, v interface{}) (map[string]interface{}, error) {
@@ -4075,7 +4188,7 @@ func (ec *executionContext) marshalN__TypeKind2string(ctx context.Context, sel a
 	return res
 }
 
-func (ec *executionContext) marshalOApp2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx context.Context, sel ast.SelectionSet, v []*model.App) graphql.Marshaler {
+func (ec *executionContext) marshalOApp2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.App) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
@@ -4102,7 +4215,7 @@ func (ec *executionContext) marshalOApp2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaa
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalOApp2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx, sel, v[i])
+			ret[i] = ec.marshalNApp2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -4122,23 +4235,7 @@ func (ec *executionContext) marshalOApp2ᚖgithubᚗcomᚋautom8terᚋmeshpaas�
 	return ec._App(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOAppInput2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppInput(ctx context.Context, v interface{}) (*model.AppInput, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputAppInput(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) unmarshalOAppRef2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppRef(ctx context.Context, v interface{}) (*model.AppRef, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputAppRef(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalOAppTemplate2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppTemplate(ctx context.Context, sel ast.SelectionSet, v []*model.AppTemplate) graphql.Marshaler {
+func (ec *executionContext) marshalOAppTemplate2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppTemplateᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.AppTemplate) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
@@ -4165,7 +4262,7 @@ func (ec *executionContext) marshalOAppTemplate2ᚕᚖgithubᚗcomᚋautom8ter�
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalOAppTemplate2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppTemplate(ctx, sel, v[i])
+			ret[i] = ec.marshalNAppTemplate2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppTemplate(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -4176,13 +4273,6 @@ func (ec *executionContext) marshalOAppTemplate2ᚕᚖgithubᚗcomᚋautom8ter�
 	}
 	wg.Wait()
 	return ret
-}
-
-func (ec *executionContext) marshalOAppTemplate2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppTemplate(ctx context.Context, sel ast.SelectionSet, v *model.AppTemplate) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._AppTemplate(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalOBoolean2bool(ctx context.Context, v interface{}) (bool, error) {
@@ -4209,7 +4299,7 @@ func (ec *executionContext) marshalOBoolean2ᚖbool(ctx context.Context, sel ast
 	return graphql.MarshalBoolean(*v)
 }
 
-func (ec *executionContext) marshalODependency2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐDependency(ctx context.Context, sel ast.SelectionSet, v []*model.Dependency) graphql.Marshaler {
+func (ec *executionContext) marshalODependency2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐDependencyᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.Dependency) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
@@ -4236,7 +4326,7 @@ func (ec *executionContext) marshalODependency2ᚕᚖgithubᚗcomᚋautom8terᚋ
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalODependency2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐDependency(ctx, sel, v[i])
+			ret[i] = ec.marshalNDependency2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐDependency(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -4249,14 +4339,7 @@ func (ec *executionContext) marshalODependency2ᚕᚖgithubᚗcomᚋautom8terᚋ
 	return ret
 }
 
-func (ec *executionContext) marshalODependency2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐDependency(ctx context.Context, sel ast.SelectionSet, v *model.Dependency) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._Dependency(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOMaintainer2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐMaintainer(ctx context.Context, sel ast.SelectionSet, v []*model.Maintainer) graphql.Marshaler {
+func (ec *executionContext) marshalOMaintainer2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐMaintainerᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.Maintainer) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
@@ -4283,7 +4366,7 @@ func (ec *executionContext) marshalOMaintainer2ᚕᚖgithubᚗcomᚋautom8terᚋ
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalOMaintainer2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐMaintainer(ctx, sel, v[i])
+			ret[i] = ec.marshalNMaintainer2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐMaintainer(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -4294,13 +4377,6 @@ func (ec *executionContext) marshalOMaintainer2ᚕᚖgithubᚗcomᚋautom8terᚋ
 	}
 	wg.Wait()
 	return ret
-}
-
-func (ec *executionContext) marshalOMaintainer2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐMaintainer(ctx context.Context, sel ast.SelectionSet, v *model.Maintainer) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._Maintainer(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalOMap2map(ctx context.Context, v interface{}) (map[string]interface{}, error) {
@@ -4327,7 +4403,7 @@ func (ec *executionContext) marshalOString2string(ctx context.Context, sel ast.S
 	return graphql.MarshalString(v)
 }
 
-func (ec *executionContext) unmarshalOString2ᚕᚖstring(ctx context.Context, v interface{}) ([]*string, error) {
+func (ec *executionContext) unmarshalOString2ᚕstringᚄ(ctx context.Context, v interface{}) ([]string, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -4340,10 +4416,10 @@ func (ec *executionContext) unmarshalOString2ᚕᚖstring(ctx context.Context, v
 		}
 	}
 	var err error
-	res := make([]*string, len(vSlice))
+	res := make([]string, len(vSlice))
 	for i := range vSlice {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalOString2ᚖstring(ctx, vSlice[i])
+		res[i], err = ec.unmarshalNString2string(ctx, vSlice[i])
 		if err != nil {
 			return nil, err
 		}
@@ -4351,13 +4427,13 @@ func (ec *executionContext) unmarshalOString2ᚕᚖstring(ctx context.Context, v
 	return res, nil
 }
 
-func (ec *executionContext) marshalOString2ᚕᚖstring(ctx context.Context, sel ast.SelectionSet, v []*string) graphql.Marshaler {
+func (ec *executionContext) marshalOString2ᚕstringᚄ(ctx context.Context, sel ast.SelectionSet, v []string) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	ret := make(graphql.Array, len(v))
 	for i := range v {
-		ret[i] = ec.marshalOString2ᚖstring(ctx, sel, v[i])
+		ret[i] = ec.marshalNString2string(ctx, sel, v[i])
 	}
 
 	return ret
@@ -4376,6 +4452,28 @@ func (ec *executionContext) marshalOString2ᚖstring(ctx context.Context, sel as
 		return graphql.Null
 	}
 	return graphql.MarshalString(*v)
+}
+
+func (ec *executionContext) unmarshalOTime2ᚖtimeᚐTime(ctx context.Context, v interface{}) (*time.Time, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := graphql.UnmarshalTime(v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOTime2ᚖtimeᚐTime(ctx context.Context, sel ast.SelectionSet, v *time.Time) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return graphql.MarshalTime(*v)
+}
+
+func (ec *executionContext) marshalOTimestamps2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐTimestamps(ctx context.Context, sel ast.SelectionSet, v *model.Timestamps) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._Timestamps(ctx, sel, v)
 }
 
 func (ec *executionContext) marshalO__EnumValue2ᚕgithubᚗcomᚋ99designsᚋgqlgenᚋgraphqlᚋintrospectionᚐEnumValueᚄ(ctx context.Context, sel ast.SelectionSet, v []introspection.EnumValue) graphql.Marshaler {

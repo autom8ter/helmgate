@@ -52,7 +52,12 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     optional :notes, :string, 3
     optional :description, :string, 4
     optional :status, :string, 5
-    map :timestamps, :string, :message, 6, "google.protobuf.Timestamp"
+    optional :timestamps, :message, 6, "meshpaas.Timestamps"
+  end
+  add_message "meshpaas.Timestamps" do
+    optional :created, :message, 1, "google.protobuf.Timestamp"
+    optional :updated, :message, 2, "google.protobuf.Timestamp"
+    optional :deleted, :message, 3, "google.protobuf.Timestamp"
   end
   add_message "meshpaas.AppRef" do
     optional :project, :string, 1
@@ -81,6 +86,7 @@ module Meshpaas
   App = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.App").msgclass
   Apps = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Apps").msgclass
   Release = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Release").msgclass
+  Timestamps = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Timestamps").msgclass
   AppRef = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.AppRef").msgclass
   AppInput = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.AppInput").msgclass
   ProjectRef = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.ProjectRef").msgclass

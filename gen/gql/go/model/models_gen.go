@@ -2,6 +2,10 @@
 
 package model
 
+import (
+	"time"
+)
+
 type App struct {
 	Name     string       `json:"name"`
 	Project  string       `json:"project"`
@@ -27,8 +31,8 @@ type AppTemplate struct {
 	Icon         *string                `json:"icon"`
 	Version      *string                `json:"version"`
 	Description  *string                `json:"description"`
-	Sources      []*string              `json:"sources"`
-	Keywords     []*string              `json:"keywords"`
+	Sources      []string               `json:"sources"`
+	Keywords     []string               `json:"keywords"`
 	Deprecated   *bool                  `json:"deprecated"`
 	Metadata     map[string]interface{} `json:"metadata"`
 	Maintainers  []*Maintainer          `json:"maintainers"`
@@ -37,7 +41,7 @@ type AppTemplate struct {
 
 type Dependency struct {
 	TemplateName string `json:"template_name"`
-	Version      int    `json:"version"`
+	Version      string `json:"version"`
 	Repository   string `json:"repository"`
 }
 
@@ -61,5 +65,11 @@ type Release struct {
 	Notes       *string                `json:"notes"`
 	Description *string                `json:"description"`
 	Status      *string                `json:"status"`
-	Timestamps  map[string]interface{} `json:"timestamps"`
+	Timestamps  *Timestamps            `json:"timestamps"`
+}
+
+type Timestamps struct {
+	Created *time.Time `json:"created"`
+	Updated *time.Time `json:"updated"`
+	Deleted *time.Time `json:"deleted"`
 }

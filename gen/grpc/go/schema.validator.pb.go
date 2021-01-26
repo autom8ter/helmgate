@@ -132,7 +132,29 @@ func (this *Release) Validate() error {
 			return github_com_mwitkow_go_proto_validators.FieldError("Config", err)
 		}
 	}
-	// Validation of proto3 map<> fields is unsupported.
+	if this.Timestamps != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Timestamps); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Timestamps", err)
+		}
+	}
+	return nil
+}
+func (this *Timestamps) Validate() error {
+	if this.Created != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Created); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Created", err)
+		}
+	}
+	if this.Updated != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Updated); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Updated", err)
+		}
+	}
+	if this.Deleted != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Deleted); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Deleted", err)
+		}
+	}
 	return nil
 }
 

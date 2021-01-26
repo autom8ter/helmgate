@@ -2,7 +2,6 @@ package helm
 
 import (
 	meshpaaspb "github.com/autom8ter/meshpaas/gen/grpc/go"
-	"github.com/golang/protobuf/ptypes/timestamp"
 	"go.uber.org/zap"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
@@ -27,10 +26,10 @@ func (h Helm) toApp(release *release.Release) (*meshpaaspb.App, error) {
 			Notes:       release.Info.Notes,
 			Description: release.Info.Description,
 			Status:      release.Info.Status.String(),
-			Timestamps: map[string]*timestamp.Timestamp{
-				"deleted": timestamppb.New(release.Info.Deleted.Time),
-				"created": timestamppb.New(release.Info.FirstDeployed.Time),
-				"updated": timestamppb.New(release.Info.LastDeployed.Time),
+			Timestamps: &meshpaaspb.Timestamps{
+				Created: timestamppb.New(release.Info.FirstDeployed.Time),
+				Updated: timestamppb.New(release.Info.LastDeployed.Time),
+				Deleted: timestamppb.New(release.Info.Deleted.Time),
 			},
 		},
 		Template: &meshpaaspb.AppTemplate{

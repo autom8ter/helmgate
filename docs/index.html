@@ -235,7 +235,7 @@
                 </li>
               
                 <li>
-                  <a href="#meshpaas.Release.TimestampsEntry"><span class="badge">M</span>Release.TimestampsEntry</a>
+                  <a href="#meshpaas.Timestamps"><span class="badge">M</span>Timestamps</a>
                 </li>
               
               
@@ -1057,8 +1057,8 @@
               
                 <tr>
                   <td>timestamps</td>
-                  <td><a href="#meshpaas.Release.TimestampsEntry">Release.TimestampsEntry</a></td>
-                  <td>repeated</td>
+                  <td><a href="#meshpaas.Timestamps">Timestamps</a></td>
+                  <td></td>
                   <td><p> </p></td>
                 </tr>
               
@@ -1069,8 +1069,8 @@
 
         
       
-        <h3 id="meshpaas.Release.TimestampsEntry">Release.TimestampsEntry</h3>
-        <p></p>
+        <h3 id="meshpaas.Timestamps">Timestamps</h3>
+        <p>Timestamps tracks timestamps related to an App</p>
 
         
           <table class="field-table">
@@ -1080,14 +1080,21 @@
             <tbody>
               
                 <tr>
-                  <td>key</td>
-                  <td><a href="#string">string</a></td>
+                  <td>created</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
               
                 <tr>
-                  <td>value</td>
+                  <td>updated</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>deleted</td>
                   <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
                   <td></td>
                   <td><p> </p></td>
@@ -1113,13 +1120,6 @@
             <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
           </thead>
           <tbody>
-            
-              <tr>
-                <td>ListProjects</td>
-                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><a href="#meshpaas.ProjectRefs">ProjectRefs</a></td>
-                <td><p>returns a list of all of the projects</p></td>
-              </tr>
             
               <tr>
                 <td>GetApp</td>
@@ -1150,10 +1150,10 @@
               </tr>
             
               <tr>
-                <td>CreateApp</td>
+                <td>InstallApp</td>
                 <td><a href="#meshpaas.AppInput">AppInput</a></td>
                 <td><a href="#meshpaas.App">App</a></td>
-                <td><p>CreateApp creates an app in the given project</p></td>
+                <td><p>InstallApp installs an app in the given project</p></td>
               </tr>
             
               <tr>

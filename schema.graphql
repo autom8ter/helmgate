@@ -10,7 +10,7 @@ type Maintainer {
 
 type Dependency {
     template_name: String!
-    version: Int!
+    version: String!
     repository: String!
 }
 
@@ -20,7 +20,13 @@ type Release {
     notes: String
     description: String
     status: String
-    timestamps: Map
+    timestamps: Timestamps
+}
+
+type Timestamps {
+    created: Time
+    updated: Time
+    deleted: Time
 }
 
 type AppTemplate {
@@ -29,12 +35,12 @@ type AppTemplate {
     icon: String
     version: String
     description: String
-    sources: [String]
-    keywords: [String]
+    sources: [String!]
+    keywords: [String!]
     deprecated: Boolean
     metadata: Map
-    maintainers: [Maintainer]
-    dependencies: [Dependency]
+    maintainers: [Maintainer!]
+    dependencies: [Dependency!]
 }
 
 type App {
@@ -66,15 +72,14 @@ input AppInput {
 }
 
 type Query {
-    listProjects(input: String): [String]
     getApp(input: AppRef!): App
-    listApps(input: ProjectRef!): [App]
-    searchTemplates(input: Filter!): [AppTemplate]
+    listApps(input: ProjectRef!): [App!]
+    searchTemplates(input: Filter!): [AppTemplate!]
 }
 
 type Mutation {
-    uninstallApp(input: AppRef): String
-    installApp(input: AppInput): App
-    updateApp(input: AppInput): App
-    rollbackApp(input: AppRef): App
+    uninstallApp(input: AppRef!): String
+    installApp(input: AppInput!): App
+    updateApp(input: AppInput!): App
+    rollbackApp(input: AppRef!): App
 }
