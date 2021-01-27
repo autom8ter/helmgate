@@ -1,7 +1,7 @@
 FROM golang:1.15.6-alpine3.12 as build-env
 
 RUN mkdir /hpaas
-RUN apk --update add ca-certificates
+RUN apk --update add ca-certificates build-base
 RUN apk add make git
 WORKDIR /hpaas
 COPY go.mod .

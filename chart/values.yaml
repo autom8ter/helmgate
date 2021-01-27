@@ -1,13 +1,8 @@
 replicas: 1
 
 image: "colemanword/hpaas:v0.0.29"
-
-hostname: "*"
-
+rego_query: ""
 auth:
   issuer: ""
   jwks_uri: ""
-ingress:
-  certificate_secret: ""
-
 
