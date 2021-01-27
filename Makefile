@@ -12,7 +12,11 @@ help:
 run:
 	@go run cmd/hpaas/main.go
 
-gen: gql proto
+gen: gql helm proto
+
+helm:
+	cd chart; helm package .
+	helm repo index .
 
 patch: ## bump sem version by 1 patch
 	bumpversion patch --allow-dirty
