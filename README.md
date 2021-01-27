@@ -2,7 +2,10 @@
 
 A secure platform as a service for easily deploying applications on Kubernetes with Helm charts
 
+[![GoDoc](https://godoc.org/github.com/autom8ter/hpaas?status.svg)](https://godoc.org/github.com/autom8ter/hpaas/hpaas-client-go)
+
 - [API Documentation](https://autom8ter.github.io/hpaas/)
+
 
 ## Features
 - [x] [Headless](https://en.wikipedia.org/wiki/Headless_software)
