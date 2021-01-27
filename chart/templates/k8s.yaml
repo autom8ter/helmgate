@@ -106,10 +106,10 @@ spec:
           ports:
           - containerPort: 8821
           - containerPort: 8820
-            volumeMounts:
-        - name: config
-          mountPath: "/tmp"
-          readOnly: true
+          volumeMounts:
+            - name: config
+              mountPath: "/tmp"
+              readOnly: true
       volumes:
         - name: config
           configMap:
