@@ -10,7 +10,7 @@ help:
 	@echo "----------------------------------------------------------------"
 
 run:
-	@go run cmd/meshpaas/main.go --out-of-cluster
+	@go run cmd/meshpaas/main.go
 
 gen: gql proto
 

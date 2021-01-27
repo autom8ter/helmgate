@@ -9,16 +9,16 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Charts is a list of app templates
+ * Charts is a list of helm charts
  *
  * Generated from protobuf message <code>meshpaas.Charts</code>
  */
 class Charts extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.Chart templates = 1;</code>
+     * Generated from protobuf field <code>repeated .meshpaas.Chart charts = 1;</code>
      */
-    private $templates;
+    private $charts;
 
     /**
      * Constructor.
@@ -26,7 +26,7 @@ class Charts extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type \Meshpaas\Chart[]|\Google\Protobuf\Internal\RepeatedField $templates
+     *     @type \Meshpaas\Chart[]|\Google\Protobuf\Internal\RepeatedField $charts
      * }
      */
     public function __construct($data = NULL) {
@@ -35,23 +35,23 @@ class Charts extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.Chart templates = 1;</code>
+     * Generated from protobuf field <code>repeated .meshpaas.Chart charts = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
-    public function getTemplates()
+    public function getCharts()
     {
-        return $this->templates;
+        return $this->charts;
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.Chart templates = 1;</code>
+     * Generated from protobuf field <code>repeated .meshpaas.Chart charts = 1;</code>
      * @param \Meshpaas\Chart[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
-    public function setTemplates($var)
+    public function setCharts($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Meshpaas\Chart::class);
-        $this->templates = $arr;
+        $this->charts = $arr;
 
         return $this;
     }

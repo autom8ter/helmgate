@@ -9,7 +9,7 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * App is an App created from an AppTemplate
+ * App is an App created from a helm chart
  *
  * Generated from protobuf message <code>meshpaas.App</code>
  */
@@ -22,19 +22,23 @@ class App extends \Google\Protobuf\Internal\Message
      */
     private $name = '';
     /**
-     * project name the app belongs to(autocreated)
+     * namespace name the app belongs to(autocreated)
      *
-     * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string namespace = 2 [(.validator.field) = {</code>
      */
-    private $project = '';
+    private $namespace = '';
     /**
+     * release holds information about the currently deployed release of the application
+     *
      * Generated from protobuf field <code>.meshpaas.Release release = 5;</code>
      */
     private $release = null;
     /**
-     * Generated from protobuf field <code>.meshpaas.AppTemplate template = 20;</code>
+     * chart is the chart used to deploy the App
+     *
+     * Generated from protobuf field <code>.meshpaas.Chart chart = 20;</code>
      */
-    private $template = null;
+    private $chart = null;
 
     /**
      * Constructor.
@@ -44,10 +48,12 @@ class App extends \Google\Protobuf\Internal\Message
      *
      *     @type string $name
      *           name of the application
-     *     @type string $project
-     *           project name the app belongs to(autocreated)
+     *     @type string $namespace
+     *           namespace name the app belongs to(autocreated)
      *     @type \Meshpaas\Release $release
-     *     @type \Meshpaas\AppTemplate $template
+     *           release holds information about the currently deployed release of the application
+     *     @type \Meshpaas\Chart $chart
+     *           chart is the chart used to deploy the App
      * }
      */
     public function __construct($data = NULL) {
@@ -82,32 +88,34 @@ class App extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * project name the app belongs to(autocreated)
+     * namespace name the app belongs to(autocreated)
      *
-     * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string namespace = 2 [(.validator.field) = {</code>
      * @return string
      */
-    public function getProject()
+    public function getNamespace()
     {
-        return $this->project;
+        return $this->namespace;
     }
 
     /**
-     * project name the app belongs to(autocreated)
+     * namespace name the app belongs to(autocreated)
      *
-     * Generated from protobuf field <code>string project = 2 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string namespace = 2 [(.validator.field) = {</code>
      * @param string $var
      * @return $this
      */
-    public function setProject($var)
+    public function setNamespace($var)
     {
         GPBUtil::checkString($var, True);
-        $this->project = $var;
+        $this->namespace = $var;
 
         return $this;
     }
 
     /**
+     * release holds information about the currently deployed release of the application
+     *
      * Generated from protobuf field <code>.meshpaas.Release release = 5;</code>
      * @return \Meshpaas\Release
      */
@@ -117,6 +125,8 @@ class App extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * release holds information about the currently deployed release of the application
+     *
      * Generated from protobuf field <code>.meshpaas.Release release = 5;</code>
      * @param \Meshpaas\Release $var
      * @return $this
@@ -130,23 +140,27 @@ class App extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.meshpaas.AppTemplate template = 20;</code>
-     * @return \Meshpaas\AppTemplate
+     * chart is the chart used to deploy the App
+     *
+     * Generated from protobuf field <code>.meshpaas.Chart chart = 20;</code>
+     * @return \Meshpaas\Chart
      */
-    public function getTemplate()
+    public function getChart()
     {
-        return $this->template;
+        return $this->chart;
     }
 
     /**
-     * Generated from protobuf field <code>.meshpaas.AppTemplate template = 20;</code>
-     * @param \Meshpaas\AppTemplate $var
+     * chart is the chart used to deploy the App
+     *
+     * Generated from protobuf field <code>.meshpaas.Chart chart = 20;</code>
+     * @param \Meshpaas\Chart $var
      * @return $this
      */
-    public function setTemplate($var)
+    public function setChart($var)
     {
-        GPBUtil::checkMessage($var, \Meshpaas\AppTemplate::class);
-        $this->template = $var;
+        GPBUtil::checkMessage($var, \Meshpaas\Chart::class);
+        $this->chart = $var;
 
         return $this;
     }

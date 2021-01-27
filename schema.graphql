@@ -9,7 +9,7 @@ type Maintainer {
 }
 
 type Dependency {
-    template_name: String!
+    chart: String!
     version: String!
     repository: String!
 }
@@ -29,7 +29,7 @@ type Timestamps {
     deleted: Time
 }
 
-type AppTemplate {
+type Chart {
     name: String!
     home: String
     icon: String
@@ -45,9 +45,9 @@ type AppTemplate {
 
 type App {
     name: String!
-    project: String!
+    namespace: String!
     release: Release!
-    template: AppTemplate!
+    chart: Chart!
 }
 
 input Filter {
@@ -56,30 +56,37 @@ input Filter {
 }
 
 input AppRef {
-    project: String!
+    namespace: String!
     name: String!
 }
 
-input ProjectRef {
+input NamespaceRef {
     name: String!
 }
 
 input AppInput {
-    project: String!
-    template_name: String!
+    namespace: String!
+    chart: String!
     app_name: String!
     config: Map!
 }
 
 type Query {
+    # getApp gets an app in the given namespace
     getApp(input: AppRef!): App
-    listApps(input: ProjectRef!): [App!]
-    searchTemplates(input: Filter!): [AppTemplate!]
+    # listApps lists apps in the namespace
+    listApps(input: NamespaceRef!): [App!]
+    # searchTemplates searches for an app chart
+    searchTemplates(input: Filter!): [Chart!]
 }
 
 type Mutation {
-    uninstallApp(input: AppRef!): String
+    # installApp installs an app in the given namespace
     installApp(input: AppInput!): App
+    # updateApp updates an app in the given namespace
     updateApp(input: AppInput!): App
+    # rollbackApp rolls the app back to the previous version in the given namespace
     rollbackApp(input: AppRef!): App
+    # uninstallApp uninstalls an app in the given namespace
+    uninstallApp(input: AppRef!): String
 }

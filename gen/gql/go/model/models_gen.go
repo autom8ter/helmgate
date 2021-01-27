@@ -7,25 +7,25 @@ import (
 )
 
 type App struct {
-	Name     string       `json:"name"`
-	Project  string       `json:"project"`
-	Release  *Release     `json:"release"`
-	Template *AppTemplate `json:"template"`
+	Name      string   `json:"name"`
+	Namespace string   `json:"namespace"`
+	Release   *Release `json:"release"`
+	Chart     *Chart   `json:"chart"`
 }
 
 type AppInput struct {
-	Project      string                 `json:"project"`
-	TemplateName string                 `json:"template_name"`
-	AppName      string                 `json:"app_name"`
-	Config       map[string]interface{} `json:"config"`
+	Namespace string                 `json:"namespace"`
+	Chart     string                 `json:"chart"`
+	AppName   string                 `json:"app_name"`
+	Config    map[string]interface{} `json:"config"`
 }
 
 type AppRef struct {
-	Project string `json:"project"`
-	Name    string `json:"name"`
+	Namespace string `json:"namespace"`
+	Name      string `json:"name"`
 }
 
-type AppTemplate struct {
+type Chart struct {
 	Name         string                 `json:"name"`
 	Home         *string                `json:"home"`
 	Icon         *string                `json:"icon"`
@@ -40,9 +40,9 @@ type AppTemplate struct {
 }
 
 type Dependency struct {
-	TemplateName string `json:"template_name"`
-	Version      string `json:"version"`
-	Repository   string `json:"repository"`
+	Chart      string `json:"chart"`
+	Version    string `json:"version"`
+	Repository string `json:"repository"`
 }
 
 type Filter struct {
@@ -55,7 +55,7 @@ type Maintainer struct {
 	Email string `json:"email"`
 }
 
-type ProjectRef struct {
+type NamespaceRef struct {
 	Name string `json:"name"`
 }
 

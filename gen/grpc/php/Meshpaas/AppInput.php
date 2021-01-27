@@ -16,17 +16,17 @@ use Google\Protobuf\Internal\GPBUtil;
 class AppInput extends \Google\Protobuf\Internal\Message
 {
     /**
-     * project name the app belongs to(autocreated)
+     * namespace name the app belongs to(autocreated)
      *
-     * Generated from protobuf field <code>string project = 1 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string namespace = 1 [(.validator.field) = {</code>
      */
-    private $project = '';
+    private $namespace = '';
     /**
-     * the app template to use
+     * the app chart to use
      *
-     * Generated from protobuf field <code>string template_name = 2 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string chart = 2 [(.validator.field) = {</code>
      */
-    private $template_name = '';
+    private $chart = '';
     /**
      * name of the app
      *
@@ -34,7 +34,7 @@ class AppInput extends \Google\Protobuf\Internal\Message
      */
     private $app_name = '';
     /**
-     * config values used to render the app template
+     * config values used to render the app chart
      *
      * Generated from protobuf field <code>map<string, string> config = 4 [(.validator.field) = {</code>
      */
@@ -46,14 +46,14 @@ class AppInput extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type string $project
-     *           project name the app belongs to(autocreated)
-     *     @type string $template_name
-     *           the app template to use
+     *     @type string $namespace
+     *           namespace name the app belongs to(autocreated)
+     *     @type string $chart
+     *           the app chart to use
      *     @type string $app_name
      *           name of the app
      *     @type array|\Google\Protobuf\Internal\MapField $config
-     *           config values used to render the app template
+     *           config values used to render the app chart
      * }
      */
     public function __construct($data = NULL) {
@@ -62,53 +62,53 @@ class AppInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * project name the app belongs to(autocreated)
+     * namespace name the app belongs to(autocreated)
      *
-     * Generated from protobuf field <code>string project = 1 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string namespace = 1 [(.validator.field) = {</code>
      * @return string
      */
-    public function getProject()
+    public function getNamespace()
     {
-        return $this->project;
+        return $this->namespace;
     }
 
     /**
-     * project name the app belongs to(autocreated)
+     * namespace name the app belongs to(autocreated)
      *
-     * Generated from protobuf field <code>string project = 1 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string namespace = 1 [(.validator.field) = {</code>
      * @param string $var
      * @return $this
      */
-    public function setProject($var)
+    public function setNamespace($var)
     {
         GPBUtil::checkString($var, True);
-        $this->project = $var;
+        $this->namespace = $var;
 
         return $this;
     }
 
     /**
-     * the app template to use
+     * the app chart to use
      *
-     * Generated from protobuf field <code>string template_name = 2 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string chart = 2 [(.validator.field) = {</code>
      * @return string
      */
-    public function getTemplateName()
+    public function getChart()
     {
-        return $this->template_name;
+        return $this->chart;
     }
 
     /**
-     * the app template to use
+     * the app chart to use
      *
-     * Generated from protobuf field <code>string template_name = 2 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string chart = 2 [(.validator.field) = {</code>
      * @param string $var
      * @return $this
      */
-    public function setTemplateName($var)
+    public function setChart($var)
     {
         GPBUtil::checkString($var, True);
-        $this->template_name = $var;
+        $this->chart = $var;
 
         return $this;
     }
@@ -140,7 +140,7 @@ class AppInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * config values used to render the app template
+     * config values used to render the app chart
      *
      * Generated from protobuf field <code>map<string, string> config = 4 [(.validator.field) = {</code>
      * @return \Google\Protobuf\Internal\MapField
@@ -151,7 +151,7 @@ class AppInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * config values used to render the app template
+     * config values used to render the app chart
      *
      * Generated from protobuf field <code>map<string, string> config = 4 [(.validator.field) = {</code>
      * @param array|\Google\Protobuf\Internal\MapField $var

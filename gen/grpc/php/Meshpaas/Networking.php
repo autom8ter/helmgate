@@ -26,7 +26,7 @@ class Networking extends \Google\Protobuf\Internal\Message
      */
     private $hosts;
     /**
-     * export service to other applications in other projects
+     * export service to other applications in other namespaces
      *
      * Generated from protobuf field <code>bool export = 3;</code>
      */
@@ -49,7 +49,7 @@ class Networking extends \Google\Protobuf\Internal\Message
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $hosts
      *           host names to bind to
      *     @type bool $export
-     *           export service to other applications in other projects
+     *           export service to other applications in other namespaces
      *     @type \Meshpaas\HTTPRoute[]|\Google\Protobuf\Internal\RepeatedField $http_routes
      *           http route matchers/configurations
      * }
@@ -112,7 +112,7 @@ class Networking extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * export service to other applications in other projects
+     * export service to other applications in other namespaces
      *
      * Generated from protobuf field <code>bool export = 3;</code>
      * @return bool
@@ -123,7 +123,7 @@ class Networking extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * export service to other applications in other projects
+     * export service to other applications in other namespaces
      *
      * Generated from protobuf field <code>bool export = 3;</code>
      * @param bool $var

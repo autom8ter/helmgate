@@ -38,7 +38,7 @@ class NamespaceRefs extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
-    public function getProjects()
+    public function getNamespaces()
     {
         return $this->namespaces;
     }
@@ -48,7 +48,7 @@ class NamespaceRefs extends \Google\Protobuf\Internal\Message
      * @param \Meshpaas\NamespaceRef[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
-    public function setProjects($var)
+    public function setNamespaces($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Meshpaas\NamespaceRef::class);
         $this->namespaces = $arr;

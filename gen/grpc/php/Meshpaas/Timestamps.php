@@ -9,21 +9,27 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Timestamps tracks timestamps related to an App
+ * Timestamps tracks timestamps related to a release
  *
  * Generated from protobuf message <code>meshpaas.Timestamps</code>
  */
 class Timestamps extends \Google\Protobuf\Internal\Message
 {
     /**
+     * when the release was first deployed
+     *
      * Generated from protobuf field <code>.google.protobuf.Timestamp created = 1;</code>
      */
     private $created = null;
     /**
+     * when the release was last deployed
+     *
      * Generated from protobuf field <code>.google.protobuf.Timestamp updated = 2;</code>
      */
     private $updated = null;
     /**
+     * when the release was deleted
+     *
      * Generated from protobuf field <code>.google.protobuf.Timestamp deleted = 3;</code>
      */
     private $deleted = null;
@@ -35,8 +41,11 @@ class Timestamps extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type \Google\Protobuf\Timestamp $created
+     *           when the release was first deployed
      *     @type \Google\Protobuf\Timestamp $updated
+     *           when the release was last deployed
      *     @type \Google\Protobuf\Timestamp $deleted
+     *           when the release was deleted
      * }
      */
     public function __construct($data = NULL) {
@@ -45,6 +54,8 @@ class Timestamps extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * when the release was first deployed
+     *
      * Generated from protobuf field <code>.google.protobuf.Timestamp created = 1;</code>
      * @return \Google\Protobuf\Timestamp
      */
@@ -54,6 +65,8 @@ class Timestamps extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * when the release was first deployed
+     *
      * Generated from protobuf field <code>.google.protobuf.Timestamp created = 1;</code>
      * @param \Google\Protobuf\Timestamp $var
      * @return $this
@@ -67,6 +80,8 @@ class Timestamps extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * when the release was last deployed
+     *
      * Generated from protobuf field <code>.google.protobuf.Timestamp updated = 2;</code>
      * @return \Google\Protobuf\Timestamp
      */
@@ -76,6 +91,8 @@ class Timestamps extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * when the release was last deployed
+     *
      * Generated from protobuf field <code>.google.protobuf.Timestamp updated = 2;</code>
      * @param \Google\Protobuf\Timestamp $var
      * @return $this
@@ -89,6 +106,8 @@ class Timestamps extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * when the release was deleted
+     *
      * Generated from protobuf field <code>.google.protobuf.Timestamp deleted = 3;</code>
      * @return \Google\Protobuf\Timestamp
      */
@@ -98,6 +117,8 @@ class Timestamps extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * when the release was deleted
+     *
      * Generated from protobuf field <code>.google.protobuf.Timestamp deleted = 3;</code>
      * @param \Google\Protobuf\Timestamp $var
      * @return $this

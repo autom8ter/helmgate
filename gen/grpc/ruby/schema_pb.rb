@@ -9,7 +9,7 @@ require 'google/protobuf/any_pb'
 require 'google/protobuf/empty_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_message "meshpaas.Dependency" do
-    optional :template_name, :string, 1
+    optional :chart, :string, 1
     optional :version, :string, 2
     optional :repository, :string, 3
   end
@@ -21,7 +21,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     optional :term, :string, 1
     optional :regex, :bool, 2
   end
-  add_message "meshpaas.AppTemplate" do
+  add_message "meshpaas.Chart" do
     optional :name, :string, 1
     optional :home, :string, 2
     optional :description, :string, 3
@@ -34,14 +34,14 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     repeated :maintainers, :message, 10, "meshpaas.Maintainer"
     map :metadata, :string, :string, 11
   end
-  add_message "meshpaas.AppTemplates" do
-    repeated :templates, :message, 1, "meshpaas.AppTemplate"
+  add_message "meshpaas.Charts" do
+    repeated :charts, :message, 1, "meshpaas.Chart"
   end
   add_message "meshpaas.App" do
     optional :name, :string, 1
-    optional :project, :string, 2
+    optional :namespace, :string, 2
     optional :release, :message, 5, "meshpaas.Release"
-    optional :template, :message, 20, "meshpaas.AppTemplate"
+    optional :chart, :message, 20, "meshpaas.Chart"
   end
   add_message "meshpaas.Apps" do
     repeated :apps, :message, 1, "meshpaas.App"
@@ -60,20 +60,20 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     optional :deleted, :message, 3, "google.protobuf.Timestamp"
   end
   add_message "meshpaas.AppRef" do
-    optional :project, :string, 1
+    optional :namespace, :string, 1
     optional :name, :string, 2
   end
   add_message "meshpaas.AppInput" do
-    optional :project, :string, 1
-    optional :template_name, :string, 2
+    optional :namespace, :string, 1
+    optional :chart, :string, 2
     optional :app_name, :string, 3
     map :config, :string, :string, 4
   end
-  add_message "meshpaas.ProjectRef" do
+  add_message "meshpaas.NamespaceRef" do
     optional :name, :string, 1
   end
-  add_message "meshpaas.ProjectRefs" do
-    repeated :projects, :message, 1, "meshpaas.ProjectRef"
+  add_message "meshpaas.NamespaceRefs" do
+    repeated :namespaces, :message, 1, "meshpaas.NamespaceRef"
   end
 end
 
@@ -81,14 +81,14 @@ module Meshpaas
   Dependency = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Dependency").msgclass
   Maintainer = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Maintainer").msgclass
   Filter = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Filter").msgclass
-  AppTemplate = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.AppTemplate").msgclass
-  AppTemplates = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.AppTemplates").msgclass
+  Chart = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Chart").msgclass
+  Charts = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Charts").msgclass
   App = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.App").msgclass
   Apps = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Apps").msgclass
   Release = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Release").msgclass
   Timestamps = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.Timestamps").msgclass
   AppRef = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.AppRef").msgclass
   AppInput = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.AppInput").msgclass
-  ProjectRef = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.ProjectRef").msgclass
-  ProjectRefs = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.ProjectRefs").msgclass
+  NamespaceRef = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.NamespaceRef").msgclass
+  NamespaceRefs = Google::Protobuf::DescriptorPool.generated_pool.lookup("meshpaas.NamespaceRefs").msgclass
 end

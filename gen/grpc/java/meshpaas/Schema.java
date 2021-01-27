@@ -20,25 +20,25 @@ public final class Schema {
 
     /**
      * <pre>
-     * name of the template dependency
+     * name of the chart dependency
      * </pre>
      *
-     * <code>string template_name = 1 [(.validator.field) = { ... }</code>
+     * <code>string chart = 1 [(.validator.field) = { ... }</code>
      */
-    java.lang.String getTemplateName();
+    java.lang.String getChart();
     /**
      * <pre>
-     * name of the template dependency
+     * name of the chart dependency
      * </pre>
      *
-     * <code>string template_name = 1 [(.validator.field) = { ... }</code>
+     * <code>string chart = 1 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
-        getTemplateNameBytes();
+        getChartBytes();
 
     /**
      * <pre>
-     * name of the template version
+     * name of the chart version
      * </pre>
      *
      * <code>string version = 2 [(.validator.field) = { ... }</code>
@@ -46,7 +46,7 @@ public final class Schema {
     java.lang.String getVersion();
     /**
      * <pre>
-     * name of the template version
+     * name of the chart version
      * </pre>
      *
      * <code>string version = 2 [(.validator.field) = { ... }</code>
@@ -55,10 +55,18 @@ public final class Schema {
         getVersionBytes();
 
     /**
+     * <pre>
+     * the URL of the helm repository.
+     * </pre>
+     *
      * <code>string repository = 3 [(.validator.field) = { ... }</code>
      */
     java.lang.String getRepository();
     /**
+     * <pre>
+     * the URL of the helm repository.
+     * </pre>
+     *
      * <code>string repository = 3 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
@@ -66,7 +74,7 @@ public final class Schema {
   }
   /**
    * <pre>
-   * Dependency is a dependency(template) required by a template
+   * Dependency is a dependency required by a helm chart
    * </pre>
    *
    * Protobuf type {@code meshpaas.Dependency}
@@ -81,7 +89,7 @@ public final class Schema {
       super(builder);
     }
     private Dependency() {
-      templateName_ = "";
+      chart_ = "";
       version_ = "";
       repository_ = "";
     }
@@ -113,7 +121,7 @@ public final class Schema {
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              templateName_ = s;
+              chart_ = s;
               break;
             }
             case 18: {
@@ -160,42 +168,42 @@ public final class Schema {
               meshpaas.Schema.Dependency.class, meshpaas.Schema.Dependency.Builder.class);
     }
 
-    public static final int TEMPLATE_NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object templateName_;
+    public static final int CHART_FIELD_NUMBER = 1;
+    private volatile java.lang.Object chart_;
     /**
      * <pre>
-     * name of the template dependency
+     * name of the chart dependency
      * </pre>
      *
-     * <code>string template_name = 1 [(.validator.field) = { ... }</code>
+     * <code>string chart = 1 [(.validator.field) = { ... }</code>
      */
-    public java.lang.String getTemplateName() {
-      java.lang.Object ref = templateName_;
+    public java.lang.String getChart() {
+      java.lang.Object ref = chart_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        templateName_ = s;
+        chart_ = s;
         return s;
       }
     }
     /**
      * <pre>
-     * name of the template dependency
+     * name of the chart dependency
      * </pre>
      *
-     * <code>string template_name = 1 [(.validator.field) = { ... }</code>
+     * <code>string chart = 1 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
-        getTemplateNameBytes() {
-      java.lang.Object ref = templateName_;
+        getChartBytes() {
+      java.lang.Object ref = chart_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        templateName_ = b;
+        chart_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -206,7 +214,7 @@ public final class Schema {
     private volatile java.lang.Object version_;
     /**
      * <pre>
-     * name of the template version
+     * name of the chart version
      * </pre>
      *
      * <code>string version = 2 [(.validator.field) = { ... }</code>
@@ -225,7 +233,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * name of the template version
+     * name of the chart version
      * </pre>
      *
      * <code>string version = 2 [(.validator.field) = { ... }</code>
@@ -247,6 +255,10 @@ public final class Schema {
     public static final int REPOSITORY_FIELD_NUMBER = 3;
     private volatile java.lang.Object repository_;
     /**
+     * <pre>
+     * the URL of the helm repository.
+     * </pre>
+     *
      * <code>string repository = 3 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getRepository() {
@@ -262,6 +274,10 @@ public final class Schema {
       }
     }
     /**
+     * <pre>
+     * the URL of the helm repository.
+     * </pre>
+     *
      * <code>string repository = 3 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
@@ -292,8 +308,8 @@ public final class Schema {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getTemplateNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, templateName_);
+      if (!getChartBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, chart_);
       }
       if (!getVersionBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, version_);
@@ -310,8 +326,8 @@ public final class Schema {
       if (size != -1) return size;
 
       size = 0;
-      if (!getTemplateNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, templateName_);
+      if (!getChartBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, chart_);
       }
       if (!getVersionBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, version_);
@@ -335,8 +351,8 @@ public final class Schema {
       meshpaas.Schema.Dependency other = (meshpaas.Schema.Dependency) obj;
 
       boolean result = true;
-      result = result && getTemplateName()
-          .equals(other.getTemplateName());
+      result = result && getChart()
+          .equals(other.getChart());
       result = result && getVersion()
           .equals(other.getVersion());
       result = result && getRepository()
@@ -352,8 +368,8 @@ public final class Schema {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + TEMPLATE_NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getTemplateName().hashCode();
+      hash = (37 * hash) + CHART_FIELD_NUMBER;
+      hash = (53 * hash) + getChart().hashCode();
       hash = (37 * hash) + VERSION_FIELD_NUMBER;
       hash = (53 * hash) + getVersion().hashCode();
       hash = (37 * hash) + REPOSITORY_FIELD_NUMBER;
@@ -455,7 +471,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * Dependency is a dependency(template) required by a template
+     * Dependency is a dependency required by a helm chart
      * </pre>
      *
      * Protobuf type {@code meshpaas.Dependency}
@@ -495,7 +511,7 @@ public final class Schema {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        templateName_ = "";
+        chart_ = "";
 
         version_ = "";
 
@@ -527,7 +543,7 @@ public final class Schema {
       @java.lang.Override
       public meshpaas.Schema.Dependency buildPartial() {
         meshpaas.Schema.Dependency result = new meshpaas.Schema.Dependency(this);
-        result.templateName_ = templateName_;
+        result.chart_ = chart_;
         result.version_ = version_;
         result.repository_ = repository_;
         onBuilt();
@@ -578,8 +594,8 @@ public final class Schema {
 
       public Builder mergeFrom(meshpaas.Schema.Dependency other) {
         if (other == meshpaas.Schema.Dependency.getDefaultInstance()) return this;
-        if (!other.getTemplateName().isEmpty()) {
-          templateName_ = other.templateName_;
+        if (!other.getChart().isEmpty()) {
+          chart_ = other.chart_;
           onChanged();
         }
         if (!other.getVersion().isEmpty()) {
@@ -619,21 +635,21 @@ public final class Schema {
         return this;
       }
 
-      private java.lang.Object templateName_ = "";
+      private java.lang.Object chart_ = "";
       /**
        * <pre>
-       * name of the template dependency
+       * name of the chart dependency
        * </pre>
        *
-       * <code>string template_name = 1 [(.validator.field) = { ... }</code>
+       * <code>string chart = 1 [(.validator.field) = { ... }</code>
        */
-      public java.lang.String getTemplateName() {
-        java.lang.Object ref = templateName_;
+      public java.lang.String getChart() {
+        java.lang.Object ref = chart_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          templateName_ = s;
+          chart_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -641,19 +657,19 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the template dependency
+       * name of the chart dependency
        * </pre>
        *
-       * <code>string template_name = 1 [(.validator.field) = { ... }</code>
+       * <code>string chart = 1 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
-          getTemplateNameBytes() {
-        java.lang.Object ref = templateName_;
+          getChartBytes() {
+        java.lang.Object ref = chart_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          templateName_ = b;
+          chart_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -661,49 +677,49 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the template dependency
+       * name of the chart dependency
        * </pre>
        *
-       * <code>string template_name = 1 [(.validator.field) = { ... }</code>
+       * <code>string chart = 1 [(.validator.field) = { ... }</code>
        */
-      public Builder setTemplateName(
+      public Builder setChart(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        templateName_ = value;
+        chart_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * name of the template dependency
+       * name of the chart dependency
        * </pre>
        *
-       * <code>string template_name = 1 [(.validator.field) = { ... }</code>
+       * <code>string chart = 1 [(.validator.field) = { ... }</code>
        */
-      public Builder clearTemplateName() {
+      public Builder clearChart() {
         
-        templateName_ = getDefaultInstance().getTemplateName();
+        chart_ = getDefaultInstance().getChart();
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * name of the template dependency
+       * name of the chart dependency
        * </pre>
        *
-       * <code>string template_name = 1 [(.validator.field) = { ... }</code>
+       * <code>string chart = 1 [(.validator.field) = { ... }</code>
        */
-      public Builder setTemplateNameBytes(
+      public Builder setChartBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        templateName_ = value;
+        chart_ = value;
         onChanged();
         return this;
       }
@@ -711,7 +727,7 @@ public final class Schema {
       private java.lang.Object version_ = "";
       /**
        * <pre>
-       * name of the template version
+       * name of the chart version
        * </pre>
        *
        * <code>string version = 2 [(.validator.field) = { ... }</code>
@@ -730,7 +746,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the template version
+       * name of the chart version
        * </pre>
        *
        * <code>string version = 2 [(.validator.field) = { ... }</code>
@@ -750,7 +766,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the template version
+       * name of the chart version
        * </pre>
        *
        * <code>string version = 2 [(.validator.field) = { ... }</code>
@@ -767,7 +783,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the template version
+       * name of the chart version
        * </pre>
        *
        * <code>string version = 2 [(.validator.field) = { ... }</code>
@@ -780,7 +796,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the template version
+       * name of the chart version
        * </pre>
        *
        * <code>string version = 2 [(.validator.field) = { ... }</code>
@@ -799,6 +815,10 @@ public final class Schema {
 
       private java.lang.Object repository_ = "";
       /**
+       * <pre>
+       * the URL of the helm repository.
+       * </pre>
+       *
        * <code>string repository = 3 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getRepository() {
@@ -814,6 +834,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * the URL of the helm repository.
+       * </pre>
+       *
        * <code>string repository = 3 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
@@ -830,6 +854,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * the URL of the helm repository.
+       * </pre>
+       *
        * <code>string repository = 3 [(.validator.field) = { ... }</code>
        */
       public Builder setRepository(
@@ -843,6 +871,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * the URL of the helm repository.
+       * </pre>
+       *
        * <code>string repository = 3 [(.validator.field) = { ... }</code>
        */
       public Builder clearRepository() {
@@ -852,6 +884,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * the URL of the helm repository.
+       * </pre>
+       *
        * <code>string repository = 3 [(.validator.field) = { ... }</code>
        */
       public Builder setRepositoryBytes(
@@ -923,20 +959,36 @@ public final class Schema {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * name is the name of the maintainer
+     * </pre>
+     *
      * <code>string name = 1 [(.validator.field) = { ... }</code>
      */
     java.lang.String getName();
     /**
+     * <pre>
+     * name is the name of the maintainer
+     * </pre>
+     *
      * <code>string name = 1 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
         getNameBytes();
 
     /**
+     * <pre>
+     * email is the email of the maintainer
+     * </pre>
+     *
      * <code>string email = 2 [(.validator.field) = { ... }</code>
      */
     java.lang.String getEmail();
     /**
+     * <pre>
+     * email is the email of the maintainer
+     * </pre>
+     *
      * <code>string email = 2 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
@@ -944,7 +996,7 @@ public final class Schema {
   }
   /**
    * <pre>
-   * Maintainer is the maintainer of a 
+   * Maintainer is the maintainer of a helm chart
    * </pre>
    *
    * Protobuf type {@code meshpaas.Maintainer}
@@ -1034,6 +1086,10 @@ public final class Schema {
     public static final int NAME_FIELD_NUMBER = 1;
     private volatile java.lang.Object name_;
     /**
+     * <pre>
+     * name is the name of the maintainer
+     * </pre>
+     *
      * <code>string name = 1 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getName() {
@@ -1049,6 +1105,10 @@ public final class Schema {
       }
     }
     /**
+     * <pre>
+     * name is the name of the maintainer
+     * </pre>
+     *
      * <code>string name = 1 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
@@ -1068,6 +1128,10 @@ public final class Schema {
     public static final int EMAIL_FIELD_NUMBER = 2;
     private volatile java.lang.Object email_;
     /**
+     * <pre>
+     * email is the email of the maintainer
+     * </pre>
+     *
      * <code>string email = 2 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getEmail() {
@@ -1083,6 +1147,10 @@ public final class Schema {
       }
     }
     /**
+     * <pre>
+     * email is the email of the maintainer
+     * </pre>
+     *
      * <code>string email = 2 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
@@ -1266,7 +1334,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * Maintainer is the maintainer of a 
+     * Maintainer is the maintainer of a helm chart
      * </pre>
      *
      * Protobuf type {@code meshpaas.Maintainer}
@@ -1425,6 +1493,10 @@ public final class Schema {
 
       private java.lang.Object name_ = "";
       /**
+       * <pre>
+       * name is the name of the maintainer
+       * </pre>
+       *
        * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getName() {
@@ -1440,6 +1512,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * name is the name of the maintainer
+       * </pre>
+       *
        * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
@@ -1456,6 +1532,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * name is the name of the maintainer
+       * </pre>
+       *
        * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public Builder setName(
@@ -1469,6 +1549,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * name is the name of the maintainer
+       * </pre>
+       *
        * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public Builder clearName() {
@@ -1478,6 +1562,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * name is the name of the maintainer
+       * </pre>
+       *
        * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public Builder setNameBytes(
@@ -1494,6 +1582,10 @@ public final class Schema {
 
       private java.lang.Object email_ = "";
       /**
+       * <pre>
+       * email is the email of the maintainer
+       * </pre>
+       *
        * <code>string email = 2 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getEmail() {
@@ -1509,6 +1601,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * email is the email of the maintainer
+       * </pre>
+       *
        * <code>string email = 2 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
@@ -1525,6 +1621,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * email is the email of the maintainer
+       * </pre>
+       *
        * <code>string email = 2 [(.validator.field) = { ... }</code>
        */
       public Builder setEmail(
@@ -1538,6 +1638,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * email is the email of the maintainer
+       * </pre>
+       *
        * <code>string email = 2 [(.validator.field) = { ... }</code>
        */
       public Builder clearEmail() {
@@ -1547,6 +1651,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * email is the email of the maintainer
+       * </pre>
+       *
        * <code>string email = 2 [(.validator.field) = { ... }</code>
        */
       public Builder setEmailBytes(
@@ -1618,23 +1726,35 @@ public final class Schema {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * term to search for
+     * </pre>
+     *
      * <code>string term = 1 [(.validator.field) = { ... }</code>
      */
     java.lang.String getTerm();
     /**
+     * <pre>
+     * term to search for
+     * </pre>
+     *
      * <code>string term = 1 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
         getTermBytes();
 
     /**
+     * <pre>
+     * term is a regex expression
+     * </pre>
+     *
      * <code>bool regex = 2;</code>
      */
     boolean getRegex();
   }
   /**
    * <pre>
-   * Filter is used for filtering search results
+   * Filter is used for filtering helm chart search results
    * </pre>
    *
    * Protobuf type {@code meshpaas.Filter}
@@ -1723,6 +1843,10 @@ public final class Schema {
     public static final int TERM_FIELD_NUMBER = 1;
     private volatile java.lang.Object term_;
     /**
+     * <pre>
+     * term to search for
+     * </pre>
+     *
      * <code>string term = 1 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getTerm() {
@@ -1738,6 +1862,10 @@ public final class Schema {
       }
     }
     /**
+     * <pre>
+     * term to search for
+     * </pre>
+     *
      * <code>string term = 1 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
@@ -1757,6 +1885,10 @@ public final class Schema {
     public static final int REGEX_FIELD_NUMBER = 2;
     private boolean regex_;
     /**
+     * <pre>
+     * term is a regex expression
+     * </pre>
+     *
      * <code>bool regex = 2;</code>
      */
     public boolean getRegex() {
@@ -1932,7 +2064,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * Filter is used for filtering search results
+     * Filter is used for filtering helm chart search results
      * </pre>
      *
      * Protobuf type {@code meshpaas.Filter}
@@ -2090,6 +2222,10 @@ public final class Schema {
 
       private java.lang.Object term_ = "";
       /**
+       * <pre>
+       * term to search for
+       * </pre>
+       *
        * <code>string term = 1 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getTerm() {
@@ -2105,6 +2241,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * term to search for
+       * </pre>
+       *
        * <code>string term = 1 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
@@ -2121,6 +2261,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * term to search for
+       * </pre>
+       *
        * <code>string term = 1 [(.validator.field) = { ... }</code>
        */
       public Builder setTerm(
@@ -2134,6 +2278,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * term to search for
+       * </pre>
+       *
        * <code>string term = 1 [(.validator.field) = { ... }</code>
        */
       public Builder clearTerm() {
@@ -2143,6 +2291,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * term to search for
+       * </pre>
+       *
        * <code>string term = 1 [(.validator.field) = { ... }</code>
        */
       public Builder setTermBytes(
@@ -2159,12 +2311,20 @@ public final class Schema {
 
       private boolean regex_ ;
       /**
+       * <pre>
+       * term is a regex expression
+       * </pre>
+       *
        * <code>bool regex = 2;</code>
        */
       public boolean getRegex() {
         return regex_;
       }
       /**
+       * <pre>
+       * term is a regex expression
+       * </pre>
+       *
        * <code>bool regex = 2;</code>
        */
       public Builder setRegex(boolean value) {
@@ -2174,6 +2334,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * term is a regex expression
+       * </pre>
+       *
        * <code>bool regex = 2;</code>
        */
       public Builder clearRegex() {
@@ -2235,13 +2399,13 @@ public final class Schema {
 
   }
 
-  public interface AppTemplateOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:meshpaas.AppTemplate)
+  public interface ChartOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:meshpaas.Chart)
       com.google.protobuf.MessageOrBuilder {
 
     /**
      * <pre>
-     * name of the app template
+     * name of the app chart
      * </pre>
      *
      * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -2249,7 +2413,7 @@ public final class Schema {
     java.lang.String getName();
     /**
      * <pre>
-     * name of the app template
+     * name of the app chart
      * </pre>
      *
      * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -2259,7 +2423,7 @@ public final class Schema {
 
     /**
      * <pre>
-     * home page of the app template
+     * home page of the app chart
      * </pre>
      *
      * <code>string home = 2;</code>
@@ -2267,7 +2431,7 @@ public final class Schema {
     java.lang.String getHome();
     /**
      * <pre>
-     * home page of the app template
+     * home page of the app chart
      * </pre>
      *
      * <code>string home = 2;</code>
@@ -2277,7 +2441,7 @@ public final class Schema {
 
     /**
      * <pre>
-     * description of the app template
+     * description of the app chart
      * </pre>
      *
      * <code>string description = 3;</code>
@@ -2285,7 +2449,7 @@ public final class Schema {
     java.lang.String getDescription();
     /**
      * <pre>
-     * description of the app template
+     * description of the app chart
      * </pre>
      *
      * <code>string description = 3;</code>
@@ -2295,7 +2459,7 @@ public final class Schema {
 
     /**
      * <pre>
-     * version of the app template
+     * version of the app chart
      * </pre>
      *
      * <code>string version = 4;</code>
@@ -2303,7 +2467,7 @@ public final class Schema {
     java.lang.String getVersion();
     /**
      * <pre>
-     * version of the app template
+     * version of the app chart
      * </pre>
      *
      * <code>string version = 4;</code>
@@ -2332,7 +2496,7 @@ public final class Schema {
 
     /**
      * <pre>
-     * keywords associated with the app template
+     * keywords associated with the app chart
      * </pre>
      *
      * <code>repeated string keywords = 6;</code>
@@ -2341,7 +2505,7 @@ public final class Schema {
         getKeywordsList();
     /**
      * <pre>
-     * keywords associated with the app template
+     * keywords associated with the app chart
      * </pre>
      *
      * <code>repeated string keywords = 6;</code>
@@ -2349,7 +2513,7 @@ public final class Schema {
     int getKeywordsCount();
     /**
      * <pre>
-     * keywords associated with the app template
+     * keywords associated with the app chart
      * </pre>
      *
      * <code>repeated string keywords = 6;</code>
@@ -2357,7 +2521,7 @@ public final class Schema {
     java.lang.String getKeywords(int index);
     /**
      * <pre>
-     * keywords associated with the app template
+     * keywords associated with the app chart
      * </pre>
      *
      * <code>repeated string keywords = 6;</code>
@@ -2366,73 +2530,133 @@ public final class Schema {
         getKeywordsBytes(int index);
 
     /**
+     * <pre>
+     * icon is an the icon/brand associated with the chart
+     * </pre>
+     *
      * <code>string icon = 7;</code>
      */
     java.lang.String getIcon();
     /**
+     * <pre>
+     * icon is an the icon/brand associated with the chart
+     * </pre>
+     *
      * <code>string icon = 7;</code>
      */
     com.google.protobuf.ByteString
         getIconBytes();
 
     /**
+     * <pre>
+     * chart is not actively maintained if deprecated = true
+     * </pre>
+     *
      * <code>bool deprecated = 8;</code>
      */
     boolean getDeprecated();
 
     /**
+     * <pre>
+     * extra charts that this chart depends on
+     * </pre>
+     *
      * <code>repeated .meshpaas.Dependency dependencies = 9;</code>
      */
     java.util.List<meshpaas.Schema.Dependency> 
         getDependenciesList();
     /**
+     * <pre>
+     * extra charts that this chart depends on
+     * </pre>
+     *
      * <code>repeated .meshpaas.Dependency dependencies = 9;</code>
      */
     meshpaas.Schema.Dependency getDependencies(int index);
     /**
+     * <pre>
+     * extra charts that this chart depends on
+     * </pre>
+     *
      * <code>repeated .meshpaas.Dependency dependencies = 9;</code>
      */
     int getDependenciesCount();
     /**
+     * <pre>
+     * extra charts that this chart depends on
+     * </pre>
+     *
      * <code>repeated .meshpaas.Dependency dependencies = 9;</code>
      */
     java.util.List<? extends meshpaas.Schema.DependencyOrBuilder> 
         getDependenciesOrBuilderList();
     /**
+     * <pre>
+     * extra charts that this chart depends on
+     * </pre>
+     *
      * <code>repeated .meshpaas.Dependency dependencies = 9;</code>
      */
     meshpaas.Schema.DependencyOrBuilder getDependenciesOrBuilder(
         int index);
 
     /**
+     * <pre>
+     * maintainers of this chart
+     * </pre>
+     *
      * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
      */
     java.util.List<meshpaas.Schema.Maintainer> 
         getMaintainersList();
     /**
+     * <pre>
+     * maintainers of this chart
+     * </pre>
+     *
      * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
      */
     meshpaas.Schema.Maintainer getMaintainers(int index);
     /**
+     * <pre>
+     * maintainers of this chart
+     * </pre>
+     *
      * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
      */
     int getMaintainersCount();
     /**
+     * <pre>
+     * maintainers of this chart
+     * </pre>
+     *
      * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
      */
     java.util.List<? extends meshpaas.Schema.MaintainerOrBuilder> 
         getMaintainersOrBuilderList();
     /**
+     * <pre>
+     * maintainers of this chart
+     * </pre>
+     *
      * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
      */
     meshpaas.Schema.MaintainerOrBuilder getMaintainersOrBuilder(
         int index);
 
     /**
+     * <pre>
+     * arbitrary metadata associated with the chart
+     * </pre>
+     *
      * <code>map&lt;string, string&gt; metadata = 11;</code>
      */
     int getMetadataCount();
     /**
+     * <pre>
+     * arbitrary metadata associated with the chart
+     * </pre>
+     *
      * <code>map&lt;string, string&gt; metadata = 11;</code>
      */
     boolean containsMetadata(
@@ -2444,11 +2668,19 @@ public final class Schema {
     java.util.Map<java.lang.String, java.lang.String>
     getMetadata();
     /**
+     * <pre>
+     * arbitrary metadata associated with the chart
+     * </pre>
+     *
      * <code>map&lt;string, string&gt; metadata = 11;</code>
      */
     java.util.Map<java.lang.String, java.lang.String>
     getMetadataMap();
     /**
+     * <pre>
+     * arbitrary metadata associated with the chart
+     * </pre>
+     *
      * <code>map&lt;string, string&gt; metadata = 11;</code>
      */
 
@@ -2456,6 +2688,10 @@ public final class Schema {
         java.lang.String key,
         java.lang.String defaultValue);
     /**
+     * <pre>
+     * arbitrary metadata associated with the chart
+     * </pre>
+     *
      * <code>map&lt;string, string&gt; metadata = 11;</code>
      */
 
@@ -2464,21 +2700,21 @@ public final class Schema {
   }
   /**
    * <pre>
-   * AppTemplate is a template of an application
+   * Chart is a helm chart that may be used to deploy an App
    * </pre>
    *
-   * Protobuf type {@code meshpaas.AppTemplate}
+   * Protobuf type {@code meshpaas.Chart}
    */
-  public  static final class AppTemplate extends
+  public  static final class Chart extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:meshpaas.AppTemplate)
-      AppTemplateOrBuilder {
+      // @@protoc_insertion_point(message_implements:meshpaas.Chart)
+      ChartOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use AppTemplate.newBuilder() to construct.
-    private AppTemplate(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use Chart.newBuilder() to construct.
+    private Chart(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private AppTemplate() {
+    private Chart() {
       name_ = "";
       home_ = "";
       description_ = "";
@@ -2496,7 +2732,7 @@ public final class Schema {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private AppTemplate(
+    private Chart(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2632,7 +2868,7 @@ public final class Schema {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return meshpaas.Schema.internal_static_meshpaas_AppTemplate_descriptor;
+      return meshpaas.Schema.internal_static_meshpaas_Chart_descriptor;
     }
 
     @SuppressWarnings({"rawtypes"})
@@ -2650,9 +2886,9 @@ public final class Schema {
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return meshpaas.Schema.internal_static_meshpaas_AppTemplate_fieldAccessorTable
+      return meshpaas.Schema.internal_static_meshpaas_Chart_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              meshpaas.Schema.AppTemplate.class, meshpaas.Schema.AppTemplate.Builder.class);
+              meshpaas.Schema.Chart.class, meshpaas.Schema.Chart.Builder.class);
     }
 
     private int bitField0_;
@@ -2660,7 +2896,7 @@ public final class Schema {
     private volatile java.lang.Object name_;
     /**
      * <pre>
-     * name of the app template
+     * name of the app chart
      * </pre>
      *
      * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -2679,7 +2915,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * name of the app template
+     * name of the app chart
      * </pre>
      *
      * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -2702,7 +2938,7 @@ public final class Schema {
     private volatile java.lang.Object home_;
     /**
      * <pre>
-     * home page of the app template
+     * home page of the app chart
      * </pre>
      *
      * <code>string home = 2;</code>
@@ -2721,7 +2957,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * home page of the app template
+     * home page of the app chart
      * </pre>
      *
      * <code>string home = 2;</code>
@@ -2744,7 +2980,7 @@ public final class Schema {
     private volatile java.lang.Object description_;
     /**
      * <pre>
-     * description of the app template
+     * description of the app chart
      * </pre>
      *
      * <code>string description = 3;</code>
@@ -2763,7 +2999,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * description of the app template
+     * description of the app chart
      * </pre>
      *
      * <code>string description = 3;</code>
@@ -2786,7 +3022,7 @@ public final class Schema {
     private volatile java.lang.Object version_;
     /**
      * <pre>
-     * version of the app template
+     * version of the app chart
      * </pre>
      *
      * <code>string version = 4;</code>
@@ -2805,7 +3041,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * version of the app template
+     * version of the app chart
      * </pre>
      *
      * <code>string version = 4;</code>
@@ -2857,7 +3093,7 @@ public final class Schema {
     private com.google.protobuf.LazyStringList keywords_;
     /**
      * <pre>
-     * keywords associated with the app template
+     * keywords associated with the app chart
      * </pre>
      *
      * <code>repeated string keywords = 6;</code>
@@ -2868,7 +3104,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * keywords associated with the app template
+     * keywords associated with the app chart
      * </pre>
      *
      * <code>repeated string keywords = 6;</code>
@@ -2878,7 +3114,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * keywords associated with the app template
+     * keywords associated with the app chart
      * </pre>
      *
      * <code>repeated string keywords = 6;</code>
@@ -2888,7 +3124,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * keywords associated with the app template
+     * keywords associated with the app chart
      * </pre>
      *
      * <code>repeated string keywords = 6;</code>
@@ -2901,6 +3137,10 @@ public final class Schema {
     public static final int ICON_FIELD_NUMBER = 7;
     private volatile java.lang.Object icon_;
     /**
+     * <pre>
+     * icon is an the icon/brand associated with the chart
+     * </pre>
+     *
      * <code>string icon = 7;</code>
      */
     public java.lang.String getIcon() {
@@ -2916,6 +3156,10 @@ public final class Schema {
       }
     }
     /**
+     * <pre>
+     * icon is an the icon/brand associated with the chart
+     * </pre>
+     *
      * <code>string icon = 7;</code>
      */
     public com.google.protobuf.ByteString
@@ -2935,6 +3179,10 @@ public final class Schema {
     public static final int DEPRECATED_FIELD_NUMBER = 8;
     private boolean deprecated_;
     /**
+     * <pre>
+     * chart is not actively maintained if deprecated = true
+     * </pre>
+     *
      * <code>bool deprecated = 8;</code>
      */
     public boolean getDeprecated() {
@@ -2944,12 +3192,20 @@ public final class Schema {
     public static final int DEPENDENCIES_FIELD_NUMBER = 9;
     private java.util.List<meshpaas.Schema.Dependency> dependencies_;
     /**
+     * <pre>
+     * extra charts that this chart depends on
+     * </pre>
+     *
      * <code>repeated .meshpaas.Dependency dependencies = 9;</code>
      */
     public java.util.List<meshpaas.Schema.Dependency> getDependenciesList() {
       return dependencies_;
     }
     /**
+     * <pre>
+     * extra charts that this chart depends on
+     * </pre>
+     *
      * <code>repeated .meshpaas.Dependency dependencies = 9;</code>
      */
     public java.util.List<? extends meshpaas.Schema.DependencyOrBuilder> 
@@ -2957,18 +3213,30 @@ public final class Schema {
       return dependencies_;
     }
     /**
+     * <pre>
+     * extra charts that this chart depends on
+     * </pre>
+     *
      * <code>repeated .meshpaas.Dependency dependencies = 9;</code>
      */
     public int getDependenciesCount() {
       return dependencies_.size();
     }
     /**
+     * <pre>
+     * extra charts that this chart depends on
+     * </pre>
+     *
      * <code>repeated .meshpaas.Dependency dependencies = 9;</code>
      */
     public meshpaas.Schema.Dependency getDependencies(int index) {
       return dependencies_.get(index);
     }
     /**
+     * <pre>
+     * extra charts that this chart depends on
+     * </pre>
+     *
      * <code>repeated .meshpaas.Dependency dependencies = 9;</code>
      */
     public meshpaas.Schema.DependencyOrBuilder getDependenciesOrBuilder(
@@ -2979,12 +3247,20 @@ public final class Schema {
     public static final int MAINTAINERS_FIELD_NUMBER = 10;
     private java.util.List<meshpaas.Schema.Maintainer> maintainers_;
     /**
+     * <pre>
+     * maintainers of this chart
+     * </pre>
+     *
      * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
      */
     public java.util.List<meshpaas.Schema.Maintainer> getMaintainersList() {
       return maintainers_;
     }
     /**
+     * <pre>
+     * maintainers of this chart
+     * </pre>
+     *
      * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
      */
     public java.util.List<? extends meshpaas.Schema.MaintainerOrBuilder> 
@@ -2992,18 +3268,30 @@ public final class Schema {
       return maintainers_;
     }
     /**
+     * <pre>
+     * maintainers of this chart
+     * </pre>
+     *
      * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
      */
     public int getMaintainersCount() {
       return maintainers_.size();
     }
     /**
+     * <pre>
+     * maintainers of this chart
+     * </pre>
+     *
      * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
      */
     public meshpaas.Schema.Maintainer getMaintainers(int index) {
       return maintainers_.get(index);
     }
     /**
+     * <pre>
+     * maintainers of this chart
+     * </pre>
+     *
      * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
      */
     public meshpaas.Schema.MaintainerOrBuilder getMaintainersOrBuilder(
@@ -3017,7 +3305,7 @@ public final class Schema {
           java.lang.String, java.lang.String> defaultEntry =
               com.google.protobuf.MapEntry
               .<java.lang.String, java.lang.String>newDefaultInstance(
-                  meshpaas.Schema.internal_static_meshpaas_AppTemplate_MetadataEntry_descriptor, 
+                  meshpaas.Schema.internal_static_meshpaas_Chart_MetadataEntry_descriptor, 
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "",
                   com.google.protobuf.WireFormat.FieldType.STRING,
@@ -3038,6 +3326,10 @@ public final class Schema {
       return internalGetMetadata().getMap().size();
     }
     /**
+     * <pre>
+     * arbitrary metadata associated with the chart
+     * </pre>
+     *
      * <code>map&lt;string, string&gt; metadata = 11;</code>
      */
 
@@ -3054,6 +3346,10 @@ public final class Schema {
       return getMetadataMap();
     }
     /**
+     * <pre>
+     * arbitrary metadata associated with the chart
+     * </pre>
+     *
      * <code>map&lt;string, string&gt; metadata = 11;</code>
      */
 
@@ -3061,6 +3357,10 @@ public final class Schema {
       return internalGetMetadata().getMap();
     }
     /**
+     * <pre>
+     * arbitrary metadata associated with the chart
+     * </pre>
+     *
      * <code>map&lt;string, string&gt; metadata = 11;</code>
      */
 
@@ -3073,6 +3373,10 @@ public final class Schema {
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
+     * <pre>
+     * arbitrary metadata associated with the chart
+     * </pre>
+     *
      * <code>map&lt;string, string&gt; metadata = 11;</code>
      */
 
@@ -3209,10 +3513,10 @@ public final class Schema {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof meshpaas.Schema.AppTemplate)) {
+      if (!(obj instanceof meshpaas.Schema.Chart)) {
         return super.equals(obj);
       }
-      meshpaas.Schema.AppTemplate other = (meshpaas.Schema.AppTemplate) obj;
+      meshpaas.Schema.Chart other = (meshpaas.Schema.Chart) obj;
 
       boolean result = true;
       result = result && getName()
@@ -3286,69 +3590,69 @@ public final class Schema {
       return hash;
     }
 
-    public static meshpaas.Schema.AppTemplate parseFrom(
+    public static meshpaas.Schema.Chart parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static meshpaas.Schema.AppTemplate parseFrom(
+    public static meshpaas.Schema.Chart parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static meshpaas.Schema.AppTemplate parseFrom(
+    public static meshpaas.Schema.Chart parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static meshpaas.Schema.AppTemplate parseFrom(
+    public static meshpaas.Schema.Chart parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static meshpaas.Schema.AppTemplate parseFrom(byte[] data)
+    public static meshpaas.Schema.Chart parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static meshpaas.Schema.AppTemplate parseFrom(
+    public static meshpaas.Schema.Chart parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static meshpaas.Schema.AppTemplate parseFrom(java.io.InputStream input)
+    public static meshpaas.Schema.Chart parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static meshpaas.Schema.AppTemplate parseFrom(
+    public static meshpaas.Schema.Chart parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static meshpaas.Schema.AppTemplate parseDelimitedFrom(java.io.InputStream input)
+    public static meshpaas.Schema.Chart parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static meshpaas.Schema.AppTemplate parseDelimitedFrom(
+    public static meshpaas.Schema.Chart parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static meshpaas.Schema.AppTemplate parseFrom(
+    public static meshpaas.Schema.Chart parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static meshpaas.Schema.AppTemplate parseFrom(
+    public static meshpaas.Schema.Chart parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -3361,7 +3665,7 @@ public final class Schema {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(meshpaas.Schema.AppTemplate prototype) {
+    public static Builder newBuilder(meshpaas.Schema.Chart prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -3378,18 +3682,18 @@ public final class Schema {
     }
     /**
      * <pre>
-     * AppTemplate is a template of an application
+     * Chart is a helm chart that may be used to deploy an App
      * </pre>
      *
-     * Protobuf type {@code meshpaas.AppTemplate}
+     * Protobuf type {@code meshpaas.Chart}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:meshpaas.AppTemplate)
-        meshpaas.Schema.AppTemplateOrBuilder {
+        // @@protoc_insertion_point(builder_implements:meshpaas.Chart)
+        meshpaas.Schema.ChartOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return meshpaas.Schema.internal_static_meshpaas_AppTemplate_descriptor;
+        return meshpaas.Schema.internal_static_meshpaas_Chart_descriptor;
       }
 
       @SuppressWarnings({"rawtypes"})
@@ -3417,12 +3721,12 @@ public final class Schema {
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return meshpaas.Schema.internal_static_meshpaas_AppTemplate_fieldAccessorTable
+        return meshpaas.Schema.internal_static_meshpaas_Chart_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                meshpaas.Schema.AppTemplate.class, meshpaas.Schema.AppTemplate.Builder.class);
+                meshpaas.Schema.Chart.class, meshpaas.Schema.Chart.Builder.class);
       }
 
-      // Construct using meshpaas.Schema.AppTemplate.newBuilder()
+      // Construct using meshpaas.Schema.Chart.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3477,17 +3781,17 @@ public final class Schema {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return meshpaas.Schema.internal_static_meshpaas_AppTemplate_descriptor;
+        return meshpaas.Schema.internal_static_meshpaas_Chart_descriptor;
       }
 
       @java.lang.Override
-      public meshpaas.Schema.AppTemplate getDefaultInstanceForType() {
-        return meshpaas.Schema.AppTemplate.getDefaultInstance();
+      public meshpaas.Schema.Chart getDefaultInstanceForType() {
+        return meshpaas.Schema.Chart.getDefaultInstance();
       }
 
       @java.lang.Override
-      public meshpaas.Schema.AppTemplate build() {
-        meshpaas.Schema.AppTemplate result = buildPartial();
+      public meshpaas.Schema.Chart build() {
+        meshpaas.Schema.Chart result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -3495,8 +3799,8 @@ public final class Schema {
       }
 
       @java.lang.Override
-      public meshpaas.Schema.AppTemplate buildPartial() {
-        meshpaas.Schema.AppTemplate result = new meshpaas.Schema.AppTemplate(this);
+      public meshpaas.Schema.Chart buildPartial() {
+        meshpaas.Schema.Chart result = new meshpaas.Schema.Chart(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         result.name_ = name_;
@@ -3574,16 +3878,16 @@ public final class Schema {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof meshpaas.Schema.AppTemplate) {
-          return mergeFrom((meshpaas.Schema.AppTemplate)other);
+        if (other instanceof meshpaas.Schema.Chart) {
+          return mergeFrom((meshpaas.Schema.Chart)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(meshpaas.Schema.AppTemplate other) {
-        if (other == meshpaas.Schema.AppTemplate.getDefaultInstance()) return this;
+      public Builder mergeFrom(meshpaas.Schema.Chart other) {
+        if (other == meshpaas.Schema.Chart.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
           onChanged();
@@ -3696,11 +4000,11 @@ public final class Schema {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        meshpaas.Schema.AppTemplate parsedMessage = null;
+        meshpaas.Schema.Chart parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (meshpaas.Schema.AppTemplate) e.getUnfinishedMessage();
+          parsedMessage = (meshpaas.Schema.Chart) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -3714,7 +4018,7 @@ public final class Schema {
       private java.lang.Object name_ = "";
       /**
        * <pre>
-       * name of the app template
+       * name of the app chart
        * </pre>
        *
        * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -3733,7 +4037,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the app template
+       * name of the app chart
        * </pre>
        *
        * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -3753,7 +4057,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the app template
+       * name of the app chart
        * </pre>
        *
        * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -3770,7 +4074,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the app template
+       * name of the app chart
        * </pre>
        *
        * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -3783,7 +4087,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the app template
+       * name of the app chart
        * </pre>
        *
        * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -3803,7 +4107,7 @@ public final class Schema {
       private java.lang.Object home_ = "";
       /**
        * <pre>
-       * home page of the app template
+       * home page of the app chart
        * </pre>
        *
        * <code>string home = 2;</code>
@@ -3822,7 +4126,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * home page of the app template
+       * home page of the app chart
        * </pre>
        *
        * <code>string home = 2;</code>
@@ -3842,7 +4146,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * home page of the app template
+       * home page of the app chart
        * </pre>
        *
        * <code>string home = 2;</code>
@@ -3859,7 +4163,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * home page of the app template
+       * home page of the app chart
        * </pre>
        *
        * <code>string home = 2;</code>
@@ -3872,7 +4176,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * home page of the app template
+       * home page of the app chart
        * </pre>
        *
        * <code>string home = 2;</code>
@@ -3892,7 +4196,7 @@ public final class Schema {
       private java.lang.Object description_ = "";
       /**
        * <pre>
-       * description of the app template
+       * description of the app chart
        * </pre>
        *
        * <code>string description = 3;</code>
@@ -3911,7 +4215,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * description of the app template
+       * description of the app chart
        * </pre>
        *
        * <code>string description = 3;</code>
@@ -3931,7 +4235,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * description of the app template
+       * description of the app chart
        * </pre>
        *
        * <code>string description = 3;</code>
@@ -3948,7 +4252,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * description of the app template
+       * description of the app chart
        * </pre>
        *
        * <code>string description = 3;</code>
@@ -3961,7 +4265,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * description of the app template
+       * description of the app chart
        * </pre>
        *
        * <code>string description = 3;</code>
@@ -3981,7 +4285,7 @@ public final class Schema {
       private java.lang.Object version_ = "";
       /**
        * <pre>
-       * version of the app template
+       * version of the app chart
        * </pre>
        *
        * <code>string version = 4;</code>
@@ -4000,7 +4304,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * version of the app template
+       * version of the app chart
        * </pre>
        *
        * <code>string version = 4;</code>
@@ -4020,7 +4324,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * version of the app template
+       * version of the app chart
        * </pre>
        *
        * <code>string version = 4;</code>
@@ -4037,7 +4341,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * version of the app template
+       * version of the app chart
        * </pre>
        *
        * <code>string version = 4;</code>
@@ -4050,7 +4354,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * version of the app template
+       * version of the app chart
        * </pre>
        *
        * <code>string version = 4;</code>
@@ -4170,7 +4474,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * keywords associated with the app template
+       * keywords associated with the app chart
        * </pre>
        *
        * <code>repeated string keywords = 6;</code>
@@ -4181,7 +4485,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * keywords associated with the app template
+       * keywords associated with the app chart
        * </pre>
        *
        * <code>repeated string keywords = 6;</code>
@@ -4191,7 +4495,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * keywords associated with the app template
+       * keywords associated with the app chart
        * </pre>
        *
        * <code>repeated string keywords = 6;</code>
@@ -4201,7 +4505,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * keywords associated with the app template
+       * keywords associated with the app chart
        * </pre>
        *
        * <code>repeated string keywords = 6;</code>
@@ -4212,7 +4516,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * keywords associated with the app template
+       * keywords associated with the app chart
        * </pre>
        *
        * <code>repeated string keywords = 6;</code>
@@ -4229,7 +4533,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * keywords associated with the app template
+       * keywords associated with the app chart
        * </pre>
        *
        * <code>repeated string keywords = 6;</code>
@@ -4246,7 +4550,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * keywords associated with the app template
+       * keywords associated with the app chart
        * </pre>
        *
        * <code>repeated string keywords = 6;</code>
@@ -4261,7 +4565,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * keywords associated with the app template
+       * keywords associated with the app chart
        * </pre>
        *
        * <code>repeated string keywords = 6;</code>
@@ -4274,7 +4578,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * keywords associated with the app template
+       * keywords associated with the app chart
        * </pre>
        *
        * <code>repeated string keywords = 6;</code>
@@ -4293,6 +4597,10 @@ public final class Schema {
 
       private java.lang.Object icon_ = "";
       /**
+       * <pre>
+       * icon is an the icon/brand associated with the chart
+       * </pre>
+       *
        * <code>string icon = 7;</code>
        */
       public java.lang.String getIcon() {
@@ -4308,6 +4616,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * icon is an the icon/brand associated with the chart
+       * </pre>
+       *
        * <code>string icon = 7;</code>
        */
       public com.google.protobuf.ByteString
@@ -4324,6 +4636,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * icon is an the icon/brand associated with the chart
+       * </pre>
+       *
        * <code>string icon = 7;</code>
        */
       public Builder setIcon(
@@ -4337,6 +4653,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * icon is an the icon/brand associated with the chart
+       * </pre>
+       *
        * <code>string icon = 7;</code>
        */
       public Builder clearIcon() {
@@ -4346,6 +4666,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * icon is an the icon/brand associated with the chart
+       * </pre>
+       *
        * <code>string icon = 7;</code>
        */
       public Builder setIconBytes(
@@ -4362,12 +4686,20 @@ public final class Schema {
 
       private boolean deprecated_ ;
       /**
+       * <pre>
+       * chart is not actively maintained if deprecated = true
+       * </pre>
+       *
        * <code>bool deprecated = 8;</code>
        */
       public boolean getDeprecated() {
         return deprecated_;
       }
       /**
+       * <pre>
+       * chart is not actively maintained if deprecated = true
+       * </pre>
+       *
        * <code>bool deprecated = 8;</code>
        */
       public Builder setDeprecated(boolean value) {
@@ -4377,6 +4709,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * chart is not actively maintained if deprecated = true
+       * </pre>
+       *
        * <code>bool deprecated = 8;</code>
        */
       public Builder clearDeprecated() {
@@ -4399,6 +4735,10 @@ public final class Schema {
           meshpaas.Schema.Dependency, meshpaas.Schema.Dependency.Builder, meshpaas.Schema.DependencyOrBuilder> dependenciesBuilder_;
 
       /**
+       * <pre>
+       * extra charts that this chart depends on
+       * </pre>
+       *
        * <code>repeated .meshpaas.Dependency dependencies = 9;</code>
        */
       public java.util.List<meshpaas.Schema.Dependency> getDependenciesList() {
@@ -4409,6 +4749,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * extra charts that this chart depends on
+       * </pre>
+       *
        * <code>repeated .meshpaas.Dependency dependencies = 9;</code>
        */
       public int getDependenciesCount() {
@@ -4419,6 +4763,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * extra charts that this chart depends on
+       * </pre>
+       *
        * <code>repeated .meshpaas.Dependency dependencies = 9;</code>
        */
       public meshpaas.Schema.Dependency getDependencies(int index) {
@@ -4429,6 +4777,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * extra charts that this chart depends on
+       * </pre>
+       *
        * <code>repeated .meshpaas.Dependency dependencies = 9;</code>
        */
       public Builder setDependencies(
@@ -4446,6 +4798,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * extra charts that this chart depends on
+       * </pre>
+       *
        * <code>repeated .meshpaas.Dependency dependencies = 9;</code>
        */
       public Builder setDependencies(
@@ -4460,6 +4816,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * extra charts that this chart depends on
+       * </pre>
+       *
        * <code>repeated .meshpaas.Dependency dependencies = 9;</code>
        */
       public Builder addDependencies(meshpaas.Schema.Dependency value) {
@@ -4476,6 +4836,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * extra charts that this chart depends on
+       * </pre>
+       *
        * <code>repeated .meshpaas.Dependency dependencies = 9;</code>
        */
       public Builder addDependencies(
@@ -4493,6 +4857,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * extra charts that this chart depends on
+       * </pre>
+       *
        * <code>repeated .meshpaas.Dependency dependencies = 9;</code>
        */
       public Builder addDependencies(
@@ -4507,6 +4875,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * extra charts that this chart depends on
+       * </pre>
+       *
        * <code>repeated .meshpaas.Dependency dependencies = 9;</code>
        */
       public Builder addDependencies(
@@ -4521,6 +4893,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * extra charts that this chart depends on
+       * </pre>
+       *
        * <code>repeated .meshpaas.Dependency dependencies = 9;</code>
        */
       public Builder addAllDependencies(
@@ -4536,6 +4912,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * extra charts that this chart depends on
+       * </pre>
+       *
        * <code>repeated .meshpaas.Dependency dependencies = 9;</code>
        */
       public Builder clearDependencies() {
@@ -4549,6 +4929,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * extra charts that this chart depends on
+       * </pre>
+       *
        * <code>repeated .meshpaas.Dependency dependencies = 9;</code>
        */
       public Builder removeDependencies(int index) {
@@ -4562,6 +4946,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * extra charts that this chart depends on
+       * </pre>
+       *
        * <code>repeated .meshpaas.Dependency dependencies = 9;</code>
        */
       public meshpaas.Schema.Dependency.Builder getDependenciesBuilder(
@@ -4569,6 +4957,10 @@ public final class Schema {
         return getDependenciesFieldBuilder().getBuilder(index);
       }
       /**
+       * <pre>
+       * extra charts that this chart depends on
+       * </pre>
+       *
        * <code>repeated .meshpaas.Dependency dependencies = 9;</code>
        */
       public meshpaas.Schema.DependencyOrBuilder getDependenciesOrBuilder(
@@ -4579,6 +4971,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * extra charts that this chart depends on
+       * </pre>
+       *
        * <code>repeated .meshpaas.Dependency dependencies = 9;</code>
        */
       public java.util.List<? extends meshpaas.Schema.DependencyOrBuilder> 
@@ -4590,6 +4986,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * extra charts that this chart depends on
+       * </pre>
+       *
        * <code>repeated .meshpaas.Dependency dependencies = 9;</code>
        */
       public meshpaas.Schema.Dependency.Builder addDependenciesBuilder() {
@@ -4597,6 +4997,10 @@ public final class Schema {
             meshpaas.Schema.Dependency.getDefaultInstance());
       }
       /**
+       * <pre>
+       * extra charts that this chart depends on
+       * </pre>
+       *
        * <code>repeated .meshpaas.Dependency dependencies = 9;</code>
        */
       public meshpaas.Schema.Dependency.Builder addDependenciesBuilder(
@@ -4605,6 +5009,10 @@ public final class Schema {
             index, meshpaas.Schema.Dependency.getDefaultInstance());
       }
       /**
+       * <pre>
+       * extra charts that this chart depends on
+       * </pre>
+       *
        * <code>repeated .meshpaas.Dependency dependencies = 9;</code>
        */
       public java.util.List<meshpaas.Schema.Dependency.Builder> 
@@ -4639,6 +5047,10 @@ public final class Schema {
           meshpaas.Schema.Maintainer, meshpaas.Schema.Maintainer.Builder, meshpaas.Schema.MaintainerOrBuilder> maintainersBuilder_;
 
       /**
+       * <pre>
+       * maintainers of this chart
+       * </pre>
+       *
        * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
       public java.util.List<meshpaas.Schema.Maintainer> getMaintainersList() {
@@ -4649,6 +5061,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * maintainers of this chart
+       * </pre>
+       *
        * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
       public int getMaintainersCount() {
@@ -4659,6 +5075,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * maintainers of this chart
+       * </pre>
+       *
        * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
       public meshpaas.Schema.Maintainer getMaintainers(int index) {
@@ -4669,6 +5089,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * maintainers of this chart
+       * </pre>
+       *
        * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
       public Builder setMaintainers(
@@ -4686,6 +5110,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * maintainers of this chart
+       * </pre>
+       *
        * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
       public Builder setMaintainers(
@@ -4700,6 +5128,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * maintainers of this chart
+       * </pre>
+       *
        * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
       public Builder addMaintainers(meshpaas.Schema.Maintainer value) {
@@ -4716,6 +5148,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * maintainers of this chart
+       * </pre>
+       *
        * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
       public Builder addMaintainers(
@@ -4733,6 +5169,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * maintainers of this chart
+       * </pre>
+       *
        * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
       public Builder addMaintainers(
@@ -4747,6 +5187,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * maintainers of this chart
+       * </pre>
+       *
        * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
       public Builder addMaintainers(
@@ -4761,6 +5205,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * maintainers of this chart
+       * </pre>
+       *
        * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
       public Builder addAllMaintainers(
@@ -4776,6 +5224,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * maintainers of this chart
+       * </pre>
+       *
        * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
       public Builder clearMaintainers() {
@@ -4789,6 +5241,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * maintainers of this chart
+       * </pre>
+       *
        * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
       public Builder removeMaintainers(int index) {
@@ -4802,6 +5258,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * maintainers of this chart
+       * </pre>
+       *
        * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
       public meshpaas.Schema.Maintainer.Builder getMaintainersBuilder(
@@ -4809,6 +5269,10 @@ public final class Schema {
         return getMaintainersFieldBuilder().getBuilder(index);
       }
       /**
+       * <pre>
+       * maintainers of this chart
+       * </pre>
+       *
        * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
       public meshpaas.Schema.MaintainerOrBuilder getMaintainersOrBuilder(
@@ -4819,6 +5283,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * maintainers of this chart
+       * </pre>
+       *
        * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
       public java.util.List<? extends meshpaas.Schema.MaintainerOrBuilder> 
@@ -4830,6 +5298,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * maintainers of this chart
+       * </pre>
+       *
        * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
       public meshpaas.Schema.Maintainer.Builder addMaintainersBuilder() {
@@ -4837,6 +5309,10 @@ public final class Schema {
             meshpaas.Schema.Maintainer.getDefaultInstance());
       }
       /**
+       * <pre>
+       * maintainers of this chart
+       * </pre>
+       *
        * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
       public meshpaas.Schema.Maintainer.Builder addMaintainersBuilder(
@@ -4845,6 +5321,10 @@ public final class Schema {
             index, meshpaas.Schema.Maintainer.getDefaultInstance());
       }
       /**
+       * <pre>
+       * maintainers of this chart
+       * </pre>
+       *
        * <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
        */
       public java.util.List<meshpaas.Schema.Maintainer.Builder> 
@@ -4893,6 +5373,10 @@ public final class Schema {
         return internalGetMetadata().getMap().size();
       }
       /**
+       * <pre>
+       * arbitrary metadata associated with the chart
+       * </pre>
+       *
        * <code>map&lt;string, string&gt; metadata = 11;</code>
        */
 
@@ -4909,6 +5393,10 @@ public final class Schema {
         return getMetadataMap();
       }
       /**
+       * <pre>
+       * arbitrary metadata associated with the chart
+       * </pre>
+       *
        * <code>map&lt;string, string&gt; metadata = 11;</code>
        */
 
@@ -4916,6 +5404,10 @@ public final class Schema {
         return internalGetMetadata().getMap();
       }
       /**
+       * <pre>
+       * arbitrary metadata associated with the chart
+       * </pre>
+       *
        * <code>map&lt;string, string&gt; metadata = 11;</code>
        */
 
@@ -4928,6 +5420,10 @@ public final class Schema {
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
       /**
+       * <pre>
+       * arbitrary metadata associated with the chart
+       * </pre>
+       *
        * <code>map&lt;string, string&gt; metadata = 11;</code>
        */
 
@@ -4948,6 +5444,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * arbitrary metadata associated with the chart
+       * </pre>
+       *
        * <code>map&lt;string, string&gt; metadata = 11;</code>
        */
 
@@ -4967,6 +5467,10 @@ public final class Schema {
         return internalGetMutableMetadata().getMutableMap();
       }
       /**
+       * <pre>
+       * arbitrary metadata associated with the chart
+       * </pre>
+       *
        * <code>map&lt;string, string&gt; metadata = 11;</code>
        */
       public Builder putMetadata(
@@ -4979,6 +5483,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * arbitrary metadata associated with the chart
+       * </pre>
+       *
        * <code>map&lt;string, string&gt; metadata = 11;</code>
        */
 
@@ -5001,92 +5509,92 @@ public final class Schema {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:meshpaas.AppTemplate)
+      // @@protoc_insertion_point(builder_scope:meshpaas.Chart)
     }
 
-    // @@protoc_insertion_point(class_scope:meshpaas.AppTemplate)
-    private static final meshpaas.Schema.AppTemplate DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:meshpaas.Chart)
+    private static final meshpaas.Schema.Chart DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new meshpaas.Schema.AppTemplate();
+      DEFAULT_INSTANCE = new meshpaas.Schema.Chart();
     }
 
-    public static meshpaas.Schema.AppTemplate getDefaultInstance() {
+    public static meshpaas.Schema.Chart getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<AppTemplate>
-        PARSER = new com.google.protobuf.AbstractParser<AppTemplate>() {
+    private static final com.google.protobuf.Parser<Chart>
+        PARSER = new com.google.protobuf.AbstractParser<Chart>() {
       @java.lang.Override
-      public AppTemplate parsePartialFrom(
+      public Chart parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AppTemplate(input, extensionRegistry);
+        return new Chart(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<AppTemplate> parser() {
+    public static com.google.protobuf.Parser<Chart> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<AppTemplate> getParserForType() {
+    public com.google.protobuf.Parser<Chart> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public meshpaas.Schema.AppTemplate getDefaultInstanceForType() {
+    public meshpaas.Schema.Chart getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface AppTemplatesOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:meshpaas.AppTemplates)
+  public interface ChartsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:meshpaas.Charts)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .meshpaas.AppTemplate templates = 1;</code>
+     * <code>repeated .meshpaas.Chart charts = 1;</code>
      */
-    java.util.List<meshpaas.Schema.AppTemplate> 
-        getTemplatesList();
+    java.util.List<meshpaas.Schema.Chart> 
+        getChartsList();
     /**
-     * <code>repeated .meshpaas.AppTemplate templates = 1;</code>
+     * <code>repeated .meshpaas.Chart charts = 1;</code>
      */
-    meshpaas.Schema.AppTemplate getTemplates(int index);
+    meshpaas.Schema.Chart getCharts(int index);
     /**
-     * <code>repeated .meshpaas.AppTemplate templates = 1;</code>
+     * <code>repeated .meshpaas.Chart charts = 1;</code>
      */
-    int getTemplatesCount();
+    int getChartsCount();
     /**
-     * <code>repeated .meshpaas.AppTemplate templates = 1;</code>
+     * <code>repeated .meshpaas.Chart charts = 1;</code>
      */
-    java.util.List<? extends meshpaas.Schema.AppTemplateOrBuilder> 
-        getTemplatesOrBuilderList();
+    java.util.List<? extends meshpaas.Schema.ChartOrBuilder> 
+        getChartsOrBuilderList();
     /**
-     * <code>repeated .meshpaas.AppTemplate templates = 1;</code>
+     * <code>repeated .meshpaas.Chart charts = 1;</code>
      */
-    meshpaas.Schema.AppTemplateOrBuilder getTemplatesOrBuilder(
+    meshpaas.Schema.ChartOrBuilder getChartsOrBuilder(
         int index);
   }
   /**
    * <pre>
-   * AppTemplates is a list of app templates
+   * Charts is a list of helm charts
    * </pre>
    *
-   * Protobuf type {@code meshpaas.AppTemplates}
+   * Protobuf type {@code meshpaas.Charts}
    */
-  public  static final class AppTemplates extends
+  public  static final class Charts extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:meshpaas.AppTemplates)
-      AppTemplatesOrBuilder {
+      // @@protoc_insertion_point(message_implements:meshpaas.Charts)
+      ChartsOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use AppTemplates.newBuilder() to construct.
-    private AppTemplates(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use Charts.newBuilder() to construct.
+    private Charts(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private AppTemplates() {
-      templates_ = java.util.Collections.emptyList();
+    private Charts() {
+      charts_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -5094,7 +5602,7 @@ public final class Schema {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private AppTemplates(
+    private Charts(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -5115,11 +5623,11 @@ public final class Schema {
               break;
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                templates_ = new java.util.ArrayList<meshpaas.Schema.AppTemplate>();
+                charts_ = new java.util.ArrayList<meshpaas.Schema.Chart>();
                 mutable_bitField0_ |= 0x00000001;
               }
-              templates_.add(
-                  input.readMessage(meshpaas.Schema.AppTemplate.parser(), extensionRegistry));
+              charts_.add(
+                  input.readMessage(meshpaas.Schema.Chart.parser(), extensionRegistry));
               break;
             }
             default: {
@@ -5138,7 +5646,7 @@ public final class Schema {
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          templates_ = java.util.Collections.unmodifiableList(templates_);
+          charts_ = java.util.Collections.unmodifiableList(charts_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -5146,50 +5654,50 @@ public final class Schema {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return meshpaas.Schema.internal_static_meshpaas_AppTemplates_descriptor;
+      return meshpaas.Schema.internal_static_meshpaas_Charts_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return meshpaas.Schema.internal_static_meshpaas_AppTemplates_fieldAccessorTable
+      return meshpaas.Schema.internal_static_meshpaas_Charts_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              meshpaas.Schema.AppTemplates.class, meshpaas.Schema.AppTemplates.Builder.class);
+              meshpaas.Schema.Charts.class, meshpaas.Schema.Charts.Builder.class);
     }
 
-    public static final int TEMPLATES_FIELD_NUMBER = 1;
-    private java.util.List<meshpaas.Schema.AppTemplate> templates_;
+    public static final int CHARTS_FIELD_NUMBER = 1;
+    private java.util.List<meshpaas.Schema.Chart> charts_;
     /**
-     * <code>repeated .meshpaas.AppTemplate templates = 1;</code>
+     * <code>repeated .meshpaas.Chart charts = 1;</code>
      */
-    public java.util.List<meshpaas.Schema.AppTemplate> getTemplatesList() {
-      return templates_;
+    public java.util.List<meshpaas.Schema.Chart> getChartsList() {
+      return charts_;
     }
     /**
-     * <code>repeated .meshpaas.AppTemplate templates = 1;</code>
+     * <code>repeated .meshpaas.Chart charts = 1;</code>
      */
-    public java.util.List<? extends meshpaas.Schema.AppTemplateOrBuilder> 
-        getTemplatesOrBuilderList() {
-      return templates_;
+    public java.util.List<? extends meshpaas.Schema.ChartOrBuilder> 
+        getChartsOrBuilderList() {
+      return charts_;
     }
     /**
-     * <code>repeated .meshpaas.AppTemplate templates = 1;</code>
+     * <code>repeated .meshpaas.Chart charts = 1;</code>
      */
-    public int getTemplatesCount() {
-      return templates_.size();
+    public int getChartsCount() {
+      return charts_.size();
     }
     /**
-     * <code>repeated .meshpaas.AppTemplate templates = 1;</code>
+     * <code>repeated .meshpaas.Chart charts = 1;</code>
      */
-    public meshpaas.Schema.AppTemplate getTemplates(int index) {
-      return templates_.get(index);
+    public meshpaas.Schema.Chart getCharts(int index) {
+      return charts_.get(index);
     }
     /**
-     * <code>repeated .meshpaas.AppTemplate templates = 1;</code>
+     * <code>repeated .meshpaas.Chart charts = 1;</code>
      */
-    public meshpaas.Schema.AppTemplateOrBuilder getTemplatesOrBuilder(
+    public meshpaas.Schema.ChartOrBuilder getChartsOrBuilder(
         int index) {
-      return templates_.get(index);
+      return charts_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -5206,8 +5714,8 @@ public final class Schema {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      for (int i = 0; i < templates_.size(); i++) {
-        output.writeMessage(1, templates_.get(i));
+      for (int i = 0; i < charts_.size(); i++) {
+        output.writeMessage(1, charts_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -5218,9 +5726,9 @@ public final class Schema {
       if (size != -1) return size;
 
       size = 0;
-      for (int i = 0; i < templates_.size(); i++) {
+      for (int i = 0; i < charts_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, templates_.get(i));
+          .computeMessageSize(1, charts_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5232,14 +5740,14 @@ public final class Schema {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof meshpaas.Schema.AppTemplates)) {
+      if (!(obj instanceof meshpaas.Schema.Charts)) {
         return super.equals(obj);
       }
-      meshpaas.Schema.AppTemplates other = (meshpaas.Schema.AppTemplates) obj;
+      meshpaas.Schema.Charts other = (meshpaas.Schema.Charts) obj;
 
       boolean result = true;
-      result = result && getTemplatesList()
-          .equals(other.getTemplatesList());
+      result = result && getChartsList()
+          .equals(other.getChartsList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -5251,78 +5759,78 @@ public final class Schema {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (getTemplatesCount() > 0) {
-        hash = (37 * hash) + TEMPLATES_FIELD_NUMBER;
-        hash = (53 * hash) + getTemplatesList().hashCode();
+      if (getChartsCount() > 0) {
+        hash = (37 * hash) + CHARTS_FIELD_NUMBER;
+        hash = (53 * hash) + getChartsList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static meshpaas.Schema.AppTemplates parseFrom(
+    public static meshpaas.Schema.Charts parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static meshpaas.Schema.AppTemplates parseFrom(
+    public static meshpaas.Schema.Charts parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static meshpaas.Schema.AppTemplates parseFrom(
+    public static meshpaas.Schema.Charts parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static meshpaas.Schema.AppTemplates parseFrom(
+    public static meshpaas.Schema.Charts parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static meshpaas.Schema.AppTemplates parseFrom(byte[] data)
+    public static meshpaas.Schema.Charts parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static meshpaas.Schema.AppTemplates parseFrom(
+    public static meshpaas.Schema.Charts parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static meshpaas.Schema.AppTemplates parseFrom(java.io.InputStream input)
+    public static meshpaas.Schema.Charts parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static meshpaas.Schema.AppTemplates parseFrom(
+    public static meshpaas.Schema.Charts parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static meshpaas.Schema.AppTemplates parseDelimitedFrom(java.io.InputStream input)
+    public static meshpaas.Schema.Charts parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static meshpaas.Schema.AppTemplates parseDelimitedFrom(
+    public static meshpaas.Schema.Charts parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static meshpaas.Schema.AppTemplates parseFrom(
+    public static meshpaas.Schema.Charts parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static meshpaas.Schema.AppTemplates parseFrom(
+    public static meshpaas.Schema.Charts parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -5335,7 +5843,7 @@ public final class Schema {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(meshpaas.Schema.AppTemplates prototype) {
+    public static Builder newBuilder(meshpaas.Schema.Charts prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -5352,29 +5860,29 @@ public final class Schema {
     }
     /**
      * <pre>
-     * AppTemplates is a list of app templates
+     * Charts is a list of helm charts
      * </pre>
      *
-     * Protobuf type {@code meshpaas.AppTemplates}
+     * Protobuf type {@code meshpaas.Charts}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:meshpaas.AppTemplates)
-        meshpaas.Schema.AppTemplatesOrBuilder {
+        // @@protoc_insertion_point(builder_implements:meshpaas.Charts)
+        meshpaas.Schema.ChartsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return meshpaas.Schema.internal_static_meshpaas_AppTemplates_descriptor;
+        return meshpaas.Schema.internal_static_meshpaas_Charts_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return meshpaas.Schema.internal_static_meshpaas_AppTemplates_fieldAccessorTable
+        return meshpaas.Schema.internal_static_meshpaas_Charts_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                meshpaas.Schema.AppTemplates.class, meshpaas.Schema.AppTemplates.Builder.class);
+                meshpaas.Schema.Charts.class, meshpaas.Schema.Charts.Builder.class);
       }
 
-      // Construct using meshpaas.Schema.AppTemplates.newBuilder()
+      // Construct using meshpaas.Schema.Charts.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -5387,17 +5895,17 @@ public final class Schema {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getTemplatesFieldBuilder();
+          getChartsFieldBuilder();
         }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (templatesBuilder_ == null) {
-          templates_ = java.util.Collections.emptyList();
+        if (chartsBuilder_ == null) {
+          charts_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          templatesBuilder_.clear();
+          chartsBuilder_.clear();
         }
         return this;
       }
@@ -5405,17 +5913,17 @@ public final class Schema {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return meshpaas.Schema.internal_static_meshpaas_AppTemplates_descriptor;
+        return meshpaas.Schema.internal_static_meshpaas_Charts_descriptor;
       }
 
       @java.lang.Override
-      public meshpaas.Schema.AppTemplates getDefaultInstanceForType() {
-        return meshpaas.Schema.AppTemplates.getDefaultInstance();
+      public meshpaas.Schema.Charts getDefaultInstanceForType() {
+        return meshpaas.Schema.Charts.getDefaultInstance();
       }
 
       @java.lang.Override
-      public meshpaas.Schema.AppTemplates build() {
-        meshpaas.Schema.AppTemplates result = buildPartial();
+      public meshpaas.Schema.Charts build() {
+        meshpaas.Schema.Charts result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -5423,17 +5931,17 @@ public final class Schema {
       }
 
       @java.lang.Override
-      public meshpaas.Schema.AppTemplates buildPartial() {
-        meshpaas.Schema.AppTemplates result = new meshpaas.Schema.AppTemplates(this);
+      public meshpaas.Schema.Charts buildPartial() {
+        meshpaas.Schema.Charts result = new meshpaas.Schema.Charts(this);
         int from_bitField0_ = bitField0_;
-        if (templatesBuilder_ == null) {
+        if (chartsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001)) {
-            templates_ = java.util.Collections.unmodifiableList(templates_);
+            charts_ = java.util.Collections.unmodifiableList(charts_);
             bitField0_ = (bitField0_ & ~0x00000001);
           }
-          result.templates_ = templates_;
+          result.charts_ = charts_;
         } else {
-          result.templates_ = templatesBuilder_.build();
+          result.charts_ = chartsBuilder_.build();
         }
         onBuilt();
         return result;
@@ -5473,39 +5981,39 @@ public final class Schema {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof meshpaas.Schema.AppTemplates) {
-          return mergeFrom((meshpaas.Schema.AppTemplates)other);
+        if (other instanceof meshpaas.Schema.Charts) {
+          return mergeFrom((meshpaas.Schema.Charts)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(meshpaas.Schema.AppTemplates other) {
-        if (other == meshpaas.Schema.AppTemplates.getDefaultInstance()) return this;
-        if (templatesBuilder_ == null) {
-          if (!other.templates_.isEmpty()) {
-            if (templates_.isEmpty()) {
-              templates_ = other.templates_;
+      public Builder mergeFrom(meshpaas.Schema.Charts other) {
+        if (other == meshpaas.Schema.Charts.getDefaultInstance()) return this;
+        if (chartsBuilder_ == null) {
+          if (!other.charts_.isEmpty()) {
+            if (charts_.isEmpty()) {
+              charts_ = other.charts_;
               bitField0_ = (bitField0_ & ~0x00000001);
             } else {
-              ensureTemplatesIsMutable();
-              templates_.addAll(other.templates_);
+              ensureChartsIsMutable();
+              charts_.addAll(other.charts_);
             }
             onChanged();
           }
         } else {
-          if (!other.templates_.isEmpty()) {
-            if (templatesBuilder_.isEmpty()) {
-              templatesBuilder_.dispose();
-              templatesBuilder_ = null;
-              templates_ = other.templates_;
+          if (!other.charts_.isEmpty()) {
+            if (chartsBuilder_.isEmpty()) {
+              chartsBuilder_.dispose();
+              chartsBuilder_ = null;
+              charts_ = other.charts_;
               bitField0_ = (bitField0_ & ~0x00000001);
-              templatesBuilder_ = 
+              chartsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getTemplatesFieldBuilder() : null;
+                   getChartsFieldBuilder() : null;
             } else {
-              templatesBuilder_.addAllMessages(other.templates_);
+              chartsBuilder_.addAllMessages(other.charts_);
             }
           }
         }
@@ -5524,11 +6032,11 @@ public final class Schema {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        meshpaas.Schema.AppTemplates parsedMessage = null;
+        meshpaas.Schema.Charts parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (meshpaas.Schema.AppTemplates) e.getUnfinishedMessage();
+          parsedMessage = (meshpaas.Schema.Charts) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -5539,244 +6047,244 @@ public final class Schema {
       }
       private int bitField0_;
 
-      private java.util.List<meshpaas.Schema.AppTemplate> templates_ =
+      private java.util.List<meshpaas.Schema.Chart> charts_ =
         java.util.Collections.emptyList();
-      private void ensureTemplatesIsMutable() {
+      private void ensureChartsIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          templates_ = new java.util.ArrayList<meshpaas.Schema.AppTemplate>(templates_);
+          charts_ = new java.util.ArrayList<meshpaas.Schema.Chart>(charts_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          meshpaas.Schema.AppTemplate, meshpaas.Schema.AppTemplate.Builder, meshpaas.Schema.AppTemplateOrBuilder> templatesBuilder_;
+          meshpaas.Schema.Chart, meshpaas.Schema.Chart.Builder, meshpaas.Schema.ChartOrBuilder> chartsBuilder_;
 
       /**
-       * <code>repeated .meshpaas.AppTemplate templates = 1;</code>
+       * <code>repeated .meshpaas.Chart charts = 1;</code>
        */
-      public java.util.List<meshpaas.Schema.AppTemplate> getTemplatesList() {
-        if (templatesBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(templates_);
+      public java.util.List<meshpaas.Schema.Chart> getChartsList() {
+        if (chartsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(charts_);
         } else {
-          return templatesBuilder_.getMessageList();
+          return chartsBuilder_.getMessageList();
         }
       }
       /**
-       * <code>repeated .meshpaas.AppTemplate templates = 1;</code>
+       * <code>repeated .meshpaas.Chart charts = 1;</code>
        */
-      public int getTemplatesCount() {
-        if (templatesBuilder_ == null) {
-          return templates_.size();
+      public int getChartsCount() {
+        if (chartsBuilder_ == null) {
+          return charts_.size();
         } else {
-          return templatesBuilder_.getCount();
+          return chartsBuilder_.getCount();
         }
       }
       /**
-       * <code>repeated .meshpaas.AppTemplate templates = 1;</code>
+       * <code>repeated .meshpaas.Chart charts = 1;</code>
        */
-      public meshpaas.Schema.AppTemplate getTemplates(int index) {
-        if (templatesBuilder_ == null) {
-          return templates_.get(index);
+      public meshpaas.Schema.Chart getCharts(int index) {
+        if (chartsBuilder_ == null) {
+          return charts_.get(index);
         } else {
-          return templatesBuilder_.getMessage(index);
+          return chartsBuilder_.getMessage(index);
         }
       }
       /**
-       * <code>repeated .meshpaas.AppTemplate templates = 1;</code>
+       * <code>repeated .meshpaas.Chart charts = 1;</code>
        */
-      public Builder setTemplates(
-          int index, meshpaas.Schema.AppTemplate value) {
-        if (templatesBuilder_ == null) {
+      public Builder setCharts(
+          int index, meshpaas.Schema.Chart value) {
+        if (chartsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureTemplatesIsMutable();
-          templates_.set(index, value);
+          ensureChartsIsMutable();
+          charts_.set(index, value);
           onChanged();
         } else {
-          templatesBuilder_.setMessage(index, value);
+          chartsBuilder_.setMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .meshpaas.AppTemplate templates = 1;</code>
+       * <code>repeated .meshpaas.Chart charts = 1;</code>
        */
-      public Builder setTemplates(
-          int index, meshpaas.Schema.AppTemplate.Builder builderForValue) {
-        if (templatesBuilder_ == null) {
-          ensureTemplatesIsMutable();
-          templates_.set(index, builderForValue.build());
+      public Builder setCharts(
+          int index, meshpaas.Schema.Chart.Builder builderForValue) {
+        if (chartsBuilder_ == null) {
+          ensureChartsIsMutable();
+          charts_.set(index, builderForValue.build());
           onChanged();
         } else {
-          templatesBuilder_.setMessage(index, builderForValue.build());
+          chartsBuilder_.setMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .meshpaas.AppTemplate templates = 1;</code>
+       * <code>repeated .meshpaas.Chart charts = 1;</code>
        */
-      public Builder addTemplates(meshpaas.Schema.AppTemplate value) {
-        if (templatesBuilder_ == null) {
+      public Builder addCharts(meshpaas.Schema.Chart value) {
+        if (chartsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureTemplatesIsMutable();
-          templates_.add(value);
+          ensureChartsIsMutable();
+          charts_.add(value);
           onChanged();
         } else {
-          templatesBuilder_.addMessage(value);
+          chartsBuilder_.addMessage(value);
         }
         return this;
       }
       /**
-       * <code>repeated .meshpaas.AppTemplate templates = 1;</code>
+       * <code>repeated .meshpaas.Chart charts = 1;</code>
        */
-      public Builder addTemplates(
-          int index, meshpaas.Schema.AppTemplate value) {
-        if (templatesBuilder_ == null) {
+      public Builder addCharts(
+          int index, meshpaas.Schema.Chart value) {
+        if (chartsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureTemplatesIsMutable();
-          templates_.add(index, value);
+          ensureChartsIsMutable();
+          charts_.add(index, value);
           onChanged();
         } else {
-          templatesBuilder_.addMessage(index, value);
+          chartsBuilder_.addMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .meshpaas.AppTemplate templates = 1;</code>
+       * <code>repeated .meshpaas.Chart charts = 1;</code>
        */
-      public Builder addTemplates(
-          meshpaas.Schema.AppTemplate.Builder builderForValue) {
-        if (templatesBuilder_ == null) {
-          ensureTemplatesIsMutable();
-          templates_.add(builderForValue.build());
+      public Builder addCharts(
+          meshpaas.Schema.Chart.Builder builderForValue) {
+        if (chartsBuilder_ == null) {
+          ensureChartsIsMutable();
+          charts_.add(builderForValue.build());
           onChanged();
         } else {
-          templatesBuilder_.addMessage(builderForValue.build());
+          chartsBuilder_.addMessage(builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .meshpaas.AppTemplate templates = 1;</code>
+       * <code>repeated .meshpaas.Chart charts = 1;</code>
        */
-      public Builder addTemplates(
-          int index, meshpaas.Schema.AppTemplate.Builder builderForValue) {
-        if (templatesBuilder_ == null) {
-          ensureTemplatesIsMutable();
-          templates_.add(index, builderForValue.build());
+      public Builder addCharts(
+          int index, meshpaas.Schema.Chart.Builder builderForValue) {
+        if (chartsBuilder_ == null) {
+          ensureChartsIsMutable();
+          charts_.add(index, builderForValue.build());
           onChanged();
         } else {
-          templatesBuilder_.addMessage(index, builderForValue.build());
+          chartsBuilder_.addMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .meshpaas.AppTemplate templates = 1;</code>
+       * <code>repeated .meshpaas.Chart charts = 1;</code>
        */
-      public Builder addAllTemplates(
-          java.lang.Iterable<? extends meshpaas.Schema.AppTemplate> values) {
-        if (templatesBuilder_ == null) {
-          ensureTemplatesIsMutable();
+      public Builder addAllCharts(
+          java.lang.Iterable<? extends meshpaas.Schema.Chart> values) {
+        if (chartsBuilder_ == null) {
+          ensureChartsIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, templates_);
+              values, charts_);
           onChanged();
         } else {
-          templatesBuilder_.addAllMessages(values);
+          chartsBuilder_.addAllMessages(values);
         }
         return this;
       }
       /**
-       * <code>repeated .meshpaas.AppTemplate templates = 1;</code>
+       * <code>repeated .meshpaas.Chart charts = 1;</code>
        */
-      public Builder clearTemplates() {
-        if (templatesBuilder_ == null) {
-          templates_ = java.util.Collections.emptyList();
+      public Builder clearCharts() {
+        if (chartsBuilder_ == null) {
+          charts_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
-          templatesBuilder_.clear();
+          chartsBuilder_.clear();
         }
         return this;
       }
       /**
-       * <code>repeated .meshpaas.AppTemplate templates = 1;</code>
+       * <code>repeated .meshpaas.Chart charts = 1;</code>
        */
-      public Builder removeTemplates(int index) {
-        if (templatesBuilder_ == null) {
-          ensureTemplatesIsMutable();
-          templates_.remove(index);
+      public Builder removeCharts(int index) {
+        if (chartsBuilder_ == null) {
+          ensureChartsIsMutable();
+          charts_.remove(index);
           onChanged();
         } else {
-          templatesBuilder_.remove(index);
+          chartsBuilder_.remove(index);
         }
         return this;
       }
       /**
-       * <code>repeated .meshpaas.AppTemplate templates = 1;</code>
+       * <code>repeated .meshpaas.Chart charts = 1;</code>
        */
-      public meshpaas.Schema.AppTemplate.Builder getTemplatesBuilder(
+      public meshpaas.Schema.Chart.Builder getChartsBuilder(
           int index) {
-        return getTemplatesFieldBuilder().getBuilder(index);
+        return getChartsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .meshpaas.AppTemplate templates = 1;</code>
+       * <code>repeated .meshpaas.Chart charts = 1;</code>
        */
-      public meshpaas.Schema.AppTemplateOrBuilder getTemplatesOrBuilder(
+      public meshpaas.Schema.ChartOrBuilder getChartsOrBuilder(
           int index) {
-        if (templatesBuilder_ == null) {
-          return templates_.get(index);  } else {
-          return templatesBuilder_.getMessageOrBuilder(index);
+        if (chartsBuilder_ == null) {
+          return charts_.get(index);  } else {
+          return chartsBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
-       * <code>repeated .meshpaas.AppTemplate templates = 1;</code>
+       * <code>repeated .meshpaas.Chart charts = 1;</code>
        */
-      public java.util.List<? extends meshpaas.Schema.AppTemplateOrBuilder> 
-           getTemplatesOrBuilderList() {
-        if (templatesBuilder_ != null) {
-          return templatesBuilder_.getMessageOrBuilderList();
+      public java.util.List<? extends meshpaas.Schema.ChartOrBuilder> 
+           getChartsOrBuilderList() {
+        if (chartsBuilder_ != null) {
+          return chartsBuilder_.getMessageOrBuilderList();
         } else {
-          return java.util.Collections.unmodifiableList(templates_);
+          return java.util.Collections.unmodifiableList(charts_);
         }
       }
       /**
-       * <code>repeated .meshpaas.AppTemplate templates = 1;</code>
+       * <code>repeated .meshpaas.Chart charts = 1;</code>
        */
-      public meshpaas.Schema.AppTemplate.Builder addTemplatesBuilder() {
-        return getTemplatesFieldBuilder().addBuilder(
-            meshpaas.Schema.AppTemplate.getDefaultInstance());
+      public meshpaas.Schema.Chart.Builder addChartsBuilder() {
+        return getChartsFieldBuilder().addBuilder(
+            meshpaas.Schema.Chart.getDefaultInstance());
       }
       /**
-       * <code>repeated .meshpaas.AppTemplate templates = 1;</code>
+       * <code>repeated .meshpaas.Chart charts = 1;</code>
        */
-      public meshpaas.Schema.AppTemplate.Builder addTemplatesBuilder(
+      public meshpaas.Schema.Chart.Builder addChartsBuilder(
           int index) {
-        return getTemplatesFieldBuilder().addBuilder(
-            index, meshpaas.Schema.AppTemplate.getDefaultInstance());
+        return getChartsFieldBuilder().addBuilder(
+            index, meshpaas.Schema.Chart.getDefaultInstance());
       }
       /**
-       * <code>repeated .meshpaas.AppTemplate templates = 1;</code>
+       * <code>repeated .meshpaas.Chart charts = 1;</code>
        */
-      public java.util.List<meshpaas.Schema.AppTemplate.Builder> 
-           getTemplatesBuilderList() {
-        return getTemplatesFieldBuilder().getBuilderList();
+      public java.util.List<meshpaas.Schema.Chart.Builder> 
+           getChartsBuilderList() {
+        return getChartsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          meshpaas.Schema.AppTemplate, meshpaas.Schema.AppTemplate.Builder, meshpaas.Schema.AppTemplateOrBuilder> 
-          getTemplatesFieldBuilder() {
-        if (templatesBuilder_ == null) {
-          templatesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              meshpaas.Schema.AppTemplate, meshpaas.Schema.AppTemplate.Builder, meshpaas.Schema.AppTemplateOrBuilder>(
-                  templates_,
+          meshpaas.Schema.Chart, meshpaas.Schema.Chart.Builder, meshpaas.Schema.ChartOrBuilder> 
+          getChartsFieldBuilder() {
+        if (chartsBuilder_ == null) {
+          chartsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              meshpaas.Schema.Chart, meshpaas.Schema.Chart.Builder, meshpaas.Schema.ChartOrBuilder>(
+                  charts_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
                   getParentForChildren(),
                   isClean());
-          templates_ = null;
+          charts_ = null;
         }
-        return templatesBuilder_;
+        return chartsBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -5791,41 +6299,41 @@ public final class Schema {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:meshpaas.AppTemplates)
+      // @@protoc_insertion_point(builder_scope:meshpaas.Charts)
     }
 
-    // @@protoc_insertion_point(class_scope:meshpaas.AppTemplates)
-    private static final meshpaas.Schema.AppTemplates DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:meshpaas.Charts)
+    private static final meshpaas.Schema.Charts DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new meshpaas.Schema.AppTemplates();
+      DEFAULT_INSTANCE = new meshpaas.Schema.Charts();
     }
 
-    public static meshpaas.Schema.AppTemplates getDefaultInstance() {
+    public static meshpaas.Schema.Charts getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<AppTemplates>
-        PARSER = new com.google.protobuf.AbstractParser<AppTemplates>() {
+    private static final com.google.protobuf.Parser<Charts>
+        PARSER = new com.google.protobuf.AbstractParser<Charts>() {
       @java.lang.Override
-      public AppTemplates parsePartialFrom(
+      public Charts parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AppTemplates(input, extensionRegistry);
+        return new Charts(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<AppTemplates> parser() {
+    public static com.google.protobuf.Parser<Charts> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<AppTemplates> getParserForType() {
+    public com.google.protobuf.Parser<Charts> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public meshpaas.Schema.AppTemplates getDefaultInstanceForType() {
+    public meshpaas.Schema.Charts getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -5855,51 +6363,75 @@ public final class Schema {
 
     /**
      * <pre>
-     * project name the app belongs to(autocreated)
+     * namespace name the app belongs to(autocreated)
      * </pre>
      *
-     * <code>string project = 2 [(.validator.field) = { ... }</code>
+     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
      */
-    java.lang.String getProject();
+    java.lang.String getNamespace();
     /**
      * <pre>
-     * project name the app belongs to(autocreated)
+     * namespace name the app belongs to(autocreated)
      * </pre>
      *
-     * <code>string project = 2 [(.validator.field) = { ... }</code>
+     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
-        getProjectBytes();
+        getNamespaceBytes();
 
     /**
+     * <pre>
+     * release holds information about the currently deployed release of the application
+     * </pre>
+     *
      * <code>.meshpaas.Release release = 5;</code>
      */
     boolean hasRelease();
     /**
+     * <pre>
+     * release holds information about the currently deployed release of the application
+     * </pre>
+     *
      * <code>.meshpaas.Release release = 5;</code>
      */
     meshpaas.Schema.Release getRelease();
     /**
+     * <pre>
+     * release holds information about the currently deployed release of the application
+     * </pre>
+     *
      * <code>.meshpaas.Release release = 5;</code>
      */
     meshpaas.Schema.ReleaseOrBuilder getReleaseOrBuilder();
 
     /**
-     * <code>.meshpaas.AppTemplate template = 20;</code>
+     * <pre>
+     * chart is the chart used to deploy the App
+     * </pre>
+     *
+     * <code>.meshpaas.Chart chart = 20;</code>
      */
-    boolean hasTemplate();
+    boolean hasChart();
     /**
-     * <code>.meshpaas.AppTemplate template = 20;</code>
+     * <pre>
+     * chart is the chart used to deploy the App
+     * </pre>
+     *
+     * <code>.meshpaas.Chart chart = 20;</code>
      */
-    meshpaas.Schema.AppTemplate getTemplate();
+    meshpaas.Schema.Chart getChart();
     /**
-     * <code>.meshpaas.AppTemplate template = 20;</code>
+     * <pre>
+     * chart is the chart used to deploy the App
+     * </pre>
+     *
+     * <code>.meshpaas.Chart chart = 20;</code>
      */
-    meshpaas.Schema.AppTemplateOrBuilder getTemplateOrBuilder();
+    meshpaas.Schema.ChartOrBuilder getChartOrBuilder();
   }
   /**
    * <pre>
-   * App is an App created from an AppTemplate
+   * App is an App created from a helm chart
    * </pre>
    *
    * Protobuf type {@code meshpaas.App}
@@ -5915,7 +6447,7 @@ public final class Schema {
     }
     private App() {
       name_ = "";
-      project_ = "";
+      namespace_ = "";
     }
 
     @java.lang.Override
@@ -5951,7 +6483,7 @@ public final class Schema {
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              project_ = s;
+              namespace_ = s;
               break;
             }
             case 42: {
@@ -5968,14 +6500,14 @@ public final class Schema {
               break;
             }
             case 162: {
-              meshpaas.Schema.AppTemplate.Builder subBuilder = null;
-              if (template_ != null) {
-                subBuilder = template_.toBuilder();
+              meshpaas.Schema.Chart.Builder subBuilder = null;
+              if (chart_ != null) {
+                subBuilder = chart_.toBuilder();
               }
-              template_ = input.readMessage(meshpaas.Schema.AppTemplate.parser(), extensionRegistry);
+              chart_ = input.readMessage(meshpaas.Schema.Chart.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(template_);
-                template_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(chart_);
+                chart_ = subBuilder.buildPartial();
               }
 
               break;
@@ -6054,42 +6586,42 @@ public final class Schema {
       }
     }
 
-    public static final int PROJECT_FIELD_NUMBER = 2;
-    private volatile java.lang.Object project_;
+    public static final int NAMESPACE_FIELD_NUMBER = 2;
+    private volatile java.lang.Object namespace_;
     /**
      * <pre>
-     * project name the app belongs to(autocreated)
+     * namespace name the app belongs to(autocreated)
      * </pre>
      *
-     * <code>string project = 2 [(.validator.field) = { ... }</code>
+     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
      */
-    public java.lang.String getProject() {
-      java.lang.Object ref = project_;
+    public java.lang.String getNamespace() {
+      java.lang.Object ref = namespace_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        project_ = s;
+        namespace_ = s;
         return s;
       }
     }
     /**
      * <pre>
-     * project name the app belongs to(autocreated)
+     * namespace name the app belongs to(autocreated)
      * </pre>
      *
-     * <code>string project = 2 [(.validator.field) = { ... }</code>
+     * <code>string namespace = 2 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
-        getProjectBytes() {
-      java.lang.Object ref = project_;
+        getNamespaceBytes() {
+      java.lang.Object ref = namespace_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        project_ = b;
+        namespace_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -6099,43 +6631,67 @@ public final class Schema {
     public static final int RELEASE_FIELD_NUMBER = 5;
     private meshpaas.Schema.Release release_;
     /**
+     * <pre>
+     * release holds information about the currently deployed release of the application
+     * </pre>
+     *
      * <code>.meshpaas.Release release = 5;</code>
      */
     public boolean hasRelease() {
       return release_ != null;
     }
     /**
+     * <pre>
+     * release holds information about the currently deployed release of the application
+     * </pre>
+     *
      * <code>.meshpaas.Release release = 5;</code>
      */
     public meshpaas.Schema.Release getRelease() {
       return release_ == null ? meshpaas.Schema.Release.getDefaultInstance() : release_;
     }
     /**
+     * <pre>
+     * release holds information about the currently deployed release of the application
+     * </pre>
+     *
      * <code>.meshpaas.Release release = 5;</code>
      */
     public meshpaas.Schema.ReleaseOrBuilder getReleaseOrBuilder() {
       return getRelease();
     }
 
-    public static final int TEMPLATE_FIELD_NUMBER = 20;
-    private meshpaas.Schema.AppTemplate template_;
+    public static final int CHART_FIELD_NUMBER = 20;
+    private meshpaas.Schema.Chart chart_;
     /**
-     * <code>.meshpaas.AppTemplate template = 20;</code>
+     * <pre>
+     * chart is the chart used to deploy the App
+     * </pre>
+     *
+     * <code>.meshpaas.Chart chart = 20;</code>
      */
-    public boolean hasTemplate() {
-      return template_ != null;
+    public boolean hasChart() {
+      return chart_ != null;
     }
     /**
-     * <code>.meshpaas.AppTemplate template = 20;</code>
+     * <pre>
+     * chart is the chart used to deploy the App
+     * </pre>
+     *
+     * <code>.meshpaas.Chart chart = 20;</code>
      */
-    public meshpaas.Schema.AppTemplate getTemplate() {
-      return template_ == null ? meshpaas.Schema.AppTemplate.getDefaultInstance() : template_;
+    public meshpaas.Schema.Chart getChart() {
+      return chart_ == null ? meshpaas.Schema.Chart.getDefaultInstance() : chart_;
     }
     /**
-     * <code>.meshpaas.AppTemplate template = 20;</code>
+     * <pre>
+     * chart is the chart used to deploy the App
+     * </pre>
+     *
+     * <code>.meshpaas.Chart chart = 20;</code>
      */
-    public meshpaas.Schema.AppTemplateOrBuilder getTemplateOrBuilder() {
-      return getTemplate();
+    public meshpaas.Schema.ChartOrBuilder getChartOrBuilder() {
+      return getChart();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -6155,14 +6711,14 @@ public final class Schema {
       if (!getNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
-      if (!getProjectBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, project_);
+      if (!getNamespaceBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, namespace_);
       }
       if (release_ != null) {
         output.writeMessage(5, getRelease());
       }
-      if (template_ != null) {
-        output.writeMessage(20, getTemplate());
+      if (chart_ != null) {
+        output.writeMessage(20, getChart());
       }
       unknownFields.writeTo(output);
     }
@@ -6176,16 +6732,16 @@ public final class Schema {
       if (!getNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
-      if (!getProjectBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, project_);
+      if (!getNamespaceBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, namespace_);
       }
       if (release_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, getRelease());
       }
-      if (template_ != null) {
+      if (chart_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(20, getTemplate());
+          .computeMessageSize(20, getChart());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6205,17 +6761,17 @@ public final class Schema {
       boolean result = true;
       result = result && getName()
           .equals(other.getName());
-      result = result && getProject()
-          .equals(other.getProject());
+      result = result && getNamespace()
+          .equals(other.getNamespace());
       result = result && (hasRelease() == other.hasRelease());
       if (hasRelease()) {
         result = result && getRelease()
             .equals(other.getRelease());
       }
-      result = result && (hasTemplate() == other.hasTemplate());
-      if (hasTemplate()) {
-        result = result && getTemplate()
-            .equals(other.getTemplate());
+      result = result && (hasChart() == other.hasChart());
+      if (hasChart()) {
+        result = result && getChart()
+            .equals(other.getChart());
       }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
@@ -6230,15 +6786,15 @@ public final class Schema {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + PROJECT_FIELD_NUMBER;
-      hash = (53 * hash) + getProject().hashCode();
+      hash = (37 * hash) + NAMESPACE_FIELD_NUMBER;
+      hash = (53 * hash) + getNamespace().hashCode();
       if (hasRelease()) {
         hash = (37 * hash) + RELEASE_FIELD_NUMBER;
         hash = (53 * hash) + getRelease().hashCode();
       }
-      if (hasTemplate()) {
-        hash = (37 * hash) + TEMPLATE_FIELD_NUMBER;
-        hash = (53 * hash) + getTemplate().hashCode();
+      if (hasChart()) {
+        hash = (37 * hash) + CHART_FIELD_NUMBER;
+        hash = (53 * hash) + getChart().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -6337,7 +6893,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * App is an App created from an AppTemplate
+     * App is an App created from a helm chart
      * </pre>
      *
      * Protobuf type {@code meshpaas.App}
@@ -6379,7 +6935,7 @@ public final class Schema {
         super.clear();
         name_ = "";
 
-        project_ = "";
+        namespace_ = "";
 
         if (releaseBuilder_ == null) {
           release_ = null;
@@ -6387,11 +6943,11 @@ public final class Schema {
           release_ = null;
           releaseBuilder_ = null;
         }
-        if (templateBuilder_ == null) {
-          template_ = null;
+        if (chartBuilder_ == null) {
+          chart_ = null;
         } else {
-          template_ = null;
-          templateBuilder_ = null;
+          chart_ = null;
+          chartBuilder_ = null;
         }
         return this;
       }
@@ -6420,16 +6976,16 @@ public final class Schema {
       public meshpaas.Schema.App buildPartial() {
         meshpaas.Schema.App result = new meshpaas.Schema.App(this);
         result.name_ = name_;
-        result.project_ = project_;
+        result.namespace_ = namespace_;
         if (releaseBuilder_ == null) {
           result.release_ = release_;
         } else {
           result.release_ = releaseBuilder_.build();
         }
-        if (templateBuilder_ == null) {
-          result.template_ = template_;
+        if (chartBuilder_ == null) {
+          result.chart_ = chart_;
         } else {
-          result.template_ = templateBuilder_.build();
+          result.chart_ = chartBuilder_.build();
         }
         onBuilt();
         return result;
@@ -6483,15 +7039,15 @@ public final class Schema {
           name_ = other.name_;
           onChanged();
         }
-        if (!other.getProject().isEmpty()) {
-          project_ = other.project_;
+        if (!other.getNamespace().isEmpty()) {
+          namespace_ = other.namespace_;
           onChanged();
         }
         if (other.hasRelease()) {
           mergeRelease(other.getRelease());
         }
-        if (other.hasTemplate()) {
-          mergeTemplate(other.getTemplate());
+        if (other.hasChart()) {
+          mergeChart(other.getChart());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -6611,21 +7167,21 @@ public final class Schema {
         return this;
       }
 
-      private java.lang.Object project_ = "";
+      private java.lang.Object namespace_ = "";
       /**
        * <pre>
-       * project name the app belongs to(autocreated)
+       * namespace name the app belongs to(autocreated)
        * </pre>
        *
-       * <code>string project = 2 [(.validator.field) = { ... }</code>
+       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
        */
-      public java.lang.String getProject() {
-        java.lang.Object ref = project_;
+      public java.lang.String getNamespace() {
+        java.lang.Object ref = namespace_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          project_ = s;
+          namespace_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -6633,19 +7189,19 @@ public final class Schema {
       }
       /**
        * <pre>
-       * project name the app belongs to(autocreated)
+       * namespace name the app belongs to(autocreated)
        * </pre>
        *
-       * <code>string project = 2 [(.validator.field) = { ... }</code>
+       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
-          getProjectBytes() {
-        java.lang.Object ref = project_;
+          getNamespaceBytes() {
+        java.lang.Object ref = namespace_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          project_ = b;
+          namespace_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -6653,49 +7209,49 @@ public final class Schema {
       }
       /**
        * <pre>
-       * project name the app belongs to(autocreated)
+       * namespace name the app belongs to(autocreated)
        * </pre>
        *
-       * <code>string project = 2 [(.validator.field) = { ... }</code>
+       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
        */
-      public Builder setProject(
+      public Builder setNamespace(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        project_ = value;
+        namespace_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * project name the app belongs to(autocreated)
+       * namespace name the app belongs to(autocreated)
        * </pre>
        *
-       * <code>string project = 2 [(.validator.field) = { ... }</code>
+       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
        */
-      public Builder clearProject() {
+      public Builder clearNamespace() {
         
-        project_ = getDefaultInstance().getProject();
+        namespace_ = getDefaultInstance().getNamespace();
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * project name the app belongs to(autocreated)
+       * namespace name the app belongs to(autocreated)
        * </pre>
        *
-       * <code>string project = 2 [(.validator.field) = { ... }</code>
+       * <code>string namespace = 2 [(.validator.field) = { ... }</code>
        */
-      public Builder setProjectBytes(
+      public Builder setNamespaceBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        project_ = value;
+        namespace_ = value;
         onChanged();
         return this;
       }
@@ -6704,12 +7260,20 @@ public final class Schema {
       private com.google.protobuf.SingleFieldBuilderV3<
           meshpaas.Schema.Release, meshpaas.Schema.Release.Builder, meshpaas.Schema.ReleaseOrBuilder> releaseBuilder_;
       /**
+       * <pre>
+       * release holds information about the currently deployed release of the application
+       * </pre>
+       *
        * <code>.meshpaas.Release release = 5;</code>
        */
       public boolean hasRelease() {
         return releaseBuilder_ != null || release_ != null;
       }
       /**
+       * <pre>
+       * release holds information about the currently deployed release of the application
+       * </pre>
+       *
        * <code>.meshpaas.Release release = 5;</code>
        */
       public meshpaas.Schema.Release getRelease() {
@@ -6720,6 +7284,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * release holds information about the currently deployed release of the application
+       * </pre>
+       *
        * <code>.meshpaas.Release release = 5;</code>
        */
       public Builder setRelease(meshpaas.Schema.Release value) {
@@ -6736,6 +7304,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * release holds information about the currently deployed release of the application
+       * </pre>
+       *
        * <code>.meshpaas.Release release = 5;</code>
        */
       public Builder setRelease(
@@ -6750,6 +7322,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * release holds information about the currently deployed release of the application
+       * </pre>
+       *
        * <code>.meshpaas.Release release = 5;</code>
        */
       public Builder mergeRelease(meshpaas.Schema.Release value) {
@@ -6768,6 +7344,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * release holds information about the currently deployed release of the application
+       * </pre>
+       *
        * <code>.meshpaas.Release release = 5;</code>
        */
       public Builder clearRelease() {
@@ -6782,6 +7362,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * release holds information about the currently deployed release of the application
+       * </pre>
+       *
        * <code>.meshpaas.Release release = 5;</code>
        */
       public meshpaas.Schema.Release.Builder getReleaseBuilder() {
@@ -6790,6 +7374,10 @@ public final class Schema {
         return getReleaseFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * release holds information about the currently deployed release of the application
+       * </pre>
+       *
        * <code>.meshpaas.Release release = 5;</code>
        */
       public meshpaas.Schema.ReleaseOrBuilder getReleaseOrBuilder() {
@@ -6801,6 +7389,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * release holds information about the currently deployed release of the application
+       * </pre>
+       *
        * <code>.meshpaas.Release release = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -6817,121 +7409,157 @@ public final class Schema {
         return releaseBuilder_;
       }
 
-      private meshpaas.Schema.AppTemplate template_ = null;
+      private meshpaas.Schema.Chart chart_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          meshpaas.Schema.AppTemplate, meshpaas.Schema.AppTemplate.Builder, meshpaas.Schema.AppTemplateOrBuilder> templateBuilder_;
+          meshpaas.Schema.Chart, meshpaas.Schema.Chart.Builder, meshpaas.Schema.ChartOrBuilder> chartBuilder_;
       /**
-       * <code>.meshpaas.AppTemplate template = 20;</code>
+       * <pre>
+       * chart is the chart used to deploy the App
+       * </pre>
+       *
+       * <code>.meshpaas.Chart chart = 20;</code>
        */
-      public boolean hasTemplate() {
-        return templateBuilder_ != null || template_ != null;
+      public boolean hasChart() {
+        return chartBuilder_ != null || chart_ != null;
       }
       /**
-       * <code>.meshpaas.AppTemplate template = 20;</code>
+       * <pre>
+       * chart is the chart used to deploy the App
+       * </pre>
+       *
+       * <code>.meshpaas.Chart chart = 20;</code>
        */
-      public meshpaas.Schema.AppTemplate getTemplate() {
-        if (templateBuilder_ == null) {
-          return template_ == null ? meshpaas.Schema.AppTemplate.getDefaultInstance() : template_;
+      public meshpaas.Schema.Chart getChart() {
+        if (chartBuilder_ == null) {
+          return chart_ == null ? meshpaas.Schema.Chart.getDefaultInstance() : chart_;
         } else {
-          return templateBuilder_.getMessage();
+          return chartBuilder_.getMessage();
         }
       }
       /**
-       * <code>.meshpaas.AppTemplate template = 20;</code>
+       * <pre>
+       * chart is the chart used to deploy the App
+       * </pre>
+       *
+       * <code>.meshpaas.Chart chart = 20;</code>
        */
-      public Builder setTemplate(meshpaas.Schema.AppTemplate value) {
-        if (templateBuilder_ == null) {
+      public Builder setChart(meshpaas.Schema.Chart value) {
+        if (chartBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          template_ = value;
+          chart_ = value;
           onChanged();
         } else {
-          templateBuilder_.setMessage(value);
+          chartBuilder_.setMessage(value);
         }
 
         return this;
       }
       /**
-       * <code>.meshpaas.AppTemplate template = 20;</code>
+       * <pre>
+       * chart is the chart used to deploy the App
+       * </pre>
+       *
+       * <code>.meshpaas.Chart chart = 20;</code>
        */
-      public Builder setTemplate(
-          meshpaas.Schema.AppTemplate.Builder builderForValue) {
-        if (templateBuilder_ == null) {
-          template_ = builderForValue.build();
+      public Builder setChart(
+          meshpaas.Schema.Chart.Builder builderForValue) {
+        if (chartBuilder_ == null) {
+          chart_ = builderForValue.build();
           onChanged();
         } else {
-          templateBuilder_.setMessage(builderForValue.build());
+          chartBuilder_.setMessage(builderForValue.build());
         }
 
         return this;
       }
       /**
-       * <code>.meshpaas.AppTemplate template = 20;</code>
+       * <pre>
+       * chart is the chart used to deploy the App
+       * </pre>
+       *
+       * <code>.meshpaas.Chart chart = 20;</code>
        */
-      public Builder mergeTemplate(meshpaas.Schema.AppTemplate value) {
-        if (templateBuilder_ == null) {
-          if (template_ != null) {
-            template_ =
-              meshpaas.Schema.AppTemplate.newBuilder(template_).mergeFrom(value).buildPartial();
+      public Builder mergeChart(meshpaas.Schema.Chart value) {
+        if (chartBuilder_ == null) {
+          if (chart_ != null) {
+            chart_ =
+              meshpaas.Schema.Chart.newBuilder(chart_).mergeFrom(value).buildPartial();
           } else {
-            template_ = value;
+            chart_ = value;
           }
           onChanged();
         } else {
-          templateBuilder_.mergeFrom(value);
+          chartBuilder_.mergeFrom(value);
         }
 
         return this;
       }
       /**
-       * <code>.meshpaas.AppTemplate template = 20;</code>
+       * <pre>
+       * chart is the chart used to deploy the App
+       * </pre>
+       *
+       * <code>.meshpaas.Chart chart = 20;</code>
        */
-      public Builder clearTemplate() {
-        if (templateBuilder_ == null) {
-          template_ = null;
+      public Builder clearChart() {
+        if (chartBuilder_ == null) {
+          chart_ = null;
           onChanged();
         } else {
-          template_ = null;
-          templateBuilder_ = null;
+          chart_ = null;
+          chartBuilder_ = null;
         }
 
         return this;
       }
       /**
-       * <code>.meshpaas.AppTemplate template = 20;</code>
+       * <pre>
+       * chart is the chart used to deploy the App
+       * </pre>
+       *
+       * <code>.meshpaas.Chart chart = 20;</code>
        */
-      public meshpaas.Schema.AppTemplate.Builder getTemplateBuilder() {
+      public meshpaas.Schema.Chart.Builder getChartBuilder() {
         
         onChanged();
-        return getTemplateFieldBuilder().getBuilder();
+        return getChartFieldBuilder().getBuilder();
       }
       /**
-       * <code>.meshpaas.AppTemplate template = 20;</code>
+       * <pre>
+       * chart is the chart used to deploy the App
+       * </pre>
+       *
+       * <code>.meshpaas.Chart chart = 20;</code>
        */
-      public meshpaas.Schema.AppTemplateOrBuilder getTemplateOrBuilder() {
-        if (templateBuilder_ != null) {
-          return templateBuilder_.getMessageOrBuilder();
+      public meshpaas.Schema.ChartOrBuilder getChartOrBuilder() {
+        if (chartBuilder_ != null) {
+          return chartBuilder_.getMessageOrBuilder();
         } else {
-          return template_ == null ?
-              meshpaas.Schema.AppTemplate.getDefaultInstance() : template_;
+          return chart_ == null ?
+              meshpaas.Schema.Chart.getDefaultInstance() : chart_;
         }
       }
       /**
-       * <code>.meshpaas.AppTemplate template = 20;</code>
+       * <pre>
+       * chart is the chart used to deploy the App
+       * </pre>
+       *
+       * <code>.meshpaas.Chart chart = 20;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          meshpaas.Schema.AppTemplate, meshpaas.Schema.AppTemplate.Builder, meshpaas.Schema.AppTemplateOrBuilder> 
-          getTemplateFieldBuilder() {
-        if (templateBuilder_ == null) {
-          templateBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              meshpaas.Schema.AppTemplate, meshpaas.Schema.AppTemplate.Builder, meshpaas.Schema.AppTemplateOrBuilder>(
-                  getTemplate(),
+          meshpaas.Schema.Chart, meshpaas.Schema.Chart.Builder, meshpaas.Schema.ChartOrBuilder> 
+          getChartFieldBuilder() {
+        if (chartBuilder_ == null) {
+          chartBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              meshpaas.Schema.Chart, meshpaas.Schema.Chart.Builder, meshpaas.Schema.ChartOrBuilder>(
+                  getChart(),
                   getParentForChildren(),
                   isClean());
-          template_ = null;
+          chart_ = null;
         }
-        return templateBuilder_;
+        return chartBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -7815,44 +8443,80 @@ public final class Schema {
     com.google.protobuf.StructOrBuilder getConfigOrBuilder();
 
     /**
+     * <pre>
+     * notes associated with the release
+     * </pre>
+     *
      * <code>string notes = 3;</code>
      */
     java.lang.String getNotes();
     /**
+     * <pre>
+     * notes associated with the release
+     * </pre>
+     *
      * <code>string notes = 3;</code>
      */
     com.google.protobuf.ByteString
         getNotesBytes();
 
     /**
+     * <pre>
+     * description of the release
+     * </pre>
+     *
      * <code>string description = 4;</code>
      */
     java.lang.String getDescription();
     /**
+     * <pre>
+     * description of the release
+     * </pre>
+     *
      * <code>string description = 4;</code>
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
 
     /**
+     * <pre>
+     * status of the release
+     * </pre>
+     *
      * <code>string status = 5;</code>
      */
     java.lang.String getStatus();
     /**
+     * <pre>
+     * status of the release
+     * </pre>
+     *
      * <code>string status = 5;</code>
      */
     com.google.protobuf.ByteString
         getStatusBytes();
 
     /**
+     * <pre>
+     * lifecycle timestamps related
+     * </pre>
+     *
      * <code>.meshpaas.Timestamps timestamps = 6;</code>
      */
     boolean hasTimestamps();
     /**
+     * <pre>
+     * lifecycle timestamps related
+     * </pre>
+     *
      * <code>.meshpaas.Timestamps timestamps = 6;</code>
      */
     meshpaas.Schema.Timestamps getTimestamps();
     /**
+     * <pre>
+     * lifecycle timestamps related
+     * </pre>
+     *
      * <code>.meshpaas.Timestamps timestamps = 6;</code>
      */
     meshpaas.Schema.TimestampsOrBuilder getTimestampsOrBuilder();
@@ -8034,6 +8698,10 @@ public final class Schema {
     public static final int NOTES_FIELD_NUMBER = 3;
     private volatile java.lang.Object notes_;
     /**
+     * <pre>
+     * notes associated with the release
+     * </pre>
+     *
      * <code>string notes = 3;</code>
      */
     public java.lang.String getNotes() {
@@ -8049,6 +8717,10 @@ public final class Schema {
       }
     }
     /**
+     * <pre>
+     * notes associated with the release
+     * </pre>
+     *
      * <code>string notes = 3;</code>
      */
     public com.google.protobuf.ByteString
@@ -8068,6 +8740,10 @@ public final class Schema {
     public static final int DESCRIPTION_FIELD_NUMBER = 4;
     private volatile java.lang.Object description_;
     /**
+     * <pre>
+     * description of the release
+     * </pre>
+     *
      * <code>string description = 4;</code>
      */
     public java.lang.String getDescription() {
@@ -8083,6 +8759,10 @@ public final class Schema {
       }
     }
     /**
+     * <pre>
+     * description of the release
+     * </pre>
+     *
      * <code>string description = 4;</code>
      */
     public com.google.protobuf.ByteString
@@ -8102,6 +8782,10 @@ public final class Schema {
     public static final int STATUS_FIELD_NUMBER = 5;
     private volatile java.lang.Object status_;
     /**
+     * <pre>
+     * status of the release
+     * </pre>
+     *
      * <code>string status = 5;</code>
      */
     public java.lang.String getStatus() {
@@ -8117,6 +8801,10 @@ public final class Schema {
       }
     }
     /**
+     * <pre>
+     * status of the release
+     * </pre>
+     *
      * <code>string status = 5;</code>
      */
     public com.google.protobuf.ByteString
@@ -8136,18 +8824,30 @@ public final class Schema {
     public static final int TIMESTAMPS_FIELD_NUMBER = 6;
     private meshpaas.Schema.Timestamps timestamps_;
     /**
+     * <pre>
+     * lifecycle timestamps related
+     * </pre>
+     *
      * <code>.meshpaas.Timestamps timestamps = 6;</code>
      */
     public boolean hasTimestamps() {
       return timestamps_ != null;
     }
     /**
+     * <pre>
+     * lifecycle timestamps related
+     * </pre>
+     *
      * <code>.meshpaas.Timestamps timestamps = 6;</code>
      */
     public meshpaas.Schema.Timestamps getTimestamps() {
       return timestamps_ == null ? meshpaas.Schema.Timestamps.getDefaultInstance() : timestamps_;
     }
     /**
+     * <pre>
+     * lifecycle timestamps related
+     * </pre>
+     *
      * <code>.meshpaas.Timestamps timestamps = 6;</code>
      */
     public meshpaas.Schema.TimestampsOrBuilder getTimestampsOrBuilder() {
@@ -8765,6 +9465,10 @@ public final class Schema {
 
       private java.lang.Object notes_ = "";
       /**
+       * <pre>
+       * notes associated with the release
+       * </pre>
+       *
        * <code>string notes = 3;</code>
        */
       public java.lang.String getNotes() {
@@ -8780,6 +9484,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * notes associated with the release
+       * </pre>
+       *
        * <code>string notes = 3;</code>
        */
       public com.google.protobuf.ByteString
@@ -8796,6 +9504,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * notes associated with the release
+       * </pre>
+       *
        * <code>string notes = 3;</code>
        */
       public Builder setNotes(
@@ -8809,6 +9521,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * notes associated with the release
+       * </pre>
+       *
        * <code>string notes = 3;</code>
        */
       public Builder clearNotes() {
@@ -8818,6 +9534,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * notes associated with the release
+       * </pre>
+       *
        * <code>string notes = 3;</code>
        */
       public Builder setNotesBytes(
@@ -8834,6 +9554,10 @@ public final class Schema {
 
       private java.lang.Object description_ = "";
       /**
+       * <pre>
+       * description of the release
+       * </pre>
+       *
        * <code>string description = 4;</code>
        */
       public java.lang.String getDescription() {
@@ -8849,6 +9573,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * description of the release
+       * </pre>
+       *
        * <code>string description = 4;</code>
        */
       public com.google.protobuf.ByteString
@@ -8865,6 +9593,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * description of the release
+       * </pre>
+       *
        * <code>string description = 4;</code>
        */
       public Builder setDescription(
@@ -8878,6 +9610,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * description of the release
+       * </pre>
+       *
        * <code>string description = 4;</code>
        */
       public Builder clearDescription() {
@@ -8887,6 +9623,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * description of the release
+       * </pre>
+       *
        * <code>string description = 4;</code>
        */
       public Builder setDescriptionBytes(
@@ -8903,6 +9643,10 @@ public final class Schema {
 
       private java.lang.Object status_ = "";
       /**
+       * <pre>
+       * status of the release
+       * </pre>
+       *
        * <code>string status = 5;</code>
        */
       public java.lang.String getStatus() {
@@ -8918,6 +9662,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * status of the release
+       * </pre>
+       *
        * <code>string status = 5;</code>
        */
       public com.google.protobuf.ByteString
@@ -8934,6 +9682,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * status of the release
+       * </pre>
+       *
        * <code>string status = 5;</code>
        */
       public Builder setStatus(
@@ -8947,6 +9699,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * status of the release
+       * </pre>
+       *
        * <code>string status = 5;</code>
        */
       public Builder clearStatus() {
@@ -8956,6 +9712,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * status of the release
+       * </pre>
+       *
        * <code>string status = 5;</code>
        */
       public Builder setStatusBytes(
@@ -8974,12 +9734,20 @@ public final class Schema {
       private com.google.protobuf.SingleFieldBuilderV3<
           meshpaas.Schema.Timestamps, meshpaas.Schema.Timestamps.Builder, meshpaas.Schema.TimestampsOrBuilder> timestampsBuilder_;
       /**
+       * <pre>
+       * lifecycle timestamps related
+       * </pre>
+       *
        * <code>.meshpaas.Timestamps timestamps = 6;</code>
        */
       public boolean hasTimestamps() {
         return timestampsBuilder_ != null || timestamps_ != null;
       }
       /**
+       * <pre>
+       * lifecycle timestamps related
+       * </pre>
+       *
        * <code>.meshpaas.Timestamps timestamps = 6;</code>
        */
       public meshpaas.Schema.Timestamps getTimestamps() {
@@ -8990,6 +9758,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * lifecycle timestamps related
+       * </pre>
+       *
        * <code>.meshpaas.Timestamps timestamps = 6;</code>
        */
       public Builder setTimestamps(meshpaas.Schema.Timestamps value) {
@@ -9006,6 +9778,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * lifecycle timestamps related
+       * </pre>
+       *
        * <code>.meshpaas.Timestamps timestamps = 6;</code>
        */
       public Builder setTimestamps(
@@ -9020,6 +9796,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * lifecycle timestamps related
+       * </pre>
+       *
        * <code>.meshpaas.Timestamps timestamps = 6;</code>
        */
       public Builder mergeTimestamps(meshpaas.Schema.Timestamps value) {
@@ -9038,6 +9818,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * lifecycle timestamps related
+       * </pre>
+       *
        * <code>.meshpaas.Timestamps timestamps = 6;</code>
        */
       public Builder clearTimestamps() {
@@ -9052,6 +9836,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * lifecycle timestamps related
+       * </pre>
+       *
        * <code>.meshpaas.Timestamps timestamps = 6;</code>
        */
       public meshpaas.Schema.Timestamps.Builder getTimestampsBuilder() {
@@ -9060,6 +9848,10 @@ public final class Schema {
         return getTimestampsFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * lifecycle timestamps related
+       * </pre>
+       *
        * <code>.meshpaas.Timestamps timestamps = 6;</code>
        */
       public meshpaas.Schema.TimestampsOrBuilder getTimestampsOrBuilder() {
@@ -9071,6 +9863,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * lifecycle timestamps related
+       * </pre>
+       *
        * <code>.meshpaas.Timestamps timestamps = 6;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -9144,47 +9940,83 @@ public final class Schema {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * when the release was first deployed
+     * </pre>
+     *
      * <code>.google.protobuf.Timestamp created = 1;</code>
      */
     boolean hasCreated();
     /**
+     * <pre>
+     * when the release was first deployed
+     * </pre>
+     *
      * <code>.google.protobuf.Timestamp created = 1;</code>
      */
     com.google.protobuf.Timestamp getCreated();
     /**
+     * <pre>
+     * when the release was first deployed
+     * </pre>
+     *
      * <code>.google.protobuf.Timestamp created = 1;</code>
      */
     com.google.protobuf.TimestampOrBuilder getCreatedOrBuilder();
 
     /**
+     * <pre>
+     * when the release was last deployed
+     * </pre>
+     *
      * <code>.google.protobuf.Timestamp updated = 2;</code>
      */
     boolean hasUpdated();
     /**
+     * <pre>
+     * when the release was last deployed
+     * </pre>
+     *
      * <code>.google.protobuf.Timestamp updated = 2;</code>
      */
     com.google.protobuf.Timestamp getUpdated();
     /**
+     * <pre>
+     * when the release was last deployed
+     * </pre>
+     *
      * <code>.google.protobuf.Timestamp updated = 2;</code>
      */
     com.google.protobuf.TimestampOrBuilder getUpdatedOrBuilder();
 
     /**
+     * <pre>
+     * when the release was deleted
+     * </pre>
+     *
      * <code>.google.protobuf.Timestamp deleted = 3;</code>
      */
     boolean hasDeleted();
     /**
+     * <pre>
+     * when the release was deleted
+     * </pre>
+     *
      * <code>.google.protobuf.Timestamp deleted = 3;</code>
      */
     com.google.protobuf.Timestamp getDeleted();
     /**
+     * <pre>
+     * when the release was deleted
+     * </pre>
+     *
      * <code>.google.protobuf.Timestamp deleted = 3;</code>
      */
     com.google.protobuf.TimestampOrBuilder getDeletedOrBuilder();
   }
   /**
    * <pre>
-   * Timestamps tracks timestamps related to an App
+   * Timestamps tracks timestamps related to a release
    * </pre>
    *
    * Protobuf type {@code meshpaas.Timestamps}
@@ -9299,18 +10131,30 @@ public final class Schema {
     public static final int CREATED_FIELD_NUMBER = 1;
     private com.google.protobuf.Timestamp created_;
     /**
+     * <pre>
+     * when the release was first deployed
+     * </pre>
+     *
      * <code>.google.protobuf.Timestamp created = 1;</code>
      */
     public boolean hasCreated() {
       return created_ != null;
     }
     /**
+     * <pre>
+     * when the release was first deployed
+     * </pre>
+     *
      * <code>.google.protobuf.Timestamp created = 1;</code>
      */
     public com.google.protobuf.Timestamp getCreated() {
       return created_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : created_;
     }
     /**
+     * <pre>
+     * when the release was first deployed
+     * </pre>
+     *
      * <code>.google.protobuf.Timestamp created = 1;</code>
      */
     public com.google.protobuf.TimestampOrBuilder getCreatedOrBuilder() {
@@ -9320,18 +10164,30 @@ public final class Schema {
     public static final int UPDATED_FIELD_NUMBER = 2;
     private com.google.protobuf.Timestamp updated_;
     /**
+     * <pre>
+     * when the release was last deployed
+     * </pre>
+     *
      * <code>.google.protobuf.Timestamp updated = 2;</code>
      */
     public boolean hasUpdated() {
       return updated_ != null;
     }
     /**
+     * <pre>
+     * when the release was last deployed
+     * </pre>
+     *
      * <code>.google.protobuf.Timestamp updated = 2;</code>
      */
     public com.google.protobuf.Timestamp getUpdated() {
       return updated_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updated_;
     }
     /**
+     * <pre>
+     * when the release was last deployed
+     * </pre>
+     *
      * <code>.google.protobuf.Timestamp updated = 2;</code>
      */
     public com.google.protobuf.TimestampOrBuilder getUpdatedOrBuilder() {
@@ -9341,18 +10197,30 @@ public final class Schema {
     public static final int DELETED_FIELD_NUMBER = 3;
     private com.google.protobuf.Timestamp deleted_;
     /**
+     * <pre>
+     * when the release was deleted
+     * </pre>
+     *
      * <code>.google.protobuf.Timestamp deleted = 3;</code>
      */
     public boolean hasDeleted() {
       return deleted_ != null;
     }
     /**
+     * <pre>
+     * when the release was deleted
+     * </pre>
+     *
      * <code>.google.protobuf.Timestamp deleted = 3;</code>
      */
     public com.google.protobuf.Timestamp getDeleted() {
       return deleted_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : deleted_;
     }
     /**
+     * <pre>
+     * when the release was deleted
+     * </pre>
+     *
      * <code>.google.protobuf.Timestamp deleted = 3;</code>
      */
     public com.google.protobuf.TimestampOrBuilder getDeletedOrBuilder() {
@@ -9554,7 +10422,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * Timestamps tracks timestamps related to an App
+     * Timestamps tracks timestamps related to a release
      * </pre>
      *
      * Protobuf type {@code meshpaas.Timestamps}
@@ -9743,12 +10611,20 @@ public final class Schema {
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> createdBuilder_;
       /**
+       * <pre>
+       * when the release was first deployed
+       * </pre>
+       *
        * <code>.google.protobuf.Timestamp created = 1;</code>
        */
       public boolean hasCreated() {
         return createdBuilder_ != null || created_ != null;
       }
       /**
+       * <pre>
+       * when the release was first deployed
+       * </pre>
+       *
        * <code>.google.protobuf.Timestamp created = 1;</code>
        */
       public com.google.protobuf.Timestamp getCreated() {
@@ -9759,6 +10635,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * when the release was first deployed
+       * </pre>
+       *
        * <code>.google.protobuf.Timestamp created = 1;</code>
        */
       public Builder setCreated(com.google.protobuf.Timestamp value) {
@@ -9775,6 +10655,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * when the release was first deployed
+       * </pre>
+       *
        * <code>.google.protobuf.Timestamp created = 1;</code>
        */
       public Builder setCreated(
@@ -9789,6 +10673,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * when the release was first deployed
+       * </pre>
+       *
        * <code>.google.protobuf.Timestamp created = 1;</code>
        */
       public Builder mergeCreated(com.google.protobuf.Timestamp value) {
@@ -9807,6 +10695,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * when the release was first deployed
+       * </pre>
+       *
        * <code>.google.protobuf.Timestamp created = 1;</code>
        */
       public Builder clearCreated() {
@@ -9821,6 +10713,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * when the release was first deployed
+       * </pre>
+       *
        * <code>.google.protobuf.Timestamp created = 1;</code>
        */
       public com.google.protobuf.Timestamp.Builder getCreatedBuilder() {
@@ -9829,6 +10725,10 @@ public final class Schema {
         return getCreatedFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * when the release was first deployed
+       * </pre>
+       *
        * <code>.google.protobuf.Timestamp created = 1;</code>
        */
       public com.google.protobuf.TimestampOrBuilder getCreatedOrBuilder() {
@@ -9840,6 +10740,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * when the release was first deployed
+       * </pre>
+       *
        * <code>.google.protobuf.Timestamp created = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -9860,12 +10764,20 @@ public final class Schema {
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> updatedBuilder_;
       /**
+       * <pre>
+       * when the release was last deployed
+       * </pre>
+       *
        * <code>.google.protobuf.Timestamp updated = 2;</code>
        */
       public boolean hasUpdated() {
         return updatedBuilder_ != null || updated_ != null;
       }
       /**
+       * <pre>
+       * when the release was last deployed
+       * </pre>
+       *
        * <code>.google.protobuf.Timestamp updated = 2;</code>
        */
       public com.google.protobuf.Timestamp getUpdated() {
@@ -9876,6 +10788,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * when the release was last deployed
+       * </pre>
+       *
        * <code>.google.protobuf.Timestamp updated = 2;</code>
        */
       public Builder setUpdated(com.google.protobuf.Timestamp value) {
@@ -9892,6 +10808,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * when the release was last deployed
+       * </pre>
+       *
        * <code>.google.protobuf.Timestamp updated = 2;</code>
        */
       public Builder setUpdated(
@@ -9906,6 +10826,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * when the release was last deployed
+       * </pre>
+       *
        * <code>.google.protobuf.Timestamp updated = 2;</code>
        */
       public Builder mergeUpdated(com.google.protobuf.Timestamp value) {
@@ -9924,6 +10848,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * when the release was last deployed
+       * </pre>
+       *
        * <code>.google.protobuf.Timestamp updated = 2;</code>
        */
       public Builder clearUpdated() {
@@ -9938,6 +10866,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * when the release was last deployed
+       * </pre>
+       *
        * <code>.google.protobuf.Timestamp updated = 2;</code>
        */
       public com.google.protobuf.Timestamp.Builder getUpdatedBuilder() {
@@ -9946,6 +10878,10 @@ public final class Schema {
         return getUpdatedFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * when the release was last deployed
+       * </pre>
+       *
        * <code>.google.protobuf.Timestamp updated = 2;</code>
        */
       public com.google.protobuf.TimestampOrBuilder getUpdatedOrBuilder() {
@@ -9957,6 +10893,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * when the release was last deployed
+       * </pre>
+       *
        * <code>.google.protobuf.Timestamp updated = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -9977,12 +10917,20 @@ public final class Schema {
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> deletedBuilder_;
       /**
+       * <pre>
+       * when the release was deleted
+       * </pre>
+       *
        * <code>.google.protobuf.Timestamp deleted = 3;</code>
        */
       public boolean hasDeleted() {
         return deletedBuilder_ != null || deleted_ != null;
       }
       /**
+       * <pre>
+       * when the release was deleted
+       * </pre>
+       *
        * <code>.google.protobuf.Timestamp deleted = 3;</code>
        */
       public com.google.protobuf.Timestamp getDeleted() {
@@ -9993,6 +10941,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * when the release was deleted
+       * </pre>
+       *
        * <code>.google.protobuf.Timestamp deleted = 3;</code>
        */
       public Builder setDeleted(com.google.protobuf.Timestamp value) {
@@ -10009,6 +10961,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * when the release was deleted
+       * </pre>
+       *
        * <code>.google.protobuf.Timestamp deleted = 3;</code>
        */
       public Builder setDeleted(
@@ -10023,6 +10979,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * when the release was deleted
+       * </pre>
+       *
        * <code>.google.protobuf.Timestamp deleted = 3;</code>
        */
       public Builder mergeDeleted(com.google.protobuf.Timestamp value) {
@@ -10041,6 +11001,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * when the release was deleted
+       * </pre>
+       *
        * <code>.google.protobuf.Timestamp deleted = 3;</code>
        */
       public Builder clearDeleted() {
@@ -10055,6 +11019,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * when the release was deleted
+       * </pre>
+       *
        * <code>.google.protobuf.Timestamp deleted = 3;</code>
        */
       public com.google.protobuf.Timestamp.Builder getDeletedBuilder() {
@@ -10063,6 +11031,10 @@ public final class Schema {
         return getDeletedFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * when the release was deleted
+       * </pre>
+       *
        * <code>.google.protobuf.Timestamp deleted = 3;</code>
        */
       public com.google.protobuf.TimestampOrBuilder getDeletedOrBuilder() {
@@ -10074,6 +11046,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * when the release was deleted
+       * </pre>
+       *
        * <code>.google.protobuf.Timestamp deleted = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -10148,27 +11124,35 @@ public final class Schema {
 
     /**
      * <pre>
-     * project name the app belongs to(autocreated)
+     * namespace is the k8s namespace the app/release belongs to(autocreated)
      * </pre>
      *
-     * <code>string project = 1 [(.validator.field) = { ... }</code>
+     * <code>string namespace = 1 [(.validator.field) = { ... }</code>
      */
-    java.lang.String getProject();
+    java.lang.String getNamespace();
     /**
      * <pre>
-     * project name the app belongs to(autocreated)
+     * namespace is the k8s namespace the app/release belongs to(autocreated)
      * </pre>
      *
-     * <code>string project = 1 [(.validator.field) = { ... }</code>
+     * <code>string namespace = 1 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
-        getProjectBytes();
+        getNamespaceBytes();
 
     /**
+     * <pre>
+     * name is the name of the app/release
+     * </pre>
+     *
      * <code>string name = 2 [(.validator.field) = { ... }</code>
      */
     java.lang.String getName();
     /**
+     * <pre>
+     * name is the name of the app/release
+     * </pre>
+     *
      * <code>string name = 2 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
@@ -10191,7 +11175,7 @@ public final class Schema {
       super(builder);
     }
     private AppRef() {
-      project_ = "";
+      namespace_ = "";
       name_ = "";
     }
 
@@ -10222,7 +11206,7 @@ public final class Schema {
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              project_ = s;
+              namespace_ = s;
               break;
             }
             case 18: {
@@ -10263,42 +11247,42 @@ public final class Schema {
               meshpaas.Schema.AppRef.class, meshpaas.Schema.AppRef.Builder.class);
     }
 
-    public static final int PROJECT_FIELD_NUMBER = 1;
-    private volatile java.lang.Object project_;
+    public static final int NAMESPACE_FIELD_NUMBER = 1;
+    private volatile java.lang.Object namespace_;
     /**
      * <pre>
-     * project name the app belongs to(autocreated)
+     * namespace is the k8s namespace the app/release belongs to(autocreated)
      * </pre>
      *
-     * <code>string project = 1 [(.validator.field) = { ... }</code>
+     * <code>string namespace = 1 [(.validator.field) = { ... }</code>
      */
-    public java.lang.String getProject() {
-      java.lang.Object ref = project_;
+    public java.lang.String getNamespace() {
+      java.lang.Object ref = namespace_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        project_ = s;
+        namespace_ = s;
         return s;
       }
     }
     /**
      * <pre>
-     * project name the app belongs to(autocreated)
+     * namespace is the k8s namespace the app/release belongs to(autocreated)
      * </pre>
      *
-     * <code>string project = 1 [(.validator.field) = { ... }</code>
+     * <code>string namespace = 1 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
-        getProjectBytes() {
-      java.lang.Object ref = project_;
+        getNamespaceBytes() {
+      java.lang.Object ref = namespace_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        project_ = b;
+        namespace_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -10308,6 +11292,10 @@ public final class Schema {
     public static final int NAME_FIELD_NUMBER = 2;
     private volatile java.lang.Object name_;
     /**
+     * <pre>
+     * name is the name of the app/release
+     * </pre>
+     *
      * <code>string name = 2 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getName() {
@@ -10323,6 +11311,10 @@ public final class Schema {
       }
     }
     /**
+     * <pre>
+     * name is the name of the app/release
+     * </pre>
+     *
      * <code>string name = 2 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
@@ -10353,8 +11345,8 @@ public final class Schema {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getProjectBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, project_);
+      if (!getNamespaceBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, namespace_);
       }
       if (!getNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
@@ -10368,8 +11360,8 @@ public final class Schema {
       if (size != -1) return size;
 
       size = 0;
-      if (!getProjectBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, project_);
+      if (!getNamespaceBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, namespace_);
       }
       if (!getNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
@@ -10390,8 +11382,8 @@ public final class Schema {
       meshpaas.Schema.AppRef other = (meshpaas.Schema.AppRef) obj;
 
       boolean result = true;
-      result = result && getProject()
-          .equals(other.getProject());
+      result = result && getNamespace()
+          .equals(other.getNamespace());
       result = result && getName()
           .equals(other.getName());
       result = result && unknownFields.equals(other.unknownFields);
@@ -10405,8 +11397,8 @@ public final class Schema {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + PROJECT_FIELD_NUMBER;
-      hash = (53 * hash) + getProject().hashCode();
+      hash = (37 * hash) + NAMESPACE_FIELD_NUMBER;
+      hash = (53 * hash) + getNamespace().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -10546,7 +11538,7 @@ public final class Schema {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        project_ = "";
+        namespace_ = "";
 
         name_ = "";
 
@@ -10576,7 +11568,7 @@ public final class Schema {
       @java.lang.Override
       public meshpaas.Schema.AppRef buildPartial() {
         meshpaas.Schema.AppRef result = new meshpaas.Schema.AppRef(this);
-        result.project_ = project_;
+        result.namespace_ = namespace_;
         result.name_ = name_;
         onBuilt();
         return result;
@@ -10626,8 +11618,8 @@ public final class Schema {
 
       public Builder mergeFrom(meshpaas.Schema.AppRef other) {
         if (other == meshpaas.Schema.AppRef.getDefaultInstance()) return this;
-        if (!other.getProject().isEmpty()) {
-          project_ = other.project_;
+        if (!other.getNamespace().isEmpty()) {
+          namespace_ = other.namespace_;
           onChanged();
         }
         if (!other.getName().isEmpty()) {
@@ -10663,21 +11655,21 @@ public final class Schema {
         return this;
       }
 
-      private java.lang.Object project_ = "";
+      private java.lang.Object namespace_ = "";
       /**
        * <pre>
-       * project name the app belongs to(autocreated)
+       * namespace is the k8s namespace the app/release belongs to(autocreated)
        * </pre>
        *
-       * <code>string project = 1 [(.validator.field) = { ... }</code>
+       * <code>string namespace = 1 [(.validator.field) = { ... }</code>
        */
-      public java.lang.String getProject() {
-        java.lang.Object ref = project_;
+      public java.lang.String getNamespace() {
+        java.lang.Object ref = namespace_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          project_ = s;
+          namespace_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -10685,19 +11677,19 @@ public final class Schema {
       }
       /**
        * <pre>
-       * project name the app belongs to(autocreated)
+       * namespace is the k8s namespace the app/release belongs to(autocreated)
        * </pre>
        *
-       * <code>string project = 1 [(.validator.field) = { ... }</code>
+       * <code>string namespace = 1 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
-          getProjectBytes() {
-        java.lang.Object ref = project_;
+          getNamespaceBytes() {
+        java.lang.Object ref = namespace_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          project_ = b;
+          namespace_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -10705,55 +11697,59 @@ public final class Schema {
       }
       /**
        * <pre>
-       * project name the app belongs to(autocreated)
+       * namespace is the k8s namespace the app/release belongs to(autocreated)
        * </pre>
        *
-       * <code>string project = 1 [(.validator.field) = { ... }</code>
+       * <code>string namespace = 1 [(.validator.field) = { ... }</code>
        */
-      public Builder setProject(
+      public Builder setNamespace(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        project_ = value;
+        namespace_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * project name the app belongs to(autocreated)
+       * namespace is the k8s namespace the app/release belongs to(autocreated)
        * </pre>
        *
-       * <code>string project = 1 [(.validator.field) = { ... }</code>
+       * <code>string namespace = 1 [(.validator.field) = { ... }</code>
        */
-      public Builder clearProject() {
+      public Builder clearNamespace() {
         
-        project_ = getDefaultInstance().getProject();
+        namespace_ = getDefaultInstance().getNamespace();
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * project name the app belongs to(autocreated)
+       * namespace is the k8s namespace the app/release belongs to(autocreated)
        * </pre>
        *
-       * <code>string project = 1 [(.validator.field) = { ... }</code>
+       * <code>string namespace = 1 [(.validator.field) = { ... }</code>
        */
-      public Builder setProjectBytes(
+      public Builder setNamespaceBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        project_ = value;
+        namespace_ = value;
         onChanged();
         return this;
       }
 
       private java.lang.Object name_ = "";
       /**
+       * <pre>
+       * name is the name of the app/release
+       * </pre>
+       *
        * <code>string name = 2 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getName() {
@@ -10769,6 +11765,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * name is the name of the app/release
+       * </pre>
+       *
        * <code>string name = 2 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
@@ -10785,6 +11785,10 @@ public final class Schema {
         }
       }
       /**
+       * <pre>
+       * name is the name of the app/release
+       * </pre>
+       *
        * <code>string name = 2 [(.validator.field) = { ... }</code>
        */
       public Builder setName(
@@ -10798,6 +11802,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * name is the name of the app/release
+       * </pre>
+       *
        * <code>string name = 2 [(.validator.field) = { ... }</code>
        */
       public Builder clearName() {
@@ -10807,6 +11815,10 @@ public final class Schema {
         return this;
       }
       /**
+       * <pre>
+       * name is the name of the app/release
+       * </pre>
+       *
        * <code>string name = 2 [(.validator.field) = { ... }</code>
        */
       public Builder setNameBytes(
@@ -10879,39 +11891,39 @@ public final class Schema {
 
     /**
      * <pre>
-     * project name the app belongs to(autocreated)
+     * namespace name the app belongs to(autocreated)
      * </pre>
      *
-     * <code>string project = 1 [(.validator.field) = { ... }</code>
+     * <code>string namespace = 1 [(.validator.field) = { ... }</code>
      */
-    java.lang.String getProject();
+    java.lang.String getNamespace();
     /**
      * <pre>
-     * project name the app belongs to(autocreated)
+     * namespace name the app belongs to(autocreated)
      * </pre>
      *
-     * <code>string project = 1 [(.validator.field) = { ... }</code>
+     * <code>string namespace = 1 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
-        getProjectBytes();
+        getNamespaceBytes();
 
     /**
      * <pre>
-     * the app template to use
+     * the app chart to use
      * </pre>
      *
-     * <code>string template_name = 2 [(.validator.field) = { ... }</code>
+     * <code>string chart = 2 [(.validator.field) = { ... }</code>
      */
-    java.lang.String getTemplateName();
+    java.lang.String getChart();
     /**
      * <pre>
-     * the app template to use
+     * the app chart to use
      * </pre>
      *
-     * <code>string template_name = 2 [(.validator.field) = { ... }</code>
+     * <code>string chart = 2 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
-        getTemplateNameBytes();
+        getChartBytes();
 
     /**
      * <pre>
@@ -10933,7 +11945,7 @@ public final class Schema {
 
     /**
      * <pre>
-     * config values used to render the app template
+     * config values used to render the app chart
      * </pre>
      *
      * <code>map&lt;string, string&gt; config = 4 [(.validator.field) = { ... }</code>
@@ -10941,7 +11953,7 @@ public final class Schema {
     int getConfigCount();
     /**
      * <pre>
-     * config values used to render the app template
+     * config values used to render the app chart
      * </pre>
      *
      * <code>map&lt;string, string&gt; config = 4 [(.validator.field) = { ... }</code>
@@ -10956,7 +11968,7 @@ public final class Schema {
     getConfig();
     /**
      * <pre>
-     * config values used to render the app template
+     * config values used to render the app chart
      * </pre>
      *
      * <code>map&lt;string, string&gt; config = 4 [(.validator.field) = { ... }</code>
@@ -10965,7 +11977,7 @@ public final class Schema {
     getConfigMap();
     /**
      * <pre>
-     * config values used to render the app template
+     * config values used to render the app chart
      * </pre>
      *
      * <code>map&lt;string, string&gt; config = 4 [(.validator.field) = { ... }</code>
@@ -10976,7 +11988,7 @@ public final class Schema {
         java.lang.String defaultValue);
     /**
      * <pre>
-     * config values used to render the app template
+     * config values used to render the app chart
      * </pre>
      *
      * <code>map&lt;string, string&gt; config = 4 [(.validator.field) = { ... }</code>
@@ -11002,8 +12014,8 @@ public final class Schema {
       super(builder);
     }
     private AppInput() {
-      project_ = "";
-      templateName_ = "";
+      namespace_ = "";
+      chart_ = "";
       appName_ = "";
     }
 
@@ -11034,13 +12046,13 @@ public final class Schema {
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              project_ = s;
+              namespace_ = s;
               break;
             }
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              templateName_ = s;
+              chart_ = s;
               break;
             }
             case 26: {
@@ -11107,84 +12119,84 @@ public final class Schema {
     }
 
     private int bitField0_;
-    public static final int PROJECT_FIELD_NUMBER = 1;
-    private volatile java.lang.Object project_;
+    public static final int NAMESPACE_FIELD_NUMBER = 1;
+    private volatile java.lang.Object namespace_;
     /**
      * <pre>
-     * project name the app belongs to(autocreated)
+     * namespace name the app belongs to(autocreated)
      * </pre>
      *
-     * <code>string project = 1 [(.validator.field) = { ... }</code>
+     * <code>string namespace = 1 [(.validator.field) = { ... }</code>
      */
-    public java.lang.String getProject() {
-      java.lang.Object ref = project_;
+    public java.lang.String getNamespace() {
+      java.lang.Object ref = namespace_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        project_ = s;
+        namespace_ = s;
         return s;
       }
     }
     /**
      * <pre>
-     * project name the app belongs to(autocreated)
+     * namespace name the app belongs to(autocreated)
      * </pre>
      *
-     * <code>string project = 1 [(.validator.field) = { ... }</code>
+     * <code>string namespace = 1 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
-        getProjectBytes() {
-      java.lang.Object ref = project_;
+        getNamespaceBytes() {
+      java.lang.Object ref = namespace_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        project_ = b;
+        namespace_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
 
-    public static final int TEMPLATE_NAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object templateName_;
+    public static final int CHART_FIELD_NUMBER = 2;
+    private volatile java.lang.Object chart_;
     /**
      * <pre>
-     * the app template to use
+     * the app chart to use
      * </pre>
      *
-     * <code>string template_name = 2 [(.validator.field) = { ... }</code>
+     * <code>string chart = 2 [(.validator.field) = { ... }</code>
      */
-    public java.lang.String getTemplateName() {
-      java.lang.Object ref = templateName_;
+    public java.lang.String getChart() {
+      java.lang.Object ref = chart_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        templateName_ = s;
+        chart_ = s;
         return s;
       }
     }
     /**
      * <pre>
-     * the app template to use
+     * the app chart to use
      * </pre>
      *
-     * <code>string template_name = 2 [(.validator.field) = { ... }</code>
+     * <code>string chart = 2 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
-        getTemplateNameBytes() {
-      java.lang.Object ref = templateName_;
+        getChartBytes() {
+      java.lang.Object ref = chart_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        templateName_ = b;
+        chart_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -11261,7 +12273,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * config values used to render the app template
+     * config values used to render the app chart
      * </pre>
      *
      * <code>map&lt;string, string&gt; config = 4 [(.validator.field) = { ... }</code>
@@ -11281,7 +12293,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * config values used to render the app template
+     * config values used to render the app chart
      * </pre>
      *
      * <code>map&lt;string, string&gt; config = 4 [(.validator.field) = { ... }</code>
@@ -11292,7 +12304,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * config values used to render the app template
+     * config values used to render the app chart
      * </pre>
      *
      * <code>map&lt;string, string&gt; config = 4 [(.validator.field) = { ... }</code>
@@ -11308,7 +12320,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * config values used to render the app template
+     * config values used to render the app chart
      * </pre>
      *
      * <code>map&lt;string, string&gt; config = 4 [(.validator.field) = { ... }</code>
@@ -11339,11 +12351,11 @@ public final class Schema {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getProjectBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, project_);
+      if (!getNamespaceBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, namespace_);
       }
-      if (!getTemplateNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, templateName_);
+      if (!getChartBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, chart_);
       }
       if (!getAppNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, appName_);
@@ -11363,11 +12375,11 @@ public final class Schema {
       if (size != -1) return size;
 
       size = 0;
-      if (!getProjectBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, project_);
+      if (!getNamespaceBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, namespace_);
       }
-      if (!getTemplateNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, templateName_);
+      if (!getChartBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, chart_);
       }
       if (!getAppNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, appName_);
@@ -11398,10 +12410,10 @@ public final class Schema {
       meshpaas.Schema.AppInput other = (meshpaas.Schema.AppInput) obj;
 
       boolean result = true;
-      result = result && getProject()
-          .equals(other.getProject());
-      result = result && getTemplateName()
-          .equals(other.getTemplateName());
+      result = result && getNamespace()
+          .equals(other.getNamespace());
+      result = result && getChart()
+          .equals(other.getChart());
       result = result && getAppName()
           .equals(other.getAppName());
       result = result && internalGetConfig().equals(
@@ -11417,10 +12429,10 @@ public final class Schema {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + PROJECT_FIELD_NUMBER;
-      hash = (53 * hash) + getProject().hashCode();
-      hash = (37 * hash) + TEMPLATE_NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getTemplateName().hashCode();
+      hash = (37 * hash) + NAMESPACE_FIELD_NUMBER;
+      hash = (53 * hash) + getNamespace().hashCode();
+      hash = (37 * hash) + CHART_FIELD_NUMBER;
+      hash = (53 * hash) + getChart().hashCode();
       hash = (37 * hash) + APP_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getAppName().hashCode();
       if (!internalGetConfig().getMap().isEmpty()) {
@@ -11586,9 +12598,9 @@ public final class Schema {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        project_ = "";
+        namespace_ = "";
 
-        templateName_ = "";
+        chart_ = "";
 
         appName_ = "";
 
@@ -11621,8 +12633,8 @@ public final class Schema {
         meshpaas.Schema.AppInput result = new meshpaas.Schema.AppInput(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
-        result.project_ = project_;
-        result.templateName_ = templateName_;
+        result.namespace_ = namespace_;
+        result.chart_ = chart_;
         result.appName_ = appName_;
         result.config_ = internalGetConfig();
         result.config_.makeImmutable();
@@ -11675,12 +12687,12 @@ public final class Schema {
 
       public Builder mergeFrom(meshpaas.Schema.AppInput other) {
         if (other == meshpaas.Schema.AppInput.getDefaultInstance()) return this;
-        if (!other.getProject().isEmpty()) {
-          project_ = other.project_;
+        if (!other.getNamespace().isEmpty()) {
+          namespace_ = other.namespace_;
           onChanged();
         }
-        if (!other.getTemplateName().isEmpty()) {
-          templateName_ = other.templateName_;
+        if (!other.getChart().isEmpty()) {
+          chart_ = other.chart_;
           onChanged();
         }
         if (!other.getAppName().isEmpty()) {
@@ -11719,21 +12731,21 @@ public final class Schema {
       }
       private int bitField0_;
 
-      private java.lang.Object project_ = "";
+      private java.lang.Object namespace_ = "";
       /**
        * <pre>
-       * project name the app belongs to(autocreated)
+       * namespace name the app belongs to(autocreated)
        * </pre>
        *
-       * <code>string project = 1 [(.validator.field) = { ... }</code>
+       * <code>string namespace = 1 [(.validator.field) = { ... }</code>
        */
-      public java.lang.String getProject() {
-        java.lang.Object ref = project_;
+      public java.lang.String getNamespace() {
+        java.lang.Object ref = namespace_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          project_ = s;
+          namespace_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -11741,19 +12753,19 @@ public final class Schema {
       }
       /**
        * <pre>
-       * project name the app belongs to(autocreated)
+       * namespace name the app belongs to(autocreated)
        * </pre>
        *
-       * <code>string project = 1 [(.validator.field) = { ... }</code>
+       * <code>string namespace = 1 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
-          getProjectBytes() {
-        java.lang.Object ref = project_;
+          getNamespaceBytes() {
+        java.lang.Object ref = namespace_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          project_ = b;
+          namespace_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -11761,68 +12773,68 @@ public final class Schema {
       }
       /**
        * <pre>
-       * project name the app belongs to(autocreated)
+       * namespace name the app belongs to(autocreated)
        * </pre>
        *
-       * <code>string project = 1 [(.validator.field) = { ... }</code>
+       * <code>string namespace = 1 [(.validator.field) = { ... }</code>
        */
-      public Builder setProject(
+      public Builder setNamespace(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        project_ = value;
+        namespace_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * project name the app belongs to(autocreated)
+       * namespace name the app belongs to(autocreated)
        * </pre>
        *
-       * <code>string project = 1 [(.validator.field) = { ... }</code>
+       * <code>string namespace = 1 [(.validator.field) = { ... }</code>
        */
-      public Builder clearProject() {
+      public Builder clearNamespace() {
         
-        project_ = getDefaultInstance().getProject();
+        namespace_ = getDefaultInstance().getNamespace();
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * project name the app belongs to(autocreated)
+       * namespace name the app belongs to(autocreated)
        * </pre>
        *
-       * <code>string project = 1 [(.validator.field) = { ... }</code>
+       * <code>string namespace = 1 [(.validator.field) = { ... }</code>
        */
-      public Builder setProjectBytes(
+      public Builder setNamespaceBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        project_ = value;
+        namespace_ = value;
         onChanged();
         return this;
       }
 
-      private java.lang.Object templateName_ = "";
+      private java.lang.Object chart_ = "";
       /**
        * <pre>
-       * the app template to use
+       * the app chart to use
        * </pre>
        *
-       * <code>string template_name = 2 [(.validator.field) = { ... }</code>
+       * <code>string chart = 2 [(.validator.field) = { ... }</code>
        */
-      public java.lang.String getTemplateName() {
-        java.lang.Object ref = templateName_;
+      public java.lang.String getChart() {
+        java.lang.Object ref = chart_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          templateName_ = s;
+          chart_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -11830,19 +12842,19 @@ public final class Schema {
       }
       /**
        * <pre>
-       * the app template to use
+       * the app chart to use
        * </pre>
        *
-       * <code>string template_name = 2 [(.validator.field) = { ... }</code>
+       * <code>string chart = 2 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
-          getTemplateNameBytes() {
-        java.lang.Object ref = templateName_;
+          getChartBytes() {
+        java.lang.Object ref = chart_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          templateName_ = b;
+          chart_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -11850,49 +12862,49 @@ public final class Schema {
       }
       /**
        * <pre>
-       * the app template to use
+       * the app chart to use
        * </pre>
        *
-       * <code>string template_name = 2 [(.validator.field) = { ... }</code>
+       * <code>string chart = 2 [(.validator.field) = { ... }</code>
        */
-      public Builder setTemplateName(
+      public Builder setChart(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        templateName_ = value;
+        chart_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * the app template to use
+       * the app chart to use
        * </pre>
        *
-       * <code>string template_name = 2 [(.validator.field) = { ... }</code>
+       * <code>string chart = 2 [(.validator.field) = { ... }</code>
        */
-      public Builder clearTemplateName() {
+      public Builder clearChart() {
         
-        templateName_ = getDefaultInstance().getTemplateName();
+        chart_ = getDefaultInstance().getChart();
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * the app template to use
+       * the app chart to use
        * </pre>
        *
-       * <code>string template_name = 2 [(.validator.field) = { ... }</code>
+       * <code>string chart = 2 [(.validator.field) = { ... }</code>
        */
-      public Builder setTemplateNameBytes(
+      public Builder setChartBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        templateName_ = value;
+        chart_ = value;
         onChanged();
         return this;
       }
@@ -12014,7 +13026,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * config values used to render the app template
+       * config values used to render the app chart
        * </pre>
        *
        * <code>map&lt;string, string&gt; config = 4 [(.validator.field) = { ... }</code>
@@ -12034,7 +13046,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * config values used to render the app template
+       * config values used to render the app chart
        * </pre>
        *
        * <code>map&lt;string, string&gt; config = 4 [(.validator.field) = { ... }</code>
@@ -12045,7 +13057,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * config values used to render the app template
+       * config values used to render the app chart
        * </pre>
        *
        * <code>map&lt;string, string&gt; config = 4 [(.validator.field) = { ... }</code>
@@ -12061,7 +13073,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * config values used to render the app template
+       * config values used to render the app chart
        * </pre>
        *
        * <code>map&lt;string, string&gt; config = 4 [(.validator.field) = { ... }</code>
@@ -12085,7 +13097,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * config values used to render the app template
+       * config values used to render the app chart
        * </pre>
        *
        * <code>map&lt;string, string&gt; config = 4 [(.validator.field) = { ... }</code>
@@ -12108,7 +13120,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * config values used to render the app template
+       * config values used to render the app chart
        * </pre>
        *
        * <code>map&lt;string, string&gt; config = 4 [(.validator.field) = { ... }</code>
@@ -12124,7 +13136,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * config values used to render the app template
+       * config values used to render the app chart
        * </pre>
        *
        * <code>map&lt;string, string&gt; config = 4 [(.validator.field) = { ... }</code>
@@ -12189,45 +13201,45 @@ public final class Schema {
 
   }
 
-  public interface ProjectRefOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:meshpaas.ProjectRef)
+  public interface NamespaceRefOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:meshpaas.NamespaceRef)
       com.google.protobuf.MessageOrBuilder {
 
     /**
      * <pre>
-     * name of the project
+     * name of the namespace
      * </pre>
      *
-     * <code>string name = 1;</code>
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
      */
     java.lang.String getName();
     /**
      * <pre>
-     * name of the project
+     * name of the namespace
      * </pre>
      *
-     * <code>string name = 1;</code>
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
      */
     com.google.protobuf.ByteString
         getNameBytes();
   }
   /**
    * <pre>
-   * ProjectRef is a generic structure for looking up projects
+   * NamespaceRef is a generic structure for looking up namespaces
    * </pre>
    *
-   * Protobuf type {@code meshpaas.ProjectRef}
+   * Protobuf type {@code meshpaas.NamespaceRef}
    */
-  public  static final class ProjectRef extends
+  public  static final class NamespaceRef extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:meshpaas.ProjectRef)
-      ProjectRefOrBuilder {
+      // @@protoc_insertion_point(message_implements:meshpaas.NamespaceRef)
+      NamespaceRefOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use ProjectRef.newBuilder() to construct.
-    private ProjectRef(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use NamespaceRef.newBuilder() to construct.
+    private NamespaceRef(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private ProjectRef() {
+    private NamespaceRef() {
       name_ = "";
     }
 
@@ -12236,7 +13248,7 @@ public final class Schema {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ProjectRef(
+    private NamespaceRef(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -12282,25 +13294,25 @@ public final class Schema {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return meshpaas.Schema.internal_static_meshpaas_ProjectRef_descriptor;
+      return meshpaas.Schema.internal_static_meshpaas_NamespaceRef_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return meshpaas.Schema.internal_static_meshpaas_ProjectRef_fieldAccessorTable
+      return meshpaas.Schema.internal_static_meshpaas_NamespaceRef_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              meshpaas.Schema.ProjectRef.class, meshpaas.Schema.ProjectRef.Builder.class);
+              meshpaas.Schema.NamespaceRef.class, meshpaas.Schema.NamespaceRef.Builder.class);
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
     private volatile java.lang.Object name_;
     /**
      * <pre>
-     * name of the project
+     * name of the namespace
      * </pre>
      *
-     * <code>string name = 1;</code>
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -12316,10 +13328,10 @@ public final class Schema {
     }
     /**
      * <pre>
-     * name of the project
+     * name of the namespace
      * </pre>
      *
-     * <code>string name = 1;</code>
+     * <code>string name = 1 [(.validator.field) = { ... }</code>
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -12374,10 +13386,10 @@ public final class Schema {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof meshpaas.Schema.ProjectRef)) {
+      if (!(obj instanceof meshpaas.Schema.NamespaceRef)) {
         return super.equals(obj);
       }
-      meshpaas.Schema.ProjectRef other = (meshpaas.Schema.ProjectRef) obj;
+      meshpaas.Schema.NamespaceRef other = (meshpaas.Schema.NamespaceRef) obj;
 
       boolean result = true;
       result = result && getName()
@@ -12400,69 +13412,69 @@ public final class Schema {
       return hash;
     }
 
-    public static meshpaas.Schema.ProjectRef parseFrom(
+    public static meshpaas.Schema.NamespaceRef parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static meshpaas.Schema.ProjectRef parseFrom(
+    public static meshpaas.Schema.NamespaceRef parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static meshpaas.Schema.ProjectRef parseFrom(
+    public static meshpaas.Schema.NamespaceRef parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static meshpaas.Schema.ProjectRef parseFrom(
+    public static meshpaas.Schema.NamespaceRef parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static meshpaas.Schema.ProjectRef parseFrom(byte[] data)
+    public static meshpaas.Schema.NamespaceRef parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static meshpaas.Schema.ProjectRef parseFrom(
+    public static meshpaas.Schema.NamespaceRef parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static meshpaas.Schema.ProjectRef parseFrom(java.io.InputStream input)
+    public static meshpaas.Schema.NamespaceRef parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static meshpaas.Schema.ProjectRef parseFrom(
+    public static meshpaas.Schema.NamespaceRef parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static meshpaas.Schema.ProjectRef parseDelimitedFrom(java.io.InputStream input)
+    public static meshpaas.Schema.NamespaceRef parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static meshpaas.Schema.ProjectRef parseDelimitedFrom(
+    public static meshpaas.Schema.NamespaceRef parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static meshpaas.Schema.ProjectRef parseFrom(
+    public static meshpaas.Schema.NamespaceRef parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static meshpaas.Schema.ProjectRef parseFrom(
+    public static meshpaas.Schema.NamespaceRef parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -12475,7 +13487,7 @@ public final class Schema {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(meshpaas.Schema.ProjectRef prototype) {
+    public static Builder newBuilder(meshpaas.Schema.NamespaceRef prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -12492,29 +13504,29 @@ public final class Schema {
     }
     /**
      * <pre>
-     * ProjectRef is a generic structure for looking up projects
+     * NamespaceRef is a generic structure for looking up namespaces
      * </pre>
      *
-     * Protobuf type {@code meshpaas.ProjectRef}
+     * Protobuf type {@code meshpaas.NamespaceRef}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:meshpaas.ProjectRef)
-        meshpaas.Schema.ProjectRefOrBuilder {
+        // @@protoc_insertion_point(builder_implements:meshpaas.NamespaceRef)
+        meshpaas.Schema.NamespaceRefOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return meshpaas.Schema.internal_static_meshpaas_ProjectRef_descriptor;
+        return meshpaas.Schema.internal_static_meshpaas_NamespaceRef_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return meshpaas.Schema.internal_static_meshpaas_ProjectRef_fieldAccessorTable
+        return meshpaas.Schema.internal_static_meshpaas_NamespaceRef_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                meshpaas.Schema.ProjectRef.class, meshpaas.Schema.ProjectRef.Builder.class);
+                meshpaas.Schema.NamespaceRef.class, meshpaas.Schema.NamespaceRef.Builder.class);
       }
 
-      // Construct using meshpaas.Schema.ProjectRef.newBuilder()
+      // Construct using meshpaas.Schema.NamespaceRef.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -12540,17 +13552,17 @@ public final class Schema {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return meshpaas.Schema.internal_static_meshpaas_ProjectRef_descriptor;
+        return meshpaas.Schema.internal_static_meshpaas_NamespaceRef_descriptor;
       }
 
       @java.lang.Override
-      public meshpaas.Schema.ProjectRef getDefaultInstanceForType() {
-        return meshpaas.Schema.ProjectRef.getDefaultInstance();
+      public meshpaas.Schema.NamespaceRef getDefaultInstanceForType() {
+        return meshpaas.Schema.NamespaceRef.getDefaultInstance();
       }
 
       @java.lang.Override
-      public meshpaas.Schema.ProjectRef build() {
-        meshpaas.Schema.ProjectRef result = buildPartial();
+      public meshpaas.Schema.NamespaceRef build() {
+        meshpaas.Schema.NamespaceRef result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -12558,8 +13570,8 @@ public final class Schema {
       }
 
       @java.lang.Override
-      public meshpaas.Schema.ProjectRef buildPartial() {
-        meshpaas.Schema.ProjectRef result = new meshpaas.Schema.ProjectRef(this);
+      public meshpaas.Schema.NamespaceRef buildPartial() {
+        meshpaas.Schema.NamespaceRef result = new meshpaas.Schema.NamespaceRef(this);
         result.name_ = name_;
         onBuilt();
         return result;
@@ -12599,16 +13611,16 @@ public final class Schema {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof meshpaas.Schema.ProjectRef) {
-          return mergeFrom((meshpaas.Schema.ProjectRef)other);
+        if (other instanceof meshpaas.Schema.NamespaceRef) {
+          return mergeFrom((meshpaas.Schema.NamespaceRef)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(meshpaas.Schema.ProjectRef other) {
-        if (other == meshpaas.Schema.ProjectRef.getDefaultInstance()) return this;
+      public Builder mergeFrom(meshpaas.Schema.NamespaceRef other) {
+        if (other == meshpaas.Schema.NamespaceRef.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
           onChanged();
@@ -12628,11 +13640,11 @@ public final class Schema {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        meshpaas.Schema.ProjectRef parsedMessage = null;
+        meshpaas.Schema.NamespaceRef parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (meshpaas.Schema.ProjectRef) e.getUnfinishedMessage();
+          parsedMessage = (meshpaas.Schema.NamespaceRef) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -12645,10 +13657,10 @@ public final class Schema {
       private java.lang.Object name_ = "";
       /**
        * <pre>
-       * name of the project
+       * name of the namespace
        * </pre>
        *
-       * <code>string name = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -12664,10 +13676,10 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the project
+       * name of the namespace
        * </pre>
        *
-       * <code>string name = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -12684,10 +13696,10 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the project
+       * name of the namespace
        * </pre>
        *
-       * <code>string name = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public Builder setName(
           java.lang.String value) {
@@ -12701,10 +13713,10 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the project
+       * name of the namespace
        * </pre>
        *
-       * <code>string name = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public Builder clearName() {
         
@@ -12714,10 +13726,10 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the project
+       * name of the namespace
        * </pre>
        *
-       * <code>string name = 1;</code>
+       * <code>string name = 1 [(.validator.field) = { ... }</code>
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -12743,92 +13755,92 @@ public final class Schema {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:meshpaas.ProjectRef)
+      // @@protoc_insertion_point(builder_scope:meshpaas.NamespaceRef)
     }
 
-    // @@protoc_insertion_point(class_scope:meshpaas.ProjectRef)
-    private static final meshpaas.Schema.ProjectRef DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:meshpaas.NamespaceRef)
+    private static final meshpaas.Schema.NamespaceRef DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new meshpaas.Schema.ProjectRef();
+      DEFAULT_INSTANCE = new meshpaas.Schema.NamespaceRef();
     }
 
-    public static meshpaas.Schema.ProjectRef getDefaultInstance() {
+    public static meshpaas.Schema.NamespaceRef getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<ProjectRef>
-        PARSER = new com.google.protobuf.AbstractParser<ProjectRef>() {
+    private static final com.google.protobuf.Parser<NamespaceRef>
+        PARSER = new com.google.protobuf.AbstractParser<NamespaceRef>() {
       @java.lang.Override
-      public ProjectRef parsePartialFrom(
+      public NamespaceRef parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ProjectRef(input, extensionRegistry);
+        return new NamespaceRef(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<ProjectRef> parser() {
+    public static com.google.protobuf.Parser<NamespaceRef> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<ProjectRef> getParserForType() {
+    public com.google.protobuf.Parser<NamespaceRef> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public meshpaas.Schema.ProjectRef getDefaultInstanceForType() {
+    public meshpaas.Schema.NamespaceRef getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface ProjectRefsOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:meshpaas.ProjectRefs)
+  public interface NamespaceRefsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:meshpaas.NamespaceRefs)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .meshpaas.ProjectRef projects = 1;</code>
+     * <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
      */
-    java.util.List<meshpaas.Schema.ProjectRef> 
-        getProjectsList();
+    java.util.List<meshpaas.Schema.NamespaceRef> 
+        getNamespacesList();
     /**
-     * <code>repeated .meshpaas.ProjectRef projects = 1;</code>
+     * <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
      */
-    meshpaas.Schema.ProjectRef getProjects(int index);
+    meshpaas.Schema.NamespaceRef getNamespaces(int index);
     /**
-     * <code>repeated .meshpaas.ProjectRef projects = 1;</code>
+     * <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
      */
-    int getProjectsCount();
+    int getNamespacesCount();
     /**
-     * <code>repeated .meshpaas.ProjectRef projects = 1;</code>
+     * <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
      */
-    java.util.List<? extends meshpaas.Schema.ProjectRefOrBuilder> 
-        getProjectsOrBuilderList();
+    java.util.List<? extends meshpaas.Schema.NamespaceRefOrBuilder> 
+        getNamespacesOrBuilderList();
     /**
-     * <code>repeated .meshpaas.ProjectRef projects = 1;</code>
+     * <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
      */
-    meshpaas.Schema.ProjectRefOrBuilder getProjectsOrBuilder(
+    meshpaas.Schema.NamespaceRefOrBuilder getNamespacesOrBuilder(
         int index);
   }
   /**
    * <pre>
-   * ProjectRefs is a list of ProjectRef
+   * NamespaceRefs is a list of NamespaceRef
    * </pre>
    *
-   * Protobuf type {@code meshpaas.ProjectRefs}
+   * Protobuf type {@code meshpaas.NamespaceRefs}
    */
-  public  static final class ProjectRefs extends
+  public  static final class NamespaceRefs extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:meshpaas.ProjectRefs)
-      ProjectRefsOrBuilder {
+      // @@protoc_insertion_point(message_implements:meshpaas.NamespaceRefs)
+      NamespaceRefsOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use ProjectRefs.newBuilder() to construct.
-    private ProjectRefs(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use NamespaceRefs.newBuilder() to construct.
+    private NamespaceRefs(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private ProjectRefs() {
-      projects_ = java.util.Collections.emptyList();
+    private NamespaceRefs() {
+      namespaces_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -12836,7 +13848,7 @@ public final class Schema {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ProjectRefs(
+    private NamespaceRefs(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -12857,11 +13869,11 @@ public final class Schema {
               break;
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                projects_ = new java.util.ArrayList<meshpaas.Schema.ProjectRef>();
+                namespaces_ = new java.util.ArrayList<meshpaas.Schema.NamespaceRef>();
                 mutable_bitField0_ |= 0x00000001;
               }
-              projects_.add(
-                  input.readMessage(meshpaas.Schema.ProjectRef.parser(), extensionRegistry));
+              namespaces_.add(
+                  input.readMessage(meshpaas.Schema.NamespaceRef.parser(), extensionRegistry));
               break;
             }
             default: {
@@ -12880,7 +13892,7 @@ public final class Schema {
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          projects_ = java.util.Collections.unmodifiableList(projects_);
+          namespaces_ = java.util.Collections.unmodifiableList(namespaces_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -12888,50 +13900,50 @@ public final class Schema {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return meshpaas.Schema.internal_static_meshpaas_ProjectRefs_descriptor;
+      return meshpaas.Schema.internal_static_meshpaas_NamespaceRefs_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return meshpaas.Schema.internal_static_meshpaas_ProjectRefs_fieldAccessorTable
+      return meshpaas.Schema.internal_static_meshpaas_NamespaceRefs_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              meshpaas.Schema.ProjectRefs.class, meshpaas.Schema.ProjectRefs.Builder.class);
+              meshpaas.Schema.NamespaceRefs.class, meshpaas.Schema.NamespaceRefs.Builder.class);
     }
 
-    public static final int PROJECTS_FIELD_NUMBER = 1;
-    private java.util.List<meshpaas.Schema.ProjectRef> projects_;
+    public static final int NAMESPACES_FIELD_NUMBER = 1;
+    private java.util.List<meshpaas.Schema.NamespaceRef> namespaces_;
     /**
-     * <code>repeated .meshpaas.ProjectRef projects = 1;</code>
+     * <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
      */
-    public java.util.List<meshpaas.Schema.ProjectRef> getProjectsList() {
-      return projects_;
+    public java.util.List<meshpaas.Schema.NamespaceRef> getNamespacesList() {
+      return namespaces_;
     }
     /**
-     * <code>repeated .meshpaas.ProjectRef projects = 1;</code>
+     * <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
      */
-    public java.util.List<? extends meshpaas.Schema.ProjectRefOrBuilder> 
-        getProjectsOrBuilderList() {
-      return projects_;
+    public java.util.List<? extends meshpaas.Schema.NamespaceRefOrBuilder> 
+        getNamespacesOrBuilderList() {
+      return namespaces_;
     }
     /**
-     * <code>repeated .meshpaas.ProjectRef projects = 1;</code>
+     * <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
      */
-    public int getProjectsCount() {
-      return projects_.size();
+    public int getNamespacesCount() {
+      return namespaces_.size();
     }
     /**
-     * <code>repeated .meshpaas.ProjectRef projects = 1;</code>
+     * <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
      */
-    public meshpaas.Schema.ProjectRef getProjects(int index) {
-      return projects_.get(index);
+    public meshpaas.Schema.NamespaceRef getNamespaces(int index) {
+      return namespaces_.get(index);
     }
     /**
-     * <code>repeated .meshpaas.ProjectRef projects = 1;</code>
+     * <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
      */
-    public meshpaas.Schema.ProjectRefOrBuilder getProjectsOrBuilder(
+    public meshpaas.Schema.NamespaceRefOrBuilder getNamespacesOrBuilder(
         int index) {
-      return projects_.get(index);
+      return namespaces_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -12948,8 +13960,8 @@ public final class Schema {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      for (int i = 0; i < projects_.size(); i++) {
-        output.writeMessage(1, projects_.get(i));
+      for (int i = 0; i < namespaces_.size(); i++) {
+        output.writeMessage(1, namespaces_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -12960,9 +13972,9 @@ public final class Schema {
       if (size != -1) return size;
 
       size = 0;
-      for (int i = 0; i < projects_.size(); i++) {
+      for (int i = 0; i < namespaces_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, projects_.get(i));
+          .computeMessageSize(1, namespaces_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -12974,14 +13986,14 @@ public final class Schema {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof meshpaas.Schema.ProjectRefs)) {
+      if (!(obj instanceof meshpaas.Schema.NamespaceRefs)) {
         return super.equals(obj);
       }
-      meshpaas.Schema.ProjectRefs other = (meshpaas.Schema.ProjectRefs) obj;
+      meshpaas.Schema.NamespaceRefs other = (meshpaas.Schema.NamespaceRefs) obj;
 
       boolean result = true;
-      result = result && getProjectsList()
-          .equals(other.getProjectsList());
+      result = result && getNamespacesList()
+          .equals(other.getNamespacesList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -12993,78 +14005,78 @@ public final class Schema {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (getProjectsCount() > 0) {
-        hash = (37 * hash) + PROJECTS_FIELD_NUMBER;
-        hash = (53 * hash) + getProjectsList().hashCode();
+      if (getNamespacesCount() > 0) {
+        hash = (37 * hash) + NAMESPACES_FIELD_NUMBER;
+        hash = (53 * hash) + getNamespacesList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static meshpaas.Schema.ProjectRefs parseFrom(
+    public static meshpaas.Schema.NamespaceRefs parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static meshpaas.Schema.ProjectRefs parseFrom(
+    public static meshpaas.Schema.NamespaceRefs parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static meshpaas.Schema.ProjectRefs parseFrom(
+    public static meshpaas.Schema.NamespaceRefs parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static meshpaas.Schema.ProjectRefs parseFrom(
+    public static meshpaas.Schema.NamespaceRefs parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static meshpaas.Schema.ProjectRefs parseFrom(byte[] data)
+    public static meshpaas.Schema.NamespaceRefs parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static meshpaas.Schema.ProjectRefs parseFrom(
+    public static meshpaas.Schema.NamespaceRefs parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static meshpaas.Schema.ProjectRefs parseFrom(java.io.InputStream input)
+    public static meshpaas.Schema.NamespaceRefs parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static meshpaas.Schema.ProjectRefs parseFrom(
+    public static meshpaas.Schema.NamespaceRefs parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static meshpaas.Schema.ProjectRefs parseDelimitedFrom(java.io.InputStream input)
+    public static meshpaas.Schema.NamespaceRefs parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static meshpaas.Schema.ProjectRefs parseDelimitedFrom(
+    public static meshpaas.Schema.NamespaceRefs parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static meshpaas.Schema.ProjectRefs parseFrom(
+    public static meshpaas.Schema.NamespaceRefs parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static meshpaas.Schema.ProjectRefs parseFrom(
+    public static meshpaas.Schema.NamespaceRefs parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -13077,7 +14089,7 @@ public final class Schema {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(meshpaas.Schema.ProjectRefs prototype) {
+    public static Builder newBuilder(meshpaas.Schema.NamespaceRefs prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -13094,29 +14106,29 @@ public final class Schema {
     }
     /**
      * <pre>
-     * ProjectRefs is a list of ProjectRef
+     * NamespaceRefs is a list of NamespaceRef
      * </pre>
      *
-     * Protobuf type {@code meshpaas.ProjectRefs}
+     * Protobuf type {@code meshpaas.NamespaceRefs}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:meshpaas.ProjectRefs)
-        meshpaas.Schema.ProjectRefsOrBuilder {
+        // @@protoc_insertion_point(builder_implements:meshpaas.NamespaceRefs)
+        meshpaas.Schema.NamespaceRefsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return meshpaas.Schema.internal_static_meshpaas_ProjectRefs_descriptor;
+        return meshpaas.Schema.internal_static_meshpaas_NamespaceRefs_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return meshpaas.Schema.internal_static_meshpaas_ProjectRefs_fieldAccessorTable
+        return meshpaas.Schema.internal_static_meshpaas_NamespaceRefs_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                meshpaas.Schema.ProjectRefs.class, meshpaas.Schema.ProjectRefs.Builder.class);
+                meshpaas.Schema.NamespaceRefs.class, meshpaas.Schema.NamespaceRefs.Builder.class);
       }
 
-      // Construct using meshpaas.Schema.ProjectRefs.newBuilder()
+      // Construct using meshpaas.Schema.NamespaceRefs.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -13129,17 +14141,17 @@ public final class Schema {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getProjectsFieldBuilder();
+          getNamespacesFieldBuilder();
         }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (projectsBuilder_ == null) {
-          projects_ = java.util.Collections.emptyList();
+        if (namespacesBuilder_ == null) {
+          namespaces_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          projectsBuilder_.clear();
+          namespacesBuilder_.clear();
         }
         return this;
       }
@@ -13147,17 +14159,17 @@ public final class Schema {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return meshpaas.Schema.internal_static_meshpaas_ProjectRefs_descriptor;
+        return meshpaas.Schema.internal_static_meshpaas_NamespaceRefs_descriptor;
       }
 
       @java.lang.Override
-      public meshpaas.Schema.ProjectRefs getDefaultInstanceForType() {
-        return meshpaas.Schema.ProjectRefs.getDefaultInstance();
+      public meshpaas.Schema.NamespaceRefs getDefaultInstanceForType() {
+        return meshpaas.Schema.NamespaceRefs.getDefaultInstance();
       }
 
       @java.lang.Override
-      public meshpaas.Schema.ProjectRefs build() {
-        meshpaas.Schema.ProjectRefs result = buildPartial();
+      public meshpaas.Schema.NamespaceRefs build() {
+        meshpaas.Schema.NamespaceRefs result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -13165,17 +14177,17 @@ public final class Schema {
       }
 
       @java.lang.Override
-      public meshpaas.Schema.ProjectRefs buildPartial() {
-        meshpaas.Schema.ProjectRefs result = new meshpaas.Schema.ProjectRefs(this);
+      public meshpaas.Schema.NamespaceRefs buildPartial() {
+        meshpaas.Schema.NamespaceRefs result = new meshpaas.Schema.NamespaceRefs(this);
         int from_bitField0_ = bitField0_;
-        if (projectsBuilder_ == null) {
+        if (namespacesBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001)) {
-            projects_ = java.util.Collections.unmodifiableList(projects_);
+            namespaces_ = java.util.Collections.unmodifiableList(namespaces_);
             bitField0_ = (bitField0_ & ~0x00000001);
           }
-          result.projects_ = projects_;
+          result.namespaces_ = namespaces_;
         } else {
-          result.projects_ = projectsBuilder_.build();
+          result.namespaces_ = namespacesBuilder_.build();
         }
         onBuilt();
         return result;
@@ -13215,39 +14227,39 @@ public final class Schema {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof meshpaas.Schema.ProjectRefs) {
-          return mergeFrom((meshpaas.Schema.ProjectRefs)other);
+        if (other instanceof meshpaas.Schema.NamespaceRefs) {
+          return mergeFrom((meshpaas.Schema.NamespaceRefs)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(meshpaas.Schema.ProjectRefs other) {
-        if (other == meshpaas.Schema.ProjectRefs.getDefaultInstance()) return this;
-        if (projectsBuilder_ == null) {
-          if (!other.projects_.isEmpty()) {
-            if (projects_.isEmpty()) {
-              projects_ = other.projects_;
+      public Builder mergeFrom(meshpaas.Schema.NamespaceRefs other) {
+        if (other == meshpaas.Schema.NamespaceRefs.getDefaultInstance()) return this;
+        if (namespacesBuilder_ == null) {
+          if (!other.namespaces_.isEmpty()) {
+            if (namespaces_.isEmpty()) {
+              namespaces_ = other.namespaces_;
               bitField0_ = (bitField0_ & ~0x00000001);
             } else {
-              ensureProjectsIsMutable();
-              projects_.addAll(other.projects_);
+              ensureNamespacesIsMutable();
+              namespaces_.addAll(other.namespaces_);
             }
             onChanged();
           }
         } else {
-          if (!other.projects_.isEmpty()) {
-            if (projectsBuilder_.isEmpty()) {
-              projectsBuilder_.dispose();
-              projectsBuilder_ = null;
-              projects_ = other.projects_;
+          if (!other.namespaces_.isEmpty()) {
+            if (namespacesBuilder_.isEmpty()) {
+              namespacesBuilder_.dispose();
+              namespacesBuilder_ = null;
+              namespaces_ = other.namespaces_;
               bitField0_ = (bitField0_ & ~0x00000001);
-              projectsBuilder_ = 
+              namespacesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getProjectsFieldBuilder() : null;
+                   getNamespacesFieldBuilder() : null;
             } else {
-              projectsBuilder_.addAllMessages(other.projects_);
+              namespacesBuilder_.addAllMessages(other.namespaces_);
             }
           }
         }
@@ -13266,11 +14278,11 @@ public final class Schema {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        meshpaas.Schema.ProjectRefs parsedMessage = null;
+        meshpaas.Schema.NamespaceRefs parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (meshpaas.Schema.ProjectRefs) e.getUnfinishedMessage();
+          parsedMessage = (meshpaas.Schema.NamespaceRefs) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -13281,244 +14293,244 @@ public final class Schema {
       }
       private int bitField0_;
 
-      private java.util.List<meshpaas.Schema.ProjectRef> projects_ =
+      private java.util.List<meshpaas.Schema.NamespaceRef> namespaces_ =
         java.util.Collections.emptyList();
-      private void ensureProjectsIsMutable() {
+      private void ensureNamespacesIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          projects_ = new java.util.ArrayList<meshpaas.Schema.ProjectRef>(projects_);
+          namespaces_ = new java.util.ArrayList<meshpaas.Schema.NamespaceRef>(namespaces_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          meshpaas.Schema.ProjectRef, meshpaas.Schema.ProjectRef.Builder, meshpaas.Schema.ProjectRefOrBuilder> projectsBuilder_;
+          meshpaas.Schema.NamespaceRef, meshpaas.Schema.NamespaceRef.Builder, meshpaas.Schema.NamespaceRefOrBuilder> namespacesBuilder_;
 
       /**
-       * <code>repeated .meshpaas.ProjectRef projects = 1;</code>
+       * <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
        */
-      public java.util.List<meshpaas.Schema.ProjectRef> getProjectsList() {
-        if (projectsBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(projects_);
+      public java.util.List<meshpaas.Schema.NamespaceRef> getNamespacesList() {
+        if (namespacesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(namespaces_);
         } else {
-          return projectsBuilder_.getMessageList();
+          return namespacesBuilder_.getMessageList();
         }
       }
       /**
-       * <code>repeated .meshpaas.ProjectRef projects = 1;</code>
+       * <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
        */
-      public int getProjectsCount() {
-        if (projectsBuilder_ == null) {
-          return projects_.size();
+      public int getNamespacesCount() {
+        if (namespacesBuilder_ == null) {
+          return namespaces_.size();
         } else {
-          return projectsBuilder_.getCount();
+          return namespacesBuilder_.getCount();
         }
       }
       /**
-       * <code>repeated .meshpaas.ProjectRef projects = 1;</code>
+       * <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
        */
-      public meshpaas.Schema.ProjectRef getProjects(int index) {
-        if (projectsBuilder_ == null) {
-          return projects_.get(index);
+      public meshpaas.Schema.NamespaceRef getNamespaces(int index) {
+        if (namespacesBuilder_ == null) {
+          return namespaces_.get(index);
         } else {
-          return projectsBuilder_.getMessage(index);
+          return namespacesBuilder_.getMessage(index);
         }
       }
       /**
-       * <code>repeated .meshpaas.ProjectRef projects = 1;</code>
+       * <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
        */
-      public Builder setProjects(
-          int index, meshpaas.Schema.ProjectRef value) {
-        if (projectsBuilder_ == null) {
+      public Builder setNamespaces(
+          int index, meshpaas.Schema.NamespaceRef value) {
+        if (namespacesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureProjectsIsMutable();
-          projects_.set(index, value);
+          ensureNamespacesIsMutable();
+          namespaces_.set(index, value);
           onChanged();
         } else {
-          projectsBuilder_.setMessage(index, value);
+          namespacesBuilder_.setMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .meshpaas.ProjectRef projects = 1;</code>
+       * <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
        */
-      public Builder setProjects(
-          int index, meshpaas.Schema.ProjectRef.Builder builderForValue) {
-        if (projectsBuilder_ == null) {
-          ensureProjectsIsMutable();
-          projects_.set(index, builderForValue.build());
+      public Builder setNamespaces(
+          int index, meshpaas.Schema.NamespaceRef.Builder builderForValue) {
+        if (namespacesBuilder_ == null) {
+          ensureNamespacesIsMutable();
+          namespaces_.set(index, builderForValue.build());
           onChanged();
         } else {
-          projectsBuilder_.setMessage(index, builderForValue.build());
+          namespacesBuilder_.setMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .meshpaas.ProjectRef projects = 1;</code>
+       * <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
        */
-      public Builder addProjects(meshpaas.Schema.ProjectRef value) {
-        if (projectsBuilder_ == null) {
+      public Builder addNamespaces(meshpaas.Schema.NamespaceRef value) {
+        if (namespacesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureProjectsIsMutable();
-          projects_.add(value);
+          ensureNamespacesIsMutable();
+          namespaces_.add(value);
           onChanged();
         } else {
-          projectsBuilder_.addMessage(value);
+          namespacesBuilder_.addMessage(value);
         }
         return this;
       }
       /**
-       * <code>repeated .meshpaas.ProjectRef projects = 1;</code>
+       * <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
        */
-      public Builder addProjects(
-          int index, meshpaas.Schema.ProjectRef value) {
-        if (projectsBuilder_ == null) {
+      public Builder addNamespaces(
+          int index, meshpaas.Schema.NamespaceRef value) {
+        if (namespacesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureProjectsIsMutable();
-          projects_.add(index, value);
+          ensureNamespacesIsMutable();
+          namespaces_.add(index, value);
           onChanged();
         } else {
-          projectsBuilder_.addMessage(index, value);
+          namespacesBuilder_.addMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .meshpaas.ProjectRef projects = 1;</code>
+       * <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
        */
-      public Builder addProjects(
-          meshpaas.Schema.ProjectRef.Builder builderForValue) {
-        if (projectsBuilder_ == null) {
-          ensureProjectsIsMutable();
-          projects_.add(builderForValue.build());
+      public Builder addNamespaces(
+          meshpaas.Schema.NamespaceRef.Builder builderForValue) {
+        if (namespacesBuilder_ == null) {
+          ensureNamespacesIsMutable();
+          namespaces_.add(builderForValue.build());
           onChanged();
         } else {
-          projectsBuilder_.addMessage(builderForValue.build());
+          namespacesBuilder_.addMessage(builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .meshpaas.ProjectRef projects = 1;</code>
+       * <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
        */
-      public Builder addProjects(
-          int index, meshpaas.Schema.ProjectRef.Builder builderForValue) {
-        if (projectsBuilder_ == null) {
-          ensureProjectsIsMutable();
-          projects_.add(index, builderForValue.build());
+      public Builder addNamespaces(
+          int index, meshpaas.Schema.NamespaceRef.Builder builderForValue) {
+        if (namespacesBuilder_ == null) {
+          ensureNamespacesIsMutable();
+          namespaces_.add(index, builderForValue.build());
           onChanged();
         } else {
-          projectsBuilder_.addMessage(index, builderForValue.build());
+          namespacesBuilder_.addMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .meshpaas.ProjectRef projects = 1;</code>
+       * <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
        */
-      public Builder addAllProjects(
-          java.lang.Iterable<? extends meshpaas.Schema.ProjectRef> values) {
-        if (projectsBuilder_ == null) {
-          ensureProjectsIsMutable();
+      public Builder addAllNamespaces(
+          java.lang.Iterable<? extends meshpaas.Schema.NamespaceRef> values) {
+        if (namespacesBuilder_ == null) {
+          ensureNamespacesIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, projects_);
+              values, namespaces_);
           onChanged();
         } else {
-          projectsBuilder_.addAllMessages(values);
+          namespacesBuilder_.addAllMessages(values);
         }
         return this;
       }
       /**
-       * <code>repeated .meshpaas.ProjectRef projects = 1;</code>
+       * <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
        */
-      public Builder clearProjects() {
-        if (projectsBuilder_ == null) {
-          projects_ = java.util.Collections.emptyList();
+      public Builder clearNamespaces() {
+        if (namespacesBuilder_ == null) {
+          namespaces_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
-          projectsBuilder_.clear();
+          namespacesBuilder_.clear();
         }
         return this;
       }
       /**
-       * <code>repeated .meshpaas.ProjectRef projects = 1;</code>
+       * <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
        */
-      public Builder removeProjects(int index) {
-        if (projectsBuilder_ == null) {
-          ensureProjectsIsMutable();
-          projects_.remove(index);
+      public Builder removeNamespaces(int index) {
+        if (namespacesBuilder_ == null) {
+          ensureNamespacesIsMutable();
+          namespaces_.remove(index);
           onChanged();
         } else {
-          projectsBuilder_.remove(index);
+          namespacesBuilder_.remove(index);
         }
         return this;
       }
       /**
-       * <code>repeated .meshpaas.ProjectRef projects = 1;</code>
+       * <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
        */
-      public meshpaas.Schema.ProjectRef.Builder getProjectsBuilder(
+      public meshpaas.Schema.NamespaceRef.Builder getNamespacesBuilder(
           int index) {
-        return getProjectsFieldBuilder().getBuilder(index);
+        return getNamespacesFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .meshpaas.ProjectRef projects = 1;</code>
+       * <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
        */
-      public meshpaas.Schema.ProjectRefOrBuilder getProjectsOrBuilder(
+      public meshpaas.Schema.NamespaceRefOrBuilder getNamespacesOrBuilder(
           int index) {
-        if (projectsBuilder_ == null) {
-          return projects_.get(index);  } else {
-          return projectsBuilder_.getMessageOrBuilder(index);
+        if (namespacesBuilder_ == null) {
+          return namespaces_.get(index);  } else {
+          return namespacesBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
-       * <code>repeated .meshpaas.ProjectRef projects = 1;</code>
+       * <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
        */
-      public java.util.List<? extends meshpaas.Schema.ProjectRefOrBuilder> 
-           getProjectsOrBuilderList() {
-        if (projectsBuilder_ != null) {
-          return projectsBuilder_.getMessageOrBuilderList();
+      public java.util.List<? extends meshpaas.Schema.NamespaceRefOrBuilder> 
+           getNamespacesOrBuilderList() {
+        if (namespacesBuilder_ != null) {
+          return namespacesBuilder_.getMessageOrBuilderList();
         } else {
-          return java.util.Collections.unmodifiableList(projects_);
+          return java.util.Collections.unmodifiableList(namespaces_);
         }
       }
       /**
-       * <code>repeated .meshpaas.ProjectRef projects = 1;</code>
+       * <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
        */
-      public meshpaas.Schema.ProjectRef.Builder addProjectsBuilder() {
-        return getProjectsFieldBuilder().addBuilder(
-            meshpaas.Schema.ProjectRef.getDefaultInstance());
+      public meshpaas.Schema.NamespaceRef.Builder addNamespacesBuilder() {
+        return getNamespacesFieldBuilder().addBuilder(
+            meshpaas.Schema.NamespaceRef.getDefaultInstance());
       }
       /**
-       * <code>repeated .meshpaas.ProjectRef projects = 1;</code>
+       * <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
        */
-      public meshpaas.Schema.ProjectRef.Builder addProjectsBuilder(
+      public meshpaas.Schema.NamespaceRef.Builder addNamespacesBuilder(
           int index) {
-        return getProjectsFieldBuilder().addBuilder(
-            index, meshpaas.Schema.ProjectRef.getDefaultInstance());
+        return getNamespacesFieldBuilder().addBuilder(
+            index, meshpaas.Schema.NamespaceRef.getDefaultInstance());
       }
       /**
-       * <code>repeated .meshpaas.ProjectRef projects = 1;</code>
+       * <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
        */
-      public java.util.List<meshpaas.Schema.ProjectRef.Builder> 
-           getProjectsBuilderList() {
-        return getProjectsFieldBuilder().getBuilderList();
+      public java.util.List<meshpaas.Schema.NamespaceRef.Builder> 
+           getNamespacesBuilderList() {
+        return getNamespacesFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          meshpaas.Schema.ProjectRef, meshpaas.Schema.ProjectRef.Builder, meshpaas.Schema.ProjectRefOrBuilder> 
-          getProjectsFieldBuilder() {
-        if (projectsBuilder_ == null) {
-          projectsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              meshpaas.Schema.ProjectRef, meshpaas.Schema.ProjectRef.Builder, meshpaas.Schema.ProjectRefOrBuilder>(
-                  projects_,
+          meshpaas.Schema.NamespaceRef, meshpaas.Schema.NamespaceRef.Builder, meshpaas.Schema.NamespaceRefOrBuilder> 
+          getNamespacesFieldBuilder() {
+        if (namespacesBuilder_ == null) {
+          namespacesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              meshpaas.Schema.NamespaceRef, meshpaas.Schema.NamespaceRef.Builder, meshpaas.Schema.NamespaceRefOrBuilder>(
+                  namespaces_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
                   getParentForChildren(),
                   isClean());
-          projects_ = null;
+          namespaces_ = null;
         }
-        return projectsBuilder_;
+        return namespacesBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -13533,41 +14545,41 @@ public final class Schema {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:meshpaas.ProjectRefs)
+      // @@protoc_insertion_point(builder_scope:meshpaas.NamespaceRefs)
     }
 
-    // @@protoc_insertion_point(class_scope:meshpaas.ProjectRefs)
-    private static final meshpaas.Schema.ProjectRefs DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:meshpaas.NamespaceRefs)
+    private static final meshpaas.Schema.NamespaceRefs DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new meshpaas.Schema.ProjectRefs();
+      DEFAULT_INSTANCE = new meshpaas.Schema.NamespaceRefs();
     }
 
-    public static meshpaas.Schema.ProjectRefs getDefaultInstance() {
+    public static meshpaas.Schema.NamespaceRefs getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<ProjectRefs>
-        PARSER = new com.google.protobuf.AbstractParser<ProjectRefs>() {
+    private static final com.google.protobuf.Parser<NamespaceRefs>
+        PARSER = new com.google.protobuf.AbstractParser<NamespaceRefs>() {
       @java.lang.Override
-      public ProjectRefs parsePartialFrom(
+      public NamespaceRefs parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ProjectRefs(input, extensionRegistry);
+        return new NamespaceRefs(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<ProjectRefs> parser() {
+    public static com.google.protobuf.Parser<NamespaceRefs> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<ProjectRefs> getParserForType() {
+    public com.google.protobuf.Parser<NamespaceRefs> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public meshpaas.Schema.ProjectRefs getDefaultInstanceForType() {
+    public meshpaas.Schema.NamespaceRefs getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -13589,20 +14601,20 @@ public final class Schema {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_meshpaas_Filter_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_AppTemplate_descriptor;
+    internal_static_meshpaas_Chart_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_AppTemplate_fieldAccessorTable;
+      internal_static_meshpaas_Chart_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_AppTemplate_MetadataEntry_descriptor;
+    internal_static_meshpaas_Chart_MetadataEntry_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_AppTemplate_MetadataEntry_fieldAccessorTable;
+      internal_static_meshpaas_Chart_MetadataEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_AppTemplates_descriptor;
+    internal_static_meshpaas_Charts_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_AppTemplates_fieldAccessorTable;
+      internal_static_meshpaas_Charts_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_meshpaas_App_descriptor;
   private static final 
@@ -13639,15 +14651,15 @@ public final class Schema {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_meshpaas_AppInput_ConfigEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_ProjectRef_descriptor;
+    internal_static_meshpaas_NamespaceRef_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_ProjectRef_fieldAccessorTable;
+      internal_static_meshpaas_NamespaceRef_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_meshpaas_ProjectRefs_descriptor;
+    internal_static_meshpaas_NamespaceRefs_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_meshpaas_ProjectRefs_fieldAccessorTable;
+      internal_static_meshpaas_NamespaceRefs_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -13662,56 +14674,56 @@ public final class Schema {
       "p.proto\032\031google/protobuf/any.proto\032\033goog" +
       "le/protobuf/empty.proto\0326github.com/mwit" +
       "kow/go-proto-validators/validator.proto\"" +
-      "~\n\nDependency\022\'\n\rtemplate_name\030\001 \001(\tB\020\342\337" +
-      "\037\014\n\n^.{1,225}$\022!\n\007version\030\002 \001(\tB\020\342\337\037\014\n\n^" +
-      ".{1,225}$\022$\n\nrepository\030\003 \001(\tB\020\342\337\037\014\n\n^.{" +
-      "1,225}$\"M\n\nMaintainer\022\036\n\004name\030\001 \001(\tB\020\342\337\037" +
-      "\014\n\n^.{1,225}$\022\037\n\005email\030\002 \001(\tB\020\342\337\037\014\n\n^.{1" +
-      ",225}$\"7\n\006Filter\022\036\n\004term\030\001 \001(\tB\020\342\337\037\014\n\n^." +
-      "{1,225}$\022\r\n\005regex\030\002 \001(\010\"\345\002\n\013AppTemplate\022" +
-      "\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\014\n\004home\030" +
-      "\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\017\n\007version\030\004 " +
-      "\001(\t\022\017\n\007sources\030\005 \003(\t\022\020\n\010keywords\030\006 \003(\t\022\014" +
-      "\n\004icon\030\007 \001(\t\022\022\n\ndeprecated\030\010 \001(\010\022*\n\014depe" +
-      "ndencies\030\t \003(\0132\024.meshpaas.Dependency\022)\n\013" +
-      "maintainers\030\n \003(\0132\024.meshpaas.Maintainer\022" +
-      "5\n\010metadata\030\013 \003(\0132#.meshpaas.AppTemplate" +
-      ".MetadataEntry\032/\n\rMetadataEntry\022\013\n\003key\030\001" +
-      " \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"8\n\014AppTemplates\022" +
-      "(\n\ttemplates\030\001 \003(\0132\025.meshpaas.AppTemplat" +
-      "e\"\225\001\n\003App\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}" +
-      "$\022!\n\007project\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\"\n\007" +
-      "release\030\005 \001(\0132\021.meshpaas.Release\022\'\n\010temp" +
-      "late\030\024 \001(\0132\025.meshpaas.AppTemplate\"#\n\004App" +
-      "s\022\033\n\004apps\030\001 \003(\0132\r.meshpaas.App\"\241\001\n\007Relea" +
-      "se\022\017\n\007version\030\001 \001(\r\022\'\n\006config\030\002 \001(\0132\027.go" +
-      "ogle.protobuf.Struct\022\r\n\005notes\030\003 \001(\t\022\023\n\013d" +
-      "escription\030\004 \001(\t\022\016\n\006status\030\005 \001(\t\022(\n\ntime" +
-      "stamps\030\006 \001(\0132\024.meshpaas.Timestamps\"\223\001\n\nT" +
-      "imestamps\022+\n\007created\030\001 \001(\0132\032.google.prot" +
-      "obuf.Timestamp\022+\n\007updated\030\002 \001(\0132\032.google" +
-      ".protobuf.Timestamp\022+\n\007deleted\030\003 \001(\0132\032.g" +
-      "oogle.protobuf.Timestamp\"K\n\006AppRef\022!\n\007pr" +
-      "oject\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\036\n\004name\030\002 " +
-      "\001(\tB\020\342\337\037\014\n\n^.{1,225}$\"\341\001\n\010AppInput\022!\n\007pr" +
-      "oject\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\'\n\rtemplat" +
-      "e_name\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\"\n\010app_na" +
-      "me\030\003 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\0226\n\006config\030\004 \003" +
-      "(\0132\036.meshpaas.AppInput.ConfigEntryB\006\342\337\037\002" +
-      " \001\032-\n\013ConfigEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
-      "\002 \001(\t:\0028\001\"\032\n\nProjectRef\022\014\n\004name\030\001 \001(\t\"5\n" +
-      "\013ProjectRefs\022&\n\010projects\030\001 \003(\0132\024.meshpaa" +
-      "s.ProjectRef2\204\003\n\017MeshPaasService\022+\n\006GetA" +
-      "pp\022\020.meshpaas.AppRef\032\r.meshpaas.App\"\000\0222\n" +
-      "\010ListApps\022\024.meshpaas.ProjectRef\032\016.meshpa" +
-      "as.Apps\"\000\022:\n\014UninstallApp\022\020.meshpaas.App" +
-      "Ref\032\026.google.protobuf.Empty\"\000\0220\n\013Rollbac" +
-      "kApp\022\020.meshpaas.AppRef\032\r.meshpaas.App\"\000\022" +
-      "1\n\nInstallApp\022\022.meshpaas.AppInput\032\r.mesh" +
-      "paas.App\"\000\0220\n\tUpdateApp\022\022.meshpaas.AppIn" +
-      "put\032\r.meshpaas.App\"\000\022=\n\017SearchTemplates\022" +
-      "\020.meshpaas.Filter\032\026.meshpaas.AppTemplate" +
-      "s\"\000B\014Z\nmeshpaaspbb\006proto3"
+      "v\n\nDependency\022\037\n\005chart\030\001 \001(\tB\020\342\337\037\014\n\n^.{1" +
+      ",225}$\022!\n\007version\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}" +
+      "$\022$\n\nrepository\030\003 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\"" +
+      "M\n\nMaintainer\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1," +
+      "225}$\022\037\n\005email\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\"7" +
+      "\n\006Filter\022\036\n\004term\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$" +
+      "\022\r\n\005regex\030\002 \001(\010\"\331\002\n\005Chart\022\036\n\004name\030\001 \001(\tB" +
+      "\020\342\337\037\014\n\n^.{1,225}$\022\014\n\004home\030\002 \001(\t\022\023\n\013descr" +
+      "iption\030\003 \001(\t\022\017\n\007version\030\004 \001(\t\022\017\n\007sources" +
+      "\030\005 \003(\t\022\020\n\010keywords\030\006 \003(\t\022\014\n\004icon\030\007 \001(\t\022\022" +
+      "\n\ndeprecated\030\010 \001(\010\022*\n\014dependencies\030\t \003(\013" +
+      "2\024.meshpaas.Dependency\022)\n\013maintainers\030\n " +
+      "\003(\0132\024.meshpaas.Maintainer\022/\n\010metadata\030\013 " +
+      "\003(\0132\035.meshpaas.Chart.MetadataEntry\032/\n\rMe" +
+      "tadataEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:" +
+      "\0028\001\")\n\006Charts\022\037\n\006charts\030\001 \003(\0132\017.meshpaas" +
+      ".Chart\"\216\001\n\003App\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1" +
+      ",225}$\022#\n\tnamespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,22" +
+      "5}$\022\"\n\007release\030\005 \001(\0132\021.meshpaas.Release\022" +
+      "\036\n\005chart\030\024 \001(\0132\017.meshpaas.Chart\"#\n\004Apps\022" +
+      "\033\n\004apps\030\001 \003(\0132\r.meshpaas.App\"\241\001\n\007Release" +
+      "\022\017\n\007version\030\001 \001(\r\022\'\n\006config\030\002 \001(\0132\027.goog" +
+      "le.protobuf.Struct\022\r\n\005notes\030\003 \001(\t\022\023\n\013des" +
+      "cription\030\004 \001(\t\022\016\n\006status\030\005 \001(\t\022(\n\ntimest" +
+      "amps\030\006 \001(\0132\024.meshpaas.Timestamps\"\223\001\n\nTim" +
+      "estamps\022+\n\007created\030\001 \001(\0132\032.google.protob" +
+      "uf.Timestamp\022+\n\007updated\030\002 \001(\0132\032.google.p" +
+      "rotobuf.Timestamp\022+\n\007deleted\030\003 \001(\0132\032.goo" +
+      "gle.protobuf.Timestamp\"M\n\006AppRef\022#\n\tname" +
+      "space\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\036\n\004name\030\002 " +
+      "\001(\tB\020\342\337\037\014\n\n^.{1,225}$\"\333\001\n\010AppInput\022#\n\tna" +
+      "mespace\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\037\n\005chart" +
+      "\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\"\n\010app_name\030\003 \001" +
+      "(\tB\020\342\337\037\014\n\n^.{1,225}$\0226\n\006config\030\004 \003(\0132\036.m" +
+      "eshpaas.AppInput.ConfigEntryB\006\342\337\037\002 \001\032-\n\013" +
+      "ConfigEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:" +
+      "\0028\001\".\n\014NamespaceRef\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n" +
+      "\n^.{1,225}$\";\n\rNamespaceRefs\022*\n\nnamespac" +
+      "es\030\001 \003(\0132\026.meshpaas.NamespaceRef2\200\003\n\017Mes" +
+      "hPaasService\022+\n\006GetApp\022\020.meshpaas.AppRef" +
+      "\032\r.meshpaas.App\"\000\0224\n\010ListApps\022\026.meshpaas" +
+      ".NamespaceRef\032\016.meshpaas.Apps\"\000\022:\n\014Unins" +
+      "tallApp\022\020.meshpaas.AppRef\032\026.google.proto" +
+      "buf.Empty\"\000\0220\n\013RollbackApp\022\020.meshpaas.Ap" +
+      "pRef\032\r.meshpaas.App\"\000\0221\n\nInstallApp\022\022.me" +
+      "shpaas.AppInput\032\r.meshpaas.App\"\000\0220\n\tUpda" +
+      "teApp\022\022.meshpaas.AppInput\032\r.meshpaas.App" +
+      "\"\000\0227\n\017SearchTemplates\022\020.meshpaas.Filter\032" +
+      "\020.meshpaas.Charts\"\000B\014Z\nmeshpaaspbb\006proto" +
+      "3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -13735,7 +14747,7 @@ public final class Schema {
     internal_static_meshpaas_Dependency_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Dependency_descriptor,
-        new java.lang.String[] { "TemplateName", "Version", "Repository", });
+        new java.lang.String[] { "Chart", "Version", "Repository", });
     internal_static_meshpaas_Maintainer_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_meshpaas_Maintainer_fieldAccessorTable = new
@@ -13748,30 +14760,30 @@ public final class Schema {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_Filter_descriptor,
         new java.lang.String[] { "Term", "Regex", });
-    internal_static_meshpaas_AppTemplate_descriptor =
+    internal_static_meshpaas_Chart_descriptor =
       getDescriptor().getMessageTypes().get(3);
-    internal_static_meshpaas_AppTemplate_fieldAccessorTable = new
+    internal_static_meshpaas_Chart_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_AppTemplate_descriptor,
+        internal_static_meshpaas_Chart_descriptor,
         new java.lang.String[] { "Name", "Home", "Description", "Version", "Sources", "Keywords", "Icon", "Deprecated", "Dependencies", "Maintainers", "Metadata", });
-    internal_static_meshpaas_AppTemplate_MetadataEntry_descriptor =
-      internal_static_meshpaas_AppTemplate_descriptor.getNestedTypes().get(0);
-    internal_static_meshpaas_AppTemplate_MetadataEntry_fieldAccessorTable = new
+    internal_static_meshpaas_Chart_MetadataEntry_descriptor =
+      internal_static_meshpaas_Chart_descriptor.getNestedTypes().get(0);
+    internal_static_meshpaas_Chart_MetadataEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_AppTemplate_MetadataEntry_descriptor,
+        internal_static_meshpaas_Chart_MetadataEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_meshpaas_AppTemplates_descriptor =
+    internal_static_meshpaas_Charts_descriptor =
       getDescriptor().getMessageTypes().get(4);
-    internal_static_meshpaas_AppTemplates_fieldAccessorTable = new
+    internal_static_meshpaas_Charts_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_AppTemplates_descriptor,
-        new java.lang.String[] { "Templates", });
+        internal_static_meshpaas_Charts_descriptor,
+        new java.lang.String[] { "Charts", });
     internal_static_meshpaas_App_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_meshpaas_App_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_App_descriptor,
-        new java.lang.String[] { "Name", "Project", "Release", "Template", });
+        new java.lang.String[] { "Name", "Namespace", "Release", "Chart", });
     internal_static_meshpaas_Apps_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_meshpaas_Apps_fieldAccessorTable = new
@@ -13795,31 +14807,31 @@ public final class Schema {
     internal_static_meshpaas_AppRef_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_AppRef_descriptor,
-        new java.lang.String[] { "Project", "Name", });
+        new java.lang.String[] { "Namespace", "Name", });
     internal_static_meshpaas_AppInput_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_meshpaas_AppInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_AppInput_descriptor,
-        new java.lang.String[] { "Project", "TemplateName", "AppName", "Config", });
+        new java.lang.String[] { "Namespace", "Chart", "AppName", "Config", });
     internal_static_meshpaas_AppInput_ConfigEntry_descriptor =
       internal_static_meshpaas_AppInput_descriptor.getNestedTypes().get(0);
     internal_static_meshpaas_AppInput_ConfigEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_meshpaas_AppInput_ConfigEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_meshpaas_ProjectRef_descriptor =
+    internal_static_meshpaas_NamespaceRef_descriptor =
       getDescriptor().getMessageTypes().get(11);
-    internal_static_meshpaas_ProjectRef_fieldAccessorTable = new
+    internal_static_meshpaas_NamespaceRef_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_ProjectRef_descriptor,
+        internal_static_meshpaas_NamespaceRef_descriptor,
         new java.lang.String[] { "Name", });
-    internal_static_meshpaas_ProjectRefs_descriptor =
+    internal_static_meshpaas_NamespaceRefs_descriptor =
       getDescriptor().getMessageTypes().get(12);
-    internal_static_meshpaas_ProjectRefs_fieldAccessorTable = new
+    internal_static_meshpaas_NamespaceRefs_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_meshpaas_ProjectRefs_descriptor,
-        new java.lang.String[] { "Projects", });
+        internal_static_meshpaas_NamespaceRefs_descriptor,
+        new java.lang.String[] { "Namespaces", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(validator.Validator.field);

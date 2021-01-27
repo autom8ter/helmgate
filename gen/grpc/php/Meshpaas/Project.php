@@ -9,20 +9,20 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Project is a reference to a project(k8s namespace)
+ * Project is a reference to a namespace(k8s namespace)
  *
  * Generated from protobuf message <code>meshpaas.Project</code>
  */
 class Project extends \Google\Protobuf\Internal\Message
 {
     /**
-     * unique name of the project
+     * unique name of the namespace
      *
      * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      */
     private $name = '';
     /**
-     * a list of email addresses that may interact with this project
+     * a list of email addresses that may interact with this namespace
      *
      * Generated from protobuf field <code>repeated string allow_emails = 2 [(.validator.field) = {</code>
      */
@@ -35,9 +35,9 @@ class Project extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $name
-     *           unique name of the project
+     *           unique name of the namespace
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $allow_emails
-     *           a list of email addresses that may interact with this project
+     *           a list of email addresses that may interact with this namespace
      * }
      */
     public function __construct($data = NULL) {
@@ -46,7 +46,7 @@ class Project extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * unique name of the project
+     * unique name of the namespace
      *
      * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      * @return string
@@ -57,7 +57,7 @@ class Project extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * unique name of the project
+     * unique name of the namespace
      *
      * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      * @param string $var
@@ -72,7 +72,7 @@ class Project extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * a list of email addresses that may interact with this project
+     * a list of email addresses that may interact with this namespace
      *
      * Generated from protobuf field <code>repeated string allow_emails = 2 [(.validator.field) = {</code>
      * @return \Google\Protobuf\Internal\RepeatedField
@@ -83,7 +83,7 @@ class Project extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * a list of email addresses that may interact with this project
+     * a list of email addresses that may interact with this namespace
      *
      * Generated from protobuf field <code>repeated string allow_emails = 2 [(.validator.field) = {</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var

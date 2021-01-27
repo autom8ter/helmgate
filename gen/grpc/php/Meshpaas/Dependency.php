@@ -9,25 +9,27 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Dependency is a dependency(template) required by a template
+ * Dependency is a dependency required by a helm chart
  *
  * Generated from protobuf message <code>meshpaas.Dependency</code>
  */
 class Dependency extends \Google\Protobuf\Internal\Message
 {
     /**
-     * name of the template dependency
+     * name of the chart dependency
      *
-     * Generated from protobuf field <code>string template_name = 1 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string chart = 1 [(.validator.field) = {</code>
      */
-    private $template_name = '';
+    private $chart = '';
     /**
-     * name of the template version
+     * name of the chart version
      *
      * Generated from protobuf field <code>string version = 2 [(.validator.field) = {</code>
      */
     private $version = '';
     /**
+     * the URL of the helm repository.
+     *
      * Generated from protobuf field <code>string repository = 3 [(.validator.field) = {</code>
      */
     private $repository = '';
@@ -38,11 +40,12 @@ class Dependency extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type string $template_name
-     *           name of the template dependency
+     *     @type string $chart
+     *           name of the chart dependency
      *     @type string $version
-     *           name of the template version
+     *           name of the chart version
      *     @type string $repository
+     *           the URL of the helm repository.
      * }
      */
     public function __construct($data = NULL) {
@@ -51,33 +54,33 @@ class Dependency extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * name of the template dependency
+     * name of the chart dependency
      *
-     * Generated from protobuf field <code>string template_name = 1 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string chart = 1 [(.validator.field) = {</code>
      * @return string
      */
-    public function getTemplateName()
+    public function getChart()
     {
-        return $this->template_name;
+        return $this->chart;
     }
 
     /**
-     * name of the template dependency
+     * name of the chart dependency
      *
-     * Generated from protobuf field <code>string template_name = 1 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string chart = 1 [(.validator.field) = {</code>
      * @param string $var
      * @return $this
      */
-    public function setTemplateName($var)
+    public function setChart($var)
     {
         GPBUtil::checkString($var, True);
-        $this->template_name = $var;
+        $this->chart = $var;
 
         return $this;
     }
 
     /**
-     * name of the template version
+     * name of the chart version
      *
      * Generated from protobuf field <code>string version = 2 [(.validator.field) = {</code>
      * @return string
@@ -88,7 +91,7 @@ class Dependency extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * name of the template version
+     * name of the chart version
      *
      * Generated from protobuf field <code>string version = 2 [(.validator.field) = {</code>
      * @param string $var
@@ -103,6 +106,8 @@ class Dependency extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * the URL of the helm repository.
+     *
      * Generated from protobuf field <code>string repository = 3 [(.validator.field) = {</code>
      * @return string
      */
@@ -112,6 +117,8 @@ class Dependency extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * the URL of the helm repository.
+     *
      * Generated from protobuf field <code>string repository = 3 [(.validator.field) = {</code>
      * @param string $var
      * @return $this

@@ -6,6 +6,9 @@ import (
 	meshpaaspb "github.com/autom8ter/meshpaas/gen/grpc/go"
 	"github.com/autom8ter/meshpaas/internal/logger"
 	"github.com/golang/protobuf/ptypes/empty"
+	"go.uber.org/zap"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 	"helm.sh/helm/v3/pkg/repo"
 )
 
@@ -20,6 +23,10 @@ func NewHelm(logger *logger.Logger, repos []*repo.Entry) (*Helm, error) {
 		return nil, err
 	}
 	for _, r := range repos {
+		logger.Debug("adding helm repository",
+			zap.String("name", r.Name),
+			zap.String("url", r.URL),
+		)
 		if err := client.AddRepo(r); err != nil {
 			return nil, err
 		}
@@ -31,14 +38,14 @@ func NewHelm(logger *logger.Logger, repos []*repo.Entry) (*Helm, error) {
 }
 
 func (h Helm) GetApp(ctx context.Context, ref *meshpaaspb.AppRef) (*meshpaaspb.App, error) {
-	release, err := h.client.Get(ref.Project, ref.Name)
+	release, err := h.client.Get(ref.Namespace, ref.Name)
 	if err != nil {
 		return nil, err
 	}
 	return h.toApp(release)
 }
 
-func (h Helm) ListApps(ctx context.Context, ref *meshpaaspb.ProjectRef) (*meshpaaspb.Apps, error) {
+func (h Helm) ListApps(ctx context.Context, ref *meshpaaspb.NamespaceRef) (*meshpaaspb.Apps, error) {
 	releases, err := h.client.ListReleases(ref.Name)
 	if err != nil {
 		return nil, err
@@ -47,7 +54,7 @@ func (h Helm) ListApps(ctx context.Context, ref *meshpaaspb.ProjectRef) (*meshpa
 }
 
 func (h Helm) UninstallApp(ctx context.Context, ref *meshpaaspb.AppRef) (*empty.Empty, error) {
-	_, err := h.client.Uninstall(ref.Project, ref.Name)
+	_, err := h.client.Uninstall(ref.Namespace, ref.Name)
 	if err != nil {
 		return nil, err
 	}
@@ -55,14 +62,14 @@ func (h Helm) UninstallApp(ctx context.Context, ref *meshpaaspb.AppRef) (*empty.
 }
 
 func (h Helm) RollbackApp(ctx context.Context, ref *meshpaaspb.AppRef) (*meshpaaspb.App, error) {
-	if err := h.client.Rollback(ref.Project, ref.Name); err != nil {
+	if err := h.client.Rollback(ref.Namespace, ref.Name); err != nil {
 		return nil, err
 	}
 	return h.GetApp(ctx, ref)
 }
 
 func (h Helm) InstallApp(ctx context.Context, input *meshpaaspb.AppInput) (*meshpaaspb.App, error) {
-	release, err := h.client.Install(input.Project, input.TemplateName, input.AppName, true, input.Config)
+	release, err := h.client.Install(input.Namespace, input.Chart, input.AppName, true, input.Config)
 	if err != nil {
 		return nil, err
 	}
@@ -70,17 +77,20 @@ func (h Helm) InstallApp(ctx context.Context, input *meshpaaspb.AppInput) (*mesh
 }
 
 func (h Helm) UpdateApp(ctx context.Context, input *meshpaaspb.AppInput) (*meshpaaspb.App, error) {
-	release, err := h.client.Upgrade(input.Project, input.TemplateName, input.AppName, true, input.Config)
+	release, err := h.client.Upgrade(input.Namespace, input.Chart, input.AppName, true, input.Config)
 	if err != nil {
 		return nil, err
 	}
 	return h.toApp(release)
 }
 
-func (h Helm) SearchTemplates(ctx context.Context, filter *meshpaaspb.Filter) (*meshpaaspb.AppTemplates, error) {
+func (h Helm) SearchTemplates(ctx context.Context, filter *meshpaaspb.Filter) (*meshpaaspb.Charts, error) {
 	charts, err := h.client.SearchCharts(filter.Term, filter.Regex)
 	if err != nil {
 		return nil, err
+	}
+	if len(charts) == 0 {
+		return nil, status.Error(codes.NotFound, "zero charts found")
 	}
 	return h.toTempalates(charts), nil
 }

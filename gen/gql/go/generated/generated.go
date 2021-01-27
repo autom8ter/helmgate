@@ -44,13 +44,13 @@ type DirectiveRoot struct {
 
 type ComplexityRoot struct {
 	App struct {
-		Name     func(childComplexity int) int
-		Project  func(childComplexity int) int
-		Release  func(childComplexity int) int
-		Template func(childComplexity int) int
+		Chart     func(childComplexity int) int
+		Name      func(childComplexity int) int
+		Namespace func(childComplexity int) int
+		Release   func(childComplexity int) int
 	}
 
-	AppTemplate struct {
+	Chart struct {
 		Dependencies func(childComplexity int) int
 		Deprecated   func(childComplexity int) int
 		Description  func(childComplexity int) int
@@ -65,9 +65,9 @@ type ComplexityRoot struct {
 	}
 
 	Dependency struct {
-		Repository   func(childComplexity int) int
-		TemplateName func(childComplexity int) int
-		Version      func(childComplexity int) int
+		Chart      func(childComplexity int) int
+		Repository func(childComplexity int) int
+		Version    func(childComplexity int) int
 	}
 
 	Maintainer struct {
@@ -84,7 +84,7 @@ type ComplexityRoot struct {
 
 	Query struct {
 		GetApp          func(childComplexity int, input model.AppRef) int
-		ListApps        func(childComplexity int, input model.ProjectRef) int
+		ListApps        func(childComplexity int, input model.NamespaceRef) int
 		SearchTemplates func(childComplexity int, input model.Filter) int
 	}
 
@@ -105,15 +105,15 @@ type ComplexityRoot struct {
 }
 
 type MutationResolver interface {
-	UninstallApp(ctx context.Context, input model.AppRef) (*string, error)
 	InstallApp(ctx context.Context, input model.AppInput) (*model.App, error)
 	UpdateApp(ctx context.Context, input model.AppInput) (*model.App, error)
 	RollbackApp(ctx context.Context, input model.AppRef) (*model.App, error)
+	UninstallApp(ctx context.Context, input model.AppRef) (*string, error)
 }
 type QueryResolver interface {
 	GetApp(ctx context.Context, input model.AppRef) (*model.App, error)
-	ListApps(ctx context.Context, input model.ProjectRef) ([]*model.App, error)
-	SearchTemplates(ctx context.Context, input model.Filter) ([]*model.AppTemplate, error)
+	ListApps(ctx context.Context, input model.NamespaceRef) ([]*model.App, error)
+	SearchTemplates(ctx context.Context, input model.Filter) ([]*model.Chart, error)
 }
 
 type executableSchema struct {
@@ -131,6 +131,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 	_ = ec
 	switch typeName + "." + field {
 
+	case "App.chart":
+		if e.complexity.App.Chart == nil {
+			break
+		}
+
+		return e.complexity.App.Chart(childComplexity), true
+
 	case "App.name":
 		if e.complexity.App.Name == nil {
 			break
@@ -138,12 +145,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.App.Name(childComplexity), true
 
-	case "App.project":
-		if e.complexity.App.Project == nil {
+	case "App.namespace":
+		if e.complexity.App.Namespace == nil {
 			break
 		}
 
-		return e.complexity.App.Project(childComplexity), true
+		return e.complexity.App.Namespace(childComplexity), true
 
 	case "App.release":
 		if e.complexity.App.Release == nil {
@@ -152,89 +159,89 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.App.Release(childComplexity), true
 
-	case "App.template":
-		if e.complexity.App.Template == nil {
+	case "Chart.dependencies":
+		if e.complexity.Chart.Dependencies == nil {
 			break
 		}
 
-		return e.complexity.App.Template(childComplexity), true
+		return e.complexity.Chart.Dependencies(childComplexity), true
 
-	case "AppTemplate.dependencies":
-		if e.complexity.AppTemplate.Dependencies == nil {
+	case "Chart.deprecated":
+		if e.complexity.Chart.Deprecated == nil {
 			break
 		}
 
-		return e.complexity.AppTemplate.Dependencies(childComplexity), true
+		return e.complexity.Chart.Deprecated(childComplexity), true
 
-	case "AppTemplate.deprecated":
-		if e.complexity.AppTemplate.Deprecated == nil {
+	case "Chart.description":
+		if e.complexity.Chart.Description == nil {
 			break
 		}
 
-		return e.complexity.AppTemplate.Deprecated(childComplexity), true
+		return e.complexity.Chart.Description(childComplexity), true
 
-	case "AppTemplate.description":
-		if e.complexity.AppTemplate.Description == nil {
+	case "Chart.home":
+		if e.complexity.Chart.Home == nil {
 			break
 		}
 
-		return e.complexity.AppTemplate.Description(childComplexity), true
+		return e.complexity.Chart.Home(childComplexity), true
 
-	case "AppTemplate.home":
-		if e.complexity.AppTemplate.Home == nil {
+	case "Chart.icon":
+		if e.complexity.Chart.Icon == nil {
 			break
 		}
 
-		return e.complexity.AppTemplate.Home(childComplexity), true
+		return e.complexity.Chart.Icon(childComplexity), true
 
-	case "AppTemplate.icon":
-		if e.complexity.AppTemplate.Icon == nil {
+	case "Chart.keywords":
+		if e.complexity.Chart.Keywords == nil {
 			break
 		}
 
-		return e.complexity.AppTemplate.Icon(childComplexity), true
+		return e.complexity.Chart.Keywords(childComplexity), true
 
-	case "AppTemplate.keywords":
-		if e.complexity.AppTemplate.Keywords == nil {
+	case "Chart.maintainers":
+		if e.complexity.Chart.Maintainers == nil {
 			break
 		}
 
-		return e.complexity.AppTemplate.Keywords(childComplexity), true
+		return e.complexity.Chart.Maintainers(childComplexity), true
 
-	case "AppTemplate.maintainers":
-		if e.complexity.AppTemplate.Maintainers == nil {
+	case "Chart.metadata":
+		if e.complexity.Chart.Metadata == nil {
 			break
 		}
 
-		return e.complexity.AppTemplate.Maintainers(childComplexity), true
+		return e.complexity.Chart.Metadata(childComplexity), true
 
-	case "AppTemplate.metadata":
-		if e.complexity.AppTemplate.Metadata == nil {
+	case "Chart.name":
+		if e.complexity.Chart.Name == nil {
 			break
 		}
 
-		return e.complexity.AppTemplate.Metadata(childComplexity), true
+		return e.complexity.Chart.Name(childComplexity), true
 
-	case "AppTemplate.name":
-		if e.complexity.AppTemplate.Name == nil {
+	case "Chart.sources":
+		if e.complexity.Chart.Sources == nil {
 			break
 		}
 
-		return e.complexity.AppTemplate.Name(childComplexity), true
+		return e.complexity.Chart.Sources(childComplexity), true
 
-	case "AppTemplate.sources":
-		if e.complexity.AppTemplate.Sources == nil {
+	case "Chart.version":
+		if e.complexity.Chart.Version == nil {
 			break
 		}
 
-		return e.complexity.AppTemplate.Sources(childComplexity), true
+		return e.complexity.Chart.Version(childComplexity), true
 
-	case "AppTemplate.version":
-		if e.complexity.AppTemplate.Version == nil {
+	case "Dependency.chart":
+		if e.complexity.Dependency.Chart == nil {
 			break
 		}
 
-		return e.complexity.AppTemplate.Version(childComplexity), true
+		return e.complexity.Dependency.Chart(childComplexity), true
 
 	case "Dependency.repository":
 		if e.complexity.Dependency.Repository == nil {
@@ -242,13 +249,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Dependency.Repository(childComplexity), true
-
-	case "Dependency.template_name":
-		if e.complexity.Dependency.TemplateName == nil {
-			break
-		}
-
-		return e.complexity.Dependency.TemplateName(childComplexity), true
 
 	case "Dependency.version":
 		if e.complexity.Dependency.Version == nil {
@@ -341,7 +341,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.ListApps(childComplexity, args["input"].(model.ProjectRef)), true
+		return e.complexity.Query.ListApps(childComplexity, args["input"].(model.NamespaceRef)), true
 
 	case "Query.searchTemplates":
 		if e.complexity.Query.SearchTemplates == nil {
@@ -493,7 +493,7 @@ type Maintainer {
 }
 
 type Dependency {
-    template_name: String!
+    chart: String!
     version: String!
     repository: String!
 }
@@ -513,7 +513,7 @@ type Timestamps {
     deleted: Time
 }
 
-type AppTemplate {
+type Chart {
     name: String!
     home: String
     icon: String
@@ -529,9 +529,9 @@ type AppTemplate {
 
 type App {
     name: String!
-    project: String!
+    namespace: String!
     release: Release!
-    template: AppTemplate!
+    chart: Chart!
 }
 
 input Filter {
@@ -540,32 +540,39 @@ input Filter {
 }
 
 input AppRef {
-    project: String!
+    namespace: String!
     name: String!
 }
 
-input ProjectRef {
+input NamespaceRef {
     name: String!
 }
 
 input AppInput {
-    project: String!
-    template_name: String!
+    namespace: String!
+    chart: String!
     app_name: String!
     config: Map!
 }
 
 type Query {
+    # getApp gets an app in the given namespace
     getApp(input: AppRef!): App
-    listApps(input: ProjectRef!): [App!]
-    searchTemplates(input: Filter!): [AppTemplate!]
+    # listApps lists apps in the namespace
+    listApps(input: NamespaceRef!): [App!]
+    # searchTemplates searches for an app chart
+    searchTemplates(input: Filter!): [Chart!]
 }
 
 type Mutation {
-    uninstallApp(input: AppRef!): String
+    # installApp installs an app in the given namespace
     installApp(input: AppInput!): App
+    # updateApp updates an app in the given namespace
     updateApp(input: AppInput!): App
+    # rollbackApp rolls the app back to the previous version in the given namespace
     rollbackApp(input: AppRef!): App
+    # uninstallApp uninstalls an app in the given namespace
+    uninstallApp(input: AppRef!): String
 }`, BuiltIn: false},
 }
 var parsedSchema = gqlparser.MustLoadSchema(sources...)
@@ -667,10 +674,10 @@ func (ec *executionContext) field_Query_getApp_args(ctx context.Context, rawArgs
 func (ec *executionContext) field_Query_listApps_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 model.ProjectRef
+	var arg0 model.NamespaceRef
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNProjectRef2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐProjectRef(ctx, tmp)
+		arg0, err = ec.unmarshalNNamespaceRef2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐNamespaceRef(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -767,7 +774,7 @@ func (ec *executionContext) _App_name(ctx context.Context, field graphql.Collect
 	return ec.marshalNString2string(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _App_project(ctx context.Context, field graphql.CollectedField, obj *model.App) (ret graphql.Marshaler) {
+func (ec *executionContext) _App_namespace(ctx context.Context, field graphql.CollectedField, obj *model.App) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -785,7 +792,7 @@ func (ec *executionContext) _App_project(ctx context.Context, field graphql.Coll
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Project, nil
+		return obj.Namespace, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -837,7 +844,7 @@ func (ec *executionContext) _App_release(ctx context.Context, field graphql.Coll
 	return ec.marshalNRelease2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐRelease(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _App_template(ctx context.Context, field graphql.CollectedField, obj *model.App) (ret graphql.Marshaler) {
+func (ec *executionContext) _App_chart(ctx context.Context, field graphql.CollectedField, obj *model.App) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -855,7 +862,7 @@ func (ec *executionContext) _App_template(ctx context.Context, field graphql.Col
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Template, nil
+		return obj.Chart, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -867,12 +874,12 @@ func (ec *executionContext) _App_template(ctx context.Context, field graphql.Col
 		}
 		return graphql.Null
 	}
-	res := resTmp.(*model.AppTemplate)
+	res := resTmp.(*model.Chart)
 	fc.Result = res
-	return ec.marshalNAppTemplate2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppTemplate(ctx, field.Selections, res)
+	return ec.marshalNChart2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐChart(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _AppTemplate_name(ctx context.Context, field graphql.CollectedField, obj *model.AppTemplate) (ret graphql.Marshaler) {
+func (ec *executionContext) _Chart_name(ctx context.Context, field graphql.CollectedField, obj *model.Chart) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -880,7 +887,7 @@ func (ec *executionContext) _AppTemplate_name(ctx context.Context, field graphql
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "AppTemplate",
+		Object:     "Chart",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -907,7 +914,7 @@ func (ec *executionContext) _AppTemplate_name(ctx context.Context, field graphql
 	return ec.marshalNString2string(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _AppTemplate_home(ctx context.Context, field graphql.CollectedField, obj *model.AppTemplate) (ret graphql.Marshaler) {
+func (ec *executionContext) _Chart_home(ctx context.Context, field graphql.CollectedField, obj *model.Chart) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -915,7 +922,7 @@ func (ec *executionContext) _AppTemplate_home(ctx context.Context, field graphql
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "AppTemplate",
+		Object:     "Chart",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -939,7 +946,7 @@ func (ec *executionContext) _AppTemplate_home(ctx context.Context, field graphql
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _AppTemplate_icon(ctx context.Context, field graphql.CollectedField, obj *model.AppTemplate) (ret graphql.Marshaler) {
+func (ec *executionContext) _Chart_icon(ctx context.Context, field graphql.CollectedField, obj *model.Chart) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -947,7 +954,7 @@ func (ec *executionContext) _AppTemplate_icon(ctx context.Context, field graphql
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "AppTemplate",
+		Object:     "Chart",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -971,7 +978,7 @@ func (ec *executionContext) _AppTemplate_icon(ctx context.Context, field graphql
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _AppTemplate_version(ctx context.Context, field graphql.CollectedField, obj *model.AppTemplate) (ret graphql.Marshaler) {
+func (ec *executionContext) _Chart_version(ctx context.Context, field graphql.CollectedField, obj *model.Chart) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -979,7 +986,7 @@ func (ec *executionContext) _AppTemplate_version(ctx context.Context, field grap
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "AppTemplate",
+		Object:     "Chart",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -1003,7 +1010,7 @@ func (ec *executionContext) _AppTemplate_version(ctx context.Context, field grap
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _AppTemplate_description(ctx context.Context, field graphql.CollectedField, obj *model.AppTemplate) (ret graphql.Marshaler) {
+func (ec *executionContext) _Chart_description(ctx context.Context, field graphql.CollectedField, obj *model.Chart) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -1011,7 +1018,7 @@ func (ec *executionContext) _AppTemplate_description(ctx context.Context, field 
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "AppTemplate",
+		Object:     "Chart",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -1035,7 +1042,7 @@ func (ec *executionContext) _AppTemplate_description(ctx context.Context, field 
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _AppTemplate_sources(ctx context.Context, field graphql.CollectedField, obj *model.AppTemplate) (ret graphql.Marshaler) {
+func (ec *executionContext) _Chart_sources(ctx context.Context, field graphql.CollectedField, obj *model.Chart) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -1043,7 +1050,7 @@ func (ec *executionContext) _AppTemplate_sources(ctx context.Context, field grap
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "AppTemplate",
+		Object:     "Chart",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -1067,7 +1074,7 @@ func (ec *executionContext) _AppTemplate_sources(ctx context.Context, field grap
 	return ec.marshalOString2ᚕstringᚄ(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _AppTemplate_keywords(ctx context.Context, field graphql.CollectedField, obj *model.AppTemplate) (ret graphql.Marshaler) {
+func (ec *executionContext) _Chart_keywords(ctx context.Context, field graphql.CollectedField, obj *model.Chart) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -1075,7 +1082,7 @@ func (ec *executionContext) _AppTemplate_keywords(ctx context.Context, field gra
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "AppTemplate",
+		Object:     "Chart",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -1099,7 +1106,7 @@ func (ec *executionContext) _AppTemplate_keywords(ctx context.Context, field gra
 	return ec.marshalOString2ᚕstringᚄ(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _AppTemplate_deprecated(ctx context.Context, field graphql.CollectedField, obj *model.AppTemplate) (ret graphql.Marshaler) {
+func (ec *executionContext) _Chart_deprecated(ctx context.Context, field graphql.CollectedField, obj *model.Chart) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -1107,7 +1114,7 @@ func (ec *executionContext) _AppTemplate_deprecated(ctx context.Context, field g
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "AppTemplate",
+		Object:     "Chart",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -1131,7 +1138,7 @@ func (ec *executionContext) _AppTemplate_deprecated(ctx context.Context, field g
 	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _AppTemplate_metadata(ctx context.Context, field graphql.CollectedField, obj *model.AppTemplate) (ret graphql.Marshaler) {
+func (ec *executionContext) _Chart_metadata(ctx context.Context, field graphql.CollectedField, obj *model.Chart) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -1139,7 +1146,7 @@ func (ec *executionContext) _AppTemplate_metadata(ctx context.Context, field gra
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "AppTemplate",
+		Object:     "Chart",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -1163,7 +1170,7 @@ func (ec *executionContext) _AppTemplate_metadata(ctx context.Context, field gra
 	return ec.marshalOMap2map(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _AppTemplate_maintainers(ctx context.Context, field graphql.CollectedField, obj *model.AppTemplate) (ret graphql.Marshaler) {
+func (ec *executionContext) _Chart_maintainers(ctx context.Context, field graphql.CollectedField, obj *model.Chart) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -1171,7 +1178,7 @@ func (ec *executionContext) _AppTemplate_maintainers(ctx context.Context, field 
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "AppTemplate",
+		Object:     "Chart",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -1195,7 +1202,7 @@ func (ec *executionContext) _AppTemplate_maintainers(ctx context.Context, field 
 	return ec.marshalOMaintainer2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐMaintainerᚄ(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _AppTemplate_dependencies(ctx context.Context, field graphql.CollectedField, obj *model.AppTemplate) (ret graphql.Marshaler) {
+func (ec *executionContext) _Chart_dependencies(ctx context.Context, field graphql.CollectedField, obj *model.Chart) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -1203,7 +1210,7 @@ func (ec *executionContext) _AppTemplate_dependencies(ctx context.Context, field
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "AppTemplate",
+		Object:     "Chart",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -1227,7 +1234,7 @@ func (ec *executionContext) _AppTemplate_dependencies(ctx context.Context, field
 	return ec.marshalODependency2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐDependencyᚄ(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Dependency_template_name(ctx context.Context, field graphql.CollectedField, obj *model.Dependency) (ret graphql.Marshaler) {
+func (ec *executionContext) _Dependency_chart(ctx context.Context, field graphql.CollectedField, obj *model.Dependency) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -1245,7 +1252,7 @@ func (ec *executionContext) _Dependency_template_name(ctx context.Context, field
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.TemplateName, nil
+		return obj.Chart, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -1402,45 +1409,6 @@ func (ec *executionContext) _Maintainer_email(ctx context.Context, field graphql
 	return ec.marshalNString2string(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Mutation_uninstallApp(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_uninstallApp_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UninstallApp(rctx, args["input"].(model.AppRef))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
 func (ec *executionContext) _Mutation_installApp(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -1558,6 +1526,45 @@ func (ec *executionContext) _Mutation_rollbackApp(ctx context.Context, field gra
 	return ec.marshalOApp2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_uninstallApp(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_uninstallApp_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UninstallApp(rctx, args["input"].(model.AppRef))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_getApp(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -1622,7 +1629,7 @@ func (ec *executionContext) _Query_listApps(ctx context.Context, field graphql.C
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().ListApps(rctx, args["input"].(model.ProjectRef))
+		return ec.resolvers.Query().ListApps(rctx, args["input"].(model.NamespaceRef))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -1670,9 +1677,9 @@ func (ec *executionContext) _Query_searchTemplates(ctx context.Context, field gr
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.([]*model.AppTemplate)
+	res := resTmp.([]*model.Chart)
 	fc.Result = res
-	return ec.marshalOAppTemplate2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppTemplateᚄ(ctx, field.Selections, res)
+	return ec.marshalOChart2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐChartᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query___type(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -3133,19 +3140,19 @@ func (ec *executionContext) unmarshalInputAppInput(ctx context.Context, obj inte
 
 	for k, v := range asMap {
 		switch k {
-		case "project":
+		case "namespace":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("project"))
-			it.Project, err = ec.unmarshalNString2string(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("namespace"))
+			it.Namespace, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "template_name":
+		case "chart":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("template_name"))
-			it.TemplateName, err = ec.unmarshalNString2string(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("chart"))
+			it.Chart, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -3177,11 +3184,11 @@ func (ec *executionContext) unmarshalInputAppRef(ctx context.Context, obj interf
 
 	for k, v := range asMap {
 		switch k {
-		case "project":
+		case "namespace":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("project"))
-			it.Project, err = ec.unmarshalNString2string(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("namespace"))
+			it.Namespace, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -3227,8 +3234,8 @@ func (ec *executionContext) unmarshalInputFilter(ctx context.Context, obj interf
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputProjectRef(ctx context.Context, obj interface{}) (model.ProjectRef, error) {
-	var it model.ProjectRef
+func (ec *executionContext) unmarshalInputNamespaceRef(ctx context.Context, obj interface{}) (model.NamespaceRef, error) {
+	var it model.NamespaceRef
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -3271,8 +3278,8 @@ func (ec *executionContext) _App(ctx context.Context, sel ast.SelectionSet, obj 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "project":
-			out.Values[i] = ec._App_project(ctx, field, obj)
+		case "namespace":
+			out.Values[i] = ec._App_namespace(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
@@ -3281,8 +3288,8 @@ func (ec *executionContext) _App(ctx context.Context, sel ast.SelectionSet, obj 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "template":
-			out.Values[i] = ec._App_template(ctx, field, obj)
+		case "chart":
+			out.Values[i] = ec._App_chart(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
@@ -3297,42 +3304,42 @@ func (ec *executionContext) _App(ctx context.Context, sel ast.SelectionSet, obj 
 	return out
 }
 
-var appTemplateImplementors = []string{"AppTemplate"}
+var chartImplementors = []string{"Chart"}
 
-func (ec *executionContext) _AppTemplate(ctx context.Context, sel ast.SelectionSet, obj *model.AppTemplate) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, appTemplateImplementors)
+func (ec *executionContext) _Chart(ctx context.Context, sel ast.SelectionSet, obj *model.Chart) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, chartImplementors)
 
 	out := graphql.NewFieldSet(fields)
 	var invalids uint32
 	for i, field := range fields {
 		switch field.Name {
 		case "__typename":
-			out.Values[i] = graphql.MarshalString("AppTemplate")
+			out.Values[i] = graphql.MarshalString("Chart")
 		case "name":
-			out.Values[i] = ec._AppTemplate_name(ctx, field, obj)
+			out.Values[i] = ec._Chart_name(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
 		case "home":
-			out.Values[i] = ec._AppTemplate_home(ctx, field, obj)
+			out.Values[i] = ec._Chart_home(ctx, field, obj)
 		case "icon":
-			out.Values[i] = ec._AppTemplate_icon(ctx, field, obj)
+			out.Values[i] = ec._Chart_icon(ctx, field, obj)
 		case "version":
-			out.Values[i] = ec._AppTemplate_version(ctx, field, obj)
+			out.Values[i] = ec._Chart_version(ctx, field, obj)
 		case "description":
-			out.Values[i] = ec._AppTemplate_description(ctx, field, obj)
+			out.Values[i] = ec._Chart_description(ctx, field, obj)
 		case "sources":
-			out.Values[i] = ec._AppTemplate_sources(ctx, field, obj)
+			out.Values[i] = ec._Chart_sources(ctx, field, obj)
 		case "keywords":
-			out.Values[i] = ec._AppTemplate_keywords(ctx, field, obj)
+			out.Values[i] = ec._Chart_keywords(ctx, field, obj)
 		case "deprecated":
-			out.Values[i] = ec._AppTemplate_deprecated(ctx, field, obj)
+			out.Values[i] = ec._Chart_deprecated(ctx, field, obj)
 		case "metadata":
-			out.Values[i] = ec._AppTemplate_metadata(ctx, field, obj)
+			out.Values[i] = ec._Chart_metadata(ctx, field, obj)
 		case "maintainers":
-			out.Values[i] = ec._AppTemplate_maintainers(ctx, field, obj)
+			out.Values[i] = ec._Chart_maintainers(ctx, field, obj)
 		case "dependencies":
-			out.Values[i] = ec._AppTemplate_dependencies(ctx, field, obj)
+			out.Values[i] = ec._Chart_dependencies(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -3355,8 +3362,8 @@ func (ec *executionContext) _Dependency(ctx context.Context, sel ast.SelectionSe
 		switch field.Name {
 		case "__typename":
 			out.Values[i] = graphql.MarshalString("Dependency")
-		case "template_name":
-			out.Values[i] = ec._Dependency_template_name(ctx, field, obj)
+		case "chart":
+			out.Values[i] = ec._Dependency_chart(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
@@ -3428,14 +3435,14 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 		switch field.Name {
 		case "__typename":
 			out.Values[i] = graphql.MarshalString("Mutation")
-		case "uninstallApp":
-			out.Values[i] = ec._Mutation_uninstallApp(ctx, field)
 		case "installApp":
 			out.Values[i] = ec._Mutation_installApp(ctx, field)
 		case "updateApp":
 			out.Values[i] = ec._Mutation_updateApp(ctx, field)
 		case "rollbackApp":
 			out.Values[i] = ec._Mutation_rollbackApp(ctx, field)
+		case "uninstallApp":
+			out.Values[i] = ec._Mutation_uninstallApp(ctx, field)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -3843,16 +3850,6 @@ func (ec *executionContext) unmarshalNAppRef2githubᚗcomᚋautom8terᚋmeshpaas
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNAppTemplate2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppTemplate(ctx context.Context, sel ast.SelectionSet, v *model.AppTemplate) graphql.Marshaler {
-	if v == nil {
-		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	return ec._AppTemplate(ctx, sel, v)
-}
-
 func (ec *executionContext) unmarshalNBoolean2bool(ctx context.Context, v interface{}) (bool, error) {
 	res, err := graphql.UnmarshalBoolean(v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -3866,6 +3863,16 @@ func (ec *executionContext) marshalNBoolean2bool(ctx context.Context, sel ast.Se
 		}
 	}
 	return res
+}
+
+func (ec *executionContext) marshalNChart2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐChart(ctx context.Context, sel ast.SelectionSet, v *model.Chart) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	return ec._Chart(ctx, sel, v)
 }
 
 func (ec *executionContext) marshalNDependency2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐDependency(ctx context.Context, sel ast.SelectionSet, v *model.Dependency) graphql.Marshaler {
@@ -3929,8 +3936,8 @@ func (ec *executionContext) marshalNMap2map(ctx context.Context, sel ast.Selecti
 	return res
 }
 
-func (ec *executionContext) unmarshalNProjectRef2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐProjectRef(ctx context.Context, v interface{}) (model.ProjectRef, error) {
-	res, err := ec.unmarshalInputProjectRef(ctx, v)
+func (ec *executionContext) unmarshalNNamespaceRef2githubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐNamespaceRef(ctx context.Context, v interface{}) (model.NamespaceRef, error) {
+	res, err := ec.unmarshalInputNamespaceRef(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
@@ -4235,7 +4242,31 @@ func (ec *executionContext) marshalOApp2ᚖgithubᚗcomᚋautom8terᚋmeshpaas�
 	return ec._App(ctx, sel, v)
 }
 
-func (ec *executionContext) marshalOAppTemplate2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppTemplateᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.AppTemplate) graphql.Marshaler {
+func (ec *executionContext) unmarshalOBoolean2bool(ctx context.Context, v interface{}) (bool, error) {
+	res, err := graphql.UnmarshalBoolean(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOBoolean2bool(ctx context.Context, sel ast.SelectionSet, v bool) graphql.Marshaler {
+	return graphql.MarshalBoolean(v)
+}
+
+func (ec *executionContext) unmarshalOBoolean2ᚖbool(ctx context.Context, v interface{}) (*bool, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := graphql.UnmarshalBoolean(v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOBoolean2ᚖbool(ctx context.Context, sel ast.SelectionSet, v *bool) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return graphql.MarshalBoolean(*v)
+}
+
+func (ec *executionContext) marshalOChart2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐChartᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.Chart) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
@@ -4262,7 +4293,7 @@ func (ec *executionContext) marshalOAppTemplate2ᚕᚖgithubᚗcomᚋautom8ter�
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalNAppTemplate2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppTemplate(ctx, sel, v[i])
+			ret[i] = ec.marshalNChart2ᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐChart(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -4273,30 +4304,6 @@ func (ec *executionContext) marshalOAppTemplate2ᚕᚖgithubᚗcomᚋautom8ter�
 	}
 	wg.Wait()
 	return ret
-}
-
-func (ec *executionContext) unmarshalOBoolean2bool(ctx context.Context, v interface{}) (bool, error) {
-	res, err := graphql.UnmarshalBoolean(v)
-	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalOBoolean2bool(ctx context.Context, sel ast.SelectionSet, v bool) graphql.Marshaler {
-	return graphql.MarshalBoolean(v)
-}
-
-func (ec *executionContext) unmarshalOBoolean2ᚖbool(ctx context.Context, v interface{}) (*bool, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := graphql.UnmarshalBoolean(v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalOBoolean2ᚖbool(ctx context.Context, sel ast.SelectionSet, v *bool) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return graphql.MarshalBoolean(*v)
 }
 
 func (ec *executionContext) marshalODependency2ᚕᚖgithubᚗcomᚋautom8terᚋmeshpaasᚋgenᚋgqlᚋgoᚋmodelᚐDependencyᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.Dependency) graphql.Marshaler {

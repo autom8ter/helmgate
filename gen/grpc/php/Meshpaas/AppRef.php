@@ -16,12 +16,14 @@ use Google\Protobuf\Internal\GPBUtil;
 class AppRef extends \Google\Protobuf\Internal\Message
 {
     /**
-     * project name the app belongs to(autocreated)
+     * namespace is the k8s namespace the app/release belongs to(autocreated)
      *
-     * Generated from protobuf field <code>string project = 1 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string namespace = 1 [(.validator.field) = {</code>
      */
-    private $project = '';
+    private $namespace = '';
     /**
+     * name is the name of the app/release
+     *
      * Generated from protobuf field <code>string name = 2 [(.validator.field) = {</code>
      */
     private $name = '';
@@ -32,9 +34,10 @@ class AppRef extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type string $project
-     *           project name the app belongs to(autocreated)
+     *     @type string $namespace
+     *           namespace is the k8s namespace the app/release belongs to(autocreated)
      *     @type string $name
+     *           name is the name of the app/release
      * }
      */
     public function __construct($data = NULL) {
@@ -43,32 +46,34 @@ class AppRef extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * project name the app belongs to(autocreated)
+     * namespace is the k8s namespace the app/release belongs to(autocreated)
      *
-     * Generated from protobuf field <code>string project = 1 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string namespace = 1 [(.validator.field) = {</code>
      * @return string
      */
-    public function getProject()
+    public function getNamespace()
     {
-        return $this->project;
+        return $this->namespace;
     }
 
     /**
-     * project name the app belongs to(autocreated)
+     * namespace is the k8s namespace the app/release belongs to(autocreated)
      *
-     * Generated from protobuf field <code>string project = 1 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string namespace = 1 [(.validator.field) = {</code>
      * @param string $var
      * @return $this
      */
-    public function setProject($var)
+    public function setNamespace($var)
     {
         GPBUtil::checkString($var, True);
-        $this->project = $var;
+        $this->namespace = $var;
 
         return $this;
     }
 
     /**
+     * name is the name of the app/release
+     *
      * Generated from protobuf field <code>string name = 2 [(.validator.field) = {</code>
      * @return string
      */
@@ -78,6 +83,8 @@ class AppRef extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * name is the name of the app/release
+     *
      * Generated from protobuf field <code>string name = 2 [(.validator.field) = {</code>
      * @param string $var
      * @return $this

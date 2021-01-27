@@ -18,8 +18,8 @@ func (h Helm) toApp(release *release.Release) (*meshpaaspb.App, error) {
 		return nil, status.Errorf(codes.InvalidArgument, "bad config values")
 	}
 	app := &meshpaaspb.App{
-		Name:    release.Name,
-		Project: release.Namespace,
+		Name:      release.Name,
+		Namespace: release.Namespace,
 		Release: &meshpaaspb.Release{
 			Version:     uint32(release.Version),
 			Config:      config,
@@ -32,7 +32,7 @@ func (h Helm) toApp(release *release.Release) (*meshpaaspb.App, error) {
 				Deleted: timestamppb.New(release.Info.Deleted.Time),
 			},
 		},
-		Template: &meshpaaspb.AppTemplate{
+		Chart: &meshpaaspb.Chart{
 			Name:        release.Chart.Name(),
 			Home:        release.Chart.Metadata.Home,
 			Description: release.Chart.Metadata.Description,
@@ -45,16 +45,16 @@ func (h Helm) toApp(release *release.Release) (*meshpaaspb.App, error) {
 		},
 	}
 	for _, m := range release.Chart.Metadata.Maintainers {
-		app.Template.Maintainers = append(app.Template.Maintainers, &meshpaaspb.Maintainer{
+		app.Chart.Maintainers = append(app.Chart.Maintainers, &meshpaaspb.Maintainer{
 			Name:  m.Name,
 			Email: m.Email,
 		})
 	}
 	for _, d := range release.Chart.Metadata.Dependencies {
-		app.Template.Dependencies = append(app.Template.Dependencies, &meshpaaspb.Dependency{
-			TemplateName: d.Name,
-			Version:      d.Version,
-			Repository:   d.Repository,
+		app.Chart.Dependencies = append(app.Chart.Dependencies, &meshpaaspb.Dependency{
+			Chart:      d.Name,
+			Version:    d.Version,
+			Repository: d.Repository,
 		})
 	}
 
@@ -73,10 +73,10 @@ func (h Helm) toApps(releases []*release.Release) (*meshpaaspb.Apps, error) {
 	return apps, nil
 }
 
-func (h Helm) toTempalates(resultes []*search.Result) *meshpaaspb.AppTemplates {
-	t := &meshpaaspb.AppTemplates{}
-	for _, r := range resultes {
-		tmpl := &meshpaaspb.AppTemplate{
+func (h Helm) toTempalates(results []*search.Result) *meshpaaspb.Charts {
+	t := &meshpaaspb.Charts{}
+	for _, r := range results {
+		tmpl := &meshpaaspb.Chart{
 			Name:        r.Name,
 			Home:        r.Chart.Home,
 			Description: r.Chart.Description,
@@ -96,12 +96,12 @@ func (h Helm) toTempalates(resultes []*search.Result) *meshpaaspb.AppTemplates {
 
 		for _, d := range r.Chart.Metadata.Dependencies {
 			tmpl.Dependencies = append(tmpl.Dependencies, &meshpaaspb.Dependency{
-				TemplateName: d.Name,
-				Version:      d.Version,
-				Repository:   d.Repository,
+				Chart:      d.Name,
+				Version:    d.Version,
+				Repository: d.Repository,
 			})
 		}
-		t.Templates = append(t.Templates)
+		t.Charts = append(t.Charts, tmpl)
 	}
 	return t
 }

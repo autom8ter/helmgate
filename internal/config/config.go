@@ -17,12 +17,12 @@ func (c *Config) SetDefaults() {
 	}
 	if c.RegoPolicy == "" {
 		c.RegoPolicy = `
-		package data.meshpaas.allow
+		package meshpaas.authz
 
 		default allow = true
 `
 	}
 	if c.RegoQuery == "" {
-		c.RegoQuery = "data.meshpaas.allow"
+		c.RegoQuery = "data.meshpaas.authz.allow"
 	}
 }

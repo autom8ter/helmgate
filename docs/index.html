@@ -195,19 +195,19 @@
                 </li>
               
                 <li>
-                  <a href="#meshpaas.AppTemplate"><span class="badge">M</span>AppTemplate</a>
-                </li>
-              
-                <li>
-                  <a href="#meshpaas.AppTemplate.MetadataEntry"><span class="badge">M</span>AppTemplate.MetadataEntry</a>
-                </li>
-              
-                <li>
-                  <a href="#meshpaas.AppTemplates"><span class="badge">M</span>AppTemplates</a>
-                </li>
-              
-                <li>
                   <a href="#meshpaas.Apps"><span class="badge">M</span>Apps</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.Chart"><span class="badge">M</span>Chart</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.Chart.MetadataEntry"><span class="badge">M</span>Chart.MetadataEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#meshpaas.Charts"><span class="badge">M</span>Charts</a>
                 </li>
               
                 <li>
@@ -223,11 +223,11 @@
                 </li>
               
                 <li>
-                  <a href="#meshpaas.ProjectRef"><span class="badge">M</span>ProjectRef</a>
+                  <a href="#meshpaas.NamespaceRef"><span class="badge">M</span>NamespaceRef</a>
                 </li>
               
                 <li>
-                  <a href="#meshpaas.ProjectRefs"><span class="badge">M</span>ProjectRefs</a>
+                  <a href="#meshpaas.NamespaceRefs"><span class="badge">M</span>NamespaceRefs</a>
                 </li>
               
                 <li>
@@ -261,7 +261,7 @@
 
       
         <h3 id="meshpaas.App">App</h3>
-        <p>App is an App created from an AppTemplate</p>
+        <p>App is an App created from a helm chart</p>
 
         
           <table class="field-table">
@@ -278,24 +278,24 @@
                 </tr>
               
                 <tr>
-                  <td>project</td>
+                  <td>namespace</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>project name the app belongs to(autocreated) </p></td>
+                  <td><p>namespace name the app belongs to(autocreated) </p></td>
                 </tr>
               
                 <tr>
                   <td>release</td>
                   <td><a href="#meshpaas.Release">Release</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>release holds information about the currently deployed release of the application </p></td>
                 </tr>
               
                 <tr>
-                  <td>template</td>
-                  <td><a href="#meshpaas.AppTemplate">AppTemplate</a></td>
+                  <td>chart</td>
+                  <td><a href="#meshpaas.Chart">Chart</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>chart is the chart used to deploy the App </p></td>
                 </tr>
               
             </tbody>
@@ -326,7 +326,7 @@
                 </tr>
               
                 <tr>
-                  <td>project</td>
+                  <td>namespace</td>
                   <td>
                     <ul>
                     
@@ -354,17 +354,17 @@
             <tbody>
               
                 <tr>
-                  <td>project</td>
+                  <td>namespace</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>project name the app belongs to(autocreated) </p></td>
+                  <td><p>namespace name the app belongs to(autocreated) </p></td>
                 </tr>
               
                 <tr>
-                  <td>template_name</td>
+                  <td>chart</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>the app template to use </p></td>
+                  <td><p>the app chart to use </p></td>
                 </tr>
               
                 <tr>
@@ -378,7 +378,7 @@
                   <td>config</td>
                   <td><a href="#meshpaas.AppInput.ConfigEntry">AppInput.ConfigEntry</a></td>
                   <td>repeated</td>
-                  <td><p>config values used to render the app template </p></td>
+                  <td><p>config values used to render the app chart </p></td>
                 </tr>
               
             </tbody>
@@ -398,7 +398,7 @@
               <tbody>
               
                 <tr>
-                  <td>project</td>
+                  <td>namespace</td>
                   <td>
                     <ul>
                     
@@ -409,7 +409,7 @@
                 </tr>
               
                 <tr>
-                  <td>template_name</td>
+                  <td>chart</td>
                   <td>
                     <ul>
                     
@@ -490,17 +490,17 @@
             <tbody>
               
                 <tr>
-                  <td>project</td>
+                  <td>namespace</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>project name the app belongs to(autocreated) </p></td>
+                  <td><p>namespace is the k8s namespace the app/release belongs to(autocreated) </p></td>
                 </tr>
               
                 <tr>
                   <td>name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>name is the name of the app/release </p></td>
                 </tr>
               
             </tbody>
@@ -520,7 +520,7 @@
               <tbody>
               
                 <tr>
-                  <td>project</td>
+                  <td>namespace</td>
                   <td>
                     <ul>
                     
@@ -548,8 +548,32 @@
 
         
       
-        <h3 id="meshpaas.AppTemplate">AppTemplate</h3>
-        <p>AppTemplate is a template of an application</p>
+        <h3 id="meshpaas.Apps">Apps</h3>
+        <p>Apps is a list of apps</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>apps</td>
+                  <td><a href="#meshpaas.App">App</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="meshpaas.Chart">Chart</h3>
+        <p>Chart is a helm chart that may be used to deploy an App</p>
 
         
           <table class="field-table">
@@ -562,28 +586,28 @@
                   <td>name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>name of the app template </p></td>
+                  <td><p>name of the app chart </p></td>
                 </tr>
               
                 <tr>
                   <td>home</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>home page of the app template </p></td>
+                  <td><p>home page of the app chart </p></td>
                 </tr>
               
                 <tr>
                   <td>description</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>description of the app template </p></td>
+                  <td><p>description of the app chart </p></td>
                 </tr>
               
                 <tr>
                   <td>version</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>version of the app template </p></td>
+                  <td><p>version of the app chart </p></td>
                 </tr>
               
                 <tr>
@@ -597,42 +621,42 @@
                   <td>keywords</td>
                   <td><a href="#string">string</a></td>
                   <td>repeated</td>
-                  <td><p>keywords associated with the app template </p></td>
+                  <td><p>keywords associated with the app chart </p></td>
                 </tr>
               
                 <tr>
                   <td>icon</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>icon is an the icon/brand associated with the chart </p></td>
                 </tr>
               
                 <tr>
                   <td>deprecated</td>
                   <td><a href="#bool">bool</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>chart is not actively maintained if deprecated = true </p></td>
                 </tr>
               
                 <tr>
                   <td>dependencies</td>
                   <td><a href="#meshpaas.Dependency">Dependency</a></td>
                   <td>repeated</td>
-                  <td><p> </p></td>
+                  <td><p>extra charts that this chart depends on </p></td>
                 </tr>
               
                 <tr>
                   <td>maintainers</td>
                   <td><a href="#meshpaas.Maintainer">Maintainer</a></td>
                   <td>repeated</td>
-                  <td><p> </p></td>
+                  <td><p>maintainers of this chart </p></td>
                 </tr>
               
                 <tr>
                   <td>metadata</td>
-                  <td><a href="#meshpaas.AppTemplate.MetadataEntry">AppTemplate.MetadataEntry</a></td>
+                  <td><a href="#meshpaas.Chart.MetadataEntry">Chart.MetadataEntry</a></td>
                   <td>repeated</td>
-                  <td><p> </p></td>
+                  <td><p>arbitrary metadata associated with the chart </p></td>
                 </tr>
               
             </tbody>
@@ -669,7 +693,7 @@
 
         
       
-        <h3 id="meshpaas.AppTemplate.MetadataEntry">AppTemplate.MetadataEntry</h3>
+        <h3 id="meshpaas.Chart.MetadataEntry">Chart.MetadataEntry</h3>
         <p></p>
 
         
@@ -700,8 +724,8 @@
 
         
       
-        <h3 id="meshpaas.AppTemplates">AppTemplates</h3>
-        <p>AppTemplates is a list of app templates</p>
+        <h3 id="meshpaas.Charts">Charts</h3>
+        <p>Charts is a list of helm charts</p>
 
         
           <table class="field-table">
@@ -711,32 +735,8 @@
             <tbody>
               
                 <tr>
-                  <td>templates</td>
-                  <td><a href="#meshpaas.AppTemplate">AppTemplate</a></td>
-                  <td>repeated</td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="meshpaas.Apps">Apps</h3>
-        <p>Apps is a list of apps</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>apps</td>
-                  <td><a href="#meshpaas.App">App</a></td>
+                  <td>charts</td>
+                  <td><a href="#meshpaas.Chart">Chart</a></td>
                   <td>repeated</td>
                   <td><p> </p></td>
                 </tr>
@@ -749,7 +749,7 @@
         
       
         <h3 id="meshpaas.Dependency">Dependency</h3>
-        <p>Dependency is a dependency(template) required by a template</p>
+        <p>Dependency is a dependency required by a helm chart</p>
 
         
           <table class="field-table">
@@ -759,24 +759,24 @@
             <tbody>
               
                 <tr>
-                  <td>template_name</td>
+                  <td>chart</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>name of the template dependency </p></td>
+                  <td><p>name of the chart dependency </p></td>
                 </tr>
               
                 <tr>
                   <td>version</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>name of the template version </p></td>
+                  <td><p>name of the chart version </p></td>
                 </tr>
               
                 <tr>
                   <td>repository</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>the URL of the helm repository. </p></td>
                 </tr>
               
             </tbody>
@@ -796,7 +796,7 @@
               <tbody>
               
                 <tr>
-                  <td>template_name</td>
+                  <td>chart</td>
                   <td>
                     <ul>
                     
@@ -836,7 +836,7 @@
         
       
         <h3 id="meshpaas.Filter">Filter</h3>
-        <p>Filter is used for filtering search results</p>
+        <p>Filter is used for filtering helm chart search results</p>
 
         
           <table class="field-table">
@@ -849,14 +849,14 @@
                   <td>term</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>term to search for </p></td>
                 </tr>
               
                 <tr>
                   <td>regex</td>
                   <td><a href="#bool">bool</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>term is a regex expression </p></td>
                 </tr>
               
             </tbody>
@@ -894,7 +894,7 @@
         
       
         <h3 id="meshpaas.Maintainer">Maintainer</h3>
-        <p>Maintainer is the maintainer of a</p>
+        <p>Maintainer is the maintainer of a helm chart</p>
 
         
           <table class="field-table">
@@ -907,14 +907,14 @@
                   <td>name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>name is the name of the maintainer </p></td>
                 </tr>
               
                 <tr>
                   <td>email</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>email is the email of the maintainer </p></td>
                 </tr>
               
             </tbody>
@@ -962,8 +962,8 @@
 
         
       
-        <h3 id="meshpaas.ProjectRef">ProjectRef</h3>
-        <p>ProjectRef is a generic structure for looking up projects</p>
+        <h3 id="meshpaas.NamespaceRef">NamespaceRef</h3>
+        <p>NamespaceRef is a generic structure for looking up namespaces</p>
 
         
           <table class="field-table">
@@ -976,18 +976,45 @@
                   <td>name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>name of the project </p></td>
+                  <td><p>name of the namespace </p></td>
                 </tr>
               
             </tbody>
           </table>
 
           
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
+          
 
         
       
-        <h3 id="meshpaas.ProjectRefs">ProjectRefs</h3>
-        <p>ProjectRefs is a list of ProjectRef</p>
+        <h3 id="meshpaas.NamespaceRefs">NamespaceRefs</h3>
+        <p>NamespaceRefs is a list of NamespaceRef</p>
 
         
           <table class="field-table">
@@ -997,8 +1024,8 @@
             <tbody>
               
                 <tr>
-                  <td>projects</td>
-                  <td><a href="#meshpaas.ProjectRef">ProjectRef</a></td>
+                  <td>namespaces</td>
+                  <td><a href="#meshpaas.NamespaceRef">NamespaceRef</a></td>
                   <td>repeated</td>
                   <td><p> </p></td>
                 </tr>
@@ -1038,28 +1065,28 @@
                   <td>notes</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>notes associated with the release </p></td>
                 </tr>
               
                 <tr>
                   <td>description</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>description of the release </p></td>
                 </tr>
               
                 <tr>
                   <td>status</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>status of the release </p></td>
                 </tr>
               
                 <tr>
                   <td>timestamps</td>
                   <td><a href="#meshpaas.Timestamps">Timestamps</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>lifecycle timestamps related </p></td>
                 </tr>
               
             </tbody>
@@ -1070,7 +1097,7 @@
         
       
         <h3 id="meshpaas.Timestamps">Timestamps</h3>
-        <p>Timestamps tracks timestamps related to an App</p>
+        <p>Timestamps tracks timestamps related to a release</p>
 
         
           <table class="field-table">
@@ -1083,21 +1110,21 @@
                   <td>created</td>
                   <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>when the release was first deployed </p></td>
                 </tr>
               
                 <tr>
                   <td>updated</td>
                   <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>when the release was last deployed </p></td>
                 </tr>
               
                 <tr>
                   <td>deleted</td>
                   <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>when the release was deleted </p></td>
                 </tr>
               
             </tbody>
@@ -1125,21 +1152,21 @@
                 <td>GetApp</td>
                 <td><a href="#meshpaas.AppRef">AppRef</a></td>
                 <td><a href="#meshpaas.App">App</a></td>
-                <td><p>GetApp gets an app in the given project</p></td>
+                <td><p>GetApp gets an app in the given namespace</p></td>
               </tr>
             
               <tr>
                 <td>ListApps</td>
-                <td><a href="#meshpaas.ProjectRef">ProjectRef</a></td>
+                <td><a href="#meshpaas.NamespaceRef">NamespaceRef</a></td>
                 <td><a href="#meshpaas.Apps">Apps</a></td>
-                <td><p>ListApps lists apps in the project</p></td>
+                <td><p>ListApps lists apps in the namespace</p></td>
               </tr>
             
               <tr>
                 <td>UninstallApp</td>
                 <td><a href="#meshpaas.AppRef">AppRef</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>UninstallApp uninstalls an app in the given project</p></td>
+                <td><p>UninstallApp uninstalls an app in the given namespace</p></td>
               </tr>
             
               <tr>
@@ -1153,21 +1180,21 @@
                 <td>InstallApp</td>
                 <td><a href="#meshpaas.AppInput">AppInput</a></td>
                 <td><a href="#meshpaas.App">App</a></td>
-                <td><p>InstallApp installs an app in the given project</p></td>
+                <td><p>InstallApp installs an app in the given namespace</p></td>
               </tr>
             
               <tr>
                 <td>UpdateApp</td>
                 <td><a href="#meshpaas.AppInput">AppInput</a></td>
                 <td><a href="#meshpaas.App">App</a></td>
-                <td><p>UpdateApp updates an app in the given project</p></td>
+                <td><p>UpdateApp updates an app in the given namespace</p></td>
               </tr>
             
               <tr>
                 <td>SearchTemplates</td>
                 <td><a href="#meshpaas.Filter">Filter</a></td>
-                <td><a href="#meshpaas.AppTemplates">AppTemplates</a></td>
-                <td><p>SearchTemplates searches for an app template</p></td>
+                <td><a href="#meshpaas.Charts">Charts</a></td>
+                <td><p>SearchTemplates searches for an app chart</p></td>
               </tr>
             
           </tbody>

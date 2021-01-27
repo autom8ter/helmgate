@@ -19,14 +19,14 @@ var github_com_mwitkow_go$proto$validators_validator_pb = require('./github.com/
 goog.exportSymbol('proto.meshpaas.App', null, global);
 goog.exportSymbol('proto.meshpaas.AppInput', null, global);
 goog.exportSymbol('proto.meshpaas.AppRef', null, global);
-goog.exportSymbol('proto.meshpaas.AppTemplate', null, global);
-goog.exportSymbol('proto.meshpaas.AppTemplates', null, global);
 goog.exportSymbol('proto.meshpaas.Apps', null, global);
+goog.exportSymbol('proto.meshpaas.Chart', null, global);
+goog.exportSymbol('proto.meshpaas.Charts', null, global);
 goog.exportSymbol('proto.meshpaas.Dependency', null, global);
 goog.exportSymbol('proto.meshpaas.Filter', null, global);
 goog.exportSymbol('proto.meshpaas.Maintainer', null, global);
-goog.exportSymbol('proto.meshpaas.ProjectRef', null, global);
-goog.exportSymbol('proto.meshpaas.ProjectRefs', null, global);
+goog.exportSymbol('proto.meshpaas.NamespaceRef', null, global);
+goog.exportSymbol('proto.meshpaas.NamespaceRefs', null, global);
 goog.exportSymbol('proto.meshpaas.Release', null, global);
 goog.exportSymbol('proto.meshpaas.Timestamps', null, global);
 
@@ -76,7 +76,7 @@ proto.meshpaas.Dependency.prototype.toObject = function(opt_includeInstance) {
  */
 proto.meshpaas.Dependency.toObject = function(includeInstance, msg) {
   var f, obj = {
-    templateName: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    chart: jspb.Message.getFieldWithDefault(msg, 1, ""),
     version: jspb.Message.getFieldWithDefault(msg, 2, ""),
     repository: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
@@ -117,7 +117,7 @@ proto.meshpaas.Dependency.deserializeBinaryFromReader = function(msg, reader) {
     switch (field) {
     case 1:
       var value = /** @type {string} */ (reader.readString());
-      msg.setTemplateName(value);
+      msg.setChart(value);
       break;
     case 2:
       var value = /** @type {string} */ (reader.readString());
@@ -156,7 +156,7 @@ proto.meshpaas.Dependency.prototype.serializeBinary = function() {
  */
 proto.meshpaas.Dependency.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getTemplateName();
+  f = message.getChart();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -181,16 +181,16 @@ proto.meshpaas.Dependency.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional string template_name = 1;
+ * optional string chart = 1;
  * @return {string}
  */
-proto.meshpaas.Dependency.prototype.getTemplateName = function() {
+proto.meshpaas.Dependency.prototype.getChart = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
 /** @param {string} value */
-proto.meshpaas.Dependency.prototype.setTemplateName = function(value) {
+proto.meshpaas.Dependency.prototype.setChart = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
 };
 
@@ -576,19 +576,19 @@ proto.meshpaas.Filter.prototype.setRegex = function(value) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.meshpaas.AppTemplate = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.meshpaas.AppTemplate.repeatedFields_, null);
+proto.meshpaas.Chart = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.meshpaas.Chart.repeatedFields_, null);
 };
-goog.inherits(proto.meshpaas.AppTemplate, jspb.Message);
+goog.inherits(proto.meshpaas.Chart, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.meshpaas.AppTemplate.displayName = 'proto.meshpaas.AppTemplate';
+  proto.meshpaas.Chart.displayName = 'proto.meshpaas.Chart';
 }
 /**
  * List of repeated fields within this message type.
  * @private {!Array<number>}
  * @const
  */
-proto.meshpaas.AppTemplate.repeatedFields_ = [5,6,9,10];
+proto.meshpaas.Chart.repeatedFields_ = [5,6,9,10];
 
 
 
@@ -603,8 +603,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.meshpaas.AppTemplate.prototype.toObject = function(opt_includeInstance) {
-  return proto.meshpaas.AppTemplate.toObject(opt_includeInstance, this);
+proto.meshpaas.Chart.prototype.toObject = function(opt_includeInstance) {
+  return proto.meshpaas.Chart.toObject(opt_includeInstance, this);
 };
 
 
@@ -613,11 +613,11 @@ proto.meshpaas.AppTemplate.prototype.toObject = function(opt_includeInstance) {
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.meshpaas.AppTemplate} msg The msg instance to transform.
+ * @param {!proto.meshpaas.Chart} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.meshpaas.AppTemplate.toObject = function(includeInstance, msg) {
+proto.meshpaas.Chart.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
     home: jspb.Message.getFieldWithDefault(msg, 2, ""),
@@ -645,23 +645,23 @@ proto.meshpaas.AppTemplate.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.meshpaas.AppTemplate}
+ * @return {!proto.meshpaas.Chart}
  */
-proto.meshpaas.AppTemplate.deserializeBinary = function(bytes) {
+proto.meshpaas.Chart.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.meshpaas.AppTemplate;
-  return proto.meshpaas.AppTemplate.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.meshpaas.Chart;
+  return proto.meshpaas.Chart.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.meshpaas.AppTemplate} msg The message object to deserialize into.
+ * @param {!proto.meshpaas.Chart} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.meshpaas.AppTemplate}
+ * @return {!proto.meshpaas.Chart}
  */
-proto.meshpaas.AppTemplate.deserializeBinaryFromReader = function(msg, reader) {
+proto.meshpaas.Chart.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -729,9 +729,9 @@ proto.meshpaas.AppTemplate.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.meshpaas.AppTemplate.prototype.serializeBinary = function() {
+proto.meshpaas.Chart.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.meshpaas.AppTemplate.serializeBinaryToWriter(this, writer);
+  proto.meshpaas.Chart.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -739,11 +739,11 @@ proto.meshpaas.AppTemplate.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.meshpaas.AppTemplate} message
+ * @param {!proto.meshpaas.Chart} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.meshpaas.AppTemplate.serializeBinaryToWriter = function(message, writer) {
+proto.meshpaas.Chart.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getName();
   if (f.length > 0) {
@@ -828,13 +828,13 @@ proto.meshpaas.AppTemplate.serializeBinaryToWriter = function(message, writer) {
  * optional string name = 1;
  * @return {string}
  */
-proto.meshpaas.AppTemplate.prototype.getName = function() {
+proto.meshpaas.Chart.prototype.getName = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
 /** @param {string} value */
-proto.meshpaas.AppTemplate.prototype.setName = function(value) {
+proto.meshpaas.Chart.prototype.setName = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
 };
 
@@ -843,13 +843,13 @@ proto.meshpaas.AppTemplate.prototype.setName = function(value) {
  * optional string home = 2;
  * @return {string}
  */
-proto.meshpaas.AppTemplate.prototype.getHome = function() {
+proto.meshpaas.Chart.prototype.getHome = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
 /** @param {string} value */
-proto.meshpaas.AppTemplate.prototype.setHome = function(value) {
+proto.meshpaas.Chart.prototype.setHome = function(value) {
   jspb.Message.setProto3StringField(this, 2, value);
 };
 
@@ -858,13 +858,13 @@ proto.meshpaas.AppTemplate.prototype.setHome = function(value) {
  * optional string description = 3;
  * @return {string}
  */
-proto.meshpaas.AppTemplate.prototype.getDescription = function() {
+proto.meshpaas.Chart.prototype.getDescription = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
 /** @param {string} value */
-proto.meshpaas.AppTemplate.prototype.setDescription = function(value) {
+proto.meshpaas.Chart.prototype.setDescription = function(value) {
   jspb.Message.setProto3StringField(this, 3, value);
 };
 
@@ -873,13 +873,13 @@ proto.meshpaas.AppTemplate.prototype.setDescription = function(value) {
  * optional string version = 4;
  * @return {string}
  */
-proto.meshpaas.AppTemplate.prototype.getVersion = function() {
+proto.meshpaas.Chart.prototype.getVersion = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
 /** @param {string} value */
-proto.meshpaas.AppTemplate.prototype.setVersion = function(value) {
+proto.meshpaas.Chart.prototype.setVersion = function(value) {
   jspb.Message.setProto3StringField(this, 4, value);
 };
 
@@ -888,13 +888,13 @@ proto.meshpaas.AppTemplate.prototype.setVersion = function(value) {
  * repeated string sources = 5;
  * @return {!Array<string>}
  */
-proto.meshpaas.AppTemplate.prototype.getSourcesList = function() {
+proto.meshpaas.Chart.prototype.getSourcesList = function() {
   return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 5));
 };
 
 
 /** @param {!Array<string>} value */
-proto.meshpaas.AppTemplate.prototype.setSourcesList = function(value) {
+proto.meshpaas.Chart.prototype.setSourcesList = function(value) {
   jspb.Message.setField(this, 5, value || []);
 };
 
@@ -903,12 +903,12 @@ proto.meshpaas.AppTemplate.prototype.setSourcesList = function(value) {
  * @param {!string} value
  * @param {number=} opt_index
  */
-proto.meshpaas.AppTemplate.prototype.addSources = function(value, opt_index) {
+proto.meshpaas.Chart.prototype.addSources = function(value, opt_index) {
   jspb.Message.addToRepeatedField(this, 5, value, opt_index);
 };
 
 
-proto.meshpaas.AppTemplate.prototype.clearSourcesList = function() {
+proto.meshpaas.Chart.prototype.clearSourcesList = function() {
   this.setSourcesList([]);
 };
 
@@ -917,13 +917,13 @@ proto.meshpaas.AppTemplate.prototype.clearSourcesList = function() {
  * repeated string keywords = 6;
  * @return {!Array<string>}
  */
-proto.meshpaas.AppTemplate.prototype.getKeywordsList = function() {
+proto.meshpaas.Chart.prototype.getKeywordsList = function() {
   return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 6));
 };
 
 
 /** @param {!Array<string>} value */
-proto.meshpaas.AppTemplate.prototype.setKeywordsList = function(value) {
+proto.meshpaas.Chart.prototype.setKeywordsList = function(value) {
   jspb.Message.setField(this, 6, value || []);
 };
 
@@ -932,12 +932,12 @@ proto.meshpaas.AppTemplate.prototype.setKeywordsList = function(value) {
  * @param {!string} value
  * @param {number=} opt_index
  */
-proto.meshpaas.AppTemplate.prototype.addKeywords = function(value, opt_index) {
+proto.meshpaas.Chart.prototype.addKeywords = function(value, opt_index) {
   jspb.Message.addToRepeatedField(this, 6, value, opt_index);
 };
 
 
-proto.meshpaas.AppTemplate.prototype.clearKeywordsList = function() {
+proto.meshpaas.Chart.prototype.clearKeywordsList = function() {
   this.setKeywordsList([]);
 };
 
@@ -946,13 +946,13 @@ proto.meshpaas.AppTemplate.prototype.clearKeywordsList = function() {
  * optional string icon = 7;
  * @return {string}
  */
-proto.meshpaas.AppTemplate.prototype.getIcon = function() {
+proto.meshpaas.Chart.prototype.getIcon = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
 };
 
 
 /** @param {string} value */
-proto.meshpaas.AppTemplate.prototype.setIcon = function(value) {
+proto.meshpaas.Chart.prototype.setIcon = function(value) {
   jspb.Message.setProto3StringField(this, 7, value);
 };
 
@@ -963,13 +963,13 @@ proto.meshpaas.AppTemplate.prototype.setIcon = function(value) {
  * You should avoid comparisons like {@code val === true/false} in those cases.
  * @return {boolean}
  */
-proto.meshpaas.AppTemplate.prototype.getDeprecated = function() {
+proto.meshpaas.Chart.prototype.getDeprecated = function() {
   return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 8, false));
 };
 
 
 /** @param {boolean} value */
-proto.meshpaas.AppTemplate.prototype.setDeprecated = function(value) {
+proto.meshpaas.Chart.prototype.setDeprecated = function(value) {
   jspb.Message.setProto3BooleanField(this, 8, value);
 };
 
@@ -978,14 +978,14 @@ proto.meshpaas.AppTemplate.prototype.setDeprecated = function(value) {
  * repeated Dependency dependencies = 9;
  * @return {!Array<!proto.meshpaas.Dependency>}
  */
-proto.meshpaas.AppTemplate.prototype.getDependenciesList = function() {
+proto.meshpaas.Chart.prototype.getDependenciesList = function() {
   return /** @type{!Array<!proto.meshpaas.Dependency>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.meshpaas.Dependency, 9));
 };
 
 
 /** @param {!Array<!proto.meshpaas.Dependency>} value */
-proto.meshpaas.AppTemplate.prototype.setDependenciesList = function(value) {
+proto.meshpaas.Chart.prototype.setDependenciesList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 9, value);
 };
 
@@ -995,12 +995,12 @@ proto.meshpaas.AppTemplate.prototype.setDependenciesList = function(value) {
  * @param {number=} opt_index
  * @return {!proto.meshpaas.Dependency}
  */
-proto.meshpaas.AppTemplate.prototype.addDependencies = function(opt_value, opt_index) {
+proto.meshpaas.Chart.prototype.addDependencies = function(opt_value, opt_index) {
   return jspb.Message.addToRepeatedWrapperField(this, 9, opt_value, proto.meshpaas.Dependency, opt_index);
 };
 
 
-proto.meshpaas.AppTemplate.prototype.clearDependenciesList = function() {
+proto.meshpaas.Chart.prototype.clearDependenciesList = function() {
   this.setDependenciesList([]);
 };
 
@@ -1009,14 +1009,14 @@ proto.meshpaas.AppTemplate.prototype.clearDependenciesList = function() {
  * repeated Maintainer maintainers = 10;
  * @return {!Array<!proto.meshpaas.Maintainer>}
  */
-proto.meshpaas.AppTemplate.prototype.getMaintainersList = function() {
+proto.meshpaas.Chart.prototype.getMaintainersList = function() {
   return /** @type{!Array<!proto.meshpaas.Maintainer>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.meshpaas.Maintainer, 10));
 };
 
 
 /** @param {!Array<!proto.meshpaas.Maintainer>} value */
-proto.meshpaas.AppTemplate.prototype.setMaintainersList = function(value) {
+proto.meshpaas.Chart.prototype.setMaintainersList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 10, value);
 };
 
@@ -1026,12 +1026,12 @@ proto.meshpaas.AppTemplate.prototype.setMaintainersList = function(value) {
  * @param {number=} opt_index
  * @return {!proto.meshpaas.Maintainer}
  */
-proto.meshpaas.AppTemplate.prototype.addMaintainers = function(opt_value, opt_index) {
+proto.meshpaas.Chart.prototype.addMaintainers = function(opt_value, opt_index) {
   return jspb.Message.addToRepeatedWrapperField(this, 10, opt_value, proto.meshpaas.Maintainer, opt_index);
 };
 
 
-proto.meshpaas.AppTemplate.prototype.clearMaintainersList = function() {
+proto.meshpaas.Chart.prototype.clearMaintainersList = function() {
   this.setMaintainersList([]);
 };
 
@@ -1042,14 +1042,14 @@ proto.meshpaas.AppTemplate.prototype.clearMaintainersList = function() {
  * empty, instead returning `undefined`
  * @return {!jspb.Map<string,string>}
  */
-proto.meshpaas.AppTemplate.prototype.getMetadataMap = function(opt_noLazyCreate) {
+proto.meshpaas.Chart.prototype.getMetadataMap = function(opt_noLazyCreate) {
   return /** @type {!jspb.Map<string,string>} */ (
       jspb.Message.getMapField(this, 11, opt_noLazyCreate,
       null));
 };
 
 
-proto.meshpaas.AppTemplate.prototype.clearMetadataMap = function() {
+proto.meshpaas.Chart.prototype.clearMetadataMap = function() {
   this.getMetadataMap().clear();
 };
 
@@ -1065,19 +1065,19 @@ proto.meshpaas.AppTemplate.prototype.clearMetadataMap = function() {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.meshpaas.AppTemplates = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.meshpaas.AppTemplates.repeatedFields_, null);
+proto.meshpaas.Charts = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.meshpaas.Charts.repeatedFields_, null);
 };
-goog.inherits(proto.meshpaas.AppTemplates, jspb.Message);
+goog.inherits(proto.meshpaas.Charts, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.meshpaas.AppTemplates.displayName = 'proto.meshpaas.AppTemplates';
+  proto.meshpaas.Charts.displayName = 'proto.meshpaas.Charts';
 }
 /**
  * List of repeated fields within this message type.
  * @private {!Array<number>}
  * @const
  */
-proto.meshpaas.AppTemplates.repeatedFields_ = [1];
+proto.meshpaas.Charts.repeatedFields_ = [1];
 
 
 
@@ -1092,8 +1092,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.meshpaas.AppTemplates.prototype.toObject = function(opt_includeInstance) {
-  return proto.meshpaas.AppTemplates.toObject(opt_includeInstance, this);
+proto.meshpaas.Charts.prototype.toObject = function(opt_includeInstance) {
+  return proto.meshpaas.Charts.toObject(opt_includeInstance, this);
 };
 
 
@@ -1102,14 +1102,14 @@ proto.meshpaas.AppTemplates.prototype.toObject = function(opt_includeInstance) {
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.meshpaas.AppTemplates} msg The msg instance to transform.
+ * @param {!proto.meshpaas.Charts} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.meshpaas.AppTemplates.toObject = function(includeInstance, msg) {
+proto.meshpaas.Charts.toObject = function(includeInstance, msg) {
   var f, obj = {
-    templatesList: jspb.Message.toObjectList(msg.getTemplatesList(),
-    proto.meshpaas.AppTemplate.toObject, includeInstance)
+    chartsList: jspb.Message.toObjectList(msg.getChartsList(),
+    proto.meshpaas.Chart.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -1123,23 +1123,23 @@ proto.meshpaas.AppTemplates.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.meshpaas.AppTemplates}
+ * @return {!proto.meshpaas.Charts}
  */
-proto.meshpaas.AppTemplates.deserializeBinary = function(bytes) {
+proto.meshpaas.Charts.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.meshpaas.AppTemplates;
-  return proto.meshpaas.AppTemplates.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.meshpaas.Charts;
+  return proto.meshpaas.Charts.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.meshpaas.AppTemplates} msg The message object to deserialize into.
+ * @param {!proto.meshpaas.Charts} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.meshpaas.AppTemplates}
+ * @return {!proto.meshpaas.Charts}
  */
-proto.meshpaas.AppTemplates.deserializeBinaryFromReader = function(msg, reader) {
+proto.meshpaas.Charts.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -1147,9 +1147,9 @@ proto.meshpaas.AppTemplates.deserializeBinaryFromReader = function(msg, reader) 
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto.meshpaas.AppTemplate;
-      reader.readMessage(value,proto.meshpaas.AppTemplate.deserializeBinaryFromReader);
-      msg.addTemplates(value);
+      var value = new proto.meshpaas.Chart;
+      reader.readMessage(value,proto.meshpaas.Chart.deserializeBinaryFromReader);
+      msg.addCharts(value);
       break;
     default:
       reader.skipField();
@@ -1164,9 +1164,9 @@ proto.meshpaas.AppTemplates.deserializeBinaryFromReader = function(msg, reader) 
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.meshpaas.AppTemplates.prototype.serializeBinary = function() {
+proto.meshpaas.Charts.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.meshpaas.AppTemplates.serializeBinaryToWriter(this, writer);
+  proto.meshpaas.Charts.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -1174,51 +1174,51 @@ proto.meshpaas.AppTemplates.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.meshpaas.AppTemplates} message
+ * @param {!proto.meshpaas.Charts} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.meshpaas.AppTemplates.serializeBinaryToWriter = function(message, writer) {
+proto.meshpaas.Charts.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getTemplatesList();
+  f = message.getChartsList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       1,
       f,
-      proto.meshpaas.AppTemplate.serializeBinaryToWriter
+      proto.meshpaas.Chart.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * repeated AppTemplate templates = 1;
- * @return {!Array<!proto.meshpaas.AppTemplate>}
+ * repeated Chart charts = 1;
+ * @return {!Array<!proto.meshpaas.Chart>}
  */
-proto.meshpaas.AppTemplates.prototype.getTemplatesList = function() {
-  return /** @type{!Array<!proto.meshpaas.AppTemplate>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.meshpaas.AppTemplate, 1));
+proto.meshpaas.Charts.prototype.getChartsList = function() {
+  return /** @type{!Array<!proto.meshpaas.Chart>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.meshpaas.Chart, 1));
 };
 
 
-/** @param {!Array<!proto.meshpaas.AppTemplate>} value */
-proto.meshpaas.AppTemplates.prototype.setTemplatesList = function(value) {
+/** @param {!Array<!proto.meshpaas.Chart>} value */
+proto.meshpaas.Charts.prototype.setChartsList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 1, value);
 };
 
 
 /**
- * @param {!proto.meshpaas.AppTemplate=} opt_value
+ * @param {!proto.meshpaas.Chart=} opt_value
  * @param {number=} opt_index
- * @return {!proto.meshpaas.AppTemplate}
+ * @return {!proto.meshpaas.Chart}
  */
-proto.meshpaas.AppTemplates.prototype.addTemplates = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.meshpaas.AppTemplate, opt_index);
+proto.meshpaas.Charts.prototype.addCharts = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.meshpaas.Chart, opt_index);
 };
 
 
-proto.meshpaas.AppTemplates.prototype.clearTemplatesList = function() {
-  this.setTemplatesList([]);
+proto.meshpaas.Charts.prototype.clearChartsList = function() {
+  this.setChartsList([]);
 };
 
 
@@ -1270,9 +1270,9 @@ proto.meshpaas.App.prototype.toObject = function(opt_includeInstance) {
 proto.meshpaas.App.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    project: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    namespace: jspb.Message.getFieldWithDefault(msg, 2, ""),
     release: (f = msg.getRelease()) && proto.meshpaas.Release.toObject(includeInstance, f),
-    template: (f = msg.getTemplate()) && proto.meshpaas.AppTemplate.toObject(includeInstance, f)
+    chart: (f = msg.getChart()) && proto.meshpaas.Chart.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -1315,7 +1315,7 @@ proto.meshpaas.App.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 2:
       var value = /** @type {string} */ (reader.readString());
-      msg.setProject(value);
+      msg.setNamespace(value);
       break;
     case 5:
       var value = new proto.meshpaas.Release;
@@ -1323,9 +1323,9 @@ proto.meshpaas.App.deserializeBinaryFromReader = function(msg, reader) {
       msg.setRelease(value);
       break;
     case 20:
-      var value = new proto.meshpaas.AppTemplate;
-      reader.readMessage(value,proto.meshpaas.AppTemplate.deserializeBinaryFromReader);
-      msg.setTemplate(value);
+      var value = new proto.meshpaas.Chart;
+      reader.readMessage(value,proto.meshpaas.Chart.deserializeBinaryFromReader);
+      msg.setChart(value);
       break;
     default:
       reader.skipField();
@@ -1363,7 +1363,7 @@ proto.meshpaas.App.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getProject();
+  f = message.getNamespace();
   if (f.length > 0) {
     writer.writeString(
       2,
@@ -1378,12 +1378,12 @@ proto.meshpaas.App.serializeBinaryToWriter = function(message, writer) {
       proto.meshpaas.Release.serializeBinaryToWriter
     );
   }
-  f = message.getTemplate();
+  f = message.getChart();
   if (f != null) {
     writer.writeMessage(
       20,
       f,
-      proto.meshpaas.AppTemplate.serializeBinaryToWriter
+      proto.meshpaas.Chart.serializeBinaryToWriter
     );
   }
 };
@@ -1405,16 +1405,16 @@ proto.meshpaas.App.prototype.setName = function(value) {
 
 
 /**
- * optional string project = 2;
+ * optional string namespace = 2;
  * @return {string}
  */
-proto.meshpaas.App.prototype.getProject = function() {
+proto.meshpaas.App.prototype.getNamespace = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
 /** @param {string} value */
-proto.meshpaas.App.prototype.setProject = function(value) {
+proto.meshpaas.App.prototype.setNamespace = function(value) {
   jspb.Message.setProto3StringField(this, 2, value);
 };
 
@@ -1450,23 +1450,23 @@ proto.meshpaas.App.prototype.hasRelease = function() {
 
 
 /**
- * optional AppTemplate template = 20;
- * @return {?proto.meshpaas.AppTemplate}
+ * optional Chart chart = 20;
+ * @return {?proto.meshpaas.Chart}
  */
-proto.meshpaas.App.prototype.getTemplate = function() {
-  return /** @type{?proto.meshpaas.AppTemplate} */ (
-    jspb.Message.getWrapperField(this, proto.meshpaas.AppTemplate, 20));
+proto.meshpaas.App.prototype.getChart = function() {
+  return /** @type{?proto.meshpaas.Chart} */ (
+    jspb.Message.getWrapperField(this, proto.meshpaas.Chart, 20));
 };
 
 
-/** @param {?proto.meshpaas.AppTemplate|undefined} value */
-proto.meshpaas.App.prototype.setTemplate = function(value) {
+/** @param {?proto.meshpaas.Chart|undefined} value */
+proto.meshpaas.App.prototype.setChart = function(value) {
   jspb.Message.setWrapperField(this, 20, value);
 };
 
 
-proto.meshpaas.App.prototype.clearTemplate = function() {
-  this.setTemplate(undefined);
+proto.meshpaas.App.prototype.clearChart = function() {
+  this.setChart(undefined);
 };
 
 
@@ -1474,7 +1474,7 @@ proto.meshpaas.App.prototype.clearTemplate = function() {
  * Returns whether this field is set.
  * @return {!boolean}
  */
-proto.meshpaas.App.prototype.hasTemplate = function() {
+proto.meshpaas.App.prototype.hasChart = function() {
   return jspb.Message.getField(this, 20) != null;
 };
 
@@ -2252,7 +2252,7 @@ proto.meshpaas.AppRef.prototype.toObject = function(opt_includeInstance) {
  */
 proto.meshpaas.AppRef.toObject = function(includeInstance, msg) {
   var f, obj = {
-    project: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    namespace: jspb.Message.getFieldWithDefault(msg, 1, ""),
     name: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
@@ -2292,7 +2292,7 @@ proto.meshpaas.AppRef.deserializeBinaryFromReader = function(msg, reader) {
     switch (field) {
     case 1:
       var value = /** @type {string} */ (reader.readString());
-      msg.setProject(value);
+      msg.setNamespace(value);
       break;
     case 2:
       var value = /** @type {string} */ (reader.readString());
@@ -2327,7 +2327,7 @@ proto.meshpaas.AppRef.prototype.serializeBinary = function() {
  */
 proto.meshpaas.AppRef.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getProject();
+  f = message.getNamespace();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -2345,16 +2345,16 @@ proto.meshpaas.AppRef.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional string project = 1;
+ * optional string namespace = 1;
  * @return {string}
  */
-proto.meshpaas.AppRef.prototype.getProject = function() {
+proto.meshpaas.AppRef.prototype.getNamespace = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
 /** @param {string} value */
-proto.meshpaas.AppRef.prototype.setProject = function(value) {
+proto.meshpaas.AppRef.prototype.setNamespace = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
 };
 
@@ -2421,8 +2421,8 @@ proto.meshpaas.AppInput.prototype.toObject = function(opt_includeInstance) {
  */
 proto.meshpaas.AppInput.toObject = function(includeInstance, msg) {
   var f, obj = {
-    project: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    templateName: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    namespace: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    chart: jspb.Message.getFieldWithDefault(msg, 2, ""),
     appName: jspb.Message.getFieldWithDefault(msg, 3, ""),
     configMap: (f = msg.getConfigMap()) ? f.toObject(includeInstance, undefined) : []
   };
@@ -2463,11 +2463,11 @@ proto.meshpaas.AppInput.deserializeBinaryFromReader = function(msg, reader) {
     switch (field) {
     case 1:
       var value = /** @type {string} */ (reader.readString());
-      msg.setProject(value);
+      msg.setNamespace(value);
       break;
     case 2:
       var value = /** @type {string} */ (reader.readString());
-      msg.setTemplateName(value);
+      msg.setChart(value);
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
@@ -2508,14 +2508,14 @@ proto.meshpaas.AppInput.prototype.serializeBinary = function() {
  */
 proto.meshpaas.AppInput.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getProject();
+  f = message.getNamespace();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = message.getTemplateName();
+  f = message.getChart();
   if (f.length > 0) {
     writer.writeString(
       2,
@@ -2537,31 +2537,31 @@ proto.meshpaas.AppInput.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional string project = 1;
+ * optional string namespace = 1;
  * @return {string}
  */
-proto.meshpaas.AppInput.prototype.getProject = function() {
+proto.meshpaas.AppInput.prototype.getNamespace = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
 /** @param {string} value */
-proto.meshpaas.AppInput.prototype.setProject = function(value) {
+proto.meshpaas.AppInput.prototype.setNamespace = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
 /**
- * optional string template_name = 2;
+ * optional string chart = 2;
  * @return {string}
  */
-proto.meshpaas.AppInput.prototype.getTemplateName = function() {
+proto.meshpaas.AppInput.prototype.getChart = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
 /** @param {string} value */
-proto.meshpaas.AppInput.prototype.setTemplateName = function(value) {
+proto.meshpaas.AppInput.prototype.setChart = function(value) {
   jspb.Message.setProto3StringField(this, 2, value);
 };
 
@@ -2610,12 +2610,12 @@ proto.meshpaas.AppInput.prototype.clearConfigMap = function() {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.meshpaas.ProjectRef = function(opt_data) {
+proto.meshpaas.NamespaceRef = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.meshpaas.ProjectRef, jspb.Message);
+goog.inherits(proto.meshpaas.NamespaceRef, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.meshpaas.ProjectRef.displayName = 'proto.meshpaas.ProjectRef';
+  proto.meshpaas.NamespaceRef.displayName = 'proto.meshpaas.NamespaceRef';
 }
 
 
@@ -2630,8 +2630,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.meshpaas.ProjectRef.prototype.toObject = function(opt_includeInstance) {
-  return proto.meshpaas.ProjectRef.toObject(opt_includeInstance, this);
+proto.meshpaas.NamespaceRef.prototype.toObject = function(opt_includeInstance) {
+  return proto.meshpaas.NamespaceRef.toObject(opt_includeInstance, this);
 };
 
 
@@ -2640,11 +2640,11 @@ proto.meshpaas.ProjectRef.prototype.toObject = function(opt_includeInstance) {
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.meshpaas.ProjectRef} msg The msg instance to transform.
+ * @param {!proto.meshpaas.NamespaceRef} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.meshpaas.ProjectRef.toObject = function(includeInstance, msg) {
+proto.meshpaas.NamespaceRef.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
@@ -2660,23 +2660,23 @@ proto.meshpaas.ProjectRef.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.meshpaas.ProjectRef}
+ * @return {!proto.meshpaas.NamespaceRef}
  */
-proto.meshpaas.ProjectRef.deserializeBinary = function(bytes) {
+proto.meshpaas.NamespaceRef.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.meshpaas.ProjectRef;
-  return proto.meshpaas.ProjectRef.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.meshpaas.NamespaceRef;
+  return proto.meshpaas.NamespaceRef.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.meshpaas.ProjectRef} msg The message object to deserialize into.
+ * @param {!proto.meshpaas.NamespaceRef} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.meshpaas.ProjectRef}
+ * @return {!proto.meshpaas.NamespaceRef}
  */
-proto.meshpaas.ProjectRef.deserializeBinaryFromReader = function(msg, reader) {
+proto.meshpaas.NamespaceRef.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -2700,9 +2700,9 @@ proto.meshpaas.ProjectRef.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.meshpaas.ProjectRef.prototype.serializeBinary = function() {
+proto.meshpaas.NamespaceRef.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.meshpaas.ProjectRef.serializeBinaryToWriter(this, writer);
+  proto.meshpaas.NamespaceRef.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -2710,11 +2710,11 @@ proto.meshpaas.ProjectRef.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.meshpaas.ProjectRef} message
+ * @param {!proto.meshpaas.NamespaceRef} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.meshpaas.ProjectRef.serializeBinaryToWriter = function(message, writer) {
+proto.meshpaas.NamespaceRef.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getName();
   if (f.length > 0) {
@@ -2730,13 +2730,13 @@ proto.meshpaas.ProjectRef.serializeBinaryToWriter = function(message, writer) {
  * optional string name = 1;
  * @return {string}
  */
-proto.meshpaas.ProjectRef.prototype.getName = function() {
+proto.meshpaas.NamespaceRef.prototype.getName = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
 /** @param {string} value */
-proto.meshpaas.ProjectRef.prototype.setName = function(value) {
+proto.meshpaas.NamespaceRef.prototype.setName = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
 };
 
@@ -2752,19 +2752,19 @@ proto.meshpaas.ProjectRef.prototype.setName = function(value) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.meshpaas.ProjectRefs = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.meshpaas.ProjectRefs.repeatedFields_, null);
+proto.meshpaas.NamespaceRefs = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.meshpaas.NamespaceRefs.repeatedFields_, null);
 };
-goog.inherits(proto.meshpaas.ProjectRefs, jspb.Message);
+goog.inherits(proto.meshpaas.NamespaceRefs, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.meshpaas.ProjectRefs.displayName = 'proto.meshpaas.ProjectRefs';
+  proto.meshpaas.NamespaceRefs.displayName = 'proto.meshpaas.NamespaceRefs';
 }
 /**
  * List of repeated fields within this message type.
  * @private {!Array<number>}
  * @const
  */
-proto.meshpaas.ProjectRefs.repeatedFields_ = [1];
+proto.meshpaas.NamespaceRefs.repeatedFields_ = [1];
 
 
 
@@ -2779,8 +2779,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.meshpaas.ProjectRefs.prototype.toObject = function(opt_includeInstance) {
-  return proto.meshpaas.ProjectRefs.toObject(opt_includeInstance, this);
+proto.meshpaas.NamespaceRefs.prototype.toObject = function(opt_includeInstance) {
+  return proto.meshpaas.NamespaceRefs.toObject(opt_includeInstance, this);
 };
 
 
@@ -2789,14 +2789,14 @@ proto.meshpaas.ProjectRefs.prototype.toObject = function(opt_includeInstance) {
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.meshpaas.ProjectRefs} msg The msg instance to transform.
+ * @param {!proto.meshpaas.NamespaceRefs} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.meshpaas.ProjectRefs.toObject = function(includeInstance, msg) {
+proto.meshpaas.NamespaceRefs.toObject = function(includeInstance, msg) {
   var f, obj = {
-    projectsList: jspb.Message.toObjectList(msg.getProjectsList(),
-    proto.meshpaas.ProjectRef.toObject, includeInstance)
+    namespacesList: jspb.Message.toObjectList(msg.getNamespacesList(),
+    proto.meshpaas.NamespaceRef.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -2810,23 +2810,23 @@ proto.meshpaas.ProjectRefs.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.meshpaas.ProjectRefs}
+ * @return {!proto.meshpaas.NamespaceRefs}
  */
-proto.meshpaas.ProjectRefs.deserializeBinary = function(bytes) {
+proto.meshpaas.NamespaceRefs.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.meshpaas.ProjectRefs;
-  return proto.meshpaas.ProjectRefs.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.meshpaas.NamespaceRefs;
+  return proto.meshpaas.NamespaceRefs.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.meshpaas.ProjectRefs} msg The message object to deserialize into.
+ * @param {!proto.meshpaas.NamespaceRefs} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.meshpaas.ProjectRefs}
+ * @return {!proto.meshpaas.NamespaceRefs}
  */
-proto.meshpaas.ProjectRefs.deserializeBinaryFromReader = function(msg, reader) {
+proto.meshpaas.NamespaceRefs.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -2834,9 +2834,9 @@ proto.meshpaas.ProjectRefs.deserializeBinaryFromReader = function(msg, reader) {
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto.meshpaas.ProjectRef;
-      reader.readMessage(value,proto.meshpaas.ProjectRef.deserializeBinaryFromReader);
-      msg.addProjects(value);
+      var value = new proto.meshpaas.NamespaceRef;
+      reader.readMessage(value,proto.meshpaas.NamespaceRef.deserializeBinaryFromReader);
+      msg.addNamespaces(value);
       break;
     default:
       reader.skipField();
@@ -2851,9 +2851,9 @@ proto.meshpaas.ProjectRefs.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.meshpaas.ProjectRefs.prototype.serializeBinary = function() {
+proto.meshpaas.NamespaceRefs.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.meshpaas.ProjectRefs.serializeBinaryToWriter(this, writer);
+  proto.meshpaas.NamespaceRefs.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -2861,51 +2861,51 @@ proto.meshpaas.ProjectRefs.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.meshpaas.ProjectRefs} message
+ * @param {!proto.meshpaas.NamespaceRefs} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.meshpaas.ProjectRefs.serializeBinaryToWriter = function(message, writer) {
+proto.meshpaas.NamespaceRefs.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getProjectsList();
+  f = message.getNamespacesList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       1,
       f,
-      proto.meshpaas.ProjectRef.serializeBinaryToWriter
+      proto.meshpaas.NamespaceRef.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * repeated ProjectRef projects = 1;
- * @return {!Array<!proto.meshpaas.ProjectRef>}
+ * repeated NamespaceRef namespaces = 1;
+ * @return {!Array<!proto.meshpaas.NamespaceRef>}
  */
-proto.meshpaas.ProjectRefs.prototype.getProjectsList = function() {
-  return /** @type{!Array<!proto.meshpaas.ProjectRef>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.meshpaas.ProjectRef, 1));
+proto.meshpaas.NamespaceRefs.prototype.getNamespacesList = function() {
+  return /** @type{!Array<!proto.meshpaas.NamespaceRef>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.meshpaas.NamespaceRef, 1));
 };
 
 
-/** @param {!Array<!proto.meshpaas.ProjectRef>} value */
-proto.meshpaas.ProjectRefs.prototype.setProjectsList = function(value) {
+/** @param {!Array<!proto.meshpaas.NamespaceRef>} value */
+proto.meshpaas.NamespaceRefs.prototype.setNamespacesList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 1, value);
 };
 
 
 /**
- * @param {!proto.meshpaas.ProjectRef=} opt_value
+ * @param {!proto.meshpaas.NamespaceRef=} opt_value
  * @param {number=} opt_index
- * @return {!proto.meshpaas.ProjectRef}
+ * @return {!proto.meshpaas.NamespaceRef}
  */
-proto.meshpaas.ProjectRefs.prototype.addProjects = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.meshpaas.ProjectRef, opt_index);
+proto.meshpaas.NamespaceRefs.prototype.addNamespaces = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.meshpaas.NamespaceRef, opt_index);
 };
 
 
-proto.meshpaas.ProjectRefs.prototype.clearProjectsList = function() {
-  this.setProjectsList([]);
+proto.meshpaas.NamespaceRefs.prototype.clearNamespacesList = function() {
+  this.setNamespacesList([]);
 };
 
 

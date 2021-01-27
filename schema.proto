@@ -10,60 +10,72 @@ import "google/protobuf/any.proto";
 import "google/protobuf/empty.proto";
 import "github.com/mwitkow/go-proto-validators/validator.proto";
 
-// Dependency is a dependency(template) required by a template
+// Dependency is a dependency required by a helm chart
 message Dependency {
-  // name of the template dependency
-  string template_name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // name of the template version
+  // name of the chart dependency
+  string chart =1[(validator.field) = {regex : "^.{1,225}$"}];
+  // name of the chart version
   string version =2[(validator.field) = {regex : "^.{1,225}$"}];
+  // the URL of the helm repository.
   string repository =3[(validator.field) = {regex : "^.{1,225}$"}];
 }
 
-// Maintainer is the maintainer of a 
+// Maintainer is the maintainer of a helm chart
 message Maintainer {
+  // name is the name of the maintainer
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
+  // email is the email of the maintainer
   string email =2[(validator.field) = {regex : "^.{1,225}$"}];
 }
 
-// Filter is used for filtering search results
+// Filter is used for filtering helm chart search results
 message Filter {
+  // term to search for
   string term =1[(validator.field) = {regex : "^.{1,225}$"}];
+  // term is a regex expression
   bool regex =2;
 }
 
-// AppTemplate is a template of an application
-message AppTemplate {
-  // name of the app template
+// Chart is a helm chart that may be used to deploy an App
+message Chart {
+  // name of the app chart
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // home page of the app template
+  // home page of the app chart
   string home =2;
-  // description of the app template
+  // description of the app chart
   string description =3;
-  // version of the app template
+  // version of the app chart
   string version =4;
   repeated string sources =5;
-  // keywords associated with the app template
+  // keywords associated with the app chart
   repeated string keywords =6;
+  // icon is an the icon/brand associated with the chart
   string icon =7;
+  // chart is not actively maintained if deprecated = true
   bool deprecated =8;
+  // extra charts that this chart depends on
   repeated Dependency dependencies =9;
+  // maintainers of this chart
   repeated Maintainer maintainers =10;
+  // arbitrary metadata associated with the chart
   map<string, string> metadata =11;
 }
 
-// AppTemplates is a list of app templates
-message AppTemplates {
-  repeated AppTemplate templates =1;
+// Charts is a list of helm charts
+message Charts {
+  repeated Chart charts =1;
 }
 
-// App is an App created from an AppTemplate
+// App is an App created from a helm chart
 message App {
   // name of the application
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // project name the app belongs to(autocreated)
-  string project =2[(validator.field) = {regex : "^.{1,225}$"}];
+  // namespace name the app belongs to(autocreated)
+  string namespace =2[(validator.field) = {regex : "^.{1,225}$"}];
+  // release holds information about the currently deployed release of the application
   Release release =5;
-  AppTemplate template =20;
+  // chart is the chart used to deploy the App
+  Chart chart =20;
 }
 
 // Apps is a list of apps
@@ -77,64 +89,72 @@ message Release {
   uint32 version =1;
   // config values
   google.protobuf.Struct config =2;
+  // notes associated with the release
   string notes =3;
+  // description of the release
   string description =4;
+  // status of the release
   string status =5;
+  // lifecycle timestamps related
   Timestamps timestamps =6;
 }
 
-// Timestamps tracks timestamps related to an App
+// Timestamps tracks timestamps related to a release
 message Timestamps {
+  // when the release was first deployed
   google.protobuf.Timestamp created =1;
+  // when the release was last deployed
   google.protobuf.Timestamp updated =2;
+  // when the release was deleted
   google.protobuf.Timestamp deleted =3;
 }
 
 // AppRef is a generic structure for looking up apps
 message AppRef {
-  // project name the app belongs to(autocreated)
-  string project =1[(validator.field) = {regex : "^.{1,225}$"}];
+  // namespace is the k8s namespace the app/release belongs to(autocreated)
+  string namespace =1[(validator.field) = {regex : "^.{1,225}$"}];
+  // name is the name of the app/release
   string name =2[(validator.field) = {regex : "^.{1,225}$"}];
 }
 
 // AppInput is used to create/update an app
 message AppInput {
-  // project name the app belongs to(autocreated)
-  string project =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // the app template to use
-  string template_name =2[(validator.field) = {regex : "^.{1,225}$"}];
+  // namespace name the app belongs to(autocreated)
+  string namespace =1[(validator.field) = {regex : "^.{1,225}$"}];
+  // the app chart to use
+  string chart =2[(validator.field) = {regex : "^.{1,225}$"}];
   // name of the app
   string app_name =3[(validator.field) = {regex : "^.{1,225}$"}];
-  // config values used to render the app template
+  // config values used to render the app chart
   map<string, string> config =4[(validator.field) = {msg_exists : true}];
 }
 
-// ProjectRef is a generic structure for looking up projects
-message ProjectRef {
-  // name of the project
-  string name =1;
+// NamespaceRef is a generic structure for looking up namespaces
+message NamespaceRef {
+  // name of the namespace
+  string name =1[(validator.field) = {regex : "^.{1,225}$"}];
 }
 
-// ProjectRefs is a list of ProjectRef
-message ProjectRefs {
-  repeated ProjectRef projects =1;
+// NamespaceRefs is a list of NamespaceRef
+message NamespaceRefs {
+  repeated NamespaceRef namespaces =1;
 }
 
 // MeshPaasService is a platform as a service backed by Istio service mesh
 // all requests are made in the context of the user's identity which is derived from the inbound jwt & verified with the configured jwks(json web keys) uri
 service MeshPaasService {
-  // GetApp gets an app in the given project
+  // GetApp gets an app in the given namespace
   rpc GetApp(AppRef) returns(App){}
-  // ListApps lists apps in the project
-  rpc ListApps(ProjectRef) returns(Apps){}
-  // UninstallApp uninstalls an app in the given project
+  // ListApps lists apps in the namespace
+  rpc ListApps(NamespaceRef) returns(Apps){}
+  // UninstallApp uninstalls an app in the given namespace
   rpc UninstallApp(AppRef) returns(google.protobuf.Empty){}
   // RollbackApp rolls the app back to the previous version in the given namespace
   rpc RollbackApp(AppRef) returns(App){}
-  // InstallApp installs an app in the given project
+  // InstallApp installs an app in the given namespace
   rpc InstallApp(AppInput) returns(App){}
-  // UpdateApp updates an app in the given project
+  // UpdateApp updates an app in the given namespace
   rpc UpdateApp(AppInput) returns(App){}
-  // SearchTemplates searches for an app template
-  rpc SearchTemplates(Filter) returns(AppTemplates){}
+  // SearchTemplates searches for an app chart
+  rpc SearchTemplates(Filter) returns(Charts){}
 }

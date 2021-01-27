@@ -9,17 +9,21 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Filter is used for filtering search results
+ * Filter is used for filtering helm chart search results
  *
  * Generated from protobuf message <code>meshpaas.Filter</code>
  */
 class Filter extends \Google\Protobuf\Internal\Message
 {
     /**
+     * term to search for
+     *
      * Generated from protobuf field <code>string term = 1 [(.validator.field) = {</code>
      */
     private $term = '';
     /**
+     * term is a regex expression
+     *
      * Generated from protobuf field <code>bool regex = 2;</code>
      */
     private $regex = false;
@@ -31,7 +35,9 @@ class Filter extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $term
+     *           term to search for
      *     @type bool $regex
+     *           term is a regex expression
      * }
      */
     public function __construct($data = NULL) {
@@ -40,6 +46,8 @@ class Filter extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * term to search for
+     *
      * Generated from protobuf field <code>string term = 1 [(.validator.field) = {</code>
      * @return string
      */
@@ -49,6 +57,8 @@ class Filter extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * term to search for
+     *
      * Generated from protobuf field <code>string term = 1 [(.validator.field) = {</code>
      * @param string $var
      * @return $this
@@ -62,6 +72,8 @@ class Filter extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * term is a regex expression
+     *
      * Generated from protobuf field <code>bool regex = 2;</code>
      * @return bool
      */
@@ -71,6 +83,8 @@ class Filter extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * term is a regex expression
+     *
      * Generated from protobuf field <code>bool regex = 2;</code>
      * @param bool $var
      * @return $this

@@ -18,7 +18,7 @@ class NamespaceRef extends \Google\Protobuf\Internal\Message
     /**
      * name of the namespace
      *
-     * Generated from protobuf field <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      */
     private $name = '';
 
@@ -40,7 +40,7 @@ class NamespaceRef extends \Google\Protobuf\Internal\Message
     /**
      * name of the namespace
      *
-     * Generated from protobuf field <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      * @return string
      */
     public function getName()
@@ -51,7 +51,7 @@ class NamespaceRef extends \Google\Protobuf\Internal\Message
     /**
      * name of the namespace
      *
-     * Generated from protobuf field <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      * @param string $var
      * @return $this
      */

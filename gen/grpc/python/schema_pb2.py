@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='meshpaas',
   syntax='proto3',
   serialized_options=_b('Z\nmeshpaaspb'),
-  serialized_pb=_b('\n\x0cschema.proto\x12\x08meshpaas\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x19google/protobuf/any.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x36github.com/mwitkow/go-proto-validators/validator.proto\"~\n\nDependency\x12\'\n\rtemplate_name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12!\n\x07version\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12$\n\nrepository\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"M\n\nMaintainer\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05\x65mail\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"7\n\x06\x46ilter\x12\x1e\n\x04term\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\r\n\x05regex\x18\x02 \x01(\x08\"\xe5\x02\n\x0b\x41ppTemplate\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x0c\n\x04home\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x0f\n\x07version\x18\x04 \x01(\t\x12\x0f\n\x07sources\x18\x05 \x03(\t\x12\x10\n\x08keywords\x18\x06 \x03(\t\x12\x0c\n\x04icon\x18\x07 \x01(\t\x12\x12\n\ndeprecated\x18\x08 \x01(\x08\x12*\n\x0c\x64\x65pendencies\x18\t \x03(\x0b\x32\x14.meshpaas.Dependency\x12)\n\x0bmaintainers\x18\n \x03(\x0b\x32\x14.meshpaas.Maintainer\x12\x35\n\x08metadata\x18\x0b \x03(\x0b\x32#.meshpaas.AppTemplate.MetadataEntry\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"8\n\x0c\x41ppTemplates\x12(\n\ttemplates\x18\x01 \x03(\x0b\x32\x15.meshpaas.AppTemplate\"\x95\x01\n\x03\x41pp\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12!\n\x07project\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\"\n\x07release\x18\x05 \x01(\x0b\x32\x11.meshpaas.Release\x12\'\n\x08template\x18\x14 \x01(\x0b\x32\x15.meshpaas.AppTemplate\"#\n\x04\x41pps\x12\x1b\n\x04\x61pps\x18\x01 \x03(\x0b\x32\r.meshpaas.App\"\xa1\x01\n\x07Release\x12\x0f\n\x07version\x18\x01 \x01(\r\x12\'\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\r\n\x05notes\x18\x03 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x04 \x01(\t\x12\x0e\n\x06status\x18\x05 \x01(\t\x12(\n\ntimestamps\x18\x06 \x01(\x0b\x32\x14.meshpaas.Timestamps\"\x93\x01\n\nTimestamps\x12+\n\x07\x63reated\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12+\n\x07updated\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12+\n\x07\x64\x65leted\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"K\n\x06\x41ppRef\x12!\n\x07project\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1e\n\x04name\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"\xe1\x01\n\x08\x41ppInput\x12!\n\x07project\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\'\n\rtemplate_name\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\"\n\x08\x61pp_name\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x36\n\x06\x63onfig\x18\x04 \x03(\x0b\x32\x1e.meshpaas.AppInput.ConfigEntryB\x06\xe2\xdf\x1f\x02 \x01\x1a-\n\x0b\x43onfigEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x1a\n\nProjectRef\x12\x0c\n\x04name\x18\x01 \x01(\t\"5\n\x0bProjectRefs\x12&\n\x08projects\x18\x01 \x03(\x0b\x32\x14.meshpaas.ProjectRef2\x84\x03\n\x0fMeshPaasService\x12+\n\x06GetApp\x12\x10.meshpaas.AppRef\x1a\r.meshpaas.App\"\x00\x12\x32\n\x08ListApps\x12\x14.meshpaas.ProjectRef\x1a\x0e.meshpaas.Apps\"\x00\x12:\n\x0cUninstallApp\x12\x10.meshpaas.AppRef\x1a\x16.google.protobuf.Empty\"\x00\x12\x30\n\x0bRollbackApp\x12\x10.meshpaas.AppRef\x1a\r.meshpaas.App\"\x00\x12\x31\n\nInstallApp\x12\x12.meshpaas.AppInput\x1a\r.meshpaas.App\"\x00\x12\x30\n\tUpdateApp\x12\x12.meshpaas.AppInput\x1a\r.meshpaas.App\"\x00\x12=\n\x0fSearchTemplates\x12\x10.meshpaas.Filter\x1a\x16.meshpaas.AppTemplates\"\x00\x42\x0cZ\nmeshpaaspbb\x06proto3')
+  serialized_pb=_b('\n\x0cschema.proto\x12\x08meshpaas\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x19google/protobuf/any.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x36github.com/mwitkow/go-proto-validators/validator.proto\"v\n\nDependency\x12\x1f\n\x05\x63hart\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12!\n\x07version\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12$\n\nrepository\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"M\n\nMaintainer\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05\x65mail\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"7\n\x06\x46ilter\x12\x1e\n\x04term\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\r\n\x05regex\x18\x02 \x01(\x08\"\xd9\x02\n\x05\x43hart\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x0c\n\x04home\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x0f\n\x07version\x18\x04 \x01(\t\x12\x0f\n\x07sources\x18\x05 \x03(\t\x12\x10\n\x08keywords\x18\x06 \x03(\t\x12\x0c\n\x04icon\x18\x07 \x01(\t\x12\x12\n\ndeprecated\x18\x08 \x01(\x08\x12*\n\x0c\x64\x65pendencies\x18\t \x03(\x0b\x32\x14.meshpaas.Dependency\x12)\n\x0bmaintainers\x18\n \x03(\x0b\x32\x14.meshpaas.Maintainer\x12/\n\x08metadata\x18\x0b \x03(\x0b\x32\x1d.meshpaas.Chart.MetadataEntry\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\")\n\x06\x43harts\x12\x1f\n\x06\x63harts\x18\x01 \x03(\x0b\x32\x0f.meshpaas.Chart\"\x8e\x01\n\x03\x41pp\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\"\n\x07release\x18\x05 \x01(\x0b\x32\x11.meshpaas.Release\x12\x1e\n\x05\x63hart\x18\x14 \x01(\x0b\x32\x0f.meshpaas.Chart\"#\n\x04\x41pps\x12\x1b\n\x04\x61pps\x18\x01 \x03(\x0b\x32\r.meshpaas.App\"\xa1\x01\n\x07Release\x12\x0f\n\x07version\x18\x01 \x01(\r\x12\'\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\r\n\x05notes\x18\x03 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x04 \x01(\t\x12\x0e\n\x06status\x18\x05 \x01(\t\x12(\n\ntimestamps\x18\x06 \x01(\x0b\x32\x14.meshpaas.Timestamps\"\x93\x01\n\nTimestamps\x12+\n\x07\x63reated\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12+\n\x07updated\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12+\n\x07\x64\x65leted\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"M\n\x06\x41ppRef\x12#\n\tnamespace\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1e\n\x04name\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"\xdb\x01\n\x08\x41ppInput\x12#\n\tnamespace\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05\x63hart\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\"\n\x08\x61pp_name\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x36\n\x06\x63onfig\x18\x04 \x03(\x0b\x32\x1e.meshpaas.AppInput.ConfigEntryB\x06\xe2\xdf\x1f\x02 \x01\x1a-\n\x0b\x43onfigEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\".\n\x0cNamespaceRef\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\";\n\rNamespaceRefs\x12*\n\nnamespaces\x18\x01 \x03(\x0b\x32\x16.meshpaas.NamespaceRef2\x80\x03\n\x0fMeshPaasService\x12+\n\x06GetApp\x12\x10.meshpaas.AppRef\x1a\r.meshpaas.App\"\x00\x12\x34\n\x08ListApps\x12\x16.meshpaas.NamespaceRef\x1a\x0e.meshpaas.Apps\"\x00\x12:\n\x0cUninstallApp\x12\x10.meshpaas.AppRef\x1a\x16.google.protobuf.Empty\"\x00\x12\x30\n\x0bRollbackApp\x12\x10.meshpaas.AppRef\x1a\r.meshpaas.App\"\x00\x12\x31\n\nInstallApp\x12\x12.meshpaas.AppInput\x1a\r.meshpaas.App\"\x00\x12\x30\n\tUpdateApp\x12\x12.meshpaas.AppInput\x1a\r.meshpaas.App\"\x00\x12\x37\n\x0fSearchTemplates\x12\x10.meshpaas.Filter\x1a\x10.meshpaas.Charts\"\x00\x42\x0cZ\nmeshpaaspbb\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_any__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,github_dot_com_dot_mwitkow_dot_go__proto__validators_dot_validator__pb2.DESCRIPTOR,])
 
@@ -39,7 +39,7 @@ _DEPENDENCY = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='template_name', full_name='meshpaas.Dependency.template_name', index=0,
+      name='chart', full_name='meshpaas.Dependency.chart', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -72,7 +72,7 @@ _DEPENDENCY = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=201,
-  serialized_end=327,
+  serialized_end=319,
 )
 
 
@@ -109,8 +109,8 @@ _MAINTAINER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=329,
-  serialized_end=406,
+  serialized_start=321,
+  serialized_end=398,
 )
 
 
@@ -147,27 +147,27 @@ _FILTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=408,
-  serialized_end=463,
+  serialized_start=400,
+  serialized_end=455,
 )
 
 
-_APPTEMPLATE_METADATAENTRY = _descriptor.Descriptor(
+_CHART_METADATAENTRY = _descriptor.Descriptor(
   name='MetadataEntry',
-  full_name='meshpaas.AppTemplate.MetadataEntry',
+  full_name='meshpaas.Chart.MetadataEntry',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='key', full_name='meshpaas.AppTemplate.MetadataEntry.key', index=0,
+      name='key', full_name='meshpaas.Chart.MetadataEntry.key', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='value', full_name='meshpaas.AppTemplate.MetadataEntry.value', index=1,
+      name='value', full_name='meshpaas.Chart.MetadataEntry.value', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -185,89 +185,89 @@ _APPTEMPLATE_METADATAENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=776,
-  serialized_end=823,
+  serialized_start=756,
+  serialized_end=803,
 )
 
-_APPTEMPLATE = _descriptor.Descriptor(
-  name='AppTemplate',
-  full_name='meshpaas.AppTemplate',
+_CHART = _descriptor.Descriptor(
+  name='Chart',
+  full_name='meshpaas.Chart',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='meshpaas.AppTemplate.name', index=0,
+      name='name', full_name='meshpaas.Chart.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=_b('\342\337\037\014\n\n^.{1,225}$'), file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='home', full_name='meshpaas.AppTemplate.home', index=1,
+      name='home', full_name='meshpaas.Chart.home', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='description', full_name='meshpaas.AppTemplate.description', index=2,
+      name='description', full_name='meshpaas.Chart.description', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='version', full_name='meshpaas.AppTemplate.version', index=3,
+      name='version', full_name='meshpaas.Chart.version', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='sources', full_name='meshpaas.AppTemplate.sources', index=4,
+      name='sources', full_name='meshpaas.Chart.sources', index=4,
       number=5, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='keywords', full_name='meshpaas.AppTemplate.keywords', index=5,
+      name='keywords', full_name='meshpaas.Chart.keywords', index=5,
       number=6, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='icon', full_name='meshpaas.AppTemplate.icon', index=6,
+      name='icon', full_name='meshpaas.Chart.icon', index=6,
       number=7, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='deprecated', full_name='meshpaas.AppTemplate.deprecated', index=7,
+      name='deprecated', full_name='meshpaas.Chart.deprecated', index=7,
       number=8, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='dependencies', full_name='meshpaas.AppTemplate.dependencies', index=8,
+      name='dependencies', full_name='meshpaas.Chart.dependencies', index=8,
       number=9, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='maintainers', full_name='meshpaas.AppTemplate.maintainers', index=9,
+      name='maintainers', full_name='meshpaas.Chart.maintainers', index=9,
       number=10, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='metadata', full_name='meshpaas.AppTemplate.metadata', index=10,
+      name='metadata', full_name='meshpaas.Chart.metadata', index=10,
       number=11, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -276,7 +276,7 @@ _APPTEMPLATE = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_APPTEMPLATE_METADATAENTRY, ],
+  nested_types=[_CHART_METADATAENTRY, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -285,20 +285,20 @@ _APPTEMPLATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=466,
-  serialized_end=823,
+  serialized_start=458,
+  serialized_end=803,
 )
 
 
-_APPTEMPLATES = _descriptor.Descriptor(
-  name='AppTemplates',
-  full_name='meshpaas.AppTemplates',
+_CHARTS = _descriptor.Descriptor(
+  name='Charts',
+  full_name='meshpaas.Charts',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='templates', full_name='meshpaas.AppTemplates.templates', index=0,
+      name='charts', full_name='meshpaas.Charts.charts', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -316,8 +316,8 @@ _APPTEMPLATES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=825,
-  serialized_end=881,
+  serialized_start=805,
+  serialized_end=846,
 )
 
 
@@ -336,7 +336,7 @@ _APP = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=_b('\342\337\037\014\n\n^.{1,225}$'), file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='project', full_name='meshpaas.App.project', index=1,
+      name='namespace', full_name='meshpaas.App.namespace', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -350,7 +350,7 @@ _APP = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='template', full_name='meshpaas.App.template', index=3,
+      name='chart', full_name='meshpaas.App.chart', index=3,
       number=20, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -368,8 +368,8 @@ _APP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=884,
-  serialized_end=1033,
+  serialized_start=849,
+  serialized_end=991,
 )
 
 
@@ -399,8 +399,8 @@ _APPS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1035,
-  serialized_end=1070,
+  serialized_start=993,
+  serialized_end=1028,
 )
 
 
@@ -465,8 +465,8 @@ _RELEASE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1073,
-  serialized_end=1234,
+  serialized_start=1031,
+  serialized_end=1192,
 )
 
 
@@ -510,8 +510,8 @@ _TIMESTAMPS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1237,
-  serialized_end=1384,
+  serialized_start=1195,
+  serialized_end=1342,
 )
 
 
@@ -523,7 +523,7 @@ _APPREF = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='project', full_name='meshpaas.AppRef.project', index=0,
+      name='namespace', full_name='meshpaas.AppRef.namespace', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -548,8 +548,8 @@ _APPREF = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1386,
-  serialized_end=1461,
+  serialized_start=1344,
+  serialized_end=1421,
 )
 
 
@@ -586,8 +586,8 @@ _APPINPUT_CONFIGENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1644,
-  serialized_end=1689,
+  serialized_start=1598,
+  serialized_end=1643,
 )
 
 _APPINPUT = _descriptor.Descriptor(
@@ -598,14 +598,14 @@ _APPINPUT = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='project', full_name='meshpaas.AppInput.project', index=0,
+      name='namespace', full_name='meshpaas.AppInput.namespace', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=_b('\342\337\037\014\n\n^.{1,225}$'), file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='template_name', full_name='meshpaas.AppInput.template_name', index=1,
+      name='chart', full_name='meshpaas.AppInput.chart', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -637,25 +637,25 @@ _APPINPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1464,
-  serialized_end=1689,
+  serialized_start=1424,
+  serialized_end=1643,
 )
 
 
-_PROJECTREF = _descriptor.Descriptor(
-  name='ProjectRef',
-  full_name='meshpaas.ProjectRef',
+_NAMESPACEREF = _descriptor.Descriptor(
+  name='NamespaceRef',
+  full_name='meshpaas.NamespaceRef',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='meshpaas.ProjectRef.name', index=0,
+      name='name', full_name='meshpaas.NamespaceRef.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=_b('\342\337\037\014\n\n^.{1,225}$'), file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -668,20 +668,20 @@ _PROJECTREF = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1691,
-  serialized_end=1717,
+  serialized_start=1645,
+  serialized_end=1691,
 )
 
 
-_PROJECTREFS = _descriptor.Descriptor(
-  name='ProjectRefs',
-  full_name='meshpaas.ProjectRefs',
+_NAMESPACEREFS = _descriptor.Descriptor(
+  name='NamespaceRefs',
+  full_name='meshpaas.NamespaceRefs',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='projects', full_name='meshpaas.ProjectRefs.projects', index=0,
+      name='namespaces', full_name='meshpaas.NamespaceRefs.namespaces', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -699,17 +699,17 @@ _PROJECTREFS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1719,
-  serialized_end=1772,
+  serialized_start=1693,
+  serialized_end=1752,
 )
 
-_APPTEMPLATE_METADATAENTRY.containing_type = _APPTEMPLATE
-_APPTEMPLATE.fields_by_name['dependencies'].message_type = _DEPENDENCY
-_APPTEMPLATE.fields_by_name['maintainers'].message_type = _MAINTAINER
-_APPTEMPLATE.fields_by_name['metadata'].message_type = _APPTEMPLATE_METADATAENTRY
-_APPTEMPLATES.fields_by_name['templates'].message_type = _APPTEMPLATE
+_CHART_METADATAENTRY.containing_type = _CHART
+_CHART.fields_by_name['dependencies'].message_type = _DEPENDENCY
+_CHART.fields_by_name['maintainers'].message_type = _MAINTAINER
+_CHART.fields_by_name['metadata'].message_type = _CHART_METADATAENTRY
+_CHARTS.fields_by_name['charts'].message_type = _CHART
 _APP.fields_by_name['release'].message_type = _RELEASE
-_APP.fields_by_name['template'].message_type = _APPTEMPLATE
+_APP.fields_by_name['chart'].message_type = _CHART
 _APPS.fields_by_name['apps'].message_type = _APP
 _RELEASE.fields_by_name['config'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
 _RELEASE.fields_by_name['timestamps'].message_type = _TIMESTAMPS
@@ -718,20 +718,20 @@ _TIMESTAMPS.fields_by_name['updated'].message_type = google_dot_protobuf_dot_tim
 _TIMESTAMPS.fields_by_name['deleted'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _APPINPUT_CONFIGENTRY.containing_type = _APPINPUT
 _APPINPUT.fields_by_name['config'].message_type = _APPINPUT_CONFIGENTRY
-_PROJECTREFS.fields_by_name['projects'].message_type = _PROJECTREF
+_NAMESPACEREFS.fields_by_name['namespaces'].message_type = _NAMESPACEREF
 DESCRIPTOR.message_types_by_name['Dependency'] = _DEPENDENCY
 DESCRIPTOR.message_types_by_name['Maintainer'] = _MAINTAINER
 DESCRIPTOR.message_types_by_name['Filter'] = _FILTER
-DESCRIPTOR.message_types_by_name['AppTemplate'] = _APPTEMPLATE
-DESCRIPTOR.message_types_by_name['AppTemplates'] = _APPTEMPLATES
+DESCRIPTOR.message_types_by_name['Chart'] = _CHART
+DESCRIPTOR.message_types_by_name['Charts'] = _CHARTS
 DESCRIPTOR.message_types_by_name['App'] = _APP
 DESCRIPTOR.message_types_by_name['Apps'] = _APPS
 DESCRIPTOR.message_types_by_name['Release'] = _RELEASE
 DESCRIPTOR.message_types_by_name['Timestamps'] = _TIMESTAMPS
 DESCRIPTOR.message_types_by_name['AppRef'] = _APPREF
 DESCRIPTOR.message_types_by_name['AppInput'] = _APPINPUT
-DESCRIPTOR.message_types_by_name['ProjectRef'] = _PROJECTREF
-DESCRIPTOR.message_types_by_name['ProjectRefs'] = _PROJECTREFS
+DESCRIPTOR.message_types_by_name['NamespaceRef'] = _NAMESPACEREF
+DESCRIPTOR.message_types_by_name['NamespaceRefs'] = _NAMESPACEREFS
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 Dependency = _reflection.GeneratedProtocolMessageType('Dependency', (_message.Message,), dict(
@@ -755,27 +755,27 @@ Filter = _reflection.GeneratedProtocolMessageType('Filter', (_message.Message,),
   ))
 _sym_db.RegisterMessage(Filter)
 
-AppTemplate = _reflection.GeneratedProtocolMessageType('AppTemplate', (_message.Message,), dict(
+Chart = _reflection.GeneratedProtocolMessageType('Chart', (_message.Message,), dict(
 
   MetadataEntry = _reflection.GeneratedProtocolMessageType('MetadataEntry', (_message.Message,), dict(
-    DESCRIPTOR = _APPTEMPLATE_METADATAENTRY,
+    DESCRIPTOR = _CHART_METADATAENTRY,
     __module__ = 'schema_pb2'
-    # @@protoc_insertion_point(class_scope:meshpaas.AppTemplate.MetadataEntry)
+    # @@protoc_insertion_point(class_scope:meshpaas.Chart.MetadataEntry)
     ))
   ,
-  DESCRIPTOR = _APPTEMPLATE,
+  DESCRIPTOR = _CHART,
   __module__ = 'schema_pb2'
-  # @@protoc_insertion_point(class_scope:meshpaas.AppTemplate)
+  # @@protoc_insertion_point(class_scope:meshpaas.Chart)
   ))
-_sym_db.RegisterMessage(AppTemplate)
-_sym_db.RegisterMessage(AppTemplate.MetadataEntry)
+_sym_db.RegisterMessage(Chart)
+_sym_db.RegisterMessage(Chart.MetadataEntry)
 
-AppTemplates = _reflection.GeneratedProtocolMessageType('AppTemplates', (_message.Message,), dict(
-  DESCRIPTOR = _APPTEMPLATES,
+Charts = _reflection.GeneratedProtocolMessageType('Charts', (_message.Message,), dict(
+  DESCRIPTOR = _CHARTS,
   __module__ = 'schema_pb2'
-  # @@protoc_insertion_point(class_scope:meshpaas.AppTemplates)
+  # @@protoc_insertion_point(class_scope:meshpaas.Charts)
   ))
-_sym_db.RegisterMessage(AppTemplates)
+_sym_db.RegisterMessage(Charts)
 
 App = _reflection.GeneratedProtocolMessageType('App', (_message.Message,), dict(
   DESCRIPTOR = _APP,
@@ -827,39 +827,40 @@ AppInput = _reflection.GeneratedProtocolMessageType('AppInput', (_message.Messag
 _sym_db.RegisterMessage(AppInput)
 _sym_db.RegisterMessage(AppInput.ConfigEntry)
 
-ProjectRef = _reflection.GeneratedProtocolMessageType('ProjectRef', (_message.Message,), dict(
-  DESCRIPTOR = _PROJECTREF,
+NamespaceRef = _reflection.GeneratedProtocolMessageType('NamespaceRef', (_message.Message,), dict(
+  DESCRIPTOR = _NAMESPACEREF,
   __module__ = 'schema_pb2'
-  # @@protoc_insertion_point(class_scope:meshpaas.ProjectRef)
+  # @@protoc_insertion_point(class_scope:meshpaas.NamespaceRef)
   ))
-_sym_db.RegisterMessage(ProjectRef)
+_sym_db.RegisterMessage(NamespaceRef)
 
-ProjectRefs = _reflection.GeneratedProtocolMessageType('ProjectRefs', (_message.Message,), dict(
-  DESCRIPTOR = _PROJECTREFS,
+NamespaceRefs = _reflection.GeneratedProtocolMessageType('NamespaceRefs', (_message.Message,), dict(
+  DESCRIPTOR = _NAMESPACEREFS,
   __module__ = 'schema_pb2'
-  # @@protoc_insertion_point(class_scope:meshpaas.ProjectRefs)
+  # @@protoc_insertion_point(class_scope:meshpaas.NamespaceRefs)
   ))
-_sym_db.RegisterMessage(ProjectRefs)
+_sym_db.RegisterMessage(NamespaceRefs)
 
 
 DESCRIPTOR._options = None
-_DEPENDENCY.fields_by_name['template_name']._options = None
+_DEPENDENCY.fields_by_name['chart']._options = None
 _DEPENDENCY.fields_by_name['version']._options = None
 _DEPENDENCY.fields_by_name['repository']._options = None
 _MAINTAINER.fields_by_name['name']._options = None
 _MAINTAINER.fields_by_name['email']._options = None
 _FILTER.fields_by_name['term']._options = None
-_APPTEMPLATE_METADATAENTRY._options = None
-_APPTEMPLATE.fields_by_name['name']._options = None
+_CHART_METADATAENTRY._options = None
+_CHART.fields_by_name['name']._options = None
 _APP.fields_by_name['name']._options = None
-_APP.fields_by_name['project']._options = None
-_APPREF.fields_by_name['project']._options = None
+_APP.fields_by_name['namespace']._options = None
+_APPREF.fields_by_name['namespace']._options = None
 _APPREF.fields_by_name['name']._options = None
 _APPINPUT_CONFIGENTRY._options = None
-_APPINPUT.fields_by_name['project']._options = None
-_APPINPUT.fields_by_name['template_name']._options = None
+_APPINPUT.fields_by_name['namespace']._options = None
+_APPINPUT.fields_by_name['chart']._options = None
 _APPINPUT.fields_by_name['app_name']._options = None
 _APPINPUT.fields_by_name['config']._options = None
+_NAMESPACEREF.fields_by_name['name']._options = None
 
 _MESHPAASSERVICE = _descriptor.ServiceDescriptor(
   name='MeshPaasService',
@@ -867,8 +868,8 @@ _MESHPAASSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=1775,
-  serialized_end=2163,
+  serialized_start=1755,
+  serialized_end=2139,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetApp',
@@ -884,7 +885,7 @@ _MESHPAASSERVICE = _descriptor.ServiceDescriptor(
     full_name='meshpaas.MeshPaasService.ListApps',
     index=1,
     containing_service=None,
-    input_type=_PROJECTREF,
+    input_type=_NAMESPACEREF,
     output_type=_APPS,
     serialized_options=None,
   ),
@@ -930,7 +931,7 @@ _MESHPAASSERVICE = _descriptor.ServiceDescriptor(
     index=6,
     containing_service=None,
     input_type=_FILTER,
-    output_type=_APPTEMPLATES,
+    output_type=_CHARTS,
     serialized_options=None,
   ),
 ])

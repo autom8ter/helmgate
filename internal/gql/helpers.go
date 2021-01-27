@@ -8,22 +8,22 @@ import (
 
 func toAppRef(ref model.AppRef) *meshpaaspb.AppRef {
 	return &meshpaaspb.AppRef{
-		Project: ref.Project,
-		Name:    ref.Name,
+		Namespace: ref.Namespace,
+		Name:      ref.Name,
 	}
 }
 
 func toAppInput(ref model.AppInput) *meshpaaspb.AppInput {
 	return &meshpaaspb.AppInput{
-		Project:      ref.Project,
-		TemplateName: ref.TemplateName,
-		AppName:      ref.AppName,
-		Config:       helpers.ConvertMapS(ref.Config),
+		Namespace: ref.Namespace,
+		Chart:     ref.Chart,
+		AppName:   ref.AppName,
+		Config:    helpers.ConvertMapS(ref.Config),
 	}
 }
 
-func gqlAppTemplate(app *meshpaaspb.AppTemplate) *model.AppTemplate {
-	return &model.AppTemplate{
+func gqlChart(app *meshpaaspb.Chart) *model.Chart {
+	return &model.Chart{
 		Name:         app.Name,
 		Home:         helpers.ToStringPointer(app.Home),
 		Icon:         helpers.ToStringPointer(app.Icon),
@@ -40,10 +40,10 @@ func gqlAppTemplate(app *meshpaaspb.AppTemplate) *model.AppTemplate {
 
 func gqlApp(app *meshpaaspb.App) *model.App {
 	return &model.App{
-		Name:     app.Name,
-		Project:  app.Project,
-		Release:  gqlRelease(app.Release),
-		Template: gqlTemplate(app.Template),
+		Name:      app.Name,
+		Namespace: app.Namespace,
+		Release:   gqlRelease(app.Release),
+		Chart:     gqlTemplate(app.Chart),
 	}
 }
 
@@ -62,8 +62,8 @@ func gqlRelease(release *meshpaaspb.Release) *model.Release {
 	}
 }
 
-func gqlTemplate(template *meshpaaspb.AppTemplate) *model.AppTemplate {
-	return &model.AppTemplate{
+func gqlTemplate(template *meshpaaspb.Chart) *model.Chart {
+	return &model.Chart{
 		Name:         template.GetName(),
 		Home:         helpers.ToStringPointer(template.GetHome()),
 		Icon:         helpers.ToStringPointer(template.GetIcon()),
@@ -93,9 +93,9 @@ func gqlDependencies(maintainer []*meshpaaspb.Dependency) []*model.Dependency {
 	var deps []*model.Dependency
 	for _, m := range maintainer {
 		deps = append(deps, &model.Dependency{
-			TemplateName: m.GetTemplateName(),
-			Version:      m.GetVersion(),
-			Repository:   m.GetRepository(),
+			Chart:      m.GetChart(),
+			Version:    m.GetVersion(),
+			Repository: m.GetRepository(),
 		})
 	}
 	return deps

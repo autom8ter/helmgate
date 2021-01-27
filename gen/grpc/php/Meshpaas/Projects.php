@@ -14,9 +14,9 @@ use Google\Protobuf\Internal\GPBUtil;
 class Projects extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>repeated string projects = 1;</code>
+     * Generated from protobuf field <code>repeated string namespaces = 1;</code>
      */
-    private $projects;
+    private $namespaces;
 
     /**
      * Constructor.
@@ -24,7 +24,7 @@ class Projects extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $projects
+     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $namespaces
      * }
      */
     public function __construct($data = NULL) {
@@ -33,23 +33,23 @@ class Projects extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated string projects = 1;</code>
+     * Generated from protobuf field <code>repeated string namespaces = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getProjects()
     {
-        return $this->projects;
+        return $this->namespaces;
     }
 
     /**
-     * Generated from protobuf field <code>repeated string projects = 1;</code>
+     * Generated from protobuf field <code>repeated string namespaces = 1;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
     public function setProjects($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->projects = $arr;
+        $this->namespaces = $arr;
 
         return $this;
     }

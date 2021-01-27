@@ -14,17 +14,6 @@ import (
 	"github.com/vektah/gqlparser/v2/gqlerror"
 )
 
-func (r *mutationResolver) UninstallApp(ctx context.Context, input model.AppRef) (*string, error) {
-	_, err := r.client.UninstallApp(ctx, toAppRef(input))
-	if err != nil {
-		return nil, &gqlerror.Error{
-			Message: err.Error(),
-			Path:    graphql.GetPath(ctx),
-		}
-	}
-	return nil, nil
-}
-
 func (r *mutationResolver) InstallApp(ctx context.Context, input model.AppInput) (*model.App, error) {
 	resp, err := r.client.InstallApp(ctx, toAppInput(input))
 	if err != nil {
@@ -58,6 +47,17 @@ func (r *mutationResolver) RollbackApp(ctx context.Context, input model.AppRef) 
 	return nil, nil
 }
 
+func (r *mutationResolver) UninstallApp(ctx context.Context, input model.AppRef) (*string, error) {
+	_, err := r.client.UninstallApp(ctx, toAppRef(input))
+	if err != nil {
+		return nil, &gqlerror.Error{
+			Message: err.Error(),
+			Path:    graphql.GetPath(ctx),
+		}
+	}
+	return nil, nil
+}
+
 func (r *queryResolver) GetApp(ctx context.Context, input model.AppRef) (*model.App, error) {
 	resp, err := r.client.GetApp(ctx, toAppRef(input))
 	if err != nil {
@@ -69,8 +69,8 @@ func (r *queryResolver) GetApp(ctx context.Context, input model.AppRef) (*model.
 	return gqlApp(resp), nil
 }
 
-func (r *queryResolver) ListApps(ctx context.Context, input model.ProjectRef) ([]*model.App, error) {
-	resp, err := r.client.ListApps(ctx, &meshpaaspb.ProjectRef{Name: input.Name})
+func (r *queryResolver) ListApps(ctx context.Context, input model.NamespaceRef) ([]*model.App, error) {
+	resp, err := r.client.ListApps(ctx, &meshpaaspb.NamespaceRef{Name: input.Name})
 	if err != nil {
 		return nil, &gqlerror.Error{
 			Message: err.Error(),
@@ -84,7 +84,7 @@ func (r *queryResolver) ListApps(ctx context.Context, input model.ProjectRef) ([
 	return apps, nil
 }
 
-func (r *queryResolver) SearchTemplates(ctx context.Context, input model.Filter) ([]*model.AppTemplate, error) {
+func (r *queryResolver) SearchTemplates(ctx context.Context, input model.Filter) ([]*model.Chart, error) {
 	resp, err := r.client.SearchTemplates(ctx, &meshpaaspb.Filter{
 		Term:  input.Term,
 		Regex: helpers.FromBoolPointer(input.Regex),
@@ -95,9 +95,9 @@ func (r *queryResolver) SearchTemplates(ctx context.Context, input model.Filter)
 			Path:    graphql.GetPath(ctx),
 		}
 	}
-	var templates []*model.AppTemplate
-	for _, t := range resp.Templates {
-		templates = append(templates, gqlAppTemplate(t))
+	var templates []*model.Chart
+	for _, t := range resp.GetCharts() {
+		templates = append(templates, gqlChart(t))
 	}
 	return templates, nil
 }

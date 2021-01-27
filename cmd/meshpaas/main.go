@@ -58,6 +58,7 @@ func run(ctx context.Context) {
 		fmt.Printf("failed to read config file: %s", err.Error())
 		return
 	}
+	c.SetDefaults()
 	var lgger = logger.New(c.Debug)
 
 	var (

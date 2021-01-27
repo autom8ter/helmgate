@@ -9,17 +9,21 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Maintainer is the maintainer of a 
+ * Maintainer is the maintainer of a helm chart
  *
  * Generated from protobuf message <code>meshpaas.Maintainer</code>
  */
 class Maintainer extends \Google\Protobuf\Internal\Message
 {
     /**
+     * name is the name of the maintainer
+     *
      * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      */
     private $name = '';
     /**
+     * email is the email of the maintainer
+     *
      * Generated from protobuf field <code>string email = 2 [(.validator.field) = {</code>
      */
     private $email = '';
@@ -31,7 +35,9 @@ class Maintainer extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $name
+     *           name is the name of the maintainer
      *     @type string $email
+     *           email is the email of the maintainer
      * }
      */
     public function __construct($data = NULL) {
@@ -40,6 +46,8 @@ class Maintainer extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * name is the name of the maintainer
+     *
      * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      * @return string
      */
@@ -49,6 +57,8 @@ class Maintainer extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * name is the name of the maintainer
+     *
      * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      * @param string $var
      * @return $this
@@ -62,6 +72,8 @@ class Maintainer extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * email is the email of the maintainer
+     *
      * Generated from protobuf field <code>string email = 2 [(.validator.field) = {</code>
      * @return string
      */
@@ -71,6 +83,8 @@ class Maintainer extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * email is the email of the maintainer
+     *
      * Generated from protobuf field <code>string email = 2 [(.validator.field) = {</code>
      * @param string $var
      * @return $this

@@ -28,18 +28,26 @@ class Release extends \Google\Protobuf\Internal\Message
      */
     private $config = null;
     /**
+     * notes associated with the release
+     *
      * Generated from protobuf field <code>string notes = 3;</code>
      */
     private $notes = '';
     /**
+     * description of the release
+     *
      * Generated from protobuf field <code>string description = 4;</code>
      */
     private $description = '';
     /**
+     * status of the release
+     *
      * Generated from protobuf field <code>string status = 5;</code>
      */
     private $status = '';
     /**
+     * lifecycle timestamps related
+     *
      * Generated from protobuf field <code>.meshpaas.Timestamps timestamps = 6;</code>
      */
     private $timestamps = null;
@@ -55,9 +63,13 @@ class Release extends \Google\Protobuf\Internal\Message
      *     @type \Google\Protobuf\Struct $config
      *           config values
      *     @type string $notes
+     *           notes associated with the release
      *     @type string $description
+     *           description of the release
      *     @type string $status
+     *           status of the release
      *     @type \Meshpaas\Timestamps $timestamps
+     *           lifecycle timestamps related
      * }
      */
     public function __construct($data = NULL) {
@@ -118,6 +130,8 @@ class Release extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * notes associated with the release
+     *
      * Generated from protobuf field <code>string notes = 3;</code>
      * @return string
      */
@@ -127,6 +141,8 @@ class Release extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * notes associated with the release
+     *
      * Generated from protobuf field <code>string notes = 3;</code>
      * @param string $var
      * @return $this
@@ -140,6 +156,8 @@ class Release extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * description of the release
+     *
      * Generated from protobuf field <code>string description = 4;</code>
      * @return string
      */
@@ -149,6 +167,8 @@ class Release extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * description of the release
+     *
      * Generated from protobuf field <code>string description = 4;</code>
      * @param string $var
      * @return $this
@@ -162,6 +182,8 @@ class Release extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * status of the release
+     *
      * Generated from protobuf field <code>string status = 5;</code>
      * @return string
      */
@@ -171,6 +193,8 @@ class Release extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * status of the release
+     *
      * Generated from protobuf field <code>string status = 5;</code>
      * @param string $var
      * @return $this
@@ -184,6 +208,8 @@ class Release extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * lifecycle timestamps related
+     *
      * Generated from protobuf field <code>.meshpaas.Timestamps timestamps = 6;</code>
      * @return \Meshpaas\Timestamps
      */
@@ -193,6 +219,8 @@ class Release extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * lifecycle timestamps related
+     *
      * Generated from protobuf field <code>.meshpaas.Timestamps timestamps = 6;</code>
      * @param \Meshpaas\Timestamps $var
      * @return $this
