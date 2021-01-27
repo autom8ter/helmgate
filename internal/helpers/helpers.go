@@ -153,6 +153,10 @@ func FromBoolPointer(this *bool) bool {
 	return false
 }
 
+func ToIntPointer(this int) *int {
+	return &this
+}
+
 func FromIntPointer(this *int) int {
 	if this != nil {
 		return *this

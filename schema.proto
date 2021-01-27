@@ -28,8 +28,8 @@ message Maintainer {
   string email =2[(validator.field) = {regex : "^.{1,225}$"}];
 }
 
-// Filter is used for filtering helm chart search results
-message Filter {
+// ChartFilter is used for filtering helm chart search results
+message ChartFilter {
   // term to search for
   string term =1[(validator.field) = {regex : "^.{1,225}$"}];
   // term is a regex expression
@@ -81,6 +81,13 @@ message App {
 // Apps is a list of apps
 message Apps {
   repeated App apps =1;
+}
+
+message AppFilter {
+  string namespace =1;
+  string selector =2;
+  uint32 limit =3;
+  uint32 offset =4;
 }
 
 // Release tracks the state of an app during the lifecycle of it's current deployment
@@ -140,12 +147,19 @@ message NamespaceRefs {
   repeated NamespaceRef namespaces =1;
 }
 
+message HistoryFilter {
+  AppRef ref =1[(validator.field) = {msg_exists : true}];
+  uint32 limit =2;
+}
+
 // HPaasService is a secure platform as a service for easily deploying applications on Kubernetes with Helm charts
 service HPaasService {
   // GetApp gets an app/release from the given namespace
   rpc GetApp(AppRef) returns(App){}
-  // ListApps lists apps/releases in the namespace
-  rpc ListApps(NamespaceRef) returns(Apps){}
+  // GetHistory gets a list of previous versions of the app/release
+  rpc GetHistory(HistoryFilter) returns (Apps){}
+  // SearchApps searchs for apps/releases
+  rpc SearchApps(AppFilter) returns(Apps){}
   // UninstallApp uninstalls an app/release from the given namespace
   rpc UninstallApp(AppRef) returns(google.protobuf.Empty){}
   // RollbackApp rolls the app/release back to the previous version in the given namespace
@@ -155,5 +169,5 @@ service HPaasService {
   // UpdateApp updates an app/release in the given namespace
   rpc UpdateApp(AppInput) returns(App){}
   // SearchCharts searches for a cached helm chart
-  rpc SearchCharts(Filter) returns(Charts){}
+  rpc SearchCharts(ChartFilter) returns(Charts){}
 }

@@ -183,6 +183,10 @@
                 </li>
               
                 <li>
+                  <a href="#hpaas.AppFilter"><span class="badge">M</span>AppFilter</a>
+                </li>
+              
+                <li>
                   <a href="#hpaas.AppInput"><span class="badge">M</span>AppInput</a>
                 </li>
               
@@ -207,6 +211,10 @@
                 </li>
               
                 <li>
+                  <a href="#hpaas.ChartFilter"><span class="badge">M</span>ChartFilter</a>
+                </li>
+              
+                <li>
                   <a href="#hpaas.Charts"><span class="badge">M</span>Charts</a>
                 </li>
               
@@ -215,7 +223,7 @@
                 </li>
               
                 <li>
-                  <a href="#hpaas.Filter"><span class="badge">M</span>Filter</a>
+                  <a href="#hpaas.HistoryFilter"><span class="badge">M</span>HistoryFilter</a>
                 </li>
               
                 <li>
@@ -339,6 +347,51 @@
               </tbody>
             </table>
             
+          
+
+        
+      
+        <h3 id="hpaas.AppFilter">AppFilter</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>namespace</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>selector</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>limit</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>offset</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
           
 
         
@@ -724,6 +777,64 @@
 
         
       
+        <h3 id="hpaas.ChartFilter">ChartFilter</h3>
+        <p>ChartFilter is used for filtering helm chart search results</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>term</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>term to search for </p></td>
+                </tr>
+              
+                <tr>
+                  <td>regex</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>term is a regex expression </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+            
+            
+            <h4>Validated Fields</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Field</td>
+                  <td>Validations</td>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>term</td>
+                  <td>
+                    <ul>
+                    
+                      <li>regex: ^.{1,225}$</li>
+                    
+                    </ul>
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+            
+          
+
+        
+      
         <h3 id="hpaas.Charts">Charts</h3>
         <p>Charts is a list of helm charts</p>
 
@@ -835,8 +946,8 @@
 
         
       
-        <h3 id="hpaas.Filter">Filter</h3>
-        <p>Filter is used for filtering helm chart search results</p>
+        <h3 id="hpaas.HistoryFilter">HistoryFilter</h3>
+        <p></p>
 
         
           <table class="field-table">
@@ -846,17 +957,17 @@
             <tbody>
               
                 <tr>
-                  <td>term</td>
-                  <td><a href="#string">string</a></td>
+                  <td>ref</td>
+                  <td><a href="#hpaas.AppRef">AppRef</a></td>
                   <td></td>
-                  <td><p>term to search for </p></td>
+                  <td><p> </p></td>
                 </tr>
               
                 <tr>
-                  <td>regex</td>
-                  <td><a href="#bool">bool</a></td>
+                  <td>limit</td>
+                  <td><a href="#uint32">uint32</a></td>
                   <td></td>
-                  <td><p>term is a regex expression </p></td>
+                  <td><p> </p></td>
                 </tr>
               
             </tbody>
@@ -876,11 +987,11 @@
               <tbody>
               
                 <tr>
-                  <td>term</td>
+                  <td>ref</td>
                   <td>
                     <ul>
                     
-                      <li>regex: ^.{1,225}$</li>
+                      <li>msg_exists: true</li>
                     
                     </ul>
                   </td>
@@ -1156,10 +1267,17 @@
               </tr>
             
               <tr>
-                <td>ListApps</td>
-                <td><a href="#hpaas.NamespaceRef">NamespaceRef</a></td>
+                <td>GetHistory</td>
+                <td><a href="#hpaas.HistoryFilter">HistoryFilter</a></td>
                 <td><a href="#hpaas.Apps">Apps</a></td>
-                <td><p>ListApps lists apps/releases in the namespace</p></td>
+                <td><p>GetHistory gets a list of previous versions of the app/release</p></td>
+              </tr>
+            
+              <tr>
+                <td>SearchApps</td>
+                <td><a href="#hpaas.AppFilter">AppFilter</a></td>
+                <td><a href="#hpaas.Apps">Apps</a></td>
+                <td><p>SearchApps searchs for apps/releases</p></td>
               </tr>
             
               <tr>
@@ -1192,7 +1310,7 @@
             
               <tr>
                 <td>SearchCharts</td>
-                <td><a href="#hpaas.Filter">Filter</a></td>
+                <td><a href="#hpaas.ChartFilter">ChartFilter</a></td>
                 <td><a href="#hpaas.Charts">Charts</a></td>
                 <td><p>SearchCharts searches for a cached helm chart</p></td>
               </tr>

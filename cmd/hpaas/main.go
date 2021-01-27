@@ -7,9 +7,9 @@ import (
 	"github.com/autom8ter/hpaas/internal/auth"
 	"github.com/autom8ter/hpaas/internal/config"
 	"github.com/autom8ter/hpaas/internal/gql"
-	"github.com/autom8ter/hpaas/internal/helm"
 	"github.com/autom8ter/hpaas/internal/helpers"
 	"github.com/autom8ter/hpaas/internal/logger"
+	service2 "github.com/autom8ter/hpaas/internal/service"
 	"github.com/autom8ter/machine"
 	grpc_zap "github.com/grpc-ecosystem/go-grpc-middleware/logging/zap"
 	grpc_recovery "github.com/grpc-ecosystem/go-grpc-middleware/recovery"
@@ -151,7 +151,7 @@ func run(ctx context.Context) {
 			grpc_recovery.StreamServerInterceptor(),
 		),
 	}
-	service, err := helm.NewHelm(lgger, c.Repos)
+	service, err := service2.NewHelm(lgger, c.Repos)
 	if err != nil {
 		lgger.Error(err.Error())
 		return

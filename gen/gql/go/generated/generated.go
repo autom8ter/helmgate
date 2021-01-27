@@ -84,8 +84,9 @@ type ComplexityRoot struct {
 
 	Query struct {
 		GetApp       func(childComplexity int, input model.AppRef) int
-		ListApps     func(childComplexity int, input model.NamespaceRef) int
-		SearchCharts func(childComplexity int, input model.Filter) int
+		GetHistory   func(childComplexity int, input model.HistoryFilter) int
+		SearchApps   func(childComplexity int, input model.AppFilter) int
+		SearchCharts func(childComplexity int, input model.ChartFilter) int
 	}
 
 	Release struct {
@@ -112,8 +113,9 @@ type MutationResolver interface {
 }
 type QueryResolver interface {
 	GetApp(ctx context.Context, input model.AppRef) (*model.App, error)
-	ListApps(ctx context.Context, input model.NamespaceRef) ([]*model.App, error)
-	SearchCharts(ctx context.Context, input model.Filter) ([]*model.Chart, error)
+	GetHistory(ctx context.Context, input model.HistoryFilter) ([]*model.App, error)
+	SearchApps(ctx context.Context, input model.AppFilter) ([]*model.App, error)
+	SearchCharts(ctx context.Context, input model.ChartFilter) ([]*model.Chart, error)
 }
 
 type executableSchema struct {
@@ -331,17 +333,29 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.GetApp(childComplexity, args["input"].(model.AppRef)), true
 
-	case "Query.listApps":
-		if e.complexity.Query.ListApps == nil {
+	case "Query.getHistory":
+		if e.complexity.Query.GetHistory == nil {
 			break
 		}
 
-		args, err := ec.field_Query_listApps_args(context.TODO(), rawArgs)
+		args, err := ec.field_Query_getHistory_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Query.ListApps(childComplexity, args["input"].(model.NamespaceRef)), true
+		return e.complexity.Query.GetHistory(childComplexity, args["input"].(model.HistoryFilter)), true
+
+	case "Query.searchApps":
+		if e.complexity.Query.SearchApps == nil {
+			break
+		}
+
+		args, err := ec.field_Query_searchApps_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.SearchApps(childComplexity, args["input"].(model.AppFilter)), true
 
 	case "Query.searchCharts":
 		if e.complexity.Query.SearchCharts == nil {
@@ -353,7 +367,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.SearchCharts(childComplexity, args["input"].(model.Filter)), true
+		return e.complexity.Query.SearchCharts(childComplexity, args["input"].(model.ChartFilter)), true
 
 	case "Release.config":
 		if e.complexity.Release.Config == nil {
@@ -565,11 +579,25 @@ type App {
 }
 
 #
-input Filter {
+input ChartFilter {
     #
     term: String!
     #
     regex: Boolean
+}
+
+#
+input AppFilter {
+    namespace: String
+    selector: String
+    limit: Int
+    offset: Int
+}
+
+#
+input HistoryFilter {
+    ref: AppRef!
+    limit: Int
 }
 
 #
@@ -600,23 +628,25 @@ input AppInput {
 
 # Queries fetch resources
 type Query {
-    # getApp gets an app in the given namespace
+    # getApp gets an apps/releases in the given namespace
     getApp(input: AppRef!): App
-    # listApps lists apps in the namespace
-    listApps(input: NamespaceRef!): [App!]
-    # searchCharts searches for an app chart
-    searchCharts(input: Filter!): [Chart!]
+    # getHistory gets a list of previous versions of the app
+    getHistory(input: HistoryFilter!): [App!]
+    # searchApps searches for apps/releases
+    searchApps(input: AppFilter!): [App!]
+    # searchCharts searches for a helm chart
+    searchCharts(input: ChartFilter!): [Chart!]
 }
 
 # Mutations modify resources
 type Mutation {
-    # installApp installs an app in the given namespace
+    # installApp installs an app/release in the given namespace
     installApp(input: AppInput!): App
-    # updateApp updates an app in the given namespace
+    # updateApp updates an app/release in the given namespace
     updateApp(input: AppInput!): App
-    # rollbackApp rolls the app back to the previous version in the given namespace
+    # rollbackApp rolls the app/release back to the previous version in the given namespace
     rollbackApp(input: AppRef!): App
-    # uninstallApp uninstalls an app in the given namespace
+    # uninstallApp uninstalls an app/release in the given namespace
     uninstallApp(input: AppRef!): String
 }`, BuiltIn: false},
 }
@@ -716,13 +746,28 @@ func (ec *executionContext) field_Query_getApp_args(ctx context.Context, rawArgs
 	return args, nil
 }
 
-func (ec *executionContext) field_Query_listApps_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Query_getHistory_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 model.NamespaceRef
+	var arg0 model.HistoryFilter
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNNamespaceRef2githubᚗcomᚋautom8terᚋhpaasᚋgenᚋgqlᚋgoᚋmodelᚐNamespaceRef(ctx, tmp)
+		arg0, err = ec.unmarshalNHistoryFilter2githubᚗcomᚋautom8terᚋhpaasᚋgenᚋgqlᚋgoᚋmodelᚐHistoryFilter(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["input"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_searchApps_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 model.AppFilter
+	if tmp, ok := rawArgs["input"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
+		arg0, err = ec.unmarshalNAppFilter2githubᚗcomᚋautom8terᚋhpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppFilter(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -734,10 +779,10 @@ func (ec *executionContext) field_Query_listApps_args(ctx context.Context, rawAr
 func (ec *executionContext) field_Query_searchCharts_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 model.Filter
+	var arg0 model.ChartFilter
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNFilter2githubᚗcomᚋautom8terᚋhpaasᚋgenᚋgqlᚋgoᚋmodelᚐFilter(ctx, tmp)
+		arg0, err = ec.unmarshalNChartFilter2githubᚗcomᚋautom8terᚋhpaasᚋgenᚋgqlᚋgoᚋmodelᚐChartFilter(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1649,7 +1694,7 @@ func (ec *executionContext) _Query_getApp(ctx context.Context, field graphql.Col
 	return ec.marshalOApp2ᚖgithubᚗcomᚋautom8terᚋhpaasᚋgenᚋgqlᚋgoᚋmodelᚐApp(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Query_listApps(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+func (ec *executionContext) _Query_getHistory(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -1666,7 +1711,7 @@ func (ec *executionContext) _Query_listApps(ctx context.Context, field graphql.C
 
 	ctx = graphql.WithFieldContext(ctx, fc)
 	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Query_listApps_args(ctx, rawArgs)
+	args, err := ec.field_Query_getHistory_args(ctx, rawArgs)
 	if err != nil {
 		ec.Error(ctx, err)
 		return graphql.Null
@@ -1674,7 +1719,46 @@ func (ec *executionContext) _Query_listApps(ctx context.Context, field graphql.C
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().ListApps(rctx, args["input"].(model.NamespaceRef))
+		return ec.resolvers.Query().GetHistory(rctx, args["input"].(model.HistoryFilter))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.([]*model.App)
+	fc.Result = res
+	return ec.marshalOApp2ᚕᚖgithubᚗcomᚋautom8terᚋhpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_searchApps(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_searchApps_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().SearchApps(rctx, args["input"].(model.AppFilter))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -1713,7 +1797,7 @@ func (ec *executionContext) _Query_searchCharts(ctx context.Context, field graph
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().SearchCharts(rctx, args["input"].(model.Filter))
+		return ec.resolvers.Query().SearchCharts(rctx, args["input"].(model.ChartFilter))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -3179,6 +3263,50 @@ func (ec *executionContext) ___Type_ofType(ctx context.Context, field graphql.Co
 
 // region    **************************** input.gotpl *****************************
 
+func (ec *executionContext) unmarshalInputAppFilter(ctx context.Context, obj interface{}) (model.AppFilter, error) {
+	var it model.AppFilter
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "namespace":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("namespace"))
+			it.Namespace, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "selector":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("selector"))
+			it.Selector, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "limit":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
+			it.Limit, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "offset":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
+			it.Offset, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
 func (ec *executionContext) unmarshalInputAppInput(ctx context.Context, obj interface{}) (model.AppInput, error) {
 	var it model.AppInput
 	var asMap = obj.(map[string]interface{})
@@ -3251,8 +3379,8 @@ func (ec *executionContext) unmarshalInputAppRef(ctx context.Context, obj interf
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputFilter(ctx context.Context, obj interface{}) (model.Filter, error) {
-	var it model.Filter
+func (ec *executionContext) unmarshalInputChartFilter(ctx context.Context, obj interface{}) (model.ChartFilter, error) {
+	var it model.ChartFilter
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -3270,6 +3398,34 @@ func (ec *executionContext) unmarshalInputFilter(ctx context.Context, obj interf
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("regex"))
 			it.Regex, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputHistoryFilter(ctx context.Context, obj interface{}) (model.HistoryFilter, error) {
+	var it model.HistoryFilter
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "ref":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ref"))
+			it.Ref, err = ec.unmarshalNAppRef2ᚖgithubᚗcomᚋautom8terᚋhpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppRef(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "limit":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
+			it.Limit, err = ec.unmarshalOInt2ᚖint(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -3525,7 +3681,7 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				res = ec._Query_getApp(ctx, field)
 				return res
 			})
-		case "listApps":
+		case "getHistory":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
 				defer func() {
@@ -3533,7 +3689,18 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 						ec.Error(ctx, ec.Recover(ctx, r))
 					}
 				}()
-				res = ec._Query_listApps(ctx, field)
+				res = ec._Query_getHistory(ctx, field)
+				return res
+			})
+		case "searchApps":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_searchApps(ctx, field)
 				return res
 			})
 		case "searchCharts":
@@ -3885,6 +4052,11 @@ func (ec *executionContext) marshalNApp2ᚖgithubᚗcomᚋautom8terᚋhpaasᚋge
 	return ec._App(ctx, sel, v)
 }
 
+func (ec *executionContext) unmarshalNAppFilter2githubᚗcomᚋautom8terᚋhpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppFilter(ctx context.Context, v interface{}) (model.AppFilter, error) {
+	res, err := ec.unmarshalInputAppFilter(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
 func (ec *executionContext) unmarshalNAppInput2githubᚗcomᚋautom8terᚋhpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppInput(ctx context.Context, v interface{}) (model.AppInput, error) {
 	res, err := ec.unmarshalInputAppInput(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -3893,6 +4065,11 @@ func (ec *executionContext) unmarshalNAppInput2githubᚗcomᚋautom8terᚋhpaas�
 func (ec *executionContext) unmarshalNAppRef2githubᚗcomᚋautom8terᚋhpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppRef(ctx context.Context, v interface{}) (model.AppRef, error) {
 	res, err := ec.unmarshalInputAppRef(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNAppRef2ᚖgithubᚗcomᚋautom8terᚋhpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppRef(ctx context.Context, v interface{}) (*model.AppRef, error) {
+	res, err := ec.unmarshalInputAppRef(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalNBoolean2bool(ctx context.Context, v interface{}) (bool, error) {
@@ -3920,6 +4097,11 @@ func (ec *executionContext) marshalNChart2ᚖgithubᚗcomᚋautom8terᚋhpaasᚋ
 	return ec._Chart(ctx, sel, v)
 }
 
+func (ec *executionContext) unmarshalNChartFilter2githubᚗcomᚋautom8terᚋhpaasᚋgenᚋgqlᚋgoᚋmodelᚐChartFilter(ctx context.Context, v interface{}) (model.ChartFilter, error) {
+	res, err := ec.unmarshalInputChartFilter(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
 func (ec *executionContext) marshalNDependency2ᚖgithubᚗcomᚋautom8terᚋhpaasᚋgenᚋgqlᚋgoᚋmodelᚐDependency(ctx context.Context, sel ast.SelectionSet, v *model.Dependency) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
@@ -3930,8 +4112,8 @@ func (ec *executionContext) marshalNDependency2ᚖgithubᚗcomᚋautom8terᚋhpa
 	return ec._Dependency(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalNFilter2githubᚗcomᚋautom8terᚋhpaasᚋgenᚋgqlᚋgoᚋmodelᚐFilter(ctx context.Context, v interface{}) (model.Filter, error) {
-	res, err := ec.unmarshalInputFilter(ctx, v)
+func (ec *executionContext) unmarshalNHistoryFilter2githubᚗcomᚋautom8terᚋhpaasᚋgenᚋgqlᚋgoᚋmodelᚐHistoryFilter(ctx context.Context, v interface{}) (model.HistoryFilter, error) {
+	res, err := ec.unmarshalInputHistoryFilter(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
@@ -3979,11 +4161,6 @@ func (ec *executionContext) marshalNMap2map(ctx context.Context, sel ast.Selecti
 		}
 	}
 	return res
-}
-
-func (ec *executionContext) unmarshalNNamespaceRef2githubᚗcomᚋautom8terᚋhpaasᚋgenᚋgqlᚋgoᚋmodelᚐNamespaceRef(ctx context.Context, v interface{}) (model.NamespaceRef, error) {
-	res, err := ec.unmarshalInputNamespaceRef(ctx, v)
-	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) marshalNRelease2ᚖgithubᚗcomᚋautom8terᚋhpaasᚋgenᚋgqlᚋgoᚋmodelᚐRelease(ctx context.Context, sel ast.SelectionSet, v *model.Release) graphql.Marshaler {
@@ -4389,6 +4566,21 @@ func (ec *executionContext) marshalODependency2ᚕᚖgithubᚗcomᚋautom8terᚋ
 	}
 	wg.Wait()
 	return ret
+}
+
+func (ec *executionContext) unmarshalOInt2ᚖint(ctx context.Context, v interface{}) (*int, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := graphql.UnmarshalInt(v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOInt2ᚖint(ctx context.Context, sel ast.SelectionSet, v *int) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return graphql.MarshalInt(*v)
 }
 
 func (ec *executionContext) marshalOMaintainer2ᚕᚖgithubᚗcomᚋautom8terᚋhpaasᚋgenᚋgqlᚋgoᚋmodelᚐMaintainerᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.Maintainer) graphql.Marshaler {

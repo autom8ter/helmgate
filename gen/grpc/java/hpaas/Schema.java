@@ -1721,8 +1721,8 @@ public final class Schema {
 
   }
 
-  public interface FilterOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:hpaas.Filter)
+  public interface ChartFilterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:hpaas.ChartFilter)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -1754,21 +1754,21 @@ public final class Schema {
   }
   /**
    * <pre>
-   * Filter is used for filtering helm chart search results
+   * ChartFilter is used for filtering helm chart search results
    * </pre>
    *
-   * Protobuf type {@code hpaas.Filter}
+   * Protobuf type {@code hpaas.ChartFilter}
    */
-  public  static final class Filter extends
+  public  static final class ChartFilter extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:hpaas.Filter)
-      FilterOrBuilder {
+      // @@protoc_insertion_point(message_implements:hpaas.ChartFilter)
+      ChartFilterOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use Filter.newBuilder() to construct.
-    private Filter(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use ChartFilter.newBuilder() to construct.
+    private ChartFilter(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private Filter() {
+    private ChartFilter() {
       term_ = "";
       regex_ = false;
     }
@@ -1778,7 +1778,7 @@ public final class Schema {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Filter(
+    private ChartFilter(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -1829,15 +1829,15 @@ public final class Schema {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return hpaas.Schema.internal_static_hpaas_Filter_descriptor;
+      return hpaas.Schema.internal_static_hpaas_ChartFilter_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return hpaas.Schema.internal_static_hpaas_Filter_fieldAccessorTable
+      return hpaas.Schema.internal_static_hpaas_ChartFilter_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              hpaas.Schema.Filter.class, hpaas.Schema.Filter.Builder.class);
+              hpaas.Schema.ChartFilter.class, hpaas.Schema.ChartFilter.Builder.class);
     }
 
     public static final int TERM_FIELD_NUMBER = 1;
@@ -1941,10 +1941,10 @@ public final class Schema {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof hpaas.Schema.Filter)) {
+      if (!(obj instanceof hpaas.Schema.ChartFilter)) {
         return super.equals(obj);
       }
-      hpaas.Schema.Filter other = (hpaas.Schema.Filter) obj;
+      hpaas.Schema.ChartFilter other = (hpaas.Schema.ChartFilter) obj;
 
       boolean result = true;
       result = result && getTerm()
@@ -1972,69 +1972,69 @@ public final class Schema {
       return hash;
     }
 
-    public static hpaas.Schema.Filter parseFrom(
+    public static hpaas.Schema.ChartFilter parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static hpaas.Schema.Filter parseFrom(
+    public static hpaas.Schema.ChartFilter parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static hpaas.Schema.Filter parseFrom(
+    public static hpaas.Schema.ChartFilter parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static hpaas.Schema.Filter parseFrom(
+    public static hpaas.Schema.ChartFilter parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static hpaas.Schema.Filter parseFrom(byte[] data)
+    public static hpaas.Schema.ChartFilter parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static hpaas.Schema.Filter parseFrom(
+    public static hpaas.Schema.ChartFilter parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static hpaas.Schema.Filter parseFrom(java.io.InputStream input)
+    public static hpaas.Schema.ChartFilter parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static hpaas.Schema.Filter parseFrom(
+    public static hpaas.Schema.ChartFilter parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static hpaas.Schema.Filter parseDelimitedFrom(java.io.InputStream input)
+    public static hpaas.Schema.ChartFilter parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static hpaas.Schema.Filter parseDelimitedFrom(
+    public static hpaas.Schema.ChartFilter parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static hpaas.Schema.Filter parseFrom(
+    public static hpaas.Schema.ChartFilter parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static hpaas.Schema.Filter parseFrom(
+    public static hpaas.Schema.ChartFilter parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2047,7 +2047,7 @@ public final class Schema {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(hpaas.Schema.Filter prototype) {
+    public static Builder newBuilder(hpaas.Schema.ChartFilter prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -2064,29 +2064,29 @@ public final class Schema {
     }
     /**
      * <pre>
-     * Filter is used for filtering helm chart search results
+     * ChartFilter is used for filtering helm chart search results
      * </pre>
      *
-     * Protobuf type {@code hpaas.Filter}
+     * Protobuf type {@code hpaas.ChartFilter}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:hpaas.Filter)
-        hpaas.Schema.FilterOrBuilder {
+        // @@protoc_insertion_point(builder_implements:hpaas.ChartFilter)
+        hpaas.Schema.ChartFilterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return hpaas.Schema.internal_static_hpaas_Filter_descriptor;
+        return hpaas.Schema.internal_static_hpaas_ChartFilter_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return hpaas.Schema.internal_static_hpaas_Filter_fieldAccessorTable
+        return hpaas.Schema.internal_static_hpaas_ChartFilter_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                hpaas.Schema.Filter.class, hpaas.Schema.Filter.Builder.class);
+                hpaas.Schema.ChartFilter.class, hpaas.Schema.ChartFilter.Builder.class);
       }
 
-      // Construct using hpaas.Schema.Filter.newBuilder()
+      // Construct using hpaas.Schema.ChartFilter.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2114,17 +2114,17 @@ public final class Schema {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return hpaas.Schema.internal_static_hpaas_Filter_descriptor;
+        return hpaas.Schema.internal_static_hpaas_ChartFilter_descriptor;
       }
 
       @java.lang.Override
-      public hpaas.Schema.Filter getDefaultInstanceForType() {
-        return hpaas.Schema.Filter.getDefaultInstance();
+      public hpaas.Schema.ChartFilter getDefaultInstanceForType() {
+        return hpaas.Schema.ChartFilter.getDefaultInstance();
       }
 
       @java.lang.Override
-      public hpaas.Schema.Filter build() {
-        hpaas.Schema.Filter result = buildPartial();
+      public hpaas.Schema.ChartFilter build() {
+        hpaas.Schema.ChartFilter result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -2132,8 +2132,8 @@ public final class Schema {
       }
 
       @java.lang.Override
-      public hpaas.Schema.Filter buildPartial() {
-        hpaas.Schema.Filter result = new hpaas.Schema.Filter(this);
+      public hpaas.Schema.ChartFilter buildPartial() {
+        hpaas.Schema.ChartFilter result = new hpaas.Schema.ChartFilter(this);
         result.term_ = term_;
         result.regex_ = regex_;
         onBuilt();
@@ -2174,16 +2174,16 @@ public final class Schema {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof hpaas.Schema.Filter) {
-          return mergeFrom((hpaas.Schema.Filter)other);
+        if (other instanceof hpaas.Schema.ChartFilter) {
+          return mergeFrom((hpaas.Schema.ChartFilter)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(hpaas.Schema.Filter other) {
-        if (other == hpaas.Schema.Filter.getDefaultInstance()) return this;
+      public Builder mergeFrom(hpaas.Schema.ChartFilter other) {
+        if (other == hpaas.Schema.ChartFilter.getDefaultInstance()) return this;
         if (!other.getTerm().isEmpty()) {
           term_ = other.term_;
           onChanged();
@@ -2206,11 +2206,11 @@ public final class Schema {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        hpaas.Schema.Filter parsedMessage = null;
+        hpaas.Schema.ChartFilter parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (hpaas.Schema.Filter) e.getUnfinishedMessage();
+          parsedMessage = (hpaas.Schema.ChartFilter) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -2359,41 +2359,41 @@ public final class Schema {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:hpaas.Filter)
+      // @@protoc_insertion_point(builder_scope:hpaas.ChartFilter)
     }
 
-    // @@protoc_insertion_point(class_scope:hpaas.Filter)
-    private static final hpaas.Schema.Filter DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:hpaas.ChartFilter)
+    private static final hpaas.Schema.ChartFilter DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new hpaas.Schema.Filter();
+      DEFAULT_INSTANCE = new hpaas.Schema.ChartFilter();
     }
 
-    public static hpaas.Schema.Filter getDefaultInstance() {
+    public static hpaas.Schema.ChartFilter getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<Filter>
-        PARSER = new com.google.protobuf.AbstractParser<Filter>() {
+    private static final com.google.protobuf.Parser<ChartFilter>
+        PARSER = new com.google.protobuf.AbstractParser<ChartFilter>() {
       @java.lang.Override
-      public Filter parsePartialFrom(
+      public ChartFilter parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Filter(input, extensionRegistry);
+        return new ChartFilter(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<Filter> parser() {
+    public static com.google.protobuf.Parser<ChartFilter> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<Filter> getParserForType() {
+    public com.google.protobuf.Parser<ChartFilter> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public hpaas.Schema.Filter getDefaultInstanceForType() {
+    public hpaas.Schema.ChartFilter getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -8399,6 +8399,819 @@ public final class Schema {
 
     @java.lang.Override
     public hpaas.Schema.Apps getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface AppFilterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:hpaas.AppFilter)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string namespace = 1;</code>
+     */
+    java.lang.String getNamespace();
+    /**
+     * <code>string namespace = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getNamespaceBytes();
+
+    /**
+     * <code>string selector = 2;</code>
+     */
+    java.lang.String getSelector();
+    /**
+     * <code>string selector = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getSelectorBytes();
+
+    /**
+     * <code>uint32 limit = 3;</code>
+     */
+    int getLimit();
+
+    /**
+     * <code>uint32 offset = 4;</code>
+     */
+    int getOffset();
+  }
+  /**
+   * Protobuf type {@code hpaas.AppFilter}
+   */
+  public  static final class AppFilter extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:hpaas.AppFilter)
+      AppFilterOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AppFilter.newBuilder() to construct.
+    private AppFilter(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AppFilter() {
+      namespace_ = "";
+      selector_ = "";
+      limit_ = 0;
+      offset_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AppFilter(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              namespace_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              selector_ = s;
+              break;
+            }
+            case 24: {
+
+              limit_ = input.readUInt32();
+              break;
+            }
+            case 32: {
+
+              offset_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return hpaas.Schema.internal_static_hpaas_AppFilter_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return hpaas.Schema.internal_static_hpaas_AppFilter_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              hpaas.Schema.AppFilter.class, hpaas.Schema.AppFilter.Builder.class);
+    }
+
+    public static final int NAMESPACE_FIELD_NUMBER = 1;
+    private volatile java.lang.Object namespace_;
+    /**
+     * <code>string namespace = 1;</code>
+     */
+    public java.lang.String getNamespace() {
+      java.lang.Object ref = namespace_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        namespace_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string namespace = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNamespaceBytes() {
+      java.lang.Object ref = namespace_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        namespace_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SELECTOR_FIELD_NUMBER = 2;
+    private volatile java.lang.Object selector_;
+    /**
+     * <code>string selector = 2;</code>
+     */
+    public java.lang.String getSelector() {
+      java.lang.Object ref = selector_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        selector_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string selector = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSelectorBytes() {
+      java.lang.Object ref = selector_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        selector_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int LIMIT_FIELD_NUMBER = 3;
+    private int limit_;
+    /**
+     * <code>uint32 limit = 3;</code>
+     */
+    public int getLimit() {
+      return limit_;
+    }
+
+    public static final int OFFSET_FIELD_NUMBER = 4;
+    private int offset_;
+    /**
+     * <code>uint32 offset = 4;</code>
+     */
+    public int getOffset() {
+      return offset_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getNamespaceBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, namespace_);
+      }
+      if (!getSelectorBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, selector_);
+      }
+      if (limit_ != 0) {
+        output.writeUInt32(3, limit_);
+      }
+      if (offset_ != 0) {
+        output.writeUInt32(4, offset_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getNamespaceBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, namespace_);
+      }
+      if (!getSelectorBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, selector_);
+      }
+      if (limit_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(3, limit_);
+      }
+      if (offset_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(4, offset_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof hpaas.Schema.AppFilter)) {
+        return super.equals(obj);
+      }
+      hpaas.Schema.AppFilter other = (hpaas.Schema.AppFilter) obj;
+
+      boolean result = true;
+      result = result && getNamespace()
+          .equals(other.getNamespace());
+      result = result && getSelector()
+          .equals(other.getSelector());
+      result = result && (getLimit()
+          == other.getLimit());
+      result = result && (getOffset()
+          == other.getOffset());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + NAMESPACE_FIELD_NUMBER;
+      hash = (53 * hash) + getNamespace().hashCode();
+      hash = (37 * hash) + SELECTOR_FIELD_NUMBER;
+      hash = (53 * hash) + getSelector().hashCode();
+      hash = (37 * hash) + LIMIT_FIELD_NUMBER;
+      hash = (53 * hash) + getLimit();
+      hash = (37 * hash) + OFFSET_FIELD_NUMBER;
+      hash = (53 * hash) + getOffset();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static hpaas.Schema.AppFilter parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static hpaas.Schema.AppFilter parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static hpaas.Schema.AppFilter parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static hpaas.Schema.AppFilter parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static hpaas.Schema.AppFilter parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static hpaas.Schema.AppFilter parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static hpaas.Schema.AppFilter parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static hpaas.Schema.AppFilter parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static hpaas.Schema.AppFilter parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static hpaas.Schema.AppFilter parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static hpaas.Schema.AppFilter parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static hpaas.Schema.AppFilter parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(hpaas.Schema.AppFilter prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code hpaas.AppFilter}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:hpaas.AppFilter)
+        hpaas.Schema.AppFilterOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return hpaas.Schema.internal_static_hpaas_AppFilter_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return hpaas.Schema.internal_static_hpaas_AppFilter_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                hpaas.Schema.AppFilter.class, hpaas.Schema.AppFilter.Builder.class);
+      }
+
+      // Construct using hpaas.Schema.AppFilter.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        namespace_ = "";
+
+        selector_ = "";
+
+        limit_ = 0;
+
+        offset_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return hpaas.Schema.internal_static_hpaas_AppFilter_descriptor;
+      }
+
+      @java.lang.Override
+      public hpaas.Schema.AppFilter getDefaultInstanceForType() {
+        return hpaas.Schema.AppFilter.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public hpaas.Schema.AppFilter build() {
+        hpaas.Schema.AppFilter result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public hpaas.Schema.AppFilter buildPartial() {
+        hpaas.Schema.AppFilter result = new hpaas.Schema.AppFilter(this);
+        result.namespace_ = namespace_;
+        result.selector_ = selector_;
+        result.limit_ = limit_;
+        result.offset_ = offset_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof hpaas.Schema.AppFilter) {
+          return mergeFrom((hpaas.Schema.AppFilter)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(hpaas.Schema.AppFilter other) {
+        if (other == hpaas.Schema.AppFilter.getDefaultInstance()) return this;
+        if (!other.getNamespace().isEmpty()) {
+          namespace_ = other.namespace_;
+          onChanged();
+        }
+        if (!other.getSelector().isEmpty()) {
+          selector_ = other.selector_;
+          onChanged();
+        }
+        if (other.getLimit() != 0) {
+          setLimit(other.getLimit());
+        }
+        if (other.getOffset() != 0) {
+          setOffset(other.getOffset());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        hpaas.Schema.AppFilter parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (hpaas.Schema.AppFilter) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object namespace_ = "";
+      /**
+       * <code>string namespace = 1;</code>
+       */
+      public java.lang.String getNamespace() {
+        java.lang.Object ref = namespace_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          namespace_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string namespace = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNamespaceBytes() {
+        java.lang.Object ref = namespace_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          namespace_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string namespace = 1;</code>
+       */
+      public Builder setNamespace(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        namespace_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string namespace = 1;</code>
+       */
+      public Builder clearNamespace() {
+        
+        namespace_ = getDefaultInstance().getNamespace();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string namespace = 1;</code>
+       */
+      public Builder setNamespaceBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        namespace_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object selector_ = "";
+      /**
+       * <code>string selector = 2;</code>
+       */
+      public java.lang.String getSelector() {
+        java.lang.Object ref = selector_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          selector_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string selector = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSelectorBytes() {
+        java.lang.Object ref = selector_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          selector_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string selector = 2;</code>
+       */
+      public Builder setSelector(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        selector_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string selector = 2;</code>
+       */
+      public Builder clearSelector() {
+        
+        selector_ = getDefaultInstance().getSelector();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string selector = 2;</code>
+       */
+      public Builder setSelectorBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        selector_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int limit_ ;
+      /**
+       * <code>uint32 limit = 3;</code>
+       */
+      public int getLimit() {
+        return limit_;
+      }
+      /**
+       * <code>uint32 limit = 3;</code>
+       */
+      public Builder setLimit(int value) {
+        
+        limit_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 limit = 3;</code>
+       */
+      public Builder clearLimit() {
+        
+        limit_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int offset_ ;
+      /**
+       * <code>uint32 offset = 4;</code>
+       */
+      public int getOffset() {
+        return offset_;
+      }
+      /**
+       * <code>uint32 offset = 4;</code>
+       */
+      public Builder setOffset(int value) {
+        
+        offset_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 offset = 4;</code>
+       */
+      public Builder clearOffset() {
+        
+        offset_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:hpaas.AppFilter)
+    }
+
+    // @@protoc_insertion_point(class_scope:hpaas.AppFilter)
+    private static final hpaas.Schema.AppFilter DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new hpaas.Schema.AppFilter();
+    }
+
+    public static hpaas.Schema.AppFilter getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<AppFilter>
+        PARSER = new com.google.protobuf.AbstractParser<AppFilter>() {
+      @java.lang.Override
+      public AppFilter parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new AppFilter(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<AppFilter> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AppFilter> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public hpaas.Schema.AppFilter getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -14585,6 +15398,676 @@ public final class Schema {
 
   }
 
+  public interface HistoryFilterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:hpaas.HistoryFilter)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.hpaas.AppRef ref = 1 [(.validator.field) = { ... }</code>
+     */
+    boolean hasRef();
+    /**
+     * <code>.hpaas.AppRef ref = 1 [(.validator.field) = { ... }</code>
+     */
+    hpaas.Schema.AppRef getRef();
+    /**
+     * <code>.hpaas.AppRef ref = 1 [(.validator.field) = { ... }</code>
+     */
+    hpaas.Schema.AppRefOrBuilder getRefOrBuilder();
+
+    /**
+     * <code>uint32 limit = 2;</code>
+     */
+    int getLimit();
+  }
+  /**
+   * Protobuf type {@code hpaas.HistoryFilter}
+   */
+  public  static final class HistoryFilter extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:hpaas.HistoryFilter)
+      HistoryFilterOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use HistoryFilter.newBuilder() to construct.
+    private HistoryFilter(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private HistoryFilter() {
+      limit_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private HistoryFilter(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              hpaas.Schema.AppRef.Builder subBuilder = null;
+              if (ref_ != null) {
+                subBuilder = ref_.toBuilder();
+              }
+              ref_ = input.readMessage(hpaas.Schema.AppRef.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(ref_);
+                ref_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 16: {
+
+              limit_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return hpaas.Schema.internal_static_hpaas_HistoryFilter_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return hpaas.Schema.internal_static_hpaas_HistoryFilter_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              hpaas.Schema.HistoryFilter.class, hpaas.Schema.HistoryFilter.Builder.class);
+    }
+
+    public static final int REF_FIELD_NUMBER = 1;
+    private hpaas.Schema.AppRef ref_;
+    /**
+     * <code>.hpaas.AppRef ref = 1 [(.validator.field) = { ... }</code>
+     */
+    public boolean hasRef() {
+      return ref_ != null;
+    }
+    /**
+     * <code>.hpaas.AppRef ref = 1 [(.validator.field) = { ... }</code>
+     */
+    public hpaas.Schema.AppRef getRef() {
+      return ref_ == null ? hpaas.Schema.AppRef.getDefaultInstance() : ref_;
+    }
+    /**
+     * <code>.hpaas.AppRef ref = 1 [(.validator.field) = { ... }</code>
+     */
+    public hpaas.Schema.AppRefOrBuilder getRefOrBuilder() {
+      return getRef();
+    }
+
+    public static final int LIMIT_FIELD_NUMBER = 2;
+    private int limit_;
+    /**
+     * <code>uint32 limit = 2;</code>
+     */
+    public int getLimit() {
+      return limit_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (ref_ != null) {
+        output.writeMessage(1, getRef());
+      }
+      if (limit_ != 0) {
+        output.writeUInt32(2, limit_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (ref_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getRef());
+      }
+      if (limit_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(2, limit_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof hpaas.Schema.HistoryFilter)) {
+        return super.equals(obj);
+      }
+      hpaas.Schema.HistoryFilter other = (hpaas.Schema.HistoryFilter) obj;
+
+      boolean result = true;
+      result = result && (hasRef() == other.hasRef());
+      if (hasRef()) {
+        result = result && getRef()
+            .equals(other.getRef());
+      }
+      result = result && (getLimit()
+          == other.getLimit());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasRef()) {
+        hash = (37 * hash) + REF_FIELD_NUMBER;
+        hash = (53 * hash) + getRef().hashCode();
+      }
+      hash = (37 * hash) + LIMIT_FIELD_NUMBER;
+      hash = (53 * hash) + getLimit();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static hpaas.Schema.HistoryFilter parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static hpaas.Schema.HistoryFilter parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static hpaas.Schema.HistoryFilter parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static hpaas.Schema.HistoryFilter parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static hpaas.Schema.HistoryFilter parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static hpaas.Schema.HistoryFilter parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static hpaas.Schema.HistoryFilter parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static hpaas.Schema.HistoryFilter parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static hpaas.Schema.HistoryFilter parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static hpaas.Schema.HistoryFilter parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static hpaas.Schema.HistoryFilter parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static hpaas.Schema.HistoryFilter parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(hpaas.Schema.HistoryFilter prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code hpaas.HistoryFilter}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:hpaas.HistoryFilter)
+        hpaas.Schema.HistoryFilterOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return hpaas.Schema.internal_static_hpaas_HistoryFilter_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return hpaas.Schema.internal_static_hpaas_HistoryFilter_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                hpaas.Schema.HistoryFilter.class, hpaas.Schema.HistoryFilter.Builder.class);
+      }
+
+      // Construct using hpaas.Schema.HistoryFilter.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (refBuilder_ == null) {
+          ref_ = null;
+        } else {
+          ref_ = null;
+          refBuilder_ = null;
+        }
+        limit_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return hpaas.Schema.internal_static_hpaas_HistoryFilter_descriptor;
+      }
+
+      @java.lang.Override
+      public hpaas.Schema.HistoryFilter getDefaultInstanceForType() {
+        return hpaas.Schema.HistoryFilter.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public hpaas.Schema.HistoryFilter build() {
+        hpaas.Schema.HistoryFilter result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public hpaas.Schema.HistoryFilter buildPartial() {
+        hpaas.Schema.HistoryFilter result = new hpaas.Schema.HistoryFilter(this);
+        if (refBuilder_ == null) {
+          result.ref_ = ref_;
+        } else {
+          result.ref_ = refBuilder_.build();
+        }
+        result.limit_ = limit_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof hpaas.Schema.HistoryFilter) {
+          return mergeFrom((hpaas.Schema.HistoryFilter)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(hpaas.Schema.HistoryFilter other) {
+        if (other == hpaas.Schema.HistoryFilter.getDefaultInstance()) return this;
+        if (other.hasRef()) {
+          mergeRef(other.getRef());
+        }
+        if (other.getLimit() != 0) {
+          setLimit(other.getLimit());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        hpaas.Schema.HistoryFilter parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (hpaas.Schema.HistoryFilter) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private hpaas.Schema.AppRef ref_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          hpaas.Schema.AppRef, hpaas.Schema.AppRef.Builder, hpaas.Schema.AppRefOrBuilder> refBuilder_;
+      /**
+       * <code>.hpaas.AppRef ref = 1 [(.validator.field) = { ... }</code>
+       */
+      public boolean hasRef() {
+        return refBuilder_ != null || ref_ != null;
+      }
+      /**
+       * <code>.hpaas.AppRef ref = 1 [(.validator.field) = { ... }</code>
+       */
+      public hpaas.Schema.AppRef getRef() {
+        if (refBuilder_ == null) {
+          return ref_ == null ? hpaas.Schema.AppRef.getDefaultInstance() : ref_;
+        } else {
+          return refBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.hpaas.AppRef ref = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder setRef(hpaas.Schema.AppRef value) {
+        if (refBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ref_ = value;
+          onChanged();
+        } else {
+          refBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.hpaas.AppRef ref = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder setRef(
+          hpaas.Schema.AppRef.Builder builderForValue) {
+        if (refBuilder_ == null) {
+          ref_ = builderForValue.build();
+          onChanged();
+        } else {
+          refBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.hpaas.AppRef ref = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder mergeRef(hpaas.Schema.AppRef value) {
+        if (refBuilder_ == null) {
+          if (ref_ != null) {
+            ref_ =
+              hpaas.Schema.AppRef.newBuilder(ref_).mergeFrom(value).buildPartial();
+          } else {
+            ref_ = value;
+          }
+          onChanged();
+        } else {
+          refBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.hpaas.AppRef ref = 1 [(.validator.field) = { ... }</code>
+       */
+      public Builder clearRef() {
+        if (refBuilder_ == null) {
+          ref_ = null;
+          onChanged();
+        } else {
+          ref_ = null;
+          refBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.hpaas.AppRef ref = 1 [(.validator.field) = { ... }</code>
+       */
+      public hpaas.Schema.AppRef.Builder getRefBuilder() {
+        
+        onChanged();
+        return getRefFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.hpaas.AppRef ref = 1 [(.validator.field) = { ... }</code>
+       */
+      public hpaas.Schema.AppRefOrBuilder getRefOrBuilder() {
+        if (refBuilder_ != null) {
+          return refBuilder_.getMessageOrBuilder();
+        } else {
+          return ref_ == null ?
+              hpaas.Schema.AppRef.getDefaultInstance() : ref_;
+        }
+      }
+      /**
+       * <code>.hpaas.AppRef ref = 1 [(.validator.field) = { ... }</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          hpaas.Schema.AppRef, hpaas.Schema.AppRef.Builder, hpaas.Schema.AppRefOrBuilder> 
+          getRefFieldBuilder() {
+        if (refBuilder_ == null) {
+          refBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              hpaas.Schema.AppRef, hpaas.Schema.AppRef.Builder, hpaas.Schema.AppRefOrBuilder>(
+                  getRef(),
+                  getParentForChildren(),
+                  isClean());
+          ref_ = null;
+        }
+        return refBuilder_;
+      }
+
+      private int limit_ ;
+      /**
+       * <code>uint32 limit = 2;</code>
+       */
+      public int getLimit() {
+        return limit_;
+      }
+      /**
+       * <code>uint32 limit = 2;</code>
+       */
+      public Builder setLimit(int value) {
+        
+        limit_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 limit = 2;</code>
+       */
+      public Builder clearLimit() {
+        
+        limit_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:hpaas.HistoryFilter)
+    }
+
+    // @@protoc_insertion_point(class_scope:hpaas.HistoryFilter)
+    private static final hpaas.Schema.HistoryFilter DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new hpaas.Schema.HistoryFilter();
+    }
+
+    public static hpaas.Schema.HistoryFilter getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<HistoryFilter>
+        PARSER = new com.google.protobuf.AbstractParser<HistoryFilter>() {
+      @java.lang.Override
+      public HistoryFilter parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new HistoryFilter(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<HistoryFilter> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<HistoryFilter> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public hpaas.Schema.HistoryFilter getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_hpaas_Dependency_descriptor;
   private static final 
@@ -14596,10 +16079,10 @@ public final class Schema {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hpaas_Maintainer_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_hpaas_Filter_descriptor;
+    internal_static_hpaas_ChartFilter_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_hpaas_Filter_fieldAccessorTable;
+      internal_static_hpaas_ChartFilter_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_hpaas_Chart_descriptor;
   private static final 
@@ -14625,6 +16108,11 @@ public final class Schema {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hpaas_Apps_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hpaas_AppFilter_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hpaas_AppFilter_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_hpaas_Release_descriptor;
   private static final 
@@ -14660,6 +16148,11 @@ public final class Schema {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hpaas_NamespaceRefs_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hpaas_HistoryFilter_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hpaas_HistoryFilter_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -14678,49 +16171,55 @@ public final class Schema {
       "5}$\022!\n\007version\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022$" +
       "\n\nrepository\030\003 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\"M\n\n" +
       "Maintainer\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225" +
-      "}$\022\037\n\005email\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\"7\n\006F" +
-      "ilter\022\036\n\004term\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\r\n" +
-      "\005regex\030\002 \001(\010\"\320\002\n\005Chart\022\036\n\004name\030\001 \001(\tB\020\342\337" +
-      "\037\014\n\n^.{1,225}$\022\014\n\004home\030\002 \001(\t\022\023\n\013descript" +
-      "ion\030\003 \001(\t\022\017\n\007version\030\004 \001(\t\022\017\n\007sources\030\005 " +
-      "\003(\t\022\020\n\010keywords\030\006 \003(\t\022\014\n\004icon\030\007 \001(\t\022\022\n\nd" +
-      "eprecated\030\010 \001(\010\022\'\n\014dependencies\030\t \003(\0132\021." +
-      "hpaas.Dependency\022&\n\013maintainers\030\n \003(\0132\021." +
-      "hpaas.Maintainer\022,\n\010metadata\030\013 \003(\0132\032.hpa" +
-      "as.Chart.MetadataEntry\032/\n\rMetadataEntry\022" +
-      "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"&\n\006Chart" +
-      "s\022\034\n\006charts\030\001 \003(\0132\014.hpaas.Chart\"\210\001\n\003App\022" +
-      "\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022#\n\tnames" +
-      "pace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\037\n\007release\030" +
-      "\005 \001(\0132\016.hpaas.Release\022\033\n\005chart\030\024 \001(\0132\014.h" +
-      "paas.Chart\" \n\004Apps\022\030\n\004apps\030\001 \003(\0132\n.hpaas" +
-      ".App\"\236\001\n\007Release\022\017\n\007version\030\001 \001(\r\022\'\n\006con" +
-      "fig\030\002 \001(\0132\027.google.protobuf.Struct\022\r\n\005no" +
-      "tes\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\022\016\n\006status" +
-      "\030\005 \001(\t\022%\n\ntimestamps\030\006 \001(\0132\021.hpaas.Times" +
-      "tamps\"\223\001\n\nTimestamps\022+\n\007created\030\001 \001(\0132\032." +
-      "google.protobuf.Timestamp\022+\n\007updated\030\002 \001" +
-      "(\0132\032.google.protobuf.Timestamp\022+\n\007delete" +
-      "d\030\003 \001(\0132\032.google.protobuf.Timestamp\"M\n\006A" +
-      "ppRef\022#\n\tnamespace\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225" +
-      "}$\022\036\n\004name\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\"\330\001\n\010A" +
-      "ppInput\022#\n\tnamespace\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,2" +
-      "25}$\022\037\n\005chart\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\"\n" +
-      "\010app_name\030\003 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\0223\n\006con" +
-      "fig\030\004 \003(\0132\033.hpaas.AppInput.ConfigEntryB\006" +
-      "\342\337\037\002 \001\032-\n\013ConfigEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
-      "lue\030\002 \001(\t:\0028\001\".\n\014NamespaceRef\022\036\n\004name\030\001 " +
-      "\001(\tB\020\342\337\037\014\n\n^.{1,225}$\"8\n\rNamespaceRefs\022\'" +
-      "\n\nnamespaces\030\001 \003(\0132\023.hpaas.NamespaceRef2" +
-      "\323\002\n\014HPaasService\022%\n\006GetApp\022\r.hpaas.AppRe" +
-      "f\032\n.hpaas.App\"\000\022.\n\010ListApps\022\023.hpaas.Name" +
-      "spaceRef\032\013.hpaas.Apps\"\000\0227\n\014UninstallApp\022" +
-      "\r.hpaas.AppRef\032\026.google.protobuf.Empty\"\000" +
-      "\022*\n\013RollbackApp\022\r.hpaas.AppRef\032\n.hpaas.A" +
-      "pp\"\000\022+\n\nInstallApp\022\017.hpaas.AppInput\032\n.hp" +
-      "aas.App\"\000\022*\n\tUpdateApp\022\017.hpaas.AppInput\032" +
-      "\n.hpaas.App\"\000\022.\n\014SearchCharts\022\r.hpaas.Fi" +
-      "lter\032\r.hpaas.Charts\"\000B\tZ\007hpaaspbb\006proto3"
+      "}$\022\037\n\005email\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\"<\n\013C" +
+      "hartFilter\022\036\n\004term\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225" +
+      "}$\022\r\n\005regex\030\002 \001(\010\"\320\002\n\005Chart\022\036\n\004name\030\001 \001(" +
+      "\tB\020\342\337\037\014\n\n^.{1,225}$\022\014\n\004home\030\002 \001(\t\022\023\n\013des" +
+      "cription\030\003 \001(\t\022\017\n\007version\030\004 \001(\t\022\017\n\007sourc" +
+      "es\030\005 \003(\t\022\020\n\010keywords\030\006 \003(\t\022\014\n\004icon\030\007 \001(\t" +
+      "\022\022\n\ndeprecated\030\010 \001(\010\022\'\n\014dependencies\030\t \003" +
+      "(\0132\021.hpaas.Dependency\022&\n\013maintainers\030\n \003" +
+      "(\0132\021.hpaas.Maintainer\022,\n\010metadata\030\013 \003(\0132" +
+      "\032.hpaas.Chart.MetadataEntry\032/\n\rMetadataE" +
+      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"&\n\006" +
+      "Charts\022\034\n\006charts\030\001 \003(\0132\014.hpaas.Chart\"\210\001\n" +
+      "\003App\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022#\n\t" +
+      "namespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\037\n\007rel" +
+      "ease\030\005 \001(\0132\016.hpaas.Release\022\033\n\005chart\030\024 \001(" +
+      "\0132\014.hpaas.Chart\" \n\004Apps\022\030\n\004apps\030\001 \003(\0132\n." +
+      "hpaas.App\"O\n\tAppFilter\022\021\n\tnamespace\030\001 \001(" +
+      "\t\022\020\n\010selector\030\002 \001(\t\022\r\n\005limit\030\003 \001(\r\022\016\n\006of" +
+      "fset\030\004 \001(\r\"\236\001\n\007Release\022\017\n\007version\030\001 \001(\r\022" +
+      "\'\n\006config\030\002 \001(\0132\027.google.protobuf.Struct" +
+      "\022\r\n\005notes\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\022\016\n\006" +
+      "status\030\005 \001(\t\022%\n\ntimestamps\030\006 \001(\0132\021.hpaas" +
+      ".Timestamps\"\223\001\n\nTimestamps\022+\n\007created\030\001 " +
+      "\001(\0132\032.google.protobuf.Timestamp\022+\n\007updat" +
+      "ed\030\002 \001(\0132\032.google.protobuf.Timestamp\022+\n\007" +
+      "deleted\030\003 \001(\0132\032.google.protobuf.Timestam" +
+      "p\"M\n\006AppRef\022#\n\tnamespace\030\001 \001(\tB\020\342\337\037\014\n\n^." +
+      "{1,225}$\022\036\n\004name\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$" +
+      "\"\330\001\n\010AppInput\022#\n\tnamespace\030\001 \001(\tB\020\342\337\037\014\n\n" +
+      "^.{1,225}$\022\037\n\005chart\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,22" +
+      "5}$\022\"\n\010app_name\030\003 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022" +
+      "3\n\006config\030\004 \003(\0132\033.hpaas.AppInput.ConfigE" +
+      "ntryB\006\342\337\037\002 \001\032-\n\013ConfigEntry\022\013\n\003key\030\001 \001(\t" +
+      "\022\r\n\005value\030\002 \001(\t:\0028\001\".\n\014NamespaceRef\022\036\n\004n" +
+      "ame\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\"8\n\rNamespace" +
+      "Refs\022\'\n\nnamespaces\030\001 \003(\0132\023.hpaas.Namespa" +
+      "ceRef\"B\n\rHistoryFilter\022\"\n\003ref\030\001 \001(\0132\r.hp" +
+      "aas.AppRefB\006\342\337\037\002 \001\022\r\n\005limit\030\002 \001(\r2\212\003\n\014HP" +
+      "aasService\022%\n\006GetApp\022\r.hpaas.AppRef\032\n.hp" +
+      "aas.App\"\000\0221\n\nGetHistory\022\024.hpaas.HistoryF" +
+      "ilter\032\013.hpaas.Apps\"\000\022-\n\nSearchApps\022\020.hpa" +
+      "as.AppFilter\032\013.hpaas.Apps\"\000\0227\n\014Uninstall" +
+      "App\022\r.hpaas.AppRef\032\026.google.protobuf.Emp" +
+      "ty\"\000\022*\n\013RollbackApp\022\r.hpaas.AppRef\032\n.hpa" +
+      "as.App\"\000\022+\n\nInstallApp\022\017.hpaas.AppInput\032" +
+      "\n.hpaas.App\"\000\022*\n\tUpdateApp\022\017.hpaas.AppIn" +
+      "put\032\n.hpaas.App\"\000\0223\n\014SearchCharts\022\022.hpaa" +
+      "s.ChartFilter\032\r.hpaas.Charts\"\000B\tZ\007hpaasp" +
+      "bb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -14751,11 +16250,11 @@ public final class Schema {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hpaas_Maintainer_descriptor,
         new java.lang.String[] { "Name", "Email", });
-    internal_static_hpaas_Filter_descriptor =
+    internal_static_hpaas_ChartFilter_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_hpaas_Filter_fieldAccessorTable = new
+    internal_static_hpaas_ChartFilter_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_hpaas_Filter_descriptor,
+        internal_static_hpaas_ChartFilter_descriptor,
         new java.lang.String[] { "Term", "Regex", });
     internal_static_hpaas_Chart_descriptor =
       getDescriptor().getMessageTypes().get(3);
@@ -14787,26 +16286,32 @@ public final class Schema {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hpaas_Apps_descriptor,
         new java.lang.String[] { "Apps", });
-    internal_static_hpaas_Release_descriptor =
+    internal_static_hpaas_AppFilter_descriptor =
       getDescriptor().getMessageTypes().get(7);
+    internal_static_hpaas_AppFilter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hpaas_AppFilter_descriptor,
+        new java.lang.String[] { "Namespace", "Selector", "Limit", "Offset", });
+    internal_static_hpaas_Release_descriptor =
+      getDescriptor().getMessageTypes().get(8);
     internal_static_hpaas_Release_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hpaas_Release_descriptor,
         new java.lang.String[] { "Version", "Config", "Notes", "Description", "Status", "Timestamps", });
     internal_static_hpaas_Timestamps_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_hpaas_Timestamps_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hpaas_Timestamps_descriptor,
         new java.lang.String[] { "Created", "Updated", "Deleted", });
     internal_static_hpaas_AppRef_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_hpaas_AppRef_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hpaas_AppRef_descriptor,
         new java.lang.String[] { "Namespace", "Name", });
     internal_static_hpaas_AppInput_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_hpaas_AppInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hpaas_AppInput_descriptor,
@@ -14818,17 +16323,23 @@ public final class Schema {
         internal_static_hpaas_AppInput_ConfigEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_hpaas_NamespaceRef_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_hpaas_NamespaceRef_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hpaas_NamespaceRef_descriptor,
         new java.lang.String[] { "Name", });
     internal_static_hpaas_NamespaceRefs_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_hpaas_NamespaceRefs_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hpaas_NamespaceRefs_descriptor,
         new java.lang.String[] { "Namespaces", });
+    internal_static_hpaas_HistoryFilter_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_hpaas_HistoryFilter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hpaas_HistoryFilter_descriptor,
+        new java.lang.String[] { "Ref", "Limit", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(validator.Validator.field);

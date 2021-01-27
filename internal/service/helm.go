@@ -1,10 +1,10 @@
-package helm
+package service
 
 import (
 	"context"
 	hpaaspb "github.com/autom8ter/hpaas/gen/grpc/go"
 	"github.com/autom8ter/hpaas/internal/logger"
-	"github.com/autom8ter/kubego"
+	"github.com/autom8ter/kubego/helm"
 	"github.com/golang/protobuf/ptypes/empty"
 	"go.uber.org/zap"
 	"google.golang.org/grpc/codes"
@@ -14,11 +14,11 @@ import (
 
 type Helm struct {
 	logger *logger.Logger
-	client *kubego.Helm
+	client *helm.Helm
 }
 
 func NewHelm(logger *logger.Logger, repos []*repo.Entry) (*Helm, error) {
-	client, err := kubego.NewHelm()
+	client, err := helm.NewHelm()
 	if err != nil {
 		return nil, err
 	}
@@ -45,8 +45,16 @@ func (h Helm) GetApp(ctx context.Context, ref *hpaaspb.AppRef) (*hpaaspb.App, er
 	return h.toApp(release)
 }
 
-func (h Helm) ListApps(ctx context.Context, ref *hpaaspb.NamespaceRef) (*hpaaspb.Apps, error) {
-	releases, err := h.client.ListReleases(ref.Name)
+func (h Helm) SearchApps(ctx context.Context, filter *hpaaspb.AppFilter) (*hpaaspb.Apps, error) {
+	releases, err := h.client.SearchReleases(filter.Namespace, filter.Selector, int(filter.Limit), int(filter.Offset))
+	if err != nil {
+		return nil, err
+	}
+	return h.toApps(releases)
+}
+
+func (h Helm) GetHistory(ctx context.Context, filter *hpaaspb.HistoryFilter) (*hpaaspb.Apps, error) {
+	releases, err := h.client.History(filter.GetRef().GetNamespace(), filter.GetRef().GetNamespace(), int(filter.GetLimit()))
 	if err != nil {
 		return nil, err
 	}
@@ -84,7 +92,7 @@ func (h Helm) UpdateApp(ctx context.Context, input *hpaaspb.AppInput) (*hpaaspb.
 	return h.toApp(release)
 }
 
-func (h Helm) SearchCharts(ctx context.Context, filter *hpaaspb.Filter) (*hpaaspb.Charts, error) {
+func (h Helm) SearchCharts(ctx context.Context, filter *hpaaspb.ChartFilter) (*hpaaspb.Charts, error) {
 	charts, err := h.client.SearchCharts(filter.Term, filter.Regex)
 	if err != nil {
 		return nil, err

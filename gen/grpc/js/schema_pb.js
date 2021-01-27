@@ -17,13 +17,15 @@ var google_protobuf_any_pb = require('google-protobuf/google/protobuf/any_pb.js'
 var google_protobuf_empty_pb = require('google-protobuf/google/protobuf/empty_pb.js');
 var github_com_mwitkow_go$proto$validators_validator_pb = require('./github.com/mwitkow/go-proto-validators/validator_pb.js');
 goog.exportSymbol('proto.hpaas.App', null, global);
+goog.exportSymbol('proto.hpaas.AppFilter', null, global);
 goog.exportSymbol('proto.hpaas.AppInput', null, global);
 goog.exportSymbol('proto.hpaas.AppRef', null, global);
 goog.exportSymbol('proto.hpaas.Apps', null, global);
 goog.exportSymbol('proto.hpaas.Chart', null, global);
+goog.exportSymbol('proto.hpaas.ChartFilter', null, global);
 goog.exportSymbol('proto.hpaas.Charts', null, global);
 goog.exportSymbol('proto.hpaas.Dependency', null, global);
-goog.exportSymbol('proto.hpaas.Filter', null, global);
+goog.exportSymbol('proto.hpaas.HistoryFilter', null, global);
 goog.exportSymbol('proto.hpaas.Maintainer', null, global);
 goog.exportSymbol('proto.hpaas.NamespaceRef', null, global);
 goog.exportSymbol('proto.hpaas.NamespaceRefs', null, global);
@@ -405,12 +407,12 @@ proto.hpaas.Maintainer.prototype.setEmail = function(value) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.hpaas.Filter = function(opt_data) {
+proto.hpaas.ChartFilter = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.hpaas.Filter, jspb.Message);
+goog.inherits(proto.hpaas.ChartFilter, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.hpaas.Filter.displayName = 'proto.hpaas.Filter';
+  proto.hpaas.ChartFilter.displayName = 'proto.hpaas.ChartFilter';
 }
 
 
@@ -425,8 +427,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.hpaas.Filter.prototype.toObject = function(opt_includeInstance) {
-  return proto.hpaas.Filter.toObject(opt_includeInstance, this);
+proto.hpaas.ChartFilter.prototype.toObject = function(opt_includeInstance) {
+  return proto.hpaas.ChartFilter.toObject(opt_includeInstance, this);
 };
 
 
@@ -435,11 +437,11 @@ proto.hpaas.Filter.prototype.toObject = function(opt_includeInstance) {
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.hpaas.Filter} msg The msg instance to transform.
+ * @param {!proto.hpaas.ChartFilter} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.hpaas.Filter.toObject = function(includeInstance, msg) {
+proto.hpaas.ChartFilter.toObject = function(includeInstance, msg) {
   var f, obj = {
     term: jspb.Message.getFieldWithDefault(msg, 1, ""),
     regex: jspb.Message.getFieldWithDefault(msg, 2, false)
@@ -456,23 +458,23 @@ proto.hpaas.Filter.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.hpaas.Filter}
+ * @return {!proto.hpaas.ChartFilter}
  */
-proto.hpaas.Filter.deserializeBinary = function(bytes) {
+proto.hpaas.ChartFilter.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.hpaas.Filter;
-  return proto.hpaas.Filter.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.hpaas.ChartFilter;
+  return proto.hpaas.ChartFilter.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.hpaas.Filter} msg The message object to deserialize into.
+ * @param {!proto.hpaas.ChartFilter} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.hpaas.Filter}
+ * @return {!proto.hpaas.ChartFilter}
  */
-proto.hpaas.Filter.deserializeBinaryFromReader = function(msg, reader) {
+proto.hpaas.ChartFilter.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -500,9 +502,9 @@ proto.hpaas.Filter.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.hpaas.Filter.prototype.serializeBinary = function() {
+proto.hpaas.ChartFilter.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.hpaas.Filter.serializeBinaryToWriter(this, writer);
+  proto.hpaas.ChartFilter.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -510,11 +512,11 @@ proto.hpaas.Filter.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.hpaas.Filter} message
+ * @param {!proto.hpaas.ChartFilter} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.hpaas.Filter.serializeBinaryToWriter = function(message, writer) {
+proto.hpaas.ChartFilter.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getTerm();
   if (f.length > 0) {
@@ -537,13 +539,13 @@ proto.hpaas.Filter.serializeBinaryToWriter = function(message, writer) {
  * optional string term = 1;
  * @return {string}
  */
-proto.hpaas.Filter.prototype.getTerm = function() {
+proto.hpaas.ChartFilter.prototype.getTerm = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
 /** @param {string} value */
-proto.hpaas.Filter.prototype.setTerm = function(value) {
+proto.hpaas.ChartFilter.prototype.setTerm = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
 };
 
@@ -554,13 +556,13 @@ proto.hpaas.Filter.prototype.setTerm = function(value) {
  * You should avoid comparisons like {@code val === true/false} in those cases.
  * @return {boolean}
  */
-proto.hpaas.Filter.prototype.getRegex = function() {
+proto.hpaas.ChartFilter.prototype.getRegex = function() {
   return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 2, false));
 };
 
 
 /** @param {boolean} value */
-proto.hpaas.Filter.prototype.setRegex = function(value) {
+proto.hpaas.ChartFilter.prototype.setRegex = function(value) {
   jspb.Message.setProto3BooleanField(this, 2, value);
 };
 
@@ -1644,6 +1646,229 @@ proto.hpaas.Apps.prototype.addApps = function(opt_value, opt_index) {
 
 proto.hpaas.Apps.prototype.clearAppsList = function() {
   this.setAppsList([]);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.hpaas.AppFilter = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.hpaas.AppFilter, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.hpaas.AppFilter.displayName = 'proto.hpaas.AppFilter';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.hpaas.AppFilter.prototype.toObject = function(opt_includeInstance) {
+  return proto.hpaas.AppFilter.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.hpaas.AppFilter} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.hpaas.AppFilter.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    namespace: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    selector: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    limit: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    offset: jspb.Message.getFieldWithDefault(msg, 4, 0)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.hpaas.AppFilter}
+ */
+proto.hpaas.AppFilter.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.hpaas.AppFilter;
+  return proto.hpaas.AppFilter.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.hpaas.AppFilter} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.hpaas.AppFilter}
+ */
+proto.hpaas.AppFilter.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setNamespace(value);
+      break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSelector(value);
+      break;
+    case 3:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setLimit(value);
+      break;
+    case 4:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setOffset(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.hpaas.AppFilter.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.hpaas.AppFilter.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.hpaas.AppFilter} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.hpaas.AppFilter.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getNamespace();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+  f = message.getSelector();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
+  f = message.getLimit();
+  if (f !== 0) {
+    writer.writeUint32(
+      3,
+      f
+    );
+  }
+  f = message.getOffset();
+  if (f !== 0) {
+    writer.writeUint32(
+      4,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string namespace = 1;
+ * @return {string}
+ */
+proto.hpaas.AppFilter.prototype.getNamespace = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/** @param {string} value */
+proto.hpaas.AppFilter.prototype.setNamespace = function(value) {
+  jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional string selector = 2;
+ * @return {string}
+ */
+proto.hpaas.AppFilter.prototype.getSelector = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/** @param {string} value */
+proto.hpaas.AppFilter.prototype.setSelector = function(value) {
+  jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * optional uint32 limit = 3;
+ * @return {number}
+ */
+proto.hpaas.AppFilter.prototype.getLimit = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/** @param {number} value */
+proto.hpaas.AppFilter.prototype.setLimit = function(value) {
+  jspb.Message.setProto3IntField(this, 3, value);
+};
+
+
+/**
+ * optional uint32 offset = 4;
+ * @return {number}
+ */
+proto.hpaas.AppFilter.prototype.getOffset = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/** @param {number} value */
+proto.hpaas.AppFilter.prototype.setOffset = function(value) {
+  jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -2906,6 +3131,192 @@ proto.hpaas.NamespaceRefs.prototype.addNamespaces = function(opt_value, opt_inde
 
 proto.hpaas.NamespaceRefs.prototype.clearNamespacesList = function() {
   this.setNamespacesList([]);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.hpaas.HistoryFilter = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.hpaas.HistoryFilter, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.hpaas.HistoryFilter.displayName = 'proto.hpaas.HistoryFilter';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.hpaas.HistoryFilter.prototype.toObject = function(opt_includeInstance) {
+  return proto.hpaas.HistoryFilter.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.hpaas.HistoryFilter} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.hpaas.HistoryFilter.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    ref: (f = msg.getRef()) && proto.hpaas.AppRef.toObject(includeInstance, f),
+    limit: jspb.Message.getFieldWithDefault(msg, 2, 0)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.hpaas.HistoryFilter}
+ */
+proto.hpaas.HistoryFilter.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.hpaas.HistoryFilter;
+  return proto.hpaas.HistoryFilter.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.hpaas.HistoryFilter} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.hpaas.HistoryFilter}
+ */
+proto.hpaas.HistoryFilter.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = new proto.hpaas.AppRef;
+      reader.readMessage(value,proto.hpaas.AppRef.deserializeBinaryFromReader);
+      msg.setRef(value);
+      break;
+    case 2:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setLimit(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.hpaas.HistoryFilter.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.hpaas.HistoryFilter.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.hpaas.HistoryFilter} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.hpaas.HistoryFilter.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getRef();
+  if (f != null) {
+    writer.writeMessage(
+      1,
+      f,
+      proto.hpaas.AppRef.serializeBinaryToWriter
+    );
+  }
+  f = message.getLimit();
+  if (f !== 0) {
+    writer.writeUint32(
+      2,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional AppRef ref = 1;
+ * @return {?proto.hpaas.AppRef}
+ */
+proto.hpaas.HistoryFilter.prototype.getRef = function() {
+  return /** @type{?proto.hpaas.AppRef} */ (
+    jspb.Message.getWrapperField(this, proto.hpaas.AppRef, 1));
+};
+
+
+/** @param {?proto.hpaas.AppRef|undefined} value */
+proto.hpaas.HistoryFilter.prototype.setRef = function(value) {
+  jspb.Message.setWrapperField(this, 1, value);
+};
+
+
+proto.hpaas.HistoryFilter.prototype.clearRef = function() {
+  this.setRef(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.hpaas.HistoryFilter.prototype.hasRef = function() {
+  return jspb.Message.getField(this, 1) != null;
+};
+
+
+/**
+ * optional uint32 limit = 2;
+ * @return {number}
+ */
+proto.hpaas.HistoryFilter.prototype.getLimit = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/** @param {number} value */
+proto.hpaas.HistoryFilter.prototype.setLimit = function(value) {
+  jspb.Message.setProto3IntField(this, 2, value);
 };
 
 

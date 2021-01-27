@@ -32,61 +32,67 @@ namespace Hpaas {
             "QhDi3x8MCgpeLnsxLDIyNX0kEiEKB3ZlcnNpb24YAiABKAlCEOLfHwwKCl4u",
             "ezEsMjI1fSQSJAoKcmVwb3NpdG9yeRgDIAEoCUIQ4t8fDAoKXi57MSwyMjV9",
             "JCJNCgpNYWludGFpbmVyEh4KBG5hbWUYASABKAlCEOLfHwwKCl4uezEsMjI1",
-            "fSQSHwoFZW1haWwYAiABKAlCEOLfHwwKCl4uezEsMjI1fSQiNwoGRmlsdGVy",
-            "Eh4KBHRlcm0YASABKAlCEOLfHwwKCl4uezEsMjI1fSQSDQoFcmVnZXgYAiAB",
-            "KAgi0AIKBUNoYXJ0Eh4KBG5hbWUYASABKAlCEOLfHwwKCl4uezEsMjI1fSQS",
-            "DAoEaG9tZRgCIAEoCRITCgtkZXNjcmlwdGlvbhgDIAEoCRIPCgd2ZXJzaW9u",
-            "GAQgASgJEg8KB3NvdXJjZXMYBSADKAkSEAoIa2V5d29yZHMYBiADKAkSDAoE",
-            "aWNvbhgHIAEoCRISCgpkZXByZWNhdGVkGAggASgIEicKDGRlcGVuZGVuY2ll",
-            "cxgJIAMoCzIRLmhwYWFzLkRlcGVuZGVuY3kSJgoLbWFpbnRhaW5lcnMYCiAD",
-            "KAsyES5ocGFhcy5NYWludGFpbmVyEiwKCG1ldGFkYXRhGAsgAygLMhouaHBh",
-            "YXMuQ2hhcnQuTWV0YWRhdGFFbnRyeRovCg1NZXRhZGF0YUVudHJ5EgsKA2tl",
-            "eRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEiJgoGQ2hhcnRzEhwKBmNoYXJ0",
-            "cxgBIAMoCzIMLmhwYWFzLkNoYXJ0IogBCgNBcHASHgoEbmFtZRgBIAEoCUIQ",
-            "4t8fDAoKXi57MSwyMjV9JBIjCgluYW1lc3BhY2UYAiABKAlCEOLfHwwKCl4u",
-            "ezEsMjI1fSQSHwoHcmVsZWFzZRgFIAEoCzIOLmhwYWFzLlJlbGVhc2USGwoF",
-            "Y2hhcnQYFCABKAsyDC5ocGFhcy5DaGFydCIgCgRBcHBzEhgKBGFwcHMYASAD",
-            "KAsyCi5ocGFhcy5BcHAingEKB1JlbGVhc2USDwoHdmVyc2lvbhgBIAEoDRIn",
-            "CgZjb25maWcYAiABKAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0Eg0KBW5v",
-            "dGVzGAMgASgJEhMKC2Rlc2NyaXB0aW9uGAQgASgJEg4KBnN0YXR1cxgFIAEo",
-            "CRIlCgp0aW1lc3RhbXBzGAYgASgLMhEuaHBhYXMuVGltZXN0YW1wcyKTAQoK",
-            "VGltZXN0YW1wcxIrCgdjcmVhdGVkGAEgASgLMhouZ29vZ2xlLnByb3RvYnVm",
-            "LlRpbWVzdGFtcBIrCgd1cGRhdGVkGAIgASgLMhouZ29vZ2xlLnByb3RvYnVm",
-            "LlRpbWVzdGFtcBIrCgdkZWxldGVkGAMgASgLMhouZ29vZ2xlLnByb3RvYnVm",
-            "LlRpbWVzdGFtcCJNCgZBcHBSZWYSIwoJbmFtZXNwYWNlGAEgASgJQhDi3x8M",
-            "CgpeLnsxLDIyNX0kEh4KBG5hbWUYAiABKAlCEOLfHwwKCl4uezEsMjI1fSQi",
-            "2AEKCEFwcElucHV0EiMKCW5hbWVzcGFjZRgBIAEoCUIQ4t8fDAoKXi57MSwy",
-            "MjV9JBIfCgVjaGFydBgCIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIiCghhcHBf",
-            "bmFtZRgDIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIzCgZjb25maWcYBCADKAsy",
-            "Gy5ocGFhcy5BcHBJbnB1dC5Db25maWdFbnRyeUIG4t8fAiABGi0KC0NvbmZp",
-            "Z0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEiLgoMTmFt",
-            "ZXNwYWNlUmVmEh4KBG5hbWUYASABKAlCEOLfHwwKCl4uezEsMjI1fSQiOAoN",
-            "TmFtZXNwYWNlUmVmcxInCgpuYW1lc3BhY2VzGAEgAygLMhMuaHBhYXMuTmFt",
-            "ZXNwYWNlUmVmMtMCCgxIUGFhc1NlcnZpY2USJQoGR2V0QXBwEg0uaHBhYXMu",
-            "QXBwUmVmGgouaHBhYXMuQXBwIgASLgoITGlzdEFwcHMSEy5ocGFhcy5OYW1l",
-            "c3BhY2VSZWYaCy5ocGFhcy5BcHBzIgASNwoMVW5pbnN0YWxsQXBwEg0uaHBh",
-            "YXMuQXBwUmVmGhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgASKgoLUm9sbGJh",
-            "Y2tBcHASDS5ocGFhcy5BcHBSZWYaCi5ocGFhcy5BcHAiABIrCgpJbnN0YWxs",
-            "QXBwEg8uaHBhYXMuQXBwSW5wdXQaCi5ocGFhcy5BcHAiABIqCglVcGRhdGVB",
-            "cHASDy5ocGFhcy5BcHBJbnB1dBoKLmhwYWFzLkFwcCIAEi4KDFNlYXJjaENo",
-            "YXJ0cxINLmhwYWFzLkZpbHRlchoNLmhwYWFzLkNoYXJ0cyIAQglaB2hwYWFz",
-            "cGJiBnByb3RvMw=="));
+            "fSQSHwoFZW1haWwYAiABKAlCEOLfHwwKCl4uezEsMjI1fSQiPAoLQ2hhcnRG",
+            "aWx0ZXISHgoEdGVybRgBIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBINCgVyZWdl",
+            "eBgCIAEoCCLQAgoFQ2hhcnQSHgoEbmFtZRgBIAEoCUIQ4t8fDAoKXi57MSwy",
+            "MjV9JBIMCgRob21lGAIgASgJEhMKC2Rlc2NyaXB0aW9uGAMgASgJEg8KB3Zl",
+            "cnNpb24YBCABKAkSDwoHc291cmNlcxgFIAMoCRIQCghrZXl3b3JkcxgGIAMo",
+            "CRIMCgRpY29uGAcgASgJEhIKCmRlcHJlY2F0ZWQYCCABKAgSJwoMZGVwZW5k",
+            "ZW5jaWVzGAkgAygLMhEuaHBhYXMuRGVwZW5kZW5jeRImCgttYWludGFpbmVy",
+            "cxgKIAMoCzIRLmhwYWFzLk1haW50YWluZXISLAoIbWV0YWRhdGEYCyADKAsy",
+            "Gi5ocGFhcy5DaGFydC5NZXRhZGF0YUVudHJ5Gi8KDU1ldGFkYXRhRW50cnkS",
+            "CwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ASImCgZDaGFydHMSHAoG",
+            "Y2hhcnRzGAEgAygLMgwuaHBhYXMuQ2hhcnQiiAEKA0FwcBIeCgRuYW1lGAEg",
+            "ASgJQhDi3x8MCgpeLnsxLDIyNX0kEiMKCW5hbWVzcGFjZRgCIAEoCUIQ4t8f",
+            "DAoKXi57MSwyMjV9JBIfCgdyZWxlYXNlGAUgASgLMg4uaHBhYXMuUmVsZWFz",
+            "ZRIbCgVjaGFydBgUIAEoCzIMLmhwYWFzLkNoYXJ0IiAKBEFwcHMSGAoEYXBw",
+            "cxgBIAMoCzIKLmhwYWFzLkFwcCJPCglBcHBGaWx0ZXISEQoJbmFtZXNwYWNl",
+            "GAEgASgJEhAKCHNlbGVjdG9yGAIgASgJEg0KBWxpbWl0GAMgASgNEg4KBm9m",
+            "ZnNldBgEIAEoDSKeAQoHUmVsZWFzZRIPCgd2ZXJzaW9uGAEgASgNEicKBmNv",
+            "bmZpZxgCIAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3QSDQoFbm90ZXMY",
+            "AyABKAkSEwoLZGVzY3JpcHRpb24YBCABKAkSDgoGc3RhdHVzGAUgASgJEiUK",
+            "CnRpbWVzdGFtcHMYBiABKAsyES5ocGFhcy5UaW1lc3RhbXBzIpMBCgpUaW1l",
+            "c3RhbXBzEisKB2NyZWF0ZWQYASABKAsyGi5nb29nbGUucHJvdG9idWYuVGlt",
+            "ZXN0YW1wEisKB3VwZGF0ZWQYAiABKAsyGi5nb29nbGUucHJvdG9idWYuVGlt",
+            "ZXN0YW1wEisKB2RlbGV0ZWQYAyABKAsyGi5nb29nbGUucHJvdG9idWYuVGlt",
+            "ZXN0YW1wIk0KBkFwcFJlZhIjCgluYW1lc3BhY2UYASABKAlCEOLfHwwKCl4u",
+            "ezEsMjI1fSQSHgoEbmFtZRgCIAEoCUIQ4t8fDAoKXi57MSwyMjV9JCLYAQoI",
+            "QXBwSW5wdXQSIwoJbmFtZXNwYWNlGAEgASgJQhDi3x8MCgpeLnsxLDIyNX0k",
+            "Eh8KBWNoYXJ0GAIgASgJQhDi3x8MCgpeLnsxLDIyNX0kEiIKCGFwcF9uYW1l",
+            "GAMgASgJQhDi3x8MCgpeLnsxLDIyNX0kEjMKBmNvbmZpZxgEIAMoCzIbLmhw",
+            "YWFzLkFwcElucHV0LkNvbmZpZ0VudHJ5Qgbi3x8CIAEaLQoLQ29uZmlnRW50",
+            "cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ASIuCgxOYW1lc3Bh",
+            "Y2VSZWYSHgoEbmFtZRgBIAEoCUIQ4t8fDAoKXi57MSwyMjV9JCI4Cg1OYW1l",
+            "c3BhY2VSZWZzEicKCm5hbWVzcGFjZXMYASADKAsyEy5ocGFhcy5OYW1lc3Bh",
+            "Y2VSZWYiQgoNSGlzdG9yeUZpbHRlchIiCgNyZWYYASABKAsyDS5ocGFhcy5B",
+            "cHBSZWZCBuLfHwIgARINCgVsaW1pdBgCIAEoDTKKAwoMSFBhYXNTZXJ2aWNl",
+            "EiUKBkdldEFwcBINLmhwYWFzLkFwcFJlZhoKLmhwYWFzLkFwcCIAEjEKCkdl",
+            "dEhpc3RvcnkSFC5ocGFhcy5IaXN0b3J5RmlsdGVyGgsuaHBhYXMuQXBwcyIA",
+            "Ei0KClNlYXJjaEFwcHMSEC5ocGFhcy5BcHBGaWx0ZXIaCy5ocGFhcy5BcHBz",
+            "IgASNwoMVW5pbnN0YWxsQXBwEg0uaHBhYXMuQXBwUmVmGhYuZ29vZ2xlLnBy",
+            "b3RvYnVmLkVtcHR5IgASKgoLUm9sbGJhY2tBcHASDS5ocGFhcy5BcHBSZWYa",
+            "Ci5ocGFhcy5BcHAiABIrCgpJbnN0YWxsQXBwEg8uaHBhYXMuQXBwSW5wdXQa",
+            "Ci5ocGFhcy5BcHAiABIqCglVcGRhdGVBcHASDy5ocGFhcy5BcHBJbnB1dBoK",
+            "LmhwYWFzLkFwcCIAEjMKDFNlYXJjaENoYXJ0cxISLmhwYWFzLkNoYXJ0Rmls",
+            "dGVyGg0uaHBhYXMuQ2hhcnRzIgBCCVoHaHBhYXNwYmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Validator.ValidatorReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Hpaas.Dependency), global::Hpaas.Dependency.Parser, new[]{ "Chart", "Version", "Repository" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Hpaas.Maintainer), global::Hpaas.Maintainer.Parser, new[]{ "Name", "Email" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Hpaas.Filter), global::Hpaas.Filter.Parser, new[]{ "Term", "Regex" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Hpaas.ChartFilter), global::Hpaas.ChartFilter.Parser, new[]{ "Term", "Regex" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Hpaas.Chart), global::Hpaas.Chart.Parser, new[]{ "Name", "Home", "Description", "Version", "Sources", "Keywords", "Icon", "Deprecated", "Dependencies", "Maintainers", "Metadata" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Hpaas.Charts), global::Hpaas.Charts.Parser, new[]{ "Charts_" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Hpaas.App), global::Hpaas.App.Parser, new[]{ "Name", "Namespace", "Release", "Chart" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Hpaas.Apps), global::Hpaas.Apps.Parser, new[]{ "Apps_" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Hpaas.AppFilter), global::Hpaas.AppFilter.Parser, new[]{ "Namespace", "Selector", "Limit", "Offset" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Hpaas.Release), global::Hpaas.Release.Parser, new[]{ "Version", "Config", "Notes", "Description", "Status", "Timestamps" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Hpaas.Timestamps), global::Hpaas.Timestamps.Parser, new[]{ "Created", "Updated", "Deleted" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Hpaas.AppRef), global::Hpaas.AppRef.Parser, new[]{ "Namespace", "Name" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Hpaas.AppInput), global::Hpaas.AppInput.Parser, new[]{ "Namespace", "Chart", "AppName", "Config" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Hpaas.NamespaceRef), global::Hpaas.NamespaceRef.Parser, new[]{ "Name" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Hpaas.NamespaceRefs), global::Hpaas.NamespaceRefs.Parser, new[]{ "Namespaces" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Hpaas.NamespaceRefs), global::Hpaas.NamespaceRefs.Parser, new[]{ "Namespaces" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Hpaas.HistoryFilter), global::Hpaas.HistoryFilter.Parser, new[]{ "Ref", "Limit" }, null, null, null)
           }));
     }
     #endregion
@@ -457,13 +463,13 @@ namespace Hpaas {
   }
 
   /// <summary>
-  /// Filter is used for filtering helm chart search results
+  /// ChartFilter is used for filtering helm chart search results
   /// </summary>
-  public sealed partial class Filter : pb::IMessage<Filter> {
-    private static readonly pb::MessageParser<Filter> _parser = new pb::MessageParser<Filter>(() => new Filter());
+  public sealed partial class ChartFilter : pb::IMessage<ChartFilter> {
+    private static readonly pb::MessageParser<ChartFilter> _parser = new pb::MessageParser<ChartFilter>(() => new ChartFilter());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<Filter> Parser { get { return _parser; } }
+    public static pb::MessageParser<ChartFilter> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -476,22 +482,22 @@ namespace Hpaas {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Filter() {
+    public ChartFilter() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Filter(Filter other) : this() {
+    public ChartFilter(ChartFilter other) : this() {
       term_ = other.term_;
       regex_ = other.regex_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Filter Clone() {
-      return new Filter(this);
+    public ChartFilter Clone() {
+      return new ChartFilter(this);
     }
 
     /// <summary>Field number for the "term" field.</summary>
@@ -524,11 +530,11 @@ namespace Hpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as Filter);
+      return Equals(other as ChartFilter);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(Filter other) {
+    public bool Equals(ChartFilter other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -587,7 +593,7 @@ namespace Hpaas {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(Filter other) {
+    public void MergeFrom(ChartFilter other) {
       if (other == null) {
         return;
       }
@@ -1512,6 +1518,219 @@ namespace Hpaas {
 
   }
 
+  public sealed partial class AppFilter : pb::IMessage<AppFilter> {
+    private static readonly pb::MessageParser<AppFilter> _parser = new pb::MessageParser<AppFilter>(() => new AppFilter());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<AppFilter> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Hpaas.SchemaReflection.Descriptor.MessageTypes[7]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public AppFilter() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public AppFilter(AppFilter other) : this() {
+      namespace_ = other.namespace_;
+      selector_ = other.selector_;
+      limit_ = other.limit_;
+      offset_ = other.offset_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public AppFilter Clone() {
+      return new AppFilter(this);
+    }
+
+    /// <summary>Field number for the "namespace" field.</summary>
+    public const int NamespaceFieldNumber = 1;
+    private string namespace_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Namespace {
+      get { return namespace_; }
+      set {
+        namespace_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "selector" field.</summary>
+    public const int SelectorFieldNumber = 2;
+    private string selector_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Selector {
+      get { return selector_; }
+      set {
+        selector_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "limit" field.</summary>
+    public const int LimitFieldNumber = 3;
+    private uint limit_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint Limit {
+      get { return limit_; }
+      set {
+        limit_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "offset" field.</summary>
+    public const int OffsetFieldNumber = 4;
+    private uint offset_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint Offset {
+      get { return offset_; }
+      set {
+        offset_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as AppFilter);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(AppFilter other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Namespace != other.Namespace) return false;
+      if (Selector != other.Selector) return false;
+      if (Limit != other.Limit) return false;
+      if (Offset != other.Offset) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Namespace.Length != 0) hash ^= Namespace.GetHashCode();
+      if (Selector.Length != 0) hash ^= Selector.GetHashCode();
+      if (Limit != 0) hash ^= Limit.GetHashCode();
+      if (Offset != 0) hash ^= Offset.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Namespace.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Namespace);
+      }
+      if (Selector.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Selector);
+      }
+      if (Limit != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Limit);
+      }
+      if (Offset != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(Offset);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Namespace.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Namespace);
+      }
+      if (Selector.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Selector);
+      }
+      if (Limit != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Limit);
+      }
+      if (Offset != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Offset);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(AppFilter other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Namespace.Length != 0) {
+        Namespace = other.Namespace;
+      }
+      if (other.Selector.Length != 0) {
+        Selector = other.Selector;
+      }
+      if (other.Limit != 0) {
+        Limit = other.Limit;
+      }
+      if (other.Offset != 0) {
+        Offset = other.Offset;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Namespace = input.ReadString();
+            break;
+          }
+          case 18: {
+            Selector = input.ReadString();
+            break;
+          }
+          case 24: {
+            Limit = input.ReadUInt32();
+            break;
+          }
+          case 32: {
+            Offset = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
   /// <summary>
   /// Release tracks the state of an app during the lifecycle of it's current deployment
   /// </summary>
@@ -1523,7 +1742,7 @@ namespace Hpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Hpaas.SchemaReflection.Descriptor.MessageTypes[7]; }
+      get { return global::Hpaas.SchemaReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1825,7 +2044,7 @@ namespace Hpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Hpaas.SchemaReflection.Descriptor.MessageTypes[8]; }
+      get { return global::Hpaas.SchemaReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2040,7 +2259,7 @@ namespace Hpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Hpaas.SchemaReflection.Descriptor.MessageTypes[9]; }
+      get { return global::Hpaas.SchemaReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2206,7 +2425,7 @@ namespace Hpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Hpaas.SchemaReflection.Descriptor.MessageTypes[10]; }
+      get { return global::Hpaas.SchemaReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2426,7 +2645,7 @@ namespace Hpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Hpaas.SchemaReflection.Descriptor.MessageTypes[11]; }
+      get { return global::Hpaas.SchemaReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2561,7 +2780,7 @@ namespace Hpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Hpaas.SchemaReflection.Descriptor.MessageTypes[12]; }
+      get { return global::Hpaas.SchemaReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2666,6 +2885,169 @@ namespace Hpaas {
             break;
           case 10: {
             namespaces_.AddEntriesFrom(input, _repeated_namespaces_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class HistoryFilter : pb::IMessage<HistoryFilter> {
+    private static readonly pb::MessageParser<HistoryFilter> _parser = new pb::MessageParser<HistoryFilter>(() => new HistoryFilter());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<HistoryFilter> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Hpaas.SchemaReflection.Descriptor.MessageTypes[14]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public HistoryFilter() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public HistoryFilter(HistoryFilter other) : this() {
+      ref_ = other.ref_ != null ? other.ref_.Clone() : null;
+      limit_ = other.limit_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public HistoryFilter Clone() {
+      return new HistoryFilter(this);
+    }
+
+    /// <summary>Field number for the "ref" field.</summary>
+    public const int RefFieldNumber = 1;
+    private global::Hpaas.AppRef ref_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Hpaas.AppRef Ref {
+      get { return ref_; }
+      set {
+        ref_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "limit" field.</summary>
+    public const int LimitFieldNumber = 2;
+    private uint limit_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint Limit {
+      get { return limit_; }
+      set {
+        limit_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as HistoryFilter);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(HistoryFilter other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(Ref, other.Ref)) return false;
+      if (Limit != other.Limit) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ref_ != null) hash ^= Ref.GetHashCode();
+      if (Limit != 0) hash ^= Limit.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ref_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Ref);
+      }
+      if (Limit != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Limit);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ref_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Ref);
+      }
+      if (Limit != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Limit);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(HistoryFilter other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ref_ != null) {
+        if (ref_ == null) {
+          ref_ = new global::Hpaas.AppRef();
+        }
+        Ref.MergeFrom(other.Ref);
+      }
+      if (other.Limit != 0) {
+        Limit = other.Limit;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (ref_ == null) {
+              ref_ = new global::Hpaas.AppRef();
+            }
+            input.ReadMessage(ref_);
+            break;
+          }
+          case 16: {
+            Limit = input.ReadUInt32();
             break;
           }
         }

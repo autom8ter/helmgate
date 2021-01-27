@@ -51,10 +51,10 @@ func (this *Maintainer) Validate() error {
 	return nil
 }
 
-var _regex_Filter_Term = regexp.MustCompile(`^.{1,225}$`)
+var _regex_ChartFilter_Term = regexp.MustCompile(`^.{1,225}$`)
 
-func (this *Filter) Validate() error {
-	if !_regex_Filter_Term.MatchString(this.Term) {
+func (this *ChartFilter) Validate() error {
+	if !_regex_ChartFilter_Term.MatchString(this.Term) {
 		return github_com_mwitkow_go_proto_validators.FieldError("Term", fmt.Errorf(`value '%v' must be a string conforming to regex "^.{1,225}$"`, this.Term))
 	}
 	return nil
@@ -124,6 +124,9 @@ func (this *Apps) Validate() error {
 			}
 		}
 	}
+	return nil
+}
+func (this *AppFilter) Validate() error {
 	return nil
 }
 func (this *Release) Validate() error {
@@ -203,6 +206,17 @@ func (this *NamespaceRefs) Validate() error {
 			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
 				return github_com_mwitkow_go_proto_validators.FieldError("Namespaces", err)
 			}
+		}
+	}
+	return nil
+}
+func (this *HistoryFilter) Validate() error {
+	if nil == this.Ref {
+		return github_com_mwitkow_go_proto_validators.FieldError("Ref", fmt.Errorf("message must exist"))
+	}
+	if this.Ref != nil {
+		if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(this.Ref); err != nil {
+			return github_com_mwitkow_go_proto_validators.FieldError("Ref", err)
 		}
 	}
 	return nil

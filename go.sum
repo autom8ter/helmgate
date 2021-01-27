@@ -140,6 +140,8 @@ github.com/asaskevich/govalidator v0.0.0-20200428143746-21a406dcc535 h1:4daAzAu0
 github.com/asaskevich/govalidator v0.0.0-20200428143746-21a406dcc535/go.mod h1:oGkLhpf+kjZl6xBf758TQhh5XrAeiJv/7FRz/2spLIg=
 github.com/autom8ter/kubego v0.0.10 h1:37EmQcEIKUhRNQIWU488EWq641+CATu12wOOcC7epqA=
 github.com/autom8ter/kubego v0.0.10/go.mod h1:kHz7+x8ha9JCMcr9CCCPUKJHdXHPpMeQSsV1w6JNkes=
+github.com/autom8ter/kubego v0.0.13 h1:zEG078xtZvjQ3zT9KQEOllT4mLqSqS5lYdAoGpB0Ajs=
+github.com/autom8ter/kubego v0.0.13/go.mod h1:kHz7+x8ha9JCMcr9CCCPUKJHdXHPpMeQSsV1w6JNkes=
 github.com/autom8ter/machine v1.1.2 h1:YawlgQG/6kzfUXKPifXBmcOREZ2EQzzjLs3vMDkeIyQ=
 github.com/autom8ter/machine v1.1.2/go.mod h1:rZXVWB7cfadu8ORTW7RfXYMTnXNxfEJk3C8M6Pu3g6I=
 github.com/aws/aws-lambda-go v1.13.3/go.mod h1:4UKl9IzQMoD+QF79YdCuzCwp8VbmG4VAQwij/eHl5CU=

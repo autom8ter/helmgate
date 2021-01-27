@@ -13,6 +13,13 @@ type App struct {
 	Chart     *Chart   `json:"chart"`
 }
 
+type AppFilter struct {
+	Namespace *string `json:"namespace"`
+	Selector  *string `json:"selector"`
+	Limit     *int    `json:"limit"`
+	Offset    *int    `json:"offset"`
+}
+
 type AppInput struct {
 	Namespace string                 `json:"namespace"`
 	Chart     string                 `json:"chart"`
@@ -39,15 +46,20 @@ type Chart struct {
 	Dependencies []*Dependency          `json:"dependencies"`
 }
 
+type ChartFilter struct {
+	Term  string `json:"term"`
+	Regex *bool  `json:"regex"`
+}
+
 type Dependency struct {
 	Chart      string `json:"chart"`
 	Version    string `json:"version"`
 	Repository string `json:"repository"`
 }
 
-type Filter struct {
-	Term  string `json:"term"`
-	Regex *bool  `json:"regex"`
+type HistoryFilter struct {
+	Ref   *AppRef `json:"ref"`
+	Limit *int    `json:"limit"`
 }
 
 type Maintainer struct {

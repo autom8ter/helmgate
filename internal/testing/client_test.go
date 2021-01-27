@@ -19,7 +19,7 @@ func Test(t *testing.T) {
 		"Authorization",
 		"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c")
 
-	charts, err := client.SearchCharts(ctx, &hpaaspb.Filter{
+	charts, err := client.SearchCharts(ctx, &hpaaspb.ChartFilter{
 		Term:  "redis",
 		Regex: true,
 	})

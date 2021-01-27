@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='hpaas',
   syntax='proto3',
   serialized_options=_b('Z\007hpaaspb'),
-  serialized_pb=_b('\n\x0cschema.proto\x12\x05hpaas\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x19google/protobuf/any.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x36github.com/mwitkow/go-proto-validators/validator.proto\"v\n\nDependency\x12\x1f\n\x05\x63hart\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12!\n\x07version\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12$\n\nrepository\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"M\n\nMaintainer\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05\x65mail\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"7\n\x06\x46ilter\x12\x1e\n\x04term\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\r\n\x05regex\x18\x02 \x01(\x08\"\xd0\x02\n\x05\x43hart\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x0c\n\x04home\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x0f\n\x07version\x18\x04 \x01(\t\x12\x0f\n\x07sources\x18\x05 \x03(\t\x12\x10\n\x08keywords\x18\x06 \x03(\t\x12\x0c\n\x04icon\x18\x07 \x01(\t\x12\x12\n\ndeprecated\x18\x08 \x01(\x08\x12\'\n\x0c\x64\x65pendencies\x18\t \x03(\x0b\x32\x11.hpaas.Dependency\x12&\n\x0bmaintainers\x18\n \x03(\x0b\x32\x11.hpaas.Maintainer\x12,\n\x08metadata\x18\x0b \x03(\x0b\x32\x1a.hpaas.Chart.MetadataEntry\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"&\n\x06\x43harts\x12\x1c\n\x06\x63harts\x18\x01 \x03(\x0b\x32\x0c.hpaas.Chart\"\x88\x01\n\x03\x41pp\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x07release\x18\x05 \x01(\x0b\x32\x0e.hpaas.Release\x12\x1b\n\x05\x63hart\x18\x14 \x01(\x0b\x32\x0c.hpaas.Chart\" \n\x04\x41pps\x12\x18\n\x04\x61pps\x18\x01 \x03(\x0b\x32\n.hpaas.App\"\x9e\x01\n\x07Release\x12\x0f\n\x07version\x18\x01 \x01(\r\x12\'\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\r\n\x05notes\x18\x03 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x04 \x01(\t\x12\x0e\n\x06status\x18\x05 \x01(\t\x12%\n\ntimestamps\x18\x06 \x01(\x0b\x32\x11.hpaas.Timestamps\"\x93\x01\n\nTimestamps\x12+\n\x07\x63reated\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12+\n\x07updated\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12+\n\x07\x64\x65leted\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"M\n\x06\x41ppRef\x12#\n\tnamespace\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1e\n\x04name\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"\xd8\x01\n\x08\x41ppInput\x12#\n\tnamespace\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05\x63hart\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\"\n\x08\x61pp_name\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x33\n\x06\x63onfig\x18\x04 \x03(\x0b\x32\x1b.hpaas.AppInput.ConfigEntryB\x06\xe2\xdf\x1f\x02 \x01\x1a-\n\x0b\x43onfigEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\".\n\x0cNamespaceRef\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"8\n\rNamespaceRefs\x12\'\n\nnamespaces\x18\x01 \x03(\x0b\x32\x13.hpaas.NamespaceRef2\xd3\x02\n\x0cHPaasService\x12%\n\x06GetApp\x12\r.hpaas.AppRef\x1a\n.hpaas.App\"\x00\x12.\n\x08ListApps\x12\x13.hpaas.NamespaceRef\x1a\x0b.hpaas.Apps\"\x00\x12\x37\n\x0cUninstallApp\x12\r.hpaas.AppRef\x1a\x16.google.protobuf.Empty\"\x00\x12*\n\x0bRollbackApp\x12\r.hpaas.AppRef\x1a\n.hpaas.App\"\x00\x12+\n\nInstallApp\x12\x0f.hpaas.AppInput\x1a\n.hpaas.App\"\x00\x12*\n\tUpdateApp\x12\x0f.hpaas.AppInput\x1a\n.hpaas.App\"\x00\x12.\n\x0cSearchCharts\x12\r.hpaas.Filter\x1a\r.hpaas.Charts\"\x00\x42\tZ\x07hpaaspbb\x06proto3')
+  serialized_pb=_b('\n\x0cschema.proto\x12\x05hpaas\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x19google/protobuf/any.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x36github.com/mwitkow/go-proto-validators/validator.proto\"v\n\nDependency\x12\x1f\n\x05\x63hart\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12!\n\x07version\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12$\n\nrepository\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"M\n\nMaintainer\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05\x65mail\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"<\n\x0b\x43hartFilter\x12\x1e\n\x04term\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\r\n\x05regex\x18\x02 \x01(\x08\"\xd0\x02\n\x05\x43hart\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x0c\n\x04home\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x0f\n\x07version\x18\x04 \x01(\t\x12\x0f\n\x07sources\x18\x05 \x03(\t\x12\x10\n\x08keywords\x18\x06 \x03(\t\x12\x0c\n\x04icon\x18\x07 \x01(\t\x12\x12\n\ndeprecated\x18\x08 \x01(\x08\x12\'\n\x0c\x64\x65pendencies\x18\t \x03(\x0b\x32\x11.hpaas.Dependency\x12&\n\x0bmaintainers\x18\n \x03(\x0b\x32\x11.hpaas.Maintainer\x12,\n\x08metadata\x18\x0b \x03(\x0b\x32\x1a.hpaas.Chart.MetadataEntry\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"&\n\x06\x43harts\x12\x1c\n\x06\x63harts\x18\x01 \x03(\x0b\x32\x0c.hpaas.Chart\"\x88\x01\n\x03\x41pp\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x07release\x18\x05 \x01(\x0b\x32\x0e.hpaas.Release\x12\x1b\n\x05\x63hart\x18\x14 \x01(\x0b\x32\x0c.hpaas.Chart\" \n\x04\x41pps\x12\x18\n\x04\x61pps\x18\x01 \x03(\x0b\x32\n.hpaas.App\"O\n\tAppFilter\x12\x11\n\tnamespace\x18\x01 \x01(\t\x12\x10\n\x08selector\x18\x02 \x01(\t\x12\r\n\x05limit\x18\x03 \x01(\r\x12\x0e\n\x06offset\x18\x04 \x01(\r\"\x9e\x01\n\x07Release\x12\x0f\n\x07version\x18\x01 \x01(\r\x12\'\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\r\n\x05notes\x18\x03 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x04 \x01(\t\x12\x0e\n\x06status\x18\x05 \x01(\t\x12%\n\ntimestamps\x18\x06 \x01(\x0b\x32\x11.hpaas.Timestamps\"\x93\x01\n\nTimestamps\x12+\n\x07\x63reated\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12+\n\x07updated\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12+\n\x07\x64\x65leted\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"M\n\x06\x41ppRef\x12#\n\tnamespace\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1e\n\x04name\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"\xd8\x01\n\x08\x41ppInput\x12#\n\tnamespace\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05\x63hart\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\"\n\x08\x61pp_name\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x33\n\x06\x63onfig\x18\x04 \x03(\x0b\x32\x1b.hpaas.AppInput.ConfigEntryB\x06\xe2\xdf\x1f\x02 \x01\x1a-\n\x0b\x43onfigEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\".\n\x0cNamespaceRef\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"8\n\rNamespaceRefs\x12\'\n\nnamespaces\x18\x01 \x03(\x0b\x32\x13.hpaas.NamespaceRef\"B\n\rHistoryFilter\x12\"\n\x03ref\x18\x01 \x01(\x0b\x32\r.hpaas.AppRefB\x06\xe2\xdf\x1f\x02 \x01\x12\r\n\x05limit\x18\x02 \x01(\r2\x8a\x03\n\x0cHPaasService\x12%\n\x06GetApp\x12\r.hpaas.AppRef\x1a\n.hpaas.App\"\x00\x12\x31\n\nGetHistory\x12\x14.hpaas.HistoryFilter\x1a\x0b.hpaas.Apps\"\x00\x12-\n\nSearchApps\x12\x10.hpaas.AppFilter\x1a\x0b.hpaas.Apps\"\x00\x12\x37\n\x0cUninstallApp\x12\r.hpaas.AppRef\x1a\x16.google.protobuf.Empty\"\x00\x12*\n\x0bRollbackApp\x12\r.hpaas.AppRef\x1a\n.hpaas.App\"\x00\x12+\n\nInstallApp\x12\x0f.hpaas.AppInput\x1a\n.hpaas.App\"\x00\x12*\n\tUpdateApp\x12\x0f.hpaas.AppInput\x1a\n.hpaas.App\"\x00\x12\x33\n\x0cSearchCharts\x12\x12.hpaas.ChartFilter\x1a\r.hpaas.Charts\"\x00\x42\tZ\x07hpaaspbb\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_any__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,github_dot_com_dot_mwitkow_dot_go__proto__validators_dot_validator__pb2.DESCRIPTOR,])
 
@@ -114,22 +114,22 @@ _MAINTAINER = _descriptor.Descriptor(
 )
 
 
-_FILTER = _descriptor.Descriptor(
-  name='Filter',
-  full_name='hpaas.Filter',
+_CHARTFILTER = _descriptor.Descriptor(
+  name='ChartFilter',
+  full_name='hpaas.ChartFilter',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='term', full_name='hpaas.Filter.term', index=0,
+      name='term', full_name='hpaas.ChartFilter.term', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=_b('\342\337\037\014\n\n^.{1,225}$'), file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='regex', full_name='hpaas.Filter.regex', index=1,
+      name='regex', full_name='hpaas.ChartFilter.regex', index=1,
       number=2, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
@@ -148,7 +148,7 @@ _FILTER = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=397,
-  serialized_end=452,
+  serialized_end=457,
 )
 
 
@@ -185,8 +185,8 @@ _CHART_METADATAENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=744,
-  serialized_end=791,
+  serialized_start=749,
+  serialized_end=796,
 )
 
 _CHART = _descriptor.Descriptor(
@@ -285,8 +285,8 @@ _CHART = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=455,
-  serialized_end=791,
+  serialized_start=460,
+  serialized_end=796,
 )
 
 
@@ -316,8 +316,8 @@ _CHARTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=793,
-  serialized_end=831,
+  serialized_start=798,
+  serialized_end=836,
 )
 
 
@@ -368,8 +368,8 @@ _APP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=834,
-  serialized_end=970,
+  serialized_start=839,
+  serialized_end=975,
 )
 
 
@@ -399,8 +399,60 @@ _APPS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=972,
-  serialized_end=1004,
+  serialized_start=977,
+  serialized_end=1009,
+)
+
+
+_APPFILTER = _descriptor.Descriptor(
+  name='AppFilter',
+  full_name='hpaas.AppFilter',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='namespace', full_name='hpaas.AppFilter.namespace', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='selector', full_name='hpaas.AppFilter.selector', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='limit', full_name='hpaas.AppFilter.limit', index=2,
+      number=3, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='offset', full_name='hpaas.AppFilter.offset', index=3,
+      number=4, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1011,
+  serialized_end=1090,
 )
 
 
@@ -465,8 +517,8 @@ _RELEASE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1007,
-  serialized_end=1165,
+  serialized_start=1093,
+  serialized_end=1251,
 )
 
 
@@ -510,8 +562,8 @@ _TIMESTAMPS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1168,
-  serialized_end=1315,
+  serialized_start=1254,
+  serialized_end=1401,
 )
 
 
@@ -548,8 +600,8 @@ _APPREF = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1317,
-  serialized_end=1394,
+  serialized_start=1403,
+  serialized_end=1480,
 )
 
 
@@ -586,8 +638,8 @@ _APPINPUT_CONFIGENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1568,
-  serialized_end=1613,
+  serialized_start=1654,
+  serialized_end=1699,
 )
 
 _APPINPUT = _descriptor.Descriptor(
@@ -637,8 +689,8 @@ _APPINPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1397,
-  serialized_end=1613,
+  serialized_start=1483,
+  serialized_end=1699,
 )
 
 
@@ -668,8 +720,8 @@ _NAMESPACEREF = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1615,
-  serialized_end=1661,
+  serialized_start=1701,
+  serialized_end=1747,
 )
 
 
@@ -699,8 +751,46 @@ _NAMESPACEREFS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1663,
-  serialized_end=1719,
+  serialized_start=1749,
+  serialized_end=1805,
+)
+
+
+_HISTORYFILTER = _descriptor.Descriptor(
+  name='HistoryFilter',
+  full_name='hpaas.HistoryFilter',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='ref', full_name='hpaas.HistoryFilter.ref', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=_b('\342\337\037\002 \001'), file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='limit', full_name='hpaas.HistoryFilter.limit', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1807,
+  serialized_end=1873,
 )
 
 _CHART_METADATAENTRY.containing_type = _CHART
@@ -719,19 +809,22 @@ _TIMESTAMPS.fields_by_name['deleted'].message_type = google_dot_protobuf_dot_tim
 _APPINPUT_CONFIGENTRY.containing_type = _APPINPUT
 _APPINPUT.fields_by_name['config'].message_type = _APPINPUT_CONFIGENTRY
 _NAMESPACEREFS.fields_by_name['namespaces'].message_type = _NAMESPACEREF
+_HISTORYFILTER.fields_by_name['ref'].message_type = _APPREF
 DESCRIPTOR.message_types_by_name['Dependency'] = _DEPENDENCY
 DESCRIPTOR.message_types_by_name['Maintainer'] = _MAINTAINER
-DESCRIPTOR.message_types_by_name['Filter'] = _FILTER
+DESCRIPTOR.message_types_by_name['ChartFilter'] = _CHARTFILTER
 DESCRIPTOR.message_types_by_name['Chart'] = _CHART
 DESCRIPTOR.message_types_by_name['Charts'] = _CHARTS
 DESCRIPTOR.message_types_by_name['App'] = _APP
 DESCRIPTOR.message_types_by_name['Apps'] = _APPS
+DESCRIPTOR.message_types_by_name['AppFilter'] = _APPFILTER
 DESCRIPTOR.message_types_by_name['Release'] = _RELEASE
 DESCRIPTOR.message_types_by_name['Timestamps'] = _TIMESTAMPS
 DESCRIPTOR.message_types_by_name['AppRef'] = _APPREF
 DESCRIPTOR.message_types_by_name['AppInput'] = _APPINPUT
 DESCRIPTOR.message_types_by_name['NamespaceRef'] = _NAMESPACEREF
 DESCRIPTOR.message_types_by_name['NamespaceRefs'] = _NAMESPACEREFS
+DESCRIPTOR.message_types_by_name['HistoryFilter'] = _HISTORYFILTER
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 Dependency = _reflection.GeneratedProtocolMessageType('Dependency', (_message.Message,), dict(
@@ -748,12 +841,12 @@ Maintainer = _reflection.GeneratedProtocolMessageType('Maintainer', (_message.Me
   ))
 _sym_db.RegisterMessage(Maintainer)
 
-Filter = _reflection.GeneratedProtocolMessageType('Filter', (_message.Message,), dict(
-  DESCRIPTOR = _FILTER,
+ChartFilter = _reflection.GeneratedProtocolMessageType('ChartFilter', (_message.Message,), dict(
+  DESCRIPTOR = _CHARTFILTER,
   __module__ = 'schema_pb2'
-  # @@protoc_insertion_point(class_scope:hpaas.Filter)
+  # @@protoc_insertion_point(class_scope:hpaas.ChartFilter)
   ))
-_sym_db.RegisterMessage(Filter)
+_sym_db.RegisterMessage(ChartFilter)
 
 Chart = _reflection.GeneratedProtocolMessageType('Chart', (_message.Message,), dict(
 
@@ -790,6 +883,13 @@ Apps = _reflection.GeneratedProtocolMessageType('Apps', (_message.Message,), dic
   # @@protoc_insertion_point(class_scope:hpaas.Apps)
   ))
 _sym_db.RegisterMessage(Apps)
+
+AppFilter = _reflection.GeneratedProtocolMessageType('AppFilter', (_message.Message,), dict(
+  DESCRIPTOR = _APPFILTER,
+  __module__ = 'schema_pb2'
+  # @@protoc_insertion_point(class_scope:hpaas.AppFilter)
+  ))
+_sym_db.RegisterMessage(AppFilter)
 
 Release = _reflection.GeneratedProtocolMessageType('Release', (_message.Message,), dict(
   DESCRIPTOR = _RELEASE,
@@ -841,6 +941,13 @@ NamespaceRefs = _reflection.GeneratedProtocolMessageType('NamespaceRefs', (_mess
   ))
 _sym_db.RegisterMessage(NamespaceRefs)
 
+HistoryFilter = _reflection.GeneratedProtocolMessageType('HistoryFilter', (_message.Message,), dict(
+  DESCRIPTOR = _HISTORYFILTER,
+  __module__ = 'schema_pb2'
+  # @@protoc_insertion_point(class_scope:hpaas.HistoryFilter)
+  ))
+_sym_db.RegisterMessage(HistoryFilter)
+
 
 DESCRIPTOR._options = None
 _DEPENDENCY.fields_by_name['chart']._options = None
@@ -848,7 +955,7 @@ _DEPENDENCY.fields_by_name['version']._options = None
 _DEPENDENCY.fields_by_name['repository']._options = None
 _MAINTAINER.fields_by_name['name']._options = None
 _MAINTAINER.fields_by_name['email']._options = None
-_FILTER.fields_by_name['term']._options = None
+_CHARTFILTER.fields_by_name['term']._options = None
 _CHART_METADATAENTRY._options = None
 _CHART.fields_by_name['name']._options = None
 _APP.fields_by_name['name']._options = None
@@ -861,6 +968,7 @@ _APPINPUT.fields_by_name['chart']._options = None
 _APPINPUT.fields_by_name['app_name']._options = None
 _APPINPUT.fields_by_name['config']._options = None
 _NAMESPACEREF.fields_by_name['name']._options = None
+_HISTORYFILTER.fields_by_name['ref']._options = None
 
 _HPAASSERVICE = _descriptor.ServiceDescriptor(
   name='HPaasService',
@@ -868,8 +976,8 @@ _HPAASSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=1722,
-  serialized_end=2061,
+  serialized_start=1876,
+  serialized_end=2270,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetApp',
@@ -881,18 +989,27 @@ _HPAASSERVICE = _descriptor.ServiceDescriptor(
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
-    name='ListApps',
-    full_name='hpaas.HPaasService.ListApps',
+    name='GetHistory',
+    full_name='hpaas.HPaasService.GetHistory',
     index=1,
     containing_service=None,
-    input_type=_NAMESPACEREF,
+    input_type=_HISTORYFILTER,
+    output_type=_APPS,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SearchApps',
+    full_name='hpaas.HPaasService.SearchApps',
+    index=2,
+    containing_service=None,
+    input_type=_APPFILTER,
     output_type=_APPS,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='UninstallApp',
     full_name='hpaas.HPaasService.UninstallApp',
-    index=2,
+    index=3,
     containing_service=None,
     input_type=_APPREF,
     output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
@@ -901,7 +1018,7 @@ _HPAASSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='RollbackApp',
     full_name='hpaas.HPaasService.RollbackApp',
-    index=3,
+    index=4,
     containing_service=None,
     input_type=_APPREF,
     output_type=_APP,
@@ -910,7 +1027,7 @@ _HPAASSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='InstallApp',
     full_name='hpaas.HPaasService.InstallApp',
-    index=4,
+    index=5,
     containing_service=None,
     input_type=_APPINPUT,
     output_type=_APP,
@@ -919,7 +1036,7 @@ _HPAASSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='UpdateApp',
     full_name='hpaas.HPaasService.UpdateApp',
-    index=5,
+    index=6,
     containing_service=None,
     input_type=_APPINPUT,
     output_type=_APP,
@@ -928,9 +1045,9 @@ _HPAASSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='SearchCharts',
     full_name='hpaas.HPaasService.SearchCharts',
-    index=6,
+    index=7,
     containing_service=None,
-    input_type=_FILTER,
+    input_type=_CHARTFILTER,
     output_type=_CHARTS,
     serialized_options=None,
   ),

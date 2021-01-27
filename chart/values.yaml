@@ -1,6 +1,6 @@
 replicas: 1
 
-image: "colemanword/hpaas:v0.0.29"
+image: "colemanword/hpaas:v0.0.30"
 rego_query: ""
 auth:
   issuer: ""

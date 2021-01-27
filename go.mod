@@ -4,7 +4,7 @@ go 1.15
 
 require (
 	github.com/99designs/gqlgen v0.13.0
-	github.com/autom8ter/kubego v0.0.10
+	github.com/autom8ter/kubego v0.0.13
 	github.com/autom8ter/machine v1.1.2
 	github.com/golang/protobuf v1.4.3
 	github.com/gorilla/websocket v1.4.2

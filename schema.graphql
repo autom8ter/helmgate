@@ -81,11 +81,25 @@ type App {
 }
 
 #
-input Filter {
+input ChartFilter {
     #
     term: String!
     #
     regex: Boolean
+}
+
+#
+input AppFilter {
+    namespace: String
+    selector: String
+    limit: Int
+    offset: Int
+}
+
+#
+input HistoryFilter {
+    ref: AppRef!
+    limit: Int
 }
 
 #
@@ -116,22 +130,24 @@ input AppInput {
 
 # Queries fetch resources
 type Query {
-    # getApp gets an app in the given namespace
+    # getApp gets an apps/releases in the given namespace
     getApp(input: AppRef!): App
-    # listApps lists apps in the namespace
-    listApps(input: NamespaceRef!): [App!]
-    # searchCharts searches for an app chart
-    searchCharts(input: Filter!): [Chart!]
+    # getHistory gets a list of previous versions of the app
+    getHistory(input: HistoryFilter!): [App!]
+    # searchApps searches for apps/releases
+    searchApps(input: AppFilter!): [App!]
+    # searchCharts searches for a helm chart
+    searchCharts(input: ChartFilter!): [Chart!]
 }
 
 # Mutations modify resources
 type Mutation {
-    # installApp installs an app in the given namespace
+    # installApp installs an app/release in the given namespace
     installApp(input: AppInput!): App
-    # updateApp updates an app in the given namespace
+    # updateApp updates an app/release in the given namespace
     updateApp(input: AppInput!): App
-    # rollbackApp rolls the app back to the previous version in the given namespace
+    # rollbackApp rolls the app/release back to the previous version in the given namespace
     rollbackApp(input: AppRef!): App
-    # uninstallApp uninstalls an app in the given namespace
+    # uninstallApp uninstalls an app/release in the given namespace
     uninstallApp(input: AppRef!): String
 }

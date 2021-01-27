@@ -1,4 +1,4 @@
-package helm
+package service
 
 import (
 	hpaaspb "github.com/autom8ter/hpaas/gen/grpc/go"

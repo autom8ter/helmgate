@@ -69,8 +69,11 @@ func (r *queryResolver) GetApp(ctx context.Context, input model.AppRef) (*model.
 	return gqlApp(resp), nil
 }
 
-func (r *queryResolver) ListApps(ctx context.Context, input model.NamespaceRef) ([]*model.App, error) {
-	resp, err := r.client.ListApps(ctx, &hpaaspb.NamespaceRef{Name: input.Name})
+func (r *queryResolver) GetHistory(ctx context.Context, input model.HistoryFilter) ([]*model.App, error) {
+	resp, err := r.client.GetHistory(ctx, &hpaaspb.HistoryFilter{
+		Ref:   toAppRef(*input.Ref),
+		Limit: uint32(helpers.FromIntPointer(input.Limit)),
+	})
 	if err != nil {
 		return nil, &gqlerror.Error{
 			Message: err.Error(),
@@ -84,8 +87,28 @@ func (r *queryResolver) ListApps(ctx context.Context, input model.NamespaceRef) 
 	return apps, nil
 }
 
-func (r *queryResolver) SearchCharts(ctx context.Context, input model.Filter) ([]*model.Chart, error) {
-	resp, err := r.client.SearchCharts(ctx, &hpaaspb.Filter{
+func (r *queryResolver) SearchApps(ctx context.Context, input model.AppFilter) ([]*model.App, error) {
+	resp, err := r.client.SearchApps(ctx, &hpaaspb.AppFilter{
+		Namespace: helpers.FromStringPointer(input.Namespace),
+		Selector:  helpers.FromStringPointer(input.Selector),
+		Limit:     uint32(helpers.FromIntPointer(input.Limit)),
+		Offset:    uint32(helpers.FromIntPointer(input.Offset)),
+	})
+	if err != nil {
+		return nil, &gqlerror.Error{
+			Message: err.Error(),
+			Path:    graphql.GetPath(ctx),
+		}
+	}
+	var apps []*model.App
+	for _, a := range resp.Apps {
+		apps = append(apps, gqlApp(a))
+	}
+	return apps, nil
+}
+
+func (r *queryResolver) SearchCharts(ctx context.Context, input model.ChartFilter) ([]*model.Chart, error) {
+	resp, err := r.client.SearchCharts(ctx, &hpaaspb.ChartFilter{
 		Term:  input.Term,
 		Regex: helpers.FromBoolPointer(input.Regex),
 	})

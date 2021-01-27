@@ -17,7 +17,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     optional :name, :string, 1
     optional :email, :string, 2
   end
-  add_message "hpaas.Filter" do
+  add_message "hpaas.ChartFilter" do
     optional :term, :string, 1
     optional :regex, :bool, 2
   end
@@ -45,6 +45,12 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   end
   add_message "hpaas.Apps" do
     repeated :apps, :message, 1, "hpaas.App"
+  end
+  add_message "hpaas.AppFilter" do
+    optional :namespace, :string, 1
+    optional :selector, :string, 2
+    optional :limit, :uint32, 3
+    optional :offset, :uint32, 4
   end
   add_message "hpaas.Release" do
     optional :version, :uint32, 1
@@ -75,20 +81,26 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   add_message "hpaas.NamespaceRefs" do
     repeated :namespaces, :message, 1, "hpaas.NamespaceRef"
   end
+  add_message "hpaas.HistoryFilter" do
+    optional :ref, :message, 1, "hpaas.AppRef"
+    optional :limit, :uint32, 2
+  end
 end
 
 module Hpaas
   Dependency = Google::Protobuf::DescriptorPool.generated_pool.lookup("hpaas.Dependency").msgclass
   Maintainer = Google::Protobuf::DescriptorPool.generated_pool.lookup("hpaas.Maintainer").msgclass
-  Filter = Google::Protobuf::DescriptorPool.generated_pool.lookup("hpaas.Filter").msgclass
+  ChartFilter = Google::Protobuf::DescriptorPool.generated_pool.lookup("hpaas.ChartFilter").msgclass
   Chart = Google::Protobuf::DescriptorPool.generated_pool.lookup("hpaas.Chart").msgclass
   Charts = Google::Protobuf::DescriptorPool.generated_pool.lookup("hpaas.Charts").msgclass
   App = Google::Protobuf::DescriptorPool.generated_pool.lookup("hpaas.App").msgclass
   Apps = Google::Protobuf::DescriptorPool.generated_pool.lookup("hpaas.Apps").msgclass
+  AppFilter = Google::Protobuf::DescriptorPool.generated_pool.lookup("hpaas.AppFilter").msgclass
   Release = Google::Protobuf::DescriptorPool.generated_pool.lookup("hpaas.Release").msgclass
   Timestamps = Google::Protobuf::DescriptorPool.generated_pool.lookup("hpaas.Timestamps").msgclass
   AppRef = Google::Protobuf::DescriptorPool.generated_pool.lookup("hpaas.AppRef").msgclass
   AppInput = Google::Protobuf::DescriptorPool.generated_pool.lookup("hpaas.AppInput").msgclass
   NamespaceRef = Google::Protobuf::DescriptorPool.generated_pool.lookup("hpaas.NamespaceRef").msgclass
   NamespaceRefs = Google::Protobuf::DescriptorPool.generated_pool.lookup("hpaas.NamespaceRefs").msgclass
+  HistoryFilter = Google::Protobuf::DescriptorPool.generated_pool.lookup("hpaas.HistoryFilter").msgclass
 end

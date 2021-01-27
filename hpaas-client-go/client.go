@@ -190,7 +190,7 @@ func (c *Client) RollbackApp(ctx context.Context, input *hpaaspb.AppRef) error {
 }
 
 // SearchCharts searches for a local/cached helm chart
-func (c *Client) SearchCharts(ctx context.Context, input *hpaaspb.Filter) (*hpaaspb.Charts, error) {
+func (c *Client) SearchCharts(ctx context.Context, input *hpaaspb.ChartFilter) (*hpaaspb.Charts, error) {
 	return c.client.SearchCharts(ctx, input)
 }
 
@@ -199,7 +199,12 @@ func (c *Client) GetApp(ctx context.Context, input *hpaaspb.AppRef) (*hpaaspb.Ap
 	return c.client.GetApp(ctx, input)
 }
 
-// ListApps lists apps/releases in the namespace
-func (c *Client) ListApps(ctx context.Context, input *hpaaspb.NamespaceRef) (*hpaaspb.Apps, error) {
-	return c.client.ListApps(ctx, input)
+// SearchApps searches for apps/releases.
+func (c *Client) SearchApps(ctx context.Context, input *hpaaspb.AppFilter) (*hpaaspb.Apps, error) {
+	return c.client.SearchApps(ctx, input)
+}
+
+// GetHistory gets a list of previous versions for the app/release
+func (c *Client) GetHistory(ctx context.Context, input *hpaaspb.HistoryFilter) (*hpaaspb.Apps, error) {
+	return c.client.GetHistory(ctx, input)
 }
