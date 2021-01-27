@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * SecretInput creates/replaces a secret
  *
- * Generated from protobuf message <code>meshpaas.SecretInput</code>
+ * Generated from protobuf message <code>hpaas.SecretInput</code>
  */
 class SecretInput extends \Google\Protobuf\Internal\Message
 {
@@ -22,7 +22,7 @@ class SecretInput extends \Google\Protobuf\Internal\Message
      */
     private $name = '';
     /**
-     * Generated from protobuf field <code>.meshpaas.SecretType type = 3;</code>
+     * Generated from protobuf field <code>.hpaas.SecretType type = 3;</code>
      */
     private $type = 0;
     /**
@@ -85,7 +85,7 @@ class SecretInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.meshpaas.SecretType type = 3;</code>
+     * Generated from protobuf field <code>.hpaas.SecretType type = 3;</code>
      * @return int
      */
     public function getType()
@@ -94,7 +94,7 @@ class SecretInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.meshpaas.SecretType type = 3;</code>
+     * Generated from protobuf field <code>.hpaas.SecretType type = 3;</code>
      * @param int $var
      * @return $this
      */

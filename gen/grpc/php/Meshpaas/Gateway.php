@@ -9,7 +9,7 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>meshpaas.Gateway</code>
+ * Generated from protobuf message <code>hpaas.Gateway</code>
  */
 class Gateway extends \Google\Protobuf\Internal\Message
 {
@@ -20,7 +20,7 @@ class Gateway extends \Google\Protobuf\Internal\Message
      */
     private $name = '';
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.GatewayListener listeners = 3;</code>
+     * Generated from protobuf field <code>repeated .hpaas.GatewayListener listeners = 3;</code>
      */
     private $listeners;
 
@@ -67,7 +67,7 @@ class Gateway extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.GatewayListener listeners = 3;</code>
+     * Generated from protobuf field <code>repeated .hpaas.GatewayListener listeners = 3;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getListeners()
@@ -76,7 +76,7 @@ class Gateway extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.GatewayListener listeners = 3;</code>
+     * Generated from protobuf field <code>repeated .hpaas.GatewayListener listeners = 3;</code>
      * @param \Meshpaas\GatewayListener[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */

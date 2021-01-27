@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * Chart is a template of an application
  *
- * Generated from protobuf message <code>meshpaas.Chart</code>
+ * Generated from protobuf message <code>hpaas.Chart</code>
  */
 class Chart extends \Google\Protobuf\Internal\Message
 {
@@ -58,11 +58,11 @@ class Chart extends \Google\Protobuf\Internal\Message
      */
     private $deprecated = false;
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.Dependency dependencies = 9;</code>
+     * Generated from protobuf field <code>repeated .hpaas.Dependency dependencies = 9;</code>
      */
     private $dependencies;
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
+     * Generated from protobuf field <code>repeated .hpaas.Maintainer maintainers = 10;</code>
      */
     private $maintainers;
     /**
@@ -296,7 +296,7 @@ class Chart extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.Dependency dependencies = 9;</code>
+     * Generated from protobuf field <code>repeated .hpaas.Dependency dependencies = 9;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getDependencies()
@@ -305,7 +305,7 @@ class Chart extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.Dependency dependencies = 9;</code>
+     * Generated from protobuf field <code>repeated .hpaas.Dependency dependencies = 9;</code>
      * @param \Meshpaas\Dependency[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
@@ -318,7 +318,7 @@ class Chart extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
+     * Generated from protobuf field <code>repeated .hpaas.Maintainer maintainers = 10;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getMaintainers()
@@ -327,7 +327,7 @@ class Chart extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.Maintainer maintainers = 10;</code>
+     * Generated from protobuf field <code>repeated .hpaas.Maintainer maintainers = 10;</code>
      * @param \Meshpaas\Maintainer[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */

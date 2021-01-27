@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * Container is a single docker container
  *
- * Generated from protobuf message <code>meshpaas.Container</code>
+ * Generated from protobuf message <code>hpaas.Container</code>
  */
 class Container extends \Google\Protobuf\Internal\Message
 {
@@ -42,7 +42,7 @@ class Container extends \Google\Protobuf\Internal\Message
     /**
      * list of ports
      *
-     * Generated from protobuf field <code>repeated .meshpaas.ContainerPort ports = 5;</code>
+     * Generated from protobuf field <code>repeated .hpaas.ContainerPort ports = 5;</code>
      */
     private $ports;
 
@@ -176,7 +176,7 @@ class Container extends \Google\Protobuf\Internal\Message
     /**
      * list of ports
      *
-     * Generated from protobuf field <code>repeated .meshpaas.ContainerPort ports = 5;</code>
+     * Generated from protobuf field <code>repeated .hpaas.ContainerPort ports = 5;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getPorts()
@@ -187,7 +187,7 @@ class Container extends \Google\Protobuf\Internal\Message
     /**
      * list of ports
      *
-     * Generated from protobuf field <code>repeated .meshpaas.ContainerPort ports = 5;</code>
+     * Generated from protobuf field <code>repeated .hpaas.ContainerPort ports = 5;</code>
      * @param \Meshpaas\ContainerPort[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */

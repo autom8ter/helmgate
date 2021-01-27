@@ -1,8 +1,8 @@
-# meshpaas
+# hpaas
 
 A secure graphQL/gRPC API for easily deploying applications on Kubernetes with Helm charts
 
-- [API Documentation](https://autom8ter.github.io/meshpaas/)
+- [API Documentation](https://autom8ter.github.io/hpaas/)
 
 ## Features
 - [x] gRPC API
@@ -23,9 +23,9 @@ A secure graphQL/gRPC API for easily deploying applications on Kubernetes with H
 ## Command Line
 
 ```
-meshpaas -h
-Usage of meshpaas:
-      --config string   path to config file (env: MESHPAAS_JWKS_URI) (default "meshpaas.yaml")
+hpaas -h
+Usage of hpaas:
+      --config string   path to config file (env: MESHPAAS_JWKS_URI) (default "hpaas.yaml")
 ```
 
 ## Sample Config

@@ -1,10 +1,10 @@
-package meshpaas_client_go
+package hpaas_client_go
 
 import (
 	"context"
 	"fmt"
-	meshpaaspb "github.com/autom8ter/meshpaas/gen/grpc/go"
-	"github.com/autom8ter/meshpaas/internal/logger"
+	hpaaspb "github.com/autom8ter/hpaas/gen/grpc/go"
+	"github.com/autom8ter/hpaas/internal/logger"
 	grpc_zap "github.com/grpc-ecosystem/go-grpc-middleware/logging/zap"
 	grpc_validator "github.com/grpc-ecosystem/go-grpc-middleware/validator"
 	grpc_prometheus "github.com/grpc-ecosystem/go-grpc-prometheus"
@@ -77,7 +77,7 @@ func streamAuth(tokenSource oauth2.TokenSource) grpc.StreamClientInterceptor {
 	}
 }
 
-// NewClient creates a new gRPC meshpaas client
+// NewClient creates a new gRPC hpaas client
 func NewClient(ctx context.Context, target string, opts ...Opt) (*Client, error) {
 	if target == "" {
 		return nil, errors.New("empty target")
@@ -129,13 +129,13 @@ func NewClient(ctx context.Context, target string, opts ...Opt) (*Client, error)
 		return nil, err
 	}
 	return &Client{
-		client: meshpaaspb.NewMeshPaasServiceClient(conn),
+		client: hpaaspb.NewMeshPaasServiceClient(conn),
 	}, nil
 }
 
-// Client is a meshpaas gRPC client
+// Client is a hpaas gRPC client
 type Client struct {
-	client meshpaaspb.MeshPaasServiceClient
+	client hpaaspb.MeshPaasServiceClient
 }
 
 func toContext(ctx context.Context, tokenSource oauth2.TokenSource) (context.Context, error) {

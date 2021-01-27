@@ -9,12 +9,12 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>meshpaas.Secrets</code>
+ * Generated from protobuf message <code>hpaas.Secrets</code>
  */
 class Secrets extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.Secret secrets = 1;</code>
+     * Generated from protobuf field <code>repeated .hpaas.Secret secrets = 1;</code>
      */
     private $secrets;
 
@@ -33,7 +33,7 @@ class Secrets extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.Secret secrets = 1;</code>
+     * Generated from protobuf field <code>repeated .hpaas.Secret secrets = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getSecrets()
@@ -42,7 +42,7 @@ class Secrets extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.Secret secrets = 1;</code>
+     * Generated from protobuf field <code>repeated .hpaas.Secret secrets = 1;</code>
      * @param \Meshpaas\Secret[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */

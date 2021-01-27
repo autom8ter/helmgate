@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * HTTPRoute is a single http route(istio HttpRoute)
  *
- * Generated from protobuf message <code>meshpaas.HTTPRoute</code>
+ * Generated from protobuf message <code>hpaas.HTTPRoute</code>
  */
 class HTTPRoute extends \Google\Protobuf\Internal\Message
 {

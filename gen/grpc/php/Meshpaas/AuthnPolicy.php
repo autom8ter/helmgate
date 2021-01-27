@@ -9,16 +9,16 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>meshpaas.AuthnPolicy</code>
+ * Generated from protobuf message <code>hpaas.AuthnPolicy</code>
  */
 class AuthnPolicy extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>.meshpaas.AuthAction action = 1;</code>
+     * Generated from protobuf field <code>.hpaas.AuthAction action = 1;</code>
      */
     private $action = 0;
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.AuthnRule rules = 2;</code>
+     * Generated from protobuf field <code>repeated .hpaas.AuthnRule rules = 2;</code>
      */
     private $rules;
 
@@ -38,7 +38,7 @@ class AuthnPolicy extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.meshpaas.AuthAction action = 1;</code>
+     * Generated from protobuf field <code>.hpaas.AuthAction action = 1;</code>
      * @return int
      */
     public function getAction()
@@ -47,7 +47,7 @@ class AuthnPolicy extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.meshpaas.AuthAction action = 1;</code>
+     * Generated from protobuf field <code>.hpaas.AuthAction action = 1;</code>
      * @param int $var
      * @return $this
      */
@@ -60,7 +60,7 @@ class AuthnPolicy extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.AuthnRule rules = 2;</code>
+     * Generated from protobuf field <code>repeated .hpaas.AuthnRule rules = 2;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getRules()
@@ -69,7 +69,7 @@ class AuthnPolicy extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.AuthnRule rules = 2;</code>
+     * Generated from protobuf field <code>repeated .hpaas.AuthnRule rules = 2;</code>
      * @param \Meshpaas\AuthnRule[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */

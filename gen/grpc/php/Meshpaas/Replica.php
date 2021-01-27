@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * Replica tracks the state/status of an individual replica of an api
  *
- * Generated from protobuf message <code>meshpaas.Replica</code>
+ * Generated from protobuf message <code>hpaas.Replica</code>
  */
 class Replica extends \Google\Protobuf\Internal\Message
 {

@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * Dependency is a dependency required by a helm chart
  *
- * Generated from protobuf message <code>meshpaas.Dependency</code>
+ * Generated from protobuf message <code>hpaas.Dependency</code>
  */
 class Dependency extends \Google\Protobuf\Internal\Message
 {

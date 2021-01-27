@@ -11,12 +11,12 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * APIStatus tracks the status of an api
  *
- * Generated from protobuf message <code>meshpaas.APIStatus</code>
+ * Generated from protobuf message <code>hpaas.APIStatus</code>
  */
 class APIStatus extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.Replica replicas = 1;</code>
+     * Generated from protobuf field <code>repeated .hpaas.Replica replicas = 1;</code>
      */
     private $replicas;
 
@@ -35,7 +35,7 @@ class APIStatus extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.Replica replicas = 1;</code>
+     * Generated from protobuf field <code>repeated .hpaas.Replica replicas = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getReplicas()
@@ -44,7 +44,7 @@ class APIStatus extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.Replica replicas = 1;</code>
+     * Generated from protobuf field <code>repeated .hpaas.Replica replicas = 1;</code>
      * @param \Meshpaas\Replica[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */

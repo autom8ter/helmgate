@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * API is a api
  *
- * Generated from protobuf message <code>meshpaas.API</code>
+ * Generated from protobuf message <code>hpaas.API</code>
  */
 class API extends \Google\Protobuf\Internal\Message
 {
@@ -24,7 +24,7 @@ class API extends \Google\Protobuf\Internal\Message
     /**
      * containers are docker containers that run the api's business logic
      *
-     * Generated from protobuf field <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>repeated .hpaas.Container containers = 3 [(.validator.field) = {</code>
      */
     private $containers;
     /**
@@ -36,13 +36,13 @@ class API extends \Google\Protobuf\Internal\Message
     /**
      * gateway/service-mesh routing
      *
-     * Generated from protobuf field <code>.meshpaas.Routing routing = 11 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>.hpaas.Routing routing = 11 [(.validator.field) = {</code>
      */
     private $routing = null;
     /**
      * api authentication options
      *
-     * Generated from protobuf field <code>.meshpaas.Authn authentication = 12 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>.hpaas.Authn authentication = 12 [(.validator.field) = {</code>
      */
     private $authentication = null;
     /**
@@ -54,7 +54,7 @@ class API extends \Google\Protobuf\Internal\Message
     /**
      * status tracks the state of the api during it's lifecycle
      *
-     * Generated from protobuf field <code>.meshpaas.APIStatus status = 20 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>.hpaas.APIStatus status = 20 [(.validator.field) = {</code>
      */
     private $status = null;
 
@@ -114,7 +114,7 @@ class API extends \Google\Protobuf\Internal\Message
     /**
      * containers are docker containers that run the api's business logic
      *
-     * Generated from protobuf field <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>repeated .hpaas.Container containers = 3 [(.validator.field) = {</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getContainers()
@@ -125,7 +125,7 @@ class API extends \Google\Protobuf\Internal\Message
     /**
      * containers are docker containers that run the api's business logic
      *
-     * Generated from protobuf field <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>repeated .hpaas.Container containers = 3 [(.validator.field) = {</code>
      * @param \Meshpaas\Container[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
@@ -166,7 +166,7 @@ class API extends \Google\Protobuf\Internal\Message
     /**
      * gateway/service-mesh routing
      *
-     * Generated from protobuf field <code>.meshpaas.Routing routing = 11 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>.hpaas.Routing routing = 11 [(.validator.field) = {</code>
      * @return \Meshpaas\Routing
      */
     public function getRouting()
@@ -177,7 +177,7 @@ class API extends \Google\Protobuf\Internal\Message
     /**
      * gateway/service-mesh routing
      *
-     * Generated from protobuf field <code>.meshpaas.Routing routing = 11 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>.hpaas.Routing routing = 11 [(.validator.field) = {</code>
      * @param \Meshpaas\Routing $var
      * @return $this
      */
@@ -192,7 +192,7 @@ class API extends \Google\Protobuf\Internal\Message
     /**
      * api authentication options
      *
-     * Generated from protobuf field <code>.meshpaas.Authn authentication = 12 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>.hpaas.Authn authentication = 12 [(.validator.field) = {</code>
      * @return \Meshpaas\Authn
      */
     public function getAuthentication()
@@ -203,7 +203,7 @@ class API extends \Google\Protobuf\Internal\Message
     /**
      * api authentication options
      *
-     * Generated from protobuf field <code>.meshpaas.Authn authentication = 12 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>.hpaas.Authn authentication = 12 [(.validator.field) = {</code>
      * @param \Meshpaas\Authn $var
      * @return $this
      */
@@ -244,7 +244,7 @@ class API extends \Google\Protobuf\Internal\Message
     /**
      * status tracks the state of the api during it's lifecycle
      *
-     * Generated from protobuf field <code>.meshpaas.APIStatus status = 20 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>.hpaas.APIStatus status = 20 [(.validator.field) = {</code>
      * @return \Meshpaas\APIStatus
      */
     public function getStatus()
@@ -255,7 +255,7 @@ class API extends \Google\Protobuf\Internal\Message
     /**
      * status tracks the state of the api during it's lifecycle
      *
-     * Generated from protobuf field <code>.meshpaas.APIStatus status = 20 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>.hpaas.APIStatus status = 20 [(.validator.field) = {</code>
      * @param \Meshpaas\APIStatus $var
      * @return $this
      */

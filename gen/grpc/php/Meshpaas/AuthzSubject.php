@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * AuthzSubject is a set of attributes derived from the jwt of on an inbound request
  *
- * Generated from protobuf message <code>meshpaas.AuthzSubject</code>
+ * Generated from protobuf message <code>hpaas.AuthzSubject</code>
  */
 class AuthzSubject extends \Google\Protobuf\Internal\Message
 {

@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * Timestamps tracks timestamps related to a release
  *
- * Generated from protobuf message <code>meshpaas.Timestamps</code>
+ * Generated from protobuf message <code>hpaas.Timestamps</code>
  */
 class Timestamps extends \Google\Protobuf\Internal\Message
 {

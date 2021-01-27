@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * TaskInput creates/updates a task(cron job)
  *
- * Generated from protobuf message <code>meshpaas.TaskInput</code>
+ * Generated from protobuf message <code>hpaas.TaskInput</code>
  */
 class TaskInput extends \Google\Protobuf\Internal\Message
 {
@@ -30,7 +30,7 @@ class TaskInput extends \Google\Protobuf\Internal\Message
     /**
      * containers are docker containers that run the task's business logic
      *
-     * Generated from protobuf field <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>repeated .hpaas.Container containers = 4 [(.validator.field) = {</code>
      */
     private $containers;
     /**
@@ -124,7 +124,7 @@ class TaskInput extends \Google\Protobuf\Internal\Message
     /**
      * containers are docker containers that run the task's business logic
      *
-     * Generated from protobuf field <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>repeated .hpaas.Container containers = 4 [(.validator.field) = {</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getContainers()
@@ -135,7 +135,7 @@ class TaskInput extends \Google\Protobuf\Internal\Message
     /**
      * containers are docker containers that run the task's business logic
      *
-     * Generated from protobuf field <code>repeated .meshpaas.Container containers = 4 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>repeated .hpaas.Container containers = 4 [(.validator.field) = {</code>
      * @param \Meshpaas\Container[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */

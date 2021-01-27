@@ -11,12 +11,12 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * Apps is a list of apps
  *
- * Generated from protobuf message <code>meshpaas.Apps</code>
+ * Generated from protobuf message <code>hpaas.Apps</code>
  */
 class Apps extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.App apps = 1;</code>
+     * Generated from protobuf field <code>repeated .hpaas.App apps = 1;</code>
      */
     private $apps;
 
@@ -35,7 +35,7 @@ class Apps extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.App apps = 1;</code>
+     * Generated from protobuf field <code>repeated .hpaas.App apps = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getApps()
@@ -44,7 +44,7 @@ class Apps extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.App apps = 1;</code>
+     * Generated from protobuf field <code>repeated .hpaas.App apps = 1;</code>
      * @param \Meshpaas\App[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */

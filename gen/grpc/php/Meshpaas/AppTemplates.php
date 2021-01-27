@@ -11,12 +11,12 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * Charts is a list of app templates
  *
- * Generated from protobuf message <code>meshpaas.Charts</code>
+ * Generated from protobuf message <code>hpaas.Charts</code>
  */
 class Charts extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.Chart templates = 1;</code>
+     * Generated from protobuf field <code>repeated .hpaas.Chart templates = 1;</code>
      */
     private $templates;
 
@@ -35,7 +35,7 @@ class Charts extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.Chart templates = 1;</code>
+     * Generated from protobuf field <code>repeated .hpaas.Chart templates = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getTemplates()
@@ -44,7 +44,7 @@ class Charts extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.Chart templates = 1;</code>
+     * Generated from protobuf field <code>repeated .hpaas.Chart templates = 1;</code>
      * @param \Meshpaas\Chart[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */

@@ -1,6 +1,6 @@
 replicas: 1
 
-image: "colemanword/meshpaas:v0.0.24"
+image: "colemanword/hpaas:v0.0.25"
 
 hostname: "*"
 

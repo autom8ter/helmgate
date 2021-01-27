@@ -9,7 +9,7 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>meshpaas.Namespace</code>
+ * Generated from protobuf message <code>hpaas.Namespace</code>
  */
 class PBNamespace extends \Google\Protobuf\Internal\Message
 {

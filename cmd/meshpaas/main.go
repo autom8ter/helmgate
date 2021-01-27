@@ -3,14 +3,14 @@ package main
 import (
 	"context"
 	"fmt"
+	hpaaspb "github.com/autom8ter/hpaas/gen/grpc/go"
+	"github.com/autom8ter/hpaas/internal/auth"
+	"github.com/autom8ter/hpaas/internal/config"
+	"github.com/autom8ter/hpaas/internal/gql"
+	"github.com/autom8ter/hpaas/internal/helm"
+	"github.com/autom8ter/hpaas/internal/helpers"
+	"github.com/autom8ter/hpaas/internal/logger"
 	"github.com/autom8ter/machine"
-	meshpaaspb "github.com/autom8ter/meshpaas/gen/grpc/go"
-	"github.com/autom8ter/meshpaas/internal/auth"
-	"github.com/autom8ter/meshpaas/internal/config"
-	"github.com/autom8ter/meshpaas/internal/gql"
-	"github.com/autom8ter/meshpaas/internal/helm"
-	"github.com/autom8ter/meshpaas/internal/helpers"
-	"github.com/autom8ter/meshpaas/internal/logger"
 	grpc_zap "github.com/grpc-ecosystem/go-grpc-middleware/logging/zap"
 	grpc_recovery "github.com/grpc-ecosystem/go-grpc-middleware/recovery"
 	grpc_validator "github.com/grpc-ecosystem/go-grpc-middleware/validator"
@@ -39,7 +39,7 @@ var (
 )
 
 func init() {
-	pflag.CommandLine.StringVar(&configPath, "config", helpers.EnvOr("MESHPAAS_CONFIG", "meshpaas.yaml"), "path to config file (env: MESHPAAS_JWKS_URI)")
+	pflag.CommandLine.StringVar(&configPath, "config", helpers.EnvOr("MESHPAAS_CONFIG", "hpaas.yaml"), "path to config file (env: MESHPAAS_JWKS_URI)")
 	pflag.Parse()
 }
 
@@ -48,7 +48,7 @@ func main() {
 }
 
 func run(ctx context.Context) {
-	bits, err := ioutil.ReadFile("meshpaas.yaml")
+	bits, err := ioutil.ReadFile("hpaas.yaml")
 	if err != nil {
 		fmt.Printf("failed to read config file: %s", err.Error())
 		return
@@ -128,7 +128,7 @@ func run(ctx context.Context) {
 	})
 	r := rego.New(
 		rego.Query(c.RegoQuery),
-		rego.Module("meshpaas.rego", c.RegoPolicy),
+		rego.Module("hpaas.rego", c.RegoPolicy),
 	)
 	a, err := auth.NewAuth(c.JwksURI, lgger, r)
 	if err != nil {
@@ -157,7 +157,7 @@ func run(ctx context.Context) {
 		return
 	}
 	gserver := grpc.NewServer(gopts...)
-	meshpaaspb.RegisterMeshPaasServiceServer(gserver, service)
+	hpaaspb.RegisterMeshPaasServiceServer(gserver, service)
 	reflection.Register(gserver)
 	grpc_prometheus.Register(gserver)
 	m.Go(func(routine machine.Routine) {
@@ -177,7 +177,7 @@ func run(ctx context.Context) {
 		return
 	}
 	defer conn.Close()
-	resolver := gql.NewResolver(meshpaaspb.NewMeshPaasServiceClient(conn), lgger)
+	resolver := gql.NewResolver(hpaaspb.NewMeshPaasServiceClient(conn), lgger)
 
 	mux := http.NewServeMux()
 

@@ -1,20 +1,20 @@
 package gql
 
 import (
-	"github.com/autom8ter/meshpaas/gen/gql/go/model"
-	meshpaaspb "github.com/autom8ter/meshpaas/gen/grpc/go"
-	"github.com/autom8ter/meshpaas/internal/helpers"
+	"github.com/autom8ter/hpaas/gen/gql/go/model"
+	hpaaspb "github.com/autom8ter/hpaas/gen/grpc/go"
+	"github.com/autom8ter/hpaas/internal/helpers"
 )
 
-func toAppRef(ref model.AppRef) *meshpaaspb.AppRef {
-	return &meshpaaspb.AppRef{
+func toAppRef(ref model.AppRef) *hpaaspb.AppRef {
+	return &hpaaspb.AppRef{
 		Namespace: ref.Namespace,
 		Name:      ref.Name,
 	}
 }
 
-func toAppInput(ref model.AppInput) *meshpaaspb.AppInput {
-	return &meshpaaspb.AppInput{
+func toAppInput(ref model.AppInput) *hpaaspb.AppInput {
+	return &hpaaspb.AppInput{
 		Namespace: ref.Namespace,
 		Chart:     ref.Chart,
 		AppName:   ref.AppName,
@@ -22,7 +22,7 @@ func toAppInput(ref model.AppInput) *meshpaaspb.AppInput {
 	}
 }
 
-func gqlChart(app *meshpaaspb.Chart) *model.Chart {
+func gqlChart(app *hpaaspb.Chart) *model.Chart {
 	return &model.Chart{
 		Name:         app.Name,
 		Home:         helpers.ToStringPointer(app.Home),
@@ -38,7 +38,7 @@ func gqlChart(app *meshpaaspb.Chart) *model.Chart {
 	}
 }
 
-func gqlApp(app *meshpaaspb.App) *model.App {
+func gqlApp(app *hpaaspb.App) *model.App {
 	return &model.App{
 		Name:      app.Name,
 		Namespace: app.Namespace,
@@ -47,7 +47,7 @@ func gqlApp(app *meshpaaspb.App) *model.App {
 	}
 }
 
-func gqlRelease(release *meshpaaspb.Release) *model.Release {
+func gqlRelease(release *hpaaspb.Release) *model.Release {
 	return &model.Release{
 		Version:     int(release.GetVersion()),
 		Config:      release.Config.AsMap(),
@@ -62,7 +62,7 @@ func gqlRelease(release *meshpaaspb.Release) *model.Release {
 	}
 }
 
-func gqlTemplate(template *meshpaaspb.Chart) *model.Chart {
+func gqlTemplate(template *hpaaspb.Chart) *model.Chart {
 	return &model.Chart{
 		Name:         template.GetName(),
 		Home:         helpers.ToStringPointer(template.GetHome()),
@@ -78,7 +78,7 @@ func gqlTemplate(template *meshpaaspb.Chart) *model.Chart {
 	}
 }
 
-func gqlMaintainers(maintainer []*meshpaaspb.Maintainer) []*model.Maintainer {
+func gqlMaintainers(maintainer []*hpaaspb.Maintainer) []*model.Maintainer {
 	var maintainers []*model.Maintainer
 	for _, m := range maintainer {
 		maintainers = append(maintainers, &model.Maintainer{
@@ -89,7 +89,7 @@ func gqlMaintainers(maintainer []*meshpaaspb.Maintainer) []*model.Maintainer {
 	return maintainers
 }
 
-func gqlDependencies(maintainer []*meshpaaspb.Dependency) []*model.Dependency {
+func gqlDependencies(maintainer []*hpaaspb.Dependency) []*model.Dependency {
 	var deps []*model.Dependency
 	for _, m := range maintainer {
 		deps = append(deps, &model.Dependency{

@@ -9,7 +9,7 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>meshpaas.MeshUser</code>
+ * Generated from protobuf message <code>hpaas.MeshUser</code>
  */
 class MeshUser extends \Google\Protobuf\Internal\Message
 {
@@ -18,7 +18,7 @@ class MeshUser extends \Google\Protobuf\Internal\Message
      */
     private $email = '';
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.MeshUserPermission permissions = 2;</code>
+     * Generated from protobuf field <code>repeated .hpaas.MeshUserPermission permissions = 2;</code>
      */
     private $permissions;
 
@@ -60,7 +60,7 @@ class MeshUser extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.MeshUserPermission permissions = 2;</code>
+     * Generated from protobuf field <code>repeated .hpaas.MeshUserPermission permissions = 2;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getPermissions()
@@ -69,7 +69,7 @@ class MeshUser extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.MeshUserPermission permissions = 2;</code>
+     * Generated from protobuf field <code>repeated .hpaas.MeshUserPermission permissions = 2;</code>
      * @param \Meshpaas\MeshUserPermission[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */

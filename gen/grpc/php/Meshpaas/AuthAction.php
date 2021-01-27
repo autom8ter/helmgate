@@ -5,7 +5,7 @@
 namespace Meshpaas;
 
 /**
- * Protobuf type <code>meshpaas.AuthAction</code>
+ * Protobuf type <code>hpaas.AuthAction</code>
  */
 class AuthAction
 {

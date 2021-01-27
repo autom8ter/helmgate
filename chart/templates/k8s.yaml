@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: meshpaas-system
+  name: hpaas-system
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
-  name: meshpaas-gateway
-  namespace: meshpaas-system
+  name: hpaas-gateway
+  namespace: hpaas-system
 spec:
   selector:
-    app: meshpaas-admin
+    app: hpaas-admin
   servers:
     - port:
         number: 80
@@ -34,13 +34,13 @@ spec:
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: meshpaas-admin-sa
+  name: hpaas-admin-sa
 automountServiceAccountToken: true
 ---
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: meshpaas-admin-cluster-role
+  name: hpaas-admin-cluster-role
 rules:
   - apiGroups: ["", "extensions", "apps",  "batch", "networking.k8s.io", "networking.istio.io", "authentication.istio.io", "rbac.istio.io", "config.istio.io", "security.istio.io"]
     resources: ["*"]
@@ -50,24 +50,24 @@ rules:
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: meshpaas-admin-cluster-role-binding
-  namespace: meshpaas-system
+  name: hpaas-admin-cluster-role-binding
+  namespace: hpaas-system
 subjects:
   - kind: ServiceAccount
-    name: meshpaas-admin-sa
-    namespace: meshpaas-system
+    name: hpaas-admin-sa
+    namespace: hpaas-system
 roleRef:
   kind: ClusterRole
-  name: meshpaas-admin-cluster-role
+  name: hpaas-admin-cluster-role
   apiGroup: rbac.authorization.k8s.io
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: meshpaas-admin-service
-  namespace: meshpaas-system
+  name: hpaas-admin-service
+  namespace: hpaas-system
   labels:
-    app: meshpaas-admin
+    app: hpaas-admin
 spec:
   ports:
   - port: 8820
@@ -76,26 +76,26 @@ spec:
     name: admin
   clusterIP: None
   selector:
-    app: meshpaas-admin
+    app: hpaas-admin
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: meshpaas-admin
-  namespace: meshpaas-system
+  name: hpaas-admin
+  namespace: hpaas-system
 spec:
   replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
-      app: meshpaas
+      app: hpaas
   template:
     metadata:
       labels:
-        app: meshpaas-admin
+        app: hpaas-admin
     spec:
-      serviceAccountName: meshpaas
+      serviceAccountName: hpaas
       containers:
-        - name: meshpaas
+        - name: hpaas
           env:
             - name: POD_NAME
               valueFrom:
@@ -119,14 +119,14 @@ spec:
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: meshpaas-route
+  name: hpaas-route
 spec:
   hosts:
-    - meshpaas.meshpaas.svc.cluster.local
+    - hpaas.hpaas.svc.cluster.local
   gateways:
-    - "meshpaas-gateway"
+    - "hpaas-gateway"
   http:
-    - name: "meshpaas-routes"
+    - name: "hpaas-routes"
       match:
         - uri:
             prefix: "/"
@@ -134,18 +134,18 @@ spec:
             prefix: "/"
       route:
         - destination:
-            host: meshpaas.meshpaas.svc.cluster.local
+            host: hpaas.hpaas.svc.cluster.local
 
 ---
 apiVersion: security.istio.io/v1beta1
 kind: RequestAuthentication
 metadata:
-  name: meshpaas-authenticator
-  namespace: meshpaas-system
+  name: hpaas-authenticator
+  namespace: hpaas-system
 spec:
   selector:
     matchLabels:
-      app: meshpaas-admin
+      app: hpaas-admin
   jwtRules:
     - issuer: {{ .Values.auth.issuer }}
       jwksUri: {{ .Values.auth.jwks_uri }}
@@ -153,12 +153,12 @@ spec:
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
 metadata:
-  name: meshpaas-authorizer
-  namespace: meshpaas-system
+  name: hpaas-authorizer
+  namespace: hpaas-system
 spec:
   selector:
     matchLabels:
-      app: meshpaas-admin
+      app: hpaas-admin
   rules:
     - from:
         - source:

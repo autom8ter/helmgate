@@ -1,4 +1,4 @@
-version := "0.0.24"
+version := "0.0.25"
 
 .DEFAULT_GOAL := help
 
@@ -10,7 +10,7 @@ help:
 	@echo "----------------------------------------------------------------"
 
 run:
-	@go run cmd/meshpaas/main.go
+	@go run cmd/hpaas/main.go
 
 gen: gql proto
 
@@ -27,10 +27,10 @@ push:
 	git push origin v$(version)
 
 docker-build:
-	@docker build -t colemanword/meshpaas:v$(version) .
+	@docker build -t colemanword/hpaas:v$(version) .
 
 docker-push:
-	@docker push colemanword/meshpaas:v$(version)
+	@docker push colemanword/hpaas:v$(version)
 
 
 .PHONY: proto
@@ -54,6 +54,6 @@ down: ## shuts down local docker containers
 
 build: ## build the server to ./bin
 	@mkdir -p bin
-	@cd cmd/meshpaas; gox -osarch="linux/amd64" -output="../../bin/linux/{{.Dir}}_linux_amd64"
-	@cd cmd/meshpaas; gox -osarch="darwin/amd64" -output="../../bin/darwin/{{.Dir}}_darwin_amd64"
-	@cd cmd/meshpaas; gox -osarch="windows/amd64" -output="../../bin/windows/{{.Dir}}_windows_amd64"
+	@cd cmd/hpaas; gox -osarch="linux/amd64" -output="../../bin/linux/{{.Dir}}_linux_amd64"
+	@cd cmd/hpaas; gox -osarch="darwin/amd64" -output="../../bin/darwin/{{.Dir}}_darwin_amd64"
+	@cd cmd/hpaas; gox -osarch="windows/amd64" -output="../../bin/windows/{{.Dir}}_windows_amd64"

@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * LogOpts holds options for fetching logs from Tasks & APIlications
  *
- * Generated from protobuf message <code>meshpaas.LogOpts</code>
+ * Generated from protobuf message <code>hpaas.LogOpts</code>
  */
 class LogOpts extends \Google\Protobuf\Internal\Message
 {

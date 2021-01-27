@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * App is an App created from a helm chart
  *
- * Generated from protobuf message <code>meshpaas.App</code>
+ * Generated from protobuf message <code>hpaas.App</code>
  */
 class App extends \Google\Protobuf\Internal\Message
 {
@@ -30,13 +30,13 @@ class App extends \Google\Protobuf\Internal\Message
     /**
      * release holds information about the currently deployed release of the application
      *
-     * Generated from protobuf field <code>.meshpaas.Release release = 5;</code>
+     * Generated from protobuf field <code>.hpaas.Release release = 5;</code>
      */
     private $release = null;
     /**
      * chart is the chart used to deploy the App
      *
-     * Generated from protobuf field <code>.meshpaas.Chart chart = 20;</code>
+     * Generated from protobuf field <code>.hpaas.Chart chart = 20;</code>
      */
     private $chart = null;
 
@@ -116,7 +116,7 @@ class App extends \Google\Protobuf\Internal\Message
     /**
      * release holds information about the currently deployed release of the application
      *
-     * Generated from protobuf field <code>.meshpaas.Release release = 5;</code>
+     * Generated from protobuf field <code>.hpaas.Release release = 5;</code>
      * @return \Meshpaas\Release
      */
     public function getRelease()
@@ -127,7 +127,7 @@ class App extends \Google\Protobuf\Internal\Message
     /**
      * release holds information about the currently deployed release of the application
      *
-     * Generated from protobuf field <code>.meshpaas.Release release = 5;</code>
+     * Generated from protobuf field <code>.hpaas.Release release = 5;</code>
      * @param \Meshpaas\Release $var
      * @return $this
      */
@@ -142,7 +142,7 @@ class App extends \Google\Protobuf\Internal\Message
     /**
      * chart is the chart used to deploy the App
      *
-     * Generated from protobuf field <code>.meshpaas.Chart chart = 20;</code>
+     * Generated from protobuf field <code>.hpaas.Chart chart = 20;</code>
      * @return \Meshpaas\Chart
      */
     public function getChart()
@@ -153,7 +153,7 @@ class App extends \Google\Protobuf\Internal\Message
     /**
      * chart is the chart used to deploy the App
      *
-     * Generated from protobuf field <code>.meshpaas.Chart chart = 20;</code>
+     * Generated from protobuf field <code>.hpaas.Chart chart = 20;</code>
      * @param \Meshpaas\Chart $var
      * @return $this
      */

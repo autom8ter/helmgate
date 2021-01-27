@@ -11,12 +11,12 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * NamespaceRefs is a list of NamespaceRef
  *
- * Generated from protobuf message <code>meshpaas.NamespaceRefs</code>
+ * Generated from protobuf message <code>hpaas.NamespaceRefs</code>
  */
 class NamespaceRefs extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
+     * Generated from protobuf field <code>repeated .hpaas.NamespaceRef namespaces = 1;</code>
      */
     private $namespaces;
 
@@ -35,7 +35,7 @@ class NamespaceRefs extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
+     * Generated from protobuf field <code>repeated .hpaas.NamespaceRef namespaces = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getNamespaces()
@@ -44,7 +44,7 @@ class NamespaceRefs extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
+     * Generated from protobuf field <code>repeated .hpaas.NamespaceRef namespaces = 1;</code>
      * @param \Meshpaas\NamespaceRef[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */

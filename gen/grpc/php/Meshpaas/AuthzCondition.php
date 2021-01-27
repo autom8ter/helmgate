@@ -9,7 +9,7 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>meshpaas.AuthzCondition</code>
+ * Generated from protobuf message <code>hpaas.AuthzCondition</code>
  */
 class AuthzCondition extends \Google\Protobuf\Internal\Message
 {

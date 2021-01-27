@@ -5,7 +5,7 @@
 namespace Meshpaas;
 
 /**
- * Protobuf type <code>meshpaas.TLSmode</code>
+ * Protobuf type <code>hpaas.TLSmode</code>
  */
 class TLSmode
 {

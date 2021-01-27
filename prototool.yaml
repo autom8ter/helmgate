@@ -28,7 +28,7 @@ lint:
 
 generate:
   go_options:
-    import_path: github.com/autom8ter/meshpaas
+    import_path: github.com/autom8ter/hpaas
 
   plugins:
     - name: go

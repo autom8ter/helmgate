@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * Routing describes service mesh routing options(gateway/host bindings, route rewrites, etc) for an APIlication
  *
- * Generated from protobuf message <code>meshpaas.Routing</code>
+ * Generated from protobuf message <code>hpaas.Routing</code>
  */
 class Routing extends \Google\Protobuf\Internal\Message
 {
@@ -30,7 +30,7 @@ class Routing extends \Google\Protobuf\Internal\Message
     /**
      * http route matchers/configurations
      *
-     * Generated from protobuf field <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
+     * Generated from protobuf field <code>repeated .hpaas.HTTPRoute http_routes = 4;</code>
      */
     private $http_routes;
 
@@ -108,7 +108,7 @@ class Routing extends \Google\Protobuf\Internal\Message
     /**
      * http route matchers/configurations
      *
-     * Generated from protobuf field <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
+     * Generated from protobuf field <code>repeated .hpaas.HTTPRoute http_routes = 4;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getHttpRoutes()
@@ -119,7 +119,7 @@ class Routing extends \Google\Protobuf\Internal\Message
     /**
      * http route matchers/configurations
      *
-     * Generated from protobuf field <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
+     * Generated from protobuf field <code>repeated .hpaas.HTTPRoute http_routes = 4;</code>
      * @param \Meshpaas\HTTPRoute[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */

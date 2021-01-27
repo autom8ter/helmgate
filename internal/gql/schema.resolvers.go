@@ -7,10 +7,10 @@ import (
 	"context"
 
 	"github.com/99designs/gqlgen/graphql"
-	"github.com/autom8ter/meshpaas/gen/gql/go/generated"
-	"github.com/autom8ter/meshpaas/gen/gql/go/model"
-	meshpaaspb "github.com/autom8ter/meshpaas/gen/grpc/go"
-	"github.com/autom8ter/meshpaas/internal/helpers"
+	"github.com/autom8ter/hpaas/gen/gql/go/generated"
+	"github.com/autom8ter/hpaas/gen/gql/go/model"
+	hpaaspb "github.com/autom8ter/hpaas/gen/grpc/go"
+	"github.com/autom8ter/hpaas/internal/helpers"
 	"github.com/vektah/gqlparser/v2/gqlerror"
 )
 
@@ -70,7 +70,7 @@ func (r *queryResolver) GetApp(ctx context.Context, input model.AppRef) (*model.
 }
 
 func (r *queryResolver) ListApps(ctx context.Context, input model.NamespaceRef) ([]*model.App, error) {
-	resp, err := r.client.ListApps(ctx, &meshpaaspb.NamespaceRef{Name: input.Name})
+	resp, err := r.client.ListApps(ctx, &hpaaspb.NamespaceRef{Name: input.Name})
 	if err != nil {
 		return nil, &gqlerror.Error{
 			Message: err.Error(),
@@ -85,7 +85,7 @@ func (r *queryResolver) ListApps(ctx context.Context, input model.NamespaceRef) 
 }
 
 func (r *queryResolver) SearchTemplates(ctx context.Context, input model.Filter) ([]*model.Chart, error) {
-	resp, err := r.client.SearchTemplates(ctx, &meshpaaspb.Filter{
+	resp, err := r.client.SearchTemplates(ctx, &hpaaspb.Filter{
 		Term:  input.Term,
 		Regex: helpers.FromBoolPointer(input.Regex),
 	})

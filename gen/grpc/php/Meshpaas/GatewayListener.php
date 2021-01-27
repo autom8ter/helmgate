@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * GatewayListener is a single, public tcp listener served by a gateway
  *
- * Generated from protobuf message <code>meshpaas.GatewayListener</code>
+ * Generated from protobuf message <code>hpaas.GatewayListener</code>
  */
 class GatewayListener extends \Google\Protobuf\Internal\Message
 {
@@ -30,7 +30,7 @@ class GatewayListener extends \Google\Protobuf\Internal\Message
     /**
      * protocol describes the transport protocol served by this listener
      *
-     * Generated from protobuf field <code>.meshpaas.TransportProtocol protocol = 3 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>.hpaas.TransportProtocol protocol = 3 [(.validator.field) = {</code>
      */
     private $protocol = 0;
     /**
@@ -42,7 +42,7 @@ class GatewayListener extends \Google\Protobuf\Internal\Message
     /**
      * tls_config provides tls/ssl encryption options
      *
-     * Generated from protobuf field <code>.meshpaas.ServerTLSSettings tls_config = 5;</code>
+     * Generated from protobuf field <code>.hpaas.ServerTLSSettings tls_config = 5;</code>
      */
     private $tls_config = null;
 
@@ -124,7 +124,7 @@ class GatewayListener extends \Google\Protobuf\Internal\Message
     /**
      * protocol describes the transport protocol served by this listener
      *
-     * Generated from protobuf field <code>.meshpaas.TransportProtocol protocol = 3 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>.hpaas.TransportProtocol protocol = 3 [(.validator.field) = {</code>
      * @return int
      */
     public function getProtocol()
@@ -135,7 +135,7 @@ class GatewayListener extends \Google\Protobuf\Internal\Message
     /**
      * protocol describes the transport protocol served by this listener
      *
-     * Generated from protobuf field <code>.meshpaas.TransportProtocol protocol = 3 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>.hpaas.TransportProtocol protocol = 3 [(.validator.field) = {</code>
      * @param int $var
      * @return $this
      */
@@ -176,7 +176,7 @@ class GatewayListener extends \Google\Protobuf\Internal\Message
     /**
      * tls_config provides tls/ssl encryption options
      *
-     * Generated from protobuf field <code>.meshpaas.ServerTLSSettings tls_config = 5;</code>
+     * Generated from protobuf field <code>.hpaas.ServerTLSSettings tls_config = 5;</code>
      * @return \Meshpaas\ServerTLSSettings
      */
     public function getTlsConfig()
@@ -187,7 +187,7 @@ class GatewayListener extends \Google\Protobuf\Internal\Message
     /**
      * tls_config provides tls/ssl encryption options
      *
-     * Generated from protobuf field <code>.meshpaas.ServerTLSSettings tls_config = 5;</code>
+     * Generated from protobuf field <code>.hpaas.ServerTLSSettings tls_config = 5;</code>
      * @param \Meshpaas\ServerTLSSettings $var
      * @return $this
      */

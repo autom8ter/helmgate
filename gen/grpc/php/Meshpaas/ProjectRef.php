@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * NamespaceRef is a generic structure for looking up namespaces
  *
- * Generated from protobuf message <code>meshpaas.NamespaceRef</code>
+ * Generated from protobuf message <code>hpaas.NamespaceRef</code>
  */
 class NamespaceRef extends \Google\Protobuf\Internal\Message
 {

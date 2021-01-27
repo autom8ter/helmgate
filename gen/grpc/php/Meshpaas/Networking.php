@@ -9,7 +9,7 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>meshpaas.Networking</code>
+ * Generated from protobuf message <code>hpaas.Networking</code>
  */
 class Networking extends \Google\Protobuf\Internal\Message
 {
@@ -34,7 +34,7 @@ class Networking extends \Google\Protobuf\Internal\Message
     /**
      * http route matchers/configurations
      *
-     * Generated from protobuf field <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
+     * Generated from protobuf field <code>repeated .hpaas.HTTPRoute http_routes = 4;</code>
      */
     private $http_routes;
 
@@ -140,7 +140,7 @@ class Networking extends \Google\Protobuf\Internal\Message
     /**
      * http route matchers/configurations
      *
-     * Generated from protobuf field <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
+     * Generated from protobuf field <code>repeated .hpaas.HTTPRoute http_routes = 4;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getHttpRoutes()
@@ -151,7 +151,7 @@ class Networking extends \Google\Protobuf\Internal\Message
     /**
      * http route matchers/configurations
      *
-     * Generated from protobuf field <code>repeated .meshpaas.HTTPRoute http_routes = 4;</code>
+     * Generated from protobuf field <code>repeated .hpaas.HTTPRoute http_routes = 4;</code>
      * @param \Meshpaas\HTTPRoute[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */

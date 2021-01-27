@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * ServerTLSSettings provides tls/ssl encryption options
  *
- * Generated from protobuf message <code>meshpaas.ServerTLSSettings</code>
+ * Generated from protobuf message <code>hpaas.ServerTLSSettings</code>
  */
 class ServerTLSSettings extends \Google\Protobuf\Internal\Message
 {
@@ -24,7 +24,7 @@ class ServerTLSSettings extends \Google\Protobuf\Internal\Message
     /**
      * tls mode
      *
-     * Generated from protobuf field <code>.meshpaas.TLSmode mode = 2;</code>
+     * Generated from protobuf field <code>.hpaas.TLSmode mode = 2;</code>
      */
     private $mode = 0;
     /**
@@ -102,7 +102,7 @@ class ServerTLSSettings extends \Google\Protobuf\Internal\Message
     /**
      * tls mode
      *
-     * Generated from protobuf field <code>.meshpaas.TLSmode mode = 2;</code>
+     * Generated from protobuf field <code>.hpaas.TLSmode mode = 2;</code>
      * @return int
      */
     public function getMode()
@@ -113,7 +113,7 @@ class ServerTLSSettings extends \Google\Protobuf\Internal\Message
     /**
      * tls mode
      *
-     * Generated from protobuf field <code>.meshpaas.TLSmode mode = 2;</code>
+     * Generated from protobuf field <code>.hpaas.TLSmode mode = 2;</code>
      * @param int $var
      * @return $this
      */

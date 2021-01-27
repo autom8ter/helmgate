@@ -9,7 +9,7 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>meshpaas.MeshUserPermission</code>
+ * Generated from protobuf message <code>hpaas.MeshUserPermission</code>
  */
 class MeshUserPermission extends \Google\Protobuf\Internal\Message
 {

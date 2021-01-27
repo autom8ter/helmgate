@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * AuthzSource is the source of a request
  *
- * Generated from protobuf message <code>meshpaas.AuthzSource</code>
+ * Generated from protobuf message <code>hpaas.AuthzSource</code>
  */
 class AuthzSource extends \Google\Protobuf\Internal\Message
 {

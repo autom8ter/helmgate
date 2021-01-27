@@ -5,7 +5,7 @@
 namespace Meshpaas;
 
 /**
- * Protobuf type <code>meshpaas.Protocol</code>
+ * Protobuf type <code>hpaas.Protocol</code>
  */
 class Protocol
 {

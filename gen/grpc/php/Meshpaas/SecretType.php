@@ -7,7 +7,7 @@ namespace Meshpaas;
 /**
  * SecretType is a classification of secret
  *
- * Protobuf type <code>meshpaas.SecretType</code>
+ * Protobuf type <code>hpaas.SecretType</code>
  */
 class SecretType
 {

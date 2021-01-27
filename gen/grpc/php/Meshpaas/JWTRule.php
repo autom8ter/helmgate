@@ -9,7 +9,7 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>meshpaas.JWTRule</code>
+ * Generated from protobuf message <code>hpaas.JWTRule</code>
  */
 class JWTRule extends \Google\Protobuf\Internal\Message
 {

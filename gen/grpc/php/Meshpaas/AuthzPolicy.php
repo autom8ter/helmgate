@@ -9,16 +9,16 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>meshpaas.AuthzPolicy</code>
+ * Generated from protobuf message <code>hpaas.AuthzPolicy</code>
  */
 class AuthzPolicy extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>.meshpaas.AuthzAction action = 1;</code>
+     * Generated from protobuf field <code>.hpaas.AuthzAction action = 1;</code>
      */
     private $action = 0;
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.AuthzRule rules = 2;</code>
+     * Generated from protobuf field <code>repeated .hpaas.AuthzRule rules = 2;</code>
      */
     private $rules;
 
@@ -38,7 +38,7 @@ class AuthzPolicy extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.meshpaas.AuthzAction action = 1;</code>
+     * Generated from protobuf field <code>.hpaas.AuthzAction action = 1;</code>
      * @return int
      */
     public function getAction()
@@ -47,7 +47,7 @@ class AuthzPolicy extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.meshpaas.AuthzAction action = 1;</code>
+     * Generated from protobuf field <code>.hpaas.AuthzAction action = 1;</code>
      * @param int $var
      * @return $this
      */
@@ -60,7 +60,7 @@ class AuthzPolicy extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.AuthzRule rules = 2;</code>
+     * Generated from protobuf field <code>repeated .hpaas.AuthzRule rules = 2;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getRules()
@@ -69,7 +69,7 @@ class AuthzPolicy extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.AuthzRule rules = 2;</code>
+     * Generated from protobuf field <code>repeated .hpaas.AuthzRule rules = 2;</code>
      * @param \Meshpaas\AuthzRule[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */

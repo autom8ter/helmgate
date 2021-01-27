@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * Project creates/replaces a namespace(k8s namespace)
  *
- * Generated from protobuf message <code>meshpaas.ProjectInput</code>
+ * Generated from protobuf message <code>hpaas.ProjectInput</code>
  */
 class ProjectInput extends \Google\Protobuf\Internal\Message
 {

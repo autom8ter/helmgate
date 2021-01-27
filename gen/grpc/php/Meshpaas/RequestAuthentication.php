@@ -9,12 +9,12 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>meshpaas.RequestAuthentication</code>
+ * Generated from protobuf message <code>hpaas.RequestAuthentication</code>
  */
 class RequestAuthentication extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.JWTRule rules = 1;</code>
+     * Generated from protobuf field <code>repeated .hpaas.JWTRule rules = 1;</code>
      */
     private $rules;
 
@@ -33,7 +33,7 @@ class RequestAuthentication extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.JWTRule rules = 1;</code>
+     * Generated from protobuf field <code>repeated .hpaas.JWTRule rules = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getRules()
@@ -42,7 +42,7 @@ class RequestAuthentication extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.JWTRule rules = 1;</code>
+     * Generated from protobuf field <code>repeated .hpaas.JWTRule rules = 1;</code>
      * @param \Meshpaas\JWTRule[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */

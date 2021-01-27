@@ -11,12 +11,12 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * Authn holds authentication options for an api
  *
- * Generated from protobuf message <code>meshpaas.Authn</code>
+ * Generated from protobuf message <code>hpaas.Authn</code>
  */
 class Authn extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.AuthnRule rules = 1 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>repeated .hpaas.AuthnRule rules = 1 [(.validator.field) = {</code>
      */
     private $rules;
 
@@ -35,7 +35,7 @@ class Authn extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.AuthnRule rules = 1 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>repeated .hpaas.AuthnRule rules = 1 [(.validator.field) = {</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getRules()
@@ -44,7 +44,7 @@ class Authn extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.AuthnRule rules = 1 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>repeated .hpaas.AuthnRule rules = 1 [(.validator.field) = {</code>
      * @param \Meshpaas\AuthnRule[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */

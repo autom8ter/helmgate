@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * LifeCycle tracks the state of an app during it's lifecycle
  *
- * Generated from protobuf message <code>meshpaas.LifeCycle</code>
+ * Generated from protobuf message <code>hpaas.LifeCycle</code>
  */
 class LifeCycle extends \Google\Protobuf\Internal\Message
 {

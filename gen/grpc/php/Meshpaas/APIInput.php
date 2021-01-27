@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * APIInput creates/replaces an api
  *
- * Generated from protobuf message <code>meshpaas.APIInput</code>
+ * Generated from protobuf message <code>hpaas.APIInput</code>
  */
 class APIInput extends \Google\Protobuf\Internal\Message
 {
@@ -24,7 +24,7 @@ class APIInput extends \Google\Protobuf\Internal\Message
     /**
      * containers are docker containers that run the api's business logic
      *
-     * Generated from protobuf field <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>repeated .hpaas.Container containers = 3 [(.validator.field) = {</code>
      */
     private $containers;
     /**
@@ -36,13 +36,13 @@ class APIInput extends \Google\Protobuf\Internal\Message
     /**
      * routing - routing options
      *
-     * Generated from protobuf field <code>.meshpaas.Routing routing = 10 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>.hpaas.Routing routing = 10 [(.validator.field) = {</code>
      */
     private $routing = null;
     /**
      * api authentication options
      *
-     * Generated from protobuf field <code>.meshpaas.Authn authentication = 12;</code>
+     * Generated from protobuf field <code>.hpaas.Authn authentication = 12;</code>
      */
     private $authentication = null;
     /**
@@ -106,7 +106,7 @@ class APIInput extends \Google\Protobuf\Internal\Message
     /**
      * containers are docker containers that run the api's business logic
      *
-     * Generated from protobuf field <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>repeated .hpaas.Container containers = 3 [(.validator.field) = {</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getContainers()
@@ -117,7 +117,7 @@ class APIInput extends \Google\Protobuf\Internal\Message
     /**
      * containers are docker containers that run the api's business logic
      *
-     * Generated from protobuf field <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>repeated .hpaas.Container containers = 3 [(.validator.field) = {</code>
      * @param \Meshpaas\Container[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
@@ -158,7 +158,7 @@ class APIInput extends \Google\Protobuf\Internal\Message
     /**
      * routing - routing options
      *
-     * Generated from protobuf field <code>.meshpaas.Routing routing = 10 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>.hpaas.Routing routing = 10 [(.validator.field) = {</code>
      * @return \Meshpaas\Routing
      */
     public function getRouting()
@@ -169,7 +169,7 @@ class APIInput extends \Google\Protobuf\Internal\Message
     /**
      * routing - routing options
      *
-     * Generated from protobuf field <code>.meshpaas.Routing routing = 10 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>.hpaas.Routing routing = 10 [(.validator.field) = {</code>
      * @param \Meshpaas\Routing $var
      * @return $this
      */
@@ -184,7 +184,7 @@ class APIInput extends \Google\Protobuf\Internal\Message
     /**
      * api authentication options
      *
-     * Generated from protobuf field <code>.meshpaas.Authn authentication = 12;</code>
+     * Generated from protobuf field <code>.hpaas.Authn authentication = 12;</code>
      * @return \Meshpaas\Authn
      */
     public function getAuthentication()
@@ -195,7 +195,7 @@ class APIInput extends \Google\Protobuf\Internal\Message
     /**
      * api authentication options
      *
-     * Generated from protobuf field <code>.meshpaas.Authn authentication = 12;</code>
+     * Generated from protobuf field <code>.hpaas.Authn authentication = 12;</code>
      * @param \Meshpaas\Authn $var
      * @return $this
      */

@@ -9,12 +9,12 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>meshpaas.APIs</code>
+ * Generated from protobuf message <code>hpaas.APIs</code>
  */
 class APIs extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.API apis = 1;</code>
+     * Generated from protobuf field <code>repeated .hpaas.API apis = 1;</code>
      */
     private $apis;
 
@@ -33,7 +33,7 @@ class APIs extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.API apis = 1;</code>
+     * Generated from protobuf field <code>repeated .hpaas.API apis = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getApis()
@@ -42,7 +42,7 @@ class APIs extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.API apis = 1;</code>
+     * Generated from protobuf field <code>repeated .hpaas.API apis = 1;</code>
      * @param \Meshpaas\API[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */

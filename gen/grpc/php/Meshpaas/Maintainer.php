@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * Maintainer is the maintainer of a helm chart
  *
- * Generated from protobuf message <code>meshpaas.Maintainer</code>
+ * Generated from protobuf message <code>hpaas.Maintainer</code>
  */
 class Maintainer extends \Google\Protobuf\Internal\Message
 {

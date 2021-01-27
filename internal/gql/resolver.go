@@ -7,9 +7,9 @@ import (
 	"github.com/99designs/gqlgen/graphql/handler/extension"
 	"github.com/99designs/gqlgen/graphql/handler/lru"
 	"github.com/99designs/gqlgen/graphql/handler/transport"
-	"github.com/autom8ter/meshpaas/gen/gql/go/generated"
-	meshpaaspb "github.com/autom8ter/meshpaas/gen/grpc/go"
-	"github.com/autom8ter/meshpaas/internal/logger"
+	"github.com/autom8ter/hpaas/gen/gql/go/generated"
+	hpaaspb "github.com/autom8ter/hpaas/gen/grpc/go"
+	"github.com/autom8ter/hpaas/internal/logger"
 	"github.com/gorilla/websocket"
 	"google.golang.org/grpc/metadata"
 	"net/http"
@@ -22,10 +22,10 @@ import (
 
 type Resolver struct {
 	logger *logger.Logger
-	client meshpaaspb.MeshPaasServiceClient
+	client hpaaspb.MeshPaasServiceClient
 }
 
-func NewResolver(client meshpaaspb.MeshPaasServiceClient, logger *logger.Logger) *Resolver {
+func NewResolver(client hpaaspb.MeshPaasServiceClient, logger *logger.Logger) *Resolver {
 	return &Resolver{logger: logger, client: client}
 }
 

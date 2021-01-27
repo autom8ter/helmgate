@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * AppRef is a generic structure for looking up apps
  *
- * Generated from protobuf message <code>meshpaas.AppRef</code>
+ * Generated from protobuf message <code>hpaas.AppRef</code>
  */
 class AppRef extends \Google\Protobuf\Internal\Message
 {

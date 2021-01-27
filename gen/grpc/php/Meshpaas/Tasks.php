@@ -9,12 +9,12 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>meshpaas.Tasks</code>
+ * Generated from protobuf message <code>hpaas.Tasks</code>
  */
 class Tasks extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.Task tasks = 1;</code>
+     * Generated from protobuf field <code>repeated .hpaas.Task tasks = 1;</code>
      */
     private $tasks;
 
@@ -33,7 +33,7 @@ class Tasks extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.Task tasks = 1;</code>
+     * Generated from protobuf field <code>repeated .hpaas.Task tasks = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getTasks()
@@ -42,7 +42,7 @@ class Tasks extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.Task tasks = 1;</code>
+     * Generated from protobuf field <code>repeated .hpaas.Task tasks = 1;</code>
      * @param \Meshpaas\Task[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */

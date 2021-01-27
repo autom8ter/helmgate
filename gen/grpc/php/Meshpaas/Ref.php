@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * Ref is a pointer to a resource
  *
- * Generated from protobuf message <code>meshpaas.Ref</code>
+ * Generated from protobuf message <code>hpaas.Ref</code>
  */
 class Ref extends \Google\Protobuf\Internal\Message
 {

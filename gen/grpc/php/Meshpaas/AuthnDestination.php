@@ -9,7 +9,7 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>meshpaas.AuthnDestination</code>
+ * Generated from protobuf message <code>hpaas.AuthnDestination</code>
  */
 class AuthnDestination extends \Google\Protobuf\Internal\Message
 {

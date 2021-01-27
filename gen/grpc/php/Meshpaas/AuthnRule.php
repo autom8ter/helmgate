@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * AuthnRule is an authentication rule
  *
- * Generated from protobuf message <code>meshpaas.AuthnRule</code>
+ * Generated from protobuf message <code>hpaas.AuthnRule</code>
  */
 class AuthnRule extends \Google\Protobuf\Internal\Message
 {

@@ -5,7 +5,7 @@
 namespace Meshpaas;
 
 /**
- * Protobuf type <code>meshpaas.TransportProtocol</code>
+ * Protobuf type <code>hpaas.TransportProtocol</code>
  */
 class TransportProtocol
 {

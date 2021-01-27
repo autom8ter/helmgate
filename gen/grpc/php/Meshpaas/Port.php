@@ -9,7 +9,7 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>meshpaas.Port</code>
+ * Generated from protobuf message <code>hpaas.Port</code>
  */
 class Port extends \Google\Protobuf\Internal\Message
 {

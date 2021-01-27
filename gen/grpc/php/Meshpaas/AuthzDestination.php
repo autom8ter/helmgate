@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * the destination of an authorization decision
  *
- * Generated from protobuf message <code>meshpaas.AuthzDestination</code>
+ * Generated from protobuf message <code>hpaas.AuthzDestination</code>
  */
 class AuthzDestination extends \Google\Protobuf\Internal\Message
 {

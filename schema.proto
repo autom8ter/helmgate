@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package meshpaas;
+package hpaas;
 
-option go_package = "meshpaaspb";
+option go_package = "hpaaspb";
 
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
