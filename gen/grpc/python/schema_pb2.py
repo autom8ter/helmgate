@@ -862,7 +862,7 @@ _APPINPUT.fields_by_name['app_name']._options = None
 _APPINPUT.fields_by_name['config']._options = None
 _NAMESPACEREF.fields_by_name['name']._options = None
 
-_MESHPAASSERVICE = _descriptor.ServiceDescriptor(
+_HPAASSERVICE = _descriptor.ServiceDescriptor(
   name='MeshPaasService',
   full_name='hpaas.MeshPaasService',
   file=DESCRIPTOR,
@@ -935,8 +935,8 @@ _MESHPAASSERVICE = _descriptor.ServiceDescriptor(
     serialized_options=None,
   ),
 ])
-_sym_db.RegisterServiceDescriptor(_MESHPAASSERVICE)
+_sym_db.RegisterServiceDescriptor(_HPAASSERVICE)
 
-DESCRIPTOR.services_by_name['MeshPaasService'] = _MESHPAASSERVICE
+DESCRIPTOR.services_by_name['MeshPaasService'] = _HPAASSERVICE
 
 # @@protoc_insertion_point(module_scope)

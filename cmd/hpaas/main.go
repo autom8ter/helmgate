@@ -39,7 +39,7 @@ var (
 )
 
 func init() {
-	pflag.CommandLine.StringVar(&configPath, "config", helpers.EnvOr("MESHPAAS_CONFIG", "hpaas.yaml"), "path to config file (env: MESHPAAS_JWKS_URI)")
+	pflag.CommandLine.StringVar(&configPath, "config", helpers.EnvOr("HPAAS_CONFIG", "hpaas.yaml"), "path to config file (env: HPAAS_JWKS_URI)")
 	pflag.Parse()
 }
 

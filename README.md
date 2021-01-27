@@ -25,7 +25,7 @@ A secure graphQL/gRPC API for easily deploying applications on Kubernetes with H
 ```
 hpaas -h
 Usage of hpaas:
-      --config string   path to config file (env: MESHPAAS_JWKS_URI) (default "hpaas.yaml")
+      --config string   path to config file (env: HPAAS_JWKS_URI) (default "hpaas.yaml")
 ```
 
 ## Sample Config
@@ -36,16 +36,19 @@ Usage of hpaas:
 port: 8820
 # enable debug logs
 debug: true
-# rego policy for authorization
-rego_policy: ""
-# rego query
-rego_query: ""
+# rego policy for authorization - this one allows any request
+rego_policy: |-
+  package hpaas.authz
+
+  default allow = true
+# query the allow variable
+rego_query: "data.hpaas.authz.allow"
 # json web keys uri for authentication
 jwks_uri: ""
 # add list of helm repos to load at startup
 repos:
-    - name: "stable"
-      url: "https://charts.helm.sh/stable"
+  - name: "stable"
+    url: "https://charts.helm.sh/stable"
 ```
 
 ## Notes
