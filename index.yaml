@@ -3,12 +3,12 @@ entries:
   chart:
   - apiVersion: v2
     appVersion: v0.0.30
-    created: "2021-01-26T22:16:10.418643-07:00"
+    created: "2021-01-26T22:21:42.397428-07:00"
     description: A Helm chart for HPaas
-    digest: 28e3cb709d80ea15604e3f23698d3fc948c601f3071bacc5d83cadac8161fdc1
+    digest: 2b3fe225e629d3b7041a72898f21b9dbd331ff00638748e89da5a265292b1d5f
     name: chart
     type: application
     urls:
     - chart/chart-0.1.0.tgz
     version: 0.1.0
-generated: "2021-01-26T22:16:10.418029-07:00"
+generated: "2021-01-26T22:21:42.386663-07:00"

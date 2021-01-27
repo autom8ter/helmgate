@@ -6,7 +6,8 @@ A secure platform as a service for easily deploying applications on Kubernetes w
 
 - [API Documentation](https://autom8ter.github.io/hpaas/)
 
-    helm repo add hpaas https://raw.githubusercontent.com/autom8ter/hpaas/master/
+    
+    helm repo add hpaas https://github.com/autom8ter/hpaas/blob/master
 
 ## Features
 - [x] [Headless](https://en.wikipedia.org/wiki/Headless_software)
