@@ -74,18 +74,18 @@ metadata:
   name: hpaas-admin
   namespace: hpaas-system
 spec:
-  replicas: {{ .Values.replicas }}
+  replicas: 1
   selector:
     matchLabels:
-      app: hpaas
+      app: hpaas-admin
   template:
     metadata:
       labels:
         app: hpaas-admin
     spec:
-      serviceAccountName: hpaas
+      serviceAccountName: hpaas-admin-sa
       containers:
-        - name: hpaas
+        - name: hpaas-admin
           env:
             - name: HPAAS_CONFIG
               value: /tmp/hpaas.yaml
@@ -101,7 +101,7 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.podIP
-          image: {{ .Values.image }}
+          image: "colemanword/hpaas:v0.0.30"
           imagePullPolicy: Always
           ports:
           - containerPort: 8821
