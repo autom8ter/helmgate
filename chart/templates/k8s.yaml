@@ -3,34 +3,6 @@ kind: Namespace
 metadata:
   name: hpaas-system
 ---
-apiVersion: networking.istio.io/v1alpha3
-kind: Gateway
-metadata:
-  name: hpaas-gateway
-  namespace: hpaas-system
-spec:
-  selector:
-    app: hpaas-admin
-  servers:
-    - port:
-        number: 80
-        name: http
-        protocol: HTTP
-      hosts:
-        - {{ .Values.hostname }}
-      tls:
-        httpsRedirect: true # sends 301 redirect for http requests
-    - port:
-        number: 443
-        name: https-443
-        protocol: HTTPS
-      hosts:
-        - {{ .Values.hostname }}
-      tls:
-        mode: SIMPLE # enables HTTPS on this port
-        credentialName: {{ .Values.ingress.certificate_secret }}
-
----
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -42,7 +14,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: hpaas-admin-cluster-role
 rules:
-  - apiGroups: ["", "extensions", "apps",  "batch", "networking.k8s.io", "networking.istio.io", "authentication.istio.io", "rbac.istio.io", "config.istio.io", "security.istio.io"]
+  - apiGroups: ["*"]
     resources: ["*"]
     verbs: ["*"]
 
@@ -114,54 +86,5 @@ spec:
           ports:
           - containerPort: 8821
           - containerPort: 8820
-
----
-apiVersion: networking.istio.io/v1alpha3
-kind: VirtualService
-metadata:
-  name: hpaas-route
-spec:
-  hosts:
-    - hpaas.hpaas.svc.cluster.local
-  gateways:
-    - "hpaas-gateway"
-  http:
-    - name: "hpaas-routes"
-      match:
-        - uri:
-            prefix: "/"
-        - uri:
-            prefix: "/"
-      route:
-        - destination:
-            host: hpaas.hpaas.svc.cluster.local
-
----
-apiVersion: security.istio.io/v1beta1
-kind: RequestAuthentication
-metadata:
-  name: hpaas-authenticator
-  namespace: hpaas-system
-spec:
-  selector:
-    matchLabels:
-      app: hpaas-admin
-  jwtRules:
-    - issuer: {{ .Values.auth.issuer }}
-      jwksUri: {{ .Values.auth.jwks_uri }}
----
-apiVersion: security.istio.io/v1beta1
-kind: AuthorizationPolicy
-metadata:
-  name: hpaas-authorizer
-  namespace: hpaas-system
-spec:
-  selector:
-    matchLabels:
-      app: hpaas-admin
-  rules:
-    - from:
-        - source:
-            requestPrincipals: ["*"]
 
 ---

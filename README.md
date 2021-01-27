@@ -6,6 +6,7 @@ A secure platform as a service for easily deploying applications on Kubernetes w
 
 ## Features
 - [x] [Headless](https://en.wikipedia.org/wiki/Headless_software)
+- [x] [Stateless](https://nordicapis.com/defining-stateful-vs-stateless-web-services/)
 - [x] [gRPC](https://grpc.io/) support
 - [x] [graphQL](https://graphql.org/) support
 - [x] Authentication - JWT/OAuth with remote JWKS verification
