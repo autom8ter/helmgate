@@ -42,7 +42,8 @@ Usage of hpaas:
 port: 8820
 # enable debug logs
 debug: true
-# rego policy for authorization - this one allows any request
+# rego policy for authorization. inputs: input.claims(map), input.headers(map), input.request(map), input.method(string)
+# caution - this one allows any request
 rego_policy: |-
   package hpaas.authz
 
