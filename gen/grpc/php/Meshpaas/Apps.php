@@ -9,14 +9,16 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
+ * Apps is a list of apps
+ *
  * Generated from protobuf message <code>meshpaas.Apps</code>
  */
 class Apps extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.App applications = 1;</code>
+     * Generated from protobuf field <code>repeated .meshpaas.App apps = 1;</code>
      */
-    private $applications;
+    private $apps;
 
     /**
      * Constructor.
@@ -24,7 +26,7 @@ class Apps extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type \Meshpaas\App[]|\Google\Protobuf\Internal\RepeatedField $applications
+     *     @type \Meshpaas\App[]|\Google\Protobuf\Internal\RepeatedField $apps
      * }
      */
     public function __construct($data = NULL) {
@@ -33,23 +35,23 @@ class Apps extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.App applications = 1;</code>
+     * Generated from protobuf field <code>repeated .meshpaas.App apps = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
-    public function getApplications()
+    public function getApps()
     {
-        return $this->applications;
+        return $this->apps;
     }
 
     /**
-     * Generated from protobuf field <code>repeated .meshpaas.App applications = 1;</code>
+     * Generated from protobuf field <code>repeated .meshpaas.App apps = 1;</code>
      * @param \Meshpaas\App[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
-    public function setApplications($var)
+    public function setApps($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Meshpaas\App::class);
-        $this->applications = $arr;
+        $this->apps = $arr;
 
         return $this;
     }

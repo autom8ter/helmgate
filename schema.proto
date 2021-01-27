@@ -10,328 +10,151 @@ import "google/protobuf/any.proto";
 import "google/protobuf/empty.proto";
 import "github.com/mwitkow/go-proto-validators/validator.proto";
 
-// AuthnRule is an authentication rule
-message AuthnRule {
-  // json web keys uri ref: https://tools.ietf.org/html/rfc7517
-  string jwks_uri =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
-  string issuer =2[(validator.field) = {regex : "^.{1,225}$"}];
-  // issuer jwt claim ref: https://tools.ietf.org/html/rfc7519#section-4.1.1
-  repeated string audience =3;
+// Dependency is a dependency required by a helm chart
+message Dependency {
+  // name of the chart dependency
+  string chart =1[(validator.field) = {regex : "^.{1,225}$"}];
+  // name of the chart version
+  string version =2[(validator.field) = {regex : "^.{1,225}$"}];
+  // the URL of the helm repository.
+  string repository =3[(validator.field) = {regex : "^.{1,225}$"}];
 }
 
-// Authn holds authentication options for an api
-message Authn {
-  repeated AuthnRule rules =1[(validator.field) = {repeated_count_min : 1}];
-}
-
-// SecretType is a classification of secret
-enum SecretType {
-  OPAQUE =0;
-  TLS_CERT_KEY =1;
-  DOCKER_CONFIG =2;
-}
-
-// SecretInput creates/replaces a secret
-message SecretInput {
-  // name of the secret
+// Maintainer is the maintainer of a helm chart
+message Maintainer {
+  // name is the name of the maintainer
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  SecretType type =3;
-  // prevent changes to the secret after it is created
-  bool immutable =4;
-  // k/v map of base64 encoded data
-  map<string, string> data =5[(validator.field) = {msg_exists : true}];
+  // email is the email of the maintainer
+  string email =2[(validator.field) = {regex : "^.{1,225}$"}];
 }
 
-// Secret is a secret/credential used by various components of the service mesh
-message Secret {
-  // name of the secret
+// Filter is used for filtering helm chart search results
+message Filter {
+  // term to search for
+  string term =1[(validator.field) = {regex : "^.{1,225}$"}];
+  // term is a regex expression
+  bool regex =2;
+}
+
+// Chart is a helm chart that may be used to deploy an App
+message Chart {
+  // name of the app chart
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  SecretType type =3;
-  // prevent changes to the secret after it is created
-  bool immutable =4;
-  // k/v map of base64 encoded data
-  map<string, string> data =5[(validator.field) = {msg_exists : true}];
+  // home page of the app chart
+  string home =2;
+  // description of the app chart
+  string description =3;
+  // version of the app chart
+  string version =4;
+  repeated string sources =5;
+  // keywords associated with the app chart
+  repeated string keywords =6;
+  // icon is an the icon/brand associated with the chart
+  string icon =7;
+  // chart is not actively maintained if deprecated = true
+  bool deprecated =8;
+  // extra charts that this chart depends on
+  repeated Dependency dependencies =9;
+  // maintainers of this chart
+  repeated Maintainer maintainers =10;
+  // arbitrary metadata associated with the chart
+  map<string, string> metadata =11;
 }
 
-message Secrets {
-  repeated Secret secrets =1;
+// Charts is a list of helm charts
+message Charts {
+  repeated Chart charts =1;
 }
 
-enum TransportProtocol {
-  INVALID_PROTOCOL =0;
-  HTTP =1;
-  HTTPS =2;
-  GRPC =3;
-  HTTP2 =4;
-  MONGO =5;
-  TCP =6;
-  TLS =7;
+// App is an App created from a helm chart
+message App {
+  // name of the application
+  string name =1[(validator.field) = {regex : "^.{1,225}$"}];
+  // namespace name the app belongs to(autocreated)
+  string namespace =2[(validator.field) = {regex : "^.{1,225}$"}];
+  // release holds information about the currently deployed release of the application
+  Release release =5;
+  // chart is the chart used to deploy the App
+  Chart chart =20;
 }
 
-enum TLSmode {
-  // no termination
-  PASSTHROUGH = 0;
-  // tls termination
-  SIMPLE = 1;
-  // mutual tls
-  MUTUAL = 2;
-  AUTO_PASSTHROUGH = 3;
-  ISTIO_MUTUAL = 4;
-};
-
-// ServerTLSSettings provides tls/ssl encryption options
-message ServerTLSSettings {
-  // automatically redirect http -> https
-  bool https_redirect = 1;
-  // tls mode
-  TLSmode mode = 2;
-  // secret where tls credentials are stored
-  string secret_name = 3;
-  repeated string subject_alt_names = 4;
-  repeated string verify_certificate_spki = 5;
-  repeated string verify_certificate_hash = 6;
-  repeated string cipher_suites = 7;
+// Apps is a list of apps
+message Apps {
+  repeated App apps =1;
 }
 
-// GatewayListener is a single, public tcp listener served by a gateway
-message GatewayListener {
-  // port the gateway listener will listen on ex: 80
-  uint32 port =1[(validator.field) = {int_gt : 0}];
-  // name of the gateway listener ex: http
+// Release tracks the state of an app during the lifecycle of it's current deployment
+message Release {
+  // version of the App. Iterates with each upgrade
+  uint32 version =1;
+  // config values
+  google.protobuf.Struct config =2;
+  // notes associated with the release
+  string notes =3;
+  // description of the release
+  string description =4;
+  // status of the release
+  string status =5;
+  // lifecycle timestamps related
+  Timestamps timestamps =6;
+}
+
+// Timestamps tracks timestamps related to a release
+message Timestamps {
+  // when the release was first deployed
+  google.protobuf.Timestamp created =1;
+  // when the release was last deployed
+  google.protobuf.Timestamp updated =2;
+  // when the release was deleted
+  google.protobuf.Timestamp deleted =3;
+}
+
+// AppRef is a generic structure for looking up apps
+message AppRef {
+  // namespace is the k8s namespace the app/release belongs to(autocreated)
+  string namespace =1[(validator.field) = {regex : "^.{1,225}$"}];
+  // name is the name of the app/release
   string name =2[(validator.field) = {regex : "^.{1,225}$"}];
-  // protocol describes the transport protocol served by this listener
-  TransportProtocol protocol =3[(validator.field) = {int_gt : 0}];
-  // hosts describes hostnames that may route to this listener
-  repeated string hosts =4[(validator.field) = {repeated_count_min : 1}];
-  // tls_config provides tls/ssl encryption options
-  ServerTLSSettings tls_config =5;
 }
 
-message Gateway {
-  // name of the gateway
-  string name =1;
-  repeated GatewayListener listeners = 3;
+// AppInput is used to create/update an app
+message AppInput {
+  // namespace name the app belongs to(autocreated)
+  string namespace =1[(validator.field) = {regex : "^.{1,225}$"}];
+  // the app chart to use
+  string chart =2[(validator.field) = {regex : "^.{1,225}$"}];
+  // name of the app
+  string app_name =3[(validator.field) = {regex : "^.{1,225}$"}];
+  // config values used to render the app chart
+  map<string, string> config =4[(validator.field) = {msg_exists : true}];
 }
 
-message Gateways {
-  repeated Gateway gateways =1;
-}
-
-message GatewayInput {
-  // name of the gateway
-  string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  repeated GatewayListener listeners = 2[(validator.field) = {repeated_count_min : 1}];
-}
-
-// HTTPRoute is a single http route(istio HttpRoute)
-message HTTPRoute {
-  string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  uint32 port =2[(validator.field) = {int_gt : 0}];
-  string path_prefix =3;
-  string rewrite_uri = 5;
-  // The list of origins that are allowed to perform CORS requests
-  repeated string allow_origins =6;
-  // The list of methods that are allowed to perform CORS requests
-  repeated string allow_methods =7;
-  // The list of headers that are allowed to perform CORS requests
-  repeated string allow_headers =8;
-  // The list of origins that are allowed to perform CORS requests
-  repeated string expose_headers =9;
-  // adds `Access-Control-Allow-Credentials` header
-  bool allow_credentials =10;
-}
-
-// Routing describes service mesh routing options(gateway/host bindings, route rewrites, etc) for an APIlication
-message Routing {
-  // gateway to bind to
-  string gateway =1;
-  // host names to bind to
-  repeated string hosts =2;
-  // http route matchers/configurations
-  repeated HTTPRoute http_routes =4;
-}
-
-// Container is a single docker container
-message Container {
-  // name of the container
-  string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // docker image of container
-  string image =2[(validator.field) = {regex : "^.{1,225}$"}];
-  // args are arguments given to the docker image at startup
-  repeated string args =3;
-  // k/v map of environmental variables
-  map<string, string> env =4;
-  // list of ports
-  repeated ContainerPort ports =5;
-}
-
-// API is a api
-message API {
-  // name of the api
-  string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // containers are docker containers that run the api's business logic
-  repeated Container containers =3 [(validator.field) = {repeated_count_min : 1}];
-  // number of deployment replicas
-  uint32 replicas =8;
-  // gateway/service-mesh routing
-  Routing routing =11[(validator.field) = {msg_exists : true}];
-  // api authentication options
-  Authn authentication =12[(validator.field) = {msg_exists : true}];
-  // image_pull_secret is the secret used to pull images from docker registry
-  string image_pull_secret =14;
-  // status tracks the state of the api during it's lifecycle
-  APIStatus status =20[(validator.field) = {msg_exists : true}];
-}
-
-
-// Task is scheduled cron job
-message Task {
-  // name of the task
-  string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // image_pull_secret is the secret used to pull images from docker registry
-  string image_pull_secret =3;
-  // containers are docker containers that run the task's business logic
-  repeated Container containers =4 [(validator.field) = {repeated_count_min : 1}];
-  // schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
-  string schedule = 7[(validator.field) = {regex : "^.{1,225}$"}];
-  // completions is the number of times to execute the task. If completions = 0, the task will run forever
-  uint32 completions = 8;
-}
-
-// TaskInput creates/updates a task(cron job)
-message TaskInput {
-  // name of the task
-  string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // image_pull_secret is the secret used to pull images from docker registry
-  string image_pull_secret =3;
-  // containers are docker containers that run the task's business logic
-  repeated Container containers =4 [(validator.field) = {repeated_count_min : 1}];
-  // schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
-  string schedule = 7[(validator.field) = {regex : "^.{1,225}$"}];
-  // completions is the number of times to execute the task. If completions = 0, the task will run forever
-  uint32 completions = 8;
-}
-
-message ContainerPort {
-  // port name
-  string name = 1;
-  // port number
-  uint32 number =2;
-  // expose to service mesh(outside of localhost)
-  bool expose =3;
-}
-
-// APIInput creates/replaces an api
-message APIInput {
-  // name of the api
-  string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // containers are docker containers that run the api's business logic
-  repeated Container containers =3 [(validator.field) = {repeated_count_min : 1}];
-  // number of deployment replicas
-  uint32 replicas =7;
-  // routing - routing options
-  Routing routing =10[(validator.field) = {msg_exists : true}];
-  // api authentication options
-  Authn authentication =12;
-  // image_pull_secret is the secret used to pull images from docker registry
-  string image_pull_secret =14;
-}
-
-// Ref is a pointer to a resource
-message Ref {
-  // name of the resource
+// NamespaceRef is a generic structure for looking up namespaces
+message NamespaceRef {
+  // name of the namespace
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
 }
 
-// Replica tracks the state/status of an individual replica of an api
-message Replica {
-  string phase =1;
-  string condition =2;
-  string reason =3;
-}
-
-// APIStatus tracks the status of an api
-message APIStatus {
-  repeated Replica replicas =1;
-}
-
-message Log {
-  string message =1;
-}
-
-message APIs {
-  repeated API apis =1;
-}
-
-message Tasks {
-  repeated Task tasks =1;
-}
-
-// LogOpts holds options for fetching logs from Tasks & APIlications
-message LogOpts {
-  // name is the name of the APIlication or Task
-  string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // container is the container to stream from
-  string container =2[(validator.field) = {regex : "^.{1,225}$"}];
-  // since_seconds streams since a certain unix time(in the past)
-  int64 since_seconds =3;
-  // the number of lines from the end of the logs to show. If not specified, logs are shown from the creation of the container or since_seconds
-  int64 tail_lines =4;
-  // previous retrieves logs from the previous container than the one running(useful for restarts)
-  bool previous =10;
-  // if stream is true, the tcp connection will be left open & logs will continue to be sent to the client
-  bool stream =11;
+// NamespaceRefs is a list of NamespaceRef
+message NamespaceRefs {
+  repeated NamespaceRef namespaces =1;
 }
 
 // MeshPaasService is a platform as a service backed by Istio service mesh
 // all requests are made in the context of the user's identity which is derived from the inbound jwt & verified with the configured jwks(json web keys) uri
 service MeshPaasService {
-  // CreateAPI creates a new api(k8s deployment, k8s service, istio virtual service, request authenticator, & authorization policy) in the user's authorized namespace(jwt.claims.${namespace-claim})
-  rpc CreateAPI(APIInput) returns(API){}
-  // UpdateAPI replaces an existing api(k8s deployment, k8s service, istio virtual service, request authenticator, & authorization policy) in the user's authorized namespace(jwt.claims.${namespace-claim})
-  rpc UpdateAPI(APIInput) returns(API){}
-  // DeleteAPI deletes a single api(k8s deployment, k8s service, istio virtual service, request authenticator, & authorization policy) in the user's authorized namespace(jwt.claims.${namespace-claim})
-  rpc DeleteAPI(Ref) returns(google.protobuf.Empty){}
-  // GetAPI gets an api by name in the user's authorized namespace(jwt.claims.${namespace-claim}) 
-  rpc GetAPI(Ref) returns(API){}
-  // ListAPIs lists all apis in the user's authorized namespace(jwt.claims.${namespace-claim})
-  rpc ListAPIs(google.protobuf.Empty) returns(APIs){}
-
-  // CreateTask creates a new task(k8s cron job) in the user's authorized namespace(jwt.claims.${namespace-claim})
-  rpc CreateTask(TaskInput) returns(Task){}
-  // UpdateTask replaces an existing task(k8s cron job) in the user's authorized namespace(jwt.claims.${namespace-claim})
-  rpc UpdateTask(TaskInput) returns(Task){}
-  // DeleteTask deletes a single task(k8s cron job) in the user's authorized namespace(jwt.claims.${namespace-claim})
-  rpc DeleteTask(Ref) returns(google.protobuf.Empty){}
-  // GetTask gets a task(k8s cron job) by name in the user's authorized namespace(jwt.claims.${namespace-claim})
-  rpc GetTask(Ref) returns(Task){}
-  // ListTasks lists all tasks(k8s cron jobs) in the user's authorized namespace(jwt.claims.${namespace-claim})
-  rpc ListTasks(google.protobuf.Empty) returns(Tasks){}
-
-  // CreateGateway creates a new gateway(istio gateway) in the user's authorized namespace(jwt.claims.${namespace-claim})
-  rpc CreateGateway(GatewayInput) returns(Gateway){}
-  // UpdateGateway replaces an existing gateway(istio gateway) in the user's authorized namespace(jwt.claims.${namespace-claim})
-  rpc UpdateGateway(GatewayInput) returns(Gateway){}
-  // DeleteGateway deletes a single gateway(istio gateway) in the user's authorized namespace(jwt.claims.${namespace-claim})
-  rpc DeleteGateway(Ref) returns(google.protobuf.Empty){}
-  // GetGateway gets a gateway(istio gateway) by name in the user's authorized namespace(jwt.claims.${namespace-claim})
-  rpc GetGateway(Ref) returns(Gateway){}
-  // ListGateways lists all gateways(istio gateways) in the user's authorized namespace(jwt.claims.${namespace-claim})
-  rpc ListGateways(google.protobuf.Empty) returns(Gateways){}
-  
-  // CreateSecret creates a new secret(k8s secret)
-  rpc CreateSecret(SecretInput) returns(Secret){}
-  // UpdateSecret replaces an existing secret(k8s secret)
-  rpc UpdateSecret(SecretInput) returns(Secret){}
-  // DeleteSecret deletes a single secret(k8s secret)
-  rpc DeleteSecret(Ref) returns(google.protobuf.Empty){}
-  // GetSecret gets a secret(k8s secret) by name
-  rpc GetSecret(Ref) returns(Secret){}
-  // ListSecrets lists all secrets(k8s secret) in the user's authorized namespace(jwt.claims.${namespace-claim})
-  rpc ListSecrets(google.protobuf.Empty) returns(Secrets){}
-
-  // StreamLogs streams logs from an api/task.
-  // Streams are opened to all replicas & converted into a single stream
-  rpc StreamLogs(LogOpts) returns (stream Log){}
+  // GetApp gets an app in the given namespace
+  rpc GetApp(AppRef) returns(App){}
+  // ListApps lists apps in the namespace
+  rpc ListApps(NamespaceRef) returns(Apps){}
+  // UninstallApp uninstalls an app in the given namespace
+  rpc UninstallApp(AppRef) returns(google.protobuf.Empty){}
+  // RollbackApp rolls the app back to the previous version in the given namespace
+  rpc RollbackApp(AppRef) returns(App){}
+  // InstallApp installs an app in the given namespace
+  rpc InstallApp(AppInput) returns(App){}
+  // UpdateApp updates an app in the given namespace
+  rpc UpdateApp(AppInput) returns(App){}
+  // SearchTemplates searches for an app chart
+  rpc SearchTemplates(Filter) returns(Charts){}
 }

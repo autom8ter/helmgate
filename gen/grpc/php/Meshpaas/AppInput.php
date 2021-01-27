@@ -9,48 +9,36 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * AppInput creates/replaces an app
+ * AppInput is used to create/update an app
  *
  * Generated from protobuf message <code>meshpaas.AppInput</code>
  */
 class AppInput extends \Google\Protobuf\Internal\Message
 {
     /**
-     * name of the application
+     * namespace name the app belongs to(autocreated)
      *
-     * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string namespace = 1 [(.validator.field) = {</code>
      */
-    private $name = '';
+    private $namespace = '';
     /**
-     * containers are docker containers that run the application's business logic
+     * the app chart to use
      *
-     * Generated from protobuf field <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string chart = 2 [(.validator.field) = {</code>
      */
-    private $containers;
+    private $chart = '';
     /**
-     * number of deployment replicas
+     * name of the app
      *
-     * Generated from protobuf field <code>uint32 replicas = 7;</code>
+     * Generated from protobuf field <code>string app_name = 3 [(.validator.field) = {</code>
      */
-    private $replicas = 0;
+    private $app_name = '';
     /**
-     * routing - routing options
+     * config values used to render the app chart
      *
-     * Generated from protobuf field <code>.meshpaas.Routing routing = 10 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>map<string, string> config = 4 [(.validator.field) = {</code>
      */
-    private $routing = null;
-    /**
-     * application authentication options
-     *
-     * Generated from protobuf field <code>.meshpaas.Authn authentication = 12;</code>
-     */
-    private $authentication = null;
-    /**
-     * image_pull_secret is the secret used to pull images from docker registry
-     *
-     * Generated from protobuf field <code>string image_pull_secret = 14;</code>
-     */
-    private $image_pull_secret = '';
+    private $config;
 
     /**
      * Constructor.
@@ -58,18 +46,14 @@ class AppInput extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type string $name
-     *           name of the application
-     *     @type \Meshpaas\Container[]|\Google\Protobuf\Internal\RepeatedField $containers
-     *           containers are docker containers that run the application's business logic
-     *     @type int $replicas
-     *           number of deployment replicas
-     *     @type \Meshpaas\Routing $routing
-     *           routing - routing options
-     *     @type \Meshpaas\Authn $authentication
-     *           application authentication options
-     *     @type string $image_pull_secret
-     *           image_pull_secret is the secret used to pull images from docker registry
+     *     @type string $namespace
+     *           namespace name the app belongs to(autocreated)
+     *     @type string $chart
+     *           the app chart to use
+     *     @type string $app_name
+     *           name of the app
+     *     @type array|\Google\Protobuf\Internal\MapField $config
+     *           config values used to render the app chart
      * }
      */
     public function __construct($data = NULL) {
@@ -78,157 +62,105 @@ class AppInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * name of the application
+     * namespace name the app belongs to(autocreated)
      *
-     * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string namespace = 1 [(.validator.field) = {</code>
      * @return string
      */
-    public function getName()
+    public function getNamespace()
     {
-        return $this->name;
+        return $this->namespace;
     }
 
     /**
-     * name of the application
+     * namespace name the app belongs to(autocreated)
      *
-     * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>string namespace = 1 [(.validator.field) = {</code>
      * @param string $var
      * @return $this
      */
-    public function setName($var)
+    public function setNamespace($var)
     {
         GPBUtil::checkString($var, True);
-        $this->name = $var;
+        $this->namespace = $var;
 
         return $this;
     }
 
     /**
-     * containers are docker containers that run the application's business logic
+     * the app chart to use
      *
-     * Generated from protobuf field <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = {</code>
-     * @return \Google\Protobuf\Internal\RepeatedField
-     */
-    public function getContainers()
-    {
-        return $this->containers;
-    }
-
-    /**
-     * containers are docker containers that run the application's business logic
-     *
-     * Generated from protobuf field <code>repeated .meshpaas.Container containers = 3 [(.validator.field) = {</code>
-     * @param \Meshpaas\Container[]|\Google\Protobuf\Internal\RepeatedField $var
-     * @return $this
-     */
-    public function setContainers($var)
-    {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Meshpaas\Container::class);
-        $this->containers = $arr;
-
-        return $this;
-    }
-
-    /**
-     * number of deployment replicas
-     *
-     * Generated from protobuf field <code>uint32 replicas = 7;</code>
-     * @return int
-     */
-    public function getReplicas()
-    {
-        return $this->replicas;
-    }
-
-    /**
-     * number of deployment replicas
-     *
-     * Generated from protobuf field <code>uint32 replicas = 7;</code>
-     * @param int $var
-     * @return $this
-     */
-    public function setReplicas($var)
-    {
-        GPBUtil::checkUint32($var);
-        $this->replicas = $var;
-
-        return $this;
-    }
-
-    /**
-     * routing - routing options
-     *
-     * Generated from protobuf field <code>.meshpaas.Routing routing = 10 [(.validator.field) = {</code>
-     * @return \Meshpaas\Routing
-     */
-    public function getRouting()
-    {
-        return $this->routing;
-    }
-
-    /**
-     * routing - routing options
-     *
-     * Generated from protobuf field <code>.meshpaas.Routing routing = 10 [(.validator.field) = {</code>
-     * @param \Meshpaas\Routing $var
-     * @return $this
-     */
-    public function setRouting($var)
-    {
-        GPBUtil::checkMessage($var, \Meshpaas\Routing::class);
-        $this->routing = $var;
-
-        return $this;
-    }
-
-    /**
-     * application authentication options
-     *
-     * Generated from protobuf field <code>.meshpaas.Authn authentication = 12;</code>
-     * @return \Meshpaas\Authn
-     */
-    public function getAuthentication()
-    {
-        return $this->authentication;
-    }
-
-    /**
-     * application authentication options
-     *
-     * Generated from protobuf field <code>.meshpaas.Authn authentication = 12;</code>
-     * @param \Meshpaas\Authn $var
-     * @return $this
-     */
-    public function setAuthentication($var)
-    {
-        GPBUtil::checkMessage($var, \Meshpaas\Authn::class);
-        $this->authentication = $var;
-
-        return $this;
-    }
-
-    /**
-     * image_pull_secret is the secret used to pull images from docker registry
-     *
-     * Generated from protobuf field <code>string image_pull_secret = 14;</code>
+     * Generated from protobuf field <code>string chart = 2 [(.validator.field) = {</code>
      * @return string
      */
-    public function getImagePullSecret()
+    public function getChart()
     {
-        return $this->image_pull_secret;
+        return $this->chart;
     }
 
     /**
-     * image_pull_secret is the secret used to pull images from docker registry
+     * the app chart to use
      *
-     * Generated from protobuf field <code>string image_pull_secret = 14;</code>
+     * Generated from protobuf field <code>string chart = 2 [(.validator.field) = {</code>
      * @param string $var
      * @return $this
      */
-    public function setImagePullSecret($var)
+    public function setChart($var)
     {
         GPBUtil::checkString($var, True);
-        $this->image_pull_secret = $var;
+        $this->chart = $var;
+
+        return $this;
+    }
+
+    /**
+     * name of the app
+     *
+     * Generated from protobuf field <code>string app_name = 3 [(.validator.field) = {</code>
+     * @return string
+     */
+    public function getAppName()
+    {
+        return $this->app_name;
+    }
+
+    /**
+     * name of the app
+     *
+     * Generated from protobuf field <code>string app_name = 3 [(.validator.field) = {</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setAppName($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->app_name = $var;
+
+        return $this;
+    }
+
+    /**
+     * config values used to render the app chart
+     *
+     * Generated from protobuf field <code>map<string, string> config = 4 [(.validator.field) = {</code>
+     * @return \Google\Protobuf\Internal\MapField
+     */
+    public function getConfig()
+    {
+        return $this->config;
+    }
+
+    /**
+     * config values used to render the app chart
+     *
+     * Generated from protobuf field <code>map<string, string> config = 4 [(.validator.field) = {</code>
+     * @param array|\Google\Protobuf\Internal\MapField $var
+     * @return $this
+     */
+    public function setConfig($var)
+    {
+        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::STRING);
+        $this->config = $arr;
 
         return $this;
     }

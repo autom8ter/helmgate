@@ -9,12 +9,14 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>meshpaas.Projects</code>
+ * NamespaceRefs is a list of NamespaceRef
+ *
+ * Generated from protobuf message <code>meshpaas.NamespaceRefs</code>
  */
-class Projects extends \Google\Protobuf\Internal\Message
+class NamespaceRefs extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>repeated string namespaces = 1;</code>
+     * Generated from protobuf field <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
      */
     private $namespaces;
 
@@ -24,7 +26,7 @@ class Projects extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $namespaces
+     *     @type \Meshpaas\NamespaceRef[]|\Google\Protobuf\Internal\RepeatedField $namespaces
      * }
      */
     public function __construct($data = NULL) {
@@ -33,7 +35,7 @@ class Projects extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated string namespaces = 1;</code>
+     * Generated from protobuf field <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getProjects()
@@ -42,13 +44,13 @@ class Projects extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated string namespaces = 1;</code>
-     * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
+     * Generated from protobuf field <code>repeated .meshpaas.NamespaceRef namespaces = 1;</code>
+     * @param \Meshpaas\NamespaceRef[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
     public function setProjects($var)
     {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Meshpaas\NamespaceRef::class);
         $this->namespaces = $arr;
 
         return $this;

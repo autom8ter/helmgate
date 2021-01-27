@@ -3,328 +3,73 @@
 package model
 
 import (
-	"fmt"
-	"io"
-	"strconv"
+	"time"
 )
 
-type API struct {
-	Name       string       `json:"name"`
-	Containers []*Container `json:"containers"`
-	Replicas   int          `json:"replicas"`
-	Routing    *Routing     `json:"routing"`
-	Status     *APIStatus   `json:"status"`
+type App struct {
+	Name      string   `json:"name"`
+	Namespace string   `json:"namespace"`
+	Release   *Release `json:"release"`
+	Chart     *Chart   `json:"chart"`
 }
 
-type APIInput struct {
-	Name       string            `json:"name"`
-	Containers []*ContainerInput `json:"containers"`
-	Replicas   int               `json:"replicas"`
-	Routing    *RoutingInput     `json:"routing"`
+type AppInput struct {
+	Namespace string                 `json:"namespace"`
+	Chart     string                 `json:"chart"`
+	AppName   string                 `json:"app_name"`
+	Config    map[string]interface{} `json:"config"`
 }
 
-type APIStatus struct {
-	Replicas []*Replica `json:"replicas"`
+type AppRef struct {
+	Namespace string `json:"namespace"`
+	Name      string `json:"name"`
 }
 
-type Container struct {
-	Name  string                 `json:"name"`
-	Image string                 `json:"image"`
-	Args  []string               `json:"args"`
-	Env   map[string]interface{} `json:"env"`
-	Ports []*ContainerPort       `json:"ports"`
+type Chart struct {
+	Name         string                 `json:"name"`
+	Home         *string                `json:"home"`
+	Icon         *string                `json:"icon"`
+	Version      *string                `json:"version"`
+	Description  *string                `json:"description"`
+	Sources      []string               `json:"sources"`
+	Keywords     []string               `json:"keywords"`
+	Deprecated   *bool                  `json:"deprecated"`
+	Metadata     map[string]interface{} `json:"metadata"`
+	Maintainers  []*Maintainer          `json:"maintainers"`
+	Dependencies []*Dependency          `json:"dependencies"`
 }
 
-type ContainerInput struct {
-	Name  string                 `json:"name"`
-	Image string                 `json:"image"`
-	Args  []string               `json:"args"`
-	Env   map[string]interface{} `json:"env"`
-	Ports []*ContainerPortInput  `json:"ports"`
+type Dependency struct {
+	Chart      string `json:"chart"`
+	Version    string `json:"version"`
+	Repository string `json:"repository"`
 }
 
-type ContainerPort struct {
-	Name   string `json:"name"`
-	Number int    `json:"number"`
-	Expose bool   `json:"expose"`
+type Filter struct {
+	Term  string `json:"term"`
+	Regex *bool  `json:"regex"`
 }
 
-type ContainerPortInput struct {
-	Name   string `json:"name"`
-	Number int    `json:"number"`
-	Expose bool   `json:"expose"`
+type Maintainer struct {
+	Name  string `json:"name"`
+	Email string `json:"email"`
 }
 
-type Gateway struct {
-	Name      string             `json:"name"`
-	Listeners []*GatewayListener `json:"listeners"`
-}
-
-type GatewayInput struct {
-	Name      string                  `json:"name"`
-	Listeners []*GatewayListenerInput `json:"listeners"`
-}
-
-type GatewayListener struct {
-	Name      string             `json:"name"`
-	Port      int                `json:"port"`
-	Protocol  TransportProtocol  `json:"protocol"`
-	Hosts     []string           `json:"hosts"`
-	TLSConfig *ServerTLSSettings `json:"tls_config"`
-}
-
-type GatewayListenerInput struct {
-	Name      string                  `json:"name"`
-	Port      int                     `json:"port"`
-	Protocol  TransportProtocol       `json:"protocol"`
-	Hosts     []string                `json:"hosts"`
-	TLSConfig *ServerTLSSettingsInput `json:"tls_config"`
-}
-
-type HTTPRoute struct {
-	Name             string   `json:"name"`
-	Port             int      `json:"port"`
-	PathPrefix       *string  `json:"path_prefix"`
-	RewriteURI       *string  `json:"rewrite_uri"`
-	AllowOrigins     []string `json:"allow_origins"`
-	AllowMethods     []string `json:"allow_methods"`
-	AllowHeaders     []string `json:"allow_headers"`
-	ExposeHeaders    []string `json:"expose_headers"`
-	AllowCredentials *bool    `json:"allow_credentials"`
-}
-
-type HTTPRouteInput struct {
-	Name             string   `json:"name"`
-	Port             int      `json:"port"`
-	PathPrefix       *string  `json:"path_prefix"`
-	RewriteURI       *string  `json:"rewrite_uri"`
-	AllowOrigins     []string `json:"allow_origins"`
-	AllowMethods     []string `json:"allow_methods"`
-	AllowHeaders     []string `json:"allow_headers"`
-	ExposeHeaders    []string `json:"expose_headers"`
-	AllowCredentials *bool    `json:"allow_credentials"`
-}
-
-type Log struct {
-	Message string `json:"message"`
-}
-
-type LogOpts struct {
-	Name         string `json:"name"`
-	Container    string `json:"container"`
-	Previous     *bool  `json:"previous"`
-	TailLines    *int   `json:"tail_lines"`
-	SinceSeconds *int   `json:"since_seconds"`
-	Stream       *bool  `json:"stream"`
-}
-
-type Ref struct {
+type NamespaceRef struct {
 	Name string `json:"name"`
 }
 
-type Replica struct {
-	Phase     string `json:"phase"`
-	Condition string `json:"condition"`
-	Reason    string `json:"reason"`
+type Release struct {
+	Version     int                    `json:"version"`
+	Config      map[string]interface{} `json:"config"`
+	Notes       *string                `json:"notes"`
+	Description *string                `json:"description"`
+	Status      *string                `json:"status"`
+	Timestamps  *Timestamps            `json:"timestamps"`
 }
 
-type Routing struct {
-	Gateway    *string      `json:"gateway"`
-	Hosts      []string     `json:"hosts"`
-	HTTPRoutes []*HTTPRoute `json:"http_routes"`
-}
-
-type RoutingInput struct {
-	Gateway    *string           `json:"gateway"`
-	Hosts      []string          `json:"hosts"`
-	HTTPRoutes []*HTTPRouteInput `json:"http_routes"`
-}
-
-type Secret struct {
-	Type      SecretType             `json:"type"`
-	Name      string                 `json:"name"`
-	Immutable bool                   `json:"immutable"`
-	Data      map[string]interface{} `json:"data"`
-}
-
-type SecretInput struct {
-	Type      SecretType             `json:"type"`
-	Name      string                 `json:"name"`
-	Immutable bool                   `json:"immutable"`
-	Data      map[string]interface{} `json:"data"`
-}
-
-type ServerTLSSettings struct {
-	HTTPSRedirect         bool     `json:"https_redirect"`
-	Mode                  TLSmode  `json:"mode"`
-	Secret                *string  `json:"secret"`
-	SubjectAltNames       []string `json:"subject_alt_names"`
-	VerifyCertificateSpki []string `json:"verify_certificate_spki"`
-	VerifyCertificateHash []string `json:"verify_certificate_hash"`
-	CipherSuites          []string `json:"cipher_suites"`
-}
-
-type ServerTLSSettingsInput struct {
-	HTTPSRedirect         bool     `json:"https_redirect"`
-	Mode                  TLSmode  `json:"mode"`
-	Secret                *string  `json:"secret"`
-	SubjectAltNames       []string `json:"subject_alt_names"`
-	VerifyCertificateSpki []string `json:"verify_certificate_spki"`
-	VerifyCertificateHash []string `json:"verify_certificate_hash"`
-	CipherSuites          []string `json:"cipher_suites"`
-}
-
-type Task struct {
-	Name        string       `json:"name"`
-	Containers  []*Container `json:"containers"`
-	Schedule    string       `json:"schedule"`
-	Completions *int         `json:"completions"`
-}
-
-type TaskInput struct {
-	Name        string            `json:"name"`
-	Containers  []*ContainerInput `json:"containers"`
-	Schedule    string            `json:"schedule"`
-	Completions *int              `json:"completions"`
-}
-
-type SecretType string
-
-const (
-	SecretTypeOpaque       SecretType = "OPAQUE"
-	SecretTypeTLSCertKey   SecretType = "TLS_CERT_KEY"
-	SecretTypeDockerConfig SecretType = "DOCKER_CONFIG"
-)
-
-var AllSecretType = []SecretType{
-	SecretTypeOpaque,
-	SecretTypeTLSCertKey,
-	SecretTypeDockerConfig,
-}
-
-func (e SecretType) IsValid() bool {
-	switch e {
-	case SecretTypeOpaque, SecretTypeTLSCertKey, SecretTypeDockerConfig:
-		return true
-	}
-	return false
-}
-
-func (e SecretType) String() string {
-	return string(e)
-}
-
-func (e *SecretType) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = SecretType(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid SecretType", str)
-	}
-	return nil
-}
-
-func (e SecretType) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-type TLSmode string
-
-const (
-	TLSmodePassthrough     TLSmode = "PASSTHROUGH"
-	TLSmodeSimple          TLSmode = "SIMPLE"
-	TLSmodeMutual          TLSmode = "MUTUAL"
-	TLSmodeAutoPassthrough TLSmode = "AUTO_PASSTHROUGH"
-	TLSmodeIstioMutual     TLSmode = "ISTIO_MUTUAL"
-)
-
-var AllTLSmode = []TLSmode{
-	TLSmodePassthrough,
-	TLSmodeSimple,
-	TLSmodeMutual,
-	TLSmodeAutoPassthrough,
-	TLSmodeIstioMutual,
-}
-
-func (e TLSmode) IsValid() bool {
-	switch e {
-	case TLSmodePassthrough, TLSmodeSimple, TLSmodeMutual, TLSmodeAutoPassthrough, TLSmodeIstioMutual:
-		return true
-	}
-	return false
-}
-
-func (e TLSmode) String() string {
-	return string(e)
-}
-
-func (e *TLSmode) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = TLSmode(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid TLSmode", str)
-	}
-	return nil
-}
-
-func (e TLSmode) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-type TransportProtocol string
-
-const (
-	TransportProtocolHTTP  TransportProtocol = "HTTP"
-	TransportProtocolHTTPS TransportProtocol = "HTTPS"
-	TransportProtocolGrpc  TransportProtocol = "GRPC"
-	TransportProtocolHTTP2 TransportProtocol = "HTTP2"
-	TransportProtocolMongo TransportProtocol = "MONGO"
-	TransportProtocolTCP   TransportProtocol = "TCP"
-	TransportProtocolTLS   TransportProtocol = "TLS"
-)
-
-var AllTransportProtocol = []TransportProtocol{
-	TransportProtocolHTTP,
-	TransportProtocolHTTPS,
-	TransportProtocolGrpc,
-	TransportProtocolHTTP2,
-	TransportProtocolMongo,
-	TransportProtocolTCP,
-	TransportProtocolTLS,
-}
-
-func (e TransportProtocol) IsValid() bool {
-	switch e {
-	case TransportProtocolHTTP, TransportProtocolHTTPS, TransportProtocolGrpc, TransportProtocolHTTP2, TransportProtocolMongo, TransportProtocolTCP, TransportProtocolTLS:
-		return true
-	}
-	return false
-}
-
-func (e TransportProtocol) String() string {
-	return string(e)
-}
-
-func (e *TransportProtocol) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = TransportProtocol(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid TransportProtocol", str)
-	}
-	return nil
-}
-
-func (e TransportProtocol) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+type Timestamps struct {
+	Created *time.Time `json:"created"`
+	Updated *time.Time `json:"updated"`
+	Deleted *time.Time `json:"deleted"`
 }

@@ -3,309 +3,90 @@ scalar Time
 # Map is a k/v map where the key is a string and the value is any value
 scalar Map
 
-enum TLSmode {
-    PASSTHROUGH
-    SIMPLE
-    MUTUAL
-    AUTO_PASSTHROUGH
-    ISTIO_MUTUAL
-}
-
-enum SecretType {
-    OPAQUE
-    TLS_CERT_KEY
-    DOCKER_CONFIG
-}
-
-
-enum TransportProtocol {
-    HTTP
-    HTTPS
-    GRPC
-    HTTP2
-    MONGO
-    TCP
-    TLS
-}
-
-type Secret {
-    type: SecretType!
+type Maintainer {
     name: String!
-    immutable: Boolean!
-    data: Map!
+    email: String!
 }
 
-input SecretInput {
-    type: SecretType!
+type Dependency {
+    chart: String!
+    version: String!
+    repository: String!
+}
+
+type Release {
+    version: Int!
+    config: Map!
+    notes: String
+    description: String
+    status: String
+    timestamps: Timestamps
+}
+
+type Timestamps {
+    created: Time
+    updated: Time
+    deleted: Time
+}
+
+type Chart {
     name: String!
-    immutable: Boolean!
-    data: Map!
+    home: String
+    icon: String
+    version: String
+    description: String
+    sources: [String!]
+    keywords: [String!]
+    deprecated: Boolean
+    metadata: Map
+    maintainers: [Maintainer!]
+    dependencies: [Dependency!]
 }
 
-type ServerTLSSettings {
-    https_redirect: Boolean!
-    mode: TLSmode!
-    secret: String
-    subject_alt_names: [String!]
-    verify_certificate_spki: [String!]
-    verify_certificate_hash: [String!]
-    cipher_suites: [String!]
-}
-
-input ServerTLSSettingsInput {
-    https_redirect: Boolean!
-    mode: TLSmode!
-    secret: String
-    subject_alt_names: [String!]
-    verify_certificate_spki: [String!]
-    verify_certificate_hash: [String!]
-    cipher_suites: [String!]
-}
-
-type GatewayListener {
+type App {
     name: String!
-    port: Int!
-    protocol: TransportProtocol!
-    hosts: [String!]!
-    tls_config: ServerTLSSettings
+    namespace: String!
+    release: Release!
+    chart: Chart!
 }
 
-input GatewayListenerInput {
-    name: String!
-    port: Int!
-    protocol: TransportProtocol!
-    hosts: [String!]!
-    tls_config: ServerTLSSettingsInput
+input Filter {
+    term: String!
+    regex: Boolean
 }
 
-type Gateway {
-    name: String!
-    listeners: [GatewayListener]!
-}
-
-input GatewayInput {
-    name: String!
-    listeners: [GatewayListenerInput]!
-}
-
-type HTTPRoute {
-    # The name assigned to the route for debugging purposes
-    name: String!
-    # forward to specific port on api
-    port: Int!
-    # prefix-based path match
-    path_prefix: String
-    # rewrite HTTP URIs before they reach the api
-    rewrite_uri: String
-    # The list of origins that are allowed to perform CORS requests
-    allow_origins: [String!]
-    # The list of methods that are allowed to perform CORS requests
-    allow_methods: [String!]
-    # The list of headers that are allowed to perform CORS requests
-    allow_headers: [String!]
-    #
-    expose_headers: [String!]
-    # adds `Access-Control-Allow-Credentials` header
-    allow_credentials: Boolean
-}
-
-type Routing {
-    # The gateway to bind to
-    gateway: String
-    # The destination hosts to which traffic is being sent. Could
-    # be a DNS name with wildcard prefix or an IP address.
-    hosts: [String!]
-    # An ordered list of route rules for HTTP traffic
-    http_routes: [HTTPRoute!]
-}
-
-input HTTPRouteInput {
-    # The name assigned to the route for debugging purposes
-    name: String!
-    # forward to specific port on api
-    port: Int!
-    # prefix-based path match
-    path_prefix: String
-    # rewrite HTTP URIs before they reach the api
-    rewrite_uri: String
-    # The list of origins that are allowed to perform CORS requests
-    allow_origins: [String!]
-    # The list of methods that are allowed to perform CORS requests
-    allow_methods: [String!]
-    # The list of headers that are allowed to perform CORS requests
-    allow_headers: [String!]
-    #
-    expose_headers: [String!]
-    # adds `Access-Control-Allow-Credentials` header
-    allow_credentials: Boolean
-}
-
-input RoutingInput {
-    # the gateway to bind to
-    gateway: String
-    # The destination hosts to which traffic is being sent. Could
-    # be a DNS name with wildcard prefix or an IP address.
-    hosts: [String!]
-    http_routes: [HTTPRouteInput!]
-}
-
-type ContainerPort {
-    name: String!
-    number: Int!
-    expose: Boolean!
-}
-
-input ContainerPortInput {
-    name: String!
-    number: Int!
-    expose: Boolean!
-}
-
-type Container {
-    name: String!
-    # docker image of api
-    image: String!
-    # args are arguments given to the container/image at startup
-    args: [String!]
-    # k/v map of environmental variables
-    env: Map
-    ports: [ContainerPort]
-}
-
-input ContainerInput {
-    name: String!
-    # docker image of api
-    image: String!
-    # args are arguments given to the container/image at startup
-    args: [String!]
-    # k/v map of environmental variables
-    env: Map
-    ports: [ContainerPortInput]
-}
-
-# API is a stateless api
-type API {
-    # name of the api
-    name: String!
-    containers: [Container!]!
-    # number of deployment replicas min:1
-    replicas: Int!
-    # gateway/service mesh routing
-    routing: Routing!
-    # status tracks the state of the api during it's lifecycle
-    status: APIStatus!
-    
-
-}
-
-# Task is scheduled cron job
-type Task {
-    # name of the api
-    name: String!
-    containers: [Container!]!
-    # schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
-    schedule: String!
-    # completions is the number of times to execute the task. If completions = 0, the task will run forever
-    completions: Int
-    
-
-}
-
-# Replica tracks the state of a single instance
-type Replica {
-    phase: String!
-    condition: String!
-    reason: String!
-}
-
-# APIStatus tracks the state of an app's lifecycle
-type APIStatus {
-    replicas: [Replica]!
-}
-
-# Log is a message streamed from stdout/stderr of an instance
-type Log {
-    message: String!
-}
-
-# APIInput creates a new stateless API
-input APIInput {
-    # name of the api
-    name: String!
-    containers: [ContainerInput!]!
-    # number of deployment replicas min:1
-    replicas: Int!
-    # gateway/servicemesh configuration
-    routing: RoutingInput!
-}
-
-# TaskInput creates a new task(cron job)
-input TaskInput {
-    # name of the api
-    name: String!
-    containers: [ContainerInput!]!
-    # schedule is the cron schedule: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
-    schedule: String!
-    # completions is the number of times to execute the task. If completions = 0, the task will run forever
-    completions: Int
-    
-
-}
-
-input Ref {
-    # name of the resource
+input AppRef {
+    namespace: String!
     name: String!
 }
 
-input LogOpts {
-    # name of the resource
+input NamespaceRef {
     name: String!
-    # container name
-    container: String!
-    # previous retrieves logs from the previous container than the one running(useful for restarts)
-    previous: Boolean
-    # the number of lines from the end of the logs to show. If not specified, logs are shown from the creation of the container or since_seconds
-    tail_lines: Int
-    # since_seconds streams since a certain unix time(in the past)
-    since_seconds: Int
-    # if stream is true, the tcp connection will be left open & logs will continue to be sent to the client
-    stream: Boolean
 }
 
-type Mutation {
-    createAPI(input: APIInput!): API!
-    updateAPI(input: APIInput!): API!
-    delAPI(input: Ref!): String
-
-    createTask(input: TaskInput!): Task!
-    updateTask(input: TaskInput!): Task!
-    delTask(input: Ref!): String
-
-    createGateway(input: GatewayInput!): Gateway!
-    updateGateway(input: GatewayInput!): Gateway!
-    delGateway(input: Ref!): String
-
-    createSecret(input: SecretInput!): Secret!
-    updateSecret(input: SecretInput!): Secret!
-    delSecret(input: Ref!): String
-
+input AppInput {
+    namespace: String!
+    chart: String!
+    app_name: String!
+    config: Map!
 }
 
 type Query {
-    getAPI(input: Ref!): API!
-    listAPIs(input: String): [API!]
-
-    getTask(input: Ref!): Task!
-    listTasks(input: String): [Task!]
-
-    getGateway(input: Ref!): Gateway!
-    listGateways(input: String): [Gateway!]
-
-    getSecret(input: Ref!): Secret!
-    listSecrets(input: String): [Secret!]
+    # getApp gets an app in the given namespace
+    getApp(input: AppRef!): App
+    # listApps lists apps in the namespace
+    listApps(input: NamespaceRef!): [App!]
+    # searchTemplates searches for an app chart
+    searchTemplates(input: Filter!): [Chart!]
 }
 
-type Subscription {
-    # logs streams logs from an an existing api/cronjob
-    streamLogs(input: LogOpts!): String!
+type Mutation {
+    # installApp installs an app in the given namespace
+    installApp(input: AppInput!): App
+    # updateApp updates an app in the given namespace
+    updateApp(input: AppInput!): App
+    # rollbackApp rolls the app back to the previous version in the given namespace
+    rollbackApp(input: AppRef!): App
+    # uninstallApp uninstalls an app in the given namespace
+    uninstallApp(input: AppRef!): String
 }

@@ -11,6 +11,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"time"
 )
 
 func MarshalJSON(msg proto.Message) ([]byte, error) {
@@ -96,25 +97,6 @@ func JSONString(obj interface{}) string {
 	return string(bits)
 }
 
-func Int32Pointer(value uint32) *int32 {
-	if value != 0 {
-		i := int32(value)
-		return &i
-	}
-	return nil
-}
-
-func StringPointer(this string) *string {
-	if this != "" {
-		return &this
-	}
-	return nil
-}
-
-func BoolPointer(this bool) *bool {
-	return &this
-}
-
 func ConvertMap(labels map[string]string) map[string]interface{} {
 	if labels == nil {
 		return nil
@@ -135,4 +117,45 @@ func ConvertMapS(labels map[string]interface{}) map[string]string {
 		values[k] = cast.ToString(v)
 	}
 	return values
+}
+
+func ToStringPointer(this string) *string {
+	return &this
+}
+
+func ToBoolPointer(this bool) *bool {
+	return &this
+}
+
+func ToInt32Pointer(value uint32) *int32 {
+	if value != 0 {
+		i := int32(value)
+		return &i
+	}
+	return nil
+}
+
+func ToTimePointer(t time.Time) *time.Time {
+	return &t
+}
+
+func FromStringPointer(this *string) string {
+	if this != nil {
+		return *this
+	}
+	return ""
+}
+
+func FromBoolPointer(this *bool) bool {
+	if this != nil {
+		return *this
+	}
+	return false
+}
+
+func FromIntPointer(this *int) int {
+	if this != nil {
+		return *this
+	}
+	return 0
 }

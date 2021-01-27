@@ -1,0 +1,14 @@
+# port to serve on. metrics server is started on this port+1
+port: 8820
+# enable debug logs
+debug: true
+# rego policy for authorization
+rego_policy: ""
+# rego query
+rego_query: ""
+# json web keys uri for authentication
+jwks_uri: ""
+# add list of helm repos to load at startup
+repos:
+  - name: "stable"
+    url: "https://charts.helm.sh/stable"
