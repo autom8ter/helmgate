@@ -9,7 +9,7 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * AppRef is a generic structure for looking up apps
+ * AppRef is a generic structure for looking up apps/releases
  *
  * Generated from protobuf message <code>hpaas.AppRef</code>
  */

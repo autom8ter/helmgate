@@ -14721,7 +14721,7 @@ public final class Schema {
       "pRef\032\r.hpaas.App\"\000\0221\n\nInstallApp\022\022.me" +
       "shpaas.AppInput\032\r.hpaas.App\"\000\0220\n\tUpda" +
       "teApp\022\022.hpaas.AppInput\032\r.hpaas.App" +
-      "\"\000\0227\n\017SearchTemplates\022\020.hpaas.Filter\032" +
+      "\"\000\0227\n\017SearchCharts\022\020.hpaas.Filter\032" +
       "\020.hpaas.Charts\"\000B\014Z\nhpaaspbb\006proto" +
       "3"
     };

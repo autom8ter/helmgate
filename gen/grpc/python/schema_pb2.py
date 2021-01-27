@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='hpaas',
   syntax='proto3',
   serialized_options=_b('Z\007hpaaspb'),
-  serialized_pb=_b('\n\x0cschema.proto\x12\x05hpaas\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x19google/protobuf/any.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x36github.com/mwitkow/go-proto-validators/validator.proto\"v\n\nDependency\x12\x1f\n\x05\x63hart\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12!\n\x07version\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12$\n\nrepository\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"M\n\nMaintainer\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05\x65mail\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"7\n\x06\x46ilter\x12\x1e\n\x04term\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\r\n\x05regex\x18\x02 \x01(\x08\"\xd0\x02\n\x05\x43hart\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x0c\n\x04home\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x0f\n\x07version\x18\x04 \x01(\t\x12\x0f\n\x07sources\x18\x05 \x03(\t\x12\x10\n\x08keywords\x18\x06 \x03(\t\x12\x0c\n\x04icon\x18\x07 \x01(\t\x12\x12\n\ndeprecated\x18\x08 \x01(\x08\x12\'\n\x0c\x64\x65pendencies\x18\t \x03(\x0b\x32\x11.hpaas.Dependency\x12&\n\x0bmaintainers\x18\n \x03(\x0b\x32\x11.hpaas.Maintainer\x12,\n\x08metadata\x18\x0b \x03(\x0b\x32\x1a.hpaas.Chart.MetadataEntry\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"&\n\x06\x43harts\x12\x1c\n\x06\x63harts\x18\x01 \x03(\x0b\x32\x0c.hpaas.Chart\"\x88\x01\n\x03\x41pp\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x07release\x18\x05 \x01(\x0b\x32\x0e.hpaas.Release\x12\x1b\n\x05\x63hart\x18\x14 \x01(\x0b\x32\x0c.hpaas.Chart\" \n\x04\x41pps\x12\x18\n\x04\x61pps\x18\x01 \x03(\x0b\x32\n.hpaas.App\"\x9e\x01\n\x07Release\x12\x0f\n\x07version\x18\x01 \x01(\r\x12\'\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\r\n\x05notes\x18\x03 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x04 \x01(\t\x12\x0e\n\x06status\x18\x05 \x01(\t\x12%\n\ntimestamps\x18\x06 \x01(\x0b\x32\x11.hpaas.Timestamps\"\x93\x01\n\nTimestamps\x12+\n\x07\x63reated\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12+\n\x07updated\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12+\n\x07\x64\x65leted\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"M\n\x06\x41ppRef\x12#\n\tnamespace\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1e\n\x04name\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"\xd8\x01\n\x08\x41ppInput\x12#\n\tnamespace\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05\x63hart\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\"\n\x08\x61pp_name\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x33\n\x06\x63onfig\x18\x04 \x03(\x0b\x32\x1b.hpaas.AppInput.ConfigEntryB\x06\xe2\xdf\x1f\x02 \x01\x1a-\n\x0b\x43onfigEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\".\n\x0cNamespaceRef\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"8\n\rNamespaceRefs\x12\'\n\nnamespaces\x18\x01 \x03(\x0b\x32\x13.hpaas.NamespaceRef2\xd9\x02\n\x0fMeshPaasService\x12%\n\x06GetApp\x12\r.hpaas.AppRef\x1a\n.hpaas.App\"\x00\x12.\n\x08ListApps\x12\x13.hpaas.NamespaceRef\x1a\x0b.hpaas.Apps\"\x00\x12\x37\n\x0cUninstallApp\x12\r.hpaas.AppRef\x1a\x16.google.protobuf.Empty\"\x00\x12*\n\x0bRollbackApp\x12\r.hpaas.AppRef\x1a\n.hpaas.App\"\x00\x12+\n\nInstallApp\x12\x0f.hpaas.AppInput\x1a\n.hpaas.App\"\x00\x12*\n\tUpdateApp\x12\x0f.hpaas.AppInput\x1a\n.hpaas.App\"\x00\x12\x31\n\x0fSearchTemplates\x12\r.hpaas.Filter\x1a\r.hpaas.Charts\"\x00\x42\tZ\x07hpaaspbb\x06proto3')
+  serialized_pb=_b('\n\x0cschema.proto\x12\x05hpaas\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x19google/protobuf/any.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x36github.com/mwitkow/go-proto-validators/validator.proto\"v\n\nDependency\x12\x1f\n\x05\x63hart\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12!\n\x07version\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12$\n\nrepository\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"M\n\nMaintainer\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05\x65mail\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"7\n\x06\x46ilter\x12\x1e\n\x04term\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\r\n\x05regex\x18\x02 \x01(\x08\"\xd0\x02\n\x05\x43hart\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x0c\n\x04home\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x0f\n\x07version\x18\x04 \x01(\t\x12\x0f\n\x07sources\x18\x05 \x03(\t\x12\x10\n\x08keywords\x18\x06 \x03(\t\x12\x0c\n\x04icon\x18\x07 \x01(\t\x12\x12\n\ndeprecated\x18\x08 \x01(\x08\x12\'\n\x0c\x64\x65pendencies\x18\t \x03(\x0b\x32\x11.hpaas.Dependency\x12&\n\x0bmaintainers\x18\n \x03(\x0b\x32\x11.hpaas.Maintainer\x12,\n\x08metadata\x18\x0b \x03(\x0b\x32\x1a.hpaas.Chart.MetadataEntry\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"&\n\x06\x43harts\x12\x1c\n\x06\x63harts\x18\x01 \x03(\x0b\x32\x0c.hpaas.Chart\"\x88\x01\n\x03\x41pp\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x07release\x18\x05 \x01(\x0b\x32\x0e.hpaas.Release\x12\x1b\n\x05\x63hart\x18\x14 \x01(\x0b\x32\x0c.hpaas.Chart\" \n\x04\x41pps\x12\x18\n\x04\x61pps\x18\x01 \x03(\x0b\x32\n.hpaas.App\"\x9e\x01\n\x07Release\x12\x0f\n\x07version\x18\x01 \x01(\r\x12\'\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\r\n\x05notes\x18\x03 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x04 \x01(\t\x12\x0e\n\x06status\x18\x05 \x01(\t\x12%\n\ntimestamps\x18\x06 \x01(\x0b\x32\x11.hpaas.Timestamps\"\x93\x01\n\nTimestamps\x12+\n\x07\x63reated\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12+\n\x07updated\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12+\n\x07\x64\x65leted\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"M\n\x06\x41ppRef\x12#\n\tnamespace\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1e\n\x04name\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"\xd8\x01\n\x08\x41ppInput\x12#\n\tnamespace\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05\x63hart\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\"\n\x08\x61pp_name\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x33\n\x06\x63onfig\x18\x04 \x03(\x0b\x32\x1b.hpaas.AppInput.ConfigEntryB\x06\xe2\xdf\x1f\x02 \x01\x1a-\n\x0b\x43onfigEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\".\n\x0cNamespaceRef\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"8\n\rNamespaceRefs\x12\'\n\nnamespaces\x18\x01 \x03(\x0b\x32\x13.hpaas.NamespaceRef2\xd3\x02\n\x0cHPaasService\x12%\n\x06GetApp\x12\r.hpaas.AppRef\x1a\n.hpaas.App\"\x00\x12.\n\x08ListApps\x12\x13.hpaas.NamespaceRef\x1a\x0b.hpaas.Apps\"\x00\x12\x37\n\x0cUninstallApp\x12\r.hpaas.AppRef\x1a\x16.google.protobuf.Empty\"\x00\x12*\n\x0bRollbackApp\x12\r.hpaas.AppRef\x1a\n.hpaas.App\"\x00\x12+\n\nInstallApp\x12\x0f.hpaas.AppInput\x1a\n.hpaas.App\"\x00\x12*\n\tUpdateApp\x12\x0f.hpaas.AppInput\x1a\n.hpaas.App\"\x00\x12.\n\x0cSearchCharts\x12\r.hpaas.Filter\x1a\r.hpaas.Charts\"\x00\x42\tZ\x07hpaaspbb\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_any__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,github_dot_com_dot_mwitkow_dot_go__proto__validators_dot_validator__pb2.DESCRIPTOR,])
 
@@ -863,17 +863,17 @@ _APPINPUT.fields_by_name['config']._options = None
 _NAMESPACEREF.fields_by_name['name']._options = None
 
 _HPAASSERVICE = _descriptor.ServiceDescriptor(
-  name='MeshPaasService',
-  full_name='hpaas.MeshPaasService',
+  name='HPaasService',
+  full_name='hpaas.HPaasService',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
   serialized_start=1722,
-  serialized_end=2067,
+  serialized_end=2061,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetApp',
-    full_name='hpaas.MeshPaasService.GetApp',
+    full_name='hpaas.HPaasService.GetApp',
     index=0,
     containing_service=None,
     input_type=_APPREF,
@@ -882,7 +882,7 @@ _HPAASSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='ListApps',
-    full_name='hpaas.MeshPaasService.ListApps',
+    full_name='hpaas.HPaasService.ListApps',
     index=1,
     containing_service=None,
     input_type=_NAMESPACEREF,
@@ -891,7 +891,7 @@ _HPAASSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='UninstallApp',
-    full_name='hpaas.MeshPaasService.UninstallApp',
+    full_name='hpaas.HPaasService.UninstallApp',
     index=2,
     containing_service=None,
     input_type=_APPREF,
@@ -900,7 +900,7 @@ _HPAASSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='RollbackApp',
-    full_name='hpaas.MeshPaasService.RollbackApp',
+    full_name='hpaas.HPaasService.RollbackApp',
     index=3,
     containing_service=None,
     input_type=_APPREF,
@@ -909,7 +909,7 @@ _HPAASSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='InstallApp',
-    full_name='hpaas.MeshPaasService.InstallApp',
+    full_name='hpaas.HPaasService.InstallApp',
     index=4,
     containing_service=None,
     input_type=_APPINPUT,
@@ -918,7 +918,7 @@ _HPAASSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='UpdateApp',
-    full_name='hpaas.MeshPaasService.UpdateApp',
+    full_name='hpaas.HPaasService.UpdateApp',
     index=5,
     containing_service=None,
     input_type=_APPINPUT,
@@ -926,8 +926,8 @@ _HPAASSERVICE = _descriptor.ServiceDescriptor(
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
-    name='SearchTemplates',
-    full_name='hpaas.MeshPaasService.SearchTemplates',
+    name='SearchCharts',
+    full_name='hpaas.HPaasService.SearchCharts',
     index=6,
     containing_service=None,
     input_type=_FILTER,
@@ -937,6 +937,6 @@ _HPAASSERVICE = _descriptor.ServiceDescriptor(
 ])
 _sym_db.RegisterServiceDescriptor(_HPAASSERVICE)
 
-DESCRIPTOR.services_by_name['MeshPaasService'] = _HPAASSERVICE
+DESCRIPTOR.services_by_name['HPaasService'] = _HPAASSERVICE
 
 # @@protoc_insertion_point(module_scope)

@@ -84,8 +84,8 @@ func (r *queryResolver) ListApps(ctx context.Context, input model.NamespaceRef) 
 	return apps, nil
 }
 
-func (r *queryResolver) SearchTemplates(ctx context.Context, input model.Filter) ([]*model.Chart, error) {
-	resp, err := r.client.SearchTemplates(ctx, &hpaaspb.Filter{
+func (r *queryResolver) SearchCharts(ctx context.Context, input model.Filter) ([]*model.Chart, error) {
+	resp, err := r.client.SearchCharts(ctx, &hpaaspb.Filter{
 		Term:  input.Term,
 		Regex: helpers.FromBoolPointer(input.Regex),
 	})

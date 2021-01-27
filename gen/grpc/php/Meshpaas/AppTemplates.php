@@ -38,7 +38,7 @@ class Charts extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>repeated .hpaas.Chart templates = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
-    public function getTemplates()
+    public function getCharts()
     {
         return $this->templates;
     }
@@ -48,7 +48,7 @@ class Charts extends \Google\Protobuf\Internal\Message
      * @param \Meshpaas\Chart[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
-    public function setTemplates($var)
+    public function setCharts($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Meshpaas\Chart::class);
         $this->templates = $arr;

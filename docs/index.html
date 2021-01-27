@@ -242,7 +242,7 @@
               
               
                 <li>
-                  <a href="#hpaas.MeshPaasService"><span class="badge">S</span>MeshPaasService</a>
+                  <a href="#hpaas.HPaasService"><span class="badge">S</span>HPaasService</a>
                 </li>
               
             </ul>
@@ -261,7 +261,7 @@
 
       
         <h3 id="hpaas.App">App</h3>
-        <p>App is an App created from a helm chart</p>
+        <p>App is an app/release created from a helm chart</p>
 
         
           <table class="field-table">
@@ -357,28 +357,28 @@
                   <td>namespace</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>namespace name the app belongs to(autocreated) </p></td>
+                  <td><p>the namespace the app/release belongs to(autocreated) </p></td>
                 </tr>
               
                 <tr>
                   <td>chart</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>the app chart to use </p></td>
+                  <td><p>the helm chart to use </p></td>
                 </tr>
               
                 <tr>
                   <td>app_name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>name of the app </p></td>
+                  <td><p>name of the app/release </p></td>
                 </tr>
               
                 <tr>
                   <td>config</td>
                   <td><a href="#hpaas.AppInput.ConfigEntry">AppInput.ConfigEntry</a></td>
                   <td>repeated</td>
-                  <td><p>config values used to render the app chart </p></td>
+                  <td><p>config values used to render the helm chart </p></td>
                 </tr>
               
             </tbody>
@@ -480,7 +480,7 @@
         
       
         <h3 id="hpaas.AppRef">AppRef</h3>
-        <p>AppRef is a generic structure for looking up apps</p>
+        <p>AppRef is a generic structure for looking up apps/releases</p>
 
         
           <table class="field-table">
@@ -573,7 +573,7 @@
         
       
         <h3 id="hpaas.Chart">Chart</h3>
-        <p>Chart is a helm chart that may be used to deploy an App</p>
+        <p>Chart is a helm chart that may be used to deploy an app/release</p>
 
         
           <table class="field-table">
@@ -586,28 +586,28 @@
                   <td>name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>name of the app chart </p></td>
+                  <td><p>name of the helm chart </p></td>
                 </tr>
               
                 <tr>
                   <td>home</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>home page of the app chart </p></td>
+                  <td><p>home page of the helm chart </p></td>
                 </tr>
               
                 <tr>
                   <td>description</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>description of the app chart </p></td>
+                  <td><p>description of the helm chart </p></td>
                 </tr>
               
                 <tr>
                   <td>version</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>version of the app chart </p></td>
+                  <td><p>version of the helm chart </p></td>
                 </tr>
               
                 <tr>
@@ -621,7 +621,7 @@
                   <td>keywords</td>
                   <td><a href="#string">string</a></td>
                   <td>repeated</td>
-                  <td><p>keywords associated with the app chart </p></td>
+                  <td><p>keywords associated with the helm chart </p></td>
                 </tr>
               
                 <tr>
@@ -1140,8 +1140,8 @@
       
 
       
-        <h3 id="hpaas.MeshPaasService">MeshPaasService</h3>
-        <p>MeshPaasService is a platform as a service backed by Istio service mesh</p><p>all requests are made in the context of the user's identity which is derived from the inbound jwt & verified with the configured jwks(json web keys) uri</p>
+        <h3 id="hpaas.HPaasService">HPaasService</h3>
+        <p>HPaasService is a secure platform as a service for easily deploying applications on Kubernetes with Helm charts</p>
         <table class="enum-table">
           <thead>
             <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
@@ -1152,49 +1152,49 @@
                 <td>GetApp</td>
                 <td><a href="#hpaas.AppRef">AppRef</a></td>
                 <td><a href="#hpaas.App">App</a></td>
-                <td><p>GetApp gets an app in the given namespace</p></td>
+                <td><p>GetApp gets an app/release from the given namespace</p></td>
               </tr>
             
               <tr>
                 <td>ListApps</td>
                 <td><a href="#hpaas.NamespaceRef">NamespaceRef</a></td>
                 <td><a href="#hpaas.Apps">Apps</a></td>
-                <td><p>ListApps lists apps in the namespace</p></td>
+                <td><p>ListApps lists apps/releases in the namespace</p></td>
               </tr>
             
               <tr>
                 <td>UninstallApp</td>
                 <td><a href="#hpaas.AppRef">AppRef</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>UninstallApp uninstalls an app in the given namespace</p></td>
+                <td><p>UninstallApp uninstalls an app/release from the given namespace</p></td>
               </tr>
             
               <tr>
                 <td>RollbackApp</td>
                 <td><a href="#hpaas.AppRef">AppRef</a></td>
                 <td><a href="#hpaas.App">App</a></td>
-                <td><p>RollbackApp rolls the app back to the previous version in the given namespace</p></td>
+                <td><p>RollbackApp rolls the app/release back to the previous version in the given namespace</p></td>
               </tr>
             
               <tr>
                 <td>InstallApp</td>
                 <td><a href="#hpaas.AppInput">AppInput</a></td>
                 <td><a href="#hpaas.App">App</a></td>
-                <td><p>InstallApp installs an app in the given namespace</p></td>
+                <td><p>InstallApp installs an app/release in the given namespace</p></td>
               </tr>
             
               <tr>
                 <td>UpdateApp</td>
                 <td><a href="#hpaas.AppInput">AppInput</a></td>
                 <td><a href="#hpaas.App">App</a></td>
-                <td><p>UpdateApp updates an app in the given namespace</p></td>
+                <td><p>UpdateApp updates an app/release in the given namespace</p></td>
               </tr>
             
               <tr>
-                <td>SearchTemplates</td>
+                <td>SearchCharts</td>
                 <td><a href="#hpaas.Filter">Filter</a></td>
                 <td><a href="#hpaas.Charts">Charts</a></td>
-                <td><p>SearchTemplates searches for an app chart</p></td>
+                <td><p>SearchCharts searches for a helm chart</p></td>
               </tr>
             
           </tbody>

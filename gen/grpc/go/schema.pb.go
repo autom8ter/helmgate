@@ -212,22 +212,22 @@ func (x *Filter) GetRegex() bool {
 	return false
 }
 
-// Chart is a helm chart that may be used to deploy an App
+// Chart is a helm chart that may be used to deploy an app/release
 type Chart struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// name of the app chart
+	// name of the helm chart
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	// home page of the app chart
+	// home page of the helm chart
 	Home string `protobuf:"bytes,2,opt,name=home,proto3" json:"home,omitempty"`
-	// description of the app chart
+	// description of the helm chart
 	Description string `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
-	// version of the app chart
+	// version of the helm chart
 	Version string   `protobuf:"bytes,4,opt,name=version,proto3" json:"version,omitempty"`
 	Sources []string `protobuf:"bytes,5,rep,name=sources,proto3" json:"sources,omitempty"`
-	// keywords associated with the app chart
+	// keywords associated with the helm chart
 	Keywords []string `protobuf:"bytes,6,rep,name=keywords,proto3" json:"keywords,omitempty"`
 	// icon is an the icon/brand associated with the chart
 	Icon string `protobuf:"bytes,7,opt,name=icon,proto3" json:"icon,omitempty"`
@@ -398,7 +398,7 @@ func (x *Charts) GetCharts() []*Chart {
 	return nil
 }
 
-// App is an App created from a helm chart
+// App is an app/release created from a helm chart
 type App struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -683,7 +683,7 @@ func (x *Timestamps) GetDeleted() *timestamp.Timestamp {
 	return nil
 }
 
-// AppRef is a generic structure for looking up apps
+// AppRef is a generic structure for looking up apps/releases
 type AppRef struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -747,13 +747,13 @@ type AppInput struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// namespace name the app belongs to(autocreated)
+	// the namespace the app/release belongs to(autocreated)
 	Namespace string `protobuf:"bytes,1,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	// the app chart to use
+	// the helm chart to use
 	Chart string `protobuf:"bytes,2,opt,name=chart,proto3" json:"chart,omitempty"`
-	// name of the app
+	// name of the app/release
 	AppName string `protobuf:"bytes,3,opt,name=app_name,json=appName,proto3" json:"app_name,omitempty"`
-	// config values used to render the app chart
+	// config values used to render the helm chart
 	Config map[string]string `protobuf:"bytes,4,rep,name=config,proto3" json:"config,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 }
 
@@ -1048,30 +1048,30 @@ var file_schema_proto_rawDesc = []byte{
 	0x63, 0x65, 0x52, 0x65, 0x66, 0x73, 0x12, 0x33, 0x0a, 0x0a, 0x6e, 0x61, 0x6d, 0x65, 0x73, 0x70,
 	0x61, 0x63, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x13, 0x2e, 0x68, 0x70, 0x61,
 	0x61, 0x73, 0x2e, 0x4e, 0x61, 0x6d, 0x65, 0x73, 0x70, 0x61, 0x63, 0x65, 0x52, 0x65, 0x66, 0x52,
-	0x0a, 0x6e, 0x61, 0x6d, 0x65, 0x73, 0x70, 0x61, 0x63, 0x65, 0x73, 0x32, 0xd9, 0x02, 0x0a, 0x0f,
-	0x4d, 0x65, 0x73, 0x68, 0x50, 0x61, 0x61, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12,
-	0x25, 0x0a, 0x06, 0x47, 0x65, 0x74, 0x41, 0x70, 0x70, 0x12, 0x0d, 0x2e, 0x68, 0x70, 0x61, 0x61,
-	0x73, 0x2e, 0x41, 0x70, 0x70, 0x52, 0x65, 0x66, 0x1a, 0x0a, 0x2e, 0x68, 0x70, 0x61, 0x61, 0x73,
-	0x2e, 0x41, 0x70, 0x70, 0x22, 0x00, 0x12, 0x2e, 0x0a, 0x08, 0x4c, 0x69, 0x73, 0x74, 0x41, 0x70,
-	0x70, 0x73, 0x12, 0x13, 0x2e, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x4e, 0x61, 0x6d, 0x65, 0x73,
-	0x70, 0x61, 0x63, 0x65, 0x52, 0x65, 0x66, 0x1a, 0x0b, 0x2e, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e,
-	0x41, 0x70, 0x70, 0x73, 0x22, 0x00, 0x12, 0x37, 0x0a, 0x0c, 0x55, 0x6e, 0x69, 0x6e, 0x73, 0x74,
-	0x61, 0x6c, 0x6c, 0x41, 0x70, 0x70, 0x12, 0x0d, 0x2e, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x41,
-	0x70, 0x70, 0x52, 0x65, 0x66, 0x1a, 0x16, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70,
-	0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x22, 0x00, 0x12,
-	0x2a, 0x0a, 0x0b, 0x52, 0x6f, 0x6c, 0x6c, 0x62, 0x61, 0x63, 0x6b, 0x41, 0x70, 0x70, 0x12, 0x0d,
-	0x2e, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x41, 0x70, 0x70, 0x52, 0x65, 0x66, 0x1a, 0x0a, 0x2e,
-	0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x41, 0x70, 0x70, 0x22, 0x00, 0x12, 0x2b, 0x0a, 0x0a, 0x49,
-	0x6e, 0x73, 0x74, 0x61, 0x6c, 0x6c, 0x41, 0x70, 0x70, 0x12, 0x0f, 0x2e, 0x68, 0x70, 0x61, 0x61,
-	0x73, 0x2e, 0x41, 0x70, 0x70, 0x49, 0x6e, 0x70, 0x75, 0x74, 0x1a, 0x0a, 0x2e, 0x68, 0x70, 0x61,
-	0x61, 0x73, 0x2e, 0x41, 0x70, 0x70, 0x22, 0x00, 0x12, 0x2a, 0x0a, 0x09, 0x55, 0x70, 0x64, 0x61,
-	0x74, 0x65, 0x41, 0x70, 0x70, 0x12, 0x0f, 0x2e, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x41, 0x70,
-	0x70, 0x49, 0x6e, 0x70, 0x75, 0x74, 0x1a, 0x0a, 0x2e, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x41,
-	0x70, 0x70, 0x22, 0x00, 0x12, 0x31, 0x0a, 0x0f, 0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x54, 0x65,
-	0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x73, 0x12, 0x0d, 0x2e, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e,
-	0x46, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x1a, 0x0d, 0x2e, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x43,
-	0x68, 0x61, 0x72, 0x74, 0x73, 0x22, 0x00, 0x42, 0x09, 0x5a, 0x07, 0x68, 0x70, 0x61, 0x61, 0x73,
-	0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x0a, 0x6e, 0x61, 0x6d, 0x65, 0x73, 0x70, 0x61, 0x63, 0x65, 0x73, 0x32, 0xd3, 0x02, 0x0a, 0x0c,
+	0x48, 0x50, 0x61, 0x61, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x25, 0x0a, 0x06,
+	0x47, 0x65, 0x74, 0x41, 0x70, 0x70, 0x12, 0x0d, 0x2e, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x41,
+	0x70, 0x70, 0x52, 0x65, 0x66, 0x1a, 0x0a, 0x2e, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x41, 0x70,
+	0x70, 0x22, 0x00, 0x12, 0x2e, 0x0a, 0x08, 0x4c, 0x69, 0x73, 0x74, 0x41, 0x70, 0x70, 0x73, 0x12,
+	0x13, 0x2e, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x4e, 0x61, 0x6d, 0x65, 0x73, 0x70, 0x61, 0x63,
+	0x65, 0x52, 0x65, 0x66, 0x1a, 0x0b, 0x2e, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x41, 0x70, 0x70,
+	0x73, 0x22, 0x00, 0x12, 0x37, 0x0a, 0x0c, 0x55, 0x6e, 0x69, 0x6e, 0x73, 0x74, 0x61, 0x6c, 0x6c,
+	0x41, 0x70, 0x70, 0x12, 0x0d, 0x2e, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x41, 0x70, 0x70, 0x52,
+	0x65, 0x66, 0x1a, 0x16, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x62, 0x75, 0x66, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x22, 0x00, 0x12, 0x2a, 0x0a, 0x0b,
+	0x52, 0x6f, 0x6c, 0x6c, 0x62, 0x61, 0x63, 0x6b, 0x41, 0x70, 0x70, 0x12, 0x0d, 0x2e, 0x68, 0x70,
+	0x61, 0x61, 0x73, 0x2e, 0x41, 0x70, 0x70, 0x52, 0x65, 0x66, 0x1a, 0x0a, 0x2e, 0x68, 0x70, 0x61,
+	0x61, 0x73, 0x2e, 0x41, 0x70, 0x70, 0x22, 0x00, 0x12, 0x2b, 0x0a, 0x0a, 0x49, 0x6e, 0x73, 0x74,
+	0x61, 0x6c, 0x6c, 0x41, 0x70, 0x70, 0x12, 0x0f, 0x2e, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x41,
+	0x70, 0x70, 0x49, 0x6e, 0x70, 0x75, 0x74, 0x1a, 0x0a, 0x2e, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e,
+	0x41, 0x70, 0x70, 0x22, 0x00, 0x12, 0x2a, 0x0a, 0x09, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x41,
+	0x70, 0x70, 0x12, 0x0f, 0x2e, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x41, 0x70, 0x70, 0x49, 0x6e,
+	0x70, 0x75, 0x74, 0x1a, 0x0a, 0x2e, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x41, 0x70, 0x70, 0x22,
+	0x00, 0x12, 0x2e, 0x0a, 0x0c, 0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x43, 0x68, 0x61, 0x72, 0x74,
+	0x73, 0x12, 0x0d, 0x2e, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x46, 0x69, 0x6c, 0x74, 0x65, 0x72,
+	0x1a, 0x0d, 0x2e, 0x68, 0x70, 0x61, 0x61, 0x73, 0x2e, 0x43, 0x68, 0x61, 0x72, 0x74, 0x73, 0x22,
+	0x00, 0x42, 0x09, 0x5a, 0x07, 0x68, 0x70, 0x61, 0x61, 0x73, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72,
+	0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -1122,20 +1122,20 @@ var file_schema_proto_depIdxs = []int32{
 	16, // 11: hpaas.Timestamps.deleted:type_name -> google.protobuf.Timestamp
 	14, // 12: hpaas.AppInput.config:type_name -> hpaas.AppInput.ConfigEntry
 	11, // 13: hpaas.NamespaceRefs.namespaces:type_name -> hpaas.NamespaceRef
-	9,  // 14: hpaas.MeshPaasService.GetApp:input_type -> hpaas.AppRef
-	11, // 15: hpaas.MeshPaasService.ListApps:input_type -> hpaas.NamespaceRef
-	9,  // 16: hpaas.MeshPaasService.UninstallApp:input_type -> hpaas.AppRef
-	9,  // 17: hpaas.MeshPaasService.RollbackApp:input_type -> hpaas.AppRef
-	10, // 18: hpaas.MeshPaasService.InstallApp:input_type -> hpaas.AppInput
-	10, // 19: hpaas.MeshPaasService.UpdateApp:input_type -> hpaas.AppInput
-	2,  // 20: hpaas.MeshPaasService.SearchTemplates:input_type -> hpaas.Filter
-	5,  // 21: hpaas.MeshPaasService.GetApp:output_type -> hpaas.App
-	6,  // 22: hpaas.MeshPaasService.ListApps:output_type -> hpaas.Apps
-	17, // 23: hpaas.MeshPaasService.UninstallApp:output_type -> google.protobuf.Empty
-	5,  // 24: hpaas.MeshPaasService.RollbackApp:output_type -> hpaas.App
-	5,  // 25: hpaas.MeshPaasService.InstallApp:output_type -> hpaas.App
-	5,  // 26: hpaas.MeshPaasService.UpdateApp:output_type -> hpaas.App
-	4,  // 27: hpaas.MeshPaasService.SearchTemplates:output_type -> hpaas.Charts
+	9,  // 14: hpaas.HPaasService.GetApp:input_type -> hpaas.AppRef
+	11, // 15: hpaas.HPaasService.ListApps:input_type -> hpaas.NamespaceRef
+	9,  // 16: hpaas.HPaasService.UninstallApp:input_type -> hpaas.AppRef
+	9,  // 17: hpaas.HPaasService.RollbackApp:input_type -> hpaas.AppRef
+	10, // 18: hpaas.HPaasService.InstallApp:input_type -> hpaas.AppInput
+	10, // 19: hpaas.HPaasService.UpdateApp:input_type -> hpaas.AppInput
+	2,  // 20: hpaas.HPaasService.SearchCharts:input_type -> hpaas.Filter
+	5,  // 21: hpaas.HPaasService.GetApp:output_type -> hpaas.App
+	6,  // 22: hpaas.HPaasService.ListApps:output_type -> hpaas.Apps
+	17, // 23: hpaas.HPaasService.UninstallApp:output_type -> google.protobuf.Empty
+	5,  // 24: hpaas.HPaasService.RollbackApp:output_type -> hpaas.App
+	5,  // 25: hpaas.HPaasService.InstallApp:output_type -> hpaas.App
+	5,  // 26: hpaas.HPaasService.UpdateApp:output_type -> hpaas.App
+	4,  // 27: hpaas.HPaasService.SearchCharts:output_type -> hpaas.Charts
 	21, // [21:28] is the sub-list for method output_type
 	14, // [14:21] is the sub-list for method input_type
 	14, // [14:14] is the sub-list for extension type_name
@@ -1334,302 +1334,302 @@ var _ grpc.ClientConnInterface
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion6
 
-// MeshPaasServiceClient is the client API for MeshPaasService service.
+// HPaasServiceClient is the client API for HPaasService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type MeshPaasServiceClient interface {
-	// GetApp gets an app in the given namespace
+type HPaasServiceClient interface {
+	// GetApp gets an app/release from the given namespace
 	GetApp(ctx context.Context, in *AppRef, opts ...grpc.CallOption) (*App, error)
-	// ListApps lists apps in the namespace
+	// ListApps lists apps/releases in the namespace
 	ListApps(ctx context.Context, in *NamespaceRef, opts ...grpc.CallOption) (*Apps, error)
-	// UninstallApp uninstalls an app in the given namespace
+	// UninstallApp uninstalls an app/release from the given namespace
 	UninstallApp(ctx context.Context, in *AppRef, opts ...grpc.CallOption) (*empty.Empty, error)
-	// RollbackApp rolls the app back to the previous version in the given namespace
+	// RollbackApp rolls the app/release back to the previous version in the given namespace
 	RollbackApp(ctx context.Context, in *AppRef, opts ...grpc.CallOption) (*App, error)
-	// InstallApp installs an app in the given namespace
+	// InstallApp installs an app/release in the given namespace
 	InstallApp(ctx context.Context, in *AppInput, opts ...grpc.CallOption) (*App, error)
-	// UpdateApp updates an app in the given namespace
+	// UpdateApp updates an app/release in the given namespace
 	UpdateApp(ctx context.Context, in *AppInput, opts ...grpc.CallOption) (*App, error)
-	// SearchTemplates searches for an app chart
-	SearchTemplates(ctx context.Context, in *Filter, opts ...grpc.CallOption) (*Charts, error)
+	// SearchCharts searches for a helm chart
+	SearchCharts(ctx context.Context, in *Filter, opts ...grpc.CallOption) (*Charts, error)
 }
 
-type meshPaasServiceClient struct {
+type hPaasServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewMeshPaasServiceClient(cc grpc.ClientConnInterface) MeshPaasServiceClient {
-	return &meshPaasServiceClient{cc}
+func NewHPaasServiceClient(cc grpc.ClientConnInterface) HPaasServiceClient {
+	return &hPaasServiceClient{cc}
 }
 
-func (c *meshPaasServiceClient) GetApp(ctx context.Context, in *AppRef, opts ...grpc.CallOption) (*App, error) {
+func (c *hPaasServiceClient) GetApp(ctx context.Context, in *AppRef, opts ...grpc.CallOption) (*App, error) {
 	out := new(App)
-	err := c.cc.Invoke(ctx, "/hpaas.MeshPaasService/GetApp", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/hpaas.HPaasService/GetApp", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *meshPaasServiceClient) ListApps(ctx context.Context, in *NamespaceRef, opts ...grpc.CallOption) (*Apps, error) {
+func (c *hPaasServiceClient) ListApps(ctx context.Context, in *NamespaceRef, opts ...grpc.CallOption) (*Apps, error) {
 	out := new(Apps)
-	err := c.cc.Invoke(ctx, "/hpaas.MeshPaasService/ListApps", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/hpaas.HPaasService/ListApps", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *meshPaasServiceClient) UninstallApp(ctx context.Context, in *AppRef, opts ...grpc.CallOption) (*empty.Empty, error) {
+func (c *hPaasServiceClient) UninstallApp(ctx context.Context, in *AppRef, opts ...grpc.CallOption) (*empty.Empty, error) {
 	out := new(empty.Empty)
-	err := c.cc.Invoke(ctx, "/hpaas.MeshPaasService/UninstallApp", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/hpaas.HPaasService/UninstallApp", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *meshPaasServiceClient) RollbackApp(ctx context.Context, in *AppRef, opts ...grpc.CallOption) (*App, error) {
+func (c *hPaasServiceClient) RollbackApp(ctx context.Context, in *AppRef, opts ...grpc.CallOption) (*App, error) {
 	out := new(App)
-	err := c.cc.Invoke(ctx, "/hpaas.MeshPaasService/RollbackApp", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/hpaas.HPaasService/RollbackApp", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *meshPaasServiceClient) InstallApp(ctx context.Context, in *AppInput, opts ...grpc.CallOption) (*App, error) {
+func (c *hPaasServiceClient) InstallApp(ctx context.Context, in *AppInput, opts ...grpc.CallOption) (*App, error) {
 	out := new(App)
-	err := c.cc.Invoke(ctx, "/hpaas.MeshPaasService/InstallApp", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/hpaas.HPaasService/InstallApp", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *meshPaasServiceClient) UpdateApp(ctx context.Context, in *AppInput, opts ...grpc.CallOption) (*App, error) {
+func (c *hPaasServiceClient) UpdateApp(ctx context.Context, in *AppInput, opts ...grpc.CallOption) (*App, error) {
 	out := new(App)
-	err := c.cc.Invoke(ctx, "/hpaas.MeshPaasService/UpdateApp", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/hpaas.HPaasService/UpdateApp", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *meshPaasServiceClient) SearchTemplates(ctx context.Context, in *Filter, opts ...grpc.CallOption) (*Charts, error) {
+func (c *hPaasServiceClient) SearchCharts(ctx context.Context, in *Filter, opts ...grpc.CallOption) (*Charts, error) {
 	out := new(Charts)
-	err := c.cc.Invoke(ctx, "/hpaas.MeshPaasService/SearchTemplates", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/hpaas.HPaasService/SearchCharts", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// MeshPaasServiceServer is the server API for MeshPaasService service.
-type MeshPaasServiceServer interface {
-	// GetApp gets an app in the given namespace
+// HPaasServiceServer is the server API for HPaasService service.
+type HPaasServiceServer interface {
+	// GetApp gets an app/release from the given namespace
 	GetApp(context.Context, *AppRef) (*App, error)
-	// ListApps lists apps in the namespace
+	// ListApps lists apps/releases in the namespace
 	ListApps(context.Context, *NamespaceRef) (*Apps, error)
-	// UninstallApp uninstalls an app in the given namespace
+	// UninstallApp uninstalls an app/release from the given namespace
 	UninstallApp(context.Context, *AppRef) (*empty.Empty, error)
-	// RollbackApp rolls the app back to the previous version in the given namespace
+	// RollbackApp rolls the app/release back to the previous version in the given namespace
 	RollbackApp(context.Context, *AppRef) (*App, error)
-	// InstallApp installs an app in the given namespace
+	// InstallApp installs an app/release in the given namespace
 	InstallApp(context.Context, *AppInput) (*App, error)
-	// UpdateApp updates an app in the given namespace
+	// UpdateApp updates an app/release in the given namespace
 	UpdateApp(context.Context, *AppInput) (*App, error)
-	// SearchTemplates searches for an app chart
-	SearchTemplates(context.Context, *Filter) (*Charts, error)
+	// SearchCharts searches for a helm chart
+	SearchCharts(context.Context, *Filter) (*Charts, error)
 }
 
-// UnimplementedMeshPaasServiceServer can be embedded to have forward compatible implementations.
-type UnimplementedMeshPaasServiceServer struct {
+// UnimplementedHPaasServiceServer can be embedded to have forward compatible implementations.
+type UnimplementedHPaasServiceServer struct {
 }
 
-func (*UnimplementedMeshPaasServiceServer) GetApp(context.Context, *AppRef) (*App, error) {
+func (*UnimplementedHPaasServiceServer) GetApp(context.Context, *AppRef) (*App, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetApp not implemented")
 }
-func (*UnimplementedMeshPaasServiceServer) ListApps(context.Context, *NamespaceRef) (*Apps, error) {
+func (*UnimplementedHPaasServiceServer) ListApps(context.Context, *NamespaceRef) (*Apps, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListApps not implemented")
 }
-func (*UnimplementedMeshPaasServiceServer) UninstallApp(context.Context, *AppRef) (*empty.Empty, error) {
+func (*UnimplementedHPaasServiceServer) UninstallApp(context.Context, *AppRef) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UninstallApp not implemented")
 }
-func (*UnimplementedMeshPaasServiceServer) RollbackApp(context.Context, *AppRef) (*App, error) {
+func (*UnimplementedHPaasServiceServer) RollbackApp(context.Context, *AppRef) (*App, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RollbackApp not implemented")
 }
-func (*UnimplementedMeshPaasServiceServer) InstallApp(context.Context, *AppInput) (*App, error) {
+func (*UnimplementedHPaasServiceServer) InstallApp(context.Context, *AppInput) (*App, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method InstallApp not implemented")
 }
-func (*UnimplementedMeshPaasServiceServer) UpdateApp(context.Context, *AppInput) (*App, error) {
+func (*UnimplementedHPaasServiceServer) UpdateApp(context.Context, *AppInput) (*App, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateApp not implemented")
 }
-func (*UnimplementedMeshPaasServiceServer) SearchTemplates(context.Context, *Filter) (*Charts, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SearchTemplates not implemented")
+func (*UnimplementedHPaasServiceServer) SearchCharts(context.Context, *Filter) (*Charts, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SearchCharts not implemented")
 }
 
-func RegisterMeshPaasServiceServer(s *grpc.Server, srv MeshPaasServiceServer) {
-	s.RegisterService(&_MeshPaasService_serviceDesc, srv)
+func RegisterHPaasServiceServer(s *grpc.Server, srv HPaasServiceServer) {
+	s.RegisterService(&_HPaasService_serviceDesc, srv)
 }
 
-func _MeshPaasService_GetApp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HPaasService_GetApp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AppRef)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MeshPaasServiceServer).GetApp(ctx, in)
+		return srv.(HPaasServiceServer).GetApp(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hpaas.MeshPaasService/GetApp",
+		FullMethod: "/hpaas.HPaasService/GetApp",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MeshPaasServiceServer).GetApp(ctx, req.(*AppRef))
+		return srv.(HPaasServiceServer).GetApp(ctx, req.(*AppRef))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _MeshPaasService_ListApps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HPaasService_ListApps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(NamespaceRef)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MeshPaasServiceServer).ListApps(ctx, in)
+		return srv.(HPaasServiceServer).ListApps(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hpaas.MeshPaasService/ListApps",
+		FullMethod: "/hpaas.HPaasService/ListApps",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MeshPaasServiceServer).ListApps(ctx, req.(*NamespaceRef))
+		return srv.(HPaasServiceServer).ListApps(ctx, req.(*NamespaceRef))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _MeshPaasService_UninstallApp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HPaasService_UninstallApp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AppRef)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MeshPaasServiceServer).UninstallApp(ctx, in)
+		return srv.(HPaasServiceServer).UninstallApp(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hpaas.MeshPaasService/UninstallApp",
+		FullMethod: "/hpaas.HPaasService/UninstallApp",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MeshPaasServiceServer).UninstallApp(ctx, req.(*AppRef))
+		return srv.(HPaasServiceServer).UninstallApp(ctx, req.(*AppRef))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _MeshPaasService_RollbackApp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HPaasService_RollbackApp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AppRef)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MeshPaasServiceServer).RollbackApp(ctx, in)
+		return srv.(HPaasServiceServer).RollbackApp(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hpaas.MeshPaasService/RollbackApp",
+		FullMethod: "/hpaas.HPaasService/RollbackApp",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MeshPaasServiceServer).RollbackApp(ctx, req.(*AppRef))
+		return srv.(HPaasServiceServer).RollbackApp(ctx, req.(*AppRef))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _MeshPaasService_InstallApp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HPaasService_InstallApp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AppInput)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MeshPaasServiceServer).InstallApp(ctx, in)
+		return srv.(HPaasServiceServer).InstallApp(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hpaas.MeshPaasService/InstallApp",
+		FullMethod: "/hpaas.HPaasService/InstallApp",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MeshPaasServiceServer).InstallApp(ctx, req.(*AppInput))
+		return srv.(HPaasServiceServer).InstallApp(ctx, req.(*AppInput))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _MeshPaasService_UpdateApp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HPaasService_UpdateApp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AppInput)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MeshPaasServiceServer).UpdateApp(ctx, in)
+		return srv.(HPaasServiceServer).UpdateApp(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hpaas.MeshPaasService/UpdateApp",
+		FullMethod: "/hpaas.HPaasService/UpdateApp",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MeshPaasServiceServer).UpdateApp(ctx, req.(*AppInput))
+		return srv.(HPaasServiceServer).UpdateApp(ctx, req.(*AppInput))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _MeshPaasService_SearchTemplates_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HPaasService_SearchCharts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Filter)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MeshPaasServiceServer).SearchTemplates(ctx, in)
+		return srv.(HPaasServiceServer).SearchCharts(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hpaas.MeshPaasService/SearchTemplates",
+		FullMethod: "/hpaas.HPaasService/SearchCharts",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MeshPaasServiceServer).SearchTemplates(ctx, req.(*Filter))
+		return srv.(HPaasServiceServer).SearchCharts(ctx, req.(*Filter))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-var _MeshPaasService_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "hpaas.MeshPaasService",
-	HandlerType: (*MeshPaasServiceServer)(nil),
+var _HPaasService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "hpaas.HPaasService",
+	HandlerType: (*HPaasServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "GetApp",
-			Handler:    _MeshPaasService_GetApp_Handler,
+			Handler:    _HPaasService_GetApp_Handler,
 		},
 		{
 			MethodName: "ListApps",
-			Handler:    _MeshPaasService_ListApps_Handler,
+			Handler:    _HPaasService_ListApps_Handler,
 		},
 		{
 			MethodName: "UninstallApp",
-			Handler:    _MeshPaasService_UninstallApp_Handler,
+			Handler:    _HPaasService_UninstallApp_Handler,
 		},
 		{
 			MethodName: "RollbackApp",
-			Handler:    _MeshPaasService_RollbackApp_Handler,
+			Handler:    _HPaasService_RollbackApp_Handler,
 		},
 		{
 			MethodName: "InstallApp",
-			Handler:    _MeshPaasService_InstallApp_Handler,
+			Handler:    _HPaasService_InstallApp_Handler,
 		},
 		{
 			MethodName: "UpdateApp",
-			Handler:    _MeshPaasService_UpdateApp_Handler,
+			Handler:    _HPaasService_UpdateApp_Handler,
 		},
 		{
-			MethodName: "SearchTemplates",
-			Handler:    _MeshPaasService_SearchTemplates_Handler,
+			MethodName: "SearchCharts",
+			Handler:    _HPaasService_SearchCharts_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

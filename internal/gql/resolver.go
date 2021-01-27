@@ -22,10 +22,10 @@ import (
 
 type Resolver struct {
 	logger *logger.Logger
-	client hpaaspb.MeshPaasServiceClient
+	client hpaaspb.HPaasServiceClient
 }
 
-func NewResolver(client hpaaspb.MeshPaasServiceClient, logger *logger.Logger) *Resolver {
+func NewResolver(client hpaaspb.HPaasServiceClient, logger *logger.Logger) *Resolver {
 	return &Resolver{logger: logger, client: client}
 }
 

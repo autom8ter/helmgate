@@ -129,13 +129,13 @@ func NewClient(ctx context.Context, target string, opts ...Opt) (*Client, error)
 		return nil, err
 	}
 	return &Client{
-		client: hpaaspb.NewMeshPaasServiceClient(conn),
+		client: hpaaspb.NewHPaasServiceClient(conn),
 	}, nil
 }
 
 // Client is a hpaas gRPC client
 type Client struct {
-	client hpaaspb.MeshPaasServiceClient
+	client hpaaspb.HPaasServiceClient
 }
 
 func toContext(ctx context.Context, tokenSource oauth2.TokenSource) (context.Context, error) {

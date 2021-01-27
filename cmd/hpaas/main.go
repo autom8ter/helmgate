@@ -157,7 +157,7 @@ func run(ctx context.Context) {
 		return
 	}
 	gserver := grpc.NewServer(gopts...)
-	hpaaspb.RegisterMeshPaasServiceServer(gserver, service)
+	hpaaspb.RegisterHPaasServiceServer(gserver, service)
 	reflection.Register(gserver)
 	grpc_prometheus.Register(gserver)
 	m.Go(func(routine machine.Routine) {
@@ -177,7 +177,7 @@ func run(ctx context.Context) {
 		return
 	}
 	defer conn.Close()
-	resolver := gql.NewResolver(hpaaspb.NewMeshPaasServiceClient(conn), lgger)
+	resolver := gql.NewResolver(hpaaspb.NewHPaasServiceClient(conn), lgger)
 
 	mux := http.NewServeMux()
 

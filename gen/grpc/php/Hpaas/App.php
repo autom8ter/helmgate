@@ -9,7 +9,7 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * App is an App created from a helm chart
+ * App is an app/release created from a helm chart
  *
  * Generated from protobuf message <code>hpaas.App</code>
  */

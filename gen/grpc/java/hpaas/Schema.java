@@ -2405,7 +2405,7 @@ public final class Schema {
 
     /**
      * <pre>
-     * name of the app chart
+     * name of the helm chart
      * </pre>
      *
      * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -2413,7 +2413,7 @@ public final class Schema {
     java.lang.String getName();
     /**
      * <pre>
-     * name of the app chart
+     * name of the helm chart
      * </pre>
      *
      * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -2423,7 +2423,7 @@ public final class Schema {
 
     /**
      * <pre>
-     * home page of the app chart
+     * home page of the helm chart
      * </pre>
      *
      * <code>string home = 2;</code>
@@ -2431,7 +2431,7 @@ public final class Schema {
     java.lang.String getHome();
     /**
      * <pre>
-     * home page of the app chart
+     * home page of the helm chart
      * </pre>
      *
      * <code>string home = 2;</code>
@@ -2441,7 +2441,7 @@ public final class Schema {
 
     /**
      * <pre>
-     * description of the app chart
+     * description of the helm chart
      * </pre>
      *
      * <code>string description = 3;</code>
@@ -2449,7 +2449,7 @@ public final class Schema {
     java.lang.String getDescription();
     /**
      * <pre>
-     * description of the app chart
+     * description of the helm chart
      * </pre>
      *
      * <code>string description = 3;</code>
@@ -2459,7 +2459,7 @@ public final class Schema {
 
     /**
      * <pre>
-     * version of the app chart
+     * version of the helm chart
      * </pre>
      *
      * <code>string version = 4;</code>
@@ -2467,7 +2467,7 @@ public final class Schema {
     java.lang.String getVersion();
     /**
      * <pre>
-     * version of the app chart
+     * version of the helm chart
      * </pre>
      *
      * <code>string version = 4;</code>
@@ -2496,7 +2496,7 @@ public final class Schema {
 
     /**
      * <pre>
-     * keywords associated with the app chart
+     * keywords associated with the helm chart
      * </pre>
      *
      * <code>repeated string keywords = 6;</code>
@@ -2505,7 +2505,7 @@ public final class Schema {
         getKeywordsList();
     /**
      * <pre>
-     * keywords associated with the app chart
+     * keywords associated with the helm chart
      * </pre>
      *
      * <code>repeated string keywords = 6;</code>
@@ -2513,7 +2513,7 @@ public final class Schema {
     int getKeywordsCount();
     /**
      * <pre>
-     * keywords associated with the app chart
+     * keywords associated with the helm chart
      * </pre>
      *
      * <code>repeated string keywords = 6;</code>
@@ -2521,7 +2521,7 @@ public final class Schema {
     java.lang.String getKeywords(int index);
     /**
      * <pre>
-     * keywords associated with the app chart
+     * keywords associated with the helm chart
      * </pre>
      *
      * <code>repeated string keywords = 6;</code>
@@ -2700,7 +2700,7 @@ public final class Schema {
   }
   /**
    * <pre>
-   * Chart is a helm chart that may be used to deploy an App
+   * Chart is a helm chart that may be used to deploy an app/release
    * </pre>
    *
    * Protobuf type {@code hpaas.Chart}
@@ -2896,7 +2896,7 @@ public final class Schema {
     private volatile java.lang.Object name_;
     /**
      * <pre>
-     * name of the app chart
+     * name of the helm chart
      * </pre>
      *
      * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -2915,7 +2915,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * name of the app chart
+     * name of the helm chart
      * </pre>
      *
      * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -2938,7 +2938,7 @@ public final class Schema {
     private volatile java.lang.Object home_;
     /**
      * <pre>
-     * home page of the app chart
+     * home page of the helm chart
      * </pre>
      *
      * <code>string home = 2;</code>
@@ -2957,7 +2957,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * home page of the app chart
+     * home page of the helm chart
      * </pre>
      *
      * <code>string home = 2;</code>
@@ -2980,7 +2980,7 @@ public final class Schema {
     private volatile java.lang.Object description_;
     /**
      * <pre>
-     * description of the app chart
+     * description of the helm chart
      * </pre>
      *
      * <code>string description = 3;</code>
@@ -2999,7 +2999,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * description of the app chart
+     * description of the helm chart
      * </pre>
      *
      * <code>string description = 3;</code>
@@ -3022,7 +3022,7 @@ public final class Schema {
     private volatile java.lang.Object version_;
     /**
      * <pre>
-     * version of the app chart
+     * version of the helm chart
      * </pre>
      *
      * <code>string version = 4;</code>
@@ -3041,7 +3041,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * version of the app chart
+     * version of the helm chart
      * </pre>
      *
      * <code>string version = 4;</code>
@@ -3093,7 +3093,7 @@ public final class Schema {
     private com.google.protobuf.LazyStringList keywords_;
     /**
      * <pre>
-     * keywords associated with the app chart
+     * keywords associated with the helm chart
      * </pre>
      *
      * <code>repeated string keywords = 6;</code>
@@ -3104,7 +3104,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * keywords associated with the app chart
+     * keywords associated with the helm chart
      * </pre>
      *
      * <code>repeated string keywords = 6;</code>
@@ -3114,7 +3114,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * keywords associated with the app chart
+     * keywords associated with the helm chart
      * </pre>
      *
      * <code>repeated string keywords = 6;</code>
@@ -3124,7 +3124,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * keywords associated with the app chart
+     * keywords associated with the helm chart
      * </pre>
      *
      * <code>repeated string keywords = 6;</code>
@@ -3682,7 +3682,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * Chart is a helm chart that may be used to deploy an App
+     * Chart is a helm chart that may be used to deploy an app/release
      * </pre>
      *
      * Protobuf type {@code hpaas.Chart}
@@ -4018,7 +4018,7 @@ public final class Schema {
       private java.lang.Object name_ = "";
       /**
        * <pre>
-       * name of the app chart
+       * name of the helm chart
        * </pre>
        *
        * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -4037,7 +4037,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the app chart
+       * name of the helm chart
        * </pre>
        *
        * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -4057,7 +4057,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the app chart
+       * name of the helm chart
        * </pre>
        *
        * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -4074,7 +4074,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the app chart
+       * name of the helm chart
        * </pre>
        *
        * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -4087,7 +4087,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the app chart
+       * name of the helm chart
        * </pre>
        *
        * <code>string name = 1 [(.validator.field) = { ... }</code>
@@ -4107,7 +4107,7 @@ public final class Schema {
       private java.lang.Object home_ = "";
       /**
        * <pre>
-       * home page of the app chart
+       * home page of the helm chart
        * </pre>
        *
        * <code>string home = 2;</code>
@@ -4126,7 +4126,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * home page of the app chart
+       * home page of the helm chart
        * </pre>
        *
        * <code>string home = 2;</code>
@@ -4146,7 +4146,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * home page of the app chart
+       * home page of the helm chart
        * </pre>
        *
        * <code>string home = 2;</code>
@@ -4163,7 +4163,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * home page of the app chart
+       * home page of the helm chart
        * </pre>
        *
        * <code>string home = 2;</code>
@@ -4176,7 +4176,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * home page of the app chart
+       * home page of the helm chart
        * </pre>
        *
        * <code>string home = 2;</code>
@@ -4196,7 +4196,7 @@ public final class Schema {
       private java.lang.Object description_ = "";
       /**
        * <pre>
-       * description of the app chart
+       * description of the helm chart
        * </pre>
        *
        * <code>string description = 3;</code>
@@ -4215,7 +4215,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * description of the app chart
+       * description of the helm chart
        * </pre>
        *
        * <code>string description = 3;</code>
@@ -4235,7 +4235,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * description of the app chart
+       * description of the helm chart
        * </pre>
        *
        * <code>string description = 3;</code>
@@ -4252,7 +4252,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * description of the app chart
+       * description of the helm chart
        * </pre>
        *
        * <code>string description = 3;</code>
@@ -4265,7 +4265,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * description of the app chart
+       * description of the helm chart
        * </pre>
        *
        * <code>string description = 3;</code>
@@ -4285,7 +4285,7 @@ public final class Schema {
       private java.lang.Object version_ = "";
       /**
        * <pre>
-       * version of the app chart
+       * version of the helm chart
        * </pre>
        *
        * <code>string version = 4;</code>
@@ -4304,7 +4304,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * version of the app chart
+       * version of the helm chart
        * </pre>
        *
        * <code>string version = 4;</code>
@@ -4324,7 +4324,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * version of the app chart
+       * version of the helm chart
        * </pre>
        *
        * <code>string version = 4;</code>
@@ -4341,7 +4341,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * version of the app chart
+       * version of the helm chart
        * </pre>
        *
        * <code>string version = 4;</code>
@@ -4354,7 +4354,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * version of the app chart
+       * version of the helm chart
        * </pre>
        *
        * <code>string version = 4;</code>
@@ -4474,7 +4474,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * keywords associated with the app chart
+       * keywords associated with the helm chart
        * </pre>
        *
        * <code>repeated string keywords = 6;</code>
@@ -4485,7 +4485,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * keywords associated with the app chart
+       * keywords associated with the helm chart
        * </pre>
        *
        * <code>repeated string keywords = 6;</code>
@@ -4495,7 +4495,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * keywords associated with the app chart
+       * keywords associated with the helm chart
        * </pre>
        *
        * <code>repeated string keywords = 6;</code>
@@ -4505,7 +4505,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * keywords associated with the app chart
+       * keywords associated with the helm chart
        * </pre>
        *
        * <code>repeated string keywords = 6;</code>
@@ -4516,7 +4516,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * keywords associated with the app chart
+       * keywords associated with the helm chart
        * </pre>
        *
        * <code>repeated string keywords = 6;</code>
@@ -4533,7 +4533,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * keywords associated with the app chart
+       * keywords associated with the helm chart
        * </pre>
        *
        * <code>repeated string keywords = 6;</code>
@@ -4550,7 +4550,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * keywords associated with the app chart
+       * keywords associated with the helm chart
        * </pre>
        *
        * <code>repeated string keywords = 6;</code>
@@ -4565,7 +4565,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * keywords associated with the app chart
+       * keywords associated with the helm chart
        * </pre>
        *
        * <code>repeated string keywords = 6;</code>
@@ -4578,7 +4578,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * keywords associated with the app chart
+       * keywords associated with the helm chart
        * </pre>
        *
        * <code>repeated string keywords = 6;</code>
@@ -6431,7 +6431,7 @@ public final class Schema {
   }
   /**
    * <pre>
-   * App is an App created from a helm chart
+   * App is an app/release created from a helm chart
    * </pre>
    *
    * Protobuf type {@code hpaas.App}
@@ -6893,7 +6893,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * App is an App created from a helm chart
+     * App is an app/release created from a helm chart
      * </pre>
      *
      * Protobuf type {@code hpaas.App}
@@ -11160,7 +11160,7 @@ public final class Schema {
   }
   /**
    * <pre>
-   * AppRef is a generic structure for looking up apps
+   * AppRef is a generic structure for looking up apps/releases
    * </pre>
    *
    * Protobuf type {@code hpaas.AppRef}
@@ -11498,7 +11498,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * AppRef is a generic structure for looking up apps
+     * AppRef is a generic structure for looking up apps/releases
      * </pre>
      *
      * Protobuf type {@code hpaas.AppRef}
@@ -11891,7 +11891,7 @@ public final class Schema {
 
     /**
      * <pre>
-     * namespace name the app belongs to(autocreated)
+     * the namespace the app/release belongs to(autocreated)
      * </pre>
      *
      * <code>string namespace = 1 [(.validator.field) = { ... }</code>
@@ -11899,7 +11899,7 @@ public final class Schema {
     java.lang.String getNamespace();
     /**
      * <pre>
-     * namespace name the app belongs to(autocreated)
+     * the namespace the app/release belongs to(autocreated)
      * </pre>
      *
      * <code>string namespace = 1 [(.validator.field) = { ... }</code>
@@ -11909,7 +11909,7 @@ public final class Schema {
 
     /**
      * <pre>
-     * the app chart to use
+     * the helm chart to use
      * </pre>
      *
      * <code>string chart = 2 [(.validator.field) = { ... }</code>
@@ -11917,7 +11917,7 @@ public final class Schema {
     java.lang.String getChart();
     /**
      * <pre>
-     * the app chart to use
+     * the helm chart to use
      * </pre>
      *
      * <code>string chart = 2 [(.validator.field) = { ... }</code>
@@ -11927,7 +11927,7 @@ public final class Schema {
 
     /**
      * <pre>
-     * name of the app
+     * name of the app/release
      * </pre>
      *
      * <code>string app_name = 3 [(.validator.field) = { ... }</code>
@@ -11935,7 +11935,7 @@ public final class Schema {
     java.lang.String getAppName();
     /**
      * <pre>
-     * name of the app
+     * name of the app/release
      * </pre>
      *
      * <code>string app_name = 3 [(.validator.field) = { ... }</code>
@@ -11945,7 +11945,7 @@ public final class Schema {
 
     /**
      * <pre>
-     * config values used to render the app chart
+     * config values used to render the helm chart
      * </pre>
      *
      * <code>map&lt;string, string&gt; config = 4 [(.validator.field) = { ... }</code>
@@ -11953,7 +11953,7 @@ public final class Schema {
     int getConfigCount();
     /**
      * <pre>
-     * config values used to render the app chart
+     * config values used to render the helm chart
      * </pre>
      *
      * <code>map&lt;string, string&gt; config = 4 [(.validator.field) = { ... }</code>
@@ -11968,7 +11968,7 @@ public final class Schema {
     getConfig();
     /**
      * <pre>
-     * config values used to render the app chart
+     * config values used to render the helm chart
      * </pre>
      *
      * <code>map&lt;string, string&gt; config = 4 [(.validator.field) = { ... }</code>
@@ -11977,7 +11977,7 @@ public final class Schema {
     getConfigMap();
     /**
      * <pre>
-     * config values used to render the app chart
+     * config values used to render the helm chart
      * </pre>
      *
      * <code>map&lt;string, string&gt; config = 4 [(.validator.field) = { ... }</code>
@@ -11988,7 +11988,7 @@ public final class Schema {
         java.lang.String defaultValue);
     /**
      * <pre>
-     * config values used to render the app chart
+     * config values used to render the helm chart
      * </pre>
      *
      * <code>map&lt;string, string&gt; config = 4 [(.validator.field) = { ... }</code>
@@ -12123,7 +12123,7 @@ public final class Schema {
     private volatile java.lang.Object namespace_;
     /**
      * <pre>
-     * namespace name the app belongs to(autocreated)
+     * the namespace the app/release belongs to(autocreated)
      * </pre>
      *
      * <code>string namespace = 1 [(.validator.field) = { ... }</code>
@@ -12142,7 +12142,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * namespace name the app belongs to(autocreated)
+     * the namespace the app/release belongs to(autocreated)
      * </pre>
      *
      * <code>string namespace = 1 [(.validator.field) = { ... }</code>
@@ -12165,7 +12165,7 @@ public final class Schema {
     private volatile java.lang.Object chart_;
     /**
      * <pre>
-     * the app chart to use
+     * the helm chart to use
      * </pre>
      *
      * <code>string chart = 2 [(.validator.field) = { ... }</code>
@@ -12184,7 +12184,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * the app chart to use
+     * the helm chart to use
      * </pre>
      *
      * <code>string chart = 2 [(.validator.field) = { ... }</code>
@@ -12207,7 +12207,7 @@ public final class Schema {
     private volatile java.lang.Object appName_;
     /**
      * <pre>
-     * name of the app
+     * name of the app/release
      * </pre>
      *
      * <code>string app_name = 3 [(.validator.field) = { ... }</code>
@@ -12226,7 +12226,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * name of the app
+     * name of the app/release
      * </pre>
      *
      * <code>string app_name = 3 [(.validator.field) = { ... }</code>
@@ -12273,7 +12273,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * config values used to render the app chart
+     * config values used to render the helm chart
      * </pre>
      *
      * <code>map&lt;string, string&gt; config = 4 [(.validator.field) = { ... }</code>
@@ -12293,7 +12293,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * config values used to render the app chart
+     * config values used to render the helm chart
      * </pre>
      *
      * <code>map&lt;string, string&gt; config = 4 [(.validator.field) = { ... }</code>
@@ -12304,7 +12304,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * config values used to render the app chart
+     * config values used to render the helm chart
      * </pre>
      *
      * <code>map&lt;string, string&gt; config = 4 [(.validator.field) = { ... }</code>
@@ -12320,7 +12320,7 @@ public final class Schema {
     }
     /**
      * <pre>
-     * config values used to render the app chart
+     * config values used to render the helm chart
      * </pre>
      *
      * <code>map&lt;string, string&gt; config = 4 [(.validator.field) = { ... }</code>
@@ -12734,7 +12734,7 @@ public final class Schema {
       private java.lang.Object namespace_ = "";
       /**
        * <pre>
-       * namespace name the app belongs to(autocreated)
+       * the namespace the app/release belongs to(autocreated)
        * </pre>
        *
        * <code>string namespace = 1 [(.validator.field) = { ... }</code>
@@ -12753,7 +12753,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * namespace name the app belongs to(autocreated)
+       * the namespace the app/release belongs to(autocreated)
        * </pre>
        *
        * <code>string namespace = 1 [(.validator.field) = { ... }</code>
@@ -12773,7 +12773,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * namespace name the app belongs to(autocreated)
+       * the namespace the app/release belongs to(autocreated)
        * </pre>
        *
        * <code>string namespace = 1 [(.validator.field) = { ... }</code>
@@ -12790,7 +12790,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * namespace name the app belongs to(autocreated)
+       * the namespace the app/release belongs to(autocreated)
        * </pre>
        *
        * <code>string namespace = 1 [(.validator.field) = { ... }</code>
@@ -12803,7 +12803,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * namespace name the app belongs to(autocreated)
+       * the namespace the app/release belongs to(autocreated)
        * </pre>
        *
        * <code>string namespace = 1 [(.validator.field) = { ... }</code>
@@ -12823,7 +12823,7 @@ public final class Schema {
       private java.lang.Object chart_ = "";
       /**
        * <pre>
-       * the app chart to use
+       * the helm chart to use
        * </pre>
        *
        * <code>string chart = 2 [(.validator.field) = { ... }</code>
@@ -12842,7 +12842,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * the app chart to use
+       * the helm chart to use
        * </pre>
        *
        * <code>string chart = 2 [(.validator.field) = { ... }</code>
@@ -12862,7 +12862,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * the app chart to use
+       * the helm chart to use
        * </pre>
        *
        * <code>string chart = 2 [(.validator.field) = { ... }</code>
@@ -12879,7 +12879,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * the app chart to use
+       * the helm chart to use
        * </pre>
        *
        * <code>string chart = 2 [(.validator.field) = { ... }</code>
@@ -12892,7 +12892,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * the app chart to use
+       * the helm chart to use
        * </pre>
        *
        * <code>string chart = 2 [(.validator.field) = { ... }</code>
@@ -12912,7 +12912,7 @@ public final class Schema {
       private java.lang.Object appName_ = "";
       /**
        * <pre>
-       * name of the app
+       * name of the app/release
        * </pre>
        *
        * <code>string app_name = 3 [(.validator.field) = { ... }</code>
@@ -12931,7 +12931,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the app
+       * name of the app/release
        * </pre>
        *
        * <code>string app_name = 3 [(.validator.field) = { ... }</code>
@@ -12951,7 +12951,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the app
+       * name of the app/release
        * </pre>
        *
        * <code>string app_name = 3 [(.validator.field) = { ... }</code>
@@ -12968,7 +12968,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the app
+       * name of the app/release
        * </pre>
        *
        * <code>string app_name = 3 [(.validator.field) = { ... }</code>
@@ -12981,7 +12981,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * name of the app
+       * name of the app/release
        * </pre>
        *
        * <code>string app_name = 3 [(.validator.field) = { ... }</code>
@@ -13026,7 +13026,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * config values used to render the app chart
+       * config values used to render the helm chart
        * </pre>
        *
        * <code>map&lt;string, string&gt; config = 4 [(.validator.field) = { ... }</code>
@@ -13046,7 +13046,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * config values used to render the app chart
+       * config values used to render the helm chart
        * </pre>
        *
        * <code>map&lt;string, string&gt; config = 4 [(.validator.field) = { ... }</code>
@@ -13057,7 +13057,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * config values used to render the app chart
+       * config values used to render the helm chart
        * </pre>
        *
        * <code>map&lt;string, string&gt; config = 4 [(.validator.field) = { ... }</code>
@@ -13073,7 +13073,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * config values used to render the app chart
+       * config values used to render the helm chart
        * </pre>
        *
        * <code>map&lt;string, string&gt; config = 4 [(.validator.field) = { ... }</code>
@@ -13097,7 +13097,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * config values used to render the app chart
+       * config values used to render the helm chart
        * </pre>
        *
        * <code>map&lt;string, string&gt; config = 4 [(.validator.field) = { ... }</code>
@@ -13120,7 +13120,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * config values used to render the app chart
+       * config values used to render the helm chart
        * </pre>
        *
        * <code>map&lt;string, string&gt; config = 4 [(.validator.field) = { ... }</code>
@@ -13136,7 +13136,7 @@ public final class Schema {
       }
       /**
        * <pre>
-       * config values used to render the app chart
+       * config values used to render the helm chart
        * </pre>
        *
        * <code>map&lt;string, string&gt; config = 4 [(.validator.field) = { ... }</code>
@@ -14712,16 +14712,15 @@ public final class Schema {
       "lue\030\002 \001(\t:\0028\001\".\n\014NamespaceRef\022\036\n\004name\030\001 " +
       "\001(\tB\020\342\337\037\014\n\n^.{1,225}$\"8\n\rNamespaceRefs\022\'" +
       "\n\nnamespaces\030\001 \003(\0132\023.hpaas.NamespaceRef2" +
-      "\331\002\n\017MeshPaasService\022%\n\006GetApp\022\r.hpaas.Ap" +
-      "pRef\032\n.hpaas.App\"\000\022.\n\010ListApps\022\023.hpaas.N" +
-      "amespaceRef\032\013.hpaas.Apps\"\000\0227\n\014UninstallA" +
-      "pp\022\r.hpaas.AppRef\032\026.google.protobuf.Empt" +
-      "y\"\000\022*\n\013RollbackApp\022\r.hpaas.AppRef\032\n.hpaa" +
-      "s.App\"\000\022+\n\nInstallApp\022\017.hpaas.AppInput\032\n" +
-      ".hpaas.App\"\000\022*\n\tUpdateApp\022\017.hpaas.AppInp" +
-      "ut\032\n.hpaas.App\"\000\0221\n\017SearchTemplates\022\r.hp" +
-      "aas.Filter\032\r.hpaas.Charts\"\000B\tZ\007hpaaspbb\006" +
-      "proto3"
+      "\323\002\n\014HPaasService\022%\n\006GetApp\022\r.hpaas.AppRe" +
+      "f\032\n.hpaas.App\"\000\022.\n\010ListApps\022\023.hpaas.Name" +
+      "spaceRef\032\013.hpaas.Apps\"\000\0227\n\014UninstallApp\022" +
+      "\r.hpaas.AppRef\032\026.google.protobuf.Empty\"\000" +
+      "\022*\n\013RollbackApp\022\r.hpaas.AppRef\032\n.hpaas.A" +
+      "pp\"\000\022+\n\nInstallApp\022\017.hpaas.AppInput\032\n.hp" +
+      "aas.App\"\000\022*\n\tUpdateApp\022\017.hpaas.AppInput\032" +
+      "\n.hpaas.App\"\000\022.\n\014SearchCharts\022\r.hpaas.Fi" +
+      "lter\032\r.hpaas.Charts\"\000B\tZ\007hpaaspbb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

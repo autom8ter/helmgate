@@ -3,83 +3,128 @@ scalar Time
 # Map is a k/v map where the key is a string and the value is any value
 scalar Map
 
+#
 type Maintainer {
     name: String!
     email: String!
 }
 
+# Dependency is a dependency required by a helm chart
 type Dependency {
     chart: String!
     version: String!
     repository: String!
 }
 
+#
 type Release {
+    #
     version: Int!
+    #
     config: Map!
+    #
     notes: String
+    #
     description: String
+    #
     status: String
+    #
     timestamps: Timestamps
 }
 
+#
 type Timestamps {
+    #
     created: Time
+    #
     updated: Time
+    #
     deleted: Time
 }
 
+#
 type Chart {
+    #
     name: String!
+    #
     home: String
+    #
     icon: String
+    #
     version: String
+    #
     description: String
+    #
     sources: [String!]
+    #
     keywords: [String!]
+    #
     deprecated: Boolean
+    #
     metadata: Map
+    #
     maintainers: [Maintainer!]
+    #
     dependencies: [Dependency!]
 }
 
+#
 type App {
+    #
     name: String!
+    #
     namespace: String!
+    #
     release: Release!
+    #
     chart: Chart!
 }
 
+#
 input Filter {
+    #
     term: String!
+    #
     regex: Boolean
 }
 
+#
 input AppRef {
+    #
     namespace: String!
+    #
     name: String!
 }
 
+#
 input NamespaceRef {
+    #
     name: String!
 }
 
+#
 input AppInput {
+    #
     namespace: String!
+    #
     chart: String!
+    #
     app_name: String!
+    #
     config: Map!
 }
 
+# Queries fetch resources
 type Query {
     # getApp gets an app in the given namespace
     getApp(input: AppRef!): App
     # listApps lists apps in the namespace
     listApps(input: NamespaceRef!): [App!]
-    # searchTemplates searches for an app chart
-    searchTemplates(input: Filter!): [Chart!]
+    # searchCharts searches for an app chart
+    searchCharts(input: Filter!): [Chart!]
 }
 
+# Mutations modify resources
 type Mutation {
     # installApp installs an app in the given namespace
     installApp(input: AppInput!): App

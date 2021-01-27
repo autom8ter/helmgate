@@ -36,18 +36,18 @@ message Filter {
   bool regex =2;
 }
 
-// Chart is a helm chart that may be used to deploy an App
+// Chart is a helm chart that may be used to deploy an app/release
 message Chart {
-  // name of the app chart
+  // name of the helm chart
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // home page of the app chart
+  // home page of the helm chart
   string home =2;
-  // description of the app chart
+  // description of the helm chart
   string description =3;
-  // version of the app chart
+  // version of the helm chart
   string version =4;
   repeated string sources =5;
-  // keywords associated with the app chart
+  // keywords associated with the helm chart
   repeated string keywords =6;
   // icon is an the icon/brand associated with the chart
   string icon =7;
@@ -66,7 +66,7 @@ message Charts {
   repeated Chart charts =1;
 }
 
-// App is an App created from a helm chart
+// App is an app/release created from a helm chart
 message App {
   // name of the application
   string name =1[(validator.field) = {regex : "^.{1,225}$"}];
@@ -109,7 +109,7 @@ message Timestamps {
   google.protobuf.Timestamp deleted =3;
 }
 
-// AppRef is a generic structure for looking up apps
+// AppRef is a generic structure for looking up apps/releases
 message AppRef {
   // namespace is the k8s namespace the app/release belongs to(autocreated)
   string namespace =1[(validator.field) = {regex : "^.{1,225}$"}];
@@ -119,13 +119,13 @@ message AppRef {
 
 // AppInput is used to create/update an app
 message AppInput {
-  // namespace name the app belongs to(autocreated)
+  // the namespace the app/release belongs to(autocreated)
   string namespace =1[(validator.field) = {regex : "^.{1,225}$"}];
-  // the app chart to use
+  // the helm chart to use
   string chart =2[(validator.field) = {regex : "^.{1,225}$"}];
-  // name of the app
+  // name of the app/release
   string app_name =3[(validator.field) = {regex : "^.{1,225}$"}];
-  // config values used to render the app chart
+  // config values used to render the helm chart
   map<string, string> config =4[(validator.field) = {msg_exists : true}];
 }
 
@@ -140,21 +140,20 @@ message NamespaceRefs {
   repeated NamespaceRef namespaces =1;
 }
 
-// MeshPaasService is a platform as a service backed by Istio service mesh
-// all requests are made in the context of the user's identity which is derived from the inbound jwt & verified with the configured jwks(json web keys) uri
-service MeshPaasService {
-  // GetApp gets an app in the given namespace
+// HPaasService is a secure platform as a service for easily deploying applications on Kubernetes with Helm charts
+service HPaasService {
+  // GetApp gets an app/release from the given namespace
   rpc GetApp(AppRef) returns(App){}
-  // ListApps lists apps in the namespace
+  // ListApps lists apps/releases in the namespace
   rpc ListApps(NamespaceRef) returns(Apps){}
-  // UninstallApp uninstalls an app in the given namespace
+  // UninstallApp uninstalls an app/release from the given namespace
   rpc UninstallApp(AppRef) returns(google.protobuf.Empty){}
-  // RollbackApp rolls the app back to the previous version in the given namespace
+  // RollbackApp rolls the app/release back to the previous version in the given namespace
   rpc RollbackApp(AppRef) returns(App){}
-  // InstallApp installs an app in the given namespace
+  // InstallApp installs an app/release in the given namespace
   rpc InstallApp(AppInput) returns(App){}
-  // UpdateApp updates an app in the given namespace
+  // UpdateApp updates an app/release in the given namespace
   rpc UpdateApp(AppInput) returns(App){}
-  // SearchTemplates searches for an app chart
-  rpc SearchTemplates(Filter) returns(Charts){}
+  // SearchCharts searches for a helm chart
+  rpc SearchCharts(Filter) returns(Charts){}
 }

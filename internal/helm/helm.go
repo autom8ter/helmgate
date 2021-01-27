@@ -84,7 +84,7 @@ func (h Helm) UpdateApp(ctx context.Context, input *hpaaspb.AppInput) (*hpaaspb.
 	return h.toApp(release)
 }
 
-func (h Helm) SearchTemplates(ctx context.Context, filter *hpaaspb.Filter) (*hpaaspb.Charts, error) {
+func (h Helm) SearchCharts(ctx context.Context, filter *hpaaspb.Filter) (*hpaaspb.Charts, error) {
 	charts, err := h.client.SearchCharts(filter.Term, filter.Regex)
 	if err != nil {
 		return nil, err

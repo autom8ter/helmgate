@@ -16,25 +16,25 @@ use Google\Protobuf\Internal\GPBUtil;
 class AppInput extends \Google\Protobuf\Internal\Message
 {
     /**
-     * namespace name the app belongs to(autocreated)
+     * the namespace the app/release belongs to(autocreated)
      *
      * Generated from protobuf field <code>string namespace = 1 [(.validator.field) = {</code>
      */
     private $namespace = '';
     /**
-     * the app chart to use
+     * the helm chart to use
      *
      * Generated from protobuf field <code>string chart = 2 [(.validator.field) = {</code>
      */
     private $chart = '';
     /**
-     * name of the app
+     * name of the app/release
      *
      * Generated from protobuf field <code>string app_name = 3 [(.validator.field) = {</code>
      */
     private $app_name = '';
     /**
-     * config values used to render the app chart
+     * config values used to render the helm chart
      *
      * Generated from protobuf field <code>map<string, string> config = 4 [(.validator.field) = {</code>
      */
@@ -47,13 +47,13 @@ class AppInput extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $namespace
-     *           namespace name the app belongs to(autocreated)
+     *           the namespace the app/release belongs to(autocreated)
      *     @type string $chart
-     *           the app chart to use
+     *           the helm chart to use
      *     @type string $app_name
-     *           name of the app
+     *           name of the app/release
      *     @type array|\Google\Protobuf\Internal\MapField $config
-     *           config values used to render the app chart
+     *           config values used to render the helm chart
      * }
      */
     public function __construct($data = NULL) {
@@ -62,7 +62,7 @@ class AppInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * namespace name the app belongs to(autocreated)
+     * the namespace the app/release belongs to(autocreated)
      *
      * Generated from protobuf field <code>string namespace = 1 [(.validator.field) = {</code>
      * @return string
@@ -73,7 +73,7 @@ class AppInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * namespace name the app belongs to(autocreated)
+     * the namespace the app/release belongs to(autocreated)
      *
      * Generated from protobuf field <code>string namespace = 1 [(.validator.field) = {</code>
      * @param string $var
@@ -88,7 +88,7 @@ class AppInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * the app chart to use
+     * the helm chart to use
      *
      * Generated from protobuf field <code>string chart = 2 [(.validator.field) = {</code>
      * @return string
@@ -99,7 +99,7 @@ class AppInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * the app chart to use
+     * the helm chart to use
      *
      * Generated from protobuf field <code>string chart = 2 [(.validator.field) = {</code>
      * @param string $var
@@ -114,7 +114,7 @@ class AppInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * name of the app
+     * name of the app/release
      *
      * Generated from protobuf field <code>string app_name = 3 [(.validator.field) = {</code>
      * @return string
@@ -125,7 +125,7 @@ class AppInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * name of the app
+     * name of the app/release
      *
      * Generated from protobuf field <code>string app_name = 3 [(.validator.field) = {</code>
      * @param string $var
@@ -140,7 +140,7 @@ class AppInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * config values used to render the app chart
+     * config values used to render the helm chart
      *
      * Generated from protobuf field <code>map<string, string> config = 4 [(.validator.field) = {</code>
      * @return \Google\Protobuf\Internal\MapField
@@ -151,7 +151,7 @@ class AppInput extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * config values used to render the app chart
+     * config values used to render the helm chart
      *
      * Generated from protobuf field <code>map<string, string> config = 4 [(.validator.field) = {</code>
      * @param array|\Google\Protobuf\Internal\MapField $var

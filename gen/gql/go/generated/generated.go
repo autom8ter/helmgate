@@ -83,9 +83,9 @@ type ComplexityRoot struct {
 	}
 
 	Query struct {
-		GetApp          func(childComplexity int, input model.AppRef) int
-		ListApps        func(childComplexity int, input model.NamespaceRef) int
-		SearchTemplates func(childComplexity int, input model.Filter) int
+		GetApp       func(childComplexity int, input model.AppRef) int
+		ListApps     func(childComplexity int, input model.NamespaceRef) int
+		SearchCharts func(childComplexity int, input model.Filter) int
 	}
 
 	Release struct {
@@ -113,7 +113,7 @@ type MutationResolver interface {
 type QueryResolver interface {
 	GetApp(ctx context.Context, input model.AppRef) (*model.App, error)
 	ListApps(ctx context.Context, input model.NamespaceRef) ([]*model.App, error)
-	SearchTemplates(ctx context.Context, input model.Filter) ([]*model.Chart, error)
+	SearchCharts(ctx context.Context, input model.Filter) ([]*model.Chart, error)
 }
 
 type executableSchema struct {
@@ -343,17 +343,17 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.ListApps(childComplexity, args["input"].(model.NamespaceRef)), true
 
-	case "Query.searchTemplates":
-		if e.complexity.Query.SearchTemplates == nil {
+	case "Query.searchCharts":
+		if e.complexity.Query.SearchCharts == nil {
 			break
 		}
 
-		args, err := ec.field_Query_searchTemplates_args(context.TODO(), rawArgs)
+		args, err := ec.field_Query_searchCharts_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Query.SearchTemplates(childComplexity, args["input"].(model.Filter)), true
+		return e.complexity.Query.SearchCharts(childComplexity, args["input"].(model.Filter)), true
 
 	case "Release.config":
 		if e.complexity.Release.Config == nil {
@@ -487,83 +487,128 @@ scalar Time
 # Map is a k/v map where the key is a string and the value is any value
 scalar Map
 
+#
 type Maintainer {
     name: String!
     email: String!
 }
 
+# Dependency is a dependency required by a helm chart
 type Dependency {
     chart: String!
     version: String!
     repository: String!
 }
 
+#
 type Release {
+    #
     version: Int!
+    #
     config: Map!
+    #
     notes: String
+    #
     description: String
+    #
     status: String
+    #
     timestamps: Timestamps
 }
 
+#
 type Timestamps {
+    #
     created: Time
+    #
     updated: Time
+    #
     deleted: Time
 }
 
+#
 type Chart {
+    #
     name: String!
+    #
     home: String
+    #
     icon: String
+    #
     version: String
+    #
     description: String
+    #
     sources: [String!]
+    #
     keywords: [String!]
+    #
     deprecated: Boolean
+    #
     metadata: Map
+    #
     maintainers: [Maintainer!]
+    #
     dependencies: [Dependency!]
 }
 
+#
 type App {
+    #
     name: String!
+    #
     namespace: String!
+    #
     release: Release!
+    #
     chart: Chart!
 }
 
+#
 input Filter {
+    #
     term: String!
+    #
     regex: Boolean
 }
 
+#
 input AppRef {
+    #
     namespace: String!
+    #
     name: String!
 }
 
+#
 input NamespaceRef {
+    #
     name: String!
 }
 
+#
 input AppInput {
+    #
     namespace: String!
+    #
     chart: String!
+    #
     app_name: String!
+    #
     config: Map!
 }
 
+# Queries fetch resources
 type Query {
     # getApp gets an app in the given namespace
     getApp(input: AppRef!): App
     # listApps lists apps in the namespace
     listApps(input: NamespaceRef!): [App!]
-    # searchTemplates searches for an app chart
-    searchTemplates(input: Filter!): [Chart!]
+    # searchCharts searches for an app chart
+    searchCharts(input: Filter!): [Chart!]
 }
 
+# Mutations modify resources
 type Mutation {
     # installApp installs an app in the given namespace
     installApp(input: AppInput!): App
@@ -686,7 +731,7 @@ func (ec *executionContext) field_Query_listApps_args(ctx context.Context, rawAr
 	return args, nil
 }
 
-func (ec *executionContext) field_Query_searchTemplates_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Query_searchCharts_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
 	var arg0 model.Filter
@@ -1643,7 +1688,7 @@ func (ec *executionContext) _Query_listApps(ctx context.Context, field graphql.C
 	return ec.marshalOApp2ᚕᚖgithubᚗcomᚋautom8terᚋhpaasᚋgenᚋgqlᚋgoᚋmodelᚐAppᚄ(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Query_searchTemplates(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+func (ec *executionContext) _Query_searchCharts(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -1660,7 +1705,7 @@ func (ec *executionContext) _Query_searchTemplates(ctx context.Context, field gr
 
 	ctx = graphql.WithFieldContext(ctx, fc)
 	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Query_searchTemplates_args(ctx, rawArgs)
+	args, err := ec.field_Query_searchCharts_args(ctx, rawArgs)
 	if err != nil {
 		ec.Error(ctx, err)
 		return graphql.Null
@@ -1668,7 +1713,7 @@ func (ec *executionContext) _Query_searchTemplates(ctx context.Context, field gr
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().SearchTemplates(rctx, args["input"].(model.Filter))
+		return ec.resolvers.Query().SearchCharts(rctx, args["input"].(model.Filter))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -3491,7 +3536,7 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				res = ec._Query_listApps(ctx, field)
 				return res
 			})
-		case "searchTemplates":
+		case "searchCharts":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
 				defer func() {
@@ -3499,7 +3544,7 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 						ec.Error(ctx, ec.Recover(ctx, r))
 					}
 				}()
-				res = ec._Query_searchTemplates(ctx, field)
+				res = ec._Query_searchCharts(ctx, field)
 				return res
 			})
 		case "__type":

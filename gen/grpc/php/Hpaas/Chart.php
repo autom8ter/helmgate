@@ -9,32 +9,32 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Chart is a helm chart that may be used to deploy an App
+ * Chart is a helm chart that may be used to deploy an app/release
  *
  * Generated from protobuf message <code>hpaas.Chart</code>
  */
 class Chart extends \Google\Protobuf\Internal\Message
 {
     /**
-     * name of the app chart
+     * name of the helm chart
      *
      * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      */
     private $name = '';
     /**
-     * home page of the app chart
+     * home page of the helm chart
      *
      * Generated from protobuf field <code>string home = 2;</code>
      */
     private $home = '';
     /**
-     * description of the app chart
+     * description of the helm chart
      *
      * Generated from protobuf field <code>string description = 3;</code>
      */
     private $description = '';
     /**
-     * version of the app chart
+     * version of the helm chart
      *
      * Generated from protobuf field <code>string version = 4;</code>
      */
@@ -44,7 +44,7 @@ class Chart extends \Google\Protobuf\Internal\Message
      */
     private $sources;
     /**
-     * keywords associated with the app chart
+     * keywords associated with the helm chart
      *
      * Generated from protobuf field <code>repeated string keywords = 6;</code>
      */
@@ -87,16 +87,16 @@ class Chart extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $name
-     *           name of the app chart
+     *           name of the helm chart
      *     @type string $home
-     *           home page of the app chart
+     *           home page of the helm chart
      *     @type string $description
-     *           description of the app chart
+     *           description of the helm chart
      *     @type string $version
-     *           version of the app chart
+     *           version of the helm chart
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $sources
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $keywords
-     *           keywords associated with the app chart
+     *           keywords associated with the helm chart
      *     @type string $icon
      *           icon is an the icon/brand associated with the chart
      *     @type bool $deprecated
@@ -115,7 +115,7 @@ class Chart extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * name of the app chart
+     * name of the helm chart
      *
      * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      * @return string
@@ -126,7 +126,7 @@ class Chart extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * name of the app chart
+     * name of the helm chart
      *
      * Generated from protobuf field <code>string name = 1 [(.validator.field) = {</code>
      * @param string $var
@@ -141,7 +141,7 @@ class Chart extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * home page of the app chart
+     * home page of the helm chart
      *
      * Generated from protobuf field <code>string home = 2;</code>
      * @return string
@@ -152,7 +152,7 @@ class Chart extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * home page of the app chart
+     * home page of the helm chart
      *
      * Generated from protobuf field <code>string home = 2;</code>
      * @param string $var
@@ -167,7 +167,7 @@ class Chart extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * description of the app chart
+     * description of the helm chart
      *
      * Generated from protobuf field <code>string description = 3;</code>
      * @return string
@@ -178,7 +178,7 @@ class Chart extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * description of the app chart
+     * description of the helm chart
      *
      * Generated from protobuf field <code>string description = 3;</code>
      * @param string $var
@@ -193,7 +193,7 @@ class Chart extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * version of the app chart
+     * version of the helm chart
      *
      * Generated from protobuf field <code>string version = 4;</code>
      * @return string
@@ -204,7 +204,7 @@ class Chart extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * version of the app chart
+     * version of the helm chart
      *
      * Generated from protobuf field <code>string version = 4;</code>
      * @param string $var
@@ -241,7 +241,7 @@ class Chart extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * keywords associated with the app chart
+     * keywords associated with the helm chart
      *
      * Generated from protobuf field <code>repeated string keywords = 6;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
@@ -252,7 +252,7 @@ class Chart extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * keywords associated with the app chart
+     * keywords associated with the helm chart
      *
      * Generated from protobuf field <code>repeated string keywords = 6;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var

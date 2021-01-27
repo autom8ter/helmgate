@@ -62,15 +62,15 @@ namespace Hpaas {
             "Z0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEiLgoMTmFt",
             "ZXNwYWNlUmVmEh4KBG5hbWUYASABKAlCEOLfHwwKCl4uezEsMjI1fSQiOAoN",
             "TmFtZXNwYWNlUmVmcxInCgpuYW1lc3BhY2VzGAEgAygLMhMuaHBhYXMuTmFt",
-            "ZXNwYWNlUmVmMtkCCg9NZXNoUGFhc1NlcnZpY2USJQoGR2V0QXBwEg0uaHBh",
-            "YXMuQXBwUmVmGgouaHBhYXMuQXBwIgASLgoITGlzdEFwcHMSEy5ocGFhcy5O",
-            "YW1lc3BhY2VSZWYaCy5ocGFhcy5BcHBzIgASNwoMVW5pbnN0YWxsQXBwEg0u",
-            "aHBhYXMuQXBwUmVmGhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgASKgoLUm9s",
-            "bGJhY2tBcHASDS5ocGFhcy5BcHBSZWYaCi5ocGFhcy5BcHAiABIrCgpJbnN0",
-            "YWxsQXBwEg8uaHBhYXMuQXBwSW5wdXQaCi5ocGFhcy5BcHAiABIqCglVcGRh",
-            "dGVBcHASDy5ocGFhcy5BcHBJbnB1dBoKLmhwYWFzLkFwcCIAEjEKD1NlYXJj",
-            "aFRlbXBsYXRlcxINLmhwYWFzLkZpbHRlchoNLmhwYWFzLkNoYXJ0cyIAQgla",
-            "B2hwYWFzcGJiBnByb3RvMw=="));
+            "ZXNwYWNlUmVmMtMCCgxIUGFhc1NlcnZpY2USJQoGR2V0QXBwEg0uaHBhYXMu",
+            "QXBwUmVmGgouaHBhYXMuQXBwIgASLgoITGlzdEFwcHMSEy5ocGFhcy5OYW1l",
+            "c3BhY2VSZWYaCy5ocGFhcy5BcHBzIgASNwoMVW5pbnN0YWxsQXBwEg0uaHBh",
+            "YXMuQXBwUmVmGhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgASKgoLUm9sbGJh",
+            "Y2tBcHASDS5ocGFhcy5BcHBSZWYaCi5ocGFhcy5BcHAiABIrCgpJbnN0YWxs",
+            "QXBwEg8uaHBhYXMuQXBwSW5wdXQaCi5ocGFhcy5BcHAiABIqCglVcGRhdGVB",
+            "cHASDy5ocGFhcy5BcHBJbnB1dBoKLmhwYWFzLkFwcCIAEi4KDFNlYXJjaENo",
+            "YXJ0cxINLmhwYWFzLkZpbHRlchoNLmhwYWFzLkNoYXJ0cyIAQglaB2hwYWFz",
+            "cGJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Validator.ValidatorReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -623,7 +623,7 @@ namespace Hpaas {
   }
 
   /// <summary>
-  /// Chart is a helm chart that may be used to deploy an App
+  /// Chart is a helm chart that may be used to deploy an app/release
   /// </summary>
   public sealed partial class Chart : pb::IMessage<Chart> {
     private static readonly pb::MessageParser<Chart> _parser = new pb::MessageParser<Chart>(() => new Chart());
@@ -673,7 +673,7 @@ namespace Hpaas {
     public const int NameFieldNumber = 1;
     private string name_ = "";
     /// <summary>
-    /// name of the app chart
+    /// name of the helm chart
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Name {
@@ -687,7 +687,7 @@ namespace Hpaas {
     public const int HomeFieldNumber = 2;
     private string home_ = "";
     /// <summary>
-    /// home page of the app chart
+    /// home page of the helm chart
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Home {
@@ -701,7 +701,7 @@ namespace Hpaas {
     public const int DescriptionFieldNumber = 3;
     private string description_ = "";
     /// <summary>
-    /// description of the app chart
+    /// description of the helm chart
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Description {
@@ -715,7 +715,7 @@ namespace Hpaas {
     public const int VersionFieldNumber = 4;
     private string version_ = "";
     /// <summary>
-    /// version of the app chart
+    /// version of the helm chart
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Version {
@@ -741,7 +741,7 @@ namespace Hpaas {
         = pb::FieldCodec.ForString(50);
     private readonly pbc::RepeatedField<string> keywords_ = new pbc::RepeatedField<string>();
     /// <summary>
-    /// keywords associated with the app chart
+    /// keywords associated with the helm chart
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<string> Keywords {
@@ -1149,7 +1149,7 @@ namespace Hpaas {
   }
 
   /// <summary>
-  /// App is an App created from a helm chart
+  /// App is an app/release created from a helm chart
   /// </summary>
   public sealed partial class App : pb::IMessage<App> {
     private static readonly pb::MessageParser<App> _parser = new pb::MessageParser<App>(() => new App());
@@ -2030,7 +2030,7 @@ namespace Hpaas {
   }
 
   /// <summary>
-  /// AppRef is a generic structure for looking up apps
+  /// AppRef is a generic structure for looking up apps/releases
   /// </summary>
   public sealed partial class AppRef : pb::IMessage<AppRef> {
     private static readonly pb::MessageParser<AppRef> _parser = new pb::MessageParser<AppRef>(() => new AppRef());
@@ -2239,7 +2239,7 @@ namespace Hpaas {
     public const int NamespaceFieldNumber = 1;
     private string namespace_ = "";
     /// <summary>
-    /// namespace name the app belongs to(autocreated)
+    /// the namespace the app/release belongs to(autocreated)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Namespace {
@@ -2253,7 +2253,7 @@ namespace Hpaas {
     public const int ChartFieldNumber = 2;
     private string chart_ = "";
     /// <summary>
-    /// the app chart to use
+    /// the helm chart to use
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Chart {
@@ -2267,7 +2267,7 @@ namespace Hpaas {
     public const int AppNameFieldNumber = 3;
     private string appName_ = "";
     /// <summary>
-    /// name of the app
+    /// name of the app/release
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string AppName {
@@ -2283,7 +2283,7 @@ namespace Hpaas {
         = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForString(18), 34);
     private readonly pbc::MapField<string, string> config_ = new pbc::MapField<string, string>();
     /// <summary>
-    /// config values used to render the app chart
+    /// config values used to render the helm chart
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::MapField<string, string> Config {
