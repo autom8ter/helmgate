@@ -154,6 +154,6 @@ service HPaasService {
   rpc InstallApp(AppInput) returns(App){}
   // UpdateApp updates an app/release in the given namespace
   rpc UpdateApp(AppInput) returns(App){}
-  // SearchCharts searches for a helm chart
+  // SearchCharts searches for a cached helm chart
   rpc SearchCharts(Filter) returns(Charts){}
 }

@@ -1350,7 +1350,7 @@ type HPaasServiceClient interface {
 	InstallApp(ctx context.Context, in *AppInput, opts ...grpc.CallOption) (*App, error)
 	// UpdateApp updates an app/release in the given namespace
 	UpdateApp(ctx context.Context, in *AppInput, opts ...grpc.CallOption) (*App, error)
-	// SearchCharts searches for a helm chart
+	// SearchCharts searches for a cached helm chart
 	SearchCharts(ctx context.Context, in *Filter, opts ...grpc.CallOption) (*Charts, error)
 }
 
@@ -1439,7 +1439,7 @@ type HPaasServiceServer interface {
 	InstallApp(context.Context, *AppInput) (*App, error)
 	// UpdateApp updates an app/release in the given namespace
 	UpdateApp(context.Context, *AppInput) (*App, error)
-	// SearchCharts searches for a helm chart
+	// SearchCharts searches for a cached helm chart
 	SearchCharts(context.Context, *Filter) (*Charts, error)
 }
 

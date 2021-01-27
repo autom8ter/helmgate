@@ -23,6 +23,7 @@ type Options struct {
 	logging     bool
 	logPayload  bool
 	creds       credentials.TransportCredentials
+	idtoken     bool
 }
 
 // Opt is a single configuration option
@@ -57,9 +58,16 @@ func WithLogging(logging, logPayload bool) Opt {
 	}
 }
 
-func unaryAuth(tokenSource oauth2.TokenSource) grpc.UnaryClientInterceptor {
+// WithIDToken makes the client use the oauth id token(if it exists) instead of the oauth access token
+func WithIDToken(idToken bool) Opt {
+	return func(o *Options) {
+		o.idtoken = idToken
+	}
+}
+
+func unaryAuth(tokenSource oauth2.TokenSource, useIDToken bool) grpc.UnaryClientInterceptor {
 	return func(ctx context.Context, method string, req, reply interface{}, cc *grpc.ClientConn, invoker grpc.UnaryInvoker, opts ...grpc.CallOption) error {
-		ctx, err := toContext(ctx, tokenSource)
+		ctx, err := toContext(ctx, tokenSource, useIDToken)
 		if err != nil {
 			return err
 		}
@@ -67,9 +75,9 @@ func unaryAuth(tokenSource oauth2.TokenSource) grpc.UnaryClientInterceptor {
 	}
 }
 
-func streamAuth(tokenSource oauth2.TokenSource) grpc.StreamClientInterceptor {
+func streamAuth(tokenSource oauth2.TokenSource, useIDToken bool) grpc.StreamClientInterceptor {
 	return func(ctx context.Context, desc *grpc.StreamDesc, cc *grpc.ClientConn, method string, streamer grpc.Streamer, opts ...grpc.CallOption) (grpc.ClientStream, error) {
-		ctx, err := toContext(ctx, tokenSource)
+		ctx, err := toContext(ctx, tokenSource, useIDToken)
 		if err != nil {
 			return nil, err
 		}
@@ -102,8 +110,8 @@ func NewClient(ctx context.Context, target string, opts ...Opt) (*Client, error)
 	}
 
 	if options.tokenSource != nil {
-		uinterceptors = append(uinterceptors, unaryAuth(options.tokenSource))
-		sinterceptors = append(sinterceptors, streamAuth(options.tokenSource))
+		uinterceptors = append(uinterceptors, unaryAuth(options.tokenSource, options.idtoken))
+		sinterceptors = append(sinterceptors, streamAuth(options.tokenSource, options.idtoken))
 	}
 	if options.logging {
 		lgger := logger.New(true, zap.Bool("client", true))
@@ -138,13 +146,60 @@ type Client struct {
 	client hpaaspb.HPaasServiceClient
 }
 
-func toContext(ctx context.Context, tokenSource oauth2.TokenSource) (context.Context, error) {
+func toContext(ctx context.Context, tokenSource oauth2.TokenSource, useIdToken bool) (context.Context, error) {
 	token, err := tokenSource.Token()
 	if err != nil {
 		return ctx, errors.Wrap(err, "failed to get token")
+	}
+
+	if useIdToken {
+		idToken := token.Extra("id_token")
+		if idToken != nil {
+			return metadata.AppendToOutgoingContext(
+				ctx,
+				"Authorization", fmt.Sprintf("Bearer %v", idToken.(string)),
+			), nil
+		}
 	}
 	return metadata.AppendToOutgoingContext(
 		ctx,
 		"Authorization", fmt.Sprintf("Bearer %v", token.AccessToken),
 	), nil
+}
+
+// InstallApp installs an app/release in the given namespace
+func (c *Client) InstallApp(ctx context.Context, input *hpaaspb.AppInput) (*hpaaspb.App, error) {
+	return c.client.InstallApp(ctx, input)
+}
+
+// UninstallApp uninstalls an app/release from the given namespace
+func (c *Client) UninstallApp(ctx context.Context, input *hpaaspb.AppRef) error {
+	_, err := c.client.UninstallApp(ctx, input)
+	return err
+}
+
+// UpdateApp updates an app/release in the given namespace
+func (c *Client) UpdateApp(ctx context.Context, input *hpaaspb.AppInput) (*hpaaspb.App, error) {
+	return c.client.UpdateApp(ctx, input)
+}
+
+// RollbackApp rolls the app/release back to the previous version in the given namespace
+func (c *Client) RollbackApp(ctx context.Context, input *hpaaspb.AppRef) error {
+	_, err := c.client.RollbackApp(ctx, input)
+	return err
+}
+
+// SearchCharts searches for a local/cached helm chart
+func (c *Client) SearchCharts(ctx context.Context, input *hpaaspb.Filter) (*hpaaspb.Charts, error) {
+	return c.client.SearchCharts(ctx, input)
+}
+
+// GetApp gets an app/release from the given namespace
+func (c *Client) GetApp(ctx context.Context, input *hpaaspb.AppRef) (*hpaaspb.App, error) {
+	return c.client.GetApp(ctx, input)
+}
+
+// ListApps lists apps/releases in the namespace
+func (c *Client) ListApps(ctx context.Context, input *hpaaspb.NamespaceRef) (*hpaaspb.Apps, error) {
+	return c.client.ListApps(ctx, input)
 }
