@@ -10,8 +10,6 @@ require (
 	github.com/gorilla/websocket v1.4.2
 	github.com/grpc-ecosystem/go-grpc-middleware v1.2.2
 	github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0
-	github.com/imdario/mergo v0.3.11 // indirect
-	github.com/joho/godotenv v1.3.0 // indirect
 	github.com/lestrrat-go/jwx v1.0.8
 	github.com/mwitkow/go-proto-validators v0.3.2
 	github.com/open-policy-agent/opa v0.26.0
@@ -26,8 +24,6 @@ require (
 	google.golang.org/grpc v1.33.2
 	google.golang.org/protobuf v1.25.0
 	helm.sh/helm/v3 v3.5.0
-	istio.io/api v0.0.0-20210115162953-da389fc06d2c // indirect
-	istio.io/client-go v0.0.0-20210115164403-c9e58f5c6252 // indirect
-	k8s.io/api v0.20.1 // indirect
 	k8s.io/apimachinery v0.20.1
+	rsc.io/letsencrypt v0.0.3 // indirect
 )
