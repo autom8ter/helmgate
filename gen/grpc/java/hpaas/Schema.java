@@ -16162,64 +16162,71 @@ public final class Schema {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\014schema.proto\022\005hpaas\032\034google/protobuf/s" +
-      "truct.proto\032\037google/protobuf/timestamp.p" +
-      "roto\032\031google/protobuf/any.proto\032\033google/" +
-      "protobuf/empty.proto\0326github.com/mwitkow" +
-      "/go-proto-validators/validator.proto\"v\n\n" +
-      "Dependency\022\037\n\005chart\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,22" +
-      "5}$\022!\n\007version\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022$" +
-      "\n\nrepository\030\003 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\"M\n\n" +
-      "Maintainer\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225" +
-      "}$\022\037\n\005email\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\"<\n\013C" +
-      "hartFilter\022\036\n\004term\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225" +
-      "}$\022\r\n\005regex\030\002 \001(\010\"\320\002\n\005Chart\022\036\n\004name\030\001 \001(" +
-      "\tB\020\342\337\037\014\n\n^.{1,225}$\022\014\n\004home\030\002 \001(\t\022\023\n\013des" +
-      "cription\030\003 \001(\t\022\017\n\007version\030\004 \001(\t\022\017\n\007sourc" +
-      "es\030\005 \003(\t\022\020\n\010keywords\030\006 \003(\t\022\014\n\004icon\030\007 \001(\t" +
-      "\022\022\n\ndeprecated\030\010 \001(\010\022\'\n\014dependencies\030\t \003" +
-      "(\0132\021.hpaas.Dependency\022&\n\013maintainers\030\n \003" +
-      "(\0132\021.hpaas.Maintainer\022,\n\010metadata\030\013 \003(\0132" +
-      "\032.hpaas.Chart.MetadataEntry\032/\n\rMetadataE" +
-      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"&\n\006" +
-      "Charts\022\034\n\006charts\030\001 \003(\0132\014.hpaas.Chart\"\210\001\n" +
-      "\003App\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022#\n\t" +
-      "namespace\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\037\n\007rel" +
-      "ease\030\005 \001(\0132\016.hpaas.Release\022\033\n\005chart\030\024 \001(" +
-      "\0132\014.hpaas.Chart\" \n\004Apps\022\030\n\004apps\030\001 \003(\0132\n." +
-      "hpaas.App\"O\n\tAppFilter\022\021\n\tnamespace\030\001 \001(" +
-      "\t\022\020\n\010selector\030\002 \001(\t\022\r\n\005limit\030\003 \001(\r\022\016\n\006of" +
-      "fset\030\004 \001(\r\"\236\001\n\007Release\022\017\n\007version\030\001 \001(\r\022" +
-      "\'\n\006config\030\002 \001(\0132\027.google.protobuf.Struct" +
-      "\022\r\n\005notes\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\022\016\n\006" +
-      "status\030\005 \001(\t\022%\n\ntimestamps\030\006 \001(\0132\021.hpaas" +
-      ".Timestamps\"\223\001\n\nTimestamps\022+\n\007created\030\001 " +
-      "\001(\0132\032.google.protobuf.Timestamp\022+\n\007updat" +
-      "ed\030\002 \001(\0132\032.google.protobuf.Timestamp\022+\n\007" +
-      "deleted\030\003 \001(\0132\032.google.protobuf.Timestam" +
-      "p\"M\n\006AppRef\022#\n\tnamespace\030\001 \001(\tB\020\342\337\037\014\n\n^." +
-      "{1,225}$\022\036\n\004name\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$" +
-      "\"\330\001\n\010AppInput\022#\n\tnamespace\030\001 \001(\tB\020\342\337\037\014\n\n" +
-      "^.{1,225}$\022\037\n\005chart\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,22" +
-      "5}$\022\"\n\010app_name\030\003 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022" +
-      "3\n\006config\030\004 \003(\0132\033.hpaas.AppInput.ConfigE" +
-      "ntryB\006\342\337\037\002 \001\032-\n\013ConfigEntry\022\013\n\003key\030\001 \001(\t" +
-      "\022\r\n\005value\030\002 \001(\t:\0028\001\".\n\014NamespaceRef\022\036\n\004n" +
-      "ame\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\"8\n\rNamespace" +
-      "Refs\022\'\n\nnamespaces\030\001 \003(\0132\023.hpaas.Namespa" +
-      "ceRef\"B\n\rHistoryFilter\022\"\n\003ref\030\001 \001(\0132\r.hp" +
-      "aas.AppRefB\006\342\337\037\002 \001\022\r\n\005limit\030\002 \001(\r2\212\003\n\014HP" +
-      "aasService\022%\n\006GetApp\022\r.hpaas.AppRef\032\n.hp" +
-      "aas.App\"\000\0221\n\nGetHistory\022\024.hpaas.HistoryF" +
-      "ilter\032\013.hpaas.Apps\"\000\022-\n\nSearchApps\022\020.hpa" +
-      "as.AppFilter\032\013.hpaas.Apps\"\000\0227\n\014Uninstall" +
-      "App\022\r.hpaas.AppRef\032\026.google.protobuf.Emp" +
-      "ty\"\000\022*\n\013RollbackApp\022\r.hpaas.AppRef\032\n.hpa" +
-      "as.App\"\000\022+\n\nInstallApp\022\017.hpaas.AppInput\032" +
-      "\n.hpaas.App\"\000\022*\n\tUpdateApp\022\017.hpaas.AppIn" +
-      "put\032\n.hpaas.App\"\000\0223\n\014SearchCharts\022\022.hpaa" +
-      "s.ChartFilter\032\r.hpaas.Charts\"\000B\tZ\007hpaasp" +
-      "bb\006proto3"
+      "\n\014schema.proto\022\005hpaas\032\034google/api/annota" +
+      "tions.proto\032\034google/protobuf/struct.prot" +
+      "o\032\037google/protobuf/timestamp.proto\032\031goog" +
+      "le/protobuf/any.proto\032\033google/protobuf/e" +
+      "mpty.proto\0326github.com/mwitkow/go-proto-" +
+      "validators/validator.proto\"v\n\nDependency" +
+      "\022\037\n\005chart\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022!\n\007ver" +
+      "sion\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022$\n\nreposito" +
+      "ry\030\003 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\"M\n\nMaintainer" +
+      "\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\037\n\005emai" +
+      "l\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\"<\n\013ChartFilter" +
+      "\022\036\n\004term\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\r\n\005rege" +
+      "x\030\002 \001(\010\"\320\002\n\005Chart\022\036\n\004name\030\001 \001(\tB\020\342\337\037\014\n\n^" +
+      ".{1,225}$\022\014\n\004home\030\002 \001(\t\022\023\n\013description\030\003" +
+      " \001(\t\022\017\n\007version\030\004 \001(\t\022\017\n\007sources\030\005 \003(\t\022\020" +
+      "\n\010keywords\030\006 \003(\t\022\014\n\004icon\030\007 \001(\t\022\022\n\ndeprec" +
+      "ated\030\010 \001(\010\022\'\n\014dependencies\030\t \003(\0132\021.hpaas" +
+      ".Dependency\022&\n\013maintainers\030\n \003(\0132\021.hpaas" +
+      ".Maintainer\022,\n\010metadata\030\013 \003(\0132\032.hpaas.Ch" +
+      "art.MetadataEntry\032/\n\rMetadataEntry\022\013\n\003ke" +
+      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"&\n\006Charts\022\034\n\006" +
+      "charts\030\001 \003(\0132\014.hpaas.Chart\"\210\001\n\003App\022\036\n\004na" +
+      "me\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022#\n\tnamespace\030" +
+      "\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\037\n\007release\030\005 \001(\013" +
+      "2\016.hpaas.Release\022\033\n\005chart\030\024 \001(\0132\014.hpaas." +
+      "Chart\" \n\004Apps\022\030\n\004apps\030\001 \003(\0132\n.hpaas.App\"" +
+      "O\n\tAppFilter\022\021\n\tnamespace\030\001 \001(\t\022\020\n\010selec" +
+      "tor\030\002 \001(\t\022\r\n\005limit\030\003 \001(\r\022\016\n\006offset\030\004 \001(\r" +
+      "\"\236\001\n\007Release\022\017\n\007version\030\001 \001(\r\022\'\n\006config\030" +
+      "\002 \001(\0132\027.google.protobuf.Struct\022\r\n\005notes\030" +
+      "\003 \001(\t\022\023\n\013description\030\004 \001(\t\022\016\n\006status\030\005 \001" +
+      "(\t\022%\n\ntimestamps\030\006 \001(\0132\021.hpaas.Timestamp" +
+      "s\"\223\001\n\nTimestamps\022+\n\007created\030\001 \001(\0132\032.goog" +
+      "le.protobuf.Timestamp\022+\n\007updated\030\002 \001(\0132\032" +
+      ".google.protobuf.Timestamp\022+\n\007deleted\030\003 " +
+      "\001(\0132\032.google.protobuf.Timestamp\"M\n\006AppRe" +
+      "f\022#\n\tnamespace\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\036" +
+      "\n\004name\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\"\330\001\n\010AppIn" +
+      "put\022#\n\tnamespace\030\001 \001(\tB\020\342\337\037\014\n\n^.{1,225}$" +
+      "\022\037\n\005chart\030\002 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\022\"\n\010app" +
+      "_name\030\003 \001(\tB\020\342\337\037\014\n\n^.{1,225}$\0223\n\006config\030" +
+      "\004 \003(\0132\033.hpaas.AppInput.ConfigEntryB\006\342\337\037\002" +
+      " \001\032-\n\013ConfigEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
+      "\002 \001(\t:\0028\001\".\n\014NamespaceRef\022\036\n\004name\030\001 \001(\tB" +
+      "\020\342\337\037\014\n\n^.{1,225}$\"8\n\rNamespaceRefs\022\'\n\nna" +
+      "mespaces\030\001 \003(\0132\023.hpaas.NamespaceRef\"B\n\rH" +
+      "istoryFilter\022\"\n\003ref\030\001 \001(\0132\r.hpaas.AppRef" +
+      "B\006\342\337\037\002 \001\022\r\n\005limit\030\002 \001(\r2\212\005\n\014HPaasService" +
+      "\022>\n\006GetApp\022\r.hpaas.AppRef\032\n.hpaas.App\"\031\202" +
+      "\323\344\223\002\023\022\021/apps/{namespace}\022a\n\nGetHistory\022\024" +
+      ".hpaas.HistoryFilter\032\013.hpaas.Apps\"0\202\323\344\223\002" +
+      "*\022(/apps/{ref.namespace}/{ref.name}/hist" +
+      "ory\022F\n\nSearchApps\022\020.hpaas.AppFilter\032\013.hp" +
+      "aas.Apps\"\031\202\323\344\223\002\023\022\021/apps/{namespace}\022W\n\014U" +
+      "ninstallApp\022\r.hpaas.AppRef\032\026.google.prot" +
+      "obuf.Empty\" \202\323\344\223\002\032*\030/apps/{namespace}/{n" +
+      "ame}\022V\n\013RollbackApp\022\r.hpaas.AppRef\032\n.hpa" +
+      "as.App\",\202\323\344\223\002&\"!/apps/{namespace}/{name}" +
+      "/rollback:\001*\022G\n\nInstallApp\022\017.hpaas.AppIn" +
+      "put\032\n.hpaas.App\"\034\202\323\344\223\002\026\"\021/apps/{namespac" +
+      "e}:\001*\022Q\n\tUpdateApp\022\017.hpaas.AppInput\032\n.hp" +
+      "aas.App\"\'\202\323\344\223\002!\032\034/apps/{namespace}/{app_" +
+      "name}:\001*\022B\n\014SearchCharts\022\022.hpaas.ChartFi" +
+      "lter\032\r.hpaas.Charts\"\017\202\323\344\223\002\t\022\007/chartsB\tZ\007" +
+      "hpaaspbb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -16232,6 +16239,7 @@ public final class Schema {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.google.api.AnnotationsProto.getDescriptor(),
           com.google.protobuf.StructProto.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
           com.google.protobuf.AnyProto.getDescriptor(),
@@ -16342,9 +16350,11 @@ public final class Schema {
         new java.lang.String[] { "Ref", "Limit", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
+    registry.add(com.google.api.AnnotationsProto.http);
     registry.add(validator.Validator.field);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
+    com.google.api.AnnotationsProto.getDescriptor();
     com.google.protobuf.StructProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
     com.google.protobuf.AnyProto.getDescriptor();

@@ -35,10 +35,10 @@ generate:
       type: go
       flags: plugins=grpc
       output: gen/grpc/go
-#    - name: grpc-gateway
-#      output: gen/go
-#    - name: swagger
-#      output: .
+    - name: grpc-gateway
+      output: gen/grpc/go
+    - name: swagger
+      output: .
     - name: govalidators
       type: go
       output: gen/grpc/go

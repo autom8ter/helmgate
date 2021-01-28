@@ -15,6 +15,7 @@ import (
 	grpc_recovery "github.com/grpc-ecosystem/go-grpc-middleware/recovery"
 	grpc_validator "github.com/grpc-ecosystem/go-grpc-middleware/validator"
 	grpc_prometheus "github.com/grpc-ecosystem/go-grpc-prometheus"
+	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"github.com/open-policy-agent/opa/rego"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/soheilhy/cmux"
@@ -160,6 +161,7 @@ func run(ctx context.Context) {
 	hpaaspb.RegisterHPaasServiceServer(gserver, service)
 	reflection.Register(gserver)
 	grpc_prometheus.Register(gserver)
+
 	m.Go(func(routine machine.Routine) {
 		lgger.Info("starting grpc server",
 			zap.String("address", grpcMatcher.Addr().String()),
@@ -178,7 +180,6 @@ func run(ctx context.Context) {
 	}
 	defer conn.Close()
 	resolver := gql.NewResolver(hpaaspb.NewHPaasServiceClient(conn), lgger)
-
 	mux := http.NewServeMux()
 
 	mux.Handle("/graphql", resolver.QueryHandler())
@@ -186,8 +187,16 @@ func run(ctx context.Context) {
 		Handler: mux,
 	}
 
+	{
+		restMux := runtime.NewServeMux()
+		if err := hpaaspb.RegisterHPaasServiceHandler(ctx, restMux, conn); err != nil {
+			lgger.Error("failed to register REST endpoints", zap.Error(err))
+			return
+		}
+		mux.Handle("/", restMux)
+	}
 	m.Go(func(routine machine.Routine) {
-		lgger.Info("starting graphQL server", zap.String("address", gqlMatchermatcher.Addr().String()))
+		lgger.Info("starting http server", zap.String("address", gqlMatchermatcher.Addr().String()))
 		if err := graphQLServer.Serve(gqlMatchermatcher); err != nil && err != http.ErrServerClosed {
 			lgger.Error("http server failure", zap.Error(err))
 		}
@@ -205,9 +214,9 @@ func run(ctx context.Context) {
 		shutdownctx, shutdowncancel := context.WithTimeout(context.Background(), 15*time.Second)
 		defer shutdowncancel()
 		if err := graphQLServer.Shutdown(shutdownctx); err != nil {
-			lgger.Error("graphQL server shutdown failure", zap.Error(err))
+			lgger.Error("http server shutdown failure", zap.Error(err))
 		} else {
-			lgger.Debug("shutdown graphQL server")
+			lgger.Debug("shutdown http server")
 		}
 	}()
 	go func() {

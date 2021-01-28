@@ -4,6 +4,7 @@ package hpaas;
 
 option go_package = "hpaaspb";
 
+import "google/api/annotations.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/any.proto";
@@ -155,19 +156,54 @@ message HistoryFilter {
 // HPaasService is a secure platform as a service for easily deploying applications on Kubernetes with Helm charts
 service HPaasService {
   // GetApp gets an app/release from the given namespace
-  rpc GetApp(AppRef) returns(App){}
+  rpc GetApp(AppRef) returns(App){
+    option (google.api.http) = {
+      get: "/apps/{namespace}"
+    };
+  }
   // GetHistory gets a list of previous versions of the app/release
-  rpc GetHistory(HistoryFilter) returns (Apps){}
+  rpc GetHistory(HistoryFilter) returns (Apps){
+    option (google.api.http) = {
+      get: "/apps/{ref.namespace}/{ref.name}/history"
+    };
+  }
   // SearchApps searchs for apps/releases
-  rpc SearchApps(AppFilter) returns(Apps){}
+  rpc SearchApps(AppFilter) returns(Apps){
+    option (google.api.http) = {
+      get: "/apps/{namespace}"
+    };
+  }
   // UninstallApp uninstalls an app/release from the given namespace
-  rpc UninstallApp(AppRef) returns(google.protobuf.Empty){}
+  rpc UninstallApp(AppRef) returns(google.protobuf.Empty){
+    option (google.api.http) = {
+      delete: "/apps/{namespace}/{name}"
+    };
+  }
   // RollbackApp rolls the app/release back to the previous version in the given namespace
-  rpc RollbackApp(AppRef) returns(App){}
+  rpc RollbackApp(AppRef) returns(App){
+    option (google.api.http) = {
+      post: "/apps/{namespace}/{name}/rollback"
+      body: "*"
+    };
+  }
   // InstallApp installs an app/release in the given namespace
-  rpc InstallApp(AppInput) returns(App){}
+  rpc InstallApp(AppInput) returns(App){
+    option (google.api.http) = {
+      post: "/apps/{namespace}"
+      body: "*"
+    };
+  }
   // UpdateApp updates an app/release in the given namespace
-  rpc UpdateApp(AppInput) returns(App){}
+  rpc UpdateApp(AppInput) returns(App){
+    option (google.api.http) = {
+      put: "/apps/{namespace}/{app_name}"
+      body: "*"
+    };
+  }
   // SearchCharts searches for a cached helm chart
-  rpc SearchCharts(ChartFilter) returns(Charts){}
+  rpc SearchCharts(ChartFilter) returns(Charts){
+    option (google.api.http) = {
+      get: "/charts"
+    };
+  }
 }

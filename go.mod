@@ -10,6 +10,8 @@ require (
 	github.com/gorilla/websocket v1.4.2
 	github.com/grpc-ecosystem/go-grpc-middleware v1.2.2
 	github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0
+	github.com/grpc-ecosystem/grpc-gateway v1.9.5
+	github.com/grpc-ecosystem/grpc-gateway/v2 v2.1.0
 	github.com/lestrrat-go/jwx v1.0.8
 	github.com/mwitkow/go-proto-validators v0.3.2
 	github.com/open-policy-agent/opa v0.26.0
@@ -21,7 +23,8 @@ require (
 	github.com/vektah/gqlparser/v2 v2.1.0
 	go.uber.org/zap v1.16.0
 	golang.org/x/oauth2 v0.0.0-20210112200429-01de73cf58bd
-	google.golang.org/grpc v1.33.2
+	google.golang.org/genproto v0.0.0-20210106152847-07624b53cd92
+	google.golang.org/grpc v1.34.0
 	google.golang.org/protobuf v1.25.0
 	helm.sh/helm/v3 v3.5.0
 	k8s.io/apimachinery v0.20.1

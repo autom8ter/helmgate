@@ -12,7 +12,12 @@ A secure platform as a service for easily deploying applications on Kubernetes w
 - [x] [Headless](https://en.wikipedia.org/wiki/Headless_software)
 - [x] [Stateless](https://nordicapis.com/defining-stateful-vs-stateless-web-services/)
 - [x] [gRPC](https://grpc.io/) support
-- [x] [graphQL](https://graphql.org/) support
+    - [protobuf schema](schema.proto)
+- [x] [graphQL](https://graphql.org/) support `/graphql`
+    - [graphQL schema](schema.graphql)
+- [x] REST support `/`
+    - [protobuf schema](schema.proto)
+- [x] Serve gRPC, graphQL, & REST on same port
 - [x] Authentication - JWT/OAuth with remote JWKS verification
 - [x] Authorization - [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/) based Authorization engine
 - [x] Direct [Helm](https://helm.sh/) client integration
