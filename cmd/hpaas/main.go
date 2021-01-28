@@ -87,8 +87,8 @@ func run(ctx context.Context) {
 	apiMux.SetReadTimeout(1 * time.Second)
 	grpcMatcher := apiMux.MatchWithWriters(cmux.HTTP2MatchHeaderFieldSendSettings("content-type", "application/grpc"))
 	defer grpcMatcher.Close()
-	gqlMatchermatcher := apiMux.Match(cmux.Any())
-	defer gqlMatchermatcher.Close()
+	httpMatchermatcher := apiMux.Match(cmux.Any())
+	defer httpMatchermatcher.Close()
 	m.Go(func(routine machine.Routine) {
 		if err := apiMux.Serve(); err != nil && !strings.Contains(err.Error(), "closed network connection") {
 			lgger.Error("listener mux error", zap.Error(err))
@@ -183,9 +183,6 @@ func run(ctx context.Context) {
 	mux := http.NewServeMux()
 
 	mux.Handle("/graphql", resolver.QueryHandler())
-	graphQLServer := &http.Server{
-		Handler: mux,
-	}
 
 	{
 		restMux := runtime.NewServeMux()
@@ -195,9 +192,12 @@ func run(ctx context.Context) {
 		}
 		mux.Handle("/", restMux)
 	}
+	httpServer := &http.Server{
+		Handler: mux,
+	}
 	m.Go(func(routine machine.Routine) {
-		lgger.Info("starting http server", zap.String("address", gqlMatchermatcher.Addr().String()))
-		if err := graphQLServer.Serve(gqlMatchermatcher); err != nil && err != http.ErrServerClosed {
+		lgger.Info("starting http server", zap.String("address", httpMatchermatcher.Addr().String()))
+		if err := httpServer.Serve(httpMatchermatcher); err != nil && err != http.ErrServerClosed {
 			lgger.Error("http server failure", zap.Error(err))
 		}
 	})
@@ -213,7 +213,7 @@ func run(ctx context.Context) {
 	go func() {
 		shutdownctx, shutdowncancel := context.WithTimeout(context.Background(), 15*time.Second)
 		defer shutdowncancel()
-		if err := graphQLServer.Shutdown(shutdownctx); err != nil {
+		if err := httpServer.Shutdown(shutdownctx); err != nil {
 			lgger.Error("http server shutdown failure", zap.Error(err))
 		} else {
 			lgger.Debug("shutdown http server")

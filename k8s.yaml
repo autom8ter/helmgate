@@ -101,7 +101,7 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.podIP
-          image: "colemanword/hpaas:v0.0.31"
+          image: "colemanword/hpaas:v0.0.32"
           imagePullPolicy: Always
           ports:
           - containerPort: 8821
