@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * AppRef is a generic structure for looking up apps/releases
  *
- * Generated from protobuf message <code>hpaas.AppRef</code>
+ * Generated from protobuf message <code>helmProxy.AppRef</code>
  */
 class AppRef extends \Google\Protobuf\Internal\Message
 {

@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * Filter is used for filtering helm chart search results
  *
- * Generated from protobuf message <code>hpaas.Filter</code>
+ * Generated from protobuf message <code>helmProxy.Filter</code>
  */
 class Filter extends \Google\Protobuf\Internal\Message
 {

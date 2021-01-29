@@ -7,10 +7,10 @@ import (
 	"context"
 
 	"github.com/99designs/gqlgen/graphql"
-	"github.com/autom8ter/hpaas/gen/gql/go/generated"
-	"github.com/autom8ter/hpaas/gen/gql/go/model"
-	hpaaspb "github.com/autom8ter/hpaas/gen/grpc/go"
-	"github.com/autom8ter/hpaas/internal/helpers"
+	"github.com/autom8ter/helmProxy/gen/gql/go/generated"
+	"github.com/autom8ter/helmProxy/gen/gql/go/model"
+	helmProxypb "github.com/autom8ter/helmProxy/gen/grpc/go"
+	"github.com/autom8ter/helmProxy/internal/helpers"
 	"github.com/vektah/gqlparser/v2/gqlerror"
 )
 
@@ -70,7 +70,7 @@ func (r *queryResolver) GetApp(ctx context.Context, input model.AppRef) (*model.
 }
 
 func (r *queryResolver) GetHistory(ctx context.Context, input model.HistoryFilter) ([]*model.App, error) {
-	resp, err := r.client.GetHistory(ctx, &hpaaspb.HistoryFilter{
+	resp, err := r.client.GetHistory(ctx, &helmProxypb.HistoryFilter{
 		Ref:   toAppRef(*input.Ref),
 		Limit: uint32(helpers.FromIntPointer(input.Limit)),
 	})
@@ -88,7 +88,7 @@ func (r *queryResolver) GetHistory(ctx context.Context, input model.HistoryFilte
 }
 
 func (r *queryResolver) SearchApps(ctx context.Context, input model.AppFilter) ([]*model.App, error) {
-	resp, err := r.client.SearchApps(ctx, &hpaaspb.AppFilter{
+	resp, err := r.client.SearchApps(ctx, &helmProxypb.AppFilter{
 		Namespace: helpers.FromStringPointer(input.Namespace),
 		Selector:  helpers.FromStringPointer(input.Selector),
 		Limit:     uint32(helpers.FromIntPointer(input.Limit)),
@@ -108,7 +108,7 @@ func (r *queryResolver) SearchApps(ctx context.Context, input model.AppFilter) (
 }
 
 func (r *queryResolver) SearchCharts(ctx context.Context, input model.ChartFilter) ([]*model.Chart, error) {
-	resp, err := r.client.SearchCharts(ctx, &hpaaspb.ChartFilter{
+	resp, err := r.client.SearchCharts(ctx, &helmProxypb.ChartFilter{
 		Term:  input.Term,
 		Regex: helpers.FromBoolPointer(input.Regex),
 	})

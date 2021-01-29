@@ -2,8 +2,8 @@ package service
 
 import (
 	"context"
-	hpaaspb "github.com/autom8ter/hpaas/gen/grpc/go"
-	"github.com/autom8ter/hpaas/internal/logger"
+	helmProxypb "github.com/autom8ter/helmProxy/gen/grpc/go"
+	"github.com/autom8ter/helmProxy/internal/logger"
 	"github.com/autom8ter/kubego/helm"
 	"github.com/golang/protobuf/ptypes/empty"
 	"go.uber.org/zap"
@@ -37,7 +37,7 @@ func NewHelm(logger *logger.Logger, repos []*repo.Entry) (*Helm, error) {
 	return &Helm{client: client, logger: logger}, nil
 }
 
-func (h Helm) GetApp(ctx context.Context, ref *hpaaspb.AppRef) (*hpaaspb.App, error) {
+func (h Helm) GetApp(ctx context.Context, ref *helmProxypb.AppRef) (*helmProxypb.App, error) {
 	release, err := h.client.Get(ref.Namespace, ref.Name)
 	if err != nil {
 		return nil, err
@@ -45,7 +45,7 @@ func (h Helm) GetApp(ctx context.Context, ref *hpaaspb.AppRef) (*hpaaspb.App, er
 	return h.toApp(release)
 }
 
-func (h Helm) SearchApps(ctx context.Context, filter *hpaaspb.AppFilter) (*hpaaspb.Apps, error) {
+func (h Helm) SearchApps(ctx context.Context, filter *helmProxypb.AppFilter) (*helmProxypb.Apps, error) {
 	releases, err := h.client.SearchReleases(filter.Namespace, filter.Selector, int(filter.Limit), int(filter.Offset))
 	if err != nil {
 		return nil, err
@@ -53,7 +53,7 @@ func (h Helm) SearchApps(ctx context.Context, filter *hpaaspb.AppFilter) (*hpaas
 	return h.toApps(releases)
 }
 
-func (h Helm) GetHistory(ctx context.Context, filter *hpaaspb.HistoryFilter) (*hpaaspb.Apps, error) {
+func (h Helm) GetHistory(ctx context.Context, filter *helmProxypb.HistoryFilter) (*helmProxypb.Apps, error) {
 	releases, err := h.client.History(filter.GetRef().GetNamespace(), filter.GetRef().GetNamespace(), int(filter.GetLimit()))
 	if err != nil {
 		return nil, err
@@ -61,7 +61,7 @@ func (h Helm) GetHistory(ctx context.Context, filter *hpaaspb.HistoryFilter) (*h
 	return h.toApps(releases)
 }
 
-func (h Helm) UninstallApp(ctx context.Context, ref *hpaaspb.AppRef) (*empty.Empty, error) {
+func (h Helm) UninstallApp(ctx context.Context, ref *helmProxypb.AppRef) (*empty.Empty, error) {
 	_, err := h.client.Uninstall(ref.Namespace, ref.Name)
 	if err != nil {
 		return nil, err
@@ -69,14 +69,14 @@ func (h Helm) UninstallApp(ctx context.Context, ref *hpaaspb.AppRef) (*empty.Emp
 	return &empty.Empty{}, nil
 }
 
-func (h Helm) RollbackApp(ctx context.Context, ref *hpaaspb.AppRef) (*hpaaspb.App, error) {
+func (h Helm) RollbackApp(ctx context.Context, ref *helmProxypb.AppRef) (*helmProxypb.App, error) {
 	if err := h.client.Rollback(ref.Namespace, ref.Name); err != nil {
 		return nil, err
 	}
 	return h.GetApp(ctx, ref)
 }
 
-func (h Helm) InstallApp(ctx context.Context, input *hpaaspb.AppInput) (*hpaaspb.App, error) {
+func (h Helm) InstallApp(ctx context.Context, input *helmProxypb.AppInput) (*helmProxypb.App, error) {
 	release, err := h.client.Install(input.Namespace, input.Chart, input.AppName, true, input.Config)
 	if err != nil {
 		return nil, err
@@ -84,7 +84,7 @@ func (h Helm) InstallApp(ctx context.Context, input *hpaaspb.AppInput) (*hpaaspb
 	return h.toApp(release)
 }
 
-func (h Helm) UpdateApp(ctx context.Context, input *hpaaspb.AppInput) (*hpaaspb.App, error) {
+func (h Helm) UpdateApp(ctx context.Context, input *helmProxypb.AppInput) (*helmProxypb.App, error) {
 	release, err := h.client.Upgrade(input.Namespace, input.Chart, input.AppName, true, input.Config)
 	if err != nil {
 		return nil, err
@@ -92,7 +92,7 @@ func (h Helm) UpdateApp(ctx context.Context, input *hpaaspb.AppInput) (*hpaaspb.
 	return h.toApp(release)
 }
 
-func (h Helm) SearchCharts(ctx context.Context, filter *hpaaspb.ChartFilter) (*hpaaspb.Charts, error) {
+func (h Helm) SearchCharts(ctx context.Context, filter *helmProxypb.ChartFilter) (*helmProxypb.Charts, error) {
 	charts, err := h.client.SearchCharts(filter.Term, filter.Regex)
 	if err != nil {
 		return nil, err

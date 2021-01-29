@@ -1,4 +1,4 @@
-module github.com/autom8ter/hpaas
+module github.com/autom8ter/helmProxy
 
 go 1.15
 
@@ -10,7 +10,6 @@ require (
 	github.com/gorilla/websocket v1.4.2
 	github.com/grpc-ecosystem/go-grpc-middleware v1.2.2
 	github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0
-	github.com/grpc-ecosystem/grpc-gateway v1.9.5
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.1.0
 	github.com/lestrrat-go/jwx v1.0.8
 	github.com/mwitkow/go-proto-validators v0.3.2

@@ -3,13 +3,13 @@ package main
 import (
 	"context"
 	"fmt"
-	hpaaspb "github.com/autom8ter/hpaas/gen/grpc/go"
-	"github.com/autom8ter/hpaas/internal/auth"
-	"github.com/autom8ter/hpaas/internal/config"
-	"github.com/autom8ter/hpaas/internal/gql"
-	"github.com/autom8ter/hpaas/internal/helpers"
-	"github.com/autom8ter/hpaas/internal/logger"
-	service2 "github.com/autom8ter/hpaas/internal/service"
+	helmProxypb "github.com/autom8ter/helmProxy/gen/grpc/go"
+	"github.com/autom8ter/helmProxy/internal/auth"
+	"github.com/autom8ter/helmProxy/internal/config"
+	"github.com/autom8ter/helmProxy/internal/gql"
+	"github.com/autom8ter/helmProxy/internal/helpers"
+	"github.com/autom8ter/helmProxy/internal/logger"
+	service2 "github.com/autom8ter/helmProxy/internal/service"
 	"github.com/autom8ter/machine"
 	grpc_zap "github.com/grpc-ecosystem/go-grpc-middleware/logging/zap"
 	grpc_recovery "github.com/grpc-ecosystem/go-grpc-middleware/recovery"
@@ -40,7 +40,7 @@ var (
 )
 
 func init() {
-	pflag.CommandLine.StringVar(&configPath, "config", helpers.EnvOr("HPAAS_CONFIG", "hpaas.yaml"), "path to config file (env: HPAAS_JWKS_URI)")
+	pflag.CommandLine.StringVar(&configPath, "config", helpers.EnvOr("HELM_PROXY_CONFIG", "helmProxy.yaml"), "path to config file (env: HELM_PROXY_JWKS_URI)")
 	pflag.Parse()
 }
 
@@ -49,7 +49,7 @@ func main() {
 }
 
 func run(ctx context.Context) {
-	bits, err := ioutil.ReadFile("hpaas.yaml")
+	bits, err := ioutil.ReadFile("helmProxy.yaml")
 	if err != nil {
 		fmt.Printf("failed to read config file: %s", err.Error())
 		return
@@ -129,7 +129,7 @@ func run(ctx context.Context) {
 	})
 	r := rego.New(
 		rego.Query(c.RegoQuery),
-		rego.Module("hpaas.rego", c.RegoPolicy),
+		rego.Module("helmProxy.rego", c.RegoPolicy),
 	)
 	a, err := auth.NewAuth(c.JwksURI, lgger, r)
 	if err != nil {
@@ -158,7 +158,7 @@ func run(ctx context.Context) {
 		return
 	}
 	gserver := grpc.NewServer(gopts...)
-	hpaaspb.RegisterHPaasServiceServer(gserver, service)
+	helmProxypb.RegisterHelmProxyServiceServer(gserver, service)
 	reflection.Register(gserver)
 	grpc_prometheus.Register(gserver)
 
@@ -179,14 +179,14 @@ func run(ctx context.Context) {
 		return
 	}
 	defer conn.Close()
-	resolver := gql.NewResolver(hpaaspb.NewHPaasServiceClient(conn), lgger)
+	resolver := gql.NewResolver(helmProxypb.NewHelmProxyServiceClient(conn), lgger)
 	mux := http.NewServeMux()
 
 	mux.Handle("/graphql", resolver.QueryHandler())
 
 	{
 		restMux := runtime.NewServeMux()
-		if err := hpaaspb.RegisterHPaasServiceHandler(ctx, restMux, conn); err != nil {
+		if err := helmProxypb.RegisterHelmProxyServiceHandler(ctx, restMux, conn); err != nil {
 			lgger.Error("failed to register REST endpoints", zap.Error(err))
 			return
 		}

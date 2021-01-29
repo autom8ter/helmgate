@@ -7,9 +7,9 @@ import (
 	"github.com/99designs/gqlgen/graphql/handler/extension"
 	"github.com/99designs/gqlgen/graphql/handler/lru"
 	"github.com/99designs/gqlgen/graphql/handler/transport"
-	"github.com/autom8ter/hpaas/gen/gql/go/generated"
-	hpaaspb "github.com/autom8ter/hpaas/gen/grpc/go"
-	"github.com/autom8ter/hpaas/internal/logger"
+	"github.com/autom8ter/helmProxy/gen/gql/go/generated"
+	helmProxypb "github.com/autom8ter/helmProxy/gen/grpc/go"
+	"github.com/autom8ter/helmProxy/internal/logger"
 	"github.com/gorilla/websocket"
 	"google.golang.org/grpc/metadata"
 	"net/http"
@@ -22,10 +22,10 @@ import (
 
 type Resolver struct {
 	logger *logger.Logger
-	client hpaaspb.HPaasServiceClient
+	client helmProxypb.HelmProxyServiceClient
 }
 
-func NewResolver(client hpaaspb.HPaasServiceClient, logger *logger.Logger) *Resolver {
+func NewResolver(client helmProxypb.HelmProxyServiceClient, logger *logger.Logger) *Resolver {
 	return &Resolver{logger: logger, client: client}
 }
 

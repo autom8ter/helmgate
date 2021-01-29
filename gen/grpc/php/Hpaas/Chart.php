@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * Chart is a helm chart that may be used to deploy an app/release
  *
- * Generated from protobuf message <code>hpaas.Chart</code>
+ * Generated from protobuf message <code>helmProxy.Chart</code>
  */
 class Chart extends \Google\Protobuf\Internal\Message
 {
@@ -64,13 +64,13 @@ class Chart extends \Google\Protobuf\Internal\Message
     /**
      * extra charts that this chart depends on
      *
-     * Generated from protobuf field <code>repeated .hpaas.Dependency dependencies = 9;</code>
+     * Generated from protobuf field <code>repeated .helmProxy.Dependency dependencies = 9;</code>
      */
     private $dependencies;
     /**
      * maintainers of this chart
      *
-     * Generated from protobuf field <code>repeated .hpaas.Maintainer maintainers = 10;</code>
+     * Generated from protobuf field <code>repeated .helmProxy.Maintainer maintainers = 10;</code>
      */
     private $maintainers;
     /**
@@ -321,7 +321,7 @@ class Chart extends \Google\Protobuf\Internal\Message
     /**
      * extra charts that this chart depends on
      *
-     * Generated from protobuf field <code>repeated .hpaas.Dependency dependencies = 9;</code>
+     * Generated from protobuf field <code>repeated .helmProxy.Dependency dependencies = 9;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getDependencies()
@@ -332,7 +332,7 @@ class Chart extends \Google\Protobuf\Internal\Message
     /**
      * extra charts that this chart depends on
      *
-     * Generated from protobuf field <code>repeated .hpaas.Dependency dependencies = 9;</code>
+     * Generated from protobuf field <code>repeated .helmProxy.Dependency dependencies = 9;</code>
      * @param \Hpaas\Dependency[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
@@ -347,7 +347,7 @@ class Chart extends \Google\Protobuf\Internal\Message
     /**
      * maintainers of this chart
      *
-     * Generated from protobuf field <code>repeated .hpaas.Maintainer maintainers = 10;</code>
+     * Generated from protobuf field <code>repeated .helmProxy.Maintainer maintainers = 10;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getMaintainers()
@@ -358,7 +358,7 @@ class Chart extends \Google\Protobuf\Internal\Message
     /**
      * maintainers of this chart
      *
-     * Generated from protobuf field <code>repeated .hpaas.Maintainer maintainers = 10;</code>
+     * Generated from protobuf field <code>repeated .helmProxy.Maintainer maintainers = 10;</code>
      * @param \Hpaas\Maintainer[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */

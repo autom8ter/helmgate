@@ -9,12 +9,12 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>hpaas.HistoryFilter</code>
+ * Generated from protobuf message <code>helmProxy.HistoryFilter</code>
  */
 class HistoryFilter extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>.hpaas.AppRef ref = 1 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>.helmProxy.AppRef ref = 1 [(.validator.field) = {</code>
      */
     private $ref = null;
     /**
@@ -38,7 +38,7 @@ class HistoryFilter extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.hpaas.AppRef ref = 1 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>.helmProxy.AppRef ref = 1 [(.validator.field) = {</code>
      * @return \Hpaas\AppRef
      */
     public function getRef()
@@ -47,7 +47,7 @@ class HistoryFilter extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.hpaas.AppRef ref = 1 [(.validator.field) = {</code>
+     * Generated from protobuf field <code>.helmProxy.AppRef ref = 1 [(.validator.field) = {</code>
      * @param \Hpaas\AppRef $var
      * @return $this
      */

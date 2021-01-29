@@ -1,4 +1,4 @@
-version := "0.0.32"
+version := "0.1.0"
 
 .DEFAULT_GOAL := help
 
@@ -10,7 +10,7 @@ help:
 	@echo "----------------------------------------------------------------"
 
 run:
-	@go run cmd/hpaas/main.go
+	@go run cmd/helmProxy/main.go
 
 gen: gql helm proto
 
@@ -31,10 +31,10 @@ push:
 	git push origin v$(version)
 
 docker-build:
-	@docker build -t colemanword/hpaas:v$(version) .
+	@docker build -t colemanword/helmproxy:v$(version) .
 
 docker-push:
-	@docker push colemanword/hpaas:v$(version)
+	@docker push colemanword/helmproxy:v$(version)
 
 
 .PHONY: proto
@@ -58,6 +58,6 @@ down: ## shuts down local docker containers
 
 build: ## build the server to ./bin
 	@mkdir -p bin
-	@cd cmd/hpaas; gox -osarch="linux/amd64" -output="../../bin/linux/{{.Dir}}_linux_amd64"
-	@cd cmd/hpaas; gox -osarch="darwin/amd64" -output="../../bin/darwin/{{.Dir}}_darwin_amd64"
-	@cd cmd/hpaas; gox -osarch="windows/amd64" -output="../../bin/windows/{{.Dir}}_windows_amd64"
+	@cd cmd/helmProxy; gox -osarch="linux/amd64" -output="../../bin/linux/{{.Dir}}_linux_amd64"
+	@cd cmd/helmProxy; gox -osarch="darwin/amd64" -output="../../bin/darwin/{{.Dir}}_darwin_amd64"
+	@cd cmd/helmProxy; gox -osarch="windows/amd64" -output="../../bin/windows/{{.Dir}}_windows_amd64"

@@ -9,7 +9,7 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>hpaas.AppFilter</code>
+ * Generated from protobuf message <code>helmProxy.AppFilter</code>
  */
 class AppFilter extends \Google\Protobuf\Internal\Message
 {

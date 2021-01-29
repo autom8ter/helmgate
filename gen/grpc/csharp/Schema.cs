@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Hpaas {
+namespace HelmProxy {
 
   /// <summary>Holder for reflection information generated from schema.proto</summary>
   public static partial class SchemaReflection {
@@ -24,82 +24,84 @@ namespace Hpaas {
     static SchemaReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CgxzY2hlbWEucHJvdG8SBWhwYWFzGhxnb29nbGUvYXBpL2Fubm90YXRpb25z",
-            "LnByb3RvGhxnb29nbGUvcHJvdG9idWYvc3RydWN0LnByb3RvGh9nb29nbGUv",
-            "cHJvdG9idWYvdGltZXN0YW1wLnByb3RvGhlnb29nbGUvcHJvdG9idWYvYW55",
-            "LnByb3RvGhtnb29nbGUvcHJvdG9idWYvZW1wdHkucHJvdG8aNmdpdGh1Yi5j",
-            "b20vbXdpdGtvdy9nby1wcm90by12YWxpZGF0b3JzL3ZhbGlkYXRvci5wcm90",
-            "byJ2CgpEZXBlbmRlbmN5Eh8KBWNoYXJ0GAEgASgJQhDi3x8MCgpeLnsxLDIy",
-            "NX0kEiEKB3ZlcnNpb24YAiABKAlCEOLfHwwKCl4uezEsMjI1fSQSJAoKcmVw",
-            "b3NpdG9yeRgDIAEoCUIQ4t8fDAoKXi57MSwyMjV9JCJNCgpNYWludGFpbmVy",
-            "Eh4KBG5hbWUYASABKAlCEOLfHwwKCl4uezEsMjI1fSQSHwoFZW1haWwYAiAB",
-            "KAlCEOLfHwwKCl4uezEsMjI1fSQiPAoLQ2hhcnRGaWx0ZXISHgoEdGVybRgB",
-            "IAEoCUIQ4t8fDAoKXi57MSwyMjV9JBINCgVyZWdleBgCIAEoCCLQAgoFQ2hh",
-            "cnQSHgoEbmFtZRgBIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIMCgRob21lGAIg",
-            "ASgJEhMKC2Rlc2NyaXB0aW9uGAMgASgJEg8KB3ZlcnNpb24YBCABKAkSDwoH",
-            "c291cmNlcxgFIAMoCRIQCghrZXl3b3JkcxgGIAMoCRIMCgRpY29uGAcgASgJ",
-            "EhIKCmRlcHJlY2F0ZWQYCCABKAgSJwoMZGVwZW5kZW5jaWVzGAkgAygLMhEu",
-            "aHBhYXMuRGVwZW5kZW5jeRImCgttYWludGFpbmVycxgKIAMoCzIRLmhwYWFz",
-            "Lk1haW50YWluZXISLAoIbWV0YWRhdGEYCyADKAsyGi5ocGFhcy5DaGFydC5N",
-            "ZXRhZGF0YUVudHJ5Gi8KDU1ldGFkYXRhRW50cnkSCwoDa2V5GAEgASgJEg0K",
-            "BXZhbHVlGAIgASgJOgI4ASImCgZDaGFydHMSHAoGY2hhcnRzGAEgAygLMgwu",
-            "aHBhYXMuQ2hhcnQiiAEKA0FwcBIeCgRuYW1lGAEgASgJQhDi3x8MCgpeLnsx",
-            "LDIyNX0kEiMKCW5hbWVzcGFjZRgCIAEoCUIQ4t8fDAoKXi57MSwyMjV9JBIf",
-            "CgdyZWxlYXNlGAUgASgLMg4uaHBhYXMuUmVsZWFzZRIbCgVjaGFydBgUIAEo",
-            "CzIMLmhwYWFzLkNoYXJ0IiAKBEFwcHMSGAoEYXBwcxgBIAMoCzIKLmhwYWFz",
-            "LkFwcCJPCglBcHBGaWx0ZXISEQoJbmFtZXNwYWNlGAEgASgJEhAKCHNlbGVj",
-            "dG9yGAIgASgJEg0KBWxpbWl0GAMgASgNEg4KBm9mZnNldBgEIAEoDSKeAQoH",
-            "UmVsZWFzZRIPCgd2ZXJzaW9uGAEgASgNEicKBmNvbmZpZxgCIAEoCzIXLmdv",
-            "b2dsZS5wcm90b2J1Zi5TdHJ1Y3QSDQoFbm90ZXMYAyABKAkSEwoLZGVzY3Jp",
-            "cHRpb24YBCABKAkSDgoGc3RhdHVzGAUgASgJEiUKCnRpbWVzdGFtcHMYBiAB",
-            "KAsyES5ocGFhcy5UaW1lc3RhbXBzIpMBCgpUaW1lc3RhbXBzEisKB2NyZWF0",
-            "ZWQYASABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEisKB3VwZGF0",
-            "ZWQYAiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEisKB2RlbGV0",
-            "ZWQYAyABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wIk0KBkFwcFJl",
-            "ZhIjCgluYW1lc3BhY2UYASABKAlCEOLfHwwKCl4uezEsMjI1fSQSHgoEbmFt",
-            "ZRgCIAEoCUIQ4t8fDAoKXi57MSwyMjV9JCLYAQoIQXBwSW5wdXQSIwoJbmFt",
-            "ZXNwYWNlGAEgASgJQhDi3x8MCgpeLnsxLDIyNX0kEh8KBWNoYXJ0GAIgASgJ",
-            "QhDi3x8MCgpeLnsxLDIyNX0kEiIKCGFwcF9uYW1lGAMgASgJQhDi3x8MCgpe",
-            "LnsxLDIyNX0kEjMKBmNvbmZpZxgEIAMoCzIbLmhwYWFzLkFwcElucHV0LkNv",
-            "bmZpZ0VudHJ5Qgbi3x8CIAEaLQoLQ29uZmlnRW50cnkSCwoDa2V5GAEgASgJ",
-            "Eg0KBXZhbHVlGAIgASgJOgI4ASIuCgxOYW1lc3BhY2VSZWYSHgoEbmFtZRgB",
-            "IAEoCUIQ4t8fDAoKXi57MSwyMjV9JCI4Cg1OYW1lc3BhY2VSZWZzEicKCm5h",
-            "bWVzcGFjZXMYASADKAsyEy5ocGFhcy5OYW1lc3BhY2VSZWYiQgoNSGlzdG9y",
-            "eUZpbHRlchIiCgNyZWYYASABKAsyDS5ocGFhcy5BcHBSZWZCBuLfHwIgARIN",
-            "CgVsaW1pdBgCIAEoDTKKBQoMSFBhYXNTZXJ2aWNlEj4KBkdldEFwcBINLmhw",
-            "YWFzLkFwcFJlZhoKLmhwYWFzLkFwcCIZgtPkkwITEhEvYXBwcy97bmFtZXNw",
-            "YWNlfRJhCgpHZXRIaXN0b3J5EhQuaHBhYXMuSGlzdG9yeUZpbHRlchoLLmhw",
-            "YWFzLkFwcHMiMILT5JMCKhIoL2FwcHMve3JlZi5uYW1lc3BhY2V9L3tyZWYu",
-            "bmFtZX0vaGlzdG9yeRJGCgpTZWFyY2hBcHBzEhAuaHBhYXMuQXBwRmlsdGVy",
-            "GgsuaHBhYXMuQXBwcyIZgtPkkwITEhEvYXBwcy97bmFtZXNwYWNlfRJXCgxV",
-            "bmluc3RhbGxBcHASDS5ocGFhcy5BcHBSZWYaFi5nb29nbGUucHJvdG9idWYu",
-            "RW1wdHkiIILT5JMCGioYL2FwcHMve25hbWVzcGFjZX0ve25hbWV9ElYKC1Jv",
-            "bGxiYWNrQXBwEg0uaHBhYXMuQXBwUmVmGgouaHBhYXMuQXBwIiyC0+STAiYi",
-            "IS9hcHBzL3tuYW1lc3BhY2V9L3tuYW1lfS9yb2xsYmFjazoBKhJHCgpJbnN0",
-            "YWxsQXBwEg8uaHBhYXMuQXBwSW5wdXQaCi5ocGFhcy5BcHAiHILT5JMCFiIR",
-            "L2FwcHMve25hbWVzcGFjZX06ASoSUQoJVXBkYXRlQXBwEg8uaHBhYXMuQXBw",
-            "SW5wdXQaCi5ocGFhcy5BcHAiJ4LT5JMCIRocL2FwcHMve25hbWVzcGFjZX0v",
-            "e2FwcF9uYW1lfToBKhJCCgxTZWFyY2hDaGFydHMSEi5ocGFhcy5DaGFydEZp",
-            "bHRlchoNLmhwYWFzLkNoYXJ0cyIPgtPkkwIJEgcvY2hhcnRzQglaB2hwYWFz",
-            "cGJiBnByb3RvMw=="));
+            "CgxzY2hlbWEucHJvdG8SCWhlbG1Qcm94eRocZ29vZ2xlL2FwaS9hbm5vdGF0",
+            "aW9ucy5wcm90bxocZ29vZ2xlL3Byb3RvYnVmL3N0cnVjdC5wcm90bxofZ29v",
+            "Z2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90bxoZZ29vZ2xlL3Byb3RvYnVm",
+            "L2FueS5wcm90bxobZ29vZ2xlL3Byb3RvYnVmL2VtcHR5LnByb3RvGjZnaXRo",
+            "dWIuY29tL213aXRrb3cvZ28tcHJvdG8tdmFsaWRhdG9ycy92YWxpZGF0b3Iu",
+            "cHJvdG8idgoKRGVwZW5kZW5jeRIfCgVjaGFydBgBIAEoCUIQ4t8fDAoKXi57",
+            "MSwyMjV9JBIhCgd2ZXJzaW9uGAIgASgJQhDi3x8MCgpeLnsxLDIyNX0kEiQK",
+            "CnJlcG9zaXRvcnkYAyABKAlCEOLfHwwKCl4uezEsMjI1fSQiTQoKTWFpbnRh",
+            "aW5lchIeCgRuYW1lGAEgASgJQhDi3x8MCgpeLnsxLDIyNX0kEh8KBWVtYWls",
+            "GAIgASgJQhDi3x8MCgpeLnsxLDIyNX0kIjwKC0NoYXJ0RmlsdGVyEh4KBHRl",
+            "cm0YASABKAlCEOLfHwwKCl4uezEsMjI1fSQSDQoFcmVnZXgYAiABKAgi3AIK",
+            "BUNoYXJ0Eh4KBG5hbWUYASABKAlCEOLfHwwKCl4uezEsMjI1fSQSDAoEaG9t",
+            "ZRgCIAEoCRITCgtkZXNjcmlwdGlvbhgDIAEoCRIPCgd2ZXJzaW9uGAQgASgJ",
+            "Eg8KB3NvdXJjZXMYBSADKAkSEAoIa2V5d29yZHMYBiADKAkSDAoEaWNvbhgH",
+            "IAEoCRISCgpkZXByZWNhdGVkGAggASgIEisKDGRlcGVuZGVuY2llcxgJIAMo",
+            "CzIVLmhlbG1Qcm94eS5EZXBlbmRlbmN5EioKC21haW50YWluZXJzGAogAygL",
+            "MhUuaGVsbVByb3h5Lk1haW50YWluZXISMAoIbWV0YWRhdGEYCyADKAsyHi5o",
+            "ZWxtUHJveHkuQ2hhcnQuTWV0YWRhdGFFbnRyeRovCg1NZXRhZGF0YUVudHJ5",
+            "EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEiKgoGQ2hhcnRzEiAK",
+            "BmNoYXJ0cxgBIAMoCzIQLmhlbG1Qcm94eS5DaGFydCKQAQoDQXBwEh4KBG5h",
+            "bWUYASABKAlCEOLfHwwKCl4uezEsMjI1fSQSIwoJbmFtZXNwYWNlGAIgASgJ",
+            "QhDi3x8MCgpeLnsxLDIyNX0kEiMKB3JlbGVhc2UYBSABKAsyEi5oZWxtUHJv",
+            "eHkuUmVsZWFzZRIfCgVjaGFydBgUIAEoCzIQLmhlbG1Qcm94eS5DaGFydCIk",
+            "CgRBcHBzEhwKBGFwcHMYASADKAsyDi5oZWxtUHJveHkuQXBwIk8KCUFwcEZp",
+            "bHRlchIRCgluYW1lc3BhY2UYASABKAkSEAoIc2VsZWN0b3IYAiABKAkSDQoF",
+            "bGltaXQYAyABKA0SDgoGb2Zmc2V0GAQgASgNIqIBCgdSZWxlYXNlEg8KB3Zl",
+            "cnNpb24YASABKA0SJwoGY29uZmlnGAIgASgLMhcuZ29vZ2xlLnByb3RvYnVm",
+            "LlN0cnVjdBINCgVub3RlcxgDIAEoCRITCgtkZXNjcmlwdGlvbhgEIAEoCRIO",
+            "CgZzdGF0dXMYBSABKAkSKQoKdGltZXN0YW1wcxgGIAEoCzIVLmhlbG1Qcm94",
+            "eS5UaW1lc3RhbXBzIpMBCgpUaW1lc3RhbXBzEisKB2NyZWF0ZWQYASABKAsy",
+            "Gi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEisKB3VwZGF0ZWQYAiABKAsy",
+            "Gi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEisKB2RlbGV0ZWQYAyABKAsy",
+            "Gi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wIk0KBkFwcFJlZhIjCgluYW1l",
+            "c3BhY2UYASABKAlCEOLfHwwKCl4uezEsMjI1fSQSHgoEbmFtZRgCIAEoCUIQ",
+            "4t8fDAoKXi57MSwyMjV9JCLcAQoIQXBwSW5wdXQSIwoJbmFtZXNwYWNlGAEg",
+            "ASgJQhDi3x8MCgpeLnsxLDIyNX0kEh8KBWNoYXJ0GAIgASgJQhDi3x8MCgpe",
+            "LnsxLDIyNX0kEiIKCGFwcF9uYW1lGAMgASgJQhDi3x8MCgpeLnsxLDIyNX0k",
+            "EjcKBmNvbmZpZxgEIAMoCzIfLmhlbG1Qcm94eS5BcHBJbnB1dC5Db25maWdF",
+            "bnRyeUIG4t8fAiABGi0KC0NvbmZpZ0VudHJ5EgsKA2tleRgBIAEoCRINCgV2",
+            "YWx1ZRgCIAEoCToCOAEiLgoMTmFtZXNwYWNlUmVmEh4KBG5hbWUYASABKAlC",
+            "EOLfHwwKCl4uezEsMjI1fSQiPAoNTmFtZXNwYWNlUmVmcxIrCgpuYW1lc3Bh",
+            "Y2VzGAEgAygLMhcuaGVsbVByb3h5Lk5hbWVzcGFjZVJlZiJGCg1IaXN0b3J5",
+            "RmlsdGVyEiYKA3JlZhgBIAEoCzIRLmhlbG1Qcm94eS5BcHBSZWZCBuLfHwIg",
+            "ARINCgVsaW1pdBgCIAEoDTLKBQoQSGVsbVByb3h5U2VydmljZRJGCgZHZXRB",
+            "cHASES5oZWxtUHJveHkuQXBwUmVmGg4uaGVsbVByb3h5LkFwcCIZgtPkkwIT",
+            "EhEvYXBwcy97bmFtZXNwYWNlfRJpCgpHZXRIaXN0b3J5EhguaGVsbVByb3h5",
+            "Lkhpc3RvcnlGaWx0ZXIaDy5oZWxtUHJveHkuQXBwcyIwgtPkkwIqEigvYXBw",
+            "cy97cmVmLm5hbWVzcGFjZX0ve3JlZi5uYW1lfS9oaXN0b3J5Ek4KClNlYXJj",
+            "aEFwcHMSFC5oZWxtUHJveHkuQXBwRmlsdGVyGg8uaGVsbVByb3h5LkFwcHMi",
+            "GYLT5JMCExIRL2FwcHMve25hbWVzcGFjZX0SWwoMVW5pbnN0YWxsQXBwEhEu",
+            "aGVsbVByb3h5LkFwcFJlZhoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIggtPk",
+            "kwIaKhgvYXBwcy97bmFtZXNwYWNlfS97bmFtZX0SXgoLUm9sbGJhY2tBcHAS",
+            "ES5oZWxtUHJveHkuQXBwUmVmGg4uaGVsbVByb3h5LkFwcCIsgtPkkwImIiEv",
+            "YXBwcy97bmFtZXNwYWNlfS97bmFtZX0vcm9sbGJhY2s6ASoSTwoKSW5zdGFs",
+            "bEFwcBITLmhlbG1Qcm94eS5BcHBJbnB1dBoOLmhlbG1Qcm94eS5BcHAiHILT",
+            "5JMCFiIRL2FwcHMve25hbWVzcGFjZX06ASoSWQoJVXBkYXRlQXBwEhMuaGVs",
+            "bVByb3h5LkFwcElucHV0Gg4uaGVsbVByb3h5LkFwcCIngtPkkwIhGhwvYXBw",
+            "cy97bmFtZXNwYWNlfS97YXBwX25hbWV9OgEqEkoKDFNlYXJjaENoYXJ0cxIW",
+            "LmhlbG1Qcm94eS5DaGFydEZpbHRlchoRLmhlbG1Qcm94eS5DaGFydHMiD4LT",
+            "5JMCCRIHL2NoYXJ0c0INWgtoZWxtUHJveHlwYmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Api.AnnotationsReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Validator.ValidatorReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Hpaas.Dependency), global::Hpaas.Dependency.Parser, new[]{ "Chart", "Version", "Repository" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Hpaas.Maintainer), global::Hpaas.Maintainer.Parser, new[]{ "Name", "Email" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Hpaas.ChartFilter), global::Hpaas.ChartFilter.Parser, new[]{ "Term", "Regex" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Hpaas.Chart), global::Hpaas.Chart.Parser, new[]{ "Name", "Home", "Description", "Version", "Sources", "Keywords", "Icon", "Deprecated", "Dependencies", "Maintainers", "Metadata" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Hpaas.Charts), global::Hpaas.Charts.Parser, new[]{ "Charts_" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Hpaas.App), global::Hpaas.App.Parser, new[]{ "Name", "Namespace", "Release", "Chart" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Hpaas.Apps), global::Hpaas.Apps.Parser, new[]{ "Apps_" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Hpaas.AppFilter), global::Hpaas.AppFilter.Parser, new[]{ "Namespace", "Selector", "Limit", "Offset" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Hpaas.Release), global::Hpaas.Release.Parser, new[]{ "Version", "Config", "Notes", "Description", "Status", "Timestamps" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Hpaas.Timestamps), global::Hpaas.Timestamps.Parser, new[]{ "Created", "Updated", "Deleted" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Hpaas.AppRef), global::Hpaas.AppRef.Parser, new[]{ "Namespace", "Name" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Hpaas.AppInput), global::Hpaas.AppInput.Parser, new[]{ "Namespace", "Chart", "AppName", "Config" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Hpaas.NamespaceRef), global::Hpaas.NamespaceRef.Parser, new[]{ "Name" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Hpaas.NamespaceRefs), global::Hpaas.NamespaceRefs.Parser, new[]{ "Namespaces" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Hpaas.HistoryFilter), global::Hpaas.HistoryFilter.Parser, new[]{ "Ref", "Limit" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::HelmProxy.Dependency), global::HelmProxy.Dependency.Parser, new[]{ "Chart", "Version", "Repository" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::HelmProxy.Maintainer), global::HelmProxy.Maintainer.Parser, new[]{ "Name", "Email" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::HelmProxy.ChartFilter), global::HelmProxy.ChartFilter.Parser, new[]{ "Term", "Regex" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::HelmProxy.Chart), global::HelmProxy.Chart.Parser, new[]{ "Name", "Home", "Description", "Version", "Sources", "Keywords", "Icon", "Deprecated", "Dependencies", "Maintainers", "Metadata" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::HelmProxy.Charts), global::HelmProxy.Charts.Parser, new[]{ "Charts_" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::HelmProxy.App), global::HelmProxy.App.Parser, new[]{ "Name", "Namespace", "Release", "Chart" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::HelmProxy.Apps), global::HelmProxy.Apps.Parser, new[]{ "Apps_" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::HelmProxy.AppFilter), global::HelmProxy.AppFilter.Parser, new[]{ "Namespace", "Selector", "Limit", "Offset" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::HelmProxy.Release), global::HelmProxy.Release.Parser, new[]{ "Version", "Config", "Notes", "Description", "Status", "Timestamps" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::HelmProxy.Timestamps), global::HelmProxy.Timestamps.Parser, new[]{ "Created", "Updated", "Deleted" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::HelmProxy.AppRef), global::HelmProxy.AppRef.Parser, new[]{ "Namespace", "Name" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::HelmProxy.AppInput), global::HelmProxy.AppInput.Parser, new[]{ "Namespace", "Chart", "AppName", "Config" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::HelmProxy.NamespaceRef), global::HelmProxy.NamespaceRef.Parser, new[]{ "Name" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::HelmProxy.NamespaceRefs), global::HelmProxy.NamespaceRefs.Parser, new[]{ "Namespaces" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::HelmProxy.HistoryFilter), global::HelmProxy.HistoryFilter.Parser, new[]{ "Ref", "Limit" }, null, null, null)
           }));
     }
     #endregion
@@ -117,7 +119,7 @@ namespace Hpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Hpaas.SchemaReflection.Descriptor.MessageTypes[0]; }
+      get { return global::HelmProxy.SchemaReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -314,7 +316,7 @@ namespace Hpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Hpaas.SchemaReflection.Descriptor.MessageTypes[1]; }
+      get { return global::HelmProxy.SchemaReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -480,7 +482,7 @@ namespace Hpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Hpaas.SchemaReflection.Descriptor.MessageTypes[2]; }
+      get { return global::HelmProxy.SchemaReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -646,7 +648,7 @@ namespace Hpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Hpaas.SchemaReflection.Descriptor.MessageTypes[3]; }
+      get { return global::HelmProxy.SchemaReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -791,27 +793,27 @@ namespace Hpaas {
 
     /// <summary>Field number for the "dependencies" field.</summary>
     public const int DependenciesFieldNumber = 9;
-    private static readonly pb::FieldCodec<global::Hpaas.Dependency> _repeated_dependencies_codec
-        = pb::FieldCodec.ForMessage(74, global::Hpaas.Dependency.Parser);
-    private readonly pbc::RepeatedField<global::Hpaas.Dependency> dependencies_ = new pbc::RepeatedField<global::Hpaas.Dependency>();
+    private static readonly pb::FieldCodec<global::HelmProxy.Dependency> _repeated_dependencies_codec
+        = pb::FieldCodec.ForMessage(74, global::HelmProxy.Dependency.Parser);
+    private readonly pbc::RepeatedField<global::HelmProxy.Dependency> dependencies_ = new pbc::RepeatedField<global::HelmProxy.Dependency>();
     /// <summary>
     /// extra charts that this chart depends on
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Hpaas.Dependency> Dependencies {
+    public pbc::RepeatedField<global::HelmProxy.Dependency> Dependencies {
       get { return dependencies_; }
     }
 
     /// <summary>Field number for the "maintainers" field.</summary>
     public const int MaintainersFieldNumber = 10;
-    private static readonly pb::FieldCodec<global::Hpaas.Maintainer> _repeated_maintainers_codec
-        = pb::FieldCodec.ForMessage(82, global::Hpaas.Maintainer.Parser);
-    private readonly pbc::RepeatedField<global::Hpaas.Maintainer> maintainers_ = new pbc::RepeatedField<global::Hpaas.Maintainer>();
+    private static readonly pb::FieldCodec<global::HelmProxy.Maintainer> _repeated_maintainers_codec
+        = pb::FieldCodec.ForMessage(82, global::HelmProxy.Maintainer.Parser);
+    private readonly pbc::RepeatedField<global::HelmProxy.Maintainer> maintainers_ = new pbc::RepeatedField<global::HelmProxy.Maintainer>();
     /// <summary>
     /// maintainers of this chart
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Hpaas.Maintainer> Maintainers {
+    public pbc::RepeatedField<global::HelmProxy.Maintainer> Maintainers {
       get { return maintainers_; }
     }
 
@@ -1048,7 +1050,7 @@ namespace Hpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Hpaas.SchemaReflection.Descriptor.MessageTypes[4]; }
+      get { return global::HelmProxy.SchemaReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1076,11 +1078,11 @@ namespace Hpaas {
 
     /// <summary>Field number for the "charts" field.</summary>
     public const int Charts_FieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Hpaas.Chart> _repeated_charts_codec
-        = pb::FieldCodec.ForMessage(10, global::Hpaas.Chart.Parser);
-    private readonly pbc::RepeatedField<global::Hpaas.Chart> charts_ = new pbc::RepeatedField<global::Hpaas.Chart>();
+    private static readonly pb::FieldCodec<global::HelmProxy.Chart> _repeated_charts_codec
+        = pb::FieldCodec.ForMessage(10, global::HelmProxy.Chart.Parser);
+    private readonly pbc::RepeatedField<global::HelmProxy.Chart> charts_ = new pbc::RepeatedField<global::HelmProxy.Chart>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Hpaas.Chart> Charts_ {
+    public pbc::RepeatedField<global::HelmProxy.Chart> Charts_ {
       get { return charts_; }
     }
 
@@ -1172,7 +1174,7 @@ namespace Hpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Hpaas.SchemaReflection.Descriptor.MessageTypes[5]; }
+      get { return global::HelmProxy.SchemaReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1231,12 +1233,12 @@ namespace Hpaas {
 
     /// <summary>Field number for the "release" field.</summary>
     public const int ReleaseFieldNumber = 5;
-    private global::Hpaas.Release release_;
+    private global::HelmProxy.Release release_;
     /// <summary>
     /// release holds information about the currently deployed release of the application
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Hpaas.Release Release {
+    public global::HelmProxy.Release Release {
       get { return release_; }
       set {
         release_ = value;
@@ -1245,12 +1247,12 @@ namespace Hpaas {
 
     /// <summary>Field number for the "chart" field.</summary>
     public const int ChartFieldNumber = 20;
-    private global::Hpaas.Chart chart_;
+    private global::HelmProxy.Chart chart_;
     /// <summary>
     /// chart is the chart used to deploy the App
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Hpaas.Chart Chart {
+    public global::HelmProxy.Chart Chart {
       get { return chart_; }
       set {
         chart_ = value;
@@ -1352,13 +1354,13 @@ namespace Hpaas {
       }
       if (other.release_ != null) {
         if (release_ == null) {
-          release_ = new global::Hpaas.Release();
+          release_ = new global::HelmProxy.Release();
         }
         Release.MergeFrom(other.Release);
       }
       if (other.chart_ != null) {
         if (chart_ == null) {
-          chart_ = new global::Hpaas.Chart();
+          chart_ = new global::HelmProxy.Chart();
         }
         Chart.MergeFrom(other.Chart);
       }
@@ -1383,14 +1385,14 @@ namespace Hpaas {
           }
           case 42: {
             if (release_ == null) {
-              release_ = new global::Hpaas.Release();
+              release_ = new global::HelmProxy.Release();
             }
             input.ReadMessage(release_);
             break;
           }
           case 162: {
             if (chart_ == null) {
-              chart_ = new global::Hpaas.Chart();
+              chart_ = new global::HelmProxy.Chart();
             }
             input.ReadMessage(chart_);
             break;
@@ -1412,7 +1414,7 @@ namespace Hpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Hpaas.SchemaReflection.Descriptor.MessageTypes[6]; }
+      get { return global::HelmProxy.SchemaReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1440,11 +1442,11 @@ namespace Hpaas {
 
     /// <summary>Field number for the "apps" field.</summary>
     public const int Apps_FieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Hpaas.App> _repeated_apps_codec
-        = pb::FieldCodec.ForMessage(10, global::Hpaas.App.Parser);
-    private readonly pbc::RepeatedField<global::Hpaas.App> apps_ = new pbc::RepeatedField<global::Hpaas.App>();
+    private static readonly pb::FieldCodec<global::HelmProxy.App> _repeated_apps_codec
+        = pb::FieldCodec.ForMessage(10, global::HelmProxy.App.Parser);
+    private readonly pbc::RepeatedField<global::HelmProxy.App> apps_ = new pbc::RepeatedField<global::HelmProxy.App>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Hpaas.App> Apps_ {
+    public pbc::RepeatedField<global::HelmProxy.App> Apps_ {
       get { return apps_; }
     }
 
@@ -1525,6 +1527,9 @@ namespace Hpaas {
 
   }
 
+  /// <summary>
+  /// AppFilter is used to list app/releases
+  /// </summary>
   public sealed partial class AppFilter : pb::IMessage<AppFilter> {
     private static readonly pb::MessageParser<AppFilter> _parser = new pb::MessageParser<AppFilter>(() => new AppFilter());
     private pb::UnknownFieldSet _unknownFields;
@@ -1533,7 +1538,7 @@ namespace Hpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Hpaas.SchemaReflection.Descriptor.MessageTypes[7]; }
+      get { return global::HelmProxy.SchemaReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1565,6 +1570,9 @@ namespace Hpaas {
     /// <summary>Field number for the "namespace" field.</summary>
     public const int NamespaceFieldNumber = 1;
     private string namespace_ = "";
+    /// <summary>
+    /// search all namespaces if empty
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Namespace {
       get { return namespace_; }
@@ -1576,6 +1584,9 @@ namespace Hpaas {
     /// <summary>Field number for the "selector" field.</summary>
     public const int SelectorFieldNumber = 2;
     private string selector_ = "";
+    /// <summary>
+    /// k8s selector (ex: app = helmProxy)
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Selector {
       get { return selector_; }
@@ -1587,6 +1598,9 @@ namespace Hpaas {
     /// <summary>Field number for the "limit" field.</summary>
     public const int LimitFieldNumber = 3;
     private uint limit_;
+    /// <summary>
+    /// limit returned results
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint Limit {
       get { return limit_; }
@@ -1598,6 +1612,9 @@ namespace Hpaas {
     /// <summary>Field number for the "offset" field.</summary>
     public const int OffsetFieldNumber = 4;
     private uint offset_;
+    /// <summary>
+    /// offset returned results (for pagination)
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint Offset {
       get { return offset_; }
@@ -1749,7 +1766,7 @@ namespace Hpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Hpaas.SchemaReflection.Descriptor.MessageTypes[8]; }
+      get { return global::HelmProxy.SchemaReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1852,12 +1869,12 @@ namespace Hpaas {
 
     /// <summary>Field number for the "timestamps" field.</summary>
     public const int TimestampsFieldNumber = 6;
-    private global::Hpaas.Timestamps timestamps_;
+    private global::HelmProxy.Timestamps timestamps_;
     /// <summary>
     /// lifecycle timestamps related
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Hpaas.Timestamps Timestamps {
+    public global::HelmProxy.Timestamps Timestamps {
       get { return timestamps_; }
       set {
         timestamps_ = value;
@@ -1989,7 +2006,7 @@ namespace Hpaas {
       }
       if (other.timestamps_ != null) {
         if (timestamps_ == null) {
-          timestamps_ = new global::Hpaas.Timestamps();
+          timestamps_ = new global::HelmProxy.Timestamps();
         }
         Timestamps.MergeFrom(other.Timestamps);
       }
@@ -2029,7 +2046,7 @@ namespace Hpaas {
           }
           case 50: {
             if (timestamps_ == null) {
-              timestamps_ = new global::Hpaas.Timestamps();
+              timestamps_ = new global::HelmProxy.Timestamps();
             }
             input.ReadMessage(timestamps_);
             break;
@@ -2051,7 +2068,7 @@ namespace Hpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Hpaas.SchemaReflection.Descriptor.MessageTypes[9]; }
+      get { return global::HelmProxy.SchemaReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2266,7 +2283,7 @@ namespace Hpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Hpaas.SchemaReflection.Descriptor.MessageTypes[10]; }
+      get { return global::HelmProxy.SchemaReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2432,7 +2449,7 @@ namespace Hpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Hpaas.SchemaReflection.Descriptor.MessageTypes[11]; }
+      get { return global::HelmProxy.SchemaReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2652,7 +2669,7 @@ namespace Hpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Hpaas.SchemaReflection.Descriptor.MessageTypes[12]; }
+      get { return global::HelmProxy.SchemaReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2787,7 +2804,7 @@ namespace Hpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Hpaas.SchemaReflection.Descriptor.MessageTypes[13]; }
+      get { return global::HelmProxy.SchemaReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2815,11 +2832,11 @@ namespace Hpaas {
 
     /// <summary>Field number for the "namespaces" field.</summary>
     public const int NamespacesFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Hpaas.NamespaceRef> _repeated_namespaces_codec
-        = pb::FieldCodec.ForMessage(10, global::Hpaas.NamespaceRef.Parser);
-    private readonly pbc::RepeatedField<global::Hpaas.NamespaceRef> namespaces_ = new pbc::RepeatedField<global::Hpaas.NamespaceRef>();
+    private static readonly pb::FieldCodec<global::HelmProxy.NamespaceRef> _repeated_namespaces_codec
+        = pb::FieldCodec.ForMessage(10, global::HelmProxy.NamespaceRef.Parser);
+    private readonly pbc::RepeatedField<global::HelmProxy.NamespaceRef> namespaces_ = new pbc::RepeatedField<global::HelmProxy.NamespaceRef>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Hpaas.NamespaceRef> Namespaces {
+    public pbc::RepeatedField<global::HelmProxy.NamespaceRef> Namespaces {
       get { return namespaces_; }
     }
 
@@ -2900,6 +2917,9 @@ namespace Hpaas {
 
   }
 
+  /// <summary>
+  /// HistoryFilter is used to query a timeseries of releases for a specific app/release
+  /// </summary>
   public sealed partial class HistoryFilter : pb::IMessage<HistoryFilter> {
     private static readonly pb::MessageParser<HistoryFilter> _parser = new pb::MessageParser<HistoryFilter>(() => new HistoryFilter());
     private pb::UnknownFieldSet _unknownFields;
@@ -2908,7 +2928,7 @@ namespace Hpaas {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Hpaas.SchemaReflection.Descriptor.MessageTypes[14]; }
+      get { return global::HelmProxy.SchemaReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2937,9 +2957,9 @@ namespace Hpaas {
 
     /// <summary>Field number for the "ref" field.</summary>
     public const int RefFieldNumber = 1;
-    private global::Hpaas.AppRef ref_;
+    private global::HelmProxy.AppRef ref_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Hpaas.AppRef Ref {
+    public global::HelmProxy.AppRef Ref {
       get { return ref_; }
       set {
         ref_ = value;
@@ -3028,7 +3048,7 @@ namespace Hpaas {
       }
       if (other.ref_ != null) {
         if (ref_ == null) {
-          ref_ = new global::Hpaas.AppRef();
+          ref_ = new global::HelmProxy.AppRef();
         }
         Ref.MergeFrom(other.Ref);
       }
@@ -3048,7 +3068,7 @@ namespace Hpaas {
             break;
           case 10: {
             if (ref_ == null) {
-              ref_ = new global::Hpaas.AppRef();
+              ref_ = new global::HelmProxy.AppRef();
             }
             input.ReadMessage(ref_);
             break;

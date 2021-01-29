@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * AppInput is used to create/update an app
  *
- * Generated from protobuf message <code>hpaas.AppInput</code>
+ * Generated from protobuf message <code>helmProxy.AppInput</code>
  */
 class AppInput extends \Google\Protobuf\Internal\Message
 {

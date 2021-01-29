@@ -28,7 +28,7 @@ lint:
 
 generate:
   go_options:
-    import_path: github.com/autom8ter/hpaas
+    import_path: github.com/autom8ter/helmProxy
 
   plugins:
     - name: go

@@ -2,11 +2,11 @@
 // source: schema.proto
 
 /*
-Package hpaaspb is a reverse proxy.
+Package helmProxypb is a reverse proxy.
 
 It translates gRPC into RESTful JSON APIs.
 */
-package hpaaspb
+package helmProxypb
 
 import (
 	"context"
@@ -32,10 +32,10 @@ var _ = utilities.NewDoubleArray
 var _ = metadata.Join
 
 var (
-	filter_HPaasService_GetApp_0 = &utilities.DoubleArray{Encoding: map[string]int{"namespace": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_HelmProxyService_GetApp_0 = &utilities.DoubleArray{Encoding: map[string]int{"namespace": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
-func request_HPaasService_GetApp_0(ctx context.Context, marshaler runtime.Marshaler, client HPaasServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_HelmProxyService_GetApp_0(ctx context.Context, marshaler runtime.Marshaler, client HelmProxyServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq AppRef
 	var metadata runtime.ServerMetadata
 
@@ -59,7 +59,7 @@ func request_HPaasService_GetApp_0(ctx context.Context, marshaler runtime.Marsha
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_HPaasService_GetApp_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_HelmProxyService_GetApp_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -68,7 +68,7 @@ func request_HPaasService_GetApp_0(ctx context.Context, marshaler runtime.Marsha
 
 }
 
-func local_request_HPaasService_GetApp_0(ctx context.Context, marshaler runtime.Marshaler, server HPaasServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_HelmProxyService_GetApp_0(ctx context.Context, marshaler runtime.Marshaler, server HelmProxyServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq AppRef
 	var metadata runtime.ServerMetadata
 
@@ -92,7 +92,7 @@ func local_request_HPaasService_GetApp_0(ctx context.Context, marshaler runtime.
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_HPaasService_GetApp_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_HelmProxyService_GetApp_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -102,10 +102,10 @@ func local_request_HPaasService_GetApp_0(ctx context.Context, marshaler runtime.
 }
 
 var (
-	filter_HPaasService_GetHistory_0 = &utilities.DoubleArray{Encoding: map[string]int{"ref": 0, "namespace": 1, "name": 2}, Base: []int{1, 1, 1, 2, 0, 0}, Check: []int{0, 1, 2, 2, 3, 4}}
+	filter_HelmProxyService_GetHistory_0 = &utilities.DoubleArray{Encoding: map[string]int{"ref": 0, "namespace": 1, "name": 2}, Base: []int{1, 1, 1, 2, 0, 0}, Check: []int{0, 1, 2, 2, 3, 4}}
 )
 
-func request_HPaasService_GetHistory_0(ctx context.Context, marshaler runtime.Marshaler, client HPaasServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_HelmProxyService_GetHistory_0(ctx context.Context, marshaler runtime.Marshaler, client HelmProxyServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq HistoryFilter
 	var metadata runtime.ServerMetadata
 
@@ -139,7 +139,7 @@ func request_HPaasService_GetHistory_0(ctx context.Context, marshaler runtime.Ma
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_HPaasService_GetHistory_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_HelmProxyService_GetHistory_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -148,7 +148,7 @@ func request_HPaasService_GetHistory_0(ctx context.Context, marshaler runtime.Ma
 
 }
 
-func local_request_HPaasService_GetHistory_0(ctx context.Context, marshaler runtime.Marshaler, server HPaasServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_HelmProxyService_GetHistory_0(ctx context.Context, marshaler runtime.Marshaler, server HelmProxyServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq HistoryFilter
 	var metadata runtime.ServerMetadata
 
@@ -182,7 +182,7 @@ func local_request_HPaasService_GetHistory_0(ctx context.Context, marshaler runt
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_HPaasService_GetHistory_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_HelmProxyService_GetHistory_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -192,10 +192,10 @@ func local_request_HPaasService_GetHistory_0(ctx context.Context, marshaler runt
 }
 
 var (
-	filter_HPaasService_SearchApps_0 = &utilities.DoubleArray{Encoding: map[string]int{"namespace": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_HelmProxyService_SearchApps_0 = &utilities.DoubleArray{Encoding: map[string]int{"namespace": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
-func request_HPaasService_SearchApps_0(ctx context.Context, marshaler runtime.Marshaler, client HPaasServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_HelmProxyService_SearchApps_0(ctx context.Context, marshaler runtime.Marshaler, client HelmProxyServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq AppFilter
 	var metadata runtime.ServerMetadata
 
@@ -219,7 +219,7 @@ func request_HPaasService_SearchApps_0(ctx context.Context, marshaler runtime.Ma
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_HPaasService_SearchApps_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_HelmProxyService_SearchApps_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -228,7 +228,7 @@ func request_HPaasService_SearchApps_0(ctx context.Context, marshaler runtime.Ma
 
 }
 
-func local_request_HPaasService_SearchApps_0(ctx context.Context, marshaler runtime.Marshaler, server HPaasServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_HelmProxyService_SearchApps_0(ctx context.Context, marshaler runtime.Marshaler, server HelmProxyServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq AppFilter
 	var metadata runtime.ServerMetadata
 
@@ -252,7 +252,7 @@ func local_request_HPaasService_SearchApps_0(ctx context.Context, marshaler runt
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_HPaasService_SearchApps_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_HelmProxyService_SearchApps_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -261,7 +261,7 @@ func local_request_HPaasService_SearchApps_0(ctx context.Context, marshaler runt
 
 }
 
-func request_HPaasService_UninstallApp_0(ctx context.Context, marshaler runtime.Marshaler, client HPaasServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_HelmProxyService_UninstallApp_0(ctx context.Context, marshaler runtime.Marshaler, client HelmProxyServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq AppRef
 	var metadata runtime.ServerMetadata
 
@@ -297,7 +297,7 @@ func request_HPaasService_UninstallApp_0(ctx context.Context, marshaler runtime.
 
 }
 
-func local_request_HPaasService_UninstallApp_0(ctx context.Context, marshaler runtime.Marshaler, server HPaasServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_HelmProxyService_UninstallApp_0(ctx context.Context, marshaler runtime.Marshaler, server HelmProxyServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq AppRef
 	var metadata runtime.ServerMetadata
 
@@ -333,7 +333,7 @@ func local_request_HPaasService_UninstallApp_0(ctx context.Context, marshaler ru
 
 }
 
-func request_HPaasService_RollbackApp_0(ctx context.Context, marshaler runtime.Marshaler, client HPaasServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_HelmProxyService_RollbackApp_0(ctx context.Context, marshaler runtime.Marshaler, client HelmProxyServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq AppRef
 	var metadata runtime.ServerMetadata
 
@@ -377,7 +377,7 @@ func request_HPaasService_RollbackApp_0(ctx context.Context, marshaler runtime.M
 
 }
 
-func local_request_HPaasService_RollbackApp_0(ctx context.Context, marshaler runtime.Marshaler, server HPaasServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_HelmProxyService_RollbackApp_0(ctx context.Context, marshaler runtime.Marshaler, server HelmProxyServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq AppRef
 	var metadata runtime.ServerMetadata
 
@@ -421,7 +421,7 @@ func local_request_HPaasService_RollbackApp_0(ctx context.Context, marshaler run
 
 }
 
-func request_HPaasService_InstallApp_0(ctx context.Context, marshaler runtime.Marshaler, client HPaasServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_HelmProxyService_InstallApp_0(ctx context.Context, marshaler runtime.Marshaler, client HelmProxyServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq AppInput
 	var metadata runtime.ServerMetadata
 
@@ -455,7 +455,7 @@ func request_HPaasService_InstallApp_0(ctx context.Context, marshaler runtime.Ma
 
 }
 
-func local_request_HPaasService_InstallApp_0(ctx context.Context, marshaler runtime.Marshaler, server HPaasServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_HelmProxyService_InstallApp_0(ctx context.Context, marshaler runtime.Marshaler, server HelmProxyServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq AppInput
 	var metadata runtime.ServerMetadata
 
@@ -489,7 +489,7 @@ func local_request_HPaasService_InstallApp_0(ctx context.Context, marshaler runt
 
 }
 
-func request_HPaasService_UpdateApp_0(ctx context.Context, marshaler runtime.Marshaler, client HPaasServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_HelmProxyService_UpdateApp_0(ctx context.Context, marshaler runtime.Marshaler, client HelmProxyServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq AppInput
 	var metadata runtime.ServerMetadata
 
@@ -533,7 +533,7 @@ func request_HPaasService_UpdateApp_0(ctx context.Context, marshaler runtime.Mar
 
 }
 
-func local_request_HPaasService_UpdateApp_0(ctx context.Context, marshaler runtime.Marshaler, server HPaasServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_HelmProxyService_UpdateApp_0(ctx context.Context, marshaler runtime.Marshaler, server HelmProxyServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq AppInput
 	var metadata runtime.ServerMetadata
 
@@ -578,17 +578,17 @@ func local_request_HPaasService_UpdateApp_0(ctx context.Context, marshaler runti
 }
 
 var (
-	filter_HPaasService_SearchCharts_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+	filter_HelmProxyService_SearchCharts_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
 
-func request_HPaasService_SearchCharts_0(ctx context.Context, marshaler runtime.Marshaler, client HPaasServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_HelmProxyService_SearchCharts_0(ctx context.Context, marshaler runtime.Marshaler, client HelmProxyServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ChartFilter
 	var metadata runtime.ServerMetadata
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_HPaasService_SearchCharts_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_HelmProxyService_SearchCharts_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -597,14 +597,14 @@ func request_HPaasService_SearchCharts_0(ctx context.Context, marshaler runtime.
 
 }
 
-func local_request_HPaasService_SearchCharts_0(ctx context.Context, marshaler runtime.Marshaler, server HPaasServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_HelmProxyService_SearchCharts_0(ctx context.Context, marshaler runtime.Marshaler, server HelmProxyServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ChartFilter
 	var metadata runtime.ServerMetadata
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_HPaasService_SearchCharts_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_HelmProxyService_SearchCharts_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -613,24 +613,24 @@ func local_request_HPaasService_SearchCharts_0(ctx context.Context, marshaler ru
 
 }
 
-// RegisterHPaasServiceHandlerServer registers the http handlers for service HPaasService to "mux".
-// UnaryRPC     :call HPaasServiceServer directly.
+// RegisterHelmProxyServiceHandlerServer registers the http handlers for service HelmProxyService to "mux".
+// UnaryRPC     :call HelmProxyServiceServer directly.
 // StreamingRPC :currently unsupported pending https://github.com/grpc/grpc-go/issues/906.
-// Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterHPaasServiceHandlerFromEndpoint instead.
-func RegisterHPaasServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, server HPaasServiceServer) error {
+// Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterHelmProxyServiceHandlerFromEndpoint instead.
+func RegisterHelmProxyServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, server HelmProxyServiceServer) error {
 
-	mux.Handle("GET", pattern_HPaasService_GetApp_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_HelmProxyService_GetApp_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/hpaas.HPaasService/GetApp")
+		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/helmProxy.HelmProxyService/GetApp")
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_HPaasService_GetApp_0(rctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_HelmProxyService_GetApp_0(rctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -638,22 +638,22 @@ func RegisterHPaasServiceHandlerServer(ctx context.Context, mux *runtime.ServeMu
 			return
 		}
 
-		forward_HPaasService_GetApp_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_HelmProxyService_GetApp_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_HPaasService_GetHistory_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_HelmProxyService_GetHistory_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/hpaas.HPaasService/GetHistory")
+		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/helmProxy.HelmProxyService/GetHistory")
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_HPaasService_GetHistory_0(rctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_HelmProxyService_GetHistory_0(rctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -661,22 +661,22 @@ func RegisterHPaasServiceHandlerServer(ctx context.Context, mux *runtime.ServeMu
 			return
 		}
 
-		forward_HPaasService_GetHistory_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_HelmProxyService_GetHistory_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_HPaasService_SearchApps_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_HelmProxyService_SearchApps_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/hpaas.HPaasService/SearchApps")
+		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/helmProxy.HelmProxyService/SearchApps")
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_HPaasService_SearchApps_0(rctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_HelmProxyService_SearchApps_0(rctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -684,22 +684,22 @@ func RegisterHPaasServiceHandlerServer(ctx context.Context, mux *runtime.ServeMu
 			return
 		}
 
-		forward_HPaasService_SearchApps_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_HelmProxyService_SearchApps_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("DELETE", pattern_HPaasService_UninstallApp_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("DELETE", pattern_HelmProxyService_UninstallApp_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/hpaas.HPaasService/UninstallApp")
+		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/helmProxy.HelmProxyService/UninstallApp")
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_HPaasService_UninstallApp_0(rctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_HelmProxyService_UninstallApp_0(rctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -707,22 +707,22 @@ func RegisterHPaasServiceHandlerServer(ctx context.Context, mux *runtime.ServeMu
 			return
 		}
 
-		forward_HPaasService_UninstallApp_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_HelmProxyService_UninstallApp_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_HPaasService_RollbackApp_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_HelmProxyService_RollbackApp_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/hpaas.HPaasService/RollbackApp")
+		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/helmProxy.HelmProxyService/RollbackApp")
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_HPaasService_RollbackApp_0(rctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_HelmProxyService_RollbackApp_0(rctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -730,22 +730,22 @@ func RegisterHPaasServiceHandlerServer(ctx context.Context, mux *runtime.ServeMu
 			return
 		}
 
-		forward_HPaasService_RollbackApp_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_HelmProxyService_RollbackApp_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_HPaasService_InstallApp_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_HelmProxyService_InstallApp_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/hpaas.HPaasService/InstallApp")
+		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/helmProxy.HelmProxyService/InstallApp")
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_HPaasService_InstallApp_0(rctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_HelmProxyService_InstallApp_0(rctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -753,22 +753,22 @@ func RegisterHPaasServiceHandlerServer(ctx context.Context, mux *runtime.ServeMu
 			return
 		}
 
-		forward_HPaasService_InstallApp_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_HelmProxyService_InstallApp_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_HPaasService_UpdateApp_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_HelmProxyService_UpdateApp_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/hpaas.HPaasService/UpdateApp")
+		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/helmProxy.HelmProxyService/UpdateApp")
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_HPaasService_UpdateApp_0(rctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_HelmProxyService_UpdateApp_0(rctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -776,22 +776,22 @@ func RegisterHPaasServiceHandlerServer(ctx context.Context, mux *runtime.ServeMu
 			return
 		}
 
-		forward_HPaasService_UpdateApp_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_HelmProxyService_UpdateApp_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_HPaasService_SearchCharts_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_HelmProxyService_SearchCharts_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/hpaas.HPaasService/SearchCharts")
+		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/helmProxy.HelmProxyService/SearchCharts")
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_HPaasService_SearchCharts_0(rctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_HelmProxyService_SearchCharts_0(rctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -799,16 +799,16 @@ func RegisterHPaasServiceHandlerServer(ctx context.Context, mux *runtime.ServeMu
 			return
 		}
 
-		forward_HPaasService_SearchCharts_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_HelmProxyService_SearchCharts_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
 	return nil
 }
 
-// RegisterHPaasServiceHandlerFromEndpoint is same as RegisterHPaasServiceHandler but
+// RegisterHelmProxyServiceHandlerFromEndpoint is same as RegisterHelmProxyServiceHandler but
 // automatically dials to "endpoint" and closes the connection when "ctx" gets done.
-func RegisterHPaasServiceHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
+func RegisterHelmProxyServiceHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
 	conn, err := grpc.Dial(endpoint, opts...)
 	if err != nil {
 		return err
@@ -828,179 +828,179 @@ func RegisterHPaasServiceHandlerFromEndpoint(ctx context.Context, mux *runtime.S
 		}()
 	}()
 
-	return RegisterHPaasServiceHandler(ctx, mux, conn)
+	return RegisterHelmProxyServiceHandler(ctx, mux, conn)
 }
 
-// RegisterHPaasServiceHandler registers the http handlers for service HPaasService to "mux".
+// RegisterHelmProxyServiceHandler registers the http handlers for service HelmProxyService to "mux".
 // The handlers forward requests to the grpc endpoint over "conn".
-func RegisterHPaasServiceHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
-	return RegisterHPaasServiceHandlerClient(ctx, mux, NewHPaasServiceClient(conn))
+func RegisterHelmProxyServiceHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
+	return RegisterHelmProxyServiceHandlerClient(ctx, mux, NewHelmProxyServiceClient(conn))
 }
 
-// RegisterHPaasServiceHandlerClient registers the http handlers for service HPaasService
-// to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "HPaasServiceClient".
-// Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "HPaasServiceClient"
+// RegisterHelmProxyServiceHandlerClient registers the http handlers for service HelmProxyService
+// to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "HelmProxyServiceClient".
+// Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "HelmProxyServiceClient"
 // doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
-// "HPaasServiceClient" to call the correct interceptors.
-func RegisterHPaasServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client HPaasServiceClient) error {
+// "HelmProxyServiceClient" to call the correct interceptors.
+func RegisterHelmProxyServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client HelmProxyServiceClient) error {
 
-	mux.Handle("GET", pattern_HPaasService_GetApp_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_HelmProxyService_GetApp_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/hpaas.HPaasService/GetApp")
+		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/helmProxy.HelmProxyService/GetApp")
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_HPaasService_GetApp_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_HelmProxyService_GetApp_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_HPaasService_GetApp_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_HelmProxyService_GetApp_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_HPaasService_GetHistory_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_HelmProxyService_GetHistory_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/hpaas.HPaasService/GetHistory")
+		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/helmProxy.HelmProxyService/GetHistory")
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_HPaasService_GetHistory_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_HelmProxyService_GetHistory_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_HPaasService_GetHistory_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_HelmProxyService_GetHistory_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_HPaasService_SearchApps_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_HelmProxyService_SearchApps_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/hpaas.HPaasService/SearchApps")
+		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/helmProxy.HelmProxyService/SearchApps")
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_HPaasService_SearchApps_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_HelmProxyService_SearchApps_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_HPaasService_SearchApps_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_HelmProxyService_SearchApps_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("DELETE", pattern_HPaasService_UninstallApp_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("DELETE", pattern_HelmProxyService_UninstallApp_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/hpaas.HPaasService/UninstallApp")
+		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/helmProxy.HelmProxyService/UninstallApp")
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_HPaasService_UninstallApp_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_HelmProxyService_UninstallApp_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_HPaasService_UninstallApp_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_HelmProxyService_UninstallApp_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_HPaasService_RollbackApp_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_HelmProxyService_RollbackApp_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/hpaas.HPaasService/RollbackApp")
+		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/helmProxy.HelmProxyService/RollbackApp")
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_HPaasService_RollbackApp_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_HelmProxyService_RollbackApp_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_HPaasService_RollbackApp_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_HelmProxyService_RollbackApp_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_HPaasService_InstallApp_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_HelmProxyService_InstallApp_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/hpaas.HPaasService/InstallApp")
+		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/helmProxy.HelmProxyService/InstallApp")
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_HPaasService_InstallApp_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_HelmProxyService_InstallApp_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_HPaasService_InstallApp_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_HelmProxyService_InstallApp_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_HPaasService_UpdateApp_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_HelmProxyService_UpdateApp_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/hpaas.HPaasService/UpdateApp")
+		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/helmProxy.HelmProxyService/UpdateApp")
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_HPaasService_UpdateApp_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_HelmProxyService_UpdateApp_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_HPaasService_UpdateApp_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_HelmProxyService_UpdateApp_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_HPaasService_SearchCharts_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_HelmProxyService_SearchCharts_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/hpaas.HPaasService/SearchCharts")
+		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/helmProxy.HelmProxyService/SearchCharts")
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_HPaasService_SearchCharts_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_HelmProxyService_SearchCharts_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_HPaasService_SearchCharts_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_HelmProxyService_SearchCharts_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -1008,37 +1008,37 @@ func RegisterHPaasServiceHandlerClient(ctx context.Context, mux *runtime.ServeMu
 }
 
 var (
-	pattern_HPaasService_GetApp_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"apps", "namespace"}, ""))
+	pattern_HelmProxyService_GetApp_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"apps", "namespace"}, ""))
 
-	pattern_HPaasService_GetHistory_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"apps", "ref.namespace", "ref.name", "history"}, ""))
+	pattern_HelmProxyService_GetHistory_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"apps", "ref.namespace", "ref.name", "history"}, ""))
 
-	pattern_HPaasService_SearchApps_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"apps", "namespace"}, ""))
+	pattern_HelmProxyService_SearchApps_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"apps", "namespace"}, ""))
 
-	pattern_HPaasService_UninstallApp_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 1, 0, 4, 1, 5, 2}, []string{"apps", "namespace", "name"}, ""))
+	pattern_HelmProxyService_UninstallApp_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 1, 0, 4, 1, 5, 2}, []string{"apps", "namespace", "name"}, ""))
 
-	pattern_HPaasService_RollbackApp_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"apps", "namespace", "name", "rollback"}, ""))
+	pattern_HelmProxyService_RollbackApp_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"apps", "namespace", "name", "rollback"}, ""))
 
-	pattern_HPaasService_InstallApp_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"apps", "namespace"}, ""))
+	pattern_HelmProxyService_InstallApp_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"apps", "namespace"}, ""))
 
-	pattern_HPaasService_UpdateApp_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 1, 0, 4, 1, 5, 2}, []string{"apps", "namespace", "app_name"}, ""))
+	pattern_HelmProxyService_UpdateApp_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 1, 0, 4, 1, 5, 2}, []string{"apps", "namespace", "app_name"}, ""))
 
-	pattern_HPaasService_SearchCharts_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"charts"}, ""))
+	pattern_HelmProxyService_SearchCharts_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"charts"}, ""))
 )
 
 var (
-	forward_HPaasService_GetApp_0 = runtime.ForwardResponseMessage
+	forward_HelmProxyService_GetApp_0 = runtime.ForwardResponseMessage
 
-	forward_HPaasService_GetHistory_0 = runtime.ForwardResponseMessage
+	forward_HelmProxyService_GetHistory_0 = runtime.ForwardResponseMessage
 
-	forward_HPaasService_SearchApps_0 = runtime.ForwardResponseMessage
+	forward_HelmProxyService_SearchApps_0 = runtime.ForwardResponseMessage
 
-	forward_HPaasService_UninstallApp_0 = runtime.ForwardResponseMessage
+	forward_HelmProxyService_UninstallApp_0 = runtime.ForwardResponseMessage
 
-	forward_HPaasService_RollbackApp_0 = runtime.ForwardResponseMessage
+	forward_HelmProxyService_RollbackApp_0 = runtime.ForwardResponseMessage
 
-	forward_HPaasService_InstallApp_0 = runtime.ForwardResponseMessage
+	forward_HelmProxyService_InstallApp_0 = runtime.ForwardResponseMessage
 
-	forward_HPaasService_UpdateApp_0 = runtime.ForwardResponseMessage
+	forward_HelmProxyService_UpdateApp_0 = runtime.ForwardResponseMessage
 
-	forward_HPaasService_SearchCharts_0 = runtime.ForwardResponseMessage
+	forward_HelmProxyService_SearchCharts_0 = runtime.ForwardResponseMessage
 )

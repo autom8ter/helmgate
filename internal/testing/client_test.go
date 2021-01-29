@@ -2,7 +2,7 @@ package testing
 
 import (
 	"context"
-	hpaaspb "github.com/autom8ter/hpaas/gen/grpc/go"
+	helmProxypb "github.com/autom8ter/helmProxy/gen/grpc/go"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/metadata"
 	"testing"
@@ -13,13 +13,13 @@ func Test(t *testing.T) {
 	if err != nil {
 		t.Fatal(err.Error())
 	}
-	client := hpaaspb.NewHPaasServiceClient(conn)
+	client := helmProxypb.NewHelmProxyServiceClient(conn)
 	ctx := context.Background()
 	ctx = metadata.AppendToOutgoingContext(ctx,
 		"Authorization",
 		"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c")
 
-	charts, err := client.SearchCharts(ctx, &hpaaspb.ChartFilter{
+	charts, err := client.SearchCharts(ctx, &helmProxypb.ChartFilter{
 		Term:  "redis",
 		Regex: true,
 	})

@@ -22,10 +22,10 @@ from github.com.mwitkow.go_proto_validators import validator_pb2 as github_dot_c
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='schema.proto',
-  package='hpaas',
+  package='helmProxy',
   syntax='proto3',
-  serialized_options=_b('Z\007hpaaspb'),
-  serialized_pb=_b('\n\x0cschema.proto\x12\x05hpaas\x1a\x1cgoogle/api/annotations.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x19google/protobuf/any.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x36github.com/mwitkow/go-proto-validators/validator.proto\"v\n\nDependency\x12\x1f\n\x05\x63hart\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12!\n\x07version\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12$\n\nrepository\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"M\n\nMaintainer\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05\x65mail\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"<\n\x0b\x43hartFilter\x12\x1e\n\x04term\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\r\n\x05regex\x18\x02 \x01(\x08\"\xd0\x02\n\x05\x43hart\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x0c\n\x04home\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x0f\n\x07version\x18\x04 \x01(\t\x12\x0f\n\x07sources\x18\x05 \x03(\t\x12\x10\n\x08keywords\x18\x06 \x03(\t\x12\x0c\n\x04icon\x18\x07 \x01(\t\x12\x12\n\ndeprecated\x18\x08 \x01(\x08\x12\'\n\x0c\x64\x65pendencies\x18\t \x03(\x0b\x32\x11.hpaas.Dependency\x12&\n\x0bmaintainers\x18\n \x03(\x0b\x32\x11.hpaas.Maintainer\x12,\n\x08metadata\x18\x0b \x03(\x0b\x32\x1a.hpaas.Chart.MetadataEntry\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"&\n\x06\x43harts\x12\x1c\n\x06\x63harts\x18\x01 \x03(\x0b\x32\x0c.hpaas.Chart\"\x88\x01\n\x03\x41pp\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x07release\x18\x05 \x01(\x0b\x32\x0e.hpaas.Release\x12\x1b\n\x05\x63hart\x18\x14 \x01(\x0b\x32\x0c.hpaas.Chart\" \n\x04\x41pps\x12\x18\n\x04\x61pps\x18\x01 \x03(\x0b\x32\n.hpaas.App\"O\n\tAppFilter\x12\x11\n\tnamespace\x18\x01 \x01(\t\x12\x10\n\x08selector\x18\x02 \x01(\t\x12\r\n\x05limit\x18\x03 \x01(\r\x12\x0e\n\x06offset\x18\x04 \x01(\r\"\x9e\x01\n\x07Release\x12\x0f\n\x07version\x18\x01 \x01(\r\x12\'\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\r\n\x05notes\x18\x03 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x04 \x01(\t\x12\x0e\n\x06status\x18\x05 \x01(\t\x12%\n\ntimestamps\x18\x06 \x01(\x0b\x32\x11.hpaas.Timestamps\"\x93\x01\n\nTimestamps\x12+\n\x07\x63reated\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12+\n\x07updated\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12+\n\x07\x64\x65leted\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"M\n\x06\x41ppRef\x12#\n\tnamespace\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1e\n\x04name\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"\xd8\x01\n\x08\x41ppInput\x12#\n\tnamespace\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05\x63hart\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\"\n\x08\x61pp_name\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x33\n\x06\x63onfig\x18\x04 \x03(\x0b\x32\x1b.hpaas.AppInput.ConfigEntryB\x06\xe2\xdf\x1f\x02 \x01\x1a-\n\x0b\x43onfigEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\".\n\x0cNamespaceRef\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"8\n\rNamespaceRefs\x12\'\n\nnamespaces\x18\x01 \x03(\x0b\x32\x13.hpaas.NamespaceRef\"B\n\rHistoryFilter\x12\"\n\x03ref\x18\x01 \x01(\x0b\x32\r.hpaas.AppRefB\x06\xe2\xdf\x1f\x02 \x01\x12\r\n\x05limit\x18\x02 \x01(\r2\x8a\x05\n\x0cHPaasService\x12>\n\x06GetApp\x12\r.hpaas.AppRef\x1a\n.hpaas.App\"\x19\x82\xd3\xe4\x93\x02\x13\x12\x11/apps/{namespace}\x12\x61\n\nGetHistory\x12\x14.hpaas.HistoryFilter\x1a\x0b.hpaas.Apps\"0\x82\xd3\xe4\x93\x02*\x12(/apps/{ref.namespace}/{ref.name}/history\x12\x46\n\nSearchApps\x12\x10.hpaas.AppFilter\x1a\x0b.hpaas.Apps\"\x19\x82\xd3\xe4\x93\x02\x13\x12\x11/apps/{namespace}\x12W\n\x0cUninstallApp\x12\r.hpaas.AppRef\x1a\x16.google.protobuf.Empty\" \x82\xd3\xe4\x93\x02\x1a*\x18/apps/{namespace}/{name}\x12V\n\x0bRollbackApp\x12\r.hpaas.AppRef\x1a\n.hpaas.App\",\x82\xd3\xe4\x93\x02&\"!/apps/{namespace}/{name}/rollback:\x01*\x12G\n\nInstallApp\x12\x0f.hpaas.AppInput\x1a\n.hpaas.App\"\x1c\x82\xd3\xe4\x93\x02\x16\"\x11/apps/{namespace}:\x01*\x12Q\n\tUpdateApp\x12\x0f.hpaas.AppInput\x1a\n.hpaas.App\"\'\x82\xd3\xe4\x93\x02!\x1a\x1c/apps/{namespace}/{app_name}:\x01*\x12\x42\n\x0cSearchCharts\x12\x12.hpaas.ChartFilter\x1a\r.hpaas.Charts\"\x0f\x82\xd3\xe4\x93\x02\t\x12\x07/chartsB\tZ\x07hpaaspbb\x06proto3')
+  serialized_options=_b('Z\013helmProxypb'),
+  serialized_pb=_b('\n\x0cschema.proto\x12\thelmProxy\x1a\x1cgoogle/api/annotations.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x19google/protobuf/any.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x36github.com/mwitkow/go-proto-validators/validator.proto\"v\n\nDependency\x12\x1f\n\x05\x63hart\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12!\n\x07version\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12$\n\nrepository\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"M\n\nMaintainer\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05\x65mail\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"<\n\x0b\x43hartFilter\x12\x1e\n\x04term\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\r\n\x05regex\x18\x02 \x01(\x08\"\xdc\x02\n\x05\x43hart\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x0c\n\x04home\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x0f\n\x07version\x18\x04 \x01(\t\x12\x0f\n\x07sources\x18\x05 \x03(\t\x12\x10\n\x08keywords\x18\x06 \x03(\t\x12\x0c\n\x04icon\x18\x07 \x01(\t\x12\x12\n\ndeprecated\x18\x08 \x01(\x08\x12+\n\x0c\x64\x65pendencies\x18\t \x03(\x0b\x32\x15.helmProxy.Dependency\x12*\n\x0bmaintainers\x18\n \x03(\x0b\x32\x15.helmProxy.Maintainer\x12\x30\n\x08metadata\x18\x0b \x03(\x0b\x32\x1e.helmProxy.Chart.MetadataEntry\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"*\n\x06\x43harts\x12 \n\x06\x63harts\x18\x01 \x03(\x0b\x32\x10.helmProxy.Chart\"\x90\x01\n\x03\x41pp\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\tnamespace\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12#\n\x07release\x18\x05 \x01(\x0b\x32\x12.helmProxy.Release\x12\x1f\n\x05\x63hart\x18\x14 \x01(\x0b\x32\x10.helmProxy.Chart\"$\n\x04\x41pps\x12\x1c\n\x04\x61pps\x18\x01 \x03(\x0b\x32\x0e.helmProxy.App\"O\n\tAppFilter\x12\x11\n\tnamespace\x18\x01 \x01(\t\x12\x10\n\x08selector\x18\x02 \x01(\t\x12\r\n\x05limit\x18\x03 \x01(\r\x12\x0e\n\x06offset\x18\x04 \x01(\r\"\xa2\x01\n\x07Release\x12\x0f\n\x07version\x18\x01 \x01(\r\x12\'\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\r\n\x05notes\x18\x03 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x04 \x01(\t\x12\x0e\n\x06status\x18\x05 \x01(\t\x12)\n\ntimestamps\x18\x06 \x01(\x0b\x32\x15.helmProxy.Timestamps\"\x93\x01\n\nTimestamps\x12+\n\x07\x63reated\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12+\n\x07updated\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12+\n\x07\x64\x65leted\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"M\n\x06\x41ppRef\x12#\n\tnamespace\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1e\n\x04name\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"\xdc\x01\n\x08\x41ppInput\x12#\n\tnamespace\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x1f\n\x05\x63hart\x18\x02 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\"\n\x08\x61pp_name\x18\x03 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\x12\x37\n\x06\x63onfig\x18\x04 \x03(\x0b\x32\x1f.helmProxy.AppInput.ConfigEntryB\x06\xe2\xdf\x1f\x02 \x01\x1a-\n\x0b\x43onfigEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\".\n\x0cNamespaceRef\x12\x1e\n\x04name\x18\x01 \x01(\tB\x10\xe2\xdf\x1f\x0c\n\n^.{1,225}$\"<\n\rNamespaceRefs\x12+\n\nnamespaces\x18\x01 \x03(\x0b\x32\x17.helmProxy.NamespaceRef\"F\n\rHistoryFilter\x12&\n\x03ref\x18\x01 \x01(\x0b\x32\x11.helmProxy.AppRefB\x06\xe2\xdf\x1f\x02 \x01\x12\r\n\x05limit\x18\x02 \x01(\r2\xca\x05\n\x10HelmProxyService\x12\x46\n\x06GetApp\x12\x11.helmProxy.AppRef\x1a\x0e.helmProxy.App\"\x19\x82\xd3\xe4\x93\x02\x13\x12\x11/apps/{namespace}\x12i\n\nGetHistory\x12\x18.helmProxy.HistoryFilter\x1a\x0f.helmProxy.Apps\"0\x82\xd3\xe4\x93\x02*\x12(/apps/{ref.namespace}/{ref.name}/history\x12N\n\nSearchApps\x12\x14.helmProxy.AppFilter\x1a\x0f.helmProxy.Apps\"\x19\x82\xd3\xe4\x93\x02\x13\x12\x11/apps/{namespace}\x12[\n\x0cUninstallApp\x12\x11.helmProxy.AppRef\x1a\x16.google.protobuf.Empty\" \x82\xd3\xe4\x93\x02\x1a*\x18/apps/{namespace}/{name}\x12^\n\x0bRollbackApp\x12\x11.helmProxy.AppRef\x1a\x0e.helmProxy.App\",\x82\xd3\xe4\x93\x02&\"!/apps/{namespace}/{name}/rollback:\x01*\x12O\n\nInstallApp\x12\x13.helmProxy.AppInput\x1a\x0e.helmProxy.App\"\x1c\x82\xd3\xe4\x93\x02\x16\"\x11/apps/{namespace}:\x01*\x12Y\n\tUpdateApp\x12\x13.helmProxy.AppInput\x1a\x0e.helmProxy.App\"\'\x82\xd3\xe4\x93\x02!\x1a\x1c/apps/{namespace}/{app_name}:\x01*\x12J\n\x0cSearchCharts\x12\x16.helmProxy.ChartFilter\x1a\x11.helmProxy.Charts\"\x0f\x82\xd3\xe4\x93\x02\t\x12\x07/chartsB\rZ\x0bhelmProxypbb\x06proto3')
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_any__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,github_dot_com_dot_mwitkow_dot_go__proto__validators_dot_validator__pb2.DESCRIPTOR,])
 
@@ -34,27 +34,27 @@ DESCRIPTOR = _descriptor.FileDescriptor(
 
 _DEPENDENCY = _descriptor.Descriptor(
   name='Dependency',
-  full_name='hpaas.Dependency',
+  full_name='helmProxy.Dependency',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='chart', full_name='hpaas.Dependency.chart', index=0,
+      name='chart', full_name='helmProxy.Dependency.chart', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=_b('\342\337\037\014\n\n^.{1,225}$'), file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='version', full_name='hpaas.Dependency.version', index=1,
+      name='version', full_name='helmProxy.Dependency.version', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=_b('\342\337\037\014\n\n^.{1,225}$'), file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='repository', full_name='hpaas.Dependency.repository', index=2,
+      name='repository', full_name='helmProxy.Dependency.repository', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -72,27 +72,27 @@ _DEPENDENCY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=228,
-  serialized_end=346,
+  serialized_start=232,
+  serialized_end=350,
 )
 
 
 _MAINTAINER = _descriptor.Descriptor(
   name='Maintainer',
-  full_name='hpaas.Maintainer',
+  full_name='helmProxy.Maintainer',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='hpaas.Maintainer.name', index=0,
+      name='name', full_name='helmProxy.Maintainer.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=_b('\342\337\037\014\n\n^.{1,225}$'), file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='email', full_name='hpaas.Maintainer.email', index=1,
+      name='email', full_name='helmProxy.Maintainer.email', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -110,27 +110,27 @@ _MAINTAINER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=348,
-  serialized_end=425,
+  serialized_start=352,
+  serialized_end=429,
 )
 
 
 _CHARTFILTER = _descriptor.Descriptor(
   name='ChartFilter',
-  full_name='hpaas.ChartFilter',
+  full_name='helmProxy.ChartFilter',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='term', full_name='hpaas.ChartFilter.term', index=0,
+      name='term', full_name='helmProxy.ChartFilter.term', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=_b('\342\337\037\014\n\n^.{1,225}$'), file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='regex', full_name='hpaas.ChartFilter.regex', index=1,
+      name='regex', full_name='helmProxy.ChartFilter.regex', index=1,
       number=2, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
@@ -148,27 +148,27 @@ _CHARTFILTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=427,
-  serialized_end=487,
+  serialized_start=431,
+  serialized_end=491,
 )
 
 
 _CHART_METADATAENTRY = _descriptor.Descriptor(
   name='MetadataEntry',
-  full_name='hpaas.Chart.MetadataEntry',
+  full_name='helmProxy.Chart.MetadataEntry',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='key', full_name='hpaas.Chart.MetadataEntry.key', index=0,
+      name='key', full_name='helmProxy.Chart.MetadataEntry.key', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='value', full_name='hpaas.Chart.MetadataEntry.value', index=1,
+      name='value', full_name='helmProxy.Chart.MetadataEntry.value', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -186,89 +186,89 @@ _CHART_METADATAENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=779,
-  serialized_end=826,
+  serialized_start=795,
+  serialized_end=842,
 )
 
 _CHART = _descriptor.Descriptor(
   name='Chart',
-  full_name='hpaas.Chart',
+  full_name='helmProxy.Chart',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='hpaas.Chart.name', index=0,
+      name='name', full_name='helmProxy.Chart.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=_b('\342\337\037\014\n\n^.{1,225}$'), file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='home', full_name='hpaas.Chart.home', index=1,
+      name='home', full_name='helmProxy.Chart.home', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='description', full_name='hpaas.Chart.description', index=2,
+      name='description', full_name='helmProxy.Chart.description', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='version', full_name='hpaas.Chart.version', index=3,
+      name='version', full_name='helmProxy.Chart.version', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='sources', full_name='hpaas.Chart.sources', index=4,
+      name='sources', full_name='helmProxy.Chart.sources', index=4,
       number=5, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='keywords', full_name='hpaas.Chart.keywords', index=5,
+      name='keywords', full_name='helmProxy.Chart.keywords', index=5,
       number=6, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='icon', full_name='hpaas.Chart.icon', index=6,
+      name='icon', full_name='helmProxy.Chart.icon', index=6,
       number=7, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='deprecated', full_name='hpaas.Chart.deprecated', index=7,
+      name='deprecated', full_name='helmProxy.Chart.deprecated', index=7,
       number=8, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='dependencies', full_name='hpaas.Chart.dependencies', index=8,
+      name='dependencies', full_name='helmProxy.Chart.dependencies', index=8,
       number=9, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='maintainers', full_name='hpaas.Chart.maintainers', index=9,
+      name='maintainers', full_name='helmProxy.Chart.maintainers', index=9,
       number=10, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='metadata', full_name='hpaas.Chart.metadata', index=10,
+      name='metadata', full_name='helmProxy.Chart.metadata', index=10,
       number=11, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -286,20 +286,20 @@ _CHART = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=490,
-  serialized_end=826,
+  serialized_start=494,
+  serialized_end=842,
 )
 
 
 _CHARTS = _descriptor.Descriptor(
   name='Charts',
-  full_name='hpaas.Charts',
+  full_name='helmProxy.Charts',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='charts', full_name='hpaas.Charts.charts', index=0,
+      name='charts', full_name='helmProxy.Charts.charts', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -317,41 +317,41 @@ _CHARTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=828,
-  serialized_end=866,
+  serialized_start=844,
+  serialized_end=886,
 )
 
 
 _APP = _descriptor.Descriptor(
   name='App',
-  full_name='hpaas.App',
+  full_name='helmProxy.App',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='hpaas.App.name', index=0,
+      name='name', full_name='helmProxy.App.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=_b('\342\337\037\014\n\n^.{1,225}$'), file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='namespace', full_name='hpaas.App.namespace', index=1,
+      name='namespace', full_name='helmProxy.App.namespace', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=_b('\342\337\037\014\n\n^.{1,225}$'), file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='release', full_name='hpaas.App.release', index=2,
+      name='release', full_name='helmProxy.App.release', index=2,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='chart', full_name='hpaas.App.chart', index=3,
+      name='chart', full_name='helmProxy.App.chart', index=3,
       number=20, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -369,20 +369,20 @@ _APP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=869,
-  serialized_end=1005,
+  serialized_start=889,
+  serialized_end=1033,
 )
 
 
 _APPS = _descriptor.Descriptor(
   name='Apps',
-  full_name='hpaas.Apps',
+  full_name='helmProxy.Apps',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='apps', full_name='hpaas.Apps.apps', index=0,
+      name='apps', full_name='helmProxy.Apps.apps', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -400,41 +400,41 @@ _APPS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1007,
-  serialized_end=1039,
+  serialized_start=1035,
+  serialized_end=1071,
 )
 
 
 _APPFILTER = _descriptor.Descriptor(
   name='AppFilter',
-  full_name='hpaas.AppFilter',
+  full_name='helmProxy.AppFilter',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='namespace', full_name='hpaas.AppFilter.namespace', index=0,
+      name='namespace', full_name='helmProxy.AppFilter.namespace', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='selector', full_name='hpaas.AppFilter.selector', index=1,
+      name='selector', full_name='helmProxy.AppFilter.selector', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='limit', full_name='hpaas.AppFilter.limit', index=2,
+      name='limit', full_name='helmProxy.AppFilter.limit', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='offset', full_name='hpaas.AppFilter.offset', index=3,
+      name='offset', full_name='helmProxy.AppFilter.offset', index=3,
       number=4, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -452,55 +452,55 @@ _APPFILTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1041,
-  serialized_end=1120,
+  serialized_start=1073,
+  serialized_end=1152,
 )
 
 
 _RELEASE = _descriptor.Descriptor(
   name='Release',
-  full_name='hpaas.Release',
+  full_name='helmProxy.Release',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='version', full_name='hpaas.Release.version', index=0,
+      name='version', full_name='helmProxy.Release.version', index=0,
       number=1, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='config', full_name='hpaas.Release.config', index=1,
+      name='config', full_name='helmProxy.Release.config', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='notes', full_name='hpaas.Release.notes', index=2,
+      name='notes', full_name='helmProxy.Release.notes', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='description', full_name='hpaas.Release.description', index=3,
+      name='description', full_name='helmProxy.Release.description', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='status', full_name='hpaas.Release.status', index=4,
+      name='status', full_name='helmProxy.Release.status', index=4,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='timestamps', full_name='hpaas.Release.timestamps', index=5,
+      name='timestamps', full_name='helmProxy.Release.timestamps', index=5,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -518,34 +518,34 @@ _RELEASE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1123,
-  serialized_end=1281,
+  serialized_start=1155,
+  serialized_end=1317,
 )
 
 
 _TIMESTAMPS = _descriptor.Descriptor(
   name='Timestamps',
-  full_name='hpaas.Timestamps',
+  full_name='helmProxy.Timestamps',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='created', full_name='hpaas.Timestamps.created', index=0,
+      name='created', full_name='helmProxy.Timestamps.created', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='updated', full_name='hpaas.Timestamps.updated', index=1,
+      name='updated', full_name='helmProxy.Timestamps.updated', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='deleted', full_name='hpaas.Timestamps.deleted', index=2,
+      name='deleted', full_name='helmProxy.Timestamps.deleted', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -563,27 +563,27 @@ _TIMESTAMPS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1284,
-  serialized_end=1431,
+  serialized_start=1320,
+  serialized_end=1467,
 )
 
 
 _APPREF = _descriptor.Descriptor(
   name='AppRef',
-  full_name='hpaas.AppRef',
+  full_name='helmProxy.AppRef',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='namespace', full_name='hpaas.AppRef.namespace', index=0,
+      name='namespace', full_name='helmProxy.AppRef.namespace', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=_b('\342\337\037\014\n\n^.{1,225}$'), file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='name', full_name='hpaas.AppRef.name', index=1,
+      name='name', full_name='helmProxy.AppRef.name', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -601,27 +601,27 @@ _APPREF = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1433,
-  serialized_end=1510,
+  serialized_start=1469,
+  serialized_end=1546,
 )
 
 
 _APPINPUT_CONFIGENTRY = _descriptor.Descriptor(
   name='ConfigEntry',
-  full_name='hpaas.AppInput.ConfigEntry',
+  full_name='helmProxy.AppInput.ConfigEntry',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='key', full_name='hpaas.AppInput.ConfigEntry.key', index=0,
+      name='key', full_name='helmProxy.AppInput.ConfigEntry.key', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='value', full_name='hpaas.AppInput.ConfigEntry.value', index=1,
+      name='value', full_name='helmProxy.AppInput.ConfigEntry.value', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -639,40 +639,40 @@ _APPINPUT_CONFIGENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1684,
-  serialized_end=1729,
+  serialized_start=1724,
+  serialized_end=1769,
 )
 
 _APPINPUT = _descriptor.Descriptor(
   name='AppInput',
-  full_name='hpaas.AppInput',
+  full_name='helmProxy.AppInput',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='namespace', full_name='hpaas.AppInput.namespace', index=0,
+      name='namespace', full_name='helmProxy.AppInput.namespace', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=_b('\342\337\037\014\n\n^.{1,225}$'), file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='chart', full_name='hpaas.AppInput.chart', index=1,
+      name='chart', full_name='helmProxy.AppInput.chart', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=_b('\342\337\037\014\n\n^.{1,225}$'), file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='app_name', full_name='hpaas.AppInput.app_name', index=2,
+      name='app_name', full_name='helmProxy.AppInput.app_name', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=_b('\342\337\037\014\n\n^.{1,225}$'), file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='config', full_name='hpaas.AppInput.config', index=3,
+      name='config', full_name='helmProxy.AppInput.config', index=3,
       number=4, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -690,20 +690,20 @@ _APPINPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1513,
-  serialized_end=1729,
+  serialized_start=1549,
+  serialized_end=1769,
 )
 
 
 _NAMESPACEREF = _descriptor.Descriptor(
   name='NamespaceRef',
-  full_name='hpaas.NamespaceRef',
+  full_name='helmProxy.NamespaceRef',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='hpaas.NamespaceRef.name', index=0,
+      name='name', full_name='helmProxy.NamespaceRef.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -721,20 +721,20 @@ _NAMESPACEREF = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1731,
-  serialized_end=1777,
+  serialized_start=1771,
+  serialized_end=1817,
 )
 
 
 _NAMESPACEREFS = _descriptor.Descriptor(
   name='NamespaceRefs',
-  full_name='hpaas.NamespaceRefs',
+  full_name='helmProxy.NamespaceRefs',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='namespaces', full_name='hpaas.NamespaceRefs.namespaces', index=0,
+      name='namespaces', full_name='helmProxy.NamespaceRefs.namespaces', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -752,27 +752,27 @@ _NAMESPACEREFS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1779,
-  serialized_end=1835,
+  serialized_start=1819,
+  serialized_end=1879,
 )
 
 
 _HISTORYFILTER = _descriptor.Descriptor(
   name='HistoryFilter',
-  full_name='hpaas.HistoryFilter',
+  full_name='helmProxy.HistoryFilter',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='ref', full_name='hpaas.HistoryFilter.ref', index=0,
+      name='ref', full_name='helmProxy.HistoryFilter.ref', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=_b('\342\337\037\002 \001'), file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='limit', full_name='hpaas.HistoryFilter.limit', index=1,
+      name='limit', full_name='helmProxy.HistoryFilter.limit', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -790,8 +790,8 @@ _HISTORYFILTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1837,
-  serialized_end=1903,
+  serialized_start=1881,
+  serialized_end=1951,
 )
 
 _CHART_METADATAENTRY.containing_type = _CHART
@@ -831,21 +831,21 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 Dependency = _reflection.GeneratedProtocolMessageType('Dependency', (_message.Message,), dict(
   DESCRIPTOR = _DEPENDENCY,
   __module__ = 'schema_pb2'
-  # @@protoc_insertion_point(class_scope:hpaas.Dependency)
+  # @@protoc_insertion_point(class_scope:helmProxy.Dependency)
   ))
 _sym_db.RegisterMessage(Dependency)
 
 Maintainer = _reflection.GeneratedProtocolMessageType('Maintainer', (_message.Message,), dict(
   DESCRIPTOR = _MAINTAINER,
   __module__ = 'schema_pb2'
-  # @@protoc_insertion_point(class_scope:hpaas.Maintainer)
+  # @@protoc_insertion_point(class_scope:helmProxy.Maintainer)
   ))
 _sym_db.RegisterMessage(Maintainer)
 
 ChartFilter = _reflection.GeneratedProtocolMessageType('ChartFilter', (_message.Message,), dict(
   DESCRIPTOR = _CHARTFILTER,
   __module__ = 'schema_pb2'
-  # @@protoc_insertion_point(class_scope:hpaas.ChartFilter)
+  # @@protoc_insertion_point(class_scope:helmProxy.ChartFilter)
   ))
 _sym_db.RegisterMessage(ChartFilter)
 
@@ -854,12 +854,12 @@ Chart = _reflection.GeneratedProtocolMessageType('Chart', (_message.Message,), d
   MetadataEntry = _reflection.GeneratedProtocolMessageType('MetadataEntry', (_message.Message,), dict(
     DESCRIPTOR = _CHART_METADATAENTRY,
     __module__ = 'schema_pb2'
-    # @@protoc_insertion_point(class_scope:hpaas.Chart.MetadataEntry)
+    # @@protoc_insertion_point(class_scope:helmProxy.Chart.MetadataEntry)
     ))
   ,
   DESCRIPTOR = _CHART,
   __module__ = 'schema_pb2'
-  # @@protoc_insertion_point(class_scope:hpaas.Chart)
+  # @@protoc_insertion_point(class_scope:helmProxy.Chart)
   ))
 _sym_db.RegisterMessage(Chart)
 _sym_db.RegisterMessage(Chart.MetadataEntry)
@@ -867,49 +867,49 @@ _sym_db.RegisterMessage(Chart.MetadataEntry)
 Charts = _reflection.GeneratedProtocolMessageType('Charts', (_message.Message,), dict(
   DESCRIPTOR = _CHARTS,
   __module__ = 'schema_pb2'
-  # @@protoc_insertion_point(class_scope:hpaas.Charts)
+  # @@protoc_insertion_point(class_scope:helmProxy.Charts)
   ))
 _sym_db.RegisterMessage(Charts)
 
 App = _reflection.GeneratedProtocolMessageType('App', (_message.Message,), dict(
   DESCRIPTOR = _APP,
   __module__ = 'schema_pb2'
-  # @@protoc_insertion_point(class_scope:hpaas.App)
+  # @@protoc_insertion_point(class_scope:helmProxy.App)
   ))
 _sym_db.RegisterMessage(App)
 
 Apps = _reflection.GeneratedProtocolMessageType('Apps', (_message.Message,), dict(
   DESCRIPTOR = _APPS,
   __module__ = 'schema_pb2'
-  # @@protoc_insertion_point(class_scope:hpaas.Apps)
+  # @@protoc_insertion_point(class_scope:helmProxy.Apps)
   ))
 _sym_db.RegisterMessage(Apps)
 
 AppFilter = _reflection.GeneratedProtocolMessageType('AppFilter', (_message.Message,), dict(
   DESCRIPTOR = _APPFILTER,
   __module__ = 'schema_pb2'
-  # @@protoc_insertion_point(class_scope:hpaas.AppFilter)
+  # @@protoc_insertion_point(class_scope:helmProxy.AppFilter)
   ))
 _sym_db.RegisterMessage(AppFilter)
 
 Release = _reflection.GeneratedProtocolMessageType('Release', (_message.Message,), dict(
   DESCRIPTOR = _RELEASE,
   __module__ = 'schema_pb2'
-  # @@protoc_insertion_point(class_scope:hpaas.Release)
+  # @@protoc_insertion_point(class_scope:helmProxy.Release)
   ))
 _sym_db.RegisterMessage(Release)
 
 Timestamps = _reflection.GeneratedProtocolMessageType('Timestamps', (_message.Message,), dict(
   DESCRIPTOR = _TIMESTAMPS,
   __module__ = 'schema_pb2'
-  # @@protoc_insertion_point(class_scope:hpaas.Timestamps)
+  # @@protoc_insertion_point(class_scope:helmProxy.Timestamps)
   ))
 _sym_db.RegisterMessage(Timestamps)
 
 AppRef = _reflection.GeneratedProtocolMessageType('AppRef', (_message.Message,), dict(
   DESCRIPTOR = _APPREF,
   __module__ = 'schema_pb2'
-  # @@protoc_insertion_point(class_scope:hpaas.AppRef)
+  # @@protoc_insertion_point(class_scope:helmProxy.AppRef)
   ))
 _sym_db.RegisterMessage(AppRef)
 
@@ -918,12 +918,12 @@ AppInput = _reflection.GeneratedProtocolMessageType('AppInput', (_message.Messag
   ConfigEntry = _reflection.GeneratedProtocolMessageType('ConfigEntry', (_message.Message,), dict(
     DESCRIPTOR = _APPINPUT_CONFIGENTRY,
     __module__ = 'schema_pb2'
-    # @@protoc_insertion_point(class_scope:hpaas.AppInput.ConfigEntry)
+    # @@protoc_insertion_point(class_scope:helmProxy.AppInput.ConfigEntry)
     ))
   ,
   DESCRIPTOR = _APPINPUT,
   __module__ = 'schema_pb2'
-  # @@protoc_insertion_point(class_scope:hpaas.AppInput)
+  # @@protoc_insertion_point(class_scope:helmProxy.AppInput)
   ))
 _sym_db.RegisterMessage(AppInput)
 _sym_db.RegisterMessage(AppInput.ConfigEntry)
@@ -931,21 +931,21 @@ _sym_db.RegisterMessage(AppInput.ConfigEntry)
 NamespaceRef = _reflection.GeneratedProtocolMessageType('NamespaceRef', (_message.Message,), dict(
   DESCRIPTOR = _NAMESPACEREF,
   __module__ = 'schema_pb2'
-  # @@protoc_insertion_point(class_scope:hpaas.NamespaceRef)
+  # @@protoc_insertion_point(class_scope:helmProxy.NamespaceRef)
   ))
 _sym_db.RegisterMessage(NamespaceRef)
 
 NamespaceRefs = _reflection.GeneratedProtocolMessageType('NamespaceRefs', (_message.Message,), dict(
   DESCRIPTOR = _NAMESPACEREFS,
   __module__ = 'schema_pb2'
-  # @@protoc_insertion_point(class_scope:hpaas.NamespaceRefs)
+  # @@protoc_insertion_point(class_scope:helmProxy.NamespaceRefs)
   ))
 _sym_db.RegisterMessage(NamespaceRefs)
 
 HistoryFilter = _reflection.GeneratedProtocolMessageType('HistoryFilter', (_message.Message,), dict(
   DESCRIPTOR = _HISTORYFILTER,
   __module__ = 'schema_pb2'
-  # @@protoc_insertion_point(class_scope:hpaas.HistoryFilter)
+  # @@protoc_insertion_point(class_scope:helmProxy.HistoryFilter)
   ))
 _sym_db.RegisterMessage(HistoryFilter)
 
@@ -971,18 +971,18 @@ _APPINPUT.fields_by_name['config']._options = None
 _NAMESPACEREF.fields_by_name['name']._options = None
 _HISTORYFILTER.fields_by_name['ref']._options = None
 
-_HPAASSERVICE = _descriptor.ServiceDescriptor(
-  name='HPaasService',
-  full_name='hpaas.HPaasService',
+_HELMPROXYSERVICE = _descriptor.ServiceDescriptor(
+  name='HelmProxyService',
+  full_name='helmProxy.HelmProxyService',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=1906,
-  serialized_end=2556,
+  serialized_start=1954,
+  serialized_end=2668,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetApp',
-    full_name='hpaas.HPaasService.GetApp',
+    full_name='helmProxy.HelmProxyService.GetApp',
     index=0,
     containing_service=None,
     input_type=_APPREF,
@@ -991,7 +991,7 @@ _HPAASSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='GetHistory',
-    full_name='hpaas.HPaasService.GetHistory',
+    full_name='helmProxy.HelmProxyService.GetHistory',
     index=1,
     containing_service=None,
     input_type=_HISTORYFILTER,
@@ -1000,7 +1000,7 @@ _HPAASSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='SearchApps',
-    full_name='hpaas.HPaasService.SearchApps',
+    full_name='helmProxy.HelmProxyService.SearchApps',
     index=2,
     containing_service=None,
     input_type=_APPFILTER,
@@ -1009,7 +1009,7 @@ _HPAASSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='UninstallApp',
-    full_name='hpaas.HPaasService.UninstallApp',
+    full_name='helmProxy.HelmProxyService.UninstallApp',
     index=3,
     containing_service=None,
     input_type=_APPREF,
@@ -1018,7 +1018,7 @@ _HPAASSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='RollbackApp',
-    full_name='hpaas.HPaasService.RollbackApp',
+    full_name='helmProxy.HelmProxyService.RollbackApp',
     index=4,
     containing_service=None,
     input_type=_APPREF,
@@ -1027,7 +1027,7 @@ _HPAASSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='InstallApp',
-    full_name='hpaas.HPaasService.InstallApp',
+    full_name='helmProxy.HelmProxyService.InstallApp',
     index=5,
     containing_service=None,
     input_type=_APPINPUT,
@@ -1036,7 +1036,7 @@ _HPAASSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='UpdateApp',
-    full_name='hpaas.HPaasService.UpdateApp',
+    full_name='helmProxy.HelmProxyService.UpdateApp',
     index=6,
     containing_service=None,
     input_type=_APPINPUT,
@@ -1045,7 +1045,7 @@ _HPAASSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='SearchCharts',
-    full_name='hpaas.HPaasService.SearchCharts',
+    full_name='helmProxy.HelmProxyService.SearchCharts',
     index=7,
     containing_service=None,
     input_type=_CHARTFILTER,
@@ -1053,8 +1053,8 @@ _HPAASSERVICE = _descriptor.ServiceDescriptor(
     serialized_options=_b('\202\323\344\223\002\t\022\007/charts'),
   ),
 ])
-_sym_db.RegisterServiceDescriptor(_HPAASSERVICE)
+_sym_db.RegisterServiceDescriptor(_HELMPROXYSERVICE)
 
-DESCRIPTOR.services_by_name['HPaasService'] = _HPAASSERVICE
+DESCRIPTOR.services_by_name['HelmProxyService'] = _HELMPROXYSERVICE
 
 # @@protoc_insertion_point(module_scope)

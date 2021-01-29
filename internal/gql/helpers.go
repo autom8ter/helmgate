@@ -1,20 +1,20 @@
 package gql
 
 import (
-	"github.com/autom8ter/hpaas/gen/gql/go/model"
-	hpaaspb "github.com/autom8ter/hpaas/gen/grpc/go"
-	"github.com/autom8ter/hpaas/internal/helpers"
+	"github.com/autom8ter/helmProxy/gen/gql/go/model"
+	helmProxypb "github.com/autom8ter/helmProxy/gen/grpc/go"
+	"github.com/autom8ter/helmProxy/internal/helpers"
 )
 
-func toAppRef(ref model.AppRef) *hpaaspb.AppRef {
-	return &hpaaspb.AppRef{
+func toAppRef(ref model.AppRef) *helmProxypb.AppRef {
+	return &helmProxypb.AppRef{
 		Namespace: ref.Namespace,
 		Name:      ref.Name,
 	}
 }
 
-func toAppInput(ref model.AppInput) *hpaaspb.AppInput {
-	return &hpaaspb.AppInput{
+func toAppInput(ref model.AppInput) *helmProxypb.AppInput {
+	return &helmProxypb.AppInput{
 		Namespace: ref.Namespace,
 		Chart:     ref.Chart,
 		AppName:   ref.AppName,
@@ -22,7 +22,7 @@ func toAppInput(ref model.AppInput) *hpaaspb.AppInput {
 	}
 }
 
-func gqlChart(app *hpaaspb.Chart) *model.Chart {
+func gqlChart(app *helmProxypb.Chart) *model.Chart {
 	return &model.Chart{
 		Name:         app.Name,
 		Home:         helpers.ToStringPointer(app.Home),
@@ -38,7 +38,7 @@ func gqlChart(app *hpaaspb.Chart) *model.Chart {
 	}
 }
 
-func gqlApp(app *hpaaspb.App) *model.App {
+func gqlApp(app *helmProxypb.App) *model.App {
 	return &model.App{
 		Name:      app.Name,
 		Namespace: app.Namespace,
@@ -47,7 +47,7 @@ func gqlApp(app *hpaaspb.App) *model.App {
 	}
 }
 
-func gqlRelease(release *hpaaspb.Release) *model.Release {
+func gqlRelease(release *helmProxypb.Release) *model.Release {
 	return &model.Release{
 		Version:     int(release.GetVersion()),
 		Config:      release.Config.AsMap(),
@@ -62,7 +62,7 @@ func gqlRelease(release *hpaaspb.Release) *model.Release {
 	}
 }
 
-func gqlTemplate(template *hpaaspb.Chart) *model.Chart {
+func gqlTemplate(template *helmProxypb.Chart) *model.Chart {
 	return &model.Chart{
 		Name:         template.GetName(),
 		Home:         helpers.ToStringPointer(template.GetHome()),
@@ -78,7 +78,7 @@ func gqlTemplate(template *hpaaspb.Chart) *model.Chart {
 	}
 }
 
-func gqlMaintainers(maintainer []*hpaaspb.Maintainer) []*model.Maintainer {
+func gqlMaintainers(maintainer []*helmProxypb.Maintainer) []*model.Maintainer {
 	var maintainers []*model.Maintainer
 	for _, m := range maintainer {
 		maintainers = append(maintainers, &model.Maintainer{
@@ -89,7 +89,7 @@ func gqlMaintainers(maintainer []*hpaaspb.Maintainer) []*model.Maintainer {
 	return maintainers
 }
 
-func gqlDependencies(maintainer []*hpaaspb.Dependency) []*model.Dependency {
+func gqlDependencies(maintainer []*helmProxypb.Dependency) []*model.Dependency {
 	var deps []*model.Dependency
 	for _, m := range maintainer {
 		deps = append(deps, &model.Dependency{

@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * Release tracks the state of an app during the lifecycle of it's current deployment
  *
- * Generated from protobuf message <code>hpaas.Release</code>
+ * Generated from protobuf message <code>helmProxy.Release</code>
  */
 class Release extends \Google\Protobuf\Internal\Message
 {
@@ -48,7 +48,7 @@ class Release extends \Google\Protobuf\Internal\Message
     /**
      * lifecycle timestamps related
      *
-     * Generated from protobuf field <code>.hpaas.Timestamps timestamps = 6;</code>
+     * Generated from protobuf field <code>.helmProxy.Timestamps timestamps = 6;</code>
      */
     private $timestamps = null;
 
@@ -210,7 +210,7 @@ class Release extends \Google\Protobuf\Internal\Message
     /**
      * lifecycle timestamps related
      *
-     * Generated from protobuf field <code>.hpaas.Timestamps timestamps = 6;</code>
+     * Generated from protobuf field <code>.helmProxy.Timestamps timestamps = 6;</code>
      * @return \Hpaas\Timestamps
      */
     public function getTimestamps()
@@ -221,7 +221,7 @@ class Release extends \Google\Protobuf\Internal\Message
     /**
      * lifecycle timestamps related
      *
-     * Generated from protobuf field <code>.hpaas.Timestamps timestamps = 6;</code>
+     * Generated from protobuf field <code>.helmProxy.Timestamps timestamps = 6;</code>
      * @param \Hpaas\Timestamps $var
      * @return $this
      */

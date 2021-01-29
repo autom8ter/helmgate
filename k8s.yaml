@@ -1,18 +1,18 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: hpaas-system
+  name: helmProxy-system
 ---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: hpaas-admin-sa
+  name: helmProxy-admin-sa
 automountServiceAccountToken: true
 ---
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: hpaas-admin-cluster-role
+  name: helmProxy-admin-cluster-role
 rules:
   - apiGroups: ["*"]
     resources: ["*"]
@@ -22,29 +22,29 @@ rules:
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: hpaas-admin-cluster-role-binding
-  namespace: hpaas-system
+  name: helmProxy-admin-cluster-role-binding
+  namespace: helmProxy-system
 subjects:
   - kind: ServiceAccount
-    name: hpaas-admin-sa
-    namespace: hpaas-system
+    name: helmProxy-admin-sa
+    namespace: helmProxy-system
 roleRef:
   kind: ClusterRole
-  name: hpaas-admin-cluster-role
+  name: helmProxy-admin-cluster-role
   apiGroup: rbac.authorization.k8s.io
 ---
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: hpaas-configmap
+  name: helmProxy-configmap
 data:
-  hpaas.yaml: |
+  helmProxy.yaml: |
     port: 8820
     debug: true
     rego_policy: |-
-      package hpaas.authz
+      package helmProxy.authz
       default allow = true
-    rego_query: "data.hpaas.authz.allow"
+    rego_query: "data.helmProxy.authz.allow"
     jwks_uri: ""
     repos:
       - name: "stable"
@@ -54,10 +54,10 @@ data:
 apiVersion: v1
 kind: Service
 metadata:
-  name: hpaas-admin-service
-  namespace: hpaas-system
+  name: helmProxy-admin-service
+  namespace: helmProxy-system
   labels:
-    app: hpaas-admin
+    app: helmProxy-admin
 spec:
   ports:
   - port: 8820
@@ -66,29 +66,29 @@ spec:
     name: admin
   clusterIP: None
   selector:
-    app: hpaas-admin
+    app: helmProxy-admin
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hpaas-admin
-  namespace: hpaas-system
+  name: helmProxy-admin
+  namespace: helmProxy-system
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hpaas-admin
+      app: helmProxy-admin
   template:
     metadata:
       labels:
-        app: hpaas-admin
+        app: helmProxy-admin
     spec:
-      serviceAccountName: hpaas-admin-sa
+      serviceAccountName: helmProxy-admin-sa
       containers:
-        - name: hpaas-admin
+        - name: helmProxy-admin
           env:
-            - name: HPAAS_CONFIG
-              value: /tmp/hpaas.yaml
+            - name: HELM_PROXY_CONFIG
+              value: /tmp/helmProxy.yaml
             - name: POD_NAME
               valueFrom:
                 fieldRef:
@@ -101,7 +101,7 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.podIP
-          image: "colemanword/hpaas:v0.0.32"
+          image: "colemanword/helmproxy:v0.1.0"
           imagePullPolicy: Always
           ports:
           - containerPort: 8821
@@ -113,6 +113,6 @@ spec:
       volumes:
         - name: config
           configMap:
-            name: hpaas-configmap
+            name: helmProxy-configmap
 
 ---

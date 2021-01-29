@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package hpaas;
+package helmProxy;
 
-option go_package = "hpaaspb";
+option go_package = "helmProxypb";
 
 import "google/api/annotations.proto";
 import "google/protobuf/struct.proto";
@@ -84,10 +84,15 @@ message Apps {
   repeated App apps =1;
 }
 
+// AppFilter is used to list app/releases
 message AppFilter {
+  // search all namespaces if empty
   string namespace =1;
+  // k8s selector (ex: app = helmProxy)
   string selector =2;
+  // limit returned results
   uint32 limit =3;
+  // offset returned results (for pagination)
   uint32 offset =4;
 }
 
@@ -148,13 +153,14 @@ message NamespaceRefs {
   repeated NamespaceRef namespaces =1;
 }
 
+// HistoryFilter is used to query a timeseries of releases for a specific app/release
 message HistoryFilter {
   AppRef ref =1[(validator.field) = {msg_exists : true}];
   uint32 limit =2;
 }
 
-// HPaasService is a secure platform as a service for easily deploying applications on Kubernetes with Helm charts
-service HPaasService {
+// HelmProxyService is a secure API for easily deploying applications on Kubernetes with Helm charts
+service HelmProxyService {
   // GetApp gets an app/release from the given namespace
   rpc GetApp(AppRef) returns(App){
     option (google.api.http) = {

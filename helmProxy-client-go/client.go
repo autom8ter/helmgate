@@ -1,10 +1,10 @@
-package hpaas_client_go
+package helmProxy_client_go
 
 import (
 	"context"
 	"fmt"
-	hpaaspb "github.com/autom8ter/hpaas/gen/grpc/go"
-	"github.com/autom8ter/hpaas/internal/logger"
+	helmProxypb "github.com/autom8ter/helmProxy/gen/grpc/go"
+	"github.com/autom8ter/helmProxy/internal/logger"
 	grpc_zap "github.com/grpc-ecosystem/go-grpc-middleware/logging/zap"
 	grpc_validator "github.com/grpc-ecosystem/go-grpc-middleware/validator"
 	grpc_prometheus "github.com/grpc-ecosystem/go-grpc-prometheus"
@@ -85,7 +85,7 @@ func streamAuth(tokenSource oauth2.TokenSource, useIDToken bool) grpc.StreamClie
 	}
 }
 
-// NewClient creates a new gRPC hpaas client
+// NewClient creates a new gRPC helmProxy client
 func NewClient(ctx context.Context, target string, opts ...Opt) (*Client, error) {
 	if target == "" {
 		return nil, errors.New("empty target")
@@ -137,13 +137,13 @@ func NewClient(ctx context.Context, target string, opts ...Opt) (*Client, error)
 		return nil, err
 	}
 	return &Client{
-		client: hpaaspb.NewHPaasServiceClient(conn),
+		client: helmProxypb.NewHelmProxyServiceClient(conn),
 	}, nil
 }
 
-// Client is a hpaas gRPC client
+// Client is a helmProxy gRPC client
 type Client struct {
-	client hpaaspb.HPaasServiceClient
+	client helmProxypb.HelmProxyServiceClient
 }
 
 func toContext(ctx context.Context, tokenSource oauth2.TokenSource, useIdToken bool) (context.Context, error) {
@@ -168,43 +168,43 @@ func toContext(ctx context.Context, tokenSource oauth2.TokenSource, useIdToken b
 }
 
 // InstallApp installs an app/release in the given namespace
-func (c *Client) InstallApp(ctx context.Context, input *hpaaspb.AppInput) (*hpaaspb.App, error) {
+func (c *Client) InstallApp(ctx context.Context, input *helmProxypb.AppInput) (*helmProxypb.App, error) {
 	return c.client.InstallApp(ctx, input)
 }
 
 // UninstallApp uninstalls an app/release from the given namespace
-func (c *Client) UninstallApp(ctx context.Context, input *hpaaspb.AppRef) error {
+func (c *Client) UninstallApp(ctx context.Context, input *helmProxypb.AppRef) error {
 	_, err := c.client.UninstallApp(ctx, input)
 	return err
 }
 
 // UpdateApp updates an app/release in the given namespace
-func (c *Client) UpdateApp(ctx context.Context, input *hpaaspb.AppInput) (*hpaaspb.App, error) {
+func (c *Client) UpdateApp(ctx context.Context, input *helmProxypb.AppInput) (*helmProxypb.App, error) {
 	return c.client.UpdateApp(ctx, input)
 }
 
 // RollbackApp rolls the app/release back to the previous version in the given namespace
-func (c *Client) RollbackApp(ctx context.Context, input *hpaaspb.AppRef) error {
+func (c *Client) RollbackApp(ctx context.Context, input *helmProxypb.AppRef) error {
 	_, err := c.client.RollbackApp(ctx, input)
 	return err
 }
 
 // SearchCharts searches for a local/cached helm chart
-func (c *Client) SearchCharts(ctx context.Context, input *hpaaspb.ChartFilter) (*hpaaspb.Charts, error) {
+func (c *Client) SearchCharts(ctx context.Context, input *helmProxypb.ChartFilter) (*helmProxypb.Charts, error) {
 	return c.client.SearchCharts(ctx, input)
 }
 
 // GetApp gets an app/release from the given namespace
-func (c *Client) GetApp(ctx context.Context, input *hpaaspb.AppRef) (*hpaaspb.App, error) {
+func (c *Client) GetApp(ctx context.Context, input *helmProxypb.AppRef) (*helmProxypb.App, error) {
 	return c.client.GetApp(ctx, input)
 }
 
 // SearchApps searches for apps/releases.
-func (c *Client) SearchApps(ctx context.Context, input *hpaaspb.AppFilter) (*hpaaspb.Apps, error) {
+func (c *Client) SearchApps(ctx context.Context, input *helmProxypb.AppFilter) (*helmProxypb.Apps, error) {
 	return c.client.SearchApps(ctx, input)
 }
 
 // GetHistory gets a list of previous versions for the app/release
-func (c *Client) GetHistory(ctx context.Context, input *hpaaspb.HistoryFilter) (*hpaaspb.Apps, error) {
+func (c *Client) GetHistory(ctx context.Context, input *helmProxypb.HistoryFilter) (*helmProxypb.Apps, error) {
 	return c.client.GetHistory(ctx, input)
 }
