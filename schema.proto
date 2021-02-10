@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package helmProxy;
+package helmgate;
 
-option go_package = "helmProxypb";
+option go_package = "helmgatepb";
 
 import "google/api/annotations.proto";
 import "google/protobuf/struct.proto";
@@ -88,7 +88,7 @@ message Apps {
 message AppFilter {
   // search all namespaces if empty
   string namespace =1;
-  // k8s selector (ex: app = helmProxy)
+  // k8s selector (ex: app = helmgate)
   string selector =2;
   // limit returned results
   uint32 limit =3;

@@ -1,5 +1,5 @@
 /**
- * @fileoverview gRPC-Web generated client stub for helmProxy
+ * @fileoverview gRPC-Web generated client stub for helmgate
  * @enhanceable
  * @public
  */
@@ -28,7 +28,7 @@ var google_protobuf_empty_pb = require('google-protobuf/google/protobuf/empty_pb
 
 var github_com_mwitkow_go$proto$validators_validator_pb = require('./github.com/mwitkow/go-proto-validators/validator_pb.js')
 const proto = {};
-proto.helmProxy = require('./schema_pb.js');
+proto.helmgate = require('./schema_pb.js');
 
 /**
  * @param {string} hostname
@@ -38,7 +38,7 @@ proto.helmProxy = require('./schema_pb.js');
  * @struct
  * @final
  */
-proto.helmProxy.HelmProxyServiceClient =
+proto.helmgate.HelmProxyServiceClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
   options['format'] = 'text';
@@ -64,7 +64,7 @@ proto.helmProxy.HelmProxyServiceClient =
  * @struct
  * @final
  */
-proto.helmProxy.HelmProxyServicePromiseClient =
+proto.helmgate.HelmProxyServicePromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
   options['format'] = 'text';
@@ -85,58 +85,58 @@ proto.helmProxy.HelmProxyServicePromiseClient =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.helmProxy.AppRef,
- *   !proto.helmProxy.App>}
+ *   !proto.helmgate.AppRef,
+ *   !proto.helmgate.App>}
  */
 const methodDescriptor_HelmProxyService_GetApp = new grpc.web.MethodDescriptor(
-  '/helmProxy.HelmProxyService/GetApp',
+  '/helmgate.HelmProxyService/GetApp',
   grpc.web.MethodType.UNARY,
-  proto.helmProxy.AppRef,
-  proto.helmProxy.App,
+  proto.helmgate.AppRef,
+  proto.helmgate.App,
   /**
-   * @param {!proto.helmProxy.AppRef} request
+   * @param {!proto.helmgate.AppRef} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.helmProxy.App.deserializeBinary
+  proto.helmgate.App.deserializeBinary
 );
 
 
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.helmProxy.AppRef,
- *   !proto.helmProxy.App>}
+ *   !proto.helmgate.AppRef,
+ *   !proto.helmgate.App>}
  */
 const methodInfo_HelmProxyService_GetApp = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.helmProxy.App,
+  proto.helmgate.App,
   /**
-   * @param {!proto.helmProxy.AppRef} request
+   * @param {!proto.helmgate.AppRef} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.helmProxy.App.deserializeBinary
+  proto.helmgate.App.deserializeBinary
 );
 
 
 /**
- * @param {!proto.helmProxy.AppRef} request The
+ * @param {!proto.helmgate.AppRef} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.helmProxy.App)}
+ * @param {function(?grpc.web.Error, ?proto.helmgate.App)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.helmProxy.App>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.helmgate.App>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.helmProxy.HelmProxyServiceClient.prototype.getApp =
+proto.helmgate.HelmProxyServiceClient.prototype.getApp =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/helmProxy.HelmProxyService/GetApp',
+      '/helmgate.HelmProxyService/GetApp',
       request,
       metadata || {},
       methodDescriptor_HelmProxyService_GetApp,
@@ -145,17 +145,17 @@ proto.helmProxy.HelmProxyServiceClient.prototype.getApp =
 
 
 /**
- * @param {!proto.helmProxy.AppRef} request The
+ * @param {!proto.helmgate.AppRef} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.helmProxy.App>}
+ * @return {!Promise<!proto.helmgate.App>}
  *     Promise that resolves to the response
  */
-proto.helmProxy.HelmProxyServicePromiseClient.prototype.getApp =
+proto.helmgate.HelmProxyServicePromiseClient.prototype.getApp =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/helmProxy.HelmProxyService/GetApp',
+      '/helmgate.HelmProxyService/GetApp',
       request,
       metadata || {},
       methodDescriptor_HelmProxyService_GetApp);
@@ -165,58 +165,58 @@ proto.helmProxy.HelmProxyServicePromiseClient.prototype.getApp =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.helmProxy.HistoryFilter,
- *   !proto.helmProxy.Apps>}
+ *   !proto.helmgate.HistoryFilter,
+ *   !proto.helmgate.Apps>}
  */
 const methodDescriptor_HelmProxyService_GetHistory = new grpc.web.MethodDescriptor(
-  '/helmProxy.HelmProxyService/GetHistory',
+  '/helmgate.HelmProxyService/GetHistory',
   grpc.web.MethodType.UNARY,
-  proto.helmProxy.HistoryFilter,
-  proto.helmProxy.Apps,
+  proto.helmgate.HistoryFilter,
+  proto.helmgate.Apps,
   /**
-   * @param {!proto.helmProxy.HistoryFilter} request
+   * @param {!proto.helmgate.HistoryFilter} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.helmProxy.Apps.deserializeBinary
+  proto.helmgate.Apps.deserializeBinary
 );
 
 
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.helmProxy.HistoryFilter,
- *   !proto.helmProxy.Apps>}
+ *   !proto.helmgate.HistoryFilter,
+ *   !proto.helmgate.Apps>}
  */
 const methodInfo_HelmProxyService_GetHistory = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.helmProxy.Apps,
+  proto.helmgate.Apps,
   /**
-   * @param {!proto.helmProxy.HistoryFilter} request
+   * @param {!proto.helmgate.HistoryFilter} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.helmProxy.Apps.deserializeBinary
+  proto.helmgate.Apps.deserializeBinary
 );
 
 
 /**
- * @param {!proto.helmProxy.HistoryFilter} request The
+ * @param {!proto.helmgate.HistoryFilter} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.helmProxy.Apps)}
+ * @param {function(?grpc.web.Error, ?proto.helmgate.Apps)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.helmProxy.Apps>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.helmgate.Apps>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.helmProxy.HelmProxyServiceClient.prototype.getHistory =
+proto.helmgate.HelmProxyServiceClient.prototype.getHistory =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/helmProxy.HelmProxyService/GetHistory',
+      '/helmgate.HelmProxyService/GetHistory',
       request,
       metadata || {},
       methodDescriptor_HelmProxyService_GetHistory,
@@ -225,17 +225,17 @@ proto.helmProxy.HelmProxyServiceClient.prototype.getHistory =
 
 
 /**
- * @param {!proto.helmProxy.HistoryFilter} request The
+ * @param {!proto.helmgate.HistoryFilter} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.helmProxy.Apps>}
+ * @return {!Promise<!proto.helmgate.Apps>}
  *     Promise that resolves to the response
  */
-proto.helmProxy.HelmProxyServicePromiseClient.prototype.getHistory =
+proto.helmgate.HelmProxyServicePromiseClient.prototype.getHistory =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/helmProxy.HelmProxyService/GetHistory',
+      '/helmgate.HelmProxyService/GetHistory',
       request,
       metadata || {},
       methodDescriptor_HelmProxyService_GetHistory);
@@ -245,58 +245,58 @@ proto.helmProxy.HelmProxyServicePromiseClient.prototype.getHistory =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.helmProxy.AppFilter,
- *   !proto.helmProxy.Apps>}
+ *   !proto.helmgate.AppFilter,
+ *   !proto.helmgate.Apps>}
  */
 const methodDescriptor_HelmProxyService_SearchApps = new grpc.web.MethodDescriptor(
-  '/helmProxy.HelmProxyService/SearchApps',
+  '/helmgate.HelmProxyService/SearchApps',
   grpc.web.MethodType.UNARY,
-  proto.helmProxy.AppFilter,
-  proto.helmProxy.Apps,
+  proto.helmgate.AppFilter,
+  proto.helmgate.Apps,
   /**
-   * @param {!proto.helmProxy.AppFilter} request
+   * @param {!proto.helmgate.AppFilter} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.helmProxy.Apps.deserializeBinary
+  proto.helmgate.Apps.deserializeBinary
 );
 
 
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.helmProxy.AppFilter,
- *   !proto.helmProxy.Apps>}
+ *   !proto.helmgate.AppFilter,
+ *   !proto.helmgate.Apps>}
  */
 const methodInfo_HelmProxyService_SearchApps = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.helmProxy.Apps,
+  proto.helmgate.Apps,
   /**
-   * @param {!proto.helmProxy.AppFilter} request
+   * @param {!proto.helmgate.AppFilter} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.helmProxy.Apps.deserializeBinary
+  proto.helmgate.Apps.deserializeBinary
 );
 
 
 /**
- * @param {!proto.helmProxy.AppFilter} request The
+ * @param {!proto.helmgate.AppFilter} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.helmProxy.Apps)}
+ * @param {function(?grpc.web.Error, ?proto.helmgate.Apps)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.helmProxy.Apps>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.helmgate.Apps>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.helmProxy.HelmProxyServiceClient.prototype.searchApps =
+proto.helmgate.HelmProxyServiceClient.prototype.searchApps =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/helmProxy.HelmProxyService/SearchApps',
+      '/helmgate.HelmProxyService/SearchApps',
       request,
       metadata || {},
       methodDescriptor_HelmProxyService_SearchApps,
@@ -305,17 +305,17 @@ proto.helmProxy.HelmProxyServiceClient.prototype.searchApps =
 
 
 /**
- * @param {!proto.helmProxy.AppFilter} request The
+ * @param {!proto.helmgate.AppFilter} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.helmProxy.Apps>}
+ * @return {!Promise<!proto.helmgate.Apps>}
  *     Promise that resolves to the response
  */
-proto.helmProxy.HelmProxyServicePromiseClient.prototype.searchApps =
+proto.helmgate.HelmProxyServicePromiseClient.prototype.searchApps =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/helmProxy.HelmProxyService/SearchApps',
+      '/helmgate.HelmProxyService/SearchApps',
       request,
       metadata || {},
       methodDescriptor_HelmProxyService_SearchApps);
@@ -325,16 +325,16 @@ proto.helmProxy.HelmProxyServicePromiseClient.prototype.searchApps =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.helmProxy.AppRef,
+ *   !proto.helmgate.AppRef,
  *   !proto.google.protobuf.Empty>}
  */
 const methodDescriptor_HelmProxyService_UninstallApp = new grpc.web.MethodDescriptor(
-  '/helmProxy.HelmProxyService/UninstallApp',
+  '/helmgate.HelmProxyService/UninstallApp',
   grpc.web.MethodType.UNARY,
-  proto.helmProxy.AppRef,
+  proto.helmgate.AppRef,
   google_protobuf_empty_pb.Empty,
   /**
-   * @param {!proto.helmProxy.AppRef} request
+   * @param {!proto.helmgate.AppRef} request
    * @return {!Uint8Array}
    */
   function(request) {
@@ -347,13 +347,13 @@ const methodDescriptor_HelmProxyService_UninstallApp = new grpc.web.MethodDescri
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.helmProxy.AppRef,
+ *   !proto.helmgate.AppRef,
  *   !proto.google.protobuf.Empty>}
  */
 const methodInfo_HelmProxyService_UninstallApp = new grpc.web.AbstractClientBase.MethodInfo(
   google_protobuf_empty_pb.Empty,
   /**
-   * @param {!proto.helmProxy.AppRef} request
+   * @param {!proto.helmgate.AppRef} request
    * @return {!Uint8Array}
    */
   function(request) {
@@ -364,7 +364,7 @@ const methodInfo_HelmProxyService_UninstallApp = new grpc.web.AbstractClientBase
 
 
 /**
- * @param {!proto.helmProxy.AppRef} request The
+ * @param {!proto.helmgate.AppRef} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
@@ -373,10 +373,10 @@ const methodInfo_HelmProxyService_UninstallApp = new grpc.web.AbstractClientBase
  * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.helmProxy.HelmProxyServiceClient.prototype.uninstallApp =
+proto.helmgate.HelmProxyServiceClient.prototype.uninstallApp =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/helmProxy.HelmProxyService/UninstallApp',
+      '/helmgate.HelmProxyService/UninstallApp',
       request,
       metadata || {},
       methodDescriptor_HelmProxyService_UninstallApp,
@@ -385,17 +385,17 @@ proto.helmProxy.HelmProxyServiceClient.prototype.uninstallApp =
 
 
 /**
- * @param {!proto.helmProxy.AppRef} request The
+ * @param {!proto.helmgate.AppRef} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.google.protobuf.Empty>}
  *     Promise that resolves to the response
  */
-proto.helmProxy.HelmProxyServicePromiseClient.prototype.uninstallApp =
+proto.helmgate.HelmProxyServicePromiseClient.prototype.uninstallApp =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/helmProxy.HelmProxyService/UninstallApp',
+      '/helmgate.HelmProxyService/UninstallApp',
       request,
       metadata || {},
       methodDescriptor_HelmProxyService_UninstallApp);
@@ -405,58 +405,58 @@ proto.helmProxy.HelmProxyServicePromiseClient.prototype.uninstallApp =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.helmProxy.AppRef,
- *   !proto.helmProxy.App>}
+ *   !proto.helmgate.AppRef,
+ *   !proto.helmgate.App>}
  */
 const methodDescriptor_HelmProxyService_RollbackApp = new grpc.web.MethodDescriptor(
-  '/helmProxy.HelmProxyService/RollbackApp',
+  '/helmgate.HelmProxyService/RollbackApp',
   grpc.web.MethodType.UNARY,
-  proto.helmProxy.AppRef,
-  proto.helmProxy.App,
+  proto.helmgate.AppRef,
+  proto.helmgate.App,
   /**
-   * @param {!proto.helmProxy.AppRef} request
+   * @param {!proto.helmgate.AppRef} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.helmProxy.App.deserializeBinary
+  proto.helmgate.App.deserializeBinary
 );
 
 
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.helmProxy.AppRef,
- *   !proto.helmProxy.App>}
+ *   !proto.helmgate.AppRef,
+ *   !proto.helmgate.App>}
  */
 const methodInfo_HelmProxyService_RollbackApp = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.helmProxy.App,
+  proto.helmgate.App,
   /**
-   * @param {!proto.helmProxy.AppRef} request
+   * @param {!proto.helmgate.AppRef} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.helmProxy.App.deserializeBinary
+  proto.helmgate.App.deserializeBinary
 );
 
 
 /**
- * @param {!proto.helmProxy.AppRef} request The
+ * @param {!proto.helmgate.AppRef} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.helmProxy.App)}
+ * @param {function(?grpc.web.Error, ?proto.helmgate.App)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.helmProxy.App>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.helmgate.App>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.helmProxy.HelmProxyServiceClient.prototype.rollbackApp =
+proto.helmgate.HelmProxyServiceClient.prototype.rollbackApp =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/helmProxy.HelmProxyService/RollbackApp',
+      '/helmgate.HelmProxyService/RollbackApp',
       request,
       metadata || {},
       methodDescriptor_HelmProxyService_RollbackApp,
@@ -465,17 +465,17 @@ proto.helmProxy.HelmProxyServiceClient.prototype.rollbackApp =
 
 
 /**
- * @param {!proto.helmProxy.AppRef} request The
+ * @param {!proto.helmgate.AppRef} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.helmProxy.App>}
+ * @return {!Promise<!proto.helmgate.App>}
  *     Promise that resolves to the response
  */
-proto.helmProxy.HelmProxyServicePromiseClient.prototype.rollbackApp =
+proto.helmgate.HelmProxyServicePromiseClient.prototype.rollbackApp =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/helmProxy.HelmProxyService/RollbackApp',
+      '/helmgate.HelmProxyService/RollbackApp',
       request,
       metadata || {},
       methodDescriptor_HelmProxyService_RollbackApp);
@@ -485,58 +485,58 @@ proto.helmProxy.HelmProxyServicePromiseClient.prototype.rollbackApp =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.helmProxy.AppInput,
- *   !proto.helmProxy.App>}
+ *   !proto.helmgate.AppInput,
+ *   !proto.helmgate.App>}
  */
 const methodDescriptor_HelmProxyService_InstallApp = new grpc.web.MethodDescriptor(
-  '/helmProxy.HelmProxyService/InstallApp',
+  '/helmgate.HelmProxyService/InstallApp',
   grpc.web.MethodType.UNARY,
-  proto.helmProxy.AppInput,
-  proto.helmProxy.App,
+  proto.helmgate.AppInput,
+  proto.helmgate.App,
   /**
-   * @param {!proto.helmProxy.AppInput} request
+   * @param {!proto.helmgate.AppInput} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.helmProxy.App.deserializeBinary
+  proto.helmgate.App.deserializeBinary
 );
 
 
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.helmProxy.AppInput,
- *   !proto.helmProxy.App>}
+ *   !proto.helmgate.AppInput,
+ *   !proto.helmgate.App>}
  */
 const methodInfo_HelmProxyService_InstallApp = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.helmProxy.App,
+  proto.helmgate.App,
   /**
-   * @param {!proto.helmProxy.AppInput} request
+   * @param {!proto.helmgate.AppInput} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.helmProxy.App.deserializeBinary
+  proto.helmgate.App.deserializeBinary
 );
 
 
 /**
- * @param {!proto.helmProxy.AppInput} request The
+ * @param {!proto.helmgate.AppInput} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.helmProxy.App)}
+ * @param {function(?grpc.web.Error, ?proto.helmgate.App)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.helmProxy.App>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.helmgate.App>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.helmProxy.HelmProxyServiceClient.prototype.installApp =
+proto.helmgate.HelmProxyServiceClient.prototype.installApp =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/helmProxy.HelmProxyService/InstallApp',
+      '/helmgate.HelmProxyService/InstallApp',
       request,
       metadata || {},
       methodDescriptor_HelmProxyService_InstallApp,
@@ -545,17 +545,17 @@ proto.helmProxy.HelmProxyServiceClient.prototype.installApp =
 
 
 /**
- * @param {!proto.helmProxy.AppInput} request The
+ * @param {!proto.helmgate.AppInput} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.helmProxy.App>}
+ * @return {!Promise<!proto.helmgate.App>}
  *     Promise that resolves to the response
  */
-proto.helmProxy.HelmProxyServicePromiseClient.prototype.installApp =
+proto.helmgate.HelmProxyServicePromiseClient.prototype.installApp =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/helmProxy.HelmProxyService/InstallApp',
+      '/helmgate.HelmProxyService/InstallApp',
       request,
       metadata || {},
       methodDescriptor_HelmProxyService_InstallApp);
@@ -565,58 +565,58 @@ proto.helmProxy.HelmProxyServicePromiseClient.prototype.installApp =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.helmProxy.AppInput,
- *   !proto.helmProxy.App>}
+ *   !proto.helmgate.AppInput,
+ *   !proto.helmgate.App>}
  */
 const methodDescriptor_HelmProxyService_UpdateApp = new grpc.web.MethodDescriptor(
-  '/helmProxy.HelmProxyService/UpdateApp',
+  '/helmgate.HelmProxyService/UpdateApp',
   grpc.web.MethodType.UNARY,
-  proto.helmProxy.AppInput,
-  proto.helmProxy.App,
+  proto.helmgate.AppInput,
+  proto.helmgate.App,
   /**
-   * @param {!proto.helmProxy.AppInput} request
+   * @param {!proto.helmgate.AppInput} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.helmProxy.App.deserializeBinary
+  proto.helmgate.App.deserializeBinary
 );
 
 
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.helmProxy.AppInput,
- *   !proto.helmProxy.App>}
+ *   !proto.helmgate.AppInput,
+ *   !proto.helmgate.App>}
  */
 const methodInfo_HelmProxyService_UpdateApp = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.helmProxy.App,
+  proto.helmgate.App,
   /**
-   * @param {!proto.helmProxy.AppInput} request
+   * @param {!proto.helmgate.AppInput} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.helmProxy.App.deserializeBinary
+  proto.helmgate.App.deserializeBinary
 );
 
 
 /**
- * @param {!proto.helmProxy.AppInput} request The
+ * @param {!proto.helmgate.AppInput} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.helmProxy.App)}
+ * @param {function(?grpc.web.Error, ?proto.helmgate.App)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.helmProxy.App>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.helmgate.App>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.helmProxy.HelmProxyServiceClient.prototype.updateApp =
+proto.helmgate.HelmProxyServiceClient.prototype.updateApp =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/helmProxy.HelmProxyService/UpdateApp',
+      '/helmgate.HelmProxyService/UpdateApp',
       request,
       metadata || {},
       methodDescriptor_HelmProxyService_UpdateApp,
@@ -625,17 +625,17 @@ proto.helmProxy.HelmProxyServiceClient.prototype.updateApp =
 
 
 /**
- * @param {!proto.helmProxy.AppInput} request The
+ * @param {!proto.helmgate.AppInput} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.helmProxy.App>}
+ * @return {!Promise<!proto.helmgate.App>}
  *     Promise that resolves to the response
  */
-proto.helmProxy.HelmProxyServicePromiseClient.prototype.updateApp =
+proto.helmgate.HelmProxyServicePromiseClient.prototype.updateApp =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/helmProxy.HelmProxyService/UpdateApp',
+      '/helmgate.HelmProxyService/UpdateApp',
       request,
       metadata || {},
       methodDescriptor_HelmProxyService_UpdateApp);
@@ -645,58 +645,58 @@ proto.helmProxy.HelmProxyServicePromiseClient.prototype.updateApp =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.helmProxy.ChartFilter,
- *   !proto.helmProxy.Charts>}
+ *   !proto.helmgate.ChartFilter,
+ *   !proto.helmgate.Charts>}
  */
 const methodDescriptor_HelmProxyService_SearchCharts = new grpc.web.MethodDescriptor(
-  '/helmProxy.HelmProxyService/SearchCharts',
+  '/helmgate.HelmProxyService/SearchCharts',
   grpc.web.MethodType.UNARY,
-  proto.helmProxy.ChartFilter,
-  proto.helmProxy.Charts,
+  proto.helmgate.ChartFilter,
+  proto.helmgate.Charts,
   /**
-   * @param {!proto.helmProxy.ChartFilter} request
+   * @param {!proto.helmgate.ChartFilter} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.helmProxy.Charts.deserializeBinary
+  proto.helmgate.Charts.deserializeBinary
 );
 
 
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.helmProxy.ChartFilter,
- *   !proto.helmProxy.Charts>}
+ *   !proto.helmgate.ChartFilter,
+ *   !proto.helmgate.Charts>}
  */
 const methodInfo_HelmProxyService_SearchCharts = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.helmProxy.Charts,
+  proto.helmgate.Charts,
   /**
-   * @param {!proto.helmProxy.ChartFilter} request
+   * @param {!proto.helmgate.ChartFilter} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.helmProxy.Charts.deserializeBinary
+  proto.helmgate.Charts.deserializeBinary
 );
 
 
 /**
- * @param {!proto.helmProxy.ChartFilter} request The
+ * @param {!proto.helmgate.ChartFilter} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.helmProxy.Charts)}
+ * @param {function(?grpc.web.Error, ?proto.helmgate.Charts)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.helmProxy.Charts>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.helmgate.Charts>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.helmProxy.HelmProxyServiceClient.prototype.searchCharts =
+proto.helmgate.HelmProxyServiceClient.prototype.searchCharts =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/helmProxy.HelmProxyService/SearchCharts',
+      '/helmgate.HelmProxyService/SearchCharts',
       request,
       metadata || {},
       methodDescriptor_HelmProxyService_SearchCharts,
@@ -705,22 +705,22 @@ proto.helmProxy.HelmProxyServiceClient.prototype.searchCharts =
 
 
 /**
- * @param {!proto.helmProxy.ChartFilter} request The
+ * @param {!proto.helmgate.ChartFilter} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.helmProxy.Charts>}
+ * @return {!Promise<!proto.helmgate.Charts>}
  *     Promise that resolves to the response
  */
-proto.helmProxy.HelmProxyServicePromiseClient.prototype.searchCharts =
+proto.helmgate.HelmProxyServicePromiseClient.prototype.searchCharts =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/helmProxy.HelmProxyService/SearchCharts',
+      '/helmgate.HelmProxyService/SearchCharts',
       request,
       metadata || {},
       methodDescriptor_HelmProxyService_SearchCharts);
 };
 
 
-module.exports = proto.helmProxy;
+module.exports = proto.helmgate;
 

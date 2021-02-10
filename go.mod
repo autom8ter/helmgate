@@ -1,4 +1,4 @@
-module github.com/autom8ter/helmProxy
+module github.com/autom8ter/helmgate
 
 go 1.15
 

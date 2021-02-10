@@ -17,12 +17,12 @@ func (c *Config) SetDefaults() {
 	}
 	if c.RegoPolicy == "" {
 		c.RegoPolicy = `
-		package helmProxy.authz
+		package helmgate.authz
 
 		default allow = true
 `
 	}
 	if c.RegoQuery == "" {
-		c.RegoQuery = "data.helmProxy.authz.allow"
+		c.RegoQuery = "data.helmgate.authz.allow"
 	}
 }

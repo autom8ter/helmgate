@@ -29,7 +29,7 @@ lint:
 
 generate:
   go_options:
-    import_path: github.com/autom8ter/helmProxy
+    import_path: github.com/autom8ter/helmgate
 
   plugins:
     - name: go
@@ -38,7 +38,7 @@ generate:
       output: gen/grpc/go
     - name: grpc-gateway
       output: gen/grpc/go
-    - name: swagger
+    - name: openapiv2
       output: .
     - name: govalidators
       type: go

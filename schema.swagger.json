@@ -1,0 +1,602 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "schema.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/apps/{namespace}": {
+      "get": {
+        "summary": "SearchApps searchs for apps/releases",
+        "operationId": "HelmProxyService_SearchApps",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/helmgateApps"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "namespace",
+            "description": "search all namespaces if empty",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "selector",
+            "description": "k8s selector (ex: app = helmgate).",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "description": "limit returned results.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "offset",
+            "description": "offset returned results (for pagination).",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "HelmProxyService"
+        ]
+      },
+      "post": {
+        "summary": "InstallApp installs an app/release in the given namespace",
+        "operationId": "HelmProxyService_InstallApp",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/helmgateApp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "namespace",
+            "description": "the namespace the app/release belongs to(autocreated)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/helmgateAppInput"
+            }
+          }
+        ],
+        "tags": [
+          "HelmProxyService"
+        ]
+      }
+    },
+    "/apps/{namespace}/{appName}": {
+      "put": {
+        "summary": "UpdateApp updates an app/release in the given namespace",
+        "operationId": "HelmProxyService_UpdateApp",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/helmgateApp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "namespace",
+            "description": "the namespace the app/release belongs to(autocreated)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appName",
+            "description": "name of the app/release",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/helmgateAppInput"
+            }
+          }
+        ],
+        "tags": [
+          "HelmProxyService"
+        ]
+      }
+    },
+    "/apps/{namespace}/{name}": {
+      "delete": {
+        "summary": "UninstallApp uninstalls an app/release from the given namespace",
+        "operationId": "HelmProxyService_UninstallApp",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "namespace",
+            "description": "namespace is the k8s namespace the app/release belongs to(autocreated)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "description": "name is the name of the app/release",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "HelmProxyService"
+        ]
+      }
+    },
+    "/apps/{namespace}/{name}/rollback": {
+      "post": {
+        "summary": "RollbackApp rolls the app/release back to the previous version in the given namespace",
+        "operationId": "HelmProxyService_RollbackApp",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/helmgateApp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "namespace",
+            "description": "namespace is the k8s namespace the app/release belongs to(autocreated)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "description": "name is the name of the app/release",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/helmgateAppRef"
+            }
+          }
+        ],
+        "tags": [
+          "HelmProxyService"
+        ]
+      }
+    },
+    "/apps/{ref.namespace}/{ref.name}/history": {
+      "get": {
+        "summary": "GetHistory gets a list of previous versions of the app/release",
+        "operationId": "HelmProxyService_GetHistory",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/helmgateApps"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ref.namespace",
+            "description": "namespace is the k8s namespace the app/release belongs to(autocreated)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "ref.name",
+            "description": "name is the name of the app/release",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "HelmProxyService"
+        ]
+      }
+    },
+    "/charts": {
+      "get": {
+        "summary": "SearchCharts searches for a cached helm chart",
+        "operationId": "HelmProxyService_SearchCharts",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/helmgateCharts"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "term",
+            "description": "term to search for.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "regex",
+            "description": "term is a regex expression.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "HelmProxyService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "helmgateApp": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "name of the application"
+        },
+        "namespace": {
+          "type": "string",
+          "title": "namespace name the app belongs to(autocreated)"
+        },
+        "release": {
+          "$ref": "#/definitions/helmgateRelease",
+          "title": "release holds information about the currently deployed release of the application"
+        },
+        "chart": {
+          "$ref": "#/definitions/helmgateChart",
+          "title": "chart is the chart used to deploy the App"
+        }
+      },
+      "title": "App is an app/release created from a helm chart"
+    },
+    "helmgateAppInput": {
+      "type": "object",
+      "properties": {
+        "namespace": {
+          "type": "string",
+          "title": "the namespace the app/release belongs to(autocreated)"
+        },
+        "chart": {
+          "type": "string",
+          "title": "the helm chart to use"
+        },
+        "appName": {
+          "type": "string",
+          "title": "name of the app/release"
+        },
+        "config": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "config values used to render the helm chart"
+        }
+      },
+      "title": "AppInput is used to create/update an app"
+    },
+    "helmgateAppRef": {
+      "type": "object",
+      "properties": {
+        "namespace": {
+          "type": "string",
+          "title": "namespace is the k8s namespace the app/release belongs to(autocreated)"
+        },
+        "name": {
+          "type": "string",
+          "title": "name is the name of the app/release"
+        }
+      },
+      "title": "AppRef is a generic structure for looking up apps/releases"
+    },
+    "helmgateApps": {
+      "type": "object",
+      "properties": {
+        "apps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/helmgateApp"
+          }
+        }
+      },
+      "title": "Apps is a list of apps"
+    },
+    "helmgateChart": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "name of the helm chart"
+        },
+        "home": {
+          "type": "string",
+          "title": "home page of the helm chart"
+        },
+        "description": {
+          "type": "string",
+          "title": "description of the helm chart"
+        },
+        "version": {
+          "type": "string",
+          "title": "version of the helm chart"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "keywords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "keywords associated with the helm chart"
+        },
+        "icon": {
+          "type": "string",
+          "title": "icon is an the icon/brand associated with the chart"
+        },
+        "deprecated": {
+          "type": "boolean",
+          "title": "chart is not actively maintained if deprecated = true"
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/helmgateDependency"
+          },
+          "title": "extra charts that this chart depends on"
+        },
+        "maintainers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/helmgateMaintainer"
+          },
+          "title": "maintainers of this chart"
+        },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "arbitrary metadata associated with the chart"
+        }
+      },
+      "title": "Chart is a helm chart that may be used to deploy an app/release"
+    },
+    "helmgateCharts": {
+      "type": "object",
+      "properties": {
+        "charts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/helmgateChart"
+          }
+        }
+      },
+      "title": "Charts is a list of helm charts"
+    },
+    "helmgateDependency": {
+      "type": "object",
+      "properties": {
+        "chart": {
+          "type": "string",
+          "title": "name of the chart dependency"
+        },
+        "version": {
+          "type": "string",
+          "title": "name of the chart version"
+        },
+        "repository": {
+          "type": "string",
+          "description": "the URL of the helm repository."
+        }
+      },
+      "title": "Dependency is a dependency required by a helm chart"
+    },
+    "helmgateMaintainer": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "name is the name of the maintainer"
+        },
+        "email": {
+          "type": "string",
+          "title": "email is the email of the maintainer"
+        }
+      },
+      "title": "Maintainer is the maintainer of a helm chart"
+    },
+    "helmgateRelease": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "integer",
+          "format": "int64",
+          "title": "version of the App. Iterates with each upgrade"
+        },
+        "config": {
+          "type": "object",
+          "title": "config values"
+        },
+        "notes": {
+          "type": "string",
+          "title": "notes associated with the release"
+        },
+        "description": {
+          "type": "string",
+          "title": "description of the release"
+        },
+        "status": {
+          "type": "string",
+          "title": "status of the release"
+        },
+        "timestamps": {
+          "$ref": "#/definitions/helmgateTimestamps",
+          "title": "lifecycle timestamps related"
+        }
+      },
+      "title": "Release tracks the state of an app during the lifecycle of it's current deployment"
+    },
+    "helmgateTimestamps": {
+      "type": "object",
+      "properties": {
+        "created": {
+          "type": "string",
+          "format": "date-time",
+          "title": "when the release was first deployed"
+        },
+        "updated": {
+          "type": "string",
+          "format": "date-time",
+          "title": "when the release was last deployed"
+        },
+        "deleted": {
+          "type": "string",
+          "format": "date-time",
+          "title": "when the release was deleted"
+        }
+      },
+      "title": "Timestamps tracks timestamps related to a release"
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "typeUrl": {
+          "type": "string",
+          "description": "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
+        },
+        "value": {
+          "type": "string",
+          "format": "byte",
+          "description": "Must be a valid serialized protocol buffer of the above specified type."
+        }
+      },
+      "description": "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(\u0026foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := \u0026pb.Foo{...}\n     any, err := ptypes.MarshalAny(foo)\n     ...\n     foo := \u0026pb.Foo{}\n     if err := ptypes.UnmarshalAny(any, foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": \u003cstring\u003e,\n      \"lastName\": \u003cstring\u003e\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
+    },
+    "protobufNullValue": {
+      "type": "string",
+      "enum": [
+        "NULL_VALUE"
+      ],
+      "default": "NULL_VALUE",
+      "description": "`NullValue` is a singleton enumeration to represent the null value for the\n`Value` type union.\n\n The JSON representation for `NullValue` is JSON `null`.\n\n - NULL_VALUE: Null value."
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}

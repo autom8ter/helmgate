@@ -1,9 +1,9 @@
 FROM golang:1.15.6-alpine3.12 as build-env
 
-RUN mkdir /helmProxy
+RUN mkdir /helmgate
 RUN apk --update add ca-certificates build-base
 RUN apk add make git
-WORKDIR /helmProxy
+WORKDIR /helmgate
 COPY go.mod .
 COPY go.sum .
 RUN go mod download
@@ -17,4 +17,4 @@ WORKDIR /workspace
 EXPOSE 8820
 EXPOSE 8821
 
-ENTRYPOINT ["/usr/local/bin/helmProxy"]
+ENTRYPOINT ["/usr/local/bin/helmgate"]

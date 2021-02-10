@@ -1,4 +1,4 @@
-// package: helmProxy
+// package: helmgate
 // file: schema.proto
 
 import * as jspb from "google-protobuf";

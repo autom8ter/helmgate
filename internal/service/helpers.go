@@ -1,7 +1,7 @@
 package service
 
 import (
-	helmProxypb "github.com/autom8ter/helmProxy/gen/grpc/go"
+	helmgatepb "github.com/autom8ter/helmgate/gen/grpc/go"
 	"go.uber.org/zap"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
@@ -11,28 +11,28 @@ import (
 	"helm.sh/helm/v3/pkg/release"
 )
 
-func (h Helm) toApp(release *release.Release) (*helmProxypb.App, error) {
+func (h Helm) toApp(release *release.Release) (*helmgatepb.App, error) {
 	config, err := structpb.NewStruct(release.Config)
 	if err != nil {
 		h.logger.Error("bad config values", zap.Error(err))
 		return nil, status.Errorf(codes.InvalidArgument, "bad config values")
 	}
-	app := &helmProxypb.App{
+	app := &helmgatepb.App{
 		Name:      release.Name,
 		Namespace: release.Namespace,
-		Release: &helmProxypb.Release{
+		Release: &helmgatepb.Release{
 			Version:     uint32(release.Version),
 			Config:      config,
 			Notes:       release.Info.Notes,
 			Description: release.Info.Description,
 			Status:      release.Info.Status.String(),
-			Timestamps: &helmProxypb.Timestamps{
+			Timestamps: &helmgatepb.Timestamps{
 				Created: timestamppb.New(release.Info.FirstDeployed.Time),
 				Updated: timestamppb.New(release.Info.LastDeployed.Time),
 				Deleted: timestamppb.New(release.Info.Deleted.Time),
 			},
 		},
-		Chart: &helmProxypb.Chart{
+		Chart: &helmgatepb.Chart{
 			Name:        release.Chart.Name(),
 			Home:        release.Chart.Metadata.Home,
 			Description: release.Chart.Metadata.Description,
@@ -45,13 +45,13 @@ func (h Helm) toApp(release *release.Release) (*helmProxypb.App, error) {
 		},
 	}
 	for _, m := range release.Chart.Metadata.Maintainers {
-		app.Chart.Maintainers = append(app.Chart.Maintainers, &helmProxypb.Maintainer{
+		app.Chart.Maintainers = append(app.Chart.Maintainers, &helmgatepb.Maintainer{
 			Name:  m.Name,
 			Email: m.Email,
 		})
 	}
 	for _, d := range release.Chart.Metadata.Dependencies {
-		app.Chart.Dependencies = append(app.Chart.Dependencies, &helmProxypb.Dependency{
+		app.Chart.Dependencies = append(app.Chart.Dependencies, &helmgatepb.Dependency{
 			Chart:      d.Name,
 			Version:    d.Version,
 			Repository: d.Repository,
@@ -61,8 +61,8 @@ func (h Helm) toApp(release *release.Release) (*helmProxypb.App, error) {
 	return app, nil
 }
 
-func (h Helm) toApps(releases []*release.Release) (*helmProxypb.Apps, error) {
-	apps := &helmProxypb.Apps{}
+func (h Helm) toApps(releases []*release.Release) (*helmgatepb.Apps, error) {
+	apps := &helmgatepb.Apps{}
 	for _, r := range releases {
 		a, err := h.toApp(r)
 		if err != nil {
@@ -73,10 +73,10 @@ func (h Helm) toApps(releases []*release.Release) (*helmProxypb.Apps, error) {
 	return apps, nil
 }
 
-func (h Helm) toTempalates(results []*search.Result) *helmProxypb.Charts {
-	t := &helmProxypb.Charts{}
+func (h Helm) toTempalates(results []*search.Result) *helmgatepb.Charts {
+	t := &helmgatepb.Charts{}
 	for _, r := range results {
-		tmpl := &helmProxypb.Chart{
+		tmpl := &helmgatepb.Chart{
 			Name:        r.Name,
 			Home:        r.Chart.Home,
 			Description: r.Chart.Description,
@@ -88,14 +88,14 @@ func (h Helm) toTempalates(results []*search.Result) *helmProxypb.Charts {
 			Metadata:    r.Chart.Annotations,
 		}
 		for _, m := range r.Chart.Metadata.Maintainers {
-			tmpl.Maintainers = append(tmpl.Maintainers, &helmProxypb.Maintainer{
+			tmpl.Maintainers = append(tmpl.Maintainers, &helmgatepb.Maintainer{
 				Name:  m.Name,
 				Email: m.Email,
 			})
 		}
 
 		for _, d := range r.Chart.Metadata.Dependencies {
-			tmpl.Dependencies = append(tmpl.Dependencies, &helmProxypb.Dependency{
+			tmpl.Dependencies = append(tmpl.Dependencies, &helmgatepb.Dependency{
 				Chart:      d.Name,
 				Version:    d.Version,
 				Repository: d.Repository,

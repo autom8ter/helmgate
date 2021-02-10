@@ -179,78 +179,78 @@
             <ul>
               
                 <li>
-                  <a href="#helmProxy.App"><span class="badge">M</span>App</a>
+                  <a href="#helmgate.App"><span class="badge">M</span>App</a>
                 </li>
               
                 <li>
-                  <a href="#helmProxy.AppFilter"><span class="badge">M</span>AppFilter</a>
+                  <a href="#helmgate.AppFilter"><span class="badge">M</span>AppFilter</a>
                 </li>
               
                 <li>
-                  <a href="#helmProxy.AppInput"><span class="badge">M</span>AppInput</a>
+                  <a href="#helmgate.AppInput"><span class="badge">M</span>AppInput</a>
                 </li>
               
                 <li>
-                  <a href="#helmProxy.AppInput.ConfigEntry"><span class="badge">M</span>AppInput.ConfigEntry</a>
+                  <a href="#helmgate.AppInput.ConfigEntry"><span class="badge">M</span>AppInput.ConfigEntry</a>
                 </li>
               
                 <li>
-                  <a href="#helmProxy.AppRef"><span class="badge">M</span>AppRef</a>
+                  <a href="#helmgate.AppRef"><span class="badge">M</span>AppRef</a>
                 </li>
               
                 <li>
-                  <a href="#helmProxy.Apps"><span class="badge">M</span>Apps</a>
+                  <a href="#helmgate.Apps"><span class="badge">M</span>Apps</a>
                 </li>
               
                 <li>
-                  <a href="#helmProxy.Chart"><span class="badge">M</span>Chart</a>
+                  <a href="#helmgate.Chart"><span class="badge">M</span>Chart</a>
                 </li>
               
                 <li>
-                  <a href="#helmProxy.Chart.MetadataEntry"><span class="badge">M</span>Chart.MetadataEntry</a>
+                  <a href="#helmgate.Chart.MetadataEntry"><span class="badge">M</span>Chart.MetadataEntry</a>
                 </li>
               
                 <li>
-                  <a href="#helmProxy.ChartFilter"><span class="badge">M</span>ChartFilter</a>
+                  <a href="#helmgate.ChartFilter"><span class="badge">M</span>ChartFilter</a>
                 </li>
               
                 <li>
-                  <a href="#helmProxy.Charts"><span class="badge">M</span>Charts</a>
+                  <a href="#helmgate.Charts"><span class="badge">M</span>Charts</a>
                 </li>
               
                 <li>
-                  <a href="#helmProxy.Dependency"><span class="badge">M</span>Dependency</a>
+                  <a href="#helmgate.Dependency"><span class="badge">M</span>Dependency</a>
                 </li>
               
                 <li>
-                  <a href="#helmProxy.HistoryFilter"><span class="badge">M</span>HistoryFilter</a>
+                  <a href="#helmgate.HistoryFilter"><span class="badge">M</span>HistoryFilter</a>
                 </li>
               
                 <li>
-                  <a href="#helmProxy.Maintainer"><span class="badge">M</span>Maintainer</a>
+                  <a href="#helmgate.Maintainer"><span class="badge">M</span>Maintainer</a>
                 </li>
               
                 <li>
-                  <a href="#helmProxy.NamespaceRef"><span class="badge">M</span>NamespaceRef</a>
+                  <a href="#helmgate.NamespaceRef"><span class="badge">M</span>NamespaceRef</a>
                 </li>
               
                 <li>
-                  <a href="#helmProxy.NamespaceRefs"><span class="badge">M</span>NamespaceRefs</a>
+                  <a href="#helmgate.NamespaceRefs"><span class="badge">M</span>NamespaceRefs</a>
                 </li>
               
                 <li>
-                  <a href="#helmProxy.Release"><span class="badge">M</span>Release</a>
+                  <a href="#helmgate.Release"><span class="badge">M</span>Release</a>
                 </li>
               
                 <li>
-                  <a href="#helmProxy.Timestamps"><span class="badge">M</span>Timestamps</a>
+                  <a href="#helmgate.Timestamps"><span class="badge">M</span>Timestamps</a>
                 </li>
               
               
               
               
                 <li>
-                  <a href="#helmProxy.HelmProxyService"><span class="badge">S</span>HelmProxyService</a>
+                  <a href="#helmgate.HelmProxyService"><span class="badge">S</span>HelmProxyService</a>
                 </li>
               
             </ul>
@@ -268,7 +268,7 @@
       <p></p>
 
       
-        <h3 id="helmProxy.App">App</h3>
+        <h3 id="helmgate.App">App</h3>
         <p>App is an app/release created from a helm chart</p>
 
         
@@ -294,14 +294,14 @@
               
                 <tr>
                   <td>release</td>
-                  <td><a href="#helmProxy.Release">Release</a></td>
+                  <td><a href="#helmgate.Release">Release</a></td>
                   <td></td>
                   <td><p>release holds information about the currently deployed release of the application </p></td>
                 </tr>
               
                 <tr>
                   <td>chart</td>
-                  <td><a href="#helmProxy.Chart">Chart</a></td>
+                  <td><a href="#helmgate.Chart">Chart</a></td>
                   <td></td>
                   <td><p>chart is the chart used to deploy the App </p></td>
                 </tr>
@@ -351,7 +351,7 @@
 
         
       
-        <h3 id="helmProxy.AppFilter">AppFilter</h3>
+        <h3 id="helmgate.AppFilter">AppFilter</h3>
         <p>AppFilter is used to list app/releases</p>
 
         
@@ -372,7 +372,7 @@
                   <td>selector</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>k8s selector (ex: app = helmProxy) </p></td>
+                  <td><p>k8s selector (ex: app = helmgate) </p></td>
                 </tr>
               
                 <tr>
@@ -396,7 +396,7 @@
 
         
       
-        <h3 id="helmProxy.AppInput">AppInput</h3>
+        <h3 id="helmgate.AppInput">AppInput</h3>
         <p>AppInput is used to create/update an app</p>
 
         
@@ -429,7 +429,7 @@
               
                 <tr>
                   <td>config</td>
-                  <td><a href="#helmProxy.AppInput.ConfigEntry">AppInput.ConfigEntry</a></td>
+                  <td><a href="#helmgate.AppInput.ConfigEntry">AppInput.ConfigEntry</a></td>
                   <td>repeated</td>
                   <td><p>config values used to render the helm chart </p></td>
                 </tr>
@@ -501,7 +501,7 @@
 
         
       
-        <h3 id="helmProxy.AppInput.ConfigEntry">AppInput.ConfigEntry</h3>
+        <h3 id="helmgate.AppInput.ConfigEntry">AppInput.ConfigEntry</h3>
         <p></p>
 
         
@@ -532,7 +532,7 @@
 
         
       
-        <h3 id="helmProxy.AppRef">AppRef</h3>
+        <h3 id="helmgate.AppRef">AppRef</h3>
         <p>AppRef is a generic structure for looking up apps/releases</p>
 
         
@@ -601,7 +601,7 @@
 
         
       
-        <h3 id="helmProxy.Apps">Apps</h3>
+        <h3 id="helmgate.Apps">Apps</h3>
         <p>Apps is a list of apps</p>
 
         
@@ -613,7 +613,7 @@
               
                 <tr>
                   <td>apps</td>
-                  <td><a href="#helmProxy.App">App</a></td>
+                  <td><a href="#helmgate.App">App</a></td>
                   <td>repeated</td>
                   <td><p> </p></td>
                 </tr>
@@ -625,7 +625,7 @@
 
         
       
-        <h3 id="helmProxy.Chart">Chart</h3>
+        <h3 id="helmgate.Chart">Chart</h3>
         <p>Chart is a helm chart that may be used to deploy an app/release</p>
 
         
@@ -693,21 +693,21 @@
               
                 <tr>
                   <td>dependencies</td>
-                  <td><a href="#helmProxy.Dependency">Dependency</a></td>
+                  <td><a href="#helmgate.Dependency">Dependency</a></td>
                   <td>repeated</td>
                   <td><p>extra charts that this chart depends on </p></td>
                 </tr>
               
                 <tr>
                   <td>maintainers</td>
-                  <td><a href="#helmProxy.Maintainer">Maintainer</a></td>
+                  <td><a href="#helmgate.Maintainer">Maintainer</a></td>
                   <td>repeated</td>
                   <td><p>maintainers of this chart </p></td>
                 </tr>
               
                 <tr>
                   <td>metadata</td>
-                  <td><a href="#helmProxy.Chart.MetadataEntry">Chart.MetadataEntry</a></td>
+                  <td><a href="#helmgate.Chart.MetadataEntry">Chart.MetadataEntry</a></td>
                   <td>repeated</td>
                   <td><p>arbitrary metadata associated with the chart </p></td>
                 </tr>
@@ -746,7 +746,7 @@
 
         
       
-        <h3 id="helmProxy.Chart.MetadataEntry">Chart.MetadataEntry</h3>
+        <h3 id="helmgate.Chart.MetadataEntry">Chart.MetadataEntry</h3>
         <p></p>
 
         
@@ -777,7 +777,7 @@
 
         
       
-        <h3 id="helmProxy.ChartFilter">ChartFilter</h3>
+        <h3 id="helmgate.ChartFilter">ChartFilter</h3>
         <p>ChartFilter is used for filtering helm chart search results</p>
 
         
@@ -835,7 +835,7 @@
 
         
       
-        <h3 id="helmProxy.Charts">Charts</h3>
+        <h3 id="helmgate.Charts">Charts</h3>
         <p>Charts is a list of helm charts</p>
 
         
@@ -847,7 +847,7 @@
               
                 <tr>
                   <td>charts</td>
-                  <td><a href="#helmProxy.Chart">Chart</a></td>
+                  <td><a href="#helmgate.Chart">Chart</a></td>
                   <td>repeated</td>
                   <td><p> </p></td>
                 </tr>
@@ -859,7 +859,7 @@
 
         
       
-        <h3 id="helmProxy.Dependency">Dependency</h3>
+        <h3 id="helmgate.Dependency">Dependency</h3>
         <p>Dependency is a dependency required by a helm chart</p>
 
         
@@ -946,7 +946,7 @@
 
         
       
-        <h3 id="helmProxy.HistoryFilter">HistoryFilter</h3>
+        <h3 id="helmgate.HistoryFilter">HistoryFilter</h3>
         <p>HistoryFilter is used to query a timeseries of releases for a specific app/release</p>
 
         
@@ -958,7 +958,7 @@
               
                 <tr>
                   <td>ref</td>
-                  <td><a href="#helmProxy.AppRef">AppRef</a></td>
+                  <td><a href="#helmgate.AppRef">AppRef</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -1004,7 +1004,7 @@
 
         
       
-        <h3 id="helmProxy.Maintainer">Maintainer</h3>
+        <h3 id="helmgate.Maintainer">Maintainer</h3>
         <p>Maintainer is the maintainer of a helm chart</p>
 
         
@@ -1073,7 +1073,7 @@
 
         
       
-        <h3 id="helmProxy.NamespaceRef">NamespaceRef</h3>
+        <h3 id="helmgate.NamespaceRef">NamespaceRef</h3>
         <p>NamespaceRef is a generic structure for looking up namespaces</p>
 
         
@@ -1124,7 +1124,7 @@
 
         
       
-        <h3 id="helmProxy.NamespaceRefs">NamespaceRefs</h3>
+        <h3 id="helmgate.NamespaceRefs">NamespaceRefs</h3>
         <p>NamespaceRefs is a list of NamespaceRef</p>
 
         
@@ -1136,7 +1136,7 @@
               
                 <tr>
                   <td>namespaces</td>
-                  <td><a href="#helmProxy.NamespaceRef">NamespaceRef</a></td>
+                  <td><a href="#helmgate.NamespaceRef">NamespaceRef</a></td>
                   <td>repeated</td>
                   <td><p> </p></td>
                 </tr>
@@ -1148,7 +1148,7 @@
 
         
       
-        <h3 id="helmProxy.Release">Release</h3>
+        <h3 id="helmgate.Release">Release</h3>
         <p>Release tracks the state of an app during the lifecycle of it's current deployment</p>
 
         
@@ -1195,7 +1195,7 @@
               
                 <tr>
                   <td>timestamps</td>
-                  <td><a href="#helmProxy.Timestamps">Timestamps</a></td>
+                  <td><a href="#helmgate.Timestamps">Timestamps</a></td>
                   <td></td>
                   <td><p>lifecycle timestamps related </p></td>
                 </tr>
@@ -1207,7 +1207,7 @@
 
         
       
-        <h3 id="helmProxy.Timestamps">Timestamps</h3>
+        <h3 id="helmgate.Timestamps">Timestamps</h3>
         <p>Timestamps tracks timestamps related to a release</p>
 
         
@@ -1251,7 +1251,7 @@
       
 
       
-        <h3 id="helmProxy.HelmProxyService">HelmProxyService</h3>
+        <h3 id="helmgate.HelmProxyService">HelmProxyService</h3>
         <p>HelmProxyService is a secure API for easily deploying applications on Kubernetes with Helm charts</p>
         <table class="enum-table">
           <thead>
@@ -1261,57 +1261,57 @@
             
               <tr>
                 <td>GetApp</td>
-                <td><a href="#helmProxy.AppRef">AppRef</a></td>
-                <td><a href="#helmProxy.App">App</a></td>
+                <td><a href="#helmgate.AppRef">AppRef</a></td>
+                <td><a href="#helmgate.App">App</a></td>
                 <td><p>GetApp gets an app/release from the given namespace</p></td>
               </tr>
             
               <tr>
                 <td>GetHistory</td>
-                <td><a href="#helmProxy.HistoryFilter">HistoryFilter</a></td>
-                <td><a href="#helmProxy.Apps">Apps</a></td>
+                <td><a href="#helmgate.HistoryFilter">HistoryFilter</a></td>
+                <td><a href="#helmgate.Apps">Apps</a></td>
                 <td><p>GetHistory gets a list of previous versions of the app/release</p></td>
               </tr>
             
               <tr>
                 <td>SearchApps</td>
-                <td><a href="#helmProxy.AppFilter">AppFilter</a></td>
-                <td><a href="#helmProxy.Apps">Apps</a></td>
+                <td><a href="#helmgate.AppFilter">AppFilter</a></td>
+                <td><a href="#helmgate.Apps">Apps</a></td>
                 <td><p>SearchApps searchs for apps/releases</p></td>
               </tr>
             
               <tr>
                 <td>UninstallApp</td>
-                <td><a href="#helmProxy.AppRef">AppRef</a></td>
+                <td><a href="#helmgate.AppRef">AppRef</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><p>UninstallApp uninstalls an app/release from the given namespace</p></td>
               </tr>
             
               <tr>
                 <td>RollbackApp</td>
-                <td><a href="#helmProxy.AppRef">AppRef</a></td>
-                <td><a href="#helmProxy.App">App</a></td>
+                <td><a href="#helmgate.AppRef">AppRef</a></td>
+                <td><a href="#helmgate.App">App</a></td>
                 <td><p>RollbackApp rolls the app/release back to the previous version in the given namespace</p></td>
               </tr>
             
               <tr>
                 <td>InstallApp</td>
-                <td><a href="#helmProxy.AppInput">AppInput</a></td>
-                <td><a href="#helmProxy.App">App</a></td>
+                <td><a href="#helmgate.AppInput">AppInput</a></td>
+                <td><a href="#helmgate.App">App</a></td>
                 <td><p>InstallApp installs an app/release in the given namespace</p></td>
               </tr>
             
               <tr>
                 <td>UpdateApp</td>
-                <td><a href="#helmProxy.AppInput">AppInput</a></td>
-                <td><a href="#helmProxy.App">App</a></td>
+                <td><a href="#helmgate.AppInput">AppInput</a></td>
+                <td><a href="#helmgate.App">App</a></td>
                 <td><p>UpdateApp updates an app/release in the given namespace</p></td>
               </tr>
             
               <tr>
                 <td>SearchCharts</td>
-                <td><a href="#helmProxy.ChartFilter">ChartFilter</a></td>
-                <td><a href="#helmProxy.Charts">Charts</a></td>
+                <td><a href="#helmgate.ChartFilter">ChartFilter</a></td>
+                <td><a href="#helmgate.Charts">Charts</a></td>
                 <td><p>SearchCharts searches for a cached helm chart</p></td>
               </tr>
             

@@ -1,6 +1,6 @@
 // GENERATED CODE -- DO NOT EDIT!
 
-// package: helmProxy
+// package: helmgate
 // file: schema.proto
 
 import * as schema_pb from "./schema_pb";
