@@ -67,6 +67,12 @@ repos:
     url: "https://charts.helm.sh/stable"
 ```
 
+## User Interface
+
+Please take a look at the following options for stategate user-interface clients:
+
+- [OAuth GraphQL Playground](https://github.com/autom8ter/oauth-graphql-playground): A graphQL IDE that may be used to connect & interact with the full functionality of the stategate graphQL API as an authenticated user
+
 ## Notes
 
 - graphQL API is served on :8820/graphql by default
